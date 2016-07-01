@@ -54,7 +54,7 @@ program burgers
 
     er = u1%init(m1)
     er = u2%init(m1)
-    er = u3%init(m1)
+!    er = u3%init(m1)
 
     u3 = u1 + u2
 
