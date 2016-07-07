@@ -14,44 +14,18 @@ module opendiff_field_fd_1d
         !< Finite difference 1D class for *field* handling.
         real(R8P), allocatable, dimension(:) :: val !< Field value.
         contains
-            procedure :: init    => field_fd_1d_init   !< Initilize field.
-            procedure :: output  => field_fd_1d_output !< Output field data.
-            procedure :: add     => field_fd_1d_add    !< Add fields.
-            procedure :: assign  => field_fd_1d_assign !< Assign fields.
+            ! deferred methods
+            procedure, private :: add            !< Add fields.
+            procedure, private :: assign_field   !< Assign fields.
+            procedure, private :: associate_mesh !< Associate field to a mesh.
+            procedure          :: init           !< Initilize field.
+            procedure          :: output         !< Output field data.
+            ! public methods
+            procedure :: set !< Set field.
+            ! operators
     endtype field_fd_1d
 contains
-    function field_fd_1d_init(this, fieldmesh) result(res)
-        !< Initialize finite difference 1D field.
-        class(field_fd_1d), intent(inout)      :: this          !< The field.
-        class(mesh),        intent(in), target :: fieldmesh     !< Mesh of the field.
-        integer(I4P)                           :: res           !< Result (error code?).
-        class(mesh_fd_1d), pointer             :: fieldmesh_cur !< Dummy pointer for mesh.
-        integer(I4P)                           :: n             !< Counter.
-        select type(fieldmesh)
-            type is(mesh_fd_1d)
-                fieldmesh_cur => fieldmesh
-            class default
-               STOP 'Error passing mesh'
-        end select
-        this%m => fieldmesh_cur
-        n = fieldmesh_cur%n
-        allocate(this%val(1:n))
-        call random_number(this%val)
-        res = 0
-    end function field_fd_1d_init
-
-    function field_fd_1d_output(this, filename) result(res)
-        !< Output field data.
-        class(field_fd_1d), intent(in) :: this     !< The field.
-        character(len=*),   intent(in) :: filename !< Output file name.
-        integer(I4P)                   :: res      !< Result (error code?).
-        open(unit=11,file=filename)
-        write(11,*) this%val(:)
-        close(11)
-        res = 0
-    end function field_fd_1d_output
-
-    function field_fd_1d_add(lhs, rhs) result(opr)
+    function add(lhs, rhs) result(opr)
         !< Add fields.
         class(field_fd_1d), intent(in)         :: lhs      !< Left hand side.
         class(field),       intent(in), target :: rhs      !< Left hand side.
@@ -83,9 +57,9 @@ contains
         allocate(opr_cur%val(1:mesh_cur%n))
         opr_cur%m => lhs%m
         opr_cur%val = lhs%val + rhs_cur%val
-    end function field_fd_1d_add
+    end function add
 
-    subroutine field_fd_1d_assign(lhs, rhs)
+    subroutine assign_field(lhs, rhs)
         !< Assign fields.
         class(field_fd_1d), intent(inout)      :: lhs      !< Left hand side.
         class(field),       intent(in), target :: rhs      !< Right hand side.
@@ -109,5 +83,67 @@ contains
         allocate(lhs%val(1:mesh_cur%n))
         lhs%m   => rhs_cur%m
         lhs%val = rhs_cur%val
-    end subroutine field_fd_1d_assign
+    end subroutine assign_field
+
+    subroutine associate_mesh(this, fieldmesh, error)
+        !< Associate field to a mesh.
+        class(field_fd_1d), intent(inout)         :: this          !< The field.
+        class(mesh),        intent(in), target    :: fieldmesh     !< Mesh of the field.
+        integer(I4P),       intent(out), optional :: error         !< Error status.
+        class(mesh_fd_1d), pointer                :: fieldmesh_cur !< Dummy pointer for mesh.
+        select type(fieldmesh)
+            type is(mesh_fd_1d)
+                fieldmesh_cur => fieldmesh
+            class default
+               STOP 'Error passing mesh'
+        end select
+        this%m => fieldmesh_cur
+        if (allocated(this%val)) deallocate(this%val) ; allocate(this%val(1:fieldmesh_cur%n))
+        if (present(error)) error = 0
+    end subroutine associate_mesh
+
+    elemental subroutine free(this)
+        !< Free dynamic memory.
+        class(field_fd_1d), intent(inout) :: this !< The mesh.
+        if (allocated(this%description)) deallocate(this%description)
+        if (allocated(this%val)) deallocate(this%val)
+        ! if (associated(this%m)) deallocate(this%m) ; this%m => null()
+    end subroutine free
+
+    subroutine init(this, fieldmesh, description, error)
+        !< Initialize finite difference 1D field.
+        class(field_fd_1d), intent(inout)         :: this          !< The field.
+        class(mesh),        intent(in), target    :: fieldmesh     !< Mesh of the field.
+        character(*),       intent(in),  optional :: description   !< Mesh description
+        integer(I4P),       intent(out), optional :: error         !< Error status.
+        call this%free
+        call this%associate_mesh(fieldmesh=fieldmesh, error=error)
+        if (present(description)) this%description = description
+        call random_number(this%val)
+        if (present(error)) error = 0
+    end subroutine init
+
+    subroutine output(this, filename, error)
+        !< Output field data.
+        class(field_fd_1d), intent(in)            :: this     !< The field.
+        character(len=*),   intent(in)            :: filename !< Output file name.
+        integer(I4P),       intent(out), optional :: error    !< Error status.
+        open(unit=11,file=filename)
+        write(11,*) this%val(:)
+        close(11)
+        if (present(error)) error = 0
+    end subroutine output
+
+     subroutine set(this, fieldmesh, description, val, error)
+        !< Set mesh.
+        class(field_fd_1d), intent(inout)                 :: this        !< The field.
+        class(mesh),        intent(in),  optional, target :: fieldmesh   !< Mesh of the field.
+        character(*),       intent(in),  optional         :: description !< Mesh description
+        real(R8P),          intent(in),  optional         :: val(1:)     !< Field value.
+        integer(I4P),       intent(out), optional         :: error       !< Error status.
+        if (present(fieldmesh)) call this%associate_mesh(fieldmesh=fieldmesh, error=error)
+        if (present(description)) this%description = description
+        if (present(val)) this%val = val
+        if (present(error)) error = 0
+    end subroutine set
 end module opendiff_field_fd_1d

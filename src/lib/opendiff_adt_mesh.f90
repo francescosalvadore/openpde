@@ -9,25 +9,33 @@ module opendiff_adt_mesh
 
     type, abstract :: mesh
         !< Abstract class for *mesh* handling.
-        character(128) :: description !< Mesh description.
+        character(len=:), allocatable :: description !< Mesh description.
         contains
+            procedure                                 :: free   !< Free dynamic memory.
             procedure(abstract_meshinit),    deferred :: init   !< Initilize mesh.
             procedure(abstract_meshoutput) , deferred :: output !< Output mesh data.
     endtype mesh
 
     abstract interface
-        function abstract_meshinit(this) result(res)
+        subroutine abstract_meshinit(this, description, error)
             import :: I4P, mesh
-            class(mesh), intent(inout) :: this
-            integer(I4P)               :: res
-        end function abstract_meshinit
+            class(mesh),  intent(inout)         :: this
+            character(*), intent(in),  optional :: description
+            integer(I4P), intent(out), optional :: error
+        end subroutine abstract_meshinit
     endinterface
 
     abstract interface
-        function abstract_meshoutput(this) result(res)
+        subroutine abstract_meshoutput(this, error)
             import :: I4P, mesh
-            class(mesh), intent(in) :: this
-            integer(I4P)            :: res
-        end function abstract_meshoutput
+            class(mesh),  intent(in)            :: this
+            integer(I4P), intent(out), optional :: error
+        end subroutine abstract_meshoutput
     endinterface
+contains
+    elemental subroutine free(this)
+        !< Free dynamic memory.
+        class(mesh), intent(inout) :: this !< The mesh.
+        if (allocated(this%description)) deallocate(this%description)
+    end subroutine free
 end module opendiff_adt_mesh
