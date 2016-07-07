@@ -10,7 +10,8 @@ module opendiff
     public :: field
     public :: field_fd_1d
     public :: spatialop
-    public :: spatialop_fd_1d_der_c
+    public :: spatialop_der1
+    public :: spatialop_fd_1d_der1_c
     public :: integrator
     public :: euler_integrator
     public :: equation
@@ -46,7 +47,6 @@ module opendiff
             procedure(abstract_fieldmul)                 , deferred :: mul
             procedure(abstract_fieldmulreal)             , deferred :: mulreal
             procedure(abstract_fieldrealmul) , pass(rhs) , deferred :: realmul
-            !RIMETTERE !procedure :: assig       => assig_mesh_fd_1d_scal
             !RIMETTERE !procedure :: assigreal   => assigreal_mesh_fd_1d_scal
             generic, public :: operator(+)  => add
             generic, public :: operator(-)  => sub
@@ -88,14 +88,17 @@ module opendiff
         contains
             procedure(abstract_operate), deferred :: operate
     endtype spatialop
-    type, extends(spatialop) :: spatialop_fd_1d_der_c
+    type, abstract, extends(spatialop) :: spatialop_der1
+    endtype spatialop_der1
+    type, extends(spatialop_der1) :: spatialop_fd_1d_der1_c
         contains
-            procedure :: operate => spatialop_fd_1d_der_c_operate
-    endtype spatialop_fd_1d_der_c
+            procedure :: operate => spatialop_fd_1d_der1_c_operate
+    endtype spatialop_fd_1d_der1_c
 !------------------------------------------------------
     type, abstract :: equation
         character(128) :: description
         contains
+            procedure(abstract_init), deferred :: init
             procedure(abstract_forcing), deferred :: forcing
     endtype equation
     ! the concrete types are implemented at application level (by the user)
@@ -208,6 +211,14 @@ module opendiff
             class(field), allocatable :: opr
             real :: t
         end function abstract_forcing
+    endinterface
+
+    abstract interface
+        function abstract_init(this) result(res)
+            import :: equation, field
+            class(equation)   :: this
+            integer :: res
+        end function abstract_init
     endinterface
 
     abstract interface
@@ -496,8 +507,8 @@ contains
 !RIMETTERE    !    res%val = 0
 !RIMETTERE    !end function lsrk_integrate
 
-    function spatialop_fd_1d_der_c_operate(this, inp) result(opr)
-        class(spatialop_fd_1d_der_c) :: this
+    function spatialop_fd_1d_der1_c_operate(this, inp) result(opr)
+        class(spatialop_fd_1d_der1_c) :: this
         class(field), target :: inp
         class(field_fd_1d), pointer :: inp_cur
         class(field), allocatable, target :: opr
@@ -535,5 +546,5 @@ contains
         enddo
         opr_cur%val(1) = (inp_cur%val(2) - inp_cur%val(n))/(2.*h)
         opr_cur%val(n) = (inp_cur%val(1) - inp_cur%val(n-1))/(2.*h)
-    end function spatialop_fd_1d_der_c_operate
+    end function spatialop_fd_1d_der1_c_operate
 end module opendiff
