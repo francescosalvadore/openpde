@@ -1,76 +1,80 @@
-!RIMETTERE module myequations
-!RIMETTERE 
-!RIMETTERE     use opendiff
-!RIMETTERE 
-!RIMETTERE     type, extends(equation) :: burgers_equation_fd_1d
-!RIMETTERE         contains
-!RIMETTERE             procedure :: forcing => forcing_burgers
-!RIMETTERE     endtype burgers_equation_fd_1d
-!RIMETTERE 
-!RIMETTERE contains
-!RIMETTERE 
-!RIMETTERE     function forcing_burgers(this, inp, t) result(opr)
-!RIMETTERE         class(burgers_equation_fd_1d) :: this
-!RIMETTERE         type(firstderive_operator) :: der
-!RIMETTERE         type(field_fd_1d) :: inp
-!RIMETTERE         type(field_fd_1d) :: opr
-!RIMETTERE         real :: t
-!RIMETTERE 
-!RIMETTERE         opr = der%derive(inp)
-!RIMETTERE 
-!RIMETTERE     end function forcing_burgers
-!RIMETTERE 
-!RIMETTERE end module myequations
+module myequations
+
+    use opendiff
+
+    type, extends(equation) :: burgers_equation_fd_1d
+        contains
+            procedure :: forcing => forcing_burgers
+    endtype burgers_equation_fd_1d
+
+contains
+
+    function forcing_burgers(this, inp, t) result(opr)
+        class(burgers_equation_fd_1d) :: this
+        class(field), target :: inp
+        real :: t
+        class(field), allocatable :: opr
+        type(spatialop_fd_1d_der_c) :: der1d
+
+        allocate(opr, source=inp)
+
+        opr = der1d%operate(inp)
+
+    end function forcing_burgers
+
+end module myequations
 
 program burgers
 
     use opendiff
-!RIMETTERE    use myequations
+    use myequations
 
     integer :: it
     integer :: er
 
+    class(mesh), allocatable :: m1
     class(field), allocatable :: u1
     class(field), allocatable :: u2
     class(field), allocatable :: u3
-    class(mesh), allocatable :: m1
+    class(spatialop), allocatable :: der1d
+    class(integrator), allocatable :: integ
 
+    integer :: itmin=0, itmax=10
+
+    type(burgers_equation_fd_1d) :: burg_equ
+
+    ! These should be done reading from JSON input files and returning right
+    ! pointers following factory pattern or similar
+    allocate(mesh_fd_1d :: m1)    
     allocate(field_fd_1d :: u1)    
     allocate(field_fd_1d :: u2)    
-    allocate(field_fd_1d :: u3)    
-    allocate(mesh_fd_1d :: m1)    
-    
-!RIMETTERE    type(burgers_equation_fd_1d) :: burg_equ
+    allocate(spatialop_fd_1d_der_c :: der1d)
+    allocate(euler_integrator :: integ)
 
-    !type(euler_integrator) :: integ
-!RIMETTERE    character(128) :: integrator_type = 'euler'
-!RIMETTERE    class(integrator), allocatable :: integ
+    allocate(u3, source=u1)    
 
-!RIMETTERE    if(integrator_type == 'euler') allocate(euler_integrator :: integ)
-!RIMETTERE    if(integrator_type == 'lsrk')  allocate(lsrk_integrator  :: integ)
-!RIMETTERE    integ%dt = 0.1
+    integ%dt = 0.1
  
     er = m1%init()
 
     er = u1%init(m1)
     er = u2%init(m1)
-!    er = u3%init(m1)
 
-    u3 = u1 + u2
-
-    er = m1%output()
-
-    er = u1%output("1ciao.dat")
-    er = u2%output("2ciao.dat")
-    er = u3%output("3ciao.dat")
+    !u3 = u1 + u1 * u2
+    u3 = der1d%operate(u1)
 
 !RIMETTERE    er = u1%output(filename="inizio.dat")
 !RIMETTERE
-!RIMETTERE    do it = t%itmin,1 !t%itmax
-!RIMETTERE        print*,'it: ',it
-!RIMETTERE        er = integ%integrate(inp=u1, equ=burg_equ, t=it*integ%dt)
-!RIMETTERE    enddo
+    do it = itmin, itmax
+        print*,'it: ',it
+        er = integ%integrate(inp=u1, equ=burg_equ, t=it*integ%dt)
+    enddo
 !RIMETTERE
 !RIMETTERE    er = u1%output(filename="fine.dat")
+
+    er = m1%output()
+    er = u1%output("1ciao.dat")
+    er = u2%output("2ciao.dat")
+    er = u3%output("3ciao.dat")
  
 end program burgers
