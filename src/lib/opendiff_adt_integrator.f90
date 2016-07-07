@@ -19,13 +19,13 @@ module opendiff_adt_integrator
     endtype integrator
 
     abstract interface
-        function abstract_integrate(this, inp, equ, t) result(res)
+        function abstract_integrate(this, equ, t, inp) result(res)
             import :: equation, field, integrator, R8P
-            class(integrator)       :: this
-            class(field), target    :: inp
-            class(equation), target :: equ
-            real(R8P)               :: t
-            integer                 :: res
+            class(integrator), intent(in)            :: this
+            class(equation),   intent(in),    target :: equ
+            real(R8P),         intent(in)            :: t
+            class(field),      intent(inout), target :: inp
+            integer                                  :: res
         end function abstract_integrate
     endinterface
 

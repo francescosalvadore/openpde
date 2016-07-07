@@ -4,6 +4,7 @@ module opendiff_spatial_operator_der1_fd_1d
     use opendiff_adt_field
     use opendiff_adt_spatial_operator_der1
     use opendiff_field_fd_1d
+    use opendiff_kinds
     use opendiff_mesh_fd_1d
 
     implicit none

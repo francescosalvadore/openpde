@@ -57,43 +57,43 @@ module opendiff_adt_field
             real(R8P),    intent(in)  :: lhs
             class(field), intent(in)  :: rhs
             class(field), allocatable :: opr
-        end function abstract_field_op_real
+        end function abstract_real_op_field
     endinterface
 
     abstract interface
-        subroutine abstract_fieldassign(lhs, rhs)
+        subroutine abstract_assign(lhs, rhs)
             import :: field
             class(field), intent(inout)      :: lhs
             class(field), intent(in), target :: rhs
-        end subroutine abstract_fieldassign
+        end subroutine abstract_assign
     endinterface
 
     abstract interface
-        subroutine abstract_fieldassociate_mesh(this, fieldmesh, error)
+        subroutine abstract_associate_mesh(this, fieldmesh, error)
             import :: field, I4P, mesh
             class(field), intent(inout)         :: this
             class(mesh),  intent(in), target    :: fieldmesh
             integer(I4P), intent(out), optional :: error
-        end subroutine abstract_fieldassociate_mesh
+        end subroutine abstract_associate_mesh
     endinterface
 
     abstract interface
-        subroutine abstract_fieldinit(this, fieldmesh, description, error)
+        subroutine abstract_init(this, fieldmesh, description, error)
             import :: field, I4P, mesh
             class(field), intent(inout)         :: this
             class(mesh),  intent(in), target    :: fieldmesh
             character(*), intent(in),  optional :: description
             integer(I4P), intent(out), optional :: error
-        end subroutine abstract_fieldinit
+        end subroutine abstract_init
     endinterface
 
     abstract interface
-        subroutine abstract_fieldoutput(this, filename, error)
+        subroutine abstract_output(this, filename, error)
             import :: field, I4P
             class(field),     intent(in)            :: this
             character(len=*), intent(in)            :: filename
             integer(I4P),     intent(out), optional :: error
-        end subroutine abstract_fieldoutput
+        end subroutine abstract_output
     endinterface
 contains
     elemental subroutine free(this)

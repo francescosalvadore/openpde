@@ -1,13 +1,15 @@
 !< Concrete class of Euler integrator.
 module opendiff_integrator_euler
     !< Concrete class of Euler integrator.
-    use opendiff_adt_field
     use opendiff_adt_equation
+    use opendiff_adt_field
+    use opendiff_adt_integrator
+    use opendiff_field_fd_1d
     use opendiff_kinds
 
     implicit none
     private
-    public :: integrator
+    public :: integrator_euler
 
     type, extends(integrator) :: integrator_euler
         !< Euler integrator.

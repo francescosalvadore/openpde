@@ -28,12 +28,6 @@ module opendiff_field_fd_1d
             procedure :: set !< Set field.
             ! operators
     endtype field_fd_1d
-
-    type, extends(field) :: field_fd_1d
-        !< Finite difference 1D class for *field* handling.
-        real(R4P), allocatable, dimension(:) :: val !< Field value.
-        contains
-    endtype field_fd_1d
 contains
     function add(lhs, rhs) result(opr)
         !< Add fields.
@@ -167,7 +161,7 @@ contains
         opr_cur%val = lhs%val * rhs_cur%val
     end function mul
 
-    function mulreal(lhs, k) result(opr)
+    function mulreal(lhs, rhs) result(opr)
         !< Multiply field for real.
         class(field_fd_1d), intent(in)    :: lhs      !< Left hand side.
         real(R8P),          intent(in)    :: rhs      !< Right hand side.
