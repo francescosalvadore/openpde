@@ -70,6 +70,8 @@ Go to [Top](#top)
 
 ## Documentation
 
-To be written.
+Besides this README file the openpde documentation is contained into its own [wiki](https://github.com/francescosalvadore/openpde/wiki). Detailed documentation of the API is contained into the [GitHub Pages](http://francescosalvadore.github.io/openpde/index.html) that can also be created locally by means of [ford tool](https://github.com/cmacmackin/ford).
+
+To be completed.
 
 Go to [Top](#top)
