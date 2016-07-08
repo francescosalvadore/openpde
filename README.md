@@ -53,8 +53,18 @@ To be written.
 Go to [Top](#top)
 
 ## Compilation
+```bash
+FoBiS.py build -mode tests-gnu
+```
+where `gnu` can be also `gnu-debug, intel, intel-debug`.
 
-To be written.
+The compiled library can be built by
+
+```bash
+FoBiS.py build -mode opendiff-static-gnu
+```
+
+To be completed.
 
 Go to [Top](#top)
 
