@@ -12,20 +12,22 @@ module opendiff_spatial_operator_der1_fd_1d
     public :: spatial_operator_der1_fd_1d
 
     type, extends(spatial_operator_der1) :: spatial_operator_der1_fd_1d
-        !< Concrete class of spatial operator for 1D derivative for Finite Difference 1D.
+        !< Concrete class of spatial operator for first derivative for Finite Difference 1D.
         contains
             procedure :: operate !< Operator operation.
     endtype spatial_operator_der1_fd_1d
 contains
     function operate(this, inp) result(opr)
-        class(spatial_operator_der1_fd_1d) :: this
-        class(field), target               :: inp
-        class(field_fd_1d), pointer        :: inp_cur
-        class(field), allocatable, target  :: opr
-        class(field_fd_1d), pointer        :: opr_cur  !< Dummy pointer for operator result.
-        class(mesh_fd_1d),  pointer        :: mesh_cur !< Dummy pointer for mesh.
-        real(R8P)                          :: h
-        integer                            :: i, n
+        !< Operator operation.
+        class(spatial_operator_der1_fd_1d), intent(in)         :: this     !< The operator.
+        class(field),                       intent(in), target :: inp      !< Input field.
+        class(field), allocatable, target                      :: opr      !< Field resulting after the operator application.
+        class(field_fd_1d), pointer                            :: inp_cur  !< Dummy pointer for input field.
+        class(field_fd_1d), pointer                            :: opr_cur  !< Dummy pointer for operator result.
+        class(mesh_fd_1d),  pointer                            :: mesh_cur !< Dummy pointer for mesh.
+        real(R_P)                                              :: h        !< Space step.
+        integer(I_P)                                           :: i        !< Counter.
+        integer(I_P)                                           :: n        !< Counter.
         allocate(field_fd_1d :: opr)
         select type(opr)
             type is(field_fd_1d)
