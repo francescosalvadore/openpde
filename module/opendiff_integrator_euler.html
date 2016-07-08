@@ -1,0 +1,874 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+	 
+    <meta name="description" content="Documentation for openpde">
+	 
+    <meta name="author" content="Chris MacMackin" >
+    <link rel="icon" href="../favicon.png">
+
+    <title>opendiff_integrator_euler &ndash; openpde</title>
+
+    <link href="../css/bootstrap.min.css" rel="stylesheet">
+    <link href="../css/pygments.css" rel="stylesheet">
+    <link href="../css/font-awesome.min.css" rel="stylesheet">
+    <link href="../css/local.css" rel="stylesheet">
+    
+
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+    
+    <script src="../js/jquery-2.1.3.min.js"></script>
+    <script src="../js/svg-pan-zoom.min.js"></script>
+
+    
+    <script src="../tipuesearch/tipuesearch_content.js"></script>
+    <link  href="../tipuesearch/tipuesearch.css" rel="stylesheet">
+    <script src="../tipuesearch/tipuesearch_set.js"></script>
+    <script src="../tipuesearch/tipuesearch.js"></script>
+    
+
+  </head>
+
+  <body>
+
+    <!-- Fixed navbar -->
+    <nav class="navbar navbar-inverse navbar-fixed-top">
+      <div class="container">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="../index.html">openpde </a>
+        </div>
+        <div id="navbar" class="navbar-collapse collapse">
+          <ul class="nav navbar-nav">
+				
+                
+            <li><a href="../lists/files.html">Source Files</a></li>
+				
+				
+            <li><a href="../lists/modules.html">Modules</a></li>
+				
+				
+            <li><a href="../lists/procedures.html">Procedures</a></li>
+				
+				
+            <li><a href="../lists/absint.html">Abstract Interfaces</a></li>
+								
+            <li><a href="../lists/types.html">Derived Types</a></li>
+				
+				
+            <li><a href="../program/burgers.html">Program</a></li>
+				
+          </ul>
+        
+        <form action="../search.html" class="navbar-form navbar-right" role="search">
+        <div class="form-group">
+          <input type="text" class="form-control" placeholder="Search" name="q" id="tipue_search_input" autocomplete="off" required>
+        </div>
+<!--
+        <button type="submit" class="btn btn-default">Submit</button>
+-->
+        </form>
+        
+        </div><!--/.nav-collapse -->
+      </div>
+    </nav>
+
+    <div class="container">
+    
+  
+  <div class="row">
+    <h1>opendiff_integrator_euler 
+    <small>Module</small>
+    
+    </h1>
+	 
+<div class="row">
+<div class="col-lg-12">
+<div class="well well-sm">
+  <ul class="list-inline" style="margin-bottom:0px;display:inline">
+     
+     
+     
+     
+    
+    
+    <li><i class="fa fa-code"></i><a href="../src/opendiff_integrator_euler.f90"> Source File</a></li>
+     
+  </ul>
+  <ol class="breadcrumb in-well text-right">
+  
+     <li><a href='../sourcefile/opendiff_integrator_euler.f90.html'>opendiff_integrator_euler.f90</a></li>
+  
+     <li class="active">opendiff_integrator_euler</li>
+  </ol>
+</div>
+</div>
+</div>
+    
+  </div>
+  
+  <div class="row">
+    <div class="col-lg-3">
+    
+<div id="sidebar">
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  <div class="panel panel-primary">
+    <div class="panel-heading text-left"><h3 class="panel-title"><a data-toggle="collapse" href="#types">Derived Types</a></h3></div>
+    <div id="types" class="panel-collapse collapse">
+      <div class="list-group">
+        
+        <a class="list-group-item" href="../module/opendiff_integrator_euler.html#type-integrator_euler">integrator_euler</a>
+        
+      </div>
+    </div>
+  </div>
+  
+  
+  
+  <div class="panel panel-primary">
+    <div class="panel-heading text-left"><h3 class="panel-title"><a data-toggle="collapse" href="#funcs">Functions</a></h3></div>
+    <div id="funcs" class="panel-collapse collapse">
+        <div class="list-group">
+          
+          <a class="list-group-item" href="../module/opendiff_integrator_euler.html#proc-integrate">integrate</a>
+          
+        </div>
+    </div>
+  </div>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  <hr>
+  
+  <div class="panel panel-default">
+    <div class="panel-heading text-left"><h3 class="panel-title"><a data-toggle="collapse" href="#allmods">All Modules</a></h3></div>
+    <div id="allmods" class="panel-collapse collapse">
+        <div class="list-group">
+          
+          <a class="list-group-item" href="../module/myequations.html">myequations</a>
+          
+          <a class="list-group-item" href="../module/opendiff.html">opendiff</a>
+          
+          <a class="list-group-item" href="../module/opendiff_adt_equation.html">opendiff_adt_equation</a>
+          
+          <a class="list-group-item" href="../module/opendiff_adt_field.html">opendiff_adt_field</a>
+          
+          <a class="list-group-item" href="../module/opendiff_adt_integrator.html">opendiff_adt_integrator</a>
+          
+          <a class="list-group-item" href="../module/opendiff_adt_mesh.html">opendiff_adt_mesh</a>
+          
+          <a class="list-group-item" href="../module/opendiff_adt_spatial_operator.html">opendiff_adt_spatial_operator</a>
+          
+          <a class="list-group-item" href="../module/opendiff_adt_spatial_operator_der1.html">opendiff_adt_spatial_operator_der1</a>
+          
+          <a class="list-group-item" href="../module/opendiff_field_fd_1d.html">opendiff_field_fd_1d</a>
+          
+          <a class="list-group-item" href="../module/opendiff_integrator_euler.html">opendiff_integrator_euler</a>
+          
+          <a class="list-group-item" href="../module/opendiff_kinds.html">opendiff_kinds</a>
+          
+          <a class="list-group-item" href="../module/opendiff_mesh_fd_1d.html">opendiff_mesh_fd_1d</a>
+          
+          <a class="list-group-item" href="../module/opendiff_spatial_operator_der1_fd_1d.html">opendiff_spatial_operator_der1_fd_1d</a>
+          
+        </div>
+    </div>
+  </div>
+  
+</div>
+
+    </div>
+    
+    <div class="col-lg-9" id='text'>
+    
+    
+  
+    <ul class="list-inline">
+      <li><h4>Uses:</h4></li>
+      
+      <li><a href='../module/opendiff_adt_equation.html'>opendiff_adt_equation</a></li>
+      
+      <li><a href='../module/opendiff_adt_field.html'>opendiff_adt_field</a></li>
+      
+      <li><a href='../module/opendiff_adt_integrator.html'>opendiff_adt_integrator</a></li>
+      
+      <li><a href='../module/opendiff_field_fd_1d.html'>opendiff_field_fd_1d</a></li>
+      
+      <li><a href='../module/opendiff_kinds.html'>opendiff_kinds</a></li>
+      
+    </ul>
+  
+
+    
+                <div class="depgraph"><?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
+ "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<!-- Generated by graphviz version 2.38.0 (20140413.2041)
+ -->
+<!-- Title: module~~opendiff_integrator_euler~~UsesGraph Pages: 1 -->
+<svg id="moduleopendiff_integrator_eulerUsesGraph" width="641pt" height="163pt"
+ viewBox="0.00 0.00 641.00 163.00" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<g id="module~~opendiff_integrator_euler~~UsesGraph" class="graph" transform="scale(0.740185 0.740185) rotate(0) translate(4 216.217)">
+<title>module~~opendiff_integrator_euler~~UsesGraph</title>
+<polygon fill="white" stroke="none" points="-4,4 -4,-216.217 862,-216.217 862,4 -4,4"/>
+<!-- module~opendiff_integrator_euler -->
+<g id="module~~opendiff_integrator_euler~~UsesGraph_node1" class="node"><title>module~opendiff_integrator_euler</title>
+<polygon fill="none" stroke="black" points="858,-140.597 725,-140.597 725,-116.597 858,-116.597 858,-140.597"/>
+<text text-anchor="middle" x="791.5" y="-126.197" font-family="Helvetica,sans-Serif" font-size="10.50">opendiff_integrator_euler</text>
+</g>
+<!-- module~opendiff_adt_equation -->
+<g id="module~~opendiff_integrator_euler~~UsesGraph_node2" class="node"><title>module~opendiff_adt_equation</title>
+<g id="a_module~~opendiff_integrator_euler~~UsesGraph_node2"><a xlink:href="../module/opendiff_adt_equation.html" xlink:title="opendiff_adt_equation">
+<polygon fill="#337ab7" stroke="#337ab7" points="529,-178.597 410,-178.597 410,-154.597 529,-154.597 529,-178.597"/>
+<text text-anchor="middle" x="469.5" y="-164.197" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">opendiff_adt_equation</text>
+</a>
+</g>
+</g>
+<!-- module~opendiff_adt_equation&#45;&gt;module~opendiff_integrator_euler -->
+<g id="module~~opendiff_integrator_euler~~UsesGraph_edge15" class="edge"><title>module~opendiff_adt_equation&#45;&gt;module~opendiff_integrator_euler</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M504.112,-178.602C542.422,-191.687 602.74,-210.308 626,-206.597"/>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M628,-206.597C680.315,-198.249 734.5,-166.833 765.206,-146.508"/>
+<polygon fill="#000000" stroke="#000000" points="767.26,-149.344 773.588,-140.846 763.342,-143.543 767.26,-149.344"/>
+</g>
+<!-- module~opendiff_adt_integrator -->
+<g id="module~~opendiff_integrator_euler~~UsesGraph_node6" class="node"><title>module~opendiff_adt_integrator</title>
+<g id="a_module~~opendiff_integrator_euler~~UsesGraph_node6"><a xlink:href="../module/opendiff_adt_integrator.html" xlink:title="opendiff_adt_integrator">
+<polygon fill="#337ab7" stroke="#337ab7" points="689,-140.597 565,-140.597 565,-116.597 689,-116.597 689,-140.597"/>
+<text text-anchor="middle" x="627" y="-126.197" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">opendiff_adt_integrator</text>
+</a>
+</g>
+</g>
+<!-- module~opendiff_adt_equation&#45;&gt;module~opendiff_adt_integrator -->
+<g id="module~~opendiff_integrator_euler~~UsesGraph_edge12" class="edge"><title>module~opendiff_adt_equation&#45;&gt;module~opendiff_adt_integrator</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M519.701,-154.573C534.664,-150.917 551.265,-146.86 566.814,-143.06"/>
+<polygon fill="#000000" stroke="#000000" points="567.969,-146.381 576.852,-140.607 566.307,-139.581 567.969,-146.381"/>
+</g>
+<!-- module~opendiff_kinds -->
+<g id="module~~opendiff_integrator_euler~~UsesGraph_node3" class="node"><title>module~opendiff_kinds</title>
+<g id="a_module~~opendiff_integrator_euler~~UsesGraph_node3"><a xlink:href="../module/opendiff_kinds.html" xlink:title="opendiff_kinds">
+<polygon fill="#337ab7" stroke="#337ab7" points="82,-98.5969 0,-98.5969 0,-74.5969 82,-74.5969 82,-98.5969"/>
+<text text-anchor="middle" x="41" y="-84.1969" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">opendiff_kinds</text>
+</a>
+</g>
+</g>
+<!-- module~opendiff_kinds&#45;&gt;module~opendiff_integrator_euler -->
+<g id="module~~opendiff_integrator_euler~~UsesGraph_edge16" class="edge"><title>module~opendiff_kinds&#45;&gt;module~opendiff_integrator_euler</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M317,-166.597C359.37,-167.149 368.133,-181.059 410,-187.597 505.217,-202.466 530.833,-221.782 626,-206.597"/>
+</g>
+<!-- module~opendiff_kinds&#45;&gt;module~opendiff_adt_equation -->
+<g id="module~~opendiff_integrator_euler~~UsesGraph_edge2" class="edge"><title>module~opendiff_kinds&#45;&gt;module~opendiff_adt_equation</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M317,-166.597C344.051,-166.597 373.819,-166.597 399.755,-166.597"/>
+<polygon fill="#000000" stroke="#000000" points="399.865,-170.097 409.865,-166.597 399.865,-163.097 399.865,-170.097"/>
+</g>
+<!-- module~opendiff_field_fd_1d -->
+<g id="module~~opendiff_integrator_euler~~UsesGraph_node4" class="node"><title>module~opendiff_field_fd_1d</title>
+<g id="a_module~~opendiff_integrator_euler~~UsesGraph_node4"><a xlink:href="../module/opendiff_field_fd_1d.html" xlink:title="opendiff_field_fd_1d">
+<polygon fill="#337ab7" stroke="#337ab7" points="524,-60.5969 415,-60.5969 415,-36.5969 524,-36.5969 524,-60.5969"/>
+<text text-anchor="middle" x="469.5" y="-46.1969" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">opendiff_field_fd_1d</text>
+</a>
+</g>
+</g>
+<!-- module~opendiff_kinds&#45;&gt;module~opendiff_field_fd_1d -->
+<g id="module~~opendiff_integrator_euler~~UsesGraph_edge9" class="edge"><title>module~opendiff_kinds&#45;&gt;module~opendiff_field_fd_1d</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M54.3171,-74.503C75.5409,-54.7462 121.336,-16.7304 169,-6.59685"/>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M171,-6.59685C260.951,12.527 368.104,-14.6089 426.105,-33.3586"/>
+<polygon fill="#000000" stroke="#000000" points="425.071,-36.7032 435.665,-36.5179 427.268,-30.0567 425.071,-36.7032"/>
+</g>
+<!-- module~opendiff_adt_field -->
+<g id="module~~opendiff_integrator_euler~~UsesGraph_node5" class="node"><title>module~opendiff_adt_field</title>
+<g id="a_module~~opendiff_integrator_euler~~UsesGraph_node5"><a xlink:href="../module/opendiff_adt_field.html" xlink:title="opendiff_adt_field">
+<polygon fill="#337ab7" stroke="#337ab7" points="364.5,-138.597 267.5,-138.597 267.5,-114.597 364.5,-114.597 364.5,-138.597"/>
+<text text-anchor="middle" x="316" y="-124.197" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">opendiff_adt_field</text>
+</a>
+</g>
+</g>
+<!-- module~opendiff_kinds&#45;&gt;module~opendiff_adt_field -->
+<g id="module~~opendiff_integrator_euler~~UsesGraph_edge11" class="edge"><title>module~opendiff_kinds&#45;&gt;module~opendiff_adt_field</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M54.3171,-98.6907C75.5409,-118.447 121.336,-156.463 169,-166.597"/>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M171,-166.597C190.719,-170.789 239.555,-155.154 274.895,-142.218"/>
+<polygon fill="#000000" stroke="#000000" points="276.315,-145.424 284.469,-138.659 273.876,-138.862 276.315,-145.424"/>
+</g>
+<!-- module~opendiff_kinds&#45;&gt;module~opendiff_adt_integrator -->
+<g id="module~~opendiff_integrator_euler~~UsesGraph_edge14" class="edge"><title>module~opendiff_kinds&#45;&gt;module~opendiff_adt_integrator</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M171,-166.597C233.601,-179.906 251,-166.597 315,-166.597"/>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M317,-166.597C359.374,-166.597 368.104,-151.942 410,-145.597 457.931,-138.338 512.343,-134.079 554.565,-131.639"/>
+<polygon fill="#000000" stroke="#000000" points="554.96,-135.123 564.75,-131.072 554.57,-128.134 554.96,-135.123"/>
+</g>
+<!-- module~opendiff_adt_mesh -->
+<g id="module~~opendiff_integrator_euler~~UsesGraph_node7" class="node"><title>module~opendiff_adt_mesh</title>
+<g id="a_module~~opendiff_integrator_euler~~UsesGraph_node7"><a xlink:href="../module/opendiff_adt_mesh.html" xlink:title="opendiff_adt_mesh">
+<polygon fill="#337ab7" stroke="#337ab7" points="222,-98.5969 118,-98.5969 118,-74.5969 222,-74.5969 222,-98.5969"/>
+<text text-anchor="middle" x="170" y="-84.1969" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">opendiff_adt_mesh</text>
+</a>
+</g>
+</g>
+<!-- module~opendiff_kinds&#45;&gt;module~opendiff_adt_mesh -->
+<g id="module~~opendiff_integrator_euler~~UsesGraph_edge3" class="edge"><title>module~opendiff_kinds&#45;&gt;module~opendiff_adt_mesh</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M82.1836,-86.5969C90.3317,-86.5969 99.0746,-86.5969 107.761,-86.5969"/>
+<polygon fill="#000000" stroke="#000000" points="107.893,-90.0969 117.893,-86.5969 107.893,-83.0969 107.893,-90.0969"/>
+</g>
+<!-- module~opendiff_mesh_fd_1d -->
+<g id="module~~opendiff_integrator_euler~~UsesGraph_node8" class="node"><title>module~opendiff_mesh_fd_1d</title>
+<g id="a_module~~opendiff_integrator_euler~~UsesGraph_node8"><a xlink:href="../module/opendiff_mesh_fd_1d.html" xlink:title="opendiff_mesh_fd_1d">
+<polygon fill="#337ab7" stroke="#337ab7" points="374,-58.5969 258,-58.5969 258,-34.5969 374,-34.5969 374,-58.5969"/>
+<text text-anchor="middle" x="316" y="-44.1969" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">opendiff_mesh_fd_1d</text>
+</a>
+</g>
+</g>
+<!-- module~opendiff_kinds&#45;&gt;module~opendiff_mesh_fd_1d -->
+<g id="module~~opendiff_integrator_euler~~UsesGraph_edge5" class="edge"><title>module~opendiff_kinds&#45;&gt;module~opendiff_mesh_fd_1d</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M171,-6.59685C190.719,-2.40462 239.555,-18.0394 274.895,-30.976"/>
+<polygon fill="#000000" stroke="#000000" points="273.876,-34.3314 284.469,-34.5345 276.315,-27.7699 273.876,-34.3314"/>
+</g>
+<!-- module~opendiff_field_fd_1d&#45;&gt;module~opendiff_integrator_euler -->
+<g id="module~~opendiff_integrator_euler~~UsesGraph_edge17" class="edge"><title>module~opendiff_field_fd_1d&#45;&gt;module~opendiff_integrator_euler</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M511.081,-60.685C542.259,-69.5689 586.525,-81.315 626,-88.5969"/>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M628,-88.5969C664.997,-95.4216 706.141,-105.576 737.772,-113.946"/>
+<polygon fill="#000000" stroke="#000000" points="737.126,-117.396 747.69,-116.594 738.932,-110.633 737.126,-117.396"/>
+</g>
+<!-- module~opendiff_adt_field&#45;&gt;module~opendiff_integrator_euler -->
+<g id="module~~opendiff_integrator_euler~~UsesGraph_edge18" class="edge"><title>module~opendiff_adt_field&#45;&gt;module~opendiff_integrator_euler</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M349.838,-114.562C380.153,-104.37 426.675,-91.0332 468.5,-88.5969"/>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M470.5,-88.5969C539.494,-84.5779 558.036,-76.0594 626,-88.5969"/>
+</g>
+<!-- module~opendiff_adt_field&#45;&gt;module~opendiff_adt_equation -->
+<g id="module~~opendiff_integrator_euler~~UsesGraph_edge1" class="edge"><title>module~opendiff_adt_field&#45;&gt;module~opendiff_adt_equation</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M362.455,-138.598C378.262,-142.772 396.176,-147.501 412.722,-151.87"/>
+<polygon fill="#000000" stroke="#000000" points="412.253,-155.366 422.815,-154.535 414.04,-148.598 412.253,-155.366"/>
+</g>
+<!-- module~opendiff_adt_field&#45;&gt;module~opendiff_field_fd_1d -->
+<g id="module~~opendiff_integrator_euler~~UsesGraph_edge8" class="edge"><title>module~opendiff_adt_field&#45;&gt;module~opendiff_field_fd_1d</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M346.263,-114.582C355.342,-110.504 365.256,-105.682 374,-100.597 391.061,-90.6753 392.89,-84.4353 410,-74.5969 415.956,-71.1723 422.446,-67.8856 428.865,-64.87"/>
+<polygon fill="#000000" stroke="#000000" points="430.486,-67.9779 438.149,-60.6611 427.596,-61.6025 430.486,-67.9779"/>
+</g>
+<!-- module~opendiff_adt_field&#45;&gt;module~opendiff_adt_integrator -->
+<g id="module~~opendiff_integrator_euler~~UsesGraph_edge13" class="edge"><title>module~opendiff_adt_field&#45;&gt;module~opendiff_adt_integrator</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M470.5,-88.5969C512.56,-86.1468 559.159,-100.533 590.276,-112.729"/>
+<polygon fill="#000000" stroke="#000000" points="589.227,-116.08 599.809,-116.587 591.853,-109.591 589.227,-116.08"/>
+</g>
+<!-- module~opendiff_adt_integrator&#45;&gt;module~opendiff_integrator_euler -->
+<g id="module~~opendiff_integrator_euler~~UsesGraph_edge19" class="edge"><title>module~opendiff_adt_integrator&#45;&gt;module~opendiff_integrator_euler</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M689.434,-128.597C697.677,-128.597 706.21,-128.597 714.664,-128.597"/>
+<polygon fill="#000000" stroke="#000000" points="714.912,-132.097 724.912,-128.597 714.912,-125.097 714.912,-132.097"/>
+</g>
+<!-- module~opendiff_adt_mesh&#45;&gt;module~opendiff_field_fd_1d -->
+<g id="module~~opendiff_integrator_euler~~UsesGraph_edge6" class="edge"><title>module~opendiff_adt_mesh&#45;&gt;module~opendiff_field_fd_1d</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M222.067,-83.3099C263.226,-80.3022 322.519,-75.16 374,-67.5969 383.934,-66.1374 394.403,-64.3184 404.609,-62.3885"/>
+<polygon fill="#000000" stroke="#000000" points="405.549,-65.7715 414.699,-60.4309 404.216,-58.8997 405.549,-65.7715"/>
+</g>
+<!-- module~opendiff_adt_mesh&#45;&gt;module~opendiff_adt_field -->
+<g id="module~~opendiff_integrator_euler~~UsesGraph_edge10" class="edge"><title>module~opendiff_adt_mesh&#45;&gt;module~opendiff_adt_field</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M214.205,-98.5982C229.02,-102.713 245.782,-107.37 261.324,-111.687"/>
+<polygon fill="#000000" stroke="#000000" points="260.756,-115.162 271.328,-114.466 262.63,-108.417 260.756,-115.162"/>
+</g>
+<!-- module~opendiff_adt_mesh&#45;&gt;module~opendiff_mesh_fd_1d -->
+<g id="module~~opendiff_integrator_euler~~UsesGraph_edge4" class="edge"><title>module~opendiff_adt_mesh&#45;&gt;module~opendiff_mesh_fd_1d</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M214.205,-74.5955C229.02,-70.4803 245.782,-65.8241 261.324,-61.5069"/>
+<polygon fill="#000000" stroke="#000000" points="262.63,-64.7768 271.328,-58.7279 260.756,-58.0321 262.63,-64.7768"/>
+</g>
+<!-- module~opendiff_mesh_fd_1d&#45;&gt;module~opendiff_field_fd_1d -->
+<g id="module~~opendiff_integrator_euler~~UsesGraph_edge7" class="edge"><title>module~opendiff_mesh_fd_1d&#45;&gt;module~opendiff_field_fd_1d</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M374.276,-47.353C384.102,-47.4827 394.369,-47.6182 404.361,-47.7501"/>
+<polygon fill="#000000" stroke="#000000" points="404.598,-51.2535 414.644,-47.8859 404.691,-44.2541 404.598,-51.2535"/>
+</g>
+</g>
+</svg>
+</div>
+                <script>var panmoduleopendiff_integrator_eulerUsesGraph = svgPanZoom('#moduleopendiff_integrator_eulerUsesGraph', {
+                    zoomEnabled: true,
+                    controlIconsEnabled: true,
+                    fit: true,
+                    center: true,});
+                    </script>
+                <div><a type="button" class="graph-help" data-toggle="modal" href="#graph-help-text">Help</a></div>
+                <div class="modal fade" id="graph-help-text" tabindex="-1" role="dialog">
+                  <div class="modal-dialog modal-lg" role="document">
+                    <div class="modal-content">
+                      <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                        <h4 class="modal-title" id="-graph-help-label">Graph Key</h4>
+                      </div>
+                      <div class="modal-body">
+                        
+Nodes of different colours represent the following:
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
+ "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<!-- Generated by graphviz version 2.38.0 (20140413.2041)
+ -->
+<!-- Title: Graph Key Pages: 1 -->
+<svg width="641pt" height="26pt"
+ viewBox="0.00 0.00 641.00 25.98" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<g id="graph0" class="graph" transform="scale(0.811906 0.811906) rotate(0) translate(4 28)">
+<title>Graph Key</title>
+<polygon fill="white" stroke="none" points="-4,4 -4,-28 785.5,-28 785.5,4 -4,4"/>
+<!-- Module -->
+<g id="node1" class="node"><title>Module</title>
+<polygon fill="#337ab7" stroke="#337ab7" points="54,-24 0,-24 0,-0 54,-0 54,-24"/>
+<text text-anchor="middle" x="27" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">Module</text>
+</g>
+<!-- Submodule -->
+<g id="node2" class="node"><title>Submodule</title>
+<polygon fill="#5bc0de" stroke="#5bc0de" points="139.5,-24 72.5,-24 72.5,-0 139.5,-0 139.5,-24"/>
+<text text-anchor="middle" x="106" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">Submodule</text>
+</g>
+<!-- Type -->
+<g id="node3" class="node"><title>Type</title>
+<polygon fill="#5cb85c" stroke="#5cb85c" points="212,-24 158,-24 158,-0 212,-0 212,-24"/>
+<text text-anchor="middle" x="185" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">Type</text>
+</g>
+<!-- Subroutine -->
+<g id="node4" class="node"><title>Subroutine</title>
+<polygon fill="#d9534f" stroke="#d9534f" points="294,-24 230,-24 230,-0 294,-0 294,-24"/>
+<text text-anchor="middle" x="262" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">Subroutine</text>
+</g>
+<!-- Function -->
+<g id="node5" class="node"><title>Function</title>
+<polygon fill="#d94e8f" stroke="#d94e8f" points="366,-24 312,-24 312,-0 366,-0 366,-24"/>
+<text text-anchor="middle" x="339" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">Function</text>
+</g>
+<!-- Interface -->
+<g id="node6" class="node"><title>Interface</title>
+<polygon fill="#a7506f" stroke="#a7506f" points="439.5,-24 384.5,-24 384.5,-0 439.5,-0 439.5,-24"/>
+<text text-anchor="middle" x="412" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">Interface</text>
+</g>
+<!-- Unknown Procedure Type -->
+<g id="node7" class="node"><title>Unknown Procedure Type</title>
+<polygon fill="#777777" stroke="#777777" points="594,-24 458,-24 458,-0 594,-0 594,-24"/>
+<text text-anchor="middle" x="526" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">Unknown Procedure Type</text>
+</g>
+<!-- Program -->
+<g id="node8" class="node"><title>Program</title>
+<polygon fill="#f0ad4e" stroke="#f0ad4e" points="666,-24 612,-24 612,-0 666,-0 666,-24"/>
+<text text-anchor="middle" x="639" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">Program</text>
+</g>
+<!-- This Page&#39;s Entity -->
+<g id="node9" class="node"><title>This Page&#39;s Entity</title>
+<polygon fill="none" stroke="black" points="781.5,-24 684.5,-24 684.5,-0 781.5,-0 781.5,-24"/>
+<text text-anchor="middle" x="733" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50">This Page&#39;s Entity</text>
+</g>
+</g>
+</svg>
+
+Where possible, edges connecting nodes are given different colours to make them
+easier to distinguish in large graphs.
+<h5>Module Graph</h5>
+<p>Solid arrows point from a parent (sub)module to the submodule which is
+descended from it. Dashed arrows point from a module being used to the
+module using it.</p>
+<h5>Type Graph</h5>
+<p>Solid arrows point from one derived type to another which extends
+(inherits from) it. Dashed arrows point from a derived type to another
+type containing it as a components, with a label listing the name(s) of
+said component(s).</p>
+<h5>Call Graph</h5>
+<p>Solid arrows point from a procedure to one which it calls. Dashed 
+arrows point from an interface to procedures which implement that interface.
+This could include the module procedures in a generic interface or the
+implementation in a submodule of an interface in a parent module.</p>
+
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                
+    
+    <p>Concrete class of Euler integrator.</p>
+    
+    
+    <h3>Used By</h3>
+    
+                <div class="depgraph"><?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
+ "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<!-- Generated by graphviz version 2.38.0 (20140413.2041)
+ -->
+<!-- Title: module~~opendiff_integrator_euler~~UsedByGraph Pages: 1 -->
+<svg id="moduleopendiff_integrator_eulerUsedByGraph" width="430pt" height="52pt"
+ viewBox="0.00 0.00 430.00 52.00" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<g id="module~~opendiff_integrator_euler~~UsedByGraph" class="graph" transform="scale(1 1) rotate(0) translate(4 48)">
+<title>module~~opendiff_integrator_euler~~UsedByGraph</title>
+<polygon fill="white" stroke="none" points="-4,4 -4,-48 426,-48 426,4 -4,4"/>
+<!-- module~opendiff_integrator_euler -->
+<g id="module~~opendiff_integrator_euler~~UsedByGraph_node1" class="node"><title>module~opendiff_integrator_euler</title>
+<polygon fill="none" stroke="black" points="133,-24 0,-24 0,-0 133,-0 133,-24"/>
+<text text-anchor="middle" x="66.5" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50">opendiff_integrator_euler</text>
+</g>
+<!-- module~opendiff -->
+<g id="module~~opendiff_integrator_euler~~UsedByGraph_node2" class="node"><title>module~opendiff</title>
+<g id="a_module~~opendiff_integrator_euler~~UsedByGraph_node2"><a xlink:href="../module/opendiff.html" xlink:title="opendiff">
+<polygon fill="#337ab7" stroke="#337ab7" points="223,-24 169,-24 169,-0 223,-0 223,-24"/>
+<text text-anchor="middle" x="196" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">opendiff</text>
+</a>
+</g>
+</g>
+<!-- module~opendiff_integrator_euler&#45;&gt;module~opendiff -->
+<g id="module~~opendiff_integrator_euler~~UsedByGraph_edge4" class="edge"><title>module~opendiff_integrator_euler&#45;&gt;module~opendiff</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M133.117,-12C141.942,-12 150.719,-12 158.771,-12"/>
+<polygon fill="#000000" stroke="#000000" points="158.881,-15.5001 168.881,-12 158.881,-8.5001 158.881,-15.5001"/>
+</g>
+<!-- module~myequations -->
+<g id="module~~opendiff_integrator_euler~~UsedByGraph_node3" class="node"><title>module~myequations</title>
+<g id="a_module~~opendiff_integrator_euler~~UsedByGraph_node3"><a xlink:href="../module/myequations.html" xlink:title="myequations">
+<polygon fill="#337ab7" stroke="#337ab7" points="332,-44 259,-44 259,-20 332,-20 332,-44"/>
+<text text-anchor="middle" x="295.5" y="-29.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">myequations</text>
+</a>
+</g>
+</g>
+<!-- module~opendiff&#45;&gt;module~myequations -->
+<g id="module~~opendiff_integrator_euler~~UsedByGraph_edge2" class="edge"><title>module~opendiff&#45;&gt;module~myequations</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M223.128,-17.3596C231.079,-18.9906 240.061,-20.8331 248.905,-22.6471"/>
+<polygon fill="#000000" stroke="#000000" points="248.268,-26.0894 258.768,-24.6703 249.675,-19.2322 248.268,-26.0894"/>
+</g>
+<!-- program~burgers -->
+<g id="module~~opendiff_integrator_euler~~UsedByGraph_node4" class="node"><title>program~burgers</title>
+<g id="a_module~~opendiff_integrator_euler~~UsedByGraph_node4"><a xlink:href="../program/burgers.html" xlink:title="burgers">
+<polygon fill="#f0ad4e" stroke="#f0ad4e" points="422,-24 368,-24 368,-0 422,-0 422,-24"/>
+<text text-anchor="middle" x="395" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">burgers</text>
+</a>
+</g>
+</g>
+<!-- module~opendiff&#45;&gt;program~burgers -->
+<g id="module~~opendiff_integrator_euler~~UsedByGraph_edge3" class="edge"><title>module~opendiff&#45;&gt;program~burgers</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M223.245,-11.4831C234.285,-11.29 247.266,-11.0946 259,-11 291.443,-10.7384 299.557,-10.7384 332,-11 340.25,-11.0665 349.118,-11.1829 357.493,-11.3132"/>
+<polygon fill="#000000" stroke="#000000" points="357.699,-14.817 367.755,-11.4831 357.815,-7.81794 357.699,-14.817"/>
+</g>
+<!-- module~myequations&#45;&gt;program~burgers -->
+<g id="module~~opendiff_integrator_euler~~UsedByGraph_edge1" class="edge"><title>module~myequations&#45;&gt;program~burgers</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M332.252,-24.6663C340.598,-22.9543 349.492,-21.1299 357.855,-19.4144"/>
+<polygon fill="#000000" stroke="#000000" points="358.627,-22.829 367.719,-17.3909 357.22,-15.9718 358.627,-22.829"/>
+</g>
+</g>
+</svg>
+</div>
+                <div><a type="button" class="graph-help" data-toggle="modal" href="#graph-help-text">Help</a></div>
+                <div class="modal fade" id="graph-help-text" tabindex="-1" role="dialog">
+                  <div class="modal-dialog modal-lg" role="document">
+                    <div class="modal-content">
+                      <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                        <h4 class="modal-title" id="-graph-help-label">Graph Key</h4>
+                      </div>
+                      <div class="modal-body">
+                        
+Nodes of different colours represent the following:
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
+ "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<!-- Generated by graphviz version 2.38.0 (20140413.2041)
+ -->
+<!-- Title: Graph Key Pages: 1 -->
+<svg width="641pt" height="26pt"
+ viewBox="0.00 0.00 641.00 25.98" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<g id="graph0" class="graph" transform="scale(0.811906 0.811906) rotate(0) translate(4 28)">
+<title>Graph Key</title>
+<polygon fill="white" stroke="none" points="-4,4 -4,-28 785.5,-28 785.5,4 -4,4"/>
+<!-- Module -->
+<g id="node1" class="node"><title>Module</title>
+<polygon fill="#337ab7" stroke="#337ab7" points="54,-24 0,-24 0,-0 54,-0 54,-24"/>
+<text text-anchor="middle" x="27" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">Module</text>
+</g>
+<!-- Submodule -->
+<g id="node2" class="node"><title>Submodule</title>
+<polygon fill="#5bc0de" stroke="#5bc0de" points="139.5,-24 72.5,-24 72.5,-0 139.5,-0 139.5,-24"/>
+<text text-anchor="middle" x="106" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">Submodule</text>
+</g>
+<!-- Type -->
+<g id="node3" class="node"><title>Type</title>
+<polygon fill="#5cb85c" stroke="#5cb85c" points="212,-24 158,-24 158,-0 212,-0 212,-24"/>
+<text text-anchor="middle" x="185" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">Type</text>
+</g>
+<!-- Subroutine -->
+<g id="node4" class="node"><title>Subroutine</title>
+<polygon fill="#d9534f" stroke="#d9534f" points="294,-24 230,-24 230,-0 294,-0 294,-24"/>
+<text text-anchor="middle" x="262" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">Subroutine</text>
+</g>
+<!-- Function -->
+<g id="node5" class="node"><title>Function</title>
+<polygon fill="#d94e8f" stroke="#d94e8f" points="366,-24 312,-24 312,-0 366,-0 366,-24"/>
+<text text-anchor="middle" x="339" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">Function</text>
+</g>
+<!-- Interface -->
+<g id="node6" class="node"><title>Interface</title>
+<polygon fill="#a7506f" stroke="#a7506f" points="439.5,-24 384.5,-24 384.5,-0 439.5,-0 439.5,-24"/>
+<text text-anchor="middle" x="412" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">Interface</text>
+</g>
+<!-- Unknown Procedure Type -->
+<g id="node7" class="node"><title>Unknown Procedure Type</title>
+<polygon fill="#777777" stroke="#777777" points="594,-24 458,-24 458,-0 594,-0 594,-24"/>
+<text text-anchor="middle" x="526" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">Unknown Procedure Type</text>
+</g>
+<!-- Program -->
+<g id="node8" class="node"><title>Program</title>
+<polygon fill="#f0ad4e" stroke="#f0ad4e" points="666,-24 612,-24 612,-0 666,-0 666,-24"/>
+<text text-anchor="middle" x="639" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">Program</text>
+</g>
+<!-- This Page&#39;s Entity -->
+<g id="node9" class="node"><title>This Page&#39;s Entity</title>
+<polygon fill="none" stroke="black" points="781.5,-24 684.5,-24 684.5,-0 781.5,-0 781.5,-24"/>
+<text text-anchor="middle" x="733" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50">This Page&#39;s Entity</text>
+</g>
+</g>
+</svg>
+
+Where possible, edges connecting nodes are given different colours to make them
+easier to distinguish in large graphs.
+<h5>Module Graph</h5>
+<p>Solid arrows point from a parent (sub)module to the submodule which is
+descended from it. Dashed arrows point from a module being used to the
+module using it.</p>
+<h5>Type Graph</h5>
+<p>Solid arrows point from one derived type to another which extends
+(inherits from) it. Dashed arrows point from a derived type to another
+type containing it as a components, with a label listing the name(s) of
+said component(s).</p>
+<h5>Call Graph</h5>
+<p>Solid arrows point from a procedure to one which it calls. Dashed 
+arrows point from an interface to procedures which implement that interface.
+This could include the module procedures in a generic interface or the
+implementation in a submodule of an interface in a parent module.</p>
+
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                
+    <br>
+    
+
+    
+    
+    
+    
+    
+
+    
+    
+    
+    <section>
+     <h2>Derived Types</h2>
+	 
+	   
+<div class="panel panel-default">
+  <div class="panel-heading codesum"><span class="anchor" id="type-integrator_euler"></span><h3>type, public, extends(<a href='../type/integrator.html'>integrator</a>) :: <a href='../type/integrator_euler.html'>integrator_euler</a>
+    
+  </h3></div>
+  <div class="panel-body">
+     
+     
+          
+     
+     <h4>Type-Bound Procedures</h4>
+      <table class="table table-striped varlist">
+      <tbody>
+      
+       <tr><td>procedure, public :: <strong>integrate</strong>  </td>
+       <td><p>Integrate the field accordingly the equation.</p></td></tr>
+      
+       </tbody>
+       </table>
+     
+     
+     <h4>Description</h4>
+       
+       <p>Euler integrator.</p>
+     
+  </div>
+</div>
+
+     
+    </section>
+	<br>
+    
+    
+     
+    <section>
+    <h2>Functions</h2>
+    
+    
+  <div class="panel panel-default">
+  <div class="panel-heading codesum"><span class="anchor" id="proc-integrate"></span><h3>
+private function <a href='../proc/integrate.html'>integrate</a>(this, equ, t, inp) result(res)
+    
+    
+    
+</h3></div>
+  <div class="panel-body">
+       
+    
+    <h4>Arguments</h4>
+    
+      
+      
+<table class="table table-striped varlist">
+<thead><tr><th>Type</th>
+<th>Intent</th><th>Optional</th>
+<th>Attributes</th><th></th><th>Name</th><th></th></thead>
+
+
+
+<tbody>
+
+  
+  
+  
+  
+<tr>
+  
+  <td><span class="anchor" ></span>class(<a href='../type/integrator_euler.html'>integrator_euler</a>),</td>
+  <td>intent(in)</td>
+  <td></td>
+  
+  <td></td><td>::</td>
+  <td><strong>this</strong></td><td></td>
+  
+</tr>
+
+  
+  
+  
+  
+<tr>
+  
+  <td><span class="anchor" ></span>class(<a href='../type/equation.html'>equation</a>),</td>
+  <td>intent(in),</td>
+  <td></td>
+  
+  <td>target</td><td>::</td>
+  <td><strong>equ</strong></td><td></td>
+  
+</tr>
+
+  
+  
+  
+  
+<tr>
+  
+  <td><span class="anchor" ></span>real(kind=R8P),</td>
+  <td>intent(in)</td>
+  <td></td>
+  
+  <td></td><td>::</td>
+  <td><strong>t</strong></td><td></td>
+  
+</tr>
+
+  
+  
+  
+  
+<tr>
+  
+  <td><span class="anchor" ></span>class(<a href='../type/field.html'>field</a>),</td>
+  <td>intent(inout),</td>
+  <td></td>
+  
+  <td>target</td><td>::</td>
+  <td><strong>inp</strong></td><td></td>
+  
+</tr>
+
+</tbody>
+</table>
+
+      
+    
+    
+
+  
+  
+  
+  
+     <h4>Return Value <small>integer
+  </small></h4>
+  
+    
+        
+
+  </div>
+  </div>
+
+    
+    </section>
+    <br>
+    
+
+    
+    
+    
+    </div>
+  </div>
+
+    <hr>
+    <footer>
+      <div class="row">
+        <div class="col-md-4">&copy; 2016 </div>
+        <div class="col-md-4"><span class="text-center"> openpde was developed by Francesco Salvadore</span></div>
+        <div class="col-md-4">
+          <span class="pull-right">
+            Documentation generated by 
+            <a href="https://github.com/cmacmackin/ford">FORD</a>
+            
+          </span>
+        </div>
+      </div>
+      <br>
+    </footer>
+    </div> <!-- /container -->
+
+
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+<!--
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+-->
+    <script src="../js/bootstrap.min.js"></script>
+    <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+    <script src="../js/ie10-viewport-bug-workaround.js"></script>
+
+    <!-- MathJax JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Config({
+        TeX: { extensions: ['AMSmath.js','AMSsymbols.js','noErrors.js','noUndefined.js'], equationNumbers: { autoNumber: 'AMS' } },
+        jax: ['input/TeX','input/MathML','output/HTML-CSS'],
+        extensions: ['tex2jax.js','mml2jax.js','MathMenu.js','MathZoom.js'],
+        'HTML-CSS': { 
+           styles: { '.MathJax_Display, .MathJax .mo, .MathJax .mi, .MathJax .mn': {color: '#000000 ! important'} }
+        }
+      });
+    </script>
+    <script src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+  </body>
+</html>

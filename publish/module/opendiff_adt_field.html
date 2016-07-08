@@ -1,0 +1,1565 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+	 
+    <meta name="description" content="Documentation for openpde">
+	 
+    <meta name="author" content="Chris MacMackin" >
+    <link rel="icon" href="../favicon.png">
+
+    <title>opendiff_adt_field &ndash; openpde</title>
+
+    <link href="../css/bootstrap.min.css" rel="stylesheet">
+    <link href="../css/pygments.css" rel="stylesheet">
+    <link href="../css/font-awesome.min.css" rel="stylesheet">
+    <link href="../css/local.css" rel="stylesheet">
+    
+
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+    
+    <script src="../js/jquery-2.1.3.min.js"></script>
+    <script src="../js/svg-pan-zoom.min.js"></script>
+
+    
+    <script src="../tipuesearch/tipuesearch_content.js"></script>
+    <link  href="../tipuesearch/tipuesearch.css" rel="stylesheet">
+    <script src="../tipuesearch/tipuesearch_set.js"></script>
+    <script src="../tipuesearch/tipuesearch.js"></script>
+    
+
+  </head>
+
+  <body>
+
+    <!-- Fixed navbar -->
+    <nav class="navbar navbar-inverse navbar-fixed-top">
+      <div class="container">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="../index.html">openpde </a>
+        </div>
+        <div id="navbar" class="navbar-collapse collapse">
+          <ul class="nav navbar-nav">
+				
+                
+            <li><a href="../lists/files.html">Source Files</a></li>
+				
+				
+            <li><a href="../lists/modules.html">Modules</a></li>
+				
+				
+            <li><a href="../lists/procedures.html">Procedures</a></li>
+				
+				
+            <li><a href="../lists/absint.html">Abstract Interfaces</a></li>
+								
+            <li><a href="../lists/types.html">Derived Types</a></li>
+				
+				
+            <li><a href="../program/burgers.html">Program</a></li>
+				
+          </ul>
+        
+        <form action="../search.html" class="navbar-form navbar-right" role="search">
+        <div class="form-group">
+          <input type="text" class="form-control" placeholder="Search" name="q" id="tipue_search_input" autocomplete="off" required>
+        </div>
+<!--
+        <button type="submit" class="btn btn-default">Submit</button>
+-->
+        </form>
+        
+        </div><!--/.nav-collapse -->
+      </div>
+    </nav>
+
+    <div class="container">
+    
+  
+  <div class="row">
+    <h1>opendiff_adt_field 
+    <small>Module</small>
+    
+    </h1>
+	 
+<div class="row">
+<div class="col-lg-12">
+<div class="well well-sm">
+  <ul class="list-inline" style="margin-bottom:0px;display:inline">
+     
+     
+     
+     
+    
+    
+    <li><i class="fa fa-code"></i><a href="../src/opendiff_adt_field.f90"> Source File</a></li>
+     
+  </ul>
+  <ol class="breadcrumb in-well text-right">
+  
+     <li><a href='../sourcefile/opendiff_adt_field.f90.html'>opendiff_adt_field.f90</a></li>
+  
+     <li class="active">opendiff_adt_field</li>
+  </ol>
+</div>
+</div>
+</div>
+    
+  </div>
+  
+  <div class="row">
+    <div class="col-lg-3">
+    
+<div id="sidebar">
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  <div class="panel panel-primary">
+    <div class="panel-heading text-left"><h3 class="panel-title"><a data-toggle="collapse" href="#absints">Abstract Interfaces</a></h3></div>
+    <div id="absints" class="panel-collapse collapse">
+        <div class="list-group">
+          
+          <a class="list-group-item" href="../module/opendiff_adt_field.html#interface-abstract_simmetric_operator">abstract_simmetric_operator</a>
+          
+          <a class="list-group-item" href="../module/opendiff_adt_field.html#interface-abstract_field_op_real">abstract_field_op_real</a>
+          
+          <a class="list-group-item" href="../module/opendiff_adt_field.html#interface-abstract_real_op_field">abstract_real_op_field</a>
+          
+          <a class="list-group-item" href="../module/opendiff_adt_field.html#interface-abstract_assign">abstract_assign</a>
+          
+          <a class="list-group-item" href="../module/opendiff_adt_field.html#interface-abstract_associate_mesh">abstract_associate_mesh</a>
+          
+          <a class="list-group-item" href="../module/opendiff_adt_field.html#interface-abstract_init">abstract_init</a>
+          
+          <a class="list-group-item" href="../module/opendiff_adt_field.html#interface-abstract_output">abstract_output</a>
+          
+        </div>
+    </div>
+  </div>
+  
+  
+  
+  <div class="panel panel-primary">
+    <div class="panel-heading text-left"><h3 class="panel-title"><a data-toggle="collapse" href="#types">Derived Types</a></h3></div>
+    <div id="types" class="panel-collapse collapse">
+      <div class="list-group">
+        
+        <a class="list-group-item" href="../module/opendiff_adt_field.html#type-field">field</a>
+        
+      </div>
+    </div>
+  </div>
+  
+  
+  
+  
+  <div class="panel panel-primary">
+    <div class="panel-heading text-left"><h3 class="panel-title"><a data-toggle="collapse" href="#subs">Subroutines</a></h3></div>
+    <div class="list-group">
+        <div id="subs" class="panel-collapse collapse">
+          
+          <a class="list-group-item" href="../module/opendiff_adt_field.html#proc-free%7E2">free</a>
+          
+        </div>
+    </div>
+  </div>
+  
+  
+  
+  
+  
+  
+  
+  
+  <hr>
+  
+  <div class="panel panel-default">
+    <div class="panel-heading text-left"><h3 class="panel-title"><a data-toggle="collapse" href="#allmods">All Modules</a></h3></div>
+    <div id="allmods" class="panel-collapse collapse">
+        <div class="list-group">
+          
+          <a class="list-group-item" href="../module/myequations.html">myequations</a>
+          
+          <a class="list-group-item" href="../module/opendiff.html">opendiff</a>
+          
+          <a class="list-group-item" href="../module/opendiff_adt_equation.html">opendiff_adt_equation</a>
+          
+          <a class="list-group-item" href="../module/opendiff_adt_field.html">opendiff_adt_field</a>
+          
+          <a class="list-group-item" href="../module/opendiff_adt_integrator.html">opendiff_adt_integrator</a>
+          
+          <a class="list-group-item" href="../module/opendiff_adt_mesh.html">opendiff_adt_mesh</a>
+          
+          <a class="list-group-item" href="../module/opendiff_adt_spatial_operator.html">opendiff_adt_spatial_operator</a>
+          
+          <a class="list-group-item" href="../module/opendiff_adt_spatial_operator_der1.html">opendiff_adt_spatial_operator_der1</a>
+          
+          <a class="list-group-item" href="../module/opendiff_field_fd_1d.html">opendiff_field_fd_1d</a>
+          
+          <a class="list-group-item" href="../module/opendiff_integrator_euler.html">opendiff_integrator_euler</a>
+          
+          <a class="list-group-item" href="../module/opendiff_kinds.html">opendiff_kinds</a>
+          
+          <a class="list-group-item" href="../module/opendiff_mesh_fd_1d.html">opendiff_mesh_fd_1d</a>
+          
+          <a class="list-group-item" href="../module/opendiff_spatial_operator_der1_fd_1d.html">opendiff_spatial_operator_der1_fd_1d</a>
+          
+        </div>
+    </div>
+  </div>
+  
+</div>
+
+    </div>
+    
+    <div class="col-lg-9" id='text'>
+    
+    
+  
+    <ul class="list-inline">
+      <li><h4>Uses:</h4></li>
+      
+      <li><a href='../module/opendiff_adt_mesh.html'>opendiff_adt_mesh</a></li>
+      
+      <li><a href='../module/opendiff_kinds.html'>opendiff_kinds</a></li>
+      
+    </ul>
+  
+
+    
+                <div class="depgraph"><?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
+ "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<!-- Generated by graphviz version 2.38.0 (20140413.2041)
+ -->
+<!-- Title: module~~opendiff_adt_field~~UsesGraph Pages: 1 -->
+<svg id="moduleopendiff_adt_fieldUsesGraph" width="363pt" height="52pt"
+ viewBox="0.00 0.00 363.00 52.00" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<g id="module~~opendiff_adt_field~~UsesGraph" class="graph" transform="scale(1 1) rotate(0) translate(4 48)">
+<title>module~~opendiff_adt_field~~UsesGraph</title>
+<polygon fill="white" stroke="none" points="-4,4 -4,-48 359,-48 359,4 -4,4"/>
+<!-- module~opendiff_adt_field -->
+<g id="module~~opendiff_adt_field~~UsesGraph_node1" class="node"><title>module~opendiff_adt_field</title>
+<polygon fill="none" stroke="black" points="355,-44 258,-44 258,-20 355,-20 355,-44"/>
+<text text-anchor="middle" x="306.5" y="-29.6" font-family="Helvetica,sans-Serif" font-size="10.50">opendiff_adt_field</text>
+</g>
+<!-- module~opendiff_adt_mesh -->
+<g id="module~~opendiff_adt_field~~UsesGraph_node2" class="node"><title>module~opendiff_adt_mesh</title>
+<g id="a_module~~opendiff_adt_field~~UsesGraph_node2"><a xlink:href="../module/opendiff_adt_mesh.html" xlink:title="opendiff_adt_mesh">
+<polygon fill="#337ab7" stroke="#337ab7" points="222,-24 118,-24 118,-0 222,-0 222,-24"/>
+<text text-anchor="middle" x="170" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">opendiff_adt_mesh</text>
+</a>
+</g>
+</g>
+<!-- module~opendiff_adt_mesh&#45;&gt;module~opendiff_adt_field -->
+<g id="module~~opendiff_adt_field~~UsesGraph_edge2" class="edge"><title>module~opendiff_adt_mesh&#45;&gt;module~opendiff_adt_field</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M222.232,-19.6182C230.663,-20.8718 239.45,-22.1785 248.021,-23.4529"/>
+<polygon fill="#000000" stroke="#000000" points="247.543,-26.9202 257.949,-24.9292 248.572,-19.9963 247.543,-26.9202"/>
+</g>
+<!-- module~opendiff_kinds -->
+<g id="module~~opendiff_adt_field~~UsesGraph_node3" class="node"><title>module~opendiff_kinds</title>
+<g id="a_module~~opendiff_adt_field~~UsesGraph_node3"><a xlink:href="../module/opendiff_kinds.html" xlink:title="opendiff_kinds">
+<polygon fill="#337ab7" stroke="#337ab7" points="82,-44 0,-44 0,-20 82,-20 82,-44"/>
+<text text-anchor="middle" x="41" y="-29.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">opendiff_kinds</text>
+</a>
+</g>
+</g>
+<!-- module~opendiff_kinds&#45;&gt;module~opendiff_adt_field -->
+<g id="module~~opendiff_adt_field~~UsesGraph_edge3" class="edge"><title>module~opendiff_kinds&#45;&gt;module~opendiff_adt_field</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M82.2302,-32.628C93.779,-32.7816 106.388,-32.9236 118,-33 164.221,-33.3041 175.779,-33.2768 222,-33 230.336,-32.9501 239.14,-32.8721 247.781,-32.7813"/>
+<polygon fill="#000000" stroke="#000000" points="247.851,-36.2808 257.812,-32.6696 247.773,-29.2812 247.851,-36.2808"/>
+</g>
+<!-- module~opendiff_kinds&#45;&gt;module~opendiff_adt_mesh -->
+<g id="module~~opendiff_adt_field~~UsesGraph_edge1" class="edge"><title>module~opendiff_kinds&#45;&gt;module~opendiff_adt_mesh</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M82.1836,-25.6719C90.3317,-24.3887 99.0746,-23.0119 107.761,-21.6439"/>
+<polygon fill="#000000" stroke="#000000" points="108.559,-25.0614 117.893,-20.0483 107.47,-18.1466 108.559,-25.0614"/>
+</g>
+</g>
+</svg>
+</div>
+                <div><a type="button" class="graph-help" data-toggle="modal" href="#graph-help-text">Help</a></div>
+                <div class="modal fade" id="graph-help-text" tabindex="-1" role="dialog">
+                  <div class="modal-dialog modal-lg" role="document">
+                    <div class="modal-content">
+                      <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                        <h4 class="modal-title" id="-graph-help-label">Graph Key</h4>
+                      </div>
+                      <div class="modal-body">
+                        
+Nodes of different colours represent the following:
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
+ "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<!-- Generated by graphviz version 2.38.0 (20140413.2041)
+ -->
+<!-- Title: Graph Key Pages: 1 -->
+<svg width="641pt" height="26pt"
+ viewBox="0.00 0.00 641.00 25.98" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<g id="graph0" class="graph" transform="scale(0.811906 0.811906) rotate(0) translate(4 28)">
+<title>Graph Key</title>
+<polygon fill="white" stroke="none" points="-4,4 -4,-28 785.5,-28 785.5,4 -4,4"/>
+<!-- Module -->
+<g id="node1" class="node"><title>Module</title>
+<polygon fill="#337ab7" stroke="#337ab7" points="54,-24 0,-24 0,-0 54,-0 54,-24"/>
+<text text-anchor="middle" x="27" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">Module</text>
+</g>
+<!-- Submodule -->
+<g id="node2" class="node"><title>Submodule</title>
+<polygon fill="#5bc0de" stroke="#5bc0de" points="139.5,-24 72.5,-24 72.5,-0 139.5,-0 139.5,-24"/>
+<text text-anchor="middle" x="106" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">Submodule</text>
+</g>
+<!-- Type -->
+<g id="node3" class="node"><title>Type</title>
+<polygon fill="#5cb85c" stroke="#5cb85c" points="212,-24 158,-24 158,-0 212,-0 212,-24"/>
+<text text-anchor="middle" x="185" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">Type</text>
+</g>
+<!-- Subroutine -->
+<g id="node4" class="node"><title>Subroutine</title>
+<polygon fill="#d9534f" stroke="#d9534f" points="294,-24 230,-24 230,-0 294,-0 294,-24"/>
+<text text-anchor="middle" x="262" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">Subroutine</text>
+</g>
+<!-- Function -->
+<g id="node5" class="node"><title>Function</title>
+<polygon fill="#d94e8f" stroke="#d94e8f" points="366,-24 312,-24 312,-0 366,-0 366,-24"/>
+<text text-anchor="middle" x="339" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">Function</text>
+</g>
+<!-- Interface -->
+<g id="node6" class="node"><title>Interface</title>
+<polygon fill="#a7506f" stroke="#a7506f" points="439.5,-24 384.5,-24 384.5,-0 439.5,-0 439.5,-24"/>
+<text text-anchor="middle" x="412" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">Interface</text>
+</g>
+<!-- Unknown Procedure Type -->
+<g id="node7" class="node"><title>Unknown Procedure Type</title>
+<polygon fill="#777777" stroke="#777777" points="594,-24 458,-24 458,-0 594,-0 594,-24"/>
+<text text-anchor="middle" x="526" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">Unknown Procedure Type</text>
+</g>
+<!-- Program -->
+<g id="node8" class="node"><title>Program</title>
+<polygon fill="#f0ad4e" stroke="#f0ad4e" points="666,-24 612,-24 612,-0 666,-0 666,-24"/>
+<text text-anchor="middle" x="639" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">Program</text>
+</g>
+<!-- This Page&#39;s Entity -->
+<g id="node9" class="node"><title>This Page&#39;s Entity</title>
+<polygon fill="none" stroke="black" points="781.5,-24 684.5,-24 684.5,-0 781.5,-0 781.5,-24"/>
+<text text-anchor="middle" x="733" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50">This Page&#39;s Entity</text>
+</g>
+</g>
+</svg>
+
+Where possible, edges connecting nodes are given different colours to make them
+easier to distinguish in large graphs.
+<h5>Module Graph</h5>
+<p>Solid arrows point from a parent (sub)module to the submodule which is
+descended from it. Dashed arrows point from a module being used to the
+module using it.</p>
+<h5>Type Graph</h5>
+<p>Solid arrows point from one derived type to another which extends
+(inherits from) it. Dashed arrows point from a derived type to another
+type containing it as a components, with a label listing the name(s) of
+said component(s).</p>
+<h5>Call Graph</h5>
+<p>Solid arrows point from a procedure to one which it calls. Dashed 
+arrows point from an interface to procedures which implement that interface.
+This could include the module procedures in a generic interface or the
+implementation in a submodule of an interface in a parent module.</p>
+
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                
+    
+    <p>Abstract class of field.</p>
+    
+    
+    <h3>Used By</h3>
+    
+                <div class="depgraph"><?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
+ "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<!-- Generated by graphviz version 2.38.0 (20140413.2041)
+ -->
+<!-- Title: module~~opendiff_adt_field~~UsedByGraph Pages: 1 -->
+<svg id="moduleopendiff_adt_fieldUsedByGraph" width="641pt" height="175pt"
+ viewBox="0.00 0.00 641.00 175.27" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<g id="module~~opendiff_adt_field~~UsedByGraph" class="graph" transform="scale(0.619324 0.619324) rotate(0) translate(4 279.005)">
+<title>module~~opendiff_adt_field~~UsedByGraph</title>
+<polygon fill="white" stroke="none" points="-4,4 -4,-279.005 1031,-279.005 1031,4 -4,4"/>
+<!-- module~opendiff_adt_field -->
+<g id="module~~opendiff_adt_field~~UsedByGraph_node1" class="node"><title>module~opendiff_adt_field</title>
+<polygon fill="none" stroke="black" points="97,-145.875 7.10543e-15,-145.875 7.10543e-15,-121.875 97,-121.875 97,-145.875"/>
+<text text-anchor="middle" x="48.5" y="-131.475" font-family="Helvetica,sans-Serif" font-size="10.50">opendiff_adt_field</text>
+</g>
+<!-- module~opendiff_adt_equation -->
+<g id="module~~opendiff_adt_field~~UsedByGraph_node2" class="node"><title>module~opendiff_adt_equation</title>
+<g id="a_module~~opendiff_adt_field~~UsedByGraph_node2"><a xlink:href="../module/opendiff_adt_equation.html" xlink:title="opendiff_adt_equation">
+<polygon fill="#337ab7" stroke="#337ab7" points="270,-185.875 151,-185.875 151,-161.875 270,-161.875 270,-185.875"/>
+<text text-anchor="middle" x="210.5" y="-171.475" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">opendiff_adt_equation</text>
+</a>
+</g>
+</g>
+<!-- module~opendiff_adt_field&#45;&gt;module~opendiff_adt_equation -->
+<g id="module~~opendiff_adt_field~~UsedByGraph_edge18" class="edge"><title>module~opendiff_adt_field&#45;&gt;module~opendiff_adt_equation</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M97.0721,-145.768C114.171,-150.043 133.65,-154.912 151.534,-159.383"/>
+<polygon fill="#000000" stroke="#000000" points="150.731,-162.79 161.281,-161.82 152.429,-155.999 150.731,-162.79"/>
+</g>
+<!-- module~opendiff_adt_spatial_operator -->
+<g id="module~~opendiff_adt_field~~UsedByGraph_node3" class="node"><title>module~opendiff_adt_spatial_operator</title>
+<g id="a_module~~opendiff_adt_field~~UsedByGraph_node3"><a xlink:href="../module/opendiff_adt_spatial_operator.html" xlink:title="opendiff_adt_spatial_operator">
+<polygon fill="#337ab7" stroke="#337ab7" points="288,-65.8749 133,-65.8749 133,-41.8749 288,-41.8749 288,-65.8749"/>
+<text text-anchor="middle" x="210.5" y="-51.4749" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">opendiff_adt_spatial_operator</text>
+</a>
+</g>
+</g>
+<!-- module~opendiff_adt_field&#45;&gt;module~opendiff_adt_spatial_operator -->
+<g id="module~~opendiff_adt_field~~UsedByGraph_edge19" class="edge"><title>module~opendiff_adt_field&#45;&gt;module~opendiff_adt_spatial_operator</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M73.8006,-121.725C101.212,-108.019 145.945,-85.6523 176.502,-70.374"/>
+<polygon fill="#000000" stroke="#000000" points="178.116,-73.4801 185.495,-65.8774 174.985,-67.2191 178.116,-73.4801"/>
+</g>
+<!-- module~opendiff_integrator_euler -->
+<g id="module~~opendiff_adt_field~~UsedByGraph_node4" class="node"><title>module~opendiff_integrator_euler</title>
+<g id="a_module~~opendiff_adt_field~~UsedByGraph_node4"><a xlink:href="../module/opendiff_integrator_euler.html" xlink:title="opendiff_integrator_euler">
+<polygon fill="#337ab7" stroke="#337ab7" points="707,-185.875 574,-185.875 574,-161.875 707,-161.875 707,-185.875"/>
+<text text-anchor="middle" x="640.5" y="-171.475" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">opendiff_integrator_euler</text>
+</a>
+</g>
+</g>
+<!-- module~opendiff_adt_field&#45;&gt;module~opendiff_integrator_euler -->
+<g id="module~~opendiff_adt_field~~UsedByGraph_edge20" class="edge"><title>module~opendiff_adt_field&#45;&gt;module~opendiff_integrator_euler</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M211.5,-133.875C303.457,-133.875 322.652,-169.405 414.5,-173.875"/>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M416.5,-173.875C465.366,-176.253 520.327,-176.283 563.459,-175.704"/>
+<polygon fill="#000000" stroke="#000000" points="563.648,-179.202 573.595,-175.554 563.544,-172.203 563.648,-179.202"/>
+</g>
+<!-- module~opendiff_spatial_operator_der1_fd_1d -->
+<g id="module~~opendiff_adt_field~~UsedByGraph_node5" class="node"><title>module~opendiff_spatial_operator_der1_fd_1d</title>
+<g id="a_module~~opendiff_adt_field~~UsedByGraph_node5"><a xlink:href="../module/opendiff_spatial_operator_der1_fd_1d.html" xlink:title="opendiff_spatial_operator_der1_fd_1d">
+<polygon fill="#337ab7" stroke="#337ab7" points="738,-105.875 543,-105.875 543,-81.8749 738,-81.8749 738,-105.875"/>
+<text text-anchor="middle" x="640.5" y="-91.4749" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">opendiff_spatial_operator_der1_fd_1d</text>
+</a>
+</g>
+</g>
+<!-- module~opendiff_adt_field&#45;&gt;module~opendiff_spatial_operator_der1_fd_1d -->
+<g id="module~~opendiff_adt_field~~UsedByGraph_edge21" class="edge"><title>module~opendiff_adt_field&#45;&gt;module~opendiff_spatial_operator_der1_fd_1d</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M97.1074,-133.875C128.927,-133.875 171.722,-133.875 209.5,-133.875"/>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M211.5,-133.875C262.364,-133.875 273.517,-119.082 324,-112.875 393.261,-104.359 471.566,-99.6147 532.838,-96.9969"/>
+<polygon fill="#000000" stroke="#000000" points="533.062,-100.491 542.908,-96.5792 532.772,-93.4968 533.062,-100.491"/>
+</g>
+<!-- module~opendiff_adt_integrator -->
+<g id="module~~opendiff_adt_field~~UsedByGraph_node6" class="node"><title>module~opendiff_adt_integrator</title>
+<g id="a_module~~opendiff_adt_field~~UsedByGraph_node6"><a xlink:href="../module/opendiff_adt_integrator.html" xlink:title="opendiff_adt_integrator">
+<polygon fill="#337ab7" stroke="#337ab7" points="477.5,-225.875 353.5,-225.875 353.5,-201.875 477.5,-201.875 477.5,-225.875"/>
+<text text-anchor="middle" x="415.5" y="-211.475" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">opendiff_adt_integrator</text>
+</a>
+</g>
+</g>
+<!-- module~opendiff_adt_field&#45;&gt;module~opendiff_adt_integrator -->
+<g id="module~~opendiff_adt_field~~UsedByGraph_edge22" class="edge"><title>module~opendiff_adt_field&#45;&gt;module~opendiff_adt_integrator</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M61.4627,-146.11C76.5876,-160.683 104.153,-184.372 133,-194.875 201.278,-219.733 284.949,-222.163 343.247,-219.809"/>
+<polygon fill="#000000" stroke="#000000" points="343.636,-223.295 353.464,-219.337 343.313,-216.303 343.636,-223.295"/>
+</g>
+<!-- module~opendiff -->
+<g id="module~~opendiff_adt_field~~UsedByGraph_node7" class="node"><title>module~opendiff</title>
+<g id="a_module~~opendiff_adt_field~~UsedByGraph_node7"><a xlink:href="../module/opendiff.html" xlink:title="opendiff">
+<polygon fill="#337ab7" stroke="#337ab7" points="828,-145.875 774,-145.875 774,-121.875 828,-121.875 828,-145.875"/>
+<text text-anchor="middle" x="801" y="-131.475" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">opendiff</text>
+</a>
+</g>
+</g>
+<!-- module~opendiff_adt_field&#45;&gt;module~opendiff -->
+<g id="module~~opendiff_adt_field~~UsedByGraph_edge23" class="edge"><title>module~opendiff_adt_field&#45;&gt;module~opendiff</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M55.2583,-121.83C66.5949,-99.6505 94.1274,-52.8012 133,-32.8749 244.589,24.3261 289.252,-19.9701 414.5,-13.8749"/>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M416.5,-13.8749C515.463,-8.46026 544.158,13.1981 639.5,-13.8749"/>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M641.5,-13.8749C702.197,-31.1102 757.033,-84.9242 783.426,-114.285"/>
+<polygon fill="#000000" stroke="#000000" points="780.864,-116.672 790.097,-121.867 786.119,-112.048 780.864,-116.672"/>
+</g>
+<!-- module~opendiff_field_fd_1d -->
+<g id="module~~opendiff_adt_field~~UsedByGraph_node8" class="node"><title>module~opendiff_field_fd_1d</title>
+<g id="a_module~~opendiff_adt_field~~UsedByGraph_node8"><a xlink:href="../module/opendiff_field_fd_1d.html" xlink:title="opendiff_field_fd_1d">
+<polygon fill="#337ab7" stroke="#337ab7" points="470,-145.875 361,-145.875 361,-121.875 470,-121.875 470,-145.875"/>
+<text text-anchor="middle" x="415.5" y="-131.475" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">opendiff_field_fd_1d</text>
+</a>
+</g>
+</g>
+<!-- module~opendiff_adt_field&#45;&gt;module~opendiff_field_fd_1d -->
+<g id="module~~opendiff_adt_field~~UsedByGraph_edge24" class="edge"><title>module~opendiff_adt_field&#45;&gt;module~opendiff_field_fd_1d</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M211.5,-133.875C258.024,-133.875 310.545,-133.875 350.508,-133.875"/>
+<polygon fill="#000000" stroke="#000000" points="350.647,-137.375 360.647,-133.875 350.647,-130.375 350.647,-137.375"/>
+</g>
+<!-- module~opendiff_adt_equation&#45;&gt;module~opendiff_integrator_euler -->
+<g id="module~~opendiff_adt_field~~UsedByGraph_edge1" class="edge"><title>module~opendiff_adt_equation&#45;&gt;module~opendiff_integrator_euler</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M270.167,-172.368C310.728,-171.696 365.922,-171.511 414.5,-173.875"/>
+</g>
+<!-- module~opendiff_adt_equation&#45;&gt;module~opendiff_adt_integrator -->
+<g id="module~~opendiff_adt_field~~UsedByGraph_edge3" class="edge"><title>module~opendiff_adt_equation&#45;&gt;module~opendiff_adt_integrator</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M270.216,-185.445C293.065,-189.947 319.454,-195.147 343.366,-199.858"/>
+<polygon fill="#000000" stroke="#000000" points="342.957,-203.345 353.445,-201.844 344.31,-196.477 342.957,-203.345"/>
+</g>
+<!-- module~opendiff_adt_equation&#45;&gt;module~opendiff -->
+<g id="module~~opendiff_adt_field~~UsedByGraph_edge2" class="edge"><title>module~opendiff_adt_equation&#45;&gt;module~opendiff</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M228.39,-186.13C249.547,-200.722 287.472,-224.43 324,-234.875 459.064,-273.494 504.366,-292.247 639.5,-253.875"/>
+</g>
+<!-- module~opendiff_adt_spatial_operator&#45;&gt;module~opendiff -->
+<g id="module~~opendiff_adt_field~~UsedByGraph_edge7" class="edge"><title>module~opendiff_adt_spatial_operator&#45;&gt;module~opendiff</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M253.824,-41.7854C294.582,-31.0396 358.171,-16.6162 414.5,-13.8749"/>
+</g>
+<!-- module~opendiff_adt_spatial_operator_der1 -->
+<g id="module~~opendiff_adt_field~~UsedByGraph_node9" class="node"><title>module~opendiff_adt_spatial_operator_der1</title>
+<g id="a_module~~opendiff_adt_field~~UsedByGraph_node9"><a xlink:href="../module/opendiff_adt_spatial_operator_der1.html" xlink:title="opendiff_adt_spatial_operator_der1">
+<polygon fill="#337ab7" stroke="#337ab7" points="507,-65.8749 324,-65.8749 324,-41.8749 507,-41.8749 507,-65.8749"/>
+<text text-anchor="middle" x="415.5" y="-51.4749" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">opendiff_adt_spatial_operator_der1</text>
+</a>
+</g>
+</g>
+<!-- module~opendiff_adt_spatial_operator&#45;&gt;module~opendiff_adt_spatial_operator_der1 -->
+<g id="module~~opendiff_adt_field~~UsedByGraph_edge6" class="edge"><title>module~opendiff_adt_spatial_operator&#45;&gt;module~opendiff_adt_spatial_operator_der1</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M288.246,-53.8749C296.558,-53.8749 305.106,-53.8749 313.647,-53.8749"/>
+<polygon fill="#000000" stroke="#000000" points="313.657,-57.375 323.657,-53.8749 313.657,-50.375 313.657,-57.375"/>
+</g>
+<!-- module~opendiff_integrator_euler&#45;&gt;module~opendiff -->
+<g id="module~~opendiff_adt_field~~UsedByGraph_edge8" class="edge"><title>module~opendiff_integrator_euler&#45;&gt;module~opendiff</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M689.055,-161.874C712.986,-155.834 741.533,-148.63 763.676,-143.042"/>
+<polygon fill="#000000" stroke="#000000" points="764.832,-146.36 773.671,-140.519 763.119,-139.573 764.832,-146.36"/>
+</g>
+<!-- module~opendiff_spatial_operator_der1_fd_1d&#45;&gt;module~opendiff -->
+<g id="module~~opendiff_adt_field~~UsedByGraph_edge9" class="edge"><title>module~opendiff_spatial_operator_der1_fd_1d&#45;&gt;module~opendiff</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M689.055,-105.876C712.986,-111.915 741.533,-119.12 763.676,-124.708"/>
+<polygon fill="#000000" stroke="#000000" points="763.119,-128.177 773.671,-127.23 764.832,-121.39 763.119,-128.177"/>
+</g>
+<!-- module~opendiff_adt_integrator&#45;&gt;module~opendiff_integrator_euler -->
+<g id="module~~opendiff_adt_field~~UsedByGraph_edge10" class="edge"><title>module~opendiff_adt_integrator&#45;&gt;module~opendiff_integrator_euler</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M477.731,-202.892C504.258,-198.134 535.586,-192.514 563.574,-187.494"/>
+<polygon fill="#000000" stroke="#000000" points="564.495,-190.885 573.719,-185.674 563.259,-183.995 564.495,-190.885"/>
+</g>
+<!-- module~opendiff_adt_integrator&#45;&gt;module~opendiff -->
+<g id="module~~opendiff_adt_field~~UsedByGraph_edge11" class="edge"><title>module~opendiff_adt_integrator&#45;&gt;module~opendiff</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M458.466,-225.922C513.287,-240.878 606.203,-263.33 639.5,-253.875"/>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M641.5,-253.875C702.197,-236.64 757.033,-182.826 783.426,-153.465"/>
+<polygon fill="#000000" stroke="#000000" points="786.119,-155.702 790.097,-145.882 780.864,-151.078 786.119,-155.702"/>
+</g>
+<!-- module~myequations -->
+<g id="module~~opendiff_adt_field~~UsedByGraph_node10" class="node"><title>module~myequations</title>
+<g id="a_module~~opendiff_adt_field~~UsedByGraph_node10"><a xlink:href="../module/myequations.html" xlink:title="myequations">
+<polygon fill="#337ab7" stroke="#337ab7" points="937,-165.875 864,-165.875 864,-141.875 937,-141.875 937,-165.875"/>
+<text text-anchor="middle" x="900.5" y="-151.475" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">myequations</text>
+</a>
+</g>
+</g>
+<!-- module~opendiff&#45;&gt;module~myequations -->
+<g id="module~~opendiff_adt_field~~UsedByGraph_edge13" class="edge"><title>module~opendiff&#45;&gt;module~myequations</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M828.128,-139.235C836.079,-140.865 845.061,-142.708 853.905,-144.522"/>
+<polygon fill="#000000" stroke="#000000" points="853.268,-147.964 863.768,-146.545 854.675,-141.107 853.268,-147.964"/>
+</g>
+<!-- program~burgers -->
+<g id="module~~opendiff_adt_field~~UsedByGraph_node11" class="node"><title>program~burgers</title>
+<g id="a_module~~opendiff_adt_field~~UsedByGraph_node11"><a xlink:href="../program/burgers.html" xlink:title="burgers">
+<polygon fill="#f0ad4e" stroke="#f0ad4e" points="1027,-145.875 973,-145.875 973,-121.875 1027,-121.875 1027,-145.875"/>
+<text text-anchor="middle" x="1000" y="-131.475" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">burgers</text>
+</a>
+</g>
+</g>
+<!-- module~opendiff&#45;&gt;program~burgers -->
+<g id="module~~opendiff_adt_field~~UsedByGraph_edge14" class="edge"><title>module~opendiff&#45;&gt;program~burgers</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M828.245,-133.358C839.285,-133.165 852.266,-132.97 864,-132.875 896.443,-132.613 904.557,-132.613 937,-132.875 945.25,-132.941 954.118,-133.058 962.493,-133.188"/>
+<polygon fill="#000000" stroke="#000000" points="962.699,-136.692 972.755,-133.358 962.815,-129.693 962.699,-136.692"/>
+</g>
+<!-- module~opendiff_field_fd_1d&#45;&gt;module~opendiff_integrator_euler -->
+<g id="module~~opendiff_adt_field~~UsedByGraph_edge15" class="edge"><title>module~opendiff_field_fd_1d&#45;&gt;module~opendiff_integrator_euler</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M470.198,-143.507C498.341,-148.555 533.274,-154.821 564.086,-160.348"/>
+<polygon fill="#000000" stroke="#000000" points="563.471,-163.793 573.932,-162.114 564.707,-156.903 563.471,-163.793"/>
+</g>
+<!-- module~opendiff_field_fd_1d&#45;&gt;module~opendiff_spatial_operator_der1_fd_1d -->
+<g id="module~~opendiff_adt_field~~UsedByGraph_edge16" class="edge"><title>module~opendiff_field_fd_1d&#45;&gt;module~opendiff_spatial_operator_der1_fd_1d</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M470.198,-124.243C497.756,-119.3 531.824,-113.189 562.159,-107.748"/>
+<polygon fill="#000000" stroke="#000000" points="563.064,-111.141 572.289,-105.931 561.828,-104.251 563.064,-111.141"/>
+</g>
+<!-- module~opendiff_field_fd_1d&#45;&gt;module~opendiff -->
+<g id="module~~opendiff_adt_field~~UsedByGraph_edge17" class="edge"><title>module~opendiff_field_fd_1d&#45;&gt;module~opendiff</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M470.228,-133.875C549.476,-133.875 695.634,-133.875 763.545,-133.875"/>
+<polygon fill="#000000" stroke="#000000" points="763.751,-137.375 773.751,-133.875 763.751,-130.375 763.751,-137.375"/>
+</g>
+<!-- module~opendiff_adt_spatial_operator_der1&#45;&gt;module~opendiff_spatial_operator_der1_fd_1d -->
+<g id="module~~opendiff_adt_field~~UsedByGraph_edge4" class="edge"><title>module~opendiff_adt_spatial_operator_der1&#45;&gt;module~opendiff_spatial_operator_der1_fd_1d</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M483.407,-65.8762C508.211,-70.3253 536.54,-75.4067 562.194,-80.0084"/>
+<polygon fill="#000000" stroke="#000000" points="561.794,-83.4924 572.255,-81.813 563.03,-76.6023 561.794,-83.4924"/>
+</g>
+<!-- module~opendiff_adt_spatial_operator_der1&#45;&gt;module~opendiff -->
+<g id="module~~opendiff_adt_field~~UsedByGraph_edge5" class="edge"><title>module~opendiff_adt_spatial_operator_der1&#45;&gt;module~opendiff</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M458.466,-41.8276C513.287,-26.8719 606.203,-4.42005 639.5,-13.8749"/>
+</g>
+<!-- module~myequations&#45;&gt;program~burgers -->
+<g id="module~~opendiff_adt_field~~UsedByGraph_edge12" class="edge"><title>module~myequations&#45;&gt;program~burgers</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M937.252,-146.541C945.598,-144.829 954.492,-143.005 962.855,-141.289"/>
+<polygon fill="#000000" stroke="#000000" points="963.627,-144.704 972.719,-139.266 962.22,-137.847 963.627,-144.704"/>
+</g>
+</g>
+</svg>
+</div>
+                <script>var panmoduleopendiff_adt_fieldUsedByGraph = svgPanZoom('#moduleopendiff_adt_fieldUsedByGraph', {
+                    zoomEnabled: true,
+                    controlIconsEnabled: true,
+                    fit: true,
+                    center: true,});
+                    </script>
+                <div><a type="button" class="graph-help" data-toggle="modal" href="#graph-help-text">Help</a></div>
+                <div class="modal fade" id="graph-help-text" tabindex="-1" role="dialog">
+                  <div class="modal-dialog modal-lg" role="document">
+                    <div class="modal-content">
+                      <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                        <h4 class="modal-title" id="-graph-help-label">Graph Key</h4>
+                      </div>
+                      <div class="modal-body">
+                        
+Nodes of different colours represent the following:
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
+ "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<!-- Generated by graphviz version 2.38.0 (20140413.2041)
+ -->
+<!-- Title: Graph Key Pages: 1 -->
+<svg width="641pt" height="26pt"
+ viewBox="0.00 0.00 641.00 25.98" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<g id="graph0" class="graph" transform="scale(0.811906 0.811906) rotate(0) translate(4 28)">
+<title>Graph Key</title>
+<polygon fill="white" stroke="none" points="-4,4 -4,-28 785.5,-28 785.5,4 -4,4"/>
+<!-- Module -->
+<g id="node1" class="node"><title>Module</title>
+<polygon fill="#337ab7" stroke="#337ab7" points="54,-24 0,-24 0,-0 54,-0 54,-24"/>
+<text text-anchor="middle" x="27" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">Module</text>
+</g>
+<!-- Submodule -->
+<g id="node2" class="node"><title>Submodule</title>
+<polygon fill="#5bc0de" stroke="#5bc0de" points="139.5,-24 72.5,-24 72.5,-0 139.5,-0 139.5,-24"/>
+<text text-anchor="middle" x="106" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">Submodule</text>
+</g>
+<!-- Type -->
+<g id="node3" class="node"><title>Type</title>
+<polygon fill="#5cb85c" stroke="#5cb85c" points="212,-24 158,-24 158,-0 212,-0 212,-24"/>
+<text text-anchor="middle" x="185" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">Type</text>
+</g>
+<!-- Subroutine -->
+<g id="node4" class="node"><title>Subroutine</title>
+<polygon fill="#d9534f" stroke="#d9534f" points="294,-24 230,-24 230,-0 294,-0 294,-24"/>
+<text text-anchor="middle" x="262" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">Subroutine</text>
+</g>
+<!-- Function -->
+<g id="node5" class="node"><title>Function</title>
+<polygon fill="#d94e8f" stroke="#d94e8f" points="366,-24 312,-24 312,-0 366,-0 366,-24"/>
+<text text-anchor="middle" x="339" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">Function</text>
+</g>
+<!-- Interface -->
+<g id="node6" class="node"><title>Interface</title>
+<polygon fill="#a7506f" stroke="#a7506f" points="439.5,-24 384.5,-24 384.5,-0 439.5,-0 439.5,-24"/>
+<text text-anchor="middle" x="412" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">Interface</text>
+</g>
+<!-- Unknown Procedure Type -->
+<g id="node7" class="node"><title>Unknown Procedure Type</title>
+<polygon fill="#777777" stroke="#777777" points="594,-24 458,-24 458,-0 594,-0 594,-24"/>
+<text text-anchor="middle" x="526" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">Unknown Procedure Type</text>
+</g>
+<!-- Program -->
+<g id="node8" class="node"><title>Program</title>
+<polygon fill="#f0ad4e" stroke="#f0ad4e" points="666,-24 612,-24 612,-0 666,-0 666,-24"/>
+<text text-anchor="middle" x="639" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">Program</text>
+</g>
+<!-- This Page&#39;s Entity -->
+<g id="node9" class="node"><title>This Page&#39;s Entity</title>
+<polygon fill="none" stroke="black" points="781.5,-24 684.5,-24 684.5,-0 781.5,-0 781.5,-24"/>
+<text text-anchor="middle" x="733" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50">This Page&#39;s Entity</text>
+</g>
+</g>
+</svg>
+
+Where possible, edges connecting nodes are given different colours to make them
+easier to distinguish in large graphs.
+<h5>Module Graph</h5>
+<p>Solid arrows point from a parent (sub)module to the submodule which is
+descended from it. Dashed arrows point from a module being used to the
+module using it.</p>
+<h5>Type Graph</h5>
+<p>Solid arrows point from one derived type to another which extends
+(inherits from) it. Dashed arrows point from a derived type to another
+type containing it as a components, with a label listing the name(s) of
+said component(s).</p>
+<h5>Call Graph</h5>
+<p>Solid arrows point from a procedure to one which it calls. Dashed 
+arrows point from an interface to procedures which implement that interface.
+This could include the module procedures in a generic interface or the
+implementation in a submodule of an interface in a parent module.</p>
+
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                
+    <br>
+    
+
+    
+    
+    
+    
+    
+
+    
+    <section>
+     <h2>Abstract Interfaces</h2>
+	 
+	   
+<div class="panel panel-default">
+  <div class="panel-heading codesum"><span class="anchor" id="interface-abstract_simmetric_operator"></span><h3>abstract interface
+    
+  </h3></div>
+  
+  <ul class="list-group">
+    <li class="list-group-item">
+    
+    
+    <h3>
+private function <a href='../interface/abstract_simmetric_operator.html'>abstract_simmetric_operator</a>(lhs, rhs) result(opr)
+    
+    
+    
+</h3>
+    
+    <h4>Arguments</h4>
+    
+      
+      
+<table class="table table-striped varlist">
+<thead><tr><th>Type</th>
+<th>Intent</th><th>Optional</th>
+<th>Attributes</th><th></th><th>Name</th><th></th></thead>
+
+
+
+<tbody>
+
+  
+  
+  
+  
+<tr>
+  
+  <td><span class="anchor" ></span>class(<a href='../type/field.html'>field</a>),</td>
+  <td>intent(in)</td>
+  <td></td>
+  
+  <td></td><td>::</td>
+  <td><strong>lhs</strong></td><td></td>
+  
+</tr>
+
+  
+  
+  
+  
+<tr>
+  
+  <td><span class="anchor" ></span>class(<a href='../type/field.html'>field</a>),</td>
+  <td>intent(in),</td>
+  <td></td>
+  
+  <td>target</td><td>::</td>
+  <td><strong>rhs</strong></td><td></td>
+  
+</tr>
+
+</tbody>
+</table>
+
+      
+    
+    
+
+  
+  
+  
+  
+     <h4>Return Value <small>class(<a href='../type/field.html'>field</a>),
+  allocatable</small></h4>
+  
+    
+        
+
+    </li>
+  </ul>
+</div>
+
+    
+	   
+<div class="panel panel-default">
+  <div class="panel-heading codesum"><span class="anchor" id="interface-abstract_field_op_real"></span><h3>abstract interface
+    
+  </h3></div>
+  
+  <ul class="list-group">
+    <li class="list-group-item">
+    
+    
+    <h3>
+private function <a href='../interface/abstract_field_op_real.html'>abstract_field_op_real</a>(lhs, rhs) result(opr)
+    
+    
+    
+</h3>
+    
+    <h4>Arguments</h4>
+    
+      
+      
+<table class="table table-striped varlist">
+<thead><tr><th>Type</th>
+<th>Intent</th><th>Optional</th>
+<th>Attributes</th><th></th><th>Name</th><th></th></thead>
+
+
+
+<tbody>
+
+  
+  
+  
+  
+<tr>
+  
+  <td><span class="anchor" ></span>class(<a href='../type/field.html'>field</a>),</td>
+  <td>intent(in)</td>
+  <td></td>
+  
+  <td></td><td>::</td>
+  <td><strong>lhs</strong></td><td></td>
+  
+</tr>
+
+  
+  
+  
+  
+<tr>
+  
+  <td><span class="anchor" ></span>real(kind=R8P),</td>
+  <td>intent(in)</td>
+  <td></td>
+  
+  <td></td><td>::</td>
+  <td><strong>rhs</strong></td><td></td>
+  
+</tr>
+
+</tbody>
+</table>
+
+      
+    
+    
+
+  
+  
+  
+  
+     <h4>Return Value <small>class(<a href='../type/field.html'>field</a>),
+  allocatable</small></h4>
+  
+    
+        
+
+    </li>
+  </ul>
+</div>
+
+    
+	   
+<div class="panel panel-default">
+  <div class="panel-heading codesum"><span class="anchor" id="interface-abstract_real_op_field"></span><h3>abstract interface
+    
+  </h3></div>
+  
+  <ul class="list-group">
+    <li class="list-group-item">
+    
+    
+    <h3>
+private function <a href='../interface/abstract_real_op_field.html'>abstract_real_op_field</a>(lhs, rhs) result(opr)
+    
+    
+    
+</h3>
+    
+    <h4>Arguments</h4>
+    
+      
+      
+<table class="table table-striped varlist">
+<thead><tr><th>Type</th>
+<th>Intent</th><th>Optional</th>
+<th>Attributes</th><th></th><th>Name</th><th></th></thead>
+
+
+
+<tbody>
+
+  
+  
+  
+  
+<tr>
+  
+  <td><span class="anchor" ></span>real(kind=R8P),</td>
+  <td>intent(in)</td>
+  <td></td>
+  
+  <td></td><td>::</td>
+  <td><strong>lhs</strong></td><td></td>
+  
+</tr>
+
+  
+  
+  
+  
+<tr>
+  
+  <td><span class="anchor" ></span>class(<a href='../type/field.html'>field</a>),</td>
+  <td>intent(in)</td>
+  <td></td>
+  
+  <td></td><td>::</td>
+  <td><strong>rhs</strong></td><td></td>
+  
+</tr>
+
+</tbody>
+</table>
+
+      
+    
+    
+
+  
+  
+  
+  
+     <h4>Return Value <small>class(<a href='../type/field.html'>field</a>),
+  allocatable</small></h4>
+  
+    
+        
+
+    </li>
+  </ul>
+</div>
+
+    
+	   
+<div class="panel panel-default">
+  <div class="panel-heading codesum"><span class="anchor" id="interface-abstract_assign"></span><h3>abstract interface
+    
+  </h3></div>
+  
+  <ul class="list-group">
+    <li class="list-group-item">
+    
+    
+    <h3>
+private subroutine <a href='../interface/abstract_assign.html'>abstract_assign</a>(lhs, rhs)
+    
+    
+    
+</h3>
+    
+    <h4>Arguments</h4>
+    
+      
+      
+<table class="table table-striped varlist">
+<thead><tr><th>Type</th>
+<th>Intent</th><th>Optional</th>
+<th>Attributes</th><th></th><th>Name</th><th></th></thead>
+
+
+
+<tbody>
+
+  
+  
+  
+  
+<tr>
+  
+  <td><span class="anchor" ></span>class(<a href='../type/field.html'>field</a>),</td>
+  <td>intent(inout)</td>
+  <td></td>
+  
+  <td></td><td>::</td>
+  <td><strong>lhs</strong></td><td></td>
+  
+</tr>
+
+  
+  
+  
+  
+<tr>
+  
+  <td><span class="anchor" ></span>class(<a href='../type/field.html'>field</a>),</td>
+  <td>intent(in),</td>
+  <td></td>
+  
+  <td>target</td><td>::</td>
+  <td><strong>rhs</strong></td><td></td>
+  
+</tr>
+
+</tbody>
+</table>
+
+      
+    
+    
+        
+
+    </li>
+  </ul>
+</div>
+
+    
+	   
+<div class="panel panel-default">
+  <div class="panel-heading codesum"><span class="anchor" id="interface-abstract_associate_mesh"></span><h3>abstract interface
+    
+  </h3></div>
+  
+  <ul class="list-group">
+    <li class="list-group-item">
+    
+    
+    <h3>
+private subroutine <a href='../interface/abstract_associate_mesh.html'>abstract_associate_mesh</a>(this, fieldmesh, error)
+    
+    
+    
+</h3>
+    
+    <h4>Arguments</h4>
+    
+      
+      
+<table class="table table-striped varlist">
+<thead><tr><th>Type</th>
+<th>Intent</th><th>Optional</th>
+<th>Attributes</th><th></th><th>Name</th><th></th></thead>
+
+
+
+<tbody>
+
+  
+  
+  
+  
+<tr>
+  
+  <td><span class="anchor" ></span>class(<a href='../type/field.html'>field</a>),</td>
+  <td>intent(inout)</td>
+  <td></td>
+  
+  <td></td><td>::</td>
+  <td><strong>this</strong></td><td></td>
+  
+</tr>
+
+  
+  
+  
+  
+<tr>
+  
+  <td><span class="anchor" ></span>class(<a href='../type/mesh.html'>mesh</a>),</td>
+  <td>intent(in),</td>
+  <td></td>
+  
+  <td>target</td><td>::</td>
+  <td><strong>fieldmesh</strong></td><td></td>
+  
+</tr>
+
+  
+  
+  
+  
+<tr>
+  
+  <td><span class="anchor" ></span>integer(kind=I4P),</td>
+  <td>intent(out),</td>
+  <td>optional</td>
+  
+  <td></td><td>::</td>
+  <td><strong>error</strong></td><td></td>
+  
+</tr>
+
+</tbody>
+</table>
+
+      
+    
+    
+        
+
+    </li>
+  </ul>
+</div>
+
+    
+	   
+<div class="panel panel-default">
+  <div class="panel-heading codesum"><span class="anchor" id="interface-abstract_init"></span><h3>abstract interface
+    
+  </h3></div>
+  
+  <ul class="list-group">
+    <li class="list-group-item">
+    
+    
+    <h3>
+private subroutine <a href='../interface/abstract_init.html'>abstract_init</a>(this, fieldmesh, description, error)
+    
+    
+    
+</h3>
+    
+    <h4>Arguments</h4>
+    
+      
+      
+<table class="table table-striped varlist">
+<thead><tr><th>Type</th>
+<th>Intent</th><th>Optional</th>
+<th>Attributes</th><th></th><th>Name</th><th></th></thead>
+
+
+
+<tbody>
+
+  
+  
+  
+  
+<tr>
+  
+  <td><span class="anchor" ></span>class(<a href='../type/field.html'>field</a>),</td>
+  <td>intent(inout)</td>
+  <td></td>
+  
+  <td></td><td>::</td>
+  <td><strong>this</strong></td><td></td>
+  
+</tr>
+
+  
+  
+  
+  
+<tr>
+  
+  <td><span class="anchor" ></span>class(<a href='../type/mesh.html'>mesh</a>),</td>
+  <td>intent(in),</td>
+  <td></td>
+  
+  <td>target</td><td>::</td>
+  <td><strong>fieldmesh</strong></td><td></td>
+  
+</tr>
+
+  
+  
+  
+  
+<tr>
+  
+  <td><span class="anchor" ></span>character(len=*),</td>
+  <td>intent(in),</td>
+  <td>optional</td>
+  
+  <td></td><td>::</td>
+  <td><strong>description</strong></td><td></td>
+  
+</tr>
+
+  
+  
+  
+  
+<tr>
+  
+  <td><span class="anchor" ></span>integer(kind=I4P),</td>
+  <td>intent(out),</td>
+  <td>optional</td>
+  
+  <td></td><td>::</td>
+  <td><strong>error</strong></td><td></td>
+  
+</tr>
+
+</tbody>
+</table>
+
+      
+    
+    
+        
+
+    </li>
+  </ul>
+</div>
+
+    
+	   
+<div class="panel panel-default">
+  <div class="panel-heading codesum"><span class="anchor" id="interface-abstract_output"></span><h3>abstract interface
+    
+  </h3></div>
+  
+  <ul class="list-group">
+    <li class="list-group-item">
+    
+    
+    <h3>
+private subroutine <a href='../interface/abstract_output.html'>abstract_output</a>(this, filename, error)
+    
+    
+    
+</h3>
+    
+    <h4>Arguments</h4>
+    
+      
+      
+<table class="table table-striped varlist">
+<thead><tr><th>Type</th>
+<th>Intent</th><th>Optional</th>
+<th>Attributes</th><th></th><th>Name</th><th></th></thead>
+
+
+
+<tbody>
+
+  
+  
+  
+  
+<tr>
+  
+  <td><span class="anchor" ></span>class(<a href='../type/field.html'>field</a>),</td>
+  <td>intent(in)</td>
+  <td></td>
+  
+  <td></td><td>::</td>
+  <td><strong>this</strong></td><td></td>
+  
+</tr>
+
+  
+  
+  
+  
+<tr>
+  
+  <td><span class="anchor" ></span>character(len=*),</td>
+  <td>intent(in)</td>
+  <td></td>
+  
+  <td></td><td>::</td>
+  <td><strong>filename</strong></td><td></td>
+  
+</tr>
+
+  
+  
+  
+  
+<tr>
+  
+  <td><span class="anchor" ></span>integer(kind=I4P),</td>
+  <td>intent(out),</td>
+  <td>optional</td>
+  
+  <td></td><td>::</td>
+  <td><strong>error</strong></td><td></td>
+  
+</tr>
+
+</tbody>
+</table>
+
+      
+    
+    
+        
+
+    </li>
+  </ul>
+</div>
+
+    
+    </section>
+	<br>
+    
+    
+    
+    <section>
+     <h2>Derived Types</h2>
+	 
+	   
+<div class="panel panel-default">
+  <div class="panel-heading codesum"><span class="anchor" id="type-field"></span><h3>type, public, abstract :: <a href='../type/field.html'>field</a>
+    
+  </h3></div>
+  <div class="panel-body">
+     
+     <h4>Components</h4>
+    
+<table class="table table-striped varlist">
+<thead><tr><th>Type</th><th>Visibility</th>
+
+<th>Attributes</th><th></th><th>Name</th><th></th><th>Initial</th><th></th></thead>
+
+
+
+<tbody>
+
+  
+  
+  
+  
+<tr>
+  
+  <td><span class="anchor" id="variable-description"></span>character(len=:),</td>
+  
+  <td>public,</td>
+  <td>allocatable</td><td>::</td>
+  <td><strong>description</strong></td><td></td><td></td><td><p>Field description.</p></td>
+  
+</tr>
+
+  
+  
+  
+  
+<tr>
+  
+  <td><span class="anchor" id="variable-m"></span>class(<a href='../type/mesh.html'>mesh</a>),</td>
+  
+  <td>public,</td>
+  <td>pointer</td><td>::</td>
+  <td><strong>m</strong></td><td>=> </td><td>null()</td><td><p>Pointer to the mesh of the field.</p></td>
+  
+</tr>
+
+</tbody>
+</table>
+
+     
+     
+          
+     
+     <h4>Type-Bound Procedures</h4>
+      <table class="table table-striped varlist">
+      <tbody>
+      
+       <tr><td>procedure(abstract_simmetric_operator), private :: <strong>add</strong>  </td>
+       <td><p>Add fields.</p></td></tr>
+      
+       <tr><td>procedure(abstract_assign), private :: <strong>assign_field</strong>  </td>
+       <td><p>Assign fields.</p></td></tr>
+      
+       <tr><td>procedure(abstract_associate_mesh), private :: <strong>associate_mesh</strong>  </td>
+       <td><p>Associate field to a mesh.</p></td></tr>
+      
+       <tr><td>procedure(abstract_init), public :: <strong>init</strong>  </td>
+       <td><p>Initilize field.</p></td></tr>
+      
+       <tr><td>procedure(abstract_simmetric_operator), private :: <strong>mul</strong>  </td>
+       <td><p>Multiply fields.</p></td></tr>
+      
+       <tr><td>procedure(abstract_field_op_real), private :: <strong>mulreal</strong>  </td>
+       <td><p>Multiply field for real.</p></td></tr>
+      
+       <tr><td>procedure(abstract_output), public :: <strong>output</strong>  </td>
+       <td><p>Output field data.</p></td></tr>
+      
+       <tr><td>procedure(abstract_simmetric_operator), private :: <strong>sub</strong>  </td>
+       <td><p>Subtract fields.</p></td></tr>
+      
+       <tr><td>procedure(abstract_real_op_field), private, pass(rhs) :: <strong>realmul</strong>  </td>
+       <td><p>Multiply real for field.</p></td></tr>
+      
+       <tr><td>procedure, public :: <strong>free</strong>  </td>
+       <td><p>Free dynamic memory.</p></td></tr>
+      
+       <tr><td>generic, public :: <strong>operator(+)</strong>  => add </td>
+       <td><p>Operator <code>+</code> overloading.</p></td></tr>
+      
+       <tr><td>generic, public :: <strong>operator(*)</strong>  => mul, realmul, mulreal </td>
+       <td><p>Operator <code>*</code> overloading.</p></td></tr>
+      
+       <tr><td>generic, public :: <strong>operator(-)</strong>  => sub </td>
+       <td><p>Operator <code>-</code> overloading.</p></td></tr>
+      
+       <tr><td>generic, public :: <strong>assignment(=)</strong>  => assign_field </td>
+       <td><p>Assignment overloading.</p></td></tr>
+      
+       </tbody>
+       </table>
+     
+     
+     <h4>Description</h4>
+       
+       <p>Abstract class for <em>field</em> handling.</p>
+     
+  </div>
+</div>
+
+     
+    </section>
+	<br>
+    
+    
+    
+
+    
+    <section>
+    <h2>Subroutines</h2>
+    
+    
+  <div class="panel panel-default">
+  <div class="panel-heading codesum"><span class="anchor" id="proc-free%7E2"></span><h3>
+private elemental subroutine <a href='../proc/free%7E2.html'>free</a>(this)
+    
+    
+    
+</h3></div>
+  <div class="panel-body">
+       
+    
+    <h4>Arguments</h4>
+    
+      
+      
+<table class="table table-striped varlist">
+<thead><tr><th>Type</th>
+<th>Intent</th><th>Optional</th>
+<th>Attributes</th><th></th><th>Name</th><th></th></thead>
+
+
+
+<tbody>
+
+  
+  
+  
+  
+<tr>
+  
+  <td><span class="anchor" ></span>class(<a href='../type/field.html'>field</a>),</td>
+  <td>intent(inout)</td>
+  <td></td>
+  
+  <td></td><td>::</td>
+  <td><strong>this</strong></td><td><p>The mesh.</p></td>
+  
+</tr>
+
+</tbody>
+</table>
+
+      
+    
+    
+    
+    <h4>Description</h4>
+       
+       
+
+
+       
+       <p>Free dynamic memory.</p>
+        
+
+  </div>
+  </div>
+
+    
+    </section>    
+    <br>
+    
+    
+    
+    </div>
+  </div>
+
+    <hr>
+    <footer>
+      <div class="row">
+        <div class="col-md-4">&copy; 2016 </div>
+        <div class="col-md-4"><span class="text-center"> openpde was developed by Francesco Salvadore</span></div>
+        <div class="col-md-4">
+          <span class="pull-right">
+            Documentation generated by 
+            <a href="https://github.com/cmacmackin/ford">FORD</a>
+            
+          </span>
+        </div>
+      </div>
+      <br>
+    </footer>
+    </div> <!-- /container -->
+
+
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+<!--
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+-->
+    <script src="../js/bootstrap.min.js"></script>
+    <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+    <script src="../js/ie10-viewport-bug-workaround.js"></script>
+
+    <!-- MathJax JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Config({
+        TeX: { extensions: ['AMSmath.js','AMSsymbols.js','noErrors.js','noUndefined.js'], equationNumbers: { autoNumber: 'AMS' } },
+        jax: ['input/TeX','input/MathML','output/HTML-CSS'],
+        extensions: ['tex2jax.js','mml2jax.js','MathMenu.js','MathZoom.js'],
+        'HTML-CSS': { 
+           styles: { '.MathJax_Display, .MathJax .mo, .MathJax .mi, .MathJax .mn': {color: '#000000 ! important'} }
+        }
+      });
+    </script>
+    <script src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+  </body>
+</html>

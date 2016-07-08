@@ -1,0 +1,406 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+	 
+    <meta name="description" content="Documentation for openpde">
+	 
+    <meta name="author" content="Chris MacMackin" >
+    <link rel="icon" href="../favicon.png">
+
+    <title>
+All Types &ndash; openpde
+</title>
+
+    <link href="../css/bootstrap.min.css" rel="stylesheet">
+    <link href="../css/pygments.css" rel="stylesheet">
+    <link href="../css/font-awesome.min.css" rel="stylesheet">
+    <link href="../css/local.css" rel="stylesheet">
+    
+
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+    
+    <script src="../js/jquery-2.1.3.min.js"></script>
+    <script src="../js/svg-pan-zoom.min.js"></script>
+
+    
+    <script src="../tipuesearch/tipuesearch_content.js"></script>
+    <link  href="../tipuesearch/tipuesearch.css" rel="stylesheet">
+    <script src="../tipuesearch/tipuesearch_set.js"></script>
+    <script src="../tipuesearch/tipuesearch.js"></script>
+    
+
+  </head>
+
+  <body>
+
+    <!-- Fixed navbar -->
+    <nav class="navbar navbar-inverse navbar-fixed-top">
+      <div class="container">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="../index.html">openpde </a>
+        </div>
+        <div id="navbar" class="navbar-collapse collapse">
+          <ul class="nav navbar-nav">
+				
+                
+            <li><a href="../lists/files.html">Source Files</a></li>
+				
+				
+            <li><a href="../lists/modules.html">Modules</a></li>
+				
+				
+            <li><a href="../lists/procedures.html">Procedures</a></li>
+				
+				
+            <li><a href="../lists/absint.html">Abstract Interfaces</a></li>
+								
+            <li><a href="../lists/types.html">Derived Types</a></li>
+				
+				
+            <li><a href="../program/burgers.html">Program</a></li>
+				
+          </ul>
+        
+        <form action="../search.html" class="navbar-form navbar-right" role="search">
+        <div class="form-group">
+          <input type="text" class="form-control" placeholder="Search" name="q" id="tipue_search_input" autocomplete="off" required>
+        </div>
+<!--
+        <button type="submit" class="btn btn-default">Submit</button>
+-->
+        </form>
+        
+        </div><!--/.nav-collapse -->
+      </div>
+    </nav>
+
+    <div class="container">
+    
+      <div class="row">
+        <div class="col-lg-12" id='text'>
+			 <h1>Derived Types</h1>
+			 <table class="table table-striped nostretched">
+			 <thead>
+			 <tr><th>Type</th><th>Location</th><th>Extends</th><th>Description</th></tr>
+			 </thead><tbody>
+			 
+			   <tr><td><a href='../type/burgers_equation.html'>burgers_equation</a></td><td><a href='../module/myequations.html'>myequations</a></td><td><a href='../type/equation.html'>equation</a></td><td></td></tr>
+			 
+			   <tr><td><a href='../type/equation.html'>equation</a></td><td><a href='../module/opendiff_adt_equation.html'>opendiff_adt_equation</a></td><td>None</td><td><p>Abstract class for <em>equation</em> handling.</p></td></tr>
+			 
+			   <tr><td><a href='../type/field.html'>field</a></td><td><a href='../module/opendiff_adt_field.html'>opendiff_adt_field</a></td><td>None</td><td><p>Abstract class for <em>field</em> handling.</p></td></tr>
+			 
+			   <tr><td><a href='../type/field_fd_1d.html'>field_fd_1d</a></td><td><a href='../module/opendiff_field_fd_1d.html'>opendiff_field_fd_1d</a></td><td><a href='../type/field.html'>field</a></td><td><p>Finite difference 1D class for <em>field</em> handling.</p></td></tr>
+			 
+			   <tr><td><a href='../type/integrator.html'>integrator</a></td><td><a href='../module/opendiff_adt_integrator.html'>opendiff_adt_integrator</a></td><td>None</td><td><p>Abstract class for <em>integrator</em> handling.</p></td></tr>
+			 
+			   <tr><td><a href='../type/integrator_euler.html'>integrator_euler</a></td><td><a href='../module/opendiff_integrator_euler.html'>opendiff_integrator_euler</a></td><td><a href='../type/integrator.html'>integrator</a></td><td><p>Euler integrator.</p></td></tr>
+			 
+			   <tr><td><a href='../type/mesh.html'>mesh</a></td><td><a href='../module/opendiff_adt_mesh.html'>opendiff_adt_mesh</a></td><td>None</td><td><p>Abstract class for <em>mesh</em> handling.</p></td></tr>
+			 
+			   <tr><td><a href='../type/mesh_fd_1d.html'>mesh_fd_1d</a></td><td><a href='../module/opendiff_mesh_fd_1d.html'>opendiff_mesh_fd_1d</a></td><td><a href='../type/mesh.html'>mesh</a></td><td><p>Finite difference 1D class for <em>mesh</em> handling.</p></td></tr>
+			 
+			   <tr><td><a href='../type/spatial_operator.html'>spatial_operator</a></td><td><a href='../module/opendiff_adt_spatial_operator.html'>opendiff_adt_spatial_operator</a></td><td>None</td><td></td></tr>
+			 
+			   <tr><td><a href='../type/spatial_operator_der1.html'>spatial_operator_der1</a></td><td><a href='../module/opendiff_adt_spatial_operator_der1.html'>opendiff_adt_spatial_operator_der1</a></td><td><a href='../type/spatial_operator.html'>spatial_operator</a></td><td></td></tr>
+			 
+			   <tr><td><a href='../type/spatial_operator_der1_fd_1d.html'>spatial_operator_der1_fd_1d</a></td><td><a href='../module/opendiff_spatial_operator_der1_fd_1d.html'>opendiff_spatial_operator_der1_fd_1d</a></td><td><a href='../type/spatial_operator_der1.html'>spatial_operator_der1</a></td><td><p>Concrete class of spatial operator for 1D derivative for Finite Difference 1D.</p></td></tr>
+			 
+			 </tbody></table>
+             
+                <div class="depgraph"><?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
+ "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<!-- Generated by graphviz version 2.38.0 (20140413.2041)
+ -->
+<!-- Title: type~~graph~~TypeGraph Pages: 1 -->
+<svg id="typegraphTypeGraph" width="467pt" height="216pt"
+ viewBox="0.00 0.00 467.00 216.00" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<g id="type~~graph~~TypeGraph" class="graph" transform="scale(1 1) rotate(0) translate(4 212)">
+<title>type~~graph~~TypeGraph</title>
+<polygon fill="white" stroke="none" points="-4,4 -4,-212 463,-212 463,4 -4,4"/>
+<!-- type~equation -->
+<g id="type~~graph~~TypeGraph_node1" class="node"><title>type~equation</title>
+<g id="a_type~~graph~~TypeGraph_node1"><a xlink:href="../type/equation.html" xlink:title="equation">
+<polygon fill="#5cb85c" stroke="#5cb85c" points="221,-82 167,-82 167,-58 221,-58 221,-82"/>
+<text text-anchor="middle" x="194" y="-67.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">equation</text>
+</a>
+</g>
+</g>
+<!-- type~burgers_equation -->
+<g id="type~~graph~~TypeGraph_node5" class="node"><title>type~burgers_equation</title>
+<g id="a_type~~graph~~TypeGraph_node5"><a xlink:href="../type/burgers_equation.html" xlink:title="burgers_equation">
+<polygon fill="#5cb85c" stroke="#5cb85c" points="432,-74 335,-74 335,-50 432,-50 432,-74"/>
+<text text-anchor="middle" x="383.5" y="-59.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">burgers_equation</text>
+</a>
+</g>
+</g>
+<!-- type~equation&#45;&gt;type~burgers_equation -->
+<g id="type~~graph~~TypeGraph_edge4" class="edge"><title>type~equation&#45;&gt;type~burgers_equation</title>
+<path fill="none" stroke="#000000" d="M221.071,-68.8876C247.814,-67.7466 290.288,-65.9344 324.958,-64.4551"/>
+<polygon fill="#000000" stroke="#000000" points="325.132,-67.951 334.974,-64.0278 324.834,-60.9573 325.132,-67.951"/>
+</g>
+<!-- type~mesh -->
+<g id="type~~graph~~TypeGraph_node2" class="node"><title>type~mesh</title>
+<g id="a_type~~graph~~TypeGraph_node2"><a xlink:href="../type/mesh.html" xlink:title="mesh">
+<polygon fill="#5cb85c" stroke="#5cb85c" points="72,-141 18,-141 18,-117 72,-117 72,-141"/>
+<text text-anchor="middle" x="45" y="-126.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">mesh</text>
+</a>
+</g>
+</g>
+<!-- type~field -->
+<g id="type~~graph~~TypeGraph_node4" class="node"><title>type~field</title>
+<g id="a_type~~graph~~TypeGraph_node4"><a xlink:href="../type/field.html" xlink:title="field">
+<polygon fill="#5cb85c" stroke="#5cb85c" points="221,-166 167,-166 167,-142 221,-142 221,-166"/>
+<text text-anchor="middle" x="194" y="-151.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">field</text>
+</a>
+</g>
+</g>
+<!-- type~mesh&#45;&gt;type~field -->
+<g id="type~~graph~~TypeGraph_edge2" class="edge"><title>type~mesh&#45;&gt;type~field</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M72.2807,-133.469C95.9019,-137.487 130.807,-143.423 157.016,-147.88"/>
+<polygon fill="#000000" stroke="#000000" points="156.502,-151.343 166.947,-149.569 157.675,-144.442 156.502,-151.343"/>
+<text text-anchor="middle" x="112.5" y="-142.4" font-family="Helvetica,sans-Serif" font-size="9.50">m</text>
+</g>
+<!-- type~mesh_fd_1d -->
+<g id="type~~graph~~TypeGraph_node7" class="node"><title>type~mesh_fd_1d</title>
+<g id="a_type~~graph~~TypeGraph_node7"><a xlink:href="../type/mesh_fd_1d.html" xlink:title="mesh_fd_1d">
+<polygon fill="#5cb85c" stroke="#5cb85c" points="230,-124 158,-124 158,-100 230,-100 230,-124"/>
+<text text-anchor="middle" x="194" y="-109.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">mesh_fd_1d</text>
+</a>
+</g>
+</g>
+<!-- type~mesh&#45;&gt;type~mesh_fd_1d -->
+<g id="type~~graph~~TypeGraph_edge6" class="edge"><title>type~mesh&#45;&gt;type~mesh_fd_1d</title>
+<path fill="none" stroke="#000000" d="M72.2807,-125.961C93.1638,-123.546 122.866,-120.111 147.582,-117.252"/>
+<polygon fill="#000000" stroke="#000000" points="148.298,-120.693 157.829,-116.067 147.493,-113.739 148.298,-120.693"/>
+</g>
+<!-- type~spatial_operator_der1 -->
+<g id="type~~graph~~TypeGraph_node3" class="node"><title>type~spatial_operator_der1</title>
+<g id="a_type~~graph~~TypeGraph_node3"><a xlink:href="../type/spatial_operator_der1.html" xlink:title="spatial_operator_der1">
+<polygon fill="#5cb85c" stroke="#5cb85c" points="253,-32 135,-32 135,-8 253,-8 253,-32"/>
+<text text-anchor="middle" x="194" y="-17.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">spatial_operator_der1</text>
+</a>
+</g>
+</g>
+<!-- type~spatial_operator_der1&#45;&gt;type~burgers_equation -->
+<g id="type~~graph~~TypeGraph_edge3" class="edge"><title>type~spatial_operator_der1&#45;&gt;type~burgers_equation</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M248.73,-32.0355C272.603,-37.383 300.738,-43.6852 325.03,-49.1267"/>
+<polygon fill="#000000" stroke="#000000" points="324.307,-52.5515 334.831,-51.3221 325.838,-45.7208 324.307,-52.5515"/>
+<text text-anchor="middle" x="280.5" y="-43.4" font-family="Helvetica,sans-Serif" font-size="9.50">der1</text>
+</g>
+<!-- type~spatial_operator_der1_fd_1d -->
+<g id="type~~graph~~TypeGraph_node9" class="node"><title>type~spatial_operator_der1_fd_1d</title>
+<g id="a_type~~graph~~TypeGraph_node9"><a xlink:href="../type/spatial_operator_der1_fd_1d.html" xlink:title="spatial_operator_der1_fd_1d">
+<polygon fill="#5cb85c" stroke="#5cb85c" points="459,-24 308,-24 308,-0 459,-0 459,-24"/>
+<text text-anchor="middle" x="383.5" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">spatial_operator_der1_fd_1d</text>
+</a>
+</g>
+</g>
+<!-- type~spatial_operator_der1&#45;&gt;type~spatial_operator_der1_fd_1d -->
+<g id="type~~graph~~TypeGraph_edge8" class="edge"><title>type~spatial_operator_der1&#45;&gt;type~spatial_operator_der1_fd_1d</title>
+<path fill="none" stroke="#000000" d="M253.042,-17.5235C267.111,-16.9233 282.442,-16.2691 297.471,-15.6279"/>
+<polygon fill="#000000" stroke="#000000" points="297.967,-19.11 307.808,-15.1868 297.668,-12.1164 297.967,-19.11"/>
+</g>
+<!-- type~field_fd_1d -->
+<g id="type~~graph~~TypeGraph_node8" class="node"><title>type~field_fd_1d</title>
+<g id="a_type~~graph~~TypeGraph_node8"><a xlink:href="../type/field_fd_1d.html" xlink:title="field_fd_1d">
+<polygon fill="#5cb85c" stroke="#5cb85c" points="416,-166 351,-166 351,-142 416,-142 416,-166"/>
+<text text-anchor="middle" x="383.5" y="-151.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">field_fd_1d</text>
+</a>
+</g>
+</g>
+<!-- type~field&#45;&gt;type~field_fd_1d -->
+<g id="type~~graph~~TypeGraph_edge7" class="edge"><title>type~field&#45;&gt;type~field_fd_1d</title>
+<path fill="none" stroke="#000000" d="M221.071,-154C251.935,-154 303.754,-154 340.344,-154"/>
+<polygon fill="#000000" stroke="#000000" points="340.7,-157.5 350.7,-154 340.7,-150.5 340.7,-157.5"/>
+</g>
+<!-- type~integrator_euler -->
+<g id="type~~graph~~TypeGraph_node6" class="node"><title>type~integrator_euler</title>
+<g id="a_type~~graph~~TypeGraph_node6"><a xlink:href="../type/integrator_euler.html" xlink:title="integrator_euler">
+<polygon fill="#5cb85c" stroke="#5cb85c" points="238,-208 150,-208 150,-184 238,-184 238,-208"/>
+<text text-anchor="middle" x="194" y="-193.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">integrator_euler</text>
+</a>
+</g>
+</g>
+<!-- type~integrator -->
+<g id="type~~graph~~TypeGraph_node10" class="node"><title>type~integrator</title>
+<g id="a_type~~graph~~TypeGraph_node10"><a xlink:href="../type/integrator.html" xlink:title="integrator">
+<polygon fill="#5cb85c" stroke="#5cb85c" points="74,-208 16,-208 16,-184 74,-184 74,-208"/>
+<text text-anchor="middle" x="45" y="-193.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">integrator</text>
+</a>
+</g>
+</g>
+<!-- type~integrator&#45;&gt;type~integrator_euler -->
+<g id="type~~graph~~TypeGraph_edge5" class="edge"><title>type~integrator&#45;&gt;type~integrator_euler</title>
+<path fill="none" stroke="#000000" d="M74.3431,-196C92.8533,-196 117.602,-196 139.707,-196"/>
+<polygon fill="#000000" stroke="#000000" points="139.975,-199.5 149.975,-196 139.975,-192.5 139.975,-199.5"/>
+</g>
+<!-- type~spatial_operator -->
+<g id="type~~graph~~TypeGraph_node11" class="node"><title>type~spatial_operator</title>
+<g id="a_type~~graph~~TypeGraph_node11"><a xlink:href="../type/spatial_operator.html" xlink:title="spatial_operator">
+<polygon fill="#5cb85c" stroke="#5cb85c" points="90,-32 0,-32 0,-8 90,-8 90,-32"/>
+<text text-anchor="middle" x="45" y="-17.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">spatial_operator</text>
+</a>
+</g>
+</g>
+<!-- type~spatial_operator&#45;&gt;type~spatial_operator_der1 -->
+<g id="type~~graph~~TypeGraph_edge1" class="edge"><title>type~spatial_operator&#45;&gt;type~spatial_operator_der1</title>
+<path fill="none" stroke="#000000" d="M90.1048,-20C100.963,-20 112.846,-20 124.556,-20"/>
+<polygon fill="#000000" stroke="#000000" points="124.773,-23.5001 134.773,-20 124.773,-16.5001 124.773,-23.5001"/>
+</g>
+</g>
+</svg>
+</div>
+                <div><a type="button" class="graph-help" data-toggle="modal" href="#graph-help-text">Help</a></div>
+                <div class="modal fade" id="graph-help-text" tabindex="-1" role="dialog">
+                  <div class="modal-dialog modal-lg" role="document">
+                    <div class="modal-content">
+                      <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                        <h4 class="modal-title" id="-graph-help-label">Graph Key</h4>
+                      </div>
+                      <div class="modal-body">
+                        
+Nodes of different colours represent the following:
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
+ "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<!-- Generated by graphviz version 2.38.0 (20140413.2041)
+ -->
+<!-- Title: Graph Key Pages: 1 -->
+<svg width="641pt" height="26pt"
+ viewBox="0.00 0.00 641.00 25.98" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<g id="graph0" class="graph" transform="scale(0.811906 0.811906) rotate(0) translate(4 28)">
+<title>Graph Key</title>
+<polygon fill="white" stroke="none" points="-4,4 -4,-28 785.5,-28 785.5,4 -4,4"/>
+<!-- Module -->
+<g id="node1" class="node"><title>Module</title>
+<polygon fill="#337ab7" stroke="#337ab7" points="54,-24 0,-24 0,-0 54,-0 54,-24"/>
+<text text-anchor="middle" x="27" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">Module</text>
+</g>
+<!-- Submodule -->
+<g id="node2" class="node"><title>Submodule</title>
+<polygon fill="#5bc0de" stroke="#5bc0de" points="139.5,-24 72.5,-24 72.5,-0 139.5,-0 139.5,-24"/>
+<text text-anchor="middle" x="106" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">Submodule</text>
+</g>
+<!-- Type -->
+<g id="node3" class="node"><title>Type</title>
+<polygon fill="#5cb85c" stroke="#5cb85c" points="212,-24 158,-24 158,-0 212,-0 212,-24"/>
+<text text-anchor="middle" x="185" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">Type</text>
+</g>
+<!-- Subroutine -->
+<g id="node4" class="node"><title>Subroutine</title>
+<polygon fill="#d9534f" stroke="#d9534f" points="294,-24 230,-24 230,-0 294,-0 294,-24"/>
+<text text-anchor="middle" x="262" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">Subroutine</text>
+</g>
+<!-- Function -->
+<g id="node5" class="node"><title>Function</title>
+<polygon fill="#d94e8f" stroke="#d94e8f" points="366,-24 312,-24 312,-0 366,-0 366,-24"/>
+<text text-anchor="middle" x="339" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">Function</text>
+</g>
+<!-- Interface -->
+<g id="node6" class="node"><title>Interface</title>
+<polygon fill="#a7506f" stroke="#a7506f" points="439.5,-24 384.5,-24 384.5,-0 439.5,-0 439.5,-24"/>
+<text text-anchor="middle" x="412" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">Interface</text>
+</g>
+<!-- Unknown Procedure Type -->
+<g id="node7" class="node"><title>Unknown Procedure Type</title>
+<polygon fill="#777777" stroke="#777777" points="594,-24 458,-24 458,-0 594,-0 594,-24"/>
+<text text-anchor="middle" x="526" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">Unknown Procedure Type</text>
+</g>
+<!-- Program -->
+<g id="node8" class="node"><title>Program</title>
+<polygon fill="#f0ad4e" stroke="#f0ad4e" points="666,-24 612,-24 612,-0 666,-0 666,-24"/>
+<text text-anchor="middle" x="639" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">Program</text>
+</g>
+<!-- This Page&#39;s Entity -->
+<g id="node9" class="node"><title>This Page&#39;s Entity</title>
+<polygon fill="none" stroke="black" points="781.5,-24 684.5,-24 684.5,-0 781.5,-0 781.5,-24"/>
+<text text-anchor="middle" x="733" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50">This Page&#39;s Entity</text>
+</g>
+</g>
+</svg>
+
+Where possible, edges connecting nodes are given different colours to make them
+easier to distinguish in large graphs.
+<h5>Module Graph</h5>
+<p>Solid arrows point from a parent (sub)module to the submodule which is
+descended from it. Dashed arrows point from a module being used to the
+module using it.</p>
+<h5>Type Graph</h5>
+<p>Solid arrows point from one derived type to another which extends
+(inherits from) it. Dashed arrows point from a derived type to another
+type containing it as a components, with a label listing the name(s) of
+said component(s).</p>
+<h5>Call Graph</h5>
+<p>Solid arrows point from a procedure to one which it calls. Dashed 
+arrows point from an interface to procedures which implement that interface.
+This could include the module procedures in a generic interface or the
+implementation in a submodule of an interface in a parent module.</p>
+
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                
+        </div>
+      </div>
+
+    <hr>
+    <footer>
+      <div class="row">
+        <div class="col-md-4">&copy; 2016 </div>
+        <div class="col-md-4"><span class="text-center"> openpde was developed by Francesco Salvadore</span></div>
+        <div class="col-md-4">
+          <span class="pull-right">
+            Documentation generated by 
+            <a href="https://github.com/cmacmackin/ford">FORD</a>
+            
+          </span>
+        </div>
+      </div>
+      <br>
+    </footer>
+    </div> <!-- /container -->
+
+
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+<!--
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+-->
+    <script src="../js/bootstrap.min.js"></script>
+    <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+    <script src="../js/ie10-viewport-bug-workaround.js"></script>
+
+    <!-- MathJax JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Config({
+        TeX: { extensions: ['AMSmath.js','AMSsymbols.js','noErrors.js','noUndefined.js'], equationNumbers: { autoNumber: 'AMS' } },
+        jax: ['input/TeX','input/MathML','output/HTML-CSS'],
+        extensions: ['tex2jax.js','mml2jax.js','MathMenu.js','MathZoom.js'],
+        'HTML-CSS': { 
+           styles: { '.MathJax_Display, .MathJax .mo, .MathJax .mi, .MathJax .mn': {color: '#000000 ! important'} }
+        }
+      });
+    </script>
+    <script src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+  </body>
+</html>
