@@ -263,12 +263,12 @@ private function operate(this, inp) result(opr)
   
 <tr>
   
-  <td><span class="anchor" id="variable-this%7E18"></span>class(<a href='../type/spatial_operator_der1_fd_1d.html'>spatial_operator_der1_fd_1d</a>)</td>
-  <td></td>
+  <td><span class="anchor" id="variable-this%7E18"></span>class(<a href='../type/spatial_operator_der1_fd_1d.html'>spatial_operator_der1_fd_1d</a>),</td>
+  <td>intent(in)</td>
   <td></td>
   
   <td></td><td>::</td>
-  <td><strong>this</strong></td><td></td>
+  <td><strong>this</strong></td><td><p>The operator.</p></td>
   
 </tr>
 
@@ -279,11 +279,11 @@ private function operate(this, inp) result(opr)
 <tr>
   
   <td><span class="anchor" id="variable-inp%7E5"></span>class(<a href='../type/field.html'>field</a>),</td>
-  <td>,</td>
+  <td>intent(in),</td>
   <td></td>
   
   <td>target</td><td>::</td>
-  <td><strong>inp</strong></td><td></td>
+  <td><strong>inp</strong></td><td><p>Input field.</p></td>
   
 </tr>
 
@@ -299,8 +299,11 @@ private function operate(this, inp) result(opr)
     
 	 <h3>Return Value <small><span class="anchor" id="variable-opr%7E11"></span>class(<a href='../type/field.html'>field</a>),
   allocatable,target</small></h3>
+    <p>Field resulting after the operator application.</p>
     
     
+    <h3>Description</h3>
+    <p>Operator operation.</p>
     
     
      
@@ -328,7 +331,7 @@ private function operate(this, inp) result(opr)
   
   <td>public,</td>
   <td>pointer</td><td>::</td>
-  <td><strong>inp_cur</strong></td><td></td><td></td><td></td>
+  <td><strong>inp_cur</strong></td><td></td><td></td><td><p>Dummy pointer for input field.</p></td>
   
 </tr>
 
@@ -366,11 +369,11 @@ private function operate(this, inp) result(opr)
   
 <tr>
   
-  <td><span class="anchor" id="variable-h%7E2"></span>real(kind=R8P),</td>
+  <td><span class="anchor" id="variable-h%7E2"></span>real(kind=R_P),</td>
   
   <td>public</td>
   <td></td><td>::</td>
-  <td><strong>h</strong></td><td></td><td></td><td></td>
+  <td><strong>h</strong></td><td></td><td></td><td><p>Space step.</p></td>
   
 </tr>
 
@@ -380,11 +383,11 @@ private function operate(this, inp) result(opr)
   
 <tr>
   
-  <td><span class="anchor" id="variable-i"></span>integer,</td>
+  <td><span class="anchor" id="variable-i"></span>integer(kind=I_P),</td>
   
   <td>public</td>
   <td></td><td>::</td>
-  <td><strong>i</strong></td><td></td><td></td><td></td>
+  <td><strong>i</strong></td><td></td><td></td><td><p>Counter.</p></td>
   
 </tr>
 
@@ -394,11 +397,11 @@ private function operate(this, inp) result(opr)
   
 <tr>
   
-  <td><span class="anchor" id="variable-n%7E2"></span>integer,</td>
+  <td><span class="anchor" id="variable-n%7E2"></span>integer(kind=I_P),</td>
   
   <td>public</td>
   <td></td><td>::</td>
-  <td><strong>n</strong></td><td></td><td></td><td></td>
+  <td><strong>n</strong></td><td></td><td></td><td><p>Counter.</p></td>
   
 </tr>
 
@@ -426,14 +429,16 @@ private function operate(this, inp) result(opr)
     <section>
     <h2><span class="anchor" id="src"></span>Source Code</h2>
     <div class="highlight"><pre><span></span>    <span class="k">function </span><span class="n">operate</span><span class="p">(</span><span class="n">this</span><span class="p">,</span> <span class="n">inp</span><span class="p">)</span> <span class="k">result</span><span class="p">(</span><span class="n">opr</span><span class="p">)</span>
-        <span class="k">class</span><span class="p">(</span><span class="n">spatial_operator_der1_fd_1d</span><span class="p">)</span> <span class="kd">::</span> <span class="n">this</span>
-        <span class="k">class</span><span class="p">(</span><span class="n">field</span><span class="p">),</span> <span class="k">target</span>               <span class="kd">::</span> <span class="n">inp</span>
-        <span class="k">class</span><span class="p">(</span><span class="n">field_fd_1d</span><span class="p">),</span> <span class="k">pointer</span>        <span class="kd">::</span> <span class="n">inp_cur</span>
-        <span class="k">class</span><span class="p">(</span><span class="n">field</span><span class="p">),</span> <span class="k">allocatable</span><span class="p">,</span> <span class="k">target</span>  <span class="kd">::</span> <span class="n">opr</span>
-        <span class="k">class</span><span class="p">(</span><span class="n">field_fd_1d</span><span class="p">),</span> <span class="k">pointer</span>        <span class="kd">::</span> <span class="n">opr_cur</span>  <span class="c">!&lt; Dummy pointer for operator result.</span>
-        <span class="k">class</span><span class="p">(</span><span class="n">mesh_fd_1d</span><span class="p">),</span>  <span class="k">pointer</span>        <span class="kd">::</span> <span class="n">mesh_cur</span> <span class="c">!&lt; Dummy pointer for mesh.</span>
-        <span class="kt">real</span><span class="p">(</span><span class="n">R8P</span><span class="p">)</span>                          <span class="kd">::</span> <span class="n">h</span>
-        <span class="kt">integer</span>                            <span class="kd">::</span> <span class="n">i</span><span class="p">,</span> <span class="n">n</span>
+        <span class="c">!&lt; Operator operation.</span>
+        <span class="k">class</span><span class="p">(</span><span class="n">spatial_operator_der1_fd_1d</span><span class="p">),</span> <span class="k">intent</span><span class="p">(</span><span class="n">in</span><span class="p">)</span>         <span class="kd">::</span> <span class="n">this</span>     <span class="c">!&lt; The operator.</span>
+        <span class="k">class</span><span class="p">(</span><span class="n">field</span><span class="p">),</span>                       <span class="k">intent</span><span class="p">(</span><span class="n">in</span><span class="p">),</span> <span class="k">target</span> <span class="kd">::</span> <span class="n">inp</span>      <span class="c">!&lt; Input field.</span>
+        <span class="k">class</span><span class="p">(</span><span class="n">field</span><span class="p">),</span> <span class="k">allocatable</span><span class="p">,</span> <span class="k">target</span>                      <span class="kd">::</span> <span class="n">opr</span>      <span class="c">!&lt; Field resulting after the operator application.</span>
+        <span class="k">class</span><span class="p">(</span><span class="n">field_fd_1d</span><span class="p">),</span> <span class="k">pointer</span>                            <span class="kd">::</span> <span class="n">inp_cur</span>  <span class="c">!&lt; Dummy pointer for input field.</span>
+        <span class="k">class</span><span class="p">(</span><span class="n">field_fd_1d</span><span class="p">),</span> <span class="k">pointer</span>                            <span class="kd">::</span> <span class="n">opr_cur</span>  <span class="c">!&lt; Dummy pointer for operator result.</span>
+        <span class="k">class</span><span class="p">(</span><span class="n">mesh_fd_1d</span><span class="p">),</span>  <span class="k">pointer</span>                            <span class="kd">::</span> <span class="n">mesh_cur</span> <span class="c">!&lt; Dummy pointer for mesh.</span>
+        <span class="kt">real</span><span class="p">(</span><span class="n">R_P</span><span class="p">)</span>                                              <span class="kd">::</span> <span class="n">h</span>        <span class="c">!&lt; Space step.</span>
+        <span class="kt">integer</span><span class="p">(</span><span class="n">I_P</span><span class="p">)</span>                                           <span class="kd">::</span> <span class="n">i</span>        <span class="c">!&lt; Counter.</span>
+        <span class="kt">integer</span><span class="p">(</span><span class="n">I_P</span><span class="p">)</span>                                           <span class="kd">::</span> <span class="n">n</span>        <span class="c">!&lt; Counter.</span>
         <span class="k">allocate</span><span class="p">(</span><span class="n">field_fd_1d</span> <span class="kd">::</span> <span class="n">opr</span><span class="p">)</span>
         <span class="k">select type</span><span class="p">(</span><span class="n">opr</span><span class="p">)</span>
             <span class="k">type is</span><span class="p">(</span><span class="n">field_fd_1d</span><span class="p">)</span>
@@ -515,6 +520,6 @@ private function operate(this, inp) result(opr)
         }
       });
     </script>
-    <script src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
   </body>
 </html>

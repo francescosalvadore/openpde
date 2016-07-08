@@ -344,7 +344,7 @@ implementation in a submodule of an interface in a parent module.</p>
                 
     <br><br>
     
-    <p>Concrete class of spatial operator for 1D derivative for Finite Difference 1D.</p>
+    <p>Concrete class of spatial operator for first derivative for Finite Difference 1D.</p>
     <br>
     
     
@@ -402,12 +402,12 @@ private function <a href='../proc/operate.html'>operate</a>(this, inp) result(op
   
 <tr>
   
-  <td><span class="anchor" ></span>class(<a href='../type/spatial_operator_der1_fd_1d.html'>spatial_operator_der1_fd_1d</a>)</td>
-  <td></td>
+  <td><span class="anchor" ></span>class(<a href='../type/spatial_operator_der1_fd_1d.html'>spatial_operator_der1_fd_1d</a>),</td>
+  <td>intent(in)</td>
   <td></td>
   
   <td></td><td>::</td>
-  <td><strong>this</strong></td><td></td>
+  <td><strong>this</strong></td><td><p>The operator.</p></td>
   
 </tr>
 
@@ -418,11 +418,11 @@ private function <a href='../proc/operate.html'>operate</a>(this, inp) result(op
 <tr>
   
   <td><span class="anchor" ></span>class(<a href='../type/field.html'>field</a>),</td>
-  <td>,</td>
+  <td>intent(in),</td>
   <td></td>
   
   <td>target</td><td>::</td>
-  <td><strong>inp</strong></td><td></td>
+  <td><strong>inp</strong></td><td><p>Input field.</p></td>
   
 </tr>
 
@@ -439,8 +439,16 @@ private function <a href='../proc/operate.html'>operate</a>(this, inp) result(op
   
      <h4>Return Value <small>class(<a href='../type/field.html'>field</a>),
   allocatable,target</small></h4>
-  
+  <p>Field resulting after the operator application.</p>
     
+    
+    <h4>Description</h4>
+       
+       
+
+
+       
+       <p>Operator operation.</p>
         
 
       
@@ -457,7 +465,7 @@ private function <a href='../proc/operate.html'>operate</a>(this, inp) result(op
     <section>
     <h2><span class="anchor" id="src"></span>Source Code</h2>
     <div class="highlight"><pre><span></span>    <span class="k">type</span><span class="p">,</span> <span class="k">extends</span><span class="p">(</span><span class="n">spatial_operator_der1</span><span class="p">)</span> <span class="kd">::</span> <span class="n">spatial_operator_der1_fd_1d</span>
-        <span class="c">!&lt; Concrete class of spatial operator for 1D derivative for Finite Difference 1D.</span>
+        <span class="c">!&lt; Concrete class of spatial operator for first derivative for Finite Difference 1D.</span>
         <span class="k">contains</span>
 <span class="k">            procedure</span> <span class="kd">::</span> <span class="n">operate</span> <span class="c">!&lt; Operator operation.</span>
     <span class="n">endtype</span> <span class="n">spatial_operator_der1_fd_1d</span>
@@ -510,6 +518,6 @@ private function <a href='../proc/operate.html'>operate</a>(this, inp) result(op
         }
       });
     </script>
-    <script src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
   </body>
 </html>

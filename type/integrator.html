@@ -383,11 +383,11 @@ implementation in a submodule of an interface in a parent module.</p>
   
 <tr>
   
-  <td><span class="anchor" id="variable-dt"></span>real(kind=R8P),</td>
+  <td><span class="anchor" id="variable-dt"></span>real(kind=R_P),</td>
   
   <td>public</td>
   <td></td><td>::</td>
-  <td><strong>dt</strong></td><td> =</td><td>0._R8P</td><td><p>Time step.</p></td>
+  <td><strong>dt</strong></td><td> =</td><td>0._R_P</td><td><p>Time step.</p></td>
   
 </tr>
 
@@ -504,7 +504,7 @@ private elemental subroutine <a href='../proc/free%7E4.html'>free</a>(this)
             
     
     <h3>
-function <a href='../interface/abstract_integrate.html'>abstract_integrate</a>(this, equ, t, inp) result(res)
+function <a href='../interface/abstract_integrate.html'>abstract_integrate</a>(this, equ, t, inp) result(error)
     
     
     
@@ -534,7 +534,7 @@ function <a href='../interface/abstract_integrate.html'>abstract_integrate</a>(t
   <td></td>
   
   <td></td><td>::</td>
-  <td><strong>this</strong></td><td></td>
+  <td><strong>this</strong></td><td><p>The integrator.</p></td>
   
 </tr>
 
@@ -549,7 +549,7 @@ function <a href='../interface/abstract_integrate.html'>abstract_integrate</a>(t
   <td></td>
   
   <td>target</td><td>::</td>
-  <td><strong>equ</strong></td><td></td>
+  <td><strong>equ</strong></td><td><p>The equation.</p></td>
   
 </tr>
 
@@ -559,12 +559,12 @@ function <a href='../interface/abstract_integrate.html'>abstract_integrate</a>(t
   
 <tr>
   
-  <td><span class="anchor" ></span>real(kind=R8P),</td>
+  <td><span class="anchor" ></span>real(kind=R_P),</td>
   <td>intent(in)</td>
   <td></td>
   
   <td></td><td>::</td>
-  <td><strong>t</strong></td><td></td>
+  <td><strong>t</strong></td><td><p>Time.</p></td>
   
 </tr>
 
@@ -579,7 +579,7 @@ function <a href='../interface/abstract_integrate.html'>abstract_integrate</a>(t
   <td></td>
   
   <td>target</td><td>::</td>
-  <td><strong>inp</strong></td><td></td>
+  <td><strong>inp</strong></td><td><p>Input field.</p></td>
   
 </tr>
 
@@ -594,10 +594,18 @@ function <a href='../interface/abstract_integrate.html'>abstract_integrate</a>(t
   
   
   
-     <h4>Return Value <small>integer
+     <h4>Return Value <small>integer(kind=I_P)
   </small></h4>
-  
+  <p>Error status.</p>
     
+    
+    <h4>Description</h4>
+       
+       
+
+
+       
+       <p>Integrate the field accordingly the equation.</p>
         
 
          
@@ -617,7 +625,7 @@ function <a href='../interface/abstract_integrate.html'>abstract_integrate</a>(t
     <div class="highlight"><pre><span></span>    <span class="k">type</span><span class="p">,</span> <span class="k">abstract</span> <span class="kd">::</span> <span class="n">integrator</span>
         <span class="c">!&lt; Abstract class for *integrator* handling.</span>
         <span class="kt">character</span><span class="p">(</span><span class="nb">len</span><span class="o">=</span><span class="p">:),</span> <span class="k">allocatable</span> <span class="kd">::</span> <span class="n">description</span> <span class="c">!&lt; Mesh description.</span>
-        <span class="kt">real</span><span class="p">(</span><span class="n">R8P</span><span class="p">)</span>                     <span class="kd">::</span> <span class="n">dt</span><span class="o">=</span><span class="mf">0._R8P</span>   <span class="c">!&lt; Time step.</span>
+        <span class="kt">real</span><span class="p">(</span><span class="n">R_P</span><span class="p">)</span>                     <span class="kd">::</span> <span class="n">dt</span><span class="o">=</span><span class="mf">0._R_P</span>   <span class="c">!&lt; Time step.</span>
         <span class="k">contains</span>
 <span class="k">            procedure</span>                               <span class="kd">::</span> <span class="n">free</span>      <span class="c">!&lt; Free dynamic memory.</span>
             <span class="k">procedure</span><span class="p">(</span><span class="n">abstract_integrate</span><span class="p">),</span> <span class="k">deferred</span> <span class="kd">::</span> <span class="n">integrate</span> <span class="c">!&lt; Integrate the field accordingly the equation.</span>
@@ -671,6 +679,6 @@ function <a href='../interface/abstract_integrate.html'>abstract_integrate</a>(t
         }
       });
     </script>
-    <script src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
   </body>
 </html>

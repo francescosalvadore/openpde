@@ -13,23 +13,27 @@ module opendiff_adt_mesh
         contains
             procedure                                 :: free   !< Free dynamic memory.
             procedure(abstract_meshinit),    deferred :: init   !< Initilize mesh.
-            procedure(abstract_meshoutput) , deferred :: output !< Output mesh data.
+            procedure(abstract_meshoutput) , deferred :: output !< Output mesh.
     endtype mesh
 
     abstract interface
+        !< Initialize mesh.
         subroutine abstract_meshinit(this, description, error)
-            import :: I4P, mesh
-            class(mesh),  intent(inout)         :: this
-            character(*), intent(in),  optional :: description
-            integer(I4P), intent(out), optional :: error
+            !< Initialize mesh.
+            import :: I_P, mesh
+            class(mesh),  intent(inout)         :: this        !< The mesh.
+            character(*), intent(in),  optional :: description !< Mesh description.
+            integer(I_P), intent(out), optional :: error       !< Error status.
         end subroutine abstract_meshinit
     endinterface
 
     abstract interface
+        !< Output mesh.
         subroutine abstract_meshoutput(this, error)
-            import :: I4P, mesh
-            class(mesh),  intent(in)            :: this
-            integer(I4P), intent(out), optional :: error
+            !< Output mesh.
+            import :: I_P, mesh
+            class(mesh),  intent(in)            :: this  !< The mesh.
+            integer(I_P), intent(out), optional :: error !< Error status.
         end subroutine abstract_meshoutput
     endinterface
 contains

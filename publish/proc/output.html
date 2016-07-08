@@ -271,7 +271,7 @@ private subroutine output(this, filename, error)
   
 <tr>
   
-  <td><span class="anchor" id="variable-error%7E8"></span>integer(kind=I4P),</td>
+  <td><span class="anchor" id="variable-error%7E10"></span>integer(kind=I_P),</td>
   <td>intent(out),</td>
   <td>optional</td>
   
@@ -314,7 +314,7 @@ private subroutine output(this, filename, error)
         <span class="c">!&lt; Output field data.</span>
         <span class="k">class</span><span class="p">(</span><span class="n">field_fd_1d</span><span class="p">),</span> <span class="k">intent</span><span class="p">(</span><span class="n">in</span><span class="p">)</span>            <span class="kd">::</span> <span class="n">this</span>     <span class="c">!&lt; The field.</span>
         <span class="kt">character</span><span class="p">(</span><span class="nb">len</span><span class="o">=*</span><span class="p">),</span>   <span class="k">intent</span><span class="p">(</span><span class="n">in</span><span class="p">)</span>            <span class="kd">::</span> <span class="n">filename</span> <span class="c">!&lt; Output file name.</span>
-        <span class="kt">integer</span><span class="p">(</span><span class="n">I4P</span><span class="p">),</span>       <span class="k">intent</span><span class="p">(</span><span class="n">out</span><span class="p">),</span> <span class="k">optional</span> <span class="kd">::</span> <span class="n">error</span>    <span class="c">!&lt; Error status.</span>
+        <span class="kt">integer</span><span class="p">(</span><span class="n">I_P</span><span class="p">),</span>       <span class="k">intent</span><span class="p">(</span><span class="n">out</span><span class="p">),</span> <span class="k">optional</span> <span class="kd">::</span> <span class="n">error</span>    <span class="c">!&lt; Error status.</span>
         <span class="k">open</span><span class="p">(</span><span class="n">unit</span><span class="o">=</span><span class="mi">11</span><span class="p">,</span><span class="k">file</span><span class="o">=</span><span class="n">filename</span><span class="p">)</span>
         <span class="k">write</span><span class="p">(</span><span class="mi">11</span><span class="p">,</span><span class="o">*</span><span class="p">)</span> <span class="n">this</span><span class="p">%</span><span class="n">val</span><span class="p">(:)</span>
         <span class="k">close</span><span class="p">(</span><span class="mi">11</span><span class="p">)</span>
@@ -370,6 +370,6 @@ private subroutine output(this, filename, error)
         }
       });
     </script>
-    <script src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
   </body>
 </html>

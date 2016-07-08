@@ -218,30 +218,31 @@
 <a name="ln-12"></a>    <span class="k">type</span><span class="p">,</span> <span class="k">abstract</span> <span class="kd">::</span> <span class="n">integrator</span>
 <a name="ln-13"></a>        <span class="c">!&lt; Abstract class for *integrator* handling.</span>
 <a name="ln-14"></a>        <span class="kt">character</span><span class="p">(</span><span class="nb">len</span><span class="o">=</span><span class="p">:),</span> <span class="k">allocatable</span> <span class="kd">::</span> <span class="n">description</span> <span class="c">!&lt; Mesh description.</span>
-<a name="ln-15"></a>        <span class="kt">real</span><span class="p">(</span><span class="n">R8P</span><span class="p">)</span>                     <span class="kd">::</span> <span class="n">dt</span><span class="o">=</span><span class="mf">0._R8P</span>   <span class="c">!&lt; Time step.</span>
+<a name="ln-15"></a>        <span class="kt">real</span><span class="p">(</span><span class="n">R_P</span><span class="p">)</span>                     <span class="kd">::</span> <span class="n">dt</span><span class="o">=</span><span class="mf">0._R_P</span>   <span class="c">!&lt; Time step.</span>
 <a name="ln-16"></a>        <span class="k">contains</span>
 <a name="ln-17"></a><span class="k">            procedure</span>                               <span class="kd">::</span> <span class="n">free</span>      <span class="c">!&lt; Free dynamic memory.</span>
 <a name="ln-18"></a>            <span class="k">procedure</span><span class="p">(</span><span class="n">abstract_integrate</span><span class="p">),</span> <span class="k">deferred</span> <span class="kd">::</span> <span class="n">integrate</span> <span class="c">!&lt; Integrate the field accordingly the equation.</span>
 <a name="ln-19"></a>    <span class="n">endtype</span> <span class="n">integrator</span>
 <a name="ln-20"></a>
 <a name="ln-21"></a>    <span class="k">abstract interface</span>
-<a name="ln-22"></a><span class="k">        function </span><span class="n">abstract_integrate</span><span class="p">(</span><span class="n">this</span><span class="p">,</span> <span class="n">equ</span><span class="p">,</span> <span class="n">t</span><span class="p">,</span> <span class="n">inp</span><span class="p">)</span> <span class="k">result</span><span class="p">(</span><span class="n">res</span><span class="p">)</span>
-<a name="ln-23"></a>            <span class="k">import</span> <span class="kd">::</span> <span class="n">equation</span><span class="p">,</span> <span class="n">field</span><span class="p">,</span> <span class="n">integrator</span><span class="p">,</span> <span class="n">R8P</span>
-<a name="ln-24"></a>            <span class="k">class</span><span class="p">(</span><span class="n">integrator</span><span class="p">),</span> <span class="k">intent</span><span class="p">(</span><span class="n">in</span><span class="p">)</span>            <span class="kd">::</span> <span class="n">this</span>
-<a name="ln-25"></a>            <span class="k">class</span><span class="p">(</span><span class="n">equation</span><span class="p">),</span>   <span class="k">intent</span><span class="p">(</span><span class="n">in</span><span class="p">),</span>    <span class="k">target</span> <span class="kd">::</span> <span class="n">equ</span>
-<a name="ln-26"></a>            <span class="kt">real</span><span class="p">(</span><span class="n">R8P</span><span class="p">),</span>         <span class="k">intent</span><span class="p">(</span><span class="n">in</span><span class="p">)</span>            <span class="kd">::</span> <span class="n">t</span>
-<a name="ln-27"></a>            <span class="k">class</span><span class="p">(</span><span class="n">field</span><span class="p">),</span>      <span class="k">intent</span><span class="p">(</span><span class="n">inout</span><span class="p">),</span> <span class="k">target</span> <span class="kd">::</span> <span class="n">inp</span>
-<a name="ln-28"></a>            <span class="kt">integer</span>                                  <span class="kd">::</span> <span class="n">res</span>
-<a name="ln-29"></a>        <span class="k">end function </span><span class="n">abstract_integrate</span>
-<a name="ln-30"></a>    <span class="n">endinterface</span>
-<a name="ln-31"></a>
-<a name="ln-32"></a><span class="k">contains</span>
-<a name="ln-33"></a><span class="k">    elemental subroutine </span><span class="n">free</span><span class="p">(</span><span class="n">this</span><span class="p">)</span>
-<a name="ln-34"></a>        <span class="c">!&lt; Free dynamic memory.</span>
-<a name="ln-35"></a>        <span class="k">class</span><span class="p">(</span><span class="n">integrator</span><span class="p">),</span> <span class="k">intent</span><span class="p">(</span><span class="n">inout</span><span class="p">)</span> <span class="kd">::</span> <span class="n">this</span> <span class="c">!&lt; The integrator.</span>
-<a name="ln-36"></a>        <span class="k">if</span> <span class="p">(</span><span class="nb">allocated</span><span class="p">(</span><span class="n">this</span><span class="p">%</span><span class="n">description</span><span class="p">))</span> <span class="k">deallocate</span><span class="p">(</span><span class="n">this</span><span class="p">%</span><span class="n">description</span><span class="p">)</span>
-<a name="ln-37"></a>    <span class="k">end subroutine </span><span class="n">free</span>
-<a name="ln-38"></a><span class="k">end module </span><span class="n">opendiff_adt_integrator</span>
+<a name="ln-22"></a>        <span class="c">!&lt; Integrate the field accordingly the equation.</span>
+<a name="ln-23"></a>        <span class="k">function </span><span class="n">abstract_integrate</span><span class="p">(</span><span class="n">this</span><span class="p">,</span> <span class="n">equ</span><span class="p">,</span> <span class="n">t</span><span class="p">,</span> <span class="n">inp</span><span class="p">)</span> <span class="k">result</span><span class="p">(</span><span class="n">error</span><span class="p">)</span>
+<a name="ln-24"></a>            <span class="c">!&lt; Integrate the field accordingly the equation.</span>
+<a name="ln-25"></a>            <span class="k">import</span> <span class="kd">::</span> <span class="n">equation</span><span class="p">,</span> <span class="n">field</span><span class="p">,</span> <span class="n">integrator</span><span class="p">,</span> <span class="n">I_P</span><span class="p">,</span> <span class="n">R_P</span>
+<a name="ln-26"></a>            <span class="k">class</span><span class="p">(</span><span class="n">integrator</span><span class="p">),</span> <span class="k">intent</span><span class="p">(</span><span class="n">in</span><span class="p">)</span>            <span class="kd">::</span> <span class="n">this</span>  <span class="c">!&lt; The integrator.</span>
+<a name="ln-27"></a>            <span class="k">class</span><span class="p">(</span><span class="n">equation</span><span class="p">),</span>   <span class="k">intent</span><span class="p">(</span><span class="n">in</span><span class="p">),</span>    <span class="k">target</span> <span class="kd">::</span> <span class="n">equ</span>   <span class="c">!&lt; The equation.</span>
+<a name="ln-28"></a>            <span class="kt">real</span><span class="p">(</span><span class="n">R_P</span><span class="p">),</span>         <span class="k">intent</span><span class="p">(</span><span class="n">in</span><span class="p">)</span>            <span class="kd">::</span> <span class="n">t</span>     <span class="c">!&lt; Time.</span>
+<a name="ln-29"></a>            <span class="k">class</span><span class="p">(</span><span class="n">field</span><span class="p">),</span>      <span class="k">intent</span><span class="p">(</span><span class="n">inout</span><span class="p">),</span> <span class="k">target</span> <span class="kd">::</span> <span class="n">inp</span>   <span class="c">!&lt; Input field.</span>
+<a name="ln-30"></a>            <span class="kt">integer</span><span class="p">(</span><span class="n">I_P</span><span class="p">)</span>                             <span class="kd">::</span> <span class="n">error</span> <span class="c">!&lt; Error status.</span>
+<a name="ln-31"></a>        <span class="k">end function </span><span class="n">abstract_integrate</span>
+<a name="ln-32"></a>    <span class="n">endinterface</span>
+<a name="ln-33"></a><span class="k">contains</span>
+<a name="ln-34"></a><span class="k">    elemental subroutine </span><span class="n">free</span><span class="p">(</span><span class="n">this</span><span class="p">)</span>
+<a name="ln-35"></a>        <span class="c">!&lt; Free dynamic memory.</span>
+<a name="ln-36"></a>        <span class="k">class</span><span class="p">(</span><span class="n">integrator</span><span class="p">),</span> <span class="k">intent</span><span class="p">(</span><span class="n">inout</span><span class="p">)</span> <span class="kd">::</span> <span class="n">this</span> <span class="c">!&lt; The integrator.</span>
+<a name="ln-37"></a>        <span class="k">if</span> <span class="p">(</span><span class="nb">allocated</span><span class="p">(</span><span class="n">this</span><span class="p">%</span><span class="n">description</span><span class="p">))</span> <span class="k">deallocate</span><span class="p">(</span><span class="n">this</span><span class="p">%</span><span class="n">description</span><span class="p">)</span>
+<a name="ln-38"></a>    <span class="k">end subroutine </span><span class="n">free</span>
+<a name="ln-39"></a><span class="k">end module </span><span class="n">opendiff_adt_integrator</span>
 </pre></div>
 
     </section>
@@ -289,6 +290,6 @@
         }
       });
     </script>
-    <script src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
   </body>
 </html>

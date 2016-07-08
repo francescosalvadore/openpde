@@ -597,6 +597,13 @@ implementation in a submodule of an interface in a parent module.</p>
     
   </h3></div>
   
+  <div class="panel-body">
+    
+
+
+    <p>Operator operation.</p>
+  </div>
+  
   <ul class="list-group">
     <li class="list-group-item">
     
@@ -627,12 +634,12 @@ private function <a href='../interface/abstract_operate.html'>abstract_operate</
   
 <tr>
   
-  <td><span class="anchor" ></span>class(<a href='../type/spatial_operator.html'>spatial_operator</a>)</td>
-  <td></td>
+  <td><span class="anchor" ></span>class(<a href='../type/spatial_operator.html'>spatial_operator</a>),</td>
+  <td>intent(in)</td>
   <td></td>
   
   <td></td><td>::</td>
-  <td><strong>this</strong></td><td></td>
+  <td><strong>this</strong></td><td><p>The operator.</p></td>
   
 </tr>
 
@@ -643,11 +650,11 @@ private function <a href='../interface/abstract_operate.html'>abstract_operate</
 <tr>
   
   <td><span class="anchor" ></span>class(<a href='../type/field.html'>field</a>),</td>
-  <td>,</td>
+  <td>intent(in),</td>
   <td></td>
   
   <td>target</td><td>::</td>
-  <td><strong>inp</strong></td><td></td>
+  <td><strong>inp</strong></td><td><p>Input field.</p></td>
   
 </tr>
 
@@ -664,8 +671,16 @@ private function <a href='../interface/abstract_operate.html'>abstract_operate</
   
      <h4>Return Value <small>class(<a href='../type/field.html'>field</a>),
   allocatable</small></h4>
-  
+  <p>Field resulting after the operator application.</p>
     
+    
+    <h4>Description</h4>
+       
+       
+
+
+       
+       <p>Operator operation.</p>
         
 
     </li>
@@ -731,6 +746,10 @@ private function <a href='../interface/abstract_operate.html'>abstract_operate</
        </table>
      
      
+     <h4>Description</h4>
+       
+       <p>Abstract class for <em>spatial operator</em> handling.</p>
+     
   </div>
 </div>
 
@@ -788,6 +807,6 @@ private function <a href='../interface/abstract_operate.html'>abstract_operate</
         }
       });
     </script>
-    <script src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
   </body>
 </html>

@@ -625,6 +625,13 @@ implementation in a submodule of an interface in a parent module.</p>
     
   </h3></div>
   
+  <div class="panel-body">
+    
+
+
+    <p>Return the field after forcing the equation.</p>
+  </div>
+  
   <ul class="list-group">
     <li class="list-group-item">
     
@@ -655,12 +662,12 @@ private function <a href='../interface/abstract_forcing.html'>abstract_forcing</
   
 <tr>
   
-  <td><span class="anchor" ></span>class(<a href='../type/equation.html'>equation</a>)</td>
-  <td></td>
+  <td><span class="anchor" ></span>class(<a href='../type/equation.html'>equation</a>),</td>
+  <td>intent(in)</td>
   <td></td>
   
   <td></td><td>::</td>
-  <td><strong>this</strong></td><td></td>
+  <td><strong>this</strong></td><td><p>The equation.</p></td>
   
 </tr>
 
@@ -671,11 +678,11 @@ private function <a href='../interface/abstract_forcing.html'>abstract_forcing</
 <tr>
   
   <td><span class="anchor" ></span>class(<a href='../type/field.html'>field</a>),</td>
-  <td>,</td>
+  <td>intent(in),</td>
   <td></td>
   
   <td>target</td><td>::</td>
-  <td><strong>inp</strong></td><td></td>
+  <td><strong>inp</strong></td><td><p>Input field.</p></td>
   
 </tr>
 
@@ -685,12 +692,12 @@ private function <a href='../interface/abstract_forcing.html'>abstract_forcing</
   
 <tr>
   
-  <td><span class="anchor" ></span>real(kind=R8P)</td>
-  <td></td>
+  <td><span class="anchor" ></span>real(kind=R_P),</td>
+  <td>intent(in)</td>
   <td></td>
   
   <td></td><td>::</td>
-  <td><strong>t</strong></td><td></td>
+  <td><strong>t</strong></td><td><p>Time.</p></td>
   
 </tr>
 
@@ -707,8 +714,16 @@ private function <a href='../interface/abstract_forcing.html'>abstract_forcing</
   
      <h4>Return Value <small>class(<a href='../type/field.html'>field</a>),
   allocatable</small></h4>
-  
+  <p>Field computed.</p>
     
+    
+    <h4>Description</h4>
+       
+       
+
+
+       
+       <p>Return the field after forcing the equation.</p>
         
 
     </li>
@@ -722,12 +737,19 @@ private function <a href='../interface/abstract_forcing.html'>abstract_forcing</
     
   </h3></div>
   
+  <div class="panel-body">
+    
+
+
+    <p>Initialize equation.</p>
+  </div>
+  
   <ul class="list-group">
     <li class="list-group-item">
     
     
     <h3>
-private function <a href='../interface/abstract_init%7E2.html'>abstract_init</a>(this) result(res)
+private function <a href='../interface/abstract_init%7E2.html'>abstract_init</a>(this) result(error)
     
     
     
@@ -752,12 +774,12 @@ private function <a href='../interface/abstract_init%7E2.html'>abstract_init</a>
   
 <tr>
   
-  <td><span class="anchor" ></span>class(<a href='../type/equation.html'>equation</a>)</td>
-  <td></td>
+  <td><span class="anchor" ></span>class(<a href='../type/equation.html'>equation</a>),</td>
+  <td>intent(inout)</td>
   <td></td>
   
   <td></td><td>::</td>
-  <td><strong>this</strong></td><td></td>
+  <td><strong>this</strong></td><td><p>The equation.</p></td>
   
 </tr>
 
@@ -772,10 +794,18 @@ private function <a href='../interface/abstract_init%7E2.html'>abstract_init</a>
   
   
   
-     <h4>Return Value <small>integer
+     <h4>Return Value <small>integer(kind=I_P)
   </small></h4>
-  
+  <p>Error status.</p>
     
+    
+    <h4>Description</h4>
+       
+       
+
+
+       
+       <p>Initialize equation.</p>
         
 
     </li>
@@ -838,7 +868,7 @@ private function <a href='../interface/abstract_init%7E2.html'>abstract_init</a>
        <td><p>Forcing equation.</p></td></tr>
       
        <tr><td>procedure(abstract_init), public :: <strong>init</strong>  </td>
-       <td><p>Initialize the equation.</p></td></tr>
+       <td><p>Initialize equation.</p></td></tr>
       
        <tr><td>procedure, public :: <strong>free</strong>  </td>
        <td><p>Free dynamic memory.</p></td></tr>
@@ -973,6 +1003,6 @@ private elemental subroutine <a href='../proc/free%7E3.html'>free</a>(this)
         }
       });
     </script>
-    <script src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
   </body>
 </html>

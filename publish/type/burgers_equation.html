@@ -372,8 +372,10 @@ implementation in a submodule of an interface in a parent module.</p>
                 
     <br><br>
     
-    
-    
+    <p>Fake Burgers equations.</p>
+<p></p><div class="alert alert-info" role="alert"><h4>Note</h4>The reason the next is a pointer is just to make it a pointee
+ when pointed inside forcing_burgers function.</div>
+    <br>
     
     
     <section>
@@ -398,7 +400,7 @@ implementation in a submodule of an interface in a parent module.</p>
   
   <td>public,</td>
   <td>pointer</td><td>::</td>
-  <td><strong>der1</strong></td><td></td><td></td><td></td>
+  <td><strong>der1</strong></td><td></td><td></td><td><p>First derivative.</p></td>
   
 </tr>
 
@@ -423,6 +425,13 @@ implementation in a submodule of an interface in a parent module.</p>
     
   </h3></div>
   
+  <div class="panel-body">
+    
+
+
+    <p>Initialize equation.</p>
+  </div>
+  
   <ul class="list-group">
     
       <li class="list-group-item">
@@ -430,7 +439,7 @@ implementation in a submodule of an interface in a parent module.</p>
          
     
     <h3>
-private function <a href='../proc/init_burgers.html'>init_burgers</a>(this) result(res)
+private function <a href='../proc/init_burgers.html'>init_burgers</a>(this) result(error)
     
     
     
@@ -455,12 +464,12 @@ private function <a href='../proc/init_burgers.html'>init_burgers</a>(this) resu
   
 <tr>
   
-  <td><span class="anchor" ></span>class(<a href='../type/burgers_equation.html'>burgers_equation</a>)</td>
-  <td></td>
+  <td><span class="anchor" ></span>class(<a href='../type/burgers_equation.html'>burgers_equation</a>),</td>
+  <td>intent(inout)</td>
   <td></td>
   
   <td></td><td>::</td>
-  <td><strong>this</strong></td><td></td>
+  <td><strong>this</strong></td><td><p>The equation.</p></td>
   
 </tr>
 
@@ -475,10 +484,18 @@ private function <a href='../proc/init_burgers.html'>init_burgers</a>(this) resu
   
   
   
-     <h4>Return Value <small>integer
+     <h4>Return Value <small>integer(kind=I4P)
   </small></h4>
-  
+  <p>Error status.</p>
     
+    
+    <h4>Description</h4>
+       
+       
+
+
+       
+       <p>Initialize equation.</p>
         
 
       
@@ -493,6 +510,13 @@ private function <a href='../proc/init_burgers.html'>init_burgers</a>(this) resu
   <div class="panel-heading codesum"><span class="anchor" id="boundprocedure-forcing%7E2"></span><h3>procedure, public :: <strong>forcing</strong>  => <a href='../proc/forcing_burgers.html'>forcing_burgers</a> 
     
   </h3></div>
+  
+  <div class="panel-body">
+    
+
+
+    <p>Forcing equation.</p>
+  </div>
   
   <ul class="list-group">
     
@@ -526,12 +550,12 @@ private function <a href='../proc/forcing_burgers.html'>forcing_burgers</a>(this
   
 <tr>
   
-  <td><span class="anchor" ></span>class(<a href='../type/burgers_equation.html'>burgers_equation</a>)</td>
-  <td></td>
+  <td><span class="anchor" ></span>class(<a href='../type/burgers_equation.html'>burgers_equation</a>),</td>
+  <td>intent(in)</td>
   <td></td>
   
   <td></td><td>::</td>
-  <td><strong>this</strong></td><td></td>
+  <td><strong>this</strong></td><td><p>The equation.</p></td>
   
 </tr>
 
@@ -542,11 +566,11 @@ private function <a href='../proc/forcing_burgers.html'>forcing_burgers</a>(this
 <tr>
   
   <td><span class="anchor" ></span>class(<a href='../type/field.html'>field</a>),</td>
-  <td>,</td>
+  <td>intent(in),</td>
   <td></td>
   
   <td>target</td><td>::</td>
-  <td><strong>inp</strong></td><td></td>
+  <td><strong>inp</strong></td><td><p>Input field.</p></td>
   
 </tr>
 
@@ -556,12 +580,12 @@ private function <a href='../proc/forcing_burgers.html'>forcing_burgers</a>(this
   
 <tr>
   
-  <td><span class="anchor" ></span>real(kind=R8P)</td>
-  <td></td>
+  <td><span class="anchor" ></span>real(kind=R_P),</td>
+  <td>intent(in)</td>
   <td></td>
   
   <td></td><td>::</td>
-  <td><strong>t</strong></td><td></td>
+  <td><strong>t</strong></td><td><p>Time.</p></td>
   
 </tr>
 
@@ -578,8 +602,16 @@ private function <a href='../proc/forcing_burgers.html'>forcing_burgers</a>(this
   
      <h4>Return Value <small>class(<a href='../type/field.html'>field</a>),
   allocatable</small></h4>
-  
+  <p>Field computed.</p>
     
+    
+    <h4>Description</h4>
+       
+       
+
+
+       
+       <p>Return the field after forcing the equation.</p>
         
 
       
@@ -596,12 +628,14 @@ private function <a href='../proc/forcing_burgers.html'>forcing_burgers</a>(this
     <section>
     <h2><span class="anchor" id="src"></span>Source Code</h2>
     <div class="highlight"><pre><span></span>    <span class="k">type</span><span class="p">,</span> <span class="k">extends</span><span class="p">(</span><span class="n">equation</span><span class="p">)</span> <span class="kd">::</span> <span class="n">burgers_equation</span>
-        <span class="c">! The reason the next is a pointer is just to make it a pointee</span>
-        <span class="c">! when pointed inside forcing_burgers function</span>
-        <span class="k">class</span><span class="p">(</span><span class="n">spatial_operator_der1</span><span class="p">),</span> <span class="k">pointer</span> <span class="kd">::</span> <span class="n">der1</span>
+        <span class="c">!&lt; Fake Burgers equations.</span>
+        <span class="c">!&lt;</span>
+        <span class="c">!&lt; @note The reason the next is a pointer is just to make it a pointee</span>
+        <span class="c">!&lt; when pointed inside forcing_burgers function.</span>
+        <span class="k">class</span><span class="p">(</span><span class="n">spatial_operator_der1</span><span class="p">),</span> <span class="k">pointer</span> <span class="kd">::</span> <span class="n">der1</span> <span class="c">!&lt; First derivative.</span>
         <span class="k">contains</span>
-<span class="k">            procedure</span> <span class="kd">::</span> <span class="n">init</span> <span class="o">=&gt;</span> <span class="n">init_burgers</span>
-            <span class="k">procedure</span> <span class="kd">::</span> <span class="n">forcing</span> <span class="o">=&gt;</span> <span class="n">forcing_burgers</span>
+<span class="k">            procedure</span> <span class="kd">::</span> <span class="n">init</span> <span class="o">=&gt;</span> <span class="n">init_burgers</span>        <span class="c">!&lt; Initialize equation.</span>
+            <span class="k">procedure</span> <span class="kd">::</span> <span class="n">forcing</span> <span class="o">=&gt;</span> <span class="n">forcing_burgers</span>  <span class="c">!&lt; Forcing equation.</span>
     <span class="n">endtype</span> <span class="n">burgers_equation</span>
 </pre></div>
 
@@ -652,6 +686,6 @@ private function <a href='../proc/forcing_burgers.html'>forcing_burgers</a>(this
         }
       });
     </script>
-    <script src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
   </body>
 </html>

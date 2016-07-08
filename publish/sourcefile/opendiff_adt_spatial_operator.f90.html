@@ -214,20 +214,23 @@
 <a name="ln-8"></a><span class="k">    public</span> <span class="kd">::</span> <span class="n">spatial_operator</span>
 <a name="ln-9"></a>
 <a name="ln-10"></a>    <span class="k">type</span><span class="p">,</span> <span class="k">abstract</span> <span class="kd">::</span> <span class="n">spatial_operator</span>
-<a name="ln-11"></a>        <span class="kt">character</span><span class="p">(</span><span class="nb">len</span><span class="o">=</span><span class="p">:),</span> <span class="k">allocatable</span> <span class="kd">::</span> <span class="n">description</span> <span class="c">!&lt; Operator description.</span>
-<a name="ln-12"></a>        <span class="k">contains</span>
-<a name="ln-13"></a><span class="k">            procedure</span><span class="p">(</span><span class="n">abstract_operate</span><span class="p">),</span> <span class="k">deferred</span> <span class="kd">::</span> <span class="n">operate</span> <span class="c">!&lt; Operator operation.</span>
-<a name="ln-14"></a>    <span class="n">endtype</span> <span class="n">spatial_operator</span>
-<a name="ln-15"></a>
-<a name="ln-16"></a>    <span class="k">abstract interface</span>
-<a name="ln-17"></a><span class="k">        function </span><span class="n">abstract_operate</span><span class="p">(</span><span class="n">this</span><span class="p">,</span> <span class="n">inp</span><span class="p">)</span> <span class="k">result</span><span class="p">(</span><span class="n">opr</span><span class="p">)</span>
-<a name="ln-18"></a>            <span class="k">import</span> <span class="kd">::</span> <span class="n">spatial_operator</span><span class="p">,</span> <span class="n">field</span>
-<a name="ln-19"></a>            <span class="k">class</span><span class="p">(</span><span class="n">spatial_operator</span><span class="p">)</span>   <span class="kd">::</span> <span class="n">this</span>
-<a name="ln-20"></a>            <span class="k">class</span><span class="p">(</span><span class="n">field</span><span class="p">),</span> <span class="k">target</span>      <span class="kd">::</span> <span class="n">inp</span>
-<a name="ln-21"></a>            <span class="k">class</span><span class="p">(</span><span class="n">field</span><span class="p">),</span> <span class="k">allocatable</span> <span class="kd">::</span> <span class="n">opr</span>
-<a name="ln-22"></a>        <span class="k">end function </span><span class="n">abstract_operate</span>
-<a name="ln-23"></a>    <span class="n">endinterface</span>
-<a name="ln-24"></a><span class="k">end module </span><span class="n">opendiff_adt_spatial_operator</span>
+<a name="ln-11"></a>        <span class="c">!&lt; Abstract class for *spatial operator* handling.</span>
+<a name="ln-12"></a>        <span class="kt">character</span><span class="p">(</span><span class="nb">len</span><span class="o">=</span><span class="p">:),</span> <span class="k">allocatable</span> <span class="kd">::</span> <span class="n">description</span> <span class="c">!&lt; Operator description.</span>
+<a name="ln-13"></a>        <span class="k">contains</span>
+<a name="ln-14"></a><span class="k">            procedure</span><span class="p">(</span><span class="n">abstract_operate</span><span class="p">),</span> <span class="k">deferred</span> <span class="kd">::</span> <span class="n">operate</span> <span class="c">!&lt; Operator operation.</span>
+<a name="ln-15"></a>    <span class="n">endtype</span> <span class="n">spatial_operator</span>
+<a name="ln-16"></a>
+<a name="ln-17"></a>    <span class="k">abstract interface</span>
+<a name="ln-18"></a>        <span class="c">!&lt; Operator operation.</span>
+<a name="ln-19"></a>        <span class="k">function </span><span class="n">abstract_operate</span><span class="p">(</span><span class="n">this</span><span class="p">,</span> <span class="n">inp</span><span class="p">)</span> <span class="k">result</span><span class="p">(</span><span class="n">opr</span><span class="p">)</span>
+<a name="ln-20"></a>            <span class="c">!&lt; Operator operation.</span>
+<a name="ln-21"></a>            <span class="k">import</span> <span class="kd">::</span> <span class="n">spatial_operator</span><span class="p">,</span> <span class="n">field</span>
+<a name="ln-22"></a>            <span class="k">class</span><span class="p">(</span><span class="n">spatial_operator</span><span class="p">),</span> <span class="k">intent</span><span class="p">(</span><span class="n">in</span><span class="p">)</span>         <span class="kd">::</span> <span class="n">this</span> <span class="c">!&lt; The operator.</span>
+<a name="ln-23"></a>            <span class="k">class</span><span class="p">(</span><span class="n">field</span><span class="p">),</span>            <span class="k">intent</span><span class="p">(</span><span class="n">in</span><span class="p">),</span> <span class="k">target</span> <span class="kd">::</span> <span class="n">inp</span>  <span class="c">!&lt; Input field.</span>
+<a name="ln-24"></a>            <span class="k">class</span><span class="p">(</span><span class="n">field</span><span class="p">),</span> <span class="k">allocatable</span>                   <span class="kd">::</span> <span class="n">opr</span>  <span class="c">!&lt; Field resulting after the operator application.</span>
+<a name="ln-25"></a>        <span class="k">end function </span><span class="n">abstract_operate</span>
+<a name="ln-26"></a>    <span class="n">endinterface</span>
+<a name="ln-27"></a><span class="k">end module </span><span class="n">opendiff_adt_spatial_operator</span>
 </pre></div>
 
     </section>
@@ -275,6 +278,6 @@
         }
       });
     </script>
-    <script src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
   </body>
 </html>

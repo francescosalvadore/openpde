@@ -625,12 +625,19 @@ implementation in a submodule of an interface in a parent module.</p>
     
   </h3></div>
   
+  <div class="panel-body">
+    
+
+
+    <p>Integrate the field accordingly the equation.</p>
+  </div>
+  
   <ul class="list-group">
     <li class="list-group-item">
     
     
     <h3>
-private function <a href='../interface/abstract_integrate.html'>abstract_integrate</a>(this, equ, t, inp) result(res)
+private function <a href='../interface/abstract_integrate.html'>abstract_integrate</a>(this, equ, t, inp) result(error)
     
     
     
@@ -660,7 +667,7 @@ private function <a href='../interface/abstract_integrate.html'>abstract_integra
   <td></td>
   
   <td></td><td>::</td>
-  <td><strong>this</strong></td><td></td>
+  <td><strong>this</strong></td><td><p>The integrator.</p></td>
   
 </tr>
 
@@ -675,7 +682,7 @@ private function <a href='../interface/abstract_integrate.html'>abstract_integra
   <td></td>
   
   <td>target</td><td>::</td>
-  <td><strong>equ</strong></td><td></td>
+  <td><strong>equ</strong></td><td><p>The equation.</p></td>
   
 </tr>
 
@@ -685,12 +692,12 @@ private function <a href='../interface/abstract_integrate.html'>abstract_integra
   
 <tr>
   
-  <td><span class="anchor" ></span>real(kind=R8P),</td>
+  <td><span class="anchor" ></span>real(kind=R_P),</td>
   <td>intent(in)</td>
   <td></td>
   
   <td></td><td>::</td>
-  <td><strong>t</strong></td><td></td>
+  <td><strong>t</strong></td><td><p>Time.</p></td>
   
 </tr>
 
@@ -705,7 +712,7 @@ private function <a href='../interface/abstract_integrate.html'>abstract_integra
   <td></td>
   
   <td>target</td><td>::</td>
-  <td><strong>inp</strong></td><td></td>
+  <td><strong>inp</strong></td><td><p>Input field.</p></td>
   
 </tr>
 
@@ -720,10 +727,18 @@ private function <a href='../interface/abstract_integrate.html'>abstract_integra
   
   
   
-     <h4>Return Value <small>integer
+     <h4>Return Value <small>integer(kind=I_P)
   </small></h4>
-  
+  <p>Error status.</p>
     
+    
+    <h4>Description</h4>
+       
+       
+
+
+       
+       <p>Integrate the field accordingly the equation.</p>
         
 
     </li>
@@ -777,11 +792,11 @@ private function <a href='../interface/abstract_integrate.html'>abstract_integra
   
 <tr>
   
-  <td><span class="anchor" id="variable-dt"></span>real(kind=R8P),</td>
+  <td><span class="anchor" id="variable-dt"></span>real(kind=R_P),</td>
   
   <td>public</td>
   <td></td><td>::</td>
-  <td><strong>dt</strong></td><td> =</td><td>0._R8P</td><td><p>Time step.</p></td>
+  <td><strong>dt</strong></td><td> =</td><td>0._R_P</td><td><p>Time step.</p></td>
   
 </tr>
 
@@ -932,6 +947,6 @@ private elemental subroutine <a href='../proc/free%7E4.html'>free</a>(this)
         }
       });
     </script>
-    <script src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
   </body>
 </html>

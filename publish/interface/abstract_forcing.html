@@ -188,13 +188,16 @@
     <div class="col-lg-9" id='text'>
 	
     
-    <h2>abstract interface <br>
+    <h2>abstract interface</h2>
+    <p>Return the field after forcing the equation.</p>
     
+    
+    <h2>
 private function abstract_forcing(this, inp, t) result(opr)
     
     
     
-</h2>    
+</h2>
     
 
     
@@ -219,12 +222,12 @@ private function abstract_forcing(this, inp, t) result(opr)
   
 <tr>
   
-  <td><span class="anchor" id="variable-this%7E4"></span>class(<a href='../type/equation.html'>equation</a>)</td>
-  <td></td>
+  <td><span class="anchor" id="variable-this%7E4"></span>class(<a href='../type/equation.html'>equation</a>),</td>
+  <td>intent(in)</td>
   <td></td>
   
   <td></td><td>::</td>
-  <td><strong>this</strong></td><td></td>
+  <td><strong>this</strong></td><td><p>The equation.</p></td>
   
 </tr>
 
@@ -235,11 +238,11 @@ private function abstract_forcing(this, inp, t) result(opr)
 <tr>
   
   <td><span class="anchor" id="variable-inp"></span>class(<a href='../type/field.html'>field</a>),</td>
-  <td>,</td>
+  <td>intent(in),</td>
   <td></td>
   
   <td>target</td><td>::</td>
-  <td><strong>inp</strong></td><td></td>
+  <td><strong>inp</strong></td><td><p>Input field.</p></td>
   
 </tr>
 
@@ -249,12 +252,12 @@ private function abstract_forcing(this, inp, t) result(opr)
   
 <tr>
   
-  <td><span class="anchor" id="variable-t"></span>real(kind=R8P)</td>
-  <td></td>
+  <td><span class="anchor" id="variable-t"></span>real(kind=R_P),</td>
+  <td>intent(in)</td>
   <td></td>
   
   <td></td><td>::</td>
-  <td><strong>t</strong></td><td></td>
+  <td><strong>t</strong></td><td><p>Time.</p></td>
   
 </tr>
 
@@ -270,8 +273,11 @@ private function abstract_forcing(this, inp, t) result(opr)
     
 	 <h3>Return Value <span class="anchor" id="variable-opr%7E4"></span><small>class(<a href='../type/field.html'>field</a>),
   allocatable</small></h3>
+    <p>Field computed.</p>
     
     
+    <h3>Description</h3>
+    <p>Return the field after forcing the equation.</p>
     
     <br>
 
@@ -319,6 +325,6 @@ private function abstract_forcing(this, inp, t) result(opr)
         }
       });
     </script>
-    <script src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
   </body>
 </html>

@@ -270,7 +270,7 @@ private function mulreal(lhs, rhs) result(opr)
   
 <tr>
   
-  <td><span class="anchor" id="variable-rhs%7E7"></span>real(kind=R8P),</td>
+  <td><span class="anchor" id="variable-rhs%7E7"></span>real(kind=R_P),</td>
   <td>intent(in)</td>
   <td></td>
   
@@ -367,7 +367,7 @@ private function mulreal(lhs, rhs) result(opr)
     <div class="highlight"><pre><span></span>    <span class="k">function </span><span class="n">mulreal</span><span class="p">(</span><span class="n">lhs</span><span class="p">,</span> <span class="n">rhs</span><span class="p">)</span> <span class="k">result</span><span class="p">(</span><span class="n">opr</span><span class="p">)</span>
         <span class="c">!&lt; Multiply field for real.</span>
         <span class="k">class</span><span class="p">(</span><span class="n">field_fd_1d</span><span class="p">),</span> <span class="k">intent</span><span class="p">(</span><span class="n">in</span><span class="p">)</span>    <span class="kd">::</span> <span class="n">lhs</span>      <span class="c">!&lt; Left hand side.</span>
-        <span class="kt">real</span><span class="p">(</span><span class="n">R8P</span><span class="p">),</span>          <span class="k">intent</span><span class="p">(</span><span class="n">in</span><span class="p">)</span>    <span class="kd">::</span> <span class="n">rhs</span>      <span class="c">!&lt; Right hand side.</span>
+        <span class="kt">real</span><span class="p">(</span><span class="n">R_P</span><span class="p">),</span>          <span class="k">intent</span><span class="p">(</span><span class="n">in</span><span class="p">)</span>    <span class="kd">::</span> <span class="n">rhs</span>      <span class="c">!&lt; Right hand side.</span>
         <span class="k">class</span><span class="p">(</span><span class="n">field</span><span class="p">),</span> <span class="k">allocatable</span><span class="p">,</span> <span class="k">target</span> <span class="kd">::</span> <span class="n">opr</span>      <span class="c">!&lt; Operator result.</span>
         <span class="k">class</span><span class="p">(</span><span class="n">field_fd_1d</span><span class="p">),</span> <span class="k">pointer</span>       <span class="kd">::</span> <span class="n">opr_cur</span>  <span class="c">!&lt; Dummy pointer for operator result.</span>
         <span class="k">class</span><span class="p">(</span><span class="n">mesh_fd_1d</span><span class="p">),</span>  <span class="k">pointer</span>       <span class="kd">::</span> <span class="n">mesh_cur</span> <span class="c">!&lt; Dummy pointer for mesh.</span>
@@ -440,6 +440,6 @@ private function mulreal(lhs, rhs) result(opr)
         }
       });
     </script>
-    <script src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
   </body>
 </html>

@@ -364,7 +364,7 @@ implementation in a submodule of an interface in a parent module.</p>
          
     
     <h3>
-private function <a href='../proc/integrate.html'>integrate</a>(this, equ, t, inp) result(res)
+private function <a href='../proc/integrate.html'>integrate</a>(this, equ, t, inp) result(error)
     
     
     
@@ -394,7 +394,7 @@ private function <a href='../proc/integrate.html'>integrate</a>(this, equ, t, in
   <td></td>
   
   <td></td><td>::</td>
-  <td><strong>this</strong></td><td></td>
+  <td><strong>this</strong></td><td><p>The integrator.</p></td>
   
 </tr>
 
@@ -409,7 +409,7 @@ private function <a href='../proc/integrate.html'>integrate</a>(this, equ, t, in
   <td></td>
   
   <td>target</td><td>::</td>
-  <td><strong>equ</strong></td><td></td>
+  <td><strong>equ</strong></td><td><p>The equation.</p></td>
   
 </tr>
 
@@ -419,12 +419,12 @@ private function <a href='../proc/integrate.html'>integrate</a>(this, equ, t, in
   
 <tr>
   
-  <td><span class="anchor" ></span>real(kind=R8P),</td>
+  <td><span class="anchor" ></span>real(kind=R_P),</td>
   <td>intent(in)</td>
   <td></td>
   
   <td></td><td>::</td>
-  <td><strong>t</strong></td><td></td>
+  <td><strong>t</strong></td><td><p>Time.</p></td>
   
 </tr>
 
@@ -439,7 +439,7 @@ private function <a href='../proc/integrate.html'>integrate</a>(this, equ, t, in
   <td></td>
   
   <td>target</td><td>::</td>
-  <td><strong>inp</strong></td><td></td>
+  <td><strong>inp</strong></td><td><p>Input field.</p></td>
   
 </tr>
 
@@ -456,8 +456,16 @@ private function <a href='../proc/integrate.html'>integrate</a>(this, equ, t, in
   
      <h4>Return Value <small>integer
   </small></h4>
-  
+  <p>Error status.</p>
     
+    
+    <h4>Description</h4>
+       
+       
+
+
+       
+       <p>Integrate the field accordingly the equation by means of the Euler scheme.</p>
         
 
       
@@ -527,6 +535,6 @@ private function <a href='../proc/integrate.html'>integrate</a>(this, equ, t, in
         }
       });
     </script>
-    <script src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
   </body>
 </html>

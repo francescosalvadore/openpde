@@ -188,13 +188,16 @@
     <div class="col-lg-9" id='text'>
 	
     
-    <h2>abstract interface <br>
-    
-private function abstract_integrate(this, equ, t, inp) result(res)
-    
+    <h2>abstract interface</h2>
+    <p>Integrate the field accordingly the equation.</p>
     
     
-</h2>    
+    <h2>
+private function abstract_integrate(this, equ, t, inp) result(error)
+    
+    
+    
+</h2>
     
 
     
@@ -224,7 +227,7 @@ private function abstract_integrate(this, equ, t, inp) result(res)
   <td></td>
   
   <td></td><td>::</td>
-  <td><strong>this</strong></td><td></td>
+  <td><strong>this</strong></td><td><p>The integrator.</p></td>
   
 </tr>
 
@@ -239,7 +242,7 @@ private function abstract_integrate(this, equ, t, inp) result(res)
   <td></td>
   
   <td>target</td><td>::</td>
-  <td><strong>equ</strong></td><td></td>
+  <td><strong>equ</strong></td><td><p>The equation.</p></td>
   
 </tr>
 
@@ -249,12 +252,12 @@ private function abstract_integrate(this, equ, t, inp) result(res)
   
 <tr>
   
-  <td><span class="anchor" id="variable-t%7E2"></span>real(kind=R8P),</td>
+  <td><span class="anchor" id="variable-t%7E2"></span>real(kind=R_P),</td>
   <td>intent(in)</td>
   <td></td>
   
   <td></td><td>::</td>
-  <td><strong>t</strong></td><td></td>
+  <td><strong>t</strong></td><td><p>Time.</p></td>
   
 </tr>
 
@@ -269,7 +272,7 @@ private function abstract_integrate(this, equ, t, inp) result(res)
   <td></td>
   
   <td>target</td><td>::</td>
-  <td><strong>inp</strong></td><td></td>
+  <td><strong>inp</strong></td><td><p>Input field.</p></td>
   
 </tr>
 
@@ -283,10 +286,13 @@ private function abstract_integrate(this, equ, t, inp) result(res)
     
     
     
-	 <h3>Return Value <span class="anchor" id="variable-res%7E2"></span><small>integer
+	 <h3>Return Value <span class="anchor" id="variable-error%7E5"></span><small>integer(kind=I_P)
   </small></h3>
+    <p>Error status.</p>
     
     
+    <h3>Description</h3>
+    <p>Integrate the field accordingly the equation.</p>
     
     <br>
 
@@ -334,6 +340,6 @@ private function abstract_integrate(this, equ, t, inp) result(res)
         }
       });
     </script>
-    <script src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
   </body>
 </html>

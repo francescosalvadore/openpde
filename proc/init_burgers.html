@@ -213,7 +213,7 @@
     
     <div class="col-lg-9" id='text'>
     <h2>
-private function init_burgers(this) result(res)
+private function init_burgers(this) result(error)
     
     
     
@@ -241,12 +241,12 @@ private function init_burgers(this) result(res)
   
 <tr>
   
-  <td><span class="anchor" id="variable-this%7E24"></span>class(<a href='../type/burgers_equation.html'>burgers_equation</a>)</td>
-  <td></td>
+  <td><span class="anchor" id="variable-this%7E25"></span>class(<a href='../type/burgers_equation.html'>burgers_equation</a>),</td>
+  <td>intent(inout)</td>
   <td></td>
   
   <td></td><td>::</td>
-  <td><strong>this</strong></td><td></td>
+  <td><strong>this</strong></td><td><p>The equation.</p></td>
   
 </tr>
 
@@ -260,10 +260,13 @@ private function init_burgers(this) result(res)
     
     
     
-	 <h3>Return Value <small><span class="anchor" id="variable-res%7E4"></span>integer
+	 <h3>Return Value <small><span class="anchor" id="variable-error%7E16"></span>integer(kind=I4P)
   </small></h3>
+    <p>Error status.</p>
     
     
+    <h3>Description</h3>
+    <p>Initialize equation.</p>
     
     
      
@@ -286,14 +289,13 @@ private function init_burgers(this) result(res)
     
     <section>
     <h2><span class="anchor" id="src"></span>Source Code</h2>
-    <div class="highlight"><pre><span></span>    <span class="k">function </span><span class="n">init_burgers</span><span class="p">(</span><span class="n">this</span><span class="p">)</span> <span class="k">result</span><span class="p">(</span><span class="n">res</span><span class="p">)</span>
-        <span class="k">class</span><span class="p">(</span><span class="n">burgers_equation</span><span class="p">)</span> <span class="kd">::</span> <span class="n">this</span>
-        <span class="kt">integer</span> <span class="kd">::</span> <span class="n">res</span>
-
+    <div class="highlight"><pre><span></span>    <span class="k">function </span><span class="n">init_burgers</span><span class="p">(</span><span class="n">this</span><span class="p">)</span> <span class="k">result</span><span class="p">(</span><span class="n">error</span><span class="p">)</span>
+        <span class="c">!&lt; Initialize equation.</span>
+        <span class="k">class</span><span class="p">(</span><span class="n">burgers_equation</span><span class="p">),</span> <span class="k">intent</span><span class="p">(</span><span class="n">inout</span><span class="p">)</span> <span class="kd">::</span> <span class="n">this</span>  <span class="c">!&lt; The equation.</span>
+        <span class="kt">integer</span><span class="p">(</span><span class="n">I4P</span><span class="p">)</span>                           <span class="kd">::</span> <span class="n">error</span> <span class="c">!&lt; Error status.</span>
         <span class="c">! The next is to be read by JSON</span>
         <span class="k">allocate</span><span class="p">(</span><span class="n">spatial_operator_der1_fd_1d</span> <span class="kd">::</span> <span class="n">this</span><span class="p">%</span><span class="n">der1</span><span class="p">)</span>
-
-        <span class="n">res</span> <span class="o">=</span> <span class="mi">0</span>
+        <span class="n">error</span> <span class="o">=</span> <span class="mi">0</span>
     <span class="k">end function </span><span class="n">init_burgers</span>
 </pre></div>
 
@@ -345,6 +347,6 @@ private function init_burgers(this) result(res)
         }
       });
     </script>
-    <script src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
   </body>
 </html>

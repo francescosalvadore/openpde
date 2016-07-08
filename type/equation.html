@@ -440,12 +440,12 @@ function <a href='../interface/abstract_forcing.html'>abstract_forcing</a>(this,
   
 <tr>
   
-  <td><span class="anchor" ></span>class(<a href='../type/equation.html'>equation</a>)</td>
-  <td></td>
+  <td><span class="anchor" ></span>class(<a href='../type/equation.html'>equation</a>),</td>
+  <td>intent(in)</td>
   <td></td>
   
   <td></td><td>::</td>
-  <td><strong>this</strong></td><td></td>
+  <td><strong>this</strong></td><td><p>The equation.</p></td>
   
 </tr>
 
@@ -456,11 +456,11 @@ function <a href='../interface/abstract_forcing.html'>abstract_forcing</a>(this,
 <tr>
   
   <td><span class="anchor" ></span>class(<a href='../type/field.html'>field</a>),</td>
-  <td>,</td>
+  <td>intent(in),</td>
   <td></td>
   
   <td>target</td><td>::</td>
-  <td><strong>inp</strong></td><td></td>
+  <td><strong>inp</strong></td><td><p>Input field.</p></td>
   
 </tr>
 
@@ -470,12 +470,12 @@ function <a href='../interface/abstract_forcing.html'>abstract_forcing</a>(this,
   
 <tr>
   
-  <td><span class="anchor" ></span>real(kind=R8P)</td>
-  <td></td>
+  <td><span class="anchor" ></span>real(kind=R_P),</td>
+  <td>intent(in)</td>
   <td></td>
   
   <td></td><td>::</td>
-  <td><strong>t</strong></td><td></td>
+  <td><strong>t</strong></td><td><p>Time.</p></td>
   
 </tr>
 
@@ -492,8 +492,16 @@ function <a href='../interface/abstract_forcing.html'>abstract_forcing</a>(this,
   
      <h4>Return Value <small>class(<a href='../type/field.html'>field</a>),
   allocatable</small></h4>
-  
+  <p>Field computed.</p>
     
+    
+    <h4>Description</h4>
+       
+       
+
+
+       
+       <p>Return the field after forcing the equation.</p>
         
 
          
@@ -514,7 +522,7 @@ function <a href='../interface/abstract_forcing.html'>abstract_forcing</a>(this,
     
 
 
-    <p>Initialize the equation.</p>
+    <p>Initialize equation.</p>
   </div>
   
   <ul class="list-group">
@@ -525,7 +533,7 @@ function <a href='../interface/abstract_forcing.html'>abstract_forcing</a>(this,
             
     
     <h3>
-function <a href='../interface/abstract_init%7E2.html'>abstract_init</a>(this) result(res)
+function <a href='../interface/abstract_init%7E2.html'>abstract_init</a>(this) result(error)
     
     
     
@@ -550,12 +558,12 @@ function <a href='../interface/abstract_init%7E2.html'>abstract_init</a>(this) r
   
 <tr>
   
-  <td><span class="anchor" ></span>class(<a href='../type/equation.html'>equation</a>)</td>
-  <td></td>
+  <td><span class="anchor" ></span>class(<a href='../type/equation.html'>equation</a>),</td>
+  <td>intent(inout)</td>
   <td></td>
   
   <td></td><td>::</td>
-  <td><strong>this</strong></td><td></td>
+  <td><strong>this</strong></td><td><p>The equation.</p></td>
   
 </tr>
 
@@ -570,10 +578,18 @@ function <a href='../interface/abstract_init%7E2.html'>abstract_init</a>(this) r
   
   
   
-     <h4>Return Value <small>integer
+     <h4>Return Value <small>integer(kind=I_P)
   </small></h4>
-  
+  <p>Error status.</p>
     
+    
+    <h4>Description</h4>
+       
+       
+
+
+       
+       <p>Initialize equation.</p>
         
 
          
@@ -675,8 +691,8 @@ private elemental subroutine <a href='../proc/free%7E3.html'>free</a>(this)
         <span class="kt">character</span><span class="p">(</span><span class="nb">len</span><span class="o">=</span><span class="p">:),</span> <span class="k">allocatable</span> <span class="kd">::</span> <span class="n">description</span> <span class="c">!&lt; Mesh description.</span>
         <span class="k">contains</span>
             <span class="c">! deferred methods</span>
-            <span class="k">procedure</span><span class="p">(</span><span class="n">abstract_forcing</span><span class="p">),</span> <span class="k">deferred</span> <span class="kd">::</span> <span class="n">forcing</span>   <span class="c">!&lt; Forcing equation.</span>
-            <span class="k">procedure</span><span class="p">(</span><span class="n">abstract_init</span><span class="p">),</span>    <span class="k">deferred</span> <span class="kd">::</span> <span class="n">init</span>      <span class="c">!&lt; Initialize the equation.</span>
+            <span class="k">procedure</span><span class="p">(</span><span class="n">abstract_forcing</span><span class="p">),</span> <span class="k">deferred</span> <span class="kd">::</span> <span class="n">forcing</span> <span class="c">!&lt; Forcing equation.</span>
+            <span class="k">procedure</span><span class="p">(</span><span class="n">abstract_init</span><span class="p">),</span>    <span class="k">deferred</span> <span class="kd">::</span> <span class="n">init</span>    <span class="c">!&lt; Initialize equation.</span>
             <span class="c">! public methods</span>
             <span class="k">procedure</span> <span class="kd">::</span> <span class="n">free</span> <span class="c">!&lt; Free dynamic memory.</span>
     <span class="n">endtype</span> <span class="n">equation</span>
@@ -729,6 +745,6 @@ private elemental subroutine <a href='../proc/free%7E3.html'>free</a>(this)
         }
       });
     </script>
-    <script src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
   </body>
 </html>

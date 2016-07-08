@@ -225,7 +225,7 @@
     
     <div class="col-lg-9" id='text'>
     <h2>
-private function integrate(this, equ, t, inp) result(res)
+private function integrate(this, equ, t, inp) result(error)
     
     
     
@@ -258,7 +258,7 @@ private function integrate(this, equ, t, inp) result(res)
   <td></td>
   
   <td></td><td>::</td>
-  <td><strong>this</strong></td><td></td>
+  <td><strong>this</strong></td><td><p>The integrator.</p></td>
   
 </tr>
 
@@ -273,7 +273,7 @@ private function integrate(this, equ, t, inp) result(res)
   <td></td>
   
   <td>target</td><td>::</td>
-  <td><strong>equ</strong></td><td></td>
+  <td><strong>equ</strong></td><td><p>The equation.</p></td>
   
 </tr>
 
@@ -283,12 +283,12 @@ private function integrate(this, equ, t, inp) result(res)
   
 <tr>
   
-  <td><span class="anchor" id="variable-t%7E3"></span>real(kind=R8P),</td>
+  <td><span class="anchor" id="variable-t%7E3"></span>real(kind=R_P),</td>
   <td>intent(in)</td>
   <td></td>
   
   <td></td><td>::</td>
-  <td><strong>t</strong></td><td></td>
+  <td><strong>t</strong></td><td><p>Time.</p></td>
   
 </tr>
 
@@ -303,7 +303,7 @@ private function integrate(this, equ, t, inp) result(res)
   <td></td>
   
   <td>target</td><td>::</td>
-  <td><strong>inp</strong></td><td></td>
+  <td><strong>inp</strong></td><td><p>Input field.</p></td>
   
 </tr>
 
@@ -317,10 +317,13 @@ private function integrate(this, equ, t, inp) result(res)
     
     
     
-	 <h3>Return Value <small><span class="anchor" id="variable-res%7E3"></span>integer
+	 <h3>Return Value <small><span class="anchor" id="variable-error%7E12"></span>integer
   </small></h3>
+    <p>Error status.</p>
     
     
+    <h3>Description</h3>
+    <p>Integrate the field accordingly the equation by means of the Euler scheme.</p>
     
     
      
@@ -348,7 +351,7 @@ private function integrate(this, equ, t, inp) result(res)
   
   <td>public,</td>
   <td>allocatable</td><td>::</td>
-  <td><strong>for</strong></td><td></td><td></td><td></td>
+  <td><strong>for</strong></td><td></td><td></td><td><p>Temporary</p></td>
   
 </tr>
 
@@ -375,13 +378,14 @@ private function integrate(this, equ, t, inp) result(res)
     
     <section>
     <h2><span class="anchor" id="src"></span>Source Code</h2>
-    <div class="highlight"><pre><span></span>    <span class="k">function </span><span class="n">integrate</span><span class="p">(</span><span class="n">this</span><span class="p">,</span> <span class="n">equ</span><span class="p">,</span> <span class="n">t</span><span class="p">,</span> <span class="n">inp</span><span class="p">)</span> <span class="k">result</span><span class="p">(</span><span class="n">res</span><span class="p">)</span>
-        <span class="k">class</span><span class="p">(</span><span class="n">integrator_euler</span><span class="p">),</span> <span class="k">intent</span><span class="p">(</span><span class="n">in</span><span class="p">)</span>            <span class="kd">::</span> <span class="n">this</span>
-        <span class="k">class</span><span class="p">(</span><span class="n">equation</span><span class="p">),</span>         <span class="k">intent</span><span class="p">(</span><span class="n">in</span><span class="p">),</span>    <span class="k">target</span> <span class="kd">::</span> <span class="n">equ</span>
-        <span class="kt">real</span><span class="p">(</span><span class="n">R8P</span><span class="p">),</span>               <span class="k">intent</span><span class="p">(</span><span class="n">in</span><span class="p">)</span>            <span class="kd">::</span> <span class="n">t</span>
-        <span class="k">class</span><span class="p">(</span><span class="n">field</span><span class="p">),</span>            <span class="k">intent</span><span class="p">(</span><span class="n">inout</span><span class="p">),</span> <span class="k">target</span> <span class="kd">::</span> <span class="n">inp</span>
-        <span class="kt">integer</span>                                        <span class="kd">::</span> <span class="n">res</span>
-        <span class="k">class</span><span class="p">(</span><span class="n">field</span><span class="p">),</span> <span class="k">allocatable</span>                      <span class="kd">::</span> <span class="n">for</span>
+    <div class="highlight"><pre><span></span>    <span class="k">function </span><span class="n">integrate</span><span class="p">(</span><span class="n">this</span><span class="p">,</span> <span class="n">equ</span><span class="p">,</span> <span class="n">t</span><span class="p">,</span> <span class="n">inp</span><span class="p">)</span> <span class="k">result</span><span class="p">(</span><span class="n">error</span><span class="p">)</span>
+        <span class="c">!&lt; Integrate the field accordingly the equation by means of the Euler scheme.</span>
+        <span class="k">class</span><span class="p">(</span><span class="n">integrator_euler</span><span class="p">),</span> <span class="k">intent</span><span class="p">(</span><span class="n">in</span><span class="p">)</span>            <span class="kd">::</span> <span class="n">this</span>  <span class="c">!&lt; The integrator.</span>
+        <span class="k">class</span><span class="p">(</span><span class="n">equation</span><span class="p">),</span>         <span class="k">intent</span><span class="p">(</span><span class="n">in</span><span class="p">),</span>    <span class="k">target</span> <span class="kd">::</span> <span class="n">equ</span>   <span class="c">!&lt; The equation.</span>
+        <span class="kt">real</span><span class="p">(</span><span class="n">R_P</span><span class="p">),</span>               <span class="k">intent</span><span class="p">(</span><span class="n">in</span><span class="p">)</span>            <span class="kd">::</span> <span class="n">t</span>     <span class="c">!&lt; Time.</span>
+        <span class="k">class</span><span class="p">(</span><span class="n">field</span><span class="p">),</span>            <span class="k">intent</span><span class="p">(</span><span class="n">inout</span><span class="p">),</span> <span class="k">target</span> <span class="kd">::</span> <span class="n">inp</span>   <span class="c">!&lt; Input field.</span>
+        <span class="kt">integer</span>                                        <span class="kd">::</span> <span class="n">error</span> <span class="c">!&lt; Error status.</span>
+        <span class="k">class</span><span class="p">(</span><span class="n">field</span><span class="p">),</span> <span class="k">allocatable</span>                      <span class="kd">::</span> <span class="n">for</span>   <span class="c">!&lt; Temporary</span>
         <span class="k">select type</span><span class="p">(</span><span class="n">inp</span><span class="p">)</span>
             <span class="k">type is</span><span class="p">(</span><span class="n">field_fd_1d</span><span class="p">)</span>
                 <span class="k">print</span> <span class="o">*</span><span class="p">,</span><span class="s2">&quot;t, dt, inp: &quot;</span><span class="p">,</span><span class="n">t</span><span class="p">,</span> <span class="n">this</span><span class="p">%</span><span class="n">dt</span><span class="p">,</span> <span class="n">inp</span><span class="p">%</span><span class="n">val</span>
@@ -392,7 +396,7 @@ private function integrate(this, equ, t, inp) result(res)
         <span class="c">! especially multiplying by this%dt. Why....?</span>
         <span class="n">for</span> <span class="o">=</span> <span class="n">equ</span><span class="p">%</span><span class="n">forcing</span><span class="p">(</span><span class="n">inp</span><span class="o">=</span><span class="n">inp</span><span class="p">,</span> <span class="n">t</span><span class="o">=</span><span class="n">t</span><span class="p">)</span>
         <span class="n">inp</span> <span class="o">=</span> <span class="n">inp</span> <span class="o">+</span> <span class="n">this</span><span class="p">%</span><span class="n">dt</span> <span class="o">*</span> <span class="n">for</span>
-        <span class="n">res</span> <span class="o">=</span> <span class="mi">0</span>
+        <span class="n">error</span> <span class="o">=</span> <span class="mi">0</span>
     <span class="k">end function </span><span class="n">integrate</span>
 </pre></div>
 
@@ -444,6 +448,6 @@ private function integrate(this, equ, t, inp) result(res)
         }
       });
     </script>
-    <script src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
   </body>
 </html>

@@ -188,13 +188,16 @@
     <div class="col-lg-9" id='text'>
 	
     
-    <h2>abstract interface <br>
-    
-private function abstract_init(this) result(res)
-    
+    <h2>abstract interface</h2>
+    <p>Initialize equation.</p>
     
     
-</h2>    
+    <h2>
+private function abstract_init(this) result(error)
+    
+    
+    
+</h2>
     
 
     
@@ -219,12 +222,12 @@ private function abstract_init(this) result(res)
   
 <tr>
   
-  <td><span class="anchor" id="variable-this%7E5"></span>class(<a href='../type/equation.html'>equation</a>)</td>
-  <td></td>
+  <td><span class="anchor" id="variable-this%7E5"></span>class(<a href='../type/equation.html'>equation</a>),</td>
+  <td>intent(inout)</td>
   <td></td>
   
   <td></td><td>::</td>
-  <td><strong>this</strong></td><td></td>
+  <td><strong>this</strong></td><td><p>The equation.</p></td>
   
 </tr>
 
@@ -238,10 +241,13 @@ private function abstract_init(this) result(res)
     
     
     
-	 <h3>Return Value <span class="anchor" id="variable-res"></span><small>integer
+	 <h3>Return Value <span class="anchor" id="variable-error%7E4"></span><small>integer(kind=I_P)
   </small></h3>
+    <p>Error status.</p>
     
     
+    <h3>Description</h3>
+    <p>Initialize equation.</p>
     
     <br>
 
@@ -289,6 +295,6 @@ private function abstract_init(this) result(res)
         }
       });
     </script>
-    <script src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
   </body>
 </html>

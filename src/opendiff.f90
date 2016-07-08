@@ -9,6 +9,7 @@ module opendiff
     use opendiff_adt_spatial_operator_der1
     use opendiff_field_fd_1d
     use opendiff_integrator_euler
+    use opendiff_kinds
     use opendiff_mesh_fd_1d
     use opendiff_spatial_operator_der1_fd_1d
 
@@ -24,4 +25,13 @@ module opendiff
     public :: spatial_operator
     public :: spatial_operator_der1
     public :: spatial_operator_der1_fd_1d
+    ! kinds
+    public :: R8P
+    public :: R4P
+    public :: R_P
+    public :: I8P
+    public :: I4P
+    public :: I2P
+    public :: I1P
+    public :: I_P
 end module opendiff

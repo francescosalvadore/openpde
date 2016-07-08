@@ -253,12 +253,12 @@ private function forcing_burgers(this, inp, t) result(opr)
   
 <tr>
   
-  <td><span class="anchor" id="variable-this%7E25"></span>class(<a href='../type/burgers_equation.html'>burgers_equation</a>)</td>
-  <td></td>
+  <td><span class="anchor" id="variable-this%7E24"></span>class(<a href='../type/burgers_equation.html'>burgers_equation</a>),</td>
+  <td>intent(in)</td>
   <td></td>
   
   <td></td><td>::</td>
-  <td><strong>this</strong></td><td></td>
+  <td><strong>this</strong></td><td><p>The equation.</p></td>
   
 </tr>
 
@@ -269,11 +269,11 @@ private function forcing_burgers(this, inp, t) result(opr)
 <tr>
   
   <td><span class="anchor" id="variable-inp%7E6"></span>class(<a href='../type/field.html'>field</a>),</td>
-  <td>,</td>
+  <td>intent(in),</td>
   <td></td>
   
   <td>target</td><td>::</td>
-  <td><strong>inp</strong></td><td></td>
+  <td><strong>inp</strong></td><td><p>Input field.</p></td>
   
 </tr>
 
@@ -283,12 +283,12 @@ private function forcing_burgers(this, inp, t) result(opr)
   
 <tr>
   
-  <td><span class="anchor" id="variable-t%7E4"></span>real(kind=R8P)</td>
-  <td></td>
+  <td><span class="anchor" id="variable-t%7E4"></span>real(kind=R_P),</td>
+  <td>intent(in)</td>
   <td></td>
   
   <td></td><td>::</td>
-  <td><strong>t</strong></td><td></td>
+  <td><strong>t</strong></td><td><p>Time.</p></td>
   
 </tr>
 
@@ -304,8 +304,11 @@ private function forcing_burgers(this, inp, t) result(opr)
     
 	 <h3>Return Value <small><span class="anchor" id="variable-opr%7E12"></span>class(<a href='../type/field.html'>field</a>),
   allocatable</small></h3>
+    <p>Field computed.</p>
     
     
+    <h3>Description</h3>
+    <p>Return the field after forcing the equation.</p>
     
     
      
@@ -333,7 +336,7 @@ private function forcing_burgers(this, inp, t) result(opr)
   
   <td>public,</td>
   <td>pointer</td><td>::</td>
-  <td><strong>der1_cur</strong></td><td></td><td></td><td></td>
+  <td><strong>der1_cur</strong></td><td></td><td></td><td><p>Dummy pointer for spatial operator.</p></td>
   
 </tr>
 
@@ -361,14 +364,13 @@ private function forcing_burgers(this, inp, t) result(opr)
     <section>
     <h2><span class="anchor" id="src"></span>Source Code</h2>
     <div class="highlight"><pre><span></span>    <span class="k">function </span><span class="n">forcing_burgers</span><span class="p">(</span><span class="n">this</span><span class="p">,</span> <span class="n">inp</span><span class="p">,</span> <span class="n">t</span><span class="p">)</span> <span class="k">result</span><span class="p">(</span><span class="n">opr</span><span class="p">)</span>
-        <span class="k">class</span><span class="p">(</span><span class="n">burgers_equation</span><span class="p">)</span> <span class="kd">::</span> <span class="n">this</span>
-        <span class="k">class</span><span class="p">(</span><span class="n">field</span><span class="p">),</span> <span class="k">target</span> <span class="kd">::</span> <span class="n">inp</span>
-        <span class="kt">real</span><span class="p">(</span><span class="n">R8P</span><span class="p">)</span> <span class="kd">::</span> <span class="n">t</span>
-        <span class="k">class</span><span class="p">(</span><span class="n">field</span><span class="p">),</span> <span class="k">allocatable</span> <span class="kd">::</span> <span class="n">opr</span>
-        <span class="k">class</span><span class="p">(</span><span class="n">spatial_operator_der1</span><span class="p">),</span> <span class="k">pointer</span> <span class="kd">::</span> <span class="n">der1_cur</span>
-
+        <span class="c">!&lt; Return the field after forcing the equation.</span>
+        <span class="k">class</span><span class="p">(</span><span class="n">burgers_equation</span><span class="p">),</span> <span class="k">intent</span><span class="p">(</span><span class="n">in</span><span class="p">)</span>         <span class="kd">::</span> <span class="n">this</span>     <span class="c">!&lt; The equation.</span>
+        <span class="k">class</span><span class="p">(</span><span class="n">field</span><span class="p">),</span>            <span class="k">intent</span><span class="p">(</span><span class="n">in</span><span class="p">),</span> <span class="k">target</span> <span class="kd">::</span> <span class="n">inp</span>      <span class="c">!&lt; Input field.</span>
+        <span class="kt">real</span><span class="p">(</span><span class="n">R_P</span><span class="p">),</span>               <span class="k">intent</span><span class="p">(</span><span class="n">in</span><span class="p">)</span>         <span class="kd">::</span> <span class="n">t</span>        <span class="c">!&lt; Time.</span>
+        <span class="k">class</span><span class="p">(</span><span class="n">field</span><span class="p">),</span> <span class="k">allocatable</span>                   <span class="kd">::</span> <span class="n">opr</span>      <span class="c">!&lt; Field computed.</span>
+        <span class="k">class</span><span class="p">(</span><span class="n">spatial_operator_der1</span><span class="p">),</span> <span class="k">pointer</span>       <span class="kd">::</span> <span class="n">der1_cur</span> <span class="c">!&lt; Dummy pointer for spatial operator.</span>
         <span class="k">allocate</span><span class="p">(</span><span class="n">opr</span><span class="p">,</span> <span class="n">source</span><span class="o">=</span><span class="n">inp</span><span class="p">)</span>
-
 <span class="c">!USELESS        associate(d1 =&gt; this%der1)</span>
 <span class="c">!USELESS            select type(d1)</span>
 <span class="c">!USELESS                type is(spatialop_fd_1d_der1_c)</span>
@@ -377,12 +379,9 @@ private function forcing_burgers(this, inp, t) result(opr)
 <span class="c">!USELESS                   STOP &#39;Error passing field to add&#39;</span>
 <span class="c">!USELESS            endselect</span>
 <span class="c">!USELESS        endassociate</span>
-
         <span class="n">der1_cur</span> <span class="o">=&gt;</span> <span class="n">this</span><span class="p">%</span><span class="n">der1</span>
         <span class="n">opr</span> <span class="o">=</span> <span class="n">der1_cur</span><span class="p">%</span><span class="n">operate</span><span class="p">(</span><span class="n">inp</span><span class="p">)</span>
-
 <span class="c">!OK TOO        opr = this%der1%operate(inp)</span>
-
     <span class="k">end function </span><span class="n">forcing_burgers</span>
 </pre></div>
 
@@ -434,6 +433,6 @@ private function forcing_burgers(this, inp, t) result(opr)
         }
       });
     </script>
-    <script src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
   </body>
 </html>
