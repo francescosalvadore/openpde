@@ -93,7 +93,7 @@ program burgers
     class(integrator), allocatable :: integ    !< Integrator.
     type(burgers_equation)         :: burg_equ !< Burgers equation.
     integer(I_P)                   :: itmin=0  !< Fist time step.
-    integer(I_P)                   :: itmax=10 !< Last time step.
+    integer(I_P)                   :: itmax=1000 !< Last time step.
     integer(I_P)                   :: it       !< Time step counter.
     integer(I_P)                   :: er       !< Error status.
     !TEST class(spatialop), allocatable :: der1d
@@ -126,7 +126,7 @@ program burgers
     call u1%output(output_name, error=er)
     do it = itmin, itmax
         er = integ%integrate(inp=u1, equ=burg_equ, t=it*integ%dt)
-        if(mod(it,100)==0) then
+        if(mod(it,10)==0) then
             print*,'it: ',it
             write(output_name(5:12),"(I8.8)") it
             call u1%output(output_name, error=er)

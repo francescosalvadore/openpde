@@ -228,9 +228,9 @@ contains
         class(field_fd_1d), intent(in)            :: this     !< The field.
         character(len=*),   intent(in)            :: filename !< Output file name.
         integer(I4P)                              :: imin,imax,i
+        integer(I_P),       intent(out), optional :: error    !< Error status.
         imin = lbound(this%val,1)
         imax = ubound(this%val,1)
-        integer(I_P),       intent(out), optional :: error    !< Error status.
         open(unit=11,file=filename)
         do i=imin,imax
             write(11,*) this%val(i)

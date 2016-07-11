@@ -18,8 +18,8 @@ module opendiff_spatial_operator_der1_fd_1d
     endtype spatial_operator_der1_fd_1d
 contains
     function operate(this, inp) result(opr)
-        class(spatial_operator_der1_fd_1d) :: this
-        class(field), target               :: inp
+        class(spatial_operator_der1_fd_1d), intent(in) :: this
+        class(field), intent(in), target               :: inp
         class(field_fd_1d), pointer        :: inp_cur
         class(field), allocatable, target  :: opr
         class(field_fd_1d), pointer        :: opr_cur  !< Dummy pointer for operator result.

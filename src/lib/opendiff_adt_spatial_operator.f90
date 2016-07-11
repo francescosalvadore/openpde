@@ -21,7 +21,7 @@ module opendiff_adt_spatial_operator
             import :: spatial_operator, field
             class(spatial_operator), intent(in)         :: this !< The operator.
             class(field),            intent(in), target :: inp  !< Input field.
-            class(field), allocatable                   :: opr  !< Field resulting after the operator application.
+            class(field), allocatable, target           :: opr  !< Field resulting after the operator application.
         end function abstract_operate
     endinterface
 end module opendiff_adt_spatial_operator

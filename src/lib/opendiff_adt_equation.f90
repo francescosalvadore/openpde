@@ -30,7 +30,7 @@ module opendiff_adt_equation
     abstract interface
         function abstract_init(this) result(res)
             import :: equation, field
-            class(equation) :: this
+            class(equation), intent(inout) :: this
             integer         :: res
         end function abstract_init
     endinterface
