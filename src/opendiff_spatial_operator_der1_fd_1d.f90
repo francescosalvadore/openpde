@@ -28,6 +28,7 @@ contains
         real(R_P)                                              :: h        !< Space step.
         integer(I_P)                                           :: i        !< Counter.
         integer(I_P)                                           :: n        !< Counter.
+        integer(I_P)                                           :: ng       !< Number of ghost cells.
         allocate(field_fd_1d :: opr)
         select type(opr)
             type is(field_fd_1d)
@@ -51,12 +52,14 @@ contains
         end associate
         h = mesh_cur%h
         n = mesh_cur%n
-        allocate(opr_cur%val(1:n))
+        ng = mesh_cur%ng
+        allocate(opr_cur%val(1-ng:n+ng))
         opr_cur%m => mesh_cur
-        do i=2,n-1
-            opr_cur%val(i) = (inp_cur%val(i+1) - inp_cur%val(i-1))/(2.*h)
+        do i=1,n
+            !opr_cur%val(i) = (inp_cur%val(i+1) - inp_cur%val(i-1))/(2.*h)
+            opr_cur%val(i) = (inp_cur%val(i+1) - inp_cur%val(i))/(h)
         enddo
-        opr_cur%val(1) = (inp_cur%val(2) - inp_cur%val(n))/(2.*h)
-        opr_cur%val(n) = (inp_cur%val(1) - inp_cur%val(n-1))/(2.*h)
+        !opr_cur%val(1) = (inp_cur%val(2) - inp_cur%val(n))/(2.*h)
+        !opr_cur%val(n) = (inp_cur%val(1) - inp_cur%val(n-1))/(2.*h)
     end function operate
 end module opendiff_spatial_operator_der1_fd_1d

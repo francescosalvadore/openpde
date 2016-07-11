@@ -177,6 +177,8 @@
           
           <a class="list-group-item" href="../proc/associate_mesh.html">associate_mesh</a>
           
+          <a class="list-group-item" href="../proc/bc_burgers.html">bc_burgers</a>
+          
           <a class="list-group-item" href="../proc/forcing_burgers.html">forcing_burgers</a>
           
           <a class="list-group-item" href="../proc/free.html">free</a>
@@ -196,6 +198,8 @@
           <a class="list-group-item" href="../proc/init_burgers.html">init_burgers</a>
           
           <a class="list-group-item" href="../proc/integrate.html">integrate</a>
+          
+          <a class="list-group-item" href="../proc/load_from_json.html">load_from_json</a>
           
           <a class="list-group-item" href="../proc/mul.html">mul</a>
           
@@ -253,7 +257,7 @@ private function forcing_burgers(this, inp, t) result(opr)
   
 <tr>
   
-  <td><span class="anchor" id="variable-this%7E24"></span>class(<a href='../type/burgers_equation.html'>burgers_equation</a>),</td>
+  <td><span class="anchor" id="variable-this%7E27"></span>class(<a href='../type/burgers_equation.html'>burgers_equation</a>),</td>
   <td>intent(in)</td>
   <td></td>
   
@@ -268,7 +272,7 @@ private function forcing_burgers(this, inp, t) result(opr)
   
 <tr>
   
-  <td><span class="anchor" id="variable-inp%7E6"></span>class(<a href='../type/field.html'>field</a>),</td>
+  <td><span class="anchor" id="variable-inp%7E7"></span>class(<a href='../type/field.html'>field</a>),</td>
   <td>intent(in),</td>
   <td></td>
   
@@ -283,7 +287,7 @@ private function forcing_burgers(this, inp, t) result(opr)
   
 <tr>
   
-  <td><span class="anchor" id="variable-t%7E4"></span>real(kind=R_P),</td>
+  <td><span class="anchor" id="variable-t%7E5"></span>real(kind=R_P),</td>
   <td>intent(in)</td>
   <td></td>
   
@@ -371,14 +375,7 @@ private function forcing_burgers(this, inp, t) result(opr)
         <span class="k">class</span><span class="p">(</span><span class="n">field</span><span class="p">),</span> <span class="k">allocatable</span>                   <span class="kd">::</span> <span class="n">opr</span>      <span class="c">!&lt; Field computed.</span>
         <span class="k">class</span><span class="p">(</span><span class="n">spatial_operator_der1</span><span class="p">),</span> <span class="k">pointer</span>       <span class="kd">::</span> <span class="n">der1_cur</span> <span class="c">!&lt; Dummy pointer for spatial operator.</span>
         <span class="k">allocate</span><span class="p">(</span><span class="n">opr</span><span class="p">,</span> <span class="n">source</span><span class="o">=</span><span class="n">inp</span><span class="p">)</span>
-<span class="c">!USELESS        associate(d1 =&gt; this%der1)</span>
-<span class="c">!USELESS            select type(d1)</span>
-<span class="c">!USELESS                type is(spatialop_fd_1d_der1_c)</span>
-<span class="c">!USELESS                    der1_cur =&gt; this%der1</span>
-<span class="c">!USELESS                class default</span>
-<span class="c">!USELESS                   STOP &#39;Error passing field to add&#39;</span>
-<span class="c">!USELESS            endselect</span>
-<span class="c">!USELESS        endassociate</span>
+
         <span class="n">der1_cur</span> <span class="o">=&gt;</span> <span class="n">this</span><span class="p">%</span><span class="n">der1</span>
         <span class="n">opr</span> <span class="o">=</span> <span class="n">der1_cur</span><span class="p">%</span><span class="n">operate</span><span class="p">(</span><span class="n">inp</span><span class="p">)</span>
 <span class="c">!OK TOO        opr = this%der1%operate(inp)</span>

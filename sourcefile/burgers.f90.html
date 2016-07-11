@@ -232,98 +232,130 @@
 <a name="ln-14"></a>        <span class="c">!&lt; when pointed inside forcing_burgers function.</span>
 <a name="ln-15"></a>        <span class="k">class</span><span class="p">(</span><span class="n">spatial_operator_der1</span><span class="p">),</span> <span class="k">pointer</span> <span class="kd">::</span> <span class="n">der1</span> <span class="c">!&lt; First derivative.</span>
 <a name="ln-16"></a>        <span class="k">contains</span>
-<a name="ln-17"></a><span class="k">            procedure</span> <span class="kd">::</span> <span class="n">init</span> <span class="o">=&gt;</span> <span class="n">init_burgers</span>        <span class="c">!&lt; Initialize equation.</span>
+<a name="ln-17"></a><span class="k">            procedure</span> <span class="kd">::</span> <span class="n">bc</span> <span class="o">=&gt;</span> <span class="n">bc_burgers</span>            <span class="c">!&lt; Equation boundary conditions imposition.</span>
 <a name="ln-18"></a>            <span class="k">procedure</span> <span class="kd">::</span> <span class="n">forcing</span> <span class="o">=&gt;</span> <span class="n">forcing_burgers</span>  <span class="c">!&lt; Forcing equation.</span>
-<a name="ln-19"></a>    <span class="n">endtype</span> <span class="n">burgers_equation</span>
-<a name="ln-20"></a>
-<a name="ln-21"></a><span class="k">contains</span>
-<a name="ln-22"></a><span class="k">    function </span><span class="n">forcing_burgers</span><span class="p">(</span><span class="n">this</span><span class="p">,</span> <span class="n">inp</span><span class="p">,</span> <span class="n">t</span><span class="p">)</span> <span class="k">result</span><span class="p">(</span><span class="n">opr</span><span class="p">)</span>
-<a name="ln-23"></a>        <span class="c">!&lt; Return the field after forcing the equation.</span>
-<a name="ln-24"></a>        <span class="k">class</span><span class="p">(</span><span class="n">burgers_equation</span><span class="p">),</span> <span class="k">intent</span><span class="p">(</span><span class="n">in</span><span class="p">)</span>         <span class="kd">::</span> <span class="n">this</span>     <span class="c">!&lt; The equation.</span>
-<a name="ln-25"></a>        <span class="k">class</span><span class="p">(</span><span class="n">field</span><span class="p">),</span>            <span class="k">intent</span><span class="p">(</span><span class="n">in</span><span class="p">),</span> <span class="k">target</span> <span class="kd">::</span> <span class="n">inp</span>      <span class="c">!&lt; Input field.</span>
-<a name="ln-26"></a>        <span class="kt">real</span><span class="p">(</span><span class="n">R_P</span><span class="p">),</span>               <span class="k">intent</span><span class="p">(</span><span class="n">in</span><span class="p">)</span>         <span class="kd">::</span> <span class="n">t</span>        <span class="c">!&lt; Time.</span>
-<a name="ln-27"></a>        <span class="k">class</span><span class="p">(</span><span class="n">field</span><span class="p">),</span> <span class="k">allocatable</span>                   <span class="kd">::</span> <span class="n">opr</span>      <span class="c">!&lt; Field computed.</span>
-<a name="ln-28"></a>        <span class="k">class</span><span class="p">(</span><span class="n">spatial_operator_der1</span><span class="p">),</span> <span class="k">pointer</span>       <span class="kd">::</span> <span class="n">der1_cur</span> <span class="c">!&lt; Dummy pointer for spatial operator.</span>
-<a name="ln-29"></a>        <span class="k">allocate</span><span class="p">(</span><span class="n">opr</span><span class="p">,</span> <span class="n">source</span><span class="o">=</span><span class="n">inp</span><span class="p">)</span>
-<a name="ln-30"></a><span class="c">!USELESS        associate(d1 =&gt; this%der1)</span>
-<a name="ln-31"></a><span class="c">!USELESS            select type(d1)</span>
-<a name="ln-32"></a><span class="c">!USELESS                type is(spatialop_fd_1d_der1_c)</span>
-<a name="ln-33"></a><span class="c">!USELESS                    der1_cur =&gt; this%der1</span>
-<a name="ln-34"></a><span class="c">!USELESS                class default</span>
-<a name="ln-35"></a><span class="c">!USELESS                   STOP &#39;Error passing field to add&#39;</span>
-<a name="ln-36"></a><span class="c">!USELESS            endselect</span>
-<a name="ln-37"></a><span class="c">!USELESS        endassociate</span>
-<a name="ln-38"></a>        <span class="n">der1_cur</span> <span class="o">=&gt;</span> <span class="n">this</span><span class="p">%</span><span class="n">der1</span>
-<a name="ln-39"></a>        <span class="n">opr</span> <span class="o">=</span> <span class="n">der1_cur</span><span class="p">%</span><span class="n">operate</span><span class="p">(</span><span class="n">inp</span><span class="p">)</span>
-<a name="ln-40"></a><span class="c">!OK TOO        opr = this%der1%operate(inp)</span>
-<a name="ln-41"></a>    <span class="k">end function </span><span class="n">forcing_burgers</span>
-<a name="ln-42"></a>
-<a name="ln-43"></a>    <span class="k">function </span><span class="n">init_burgers</span><span class="p">(</span><span class="n">this</span><span class="p">)</span> <span class="k">result</span><span class="p">(</span><span class="n">error</span><span class="p">)</span>
-<a name="ln-44"></a>        <span class="c">!&lt; Initialize equation.</span>
-<a name="ln-45"></a>        <span class="k">class</span><span class="p">(</span><span class="n">burgers_equation</span><span class="p">),</span> <span class="k">intent</span><span class="p">(</span><span class="n">inout</span><span class="p">)</span> <span class="kd">::</span> <span class="n">this</span>  <span class="c">!&lt; The equation.</span>
-<a name="ln-46"></a>        <span class="kt">integer</span><span class="p">(</span><span class="n">I4P</span><span class="p">)</span>                           <span class="kd">::</span> <span class="n">error</span> <span class="c">!&lt; Error status.</span>
-<a name="ln-47"></a>        <span class="c">! The next is to be read by JSON</span>
-<a name="ln-48"></a>        <span class="k">allocate</span><span class="p">(</span><span class="n">spatial_operator_der1_fd_1d</span> <span class="kd">::</span> <span class="n">this</span><span class="p">%</span><span class="n">der1</span><span class="p">)</span>
-<a name="ln-49"></a>        <span class="n">error</span> <span class="o">=</span> <span class="mi">0</span>
-<a name="ln-50"></a>    <span class="k">end function </span><span class="n">init_burgers</span>
-<a name="ln-51"></a>
-<a name="ln-52"></a><span class="k">end module </span><span class="n">myequations</span>
-<a name="ln-53"></a>
-<a name="ln-54"></a><span class="k">program </span><span class="n">burgers</span>
-<a name="ln-55"></a>    <span class="c">!&lt; Testing program of fake Burgers equation.</span>
-<a name="ln-56"></a>
-<a name="ln-57"></a>    <span class="k">use </span><span class="n">opendiff</span>
-<a name="ln-58"></a>    <span class="k">use </span><span class="n">myequations</span>
-<a name="ln-59"></a>
-<a name="ln-60"></a>    <span class="k">class</span><span class="p">(</span><span class="n">mesh</span><span class="p">),</span> <span class="k">allocatable</span>       <span class="kd">::</span> <span class="n">m1</span>       <span class="c">!&lt; Mesh.</span>
-<a name="ln-61"></a>    <span class="k">class</span><span class="p">(</span><span class="n">field</span><span class="p">),</span> <span class="k">allocatable</span>      <span class="kd">::</span> <span class="n">u1</span>       <span class="c">!&lt; Field 1.</span>
-<a name="ln-62"></a>    <span class="k">class</span><span class="p">(</span><span class="n">field</span><span class="p">),</span> <span class="k">allocatable</span>      <span class="kd">::</span> <span class="n">u2</span>       <span class="c">!&lt; Field 2.</span>
-<a name="ln-63"></a>    <span class="k">class</span><span class="p">(</span><span class="n">field</span><span class="p">),</span> <span class="k">allocatable</span>      <span class="kd">::</span> <span class="n">u3</span>       <span class="c">!&lt; Field 3.</span>
-<a name="ln-64"></a>    <span class="k">class</span><span class="p">(</span><span class="n">integrator</span><span class="p">),</span> <span class="k">allocatable</span> <span class="kd">::</span> <span class="n">integ</span>    <span class="c">!&lt; Integrator.</span>
-<a name="ln-65"></a>    <span class="k">type</span><span class="p">(</span><span class="n">burgers_equation</span><span class="p">)</span>         <span class="kd">::</span> <span class="n">burg_equ</span> <span class="c">!&lt; Burgers equation.</span>
-<a name="ln-66"></a>    <span class="kt">integer</span><span class="p">(</span><span class="n">I_P</span><span class="p">)</span>                   <span class="kd">::</span> <span class="n">itmin</span><span class="o">=</span><span class="mi">0</span>  <span class="c">!&lt; Fist time step.</span>
-<a name="ln-67"></a>    <span class="kt">integer</span><span class="p">(</span><span class="n">I_P</span><span class="p">)</span>                   <span class="kd">::</span> <span class="n">itmax</span><span class="o">=</span><span class="mi">10</span> <span class="c">!&lt; Last time step.</span>
-<a name="ln-68"></a>    <span class="kt">integer</span><span class="p">(</span><span class="n">I_P</span><span class="p">)</span>                   <span class="kd">::</span> <span class="n">it</span>       <span class="c">!&lt; Time step counter.</span>
-<a name="ln-69"></a>    <span class="kt">integer</span><span class="p">(</span><span class="n">I_P</span><span class="p">)</span>                   <span class="kd">::</span> <span class="n">er</span>       <span class="c">!&lt; Error status.</span>
-<a name="ln-70"></a>    <span class="c">!DER IN MAIN class(spatialop), allocatable :: der1d</span>
-<a name="ln-71"></a>
-<a name="ln-72"></a>    <span class="c">! These should be done reading from JSON input files and returning right</span>
-<a name="ln-73"></a>    <span class="c">! pointers following factory pattern or similar</span>
-<a name="ln-74"></a>    <span class="k">allocate</span><span class="p">(</span><span class="n">mesh_fd_1d</span> <span class="kd">::</span> <span class="n">m1</span><span class="p">)</span>
-<a name="ln-75"></a>    <span class="k">allocate</span><span class="p">(</span><span class="n">field_fd_1d</span> <span class="kd">::</span> <span class="n">u1</span><span class="p">)</span>
-<a name="ln-76"></a>    <span class="k">allocate</span><span class="p">(</span><span class="n">field_fd_1d</span> <span class="kd">::</span> <span class="n">u2</span><span class="p">)</span>
-<a name="ln-77"></a>    <span class="c">!DER IN MAIN allocate(spatialop_fd_1d_der1_c :: der1d)</span>
-<a name="ln-78"></a>    <span class="k">allocate</span><span class="p">(</span><span class="n">integrator_euler</span> <span class="kd">::</span> <span class="n">integ</span><span class="p">)</span>
-<a name="ln-79"></a>
-<a name="ln-80"></a>    <span class="k">allocate</span><span class="p">(</span><span class="n">u3</span><span class="p">,</span> <span class="n">source</span><span class="o">=</span><span class="n">u1</span><span class="p">)</span>
-<a name="ln-81"></a>
-<a name="ln-82"></a>    <span class="n">integ</span><span class="p">%</span><span class="n">dt</span> <span class="o">=</span> <span class="mf">0.1_R_P</span>
-<a name="ln-83"></a>
-<a name="ln-84"></a>    <span class="k">call </span><span class="n">m1</span><span class="p">%</span><span class="n">init</span><span class="p">(</span><span class="n">error</span><span class="o">=</span><span class="n">er</span><span class="p">)</span>
-<a name="ln-85"></a>
-<a name="ln-86"></a>    <span class="k">call </span><span class="n">u1</span><span class="p">%</span><span class="n">init</span><span class="p">(</span><span class="n">m1</span><span class="p">,</span> <span class="n">error</span><span class="o">=</span><span class="n">er</span><span class="p">)</span>
-<a name="ln-87"></a>    <span class="k">call </span><span class="n">u2</span><span class="p">%</span><span class="n">init</span><span class="p">(</span><span class="n">m1</span><span class="p">,</span> <span class="n">error</span><span class="o">=</span><span class="n">er</span><span class="p">)</span>
-<a name="ln-88"></a>
-<a name="ln-89"></a>    <span class="n">er</span> <span class="o">=</span> <span class="n">burg_equ</span><span class="p">%</span><span class="n">init</span><span class="p">()</span>
+<a name="ln-19"></a>            <span class="k">procedure</span> <span class="kd">::</span> <span class="n">init</span> <span class="o">=&gt;</span> <span class="n">init_burgers</span>        <span class="c">!&lt; Initialize equation.</span>
+<a name="ln-20"></a>    <span class="n">endtype</span> <span class="n">burgers_equation</span>
+<a name="ln-21"></a>
+<a name="ln-22"></a><span class="k">contains</span>
+<a name="ln-23"></a><span class="k">    subroutine </span><span class="n">bc_burgers</span><span class="p">(</span><span class="n">this</span><span class="p">,</span> <span class="n">inp</span><span class="p">,</span> <span class="n">t</span><span class="p">)</span>
+<a name="ln-24"></a>        <span class="c">!&lt; Equation boundary conditions imposition.</span>
+<a name="ln-25"></a>        <span class="k">class</span><span class="p">(</span><span class="n">burgers_equation</span><span class="p">),</span> <span class="k">intent</span><span class="p">(</span><span class="n">in</span><span class="p">)</span>            <span class="kd">::</span> <span class="n">this</span>     <span class="c">!&lt; The equation.</span>
+<a name="ln-26"></a>        <span class="k">class</span><span class="p">(</span><span class="n">field</span><span class="p">),</span>            <span class="k">intent</span><span class="p">(</span><span class="n">inout</span><span class="p">),</span> <span class="k">target</span> <span class="kd">::</span> <span class="n">inp</span>      <span class="c">!&lt; Field.</span>
+<a name="ln-27"></a>        <span class="kt">real</span><span class="p">(</span><span class="n">R_P</span><span class="p">),</span>               <span class="k">intent</span><span class="p">(</span><span class="n">in</span><span class="p">)</span>            <span class="kd">::</span> <span class="n">t</span>        <span class="c">!&lt; Time.</span>
+<a name="ln-28"></a>        <span class="k">class</span><span class="p">(</span><span class="n">field_fd_1d</span><span class="p">),</span> <span class="k">pointer</span>                    <span class="kd">::</span> <span class="n">inp_cur</span>  <span class="c">!&lt; Pointer to input field.</span>
+<a name="ln-29"></a>        <span class="k">class</span><span class="p">(</span><span class="n">mesh_fd_1d</span><span class="p">),</span> <span class="k">pointer</span>                     <span class="kd">::</span> <span class="n">mesh_cur</span> <span class="c">!&lt; Pointer to input mehs.</span>
+<a name="ln-30"></a>        <span class="kt">integer</span><span class="p">(</span><span class="n">I_P</span><span class="p">)</span>                                   <span class="kd">::</span> <span class="n">ng</span>       <span class="c">!&lt; Number of ghost cells.</span>
+<a name="ln-31"></a>        <span class="kt">integer</span><span class="p">(</span><span class="n">I_P</span><span class="p">)</span>                                   <span class="kd">::</span> <span class="n">n</span>        <span class="c">!&lt; Counter.</span>
+<a name="ln-32"></a>        <span class="kt">integer</span><span class="p">(</span><span class="n">I_P</span><span class="p">)</span>                                   <span class="kd">::</span> <span class="n">i</span>        <span class="c">!&lt; Counter.</span>
+<a name="ln-33"></a>
+<a name="ln-34"></a>        <span class="k">select type</span><span class="p">(</span><span class="n">inp</span><span class="p">)</span>
+<a name="ln-35"></a>            <span class="k">type is</span><span class="p">(</span><span class="n">field_fd_1d</span><span class="p">)</span>
+<a name="ln-36"></a>                <span class="n">inp_cur</span> <span class="o">=&gt;</span> <span class="n">inp</span>
+<a name="ln-37"></a>            <span class="k">class </span><span class="n">default</span>
+<a name="ln-38"></a>               <span class="k">STOP</span> <span class="s1">&#39;Error passing field to bc&#39;</span>
+<a name="ln-39"></a>        <span class="k">end select</span>
+<a name="ln-40"></a>
+<a name="ln-41"></a><span class="k">        associate</span><span class="p">(</span><span class="n">mm</span> <span class="o">=&gt;</span> <span class="n">inp</span><span class="p">%</span><span class="n">m</span><span class="p">)</span>
+<a name="ln-42"></a>            <span class="k">select type</span><span class="p">(</span><span class="n">mm</span><span class="p">)</span>
+<a name="ln-43"></a>                <span class="k">type is</span><span class="p">(</span><span class="n">mesh_fd_1d</span><span class="p">)</span>
+<a name="ln-44"></a>                    <span class="n">mesh_cur</span> <span class="o">=&gt;</span> <span class="n">mm</span>
+<a name="ln-45"></a>                <span class="k">class </span><span class="n">default</span>
+<a name="ln-46"></a>                   <span class="k">STOP</span> <span class="s1">&#39;Error getting mesh&#39;</span>
+<a name="ln-47"></a>            <span class="k">end select</span>
+<a name="ln-48"></a><span class="k">        end associate</span>
+<a name="ln-49"></a>
+<a name="ln-50"></a><span class="k">        </span><span class="n">n</span>  <span class="o">=</span> <span class="n">mesh_cur</span><span class="p">%</span><span class="n">n</span>
+<a name="ln-51"></a>        <span class="n">ng</span> <span class="o">=</span> <span class="n">mesh_cur</span><span class="p">%</span><span class="n">ng</span>
+<a name="ln-52"></a>        <span class="k">do </span><span class="n">i</span><span class="o">=</span><span class="mi">1</span><span class="o">-</span><span class="n">ng</span><span class="p">,</span><span class="mi">0</span>
+<a name="ln-53"></a>            <span class="n">inp_cur</span><span class="p">%</span><span class="n">val</span><span class="p">(</span><span class="n">i</span><span class="p">)</span> <span class="o">=</span> <span class="n">inp_cur</span><span class="p">%</span><span class="n">val</span><span class="p">(</span><span class="n">i</span><span class="o">+</span><span class="n">n</span><span class="p">)</span>
+<a name="ln-54"></a>        <span class="n">enddo</span>
+<a name="ln-55"></a>        <span class="k">do </span><span class="n">i</span><span class="o">=</span><span class="n">n</span><span class="o">+</span><span class="mi">1</span><span class="p">,</span><span class="n">n</span><span class="o">+</span><span class="n">ng</span>
+<a name="ln-56"></a>            <span class="n">inp_cur</span><span class="p">%</span><span class="n">val</span><span class="p">(</span><span class="n">i</span><span class="p">)</span> <span class="o">=</span> <span class="n">inp_cur</span><span class="p">%</span><span class="n">val</span><span class="p">(</span><span class="n">i</span><span class="o">-</span><span class="n">n</span><span class="p">)</span>
+<a name="ln-57"></a>        <span class="n">enddo</span>
+<a name="ln-58"></a>
+<a name="ln-59"></a>    <span class="k">end subroutine </span><span class="n">bc_burgers</span>
+<a name="ln-60"></a>
+<a name="ln-61"></a>    <span class="k">function </span><span class="n">init_burgers</span><span class="p">(</span><span class="n">this</span><span class="p">)</span> <span class="k">result</span><span class="p">(</span><span class="n">error</span><span class="p">)</span>
+<a name="ln-62"></a>        <span class="c">!&lt; Initialize equation.</span>
+<a name="ln-63"></a>        <span class="k">class</span><span class="p">(</span><span class="n">burgers_equation</span><span class="p">),</span> <span class="k">intent</span><span class="p">(</span><span class="n">inout</span><span class="p">)</span> <span class="kd">::</span> <span class="n">this</span>  <span class="c">!&lt; The equation.</span>
+<a name="ln-64"></a>        <span class="kt">integer</span><span class="p">(</span><span class="n">I_P</span><span class="p">)</span>                           <span class="kd">::</span> <span class="n">error</span> <span class="c">!&lt; Error status.</span>
+<a name="ln-65"></a>        <span class="c">! The next is to be read by JSON</span>
+<a name="ln-66"></a>        <span class="k">allocate</span><span class="p">(</span><span class="n">spatial_operator_der1_fd_1d</span> <span class="kd">::</span> <span class="n">this</span><span class="p">%</span><span class="n">der1</span><span class="p">)</span>
+<a name="ln-67"></a>        <span class="n">error</span> <span class="o">=</span> <span class="mi">0</span>
+<a name="ln-68"></a>    <span class="k">end function </span><span class="n">init_burgers</span>
+<a name="ln-69"></a>
+<a name="ln-70"></a>    <span class="k">function </span><span class="n">forcing_burgers</span><span class="p">(</span><span class="n">this</span><span class="p">,</span> <span class="n">inp</span><span class="p">,</span> <span class="n">t</span><span class="p">)</span> <span class="k">result</span><span class="p">(</span><span class="n">opr</span><span class="p">)</span>
+<a name="ln-71"></a>        <span class="c">!&lt; Return the field after forcing the equation.</span>
+<a name="ln-72"></a>        <span class="k">class</span><span class="p">(</span><span class="n">burgers_equation</span><span class="p">),</span> <span class="k">intent</span><span class="p">(</span><span class="n">in</span><span class="p">)</span>         <span class="kd">::</span> <span class="n">this</span>     <span class="c">!&lt; The equation.</span>
+<a name="ln-73"></a>        <span class="k">class</span><span class="p">(</span><span class="n">field</span><span class="p">),</span>            <span class="k">intent</span><span class="p">(</span><span class="n">in</span><span class="p">),</span> <span class="k">target</span> <span class="kd">::</span> <span class="n">inp</span>      <span class="c">!&lt; Input field.</span>
+<a name="ln-74"></a>        <span class="kt">real</span><span class="p">(</span><span class="n">R_P</span><span class="p">),</span>               <span class="k">intent</span><span class="p">(</span><span class="n">in</span><span class="p">)</span>         <span class="kd">::</span> <span class="n">t</span>        <span class="c">!&lt; Time.</span>
+<a name="ln-75"></a>        <span class="k">class</span><span class="p">(</span><span class="n">field</span><span class="p">),</span> <span class="k">allocatable</span>                   <span class="kd">::</span> <span class="n">opr</span>      <span class="c">!&lt; Field computed.</span>
+<a name="ln-76"></a>        <span class="k">class</span><span class="p">(</span><span class="n">spatial_operator_der1</span><span class="p">),</span> <span class="k">pointer</span>       <span class="kd">::</span> <span class="n">der1_cur</span> <span class="c">!&lt; Dummy pointer for spatial operator.</span>
+<a name="ln-77"></a>        <span class="k">allocate</span><span class="p">(</span><span class="n">opr</span><span class="p">,</span> <span class="n">source</span><span class="o">=</span><span class="n">inp</span><span class="p">)</span>
+<a name="ln-78"></a>
+<a name="ln-79"></a>        <span class="n">der1_cur</span> <span class="o">=&gt;</span> <span class="n">this</span><span class="p">%</span><span class="n">der1</span>
+<a name="ln-80"></a>        <span class="n">opr</span> <span class="o">=</span> <span class="n">der1_cur</span><span class="p">%</span><span class="n">operate</span><span class="p">(</span><span class="n">inp</span><span class="p">)</span>
+<a name="ln-81"></a><span class="c">!OK TOO        opr = this%der1%operate(inp)</span>
+<a name="ln-82"></a>    <span class="k">end function </span><span class="n">forcing_burgers</span>
+<a name="ln-83"></a><span class="k">end module </span><span class="n">myequations</span>
+<a name="ln-84"></a>
+<a name="ln-85"></a><span class="k">program </span><span class="n">burgers</span>
+<a name="ln-86"></a>    <span class="c">!&lt; Testing program of fake Burgers equation.</span>
+<a name="ln-87"></a>
+<a name="ln-88"></a>    <span class="k">use </span><span class="n">opendiff</span>
+<a name="ln-89"></a>    <span class="k">use </span><span class="n">myequations</span>
 <a name="ln-90"></a>
-<a name="ln-91"></a>    <span class="n">u3</span> <span class="o">=</span> <span class="n">u1</span> <span class="o">+</span> <span class="n">u1</span> <span class="o">*</span> <span class="n">u2</span>
-<a name="ln-92"></a>    <span class="c">!DER IN MAIN u3 = der1d%operate(u1)</span>
-<a name="ln-93"></a>
-<a name="ln-94"></a><span class="c">!RIMETTERE    er = u1%output(filename=&quot;inizio.dat&quot;)</span>
-<a name="ln-95"></a><span class="c">!RIMETTERE</span>
-<a name="ln-96"></a>    <span class="k">do </span><span class="n">it</span> <span class="o">=</span> <span class="n">itmin</span><span class="p">,</span> <span class="n">itmax</span>
-<a name="ln-97"></a>        <span class="k">print</span><span class="o">*</span><span class="p">,</span><span class="s1">&#39;it: &#39;</span><span class="p">,</span><span class="n">it</span>
-<a name="ln-98"></a>        <span class="n">er</span> <span class="o">=</span> <span class="n">integ</span><span class="p">%</span><span class="n">integrate</span><span class="p">(</span><span class="n">inp</span><span class="o">=</span><span class="n">u1</span><span class="p">,</span> <span class="n">equ</span><span class="o">=</span><span class="n">burg_equ</span><span class="p">,</span> <span class="n">t</span><span class="o">=</span><span class="n">it</span><span class="o">*</span><span class="n">integ</span><span class="p">%</span><span class="n">dt</span><span class="p">)</span>
-<a name="ln-99"></a>    <span class="n">enddo</span>
-<a name="ln-100"></a><span class="c">!RIMETTERE</span>
-<a name="ln-101"></a><span class="c">!RIMETTERE    er = u1%output(filename=&quot;fine.dat&quot;)</span>
-<a name="ln-102"></a>
-<a name="ln-103"></a>    <span class="k">call </span><span class="n">m1</span><span class="p">%</span><span class="n">output</span><span class="p">(</span><span class="n">error</span><span class="o">=</span><span class="n">er</span><span class="p">)</span>
-<a name="ln-104"></a>    <span class="k">call </span><span class="n">u1</span><span class="p">%</span><span class="n">output</span><span class="p">(</span><span class="s2">&quot;1ciao.dat&quot;</span><span class="p">,</span> <span class="n">error</span><span class="o">=</span><span class="n">er</span><span class="p">)</span>
-<a name="ln-105"></a>    <span class="k">call </span><span class="n">u2</span><span class="p">%</span><span class="n">output</span><span class="p">(</span><span class="s2">&quot;2ciao.dat&quot;</span><span class="p">,</span> <span class="n">error</span><span class="o">=</span><span class="n">er</span><span class="p">)</span>
-<a name="ln-106"></a>    <span class="k">call </span><span class="n">u3</span><span class="p">%</span><span class="n">output</span><span class="p">(</span><span class="s2">&quot;3ciao.dat&quot;</span><span class="p">,</span> <span class="n">error</span><span class="o">=</span><span class="n">er</span><span class="p">)</span>
-<a name="ln-107"></a>
-<a name="ln-108"></a><span class="k">end program </span><span class="n">burgers</span>
+<a name="ln-91"></a>    <span class="k">class</span><span class="p">(</span><span class="n">mesh</span><span class="p">),</span> <span class="k">allocatable</span>       <span class="kd">::</span> <span class="n">m1</span>       <span class="c">!&lt; Mesh.</span>
+<a name="ln-92"></a>    <span class="k">class</span><span class="p">(</span><span class="n">field</span><span class="p">),</span> <span class="k">allocatable</span>      <span class="kd">::</span> <span class="n">u1</span>       <span class="c">!&lt; Field 1.</span>
+<a name="ln-93"></a>    <span class="c">!TEST class(field), allocatable      :: u2       !&lt; Field 2.</span>
+<a name="ln-94"></a>    <span class="c">!TEST class(field), allocatable      :: u3       !&lt; Field 3.</span>
+<a name="ln-95"></a>    <span class="k">class</span><span class="p">(</span><span class="n">integrator</span><span class="p">),</span> <span class="k">allocatable</span> <span class="kd">::</span> <span class="n">integ</span>    <span class="c">!&lt; Integrator.</span>
+<a name="ln-96"></a>    <span class="k">type</span><span class="p">(</span><span class="n">burgers_equation</span><span class="p">)</span>         <span class="kd">::</span> <span class="n">burg_equ</span> <span class="c">!&lt; Burgers equation.</span>
+<a name="ln-97"></a>    <span class="kt">integer</span><span class="p">(</span><span class="n">I_P</span><span class="p">)</span>                   <span class="kd">::</span> <span class="n">itmin</span><span class="o">=</span><span class="mi">0</span>  <span class="c">!&lt; Fist time step.</span>
+<a name="ln-98"></a>    <span class="kt">integer</span><span class="p">(</span><span class="n">I_P</span><span class="p">)</span>                   <span class="kd">::</span> <span class="n">itmax</span><span class="o">=</span><span class="mi">1000</span> <span class="c">!&lt; Last time step.</span>
+<a name="ln-99"></a>    <span class="kt">integer</span><span class="p">(</span><span class="n">I_P</span><span class="p">)</span>                   <span class="kd">::</span> <span class="n">it</span>       <span class="c">!&lt; Time step counter.</span>
+<a name="ln-100"></a>    <span class="kt">integer</span><span class="p">(</span><span class="n">I_P</span><span class="p">)</span>                   <span class="kd">::</span> <span class="n">er</span>       <span class="c">!&lt; Error status.</span>
+<a name="ln-101"></a>    <span class="c">!TEST class(spatialop), allocatable :: der1d</span>
+<a name="ln-102"></a>    <span class="kt">character</span><span class="p">(</span><span class="mi">16</span><span class="p">)</span>                  <span class="kd">::</span> <span class="n">output_name</span> <span class="c">!&lt; Output file name.</span>
+<a name="ln-103"></a>
+<a name="ln-104"></a>    <span class="c">! These should be done reading from JSON input files and returning right</span>
+<a name="ln-105"></a>    <span class="c">! pointers following factory pattern or similar</span>
+<a name="ln-106"></a>    <span class="k">allocate</span><span class="p">(</span><span class="n">mesh_fd_1d</span> <span class="kd">::</span> <span class="n">m1</span><span class="p">)</span>
+<a name="ln-107"></a>    <span class="k">allocate</span><span class="p">(</span><span class="n">field_fd_1d</span> <span class="kd">::</span> <span class="n">u1</span><span class="p">)</span>
+<a name="ln-108"></a>    <span class="c">!TEST allocate(field_fd_1d :: u2)</span>
+<a name="ln-109"></a>    <span class="c">!TEST allocate(spatialop_fd_1d_der1_c :: der1d)</span>
+<a name="ln-110"></a>    <span class="k">allocate</span><span class="p">(</span><span class="n">integrator_euler</span> <span class="kd">::</span> <span class="n">integ</span><span class="p">)</span>
+<a name="ln-111"></a>
+<a name="ln-112"></a>    <span class="c">!TEST allocate(u3, source=u1)</span>
+<a name="ln-113"></a>
+<a name="ln-114"></a>    <span class="n">integ</span><span class="p">%</span><span class="n">dt</span> <span class="o">=</span> <span class="mf">0.001_R_P</span>
+<a name="ln-115"></a>
+<a name="ln-116"></a>    <span class="k">call </span><span class="n">m1</span><span class="p">%</span><span class="n">init</span><span class="p">(</span><span class="n">error</span><span class="o">=</span><span class="n">er</span><span class="p">)</span>
+<a name="ln-117"></a>
+<a name="ln-118"></a>    <span class="k">call </span><span class="n">u1</span><span class="p">%</span><span class="n">init</span><span class="p">(</span><span class="n">m1</span><span class="p">,</span> <span class="n">error</span><span class="o">=</span><span class="n">er</span><span class="p">)</span>
+<a name="ln-119"></a>
+<a name="ln-120"></a>    <span class="n">er</span> <span class="o">=</span> <span class="n">burg_equ</span><span class="p">%</span><span class="n">init</span><span class="p">()</span>
+<a name="ln-121"></a>
+<a name="ln-122"></a>    <span class="c">!TEST call u2%init(m1, error=er)</span>
+<a name="ln-123"></a>    <span class="c">!TEST u3 = u1 + u1 * u2</span>
+<a name="ln-124"></a>    <span class="c">!TEST u3 = der1d%operate(u1)</span>
+<a name="ln-125"></a>
+<a name="ln-126"></a>    <span class="n">output_name</span> <span class="o">=</span> <span class="s2">&quot;out_XXXXXXXX.dat&quot;</span>
+<a name="ln-127"></a>    <span class="k">write</span><span class="p">(</span><span class="n">output_name</span><span class="p">(</span><span class="mi">5</span><span class="p">:</span><span class="mi">12</span><span class="p">),</span><span class="s2">&quot;(I8.8)&quot;</span><span class="p">)</span> <span class="n">itmin</span>
+<a name="ln-128"></a>    <span class="k">call </span><span class="n">u1</span><span class="p">%</span><span class="n">output</span><span class="p">(</span><span class="n">output_name</span><span class="p">,</span> <span class="n">error</span><span class="o">=</span><span class="n">er</span><span class="p">)</span>
+<a name="ln-129"></a>    <span class="k">do </span><span class="n">it</span> <span class="o">=</span> <span class="n">itmin</span><span class="p">,</span> <span class="n">itmax</span>
+<a name="ln-130"></a>        <span class="n">er</span> <span class="o">=</span> <span class="n">integ</span><span class="p">%</span><span class="n">integrate</span><span class="p">(</span><span class="n">inp</span><span class="o">=</span><span class="n">u1</span><span class="p">,</span> <span class="n">equ</span><span class="o">=</span><span class="n">burg_equ</span><span class="p">,</span> <span class="n">t</span><span class="o">=</span><span class="n">it</span><span class="o">*</span><span class="n">integ</span><span class="p">%</span><span class="n">dt</span><span class="p">)</span>
+<a name="ln-131"></a>        <span class="k">if</span><span class="p">(</span><span class="nb">mod</span><span class="p">(</span><span class="n">it</span><span class="p">,</span><span class="mi">10</span><span class="p">)</span><span class="o">==</span><span class="mi">0</span><span class="p">)</span> <span class="k">then</span>
+<a name="ln-132"></a><span class="k">            print</span><span class="o">*</span><span class="p">,</span><span class="s1">&#39;it: &#39;</span><span class="p">,</span><span class="n">it</span>
+<a name="ln-133"></a>            <span class="k">write</span><span class="p">(</span><span class="n">output_name</span><span class="p">(</span><span class="mi">5</span><span class="p">:</span><span class="mi">12</span><span class="p">),</span><span class="s2">&quot;(I8.8)&quot;</span><span class="p">)</span> <span class="n">it</span>
+<a name="ln-134"></a>            <span class="k">call </span><span class="n">u1</span><span class="p">%</span><span class="n">output</span><span class="p">(</span><span class="n">output_name</span><span class="p">,</span> <span class="n">error</span><span class="o">=</span><span class="n">er</span><span class="p">)</span>
+<a name="ln-135"></a>        <span class="n">endif</span>
+<a name="ln-136"></a>    <span class="n">enddo</span>
+<a name="ln-137"></a>
+<a name="ln-138"></a>    <span class="k">call </span><span class="n">m1</span><span class="p">%</span><span class="n">output</span><span class="p">(</span><span class="n">error</span><span class="o">=</span><span class="n">er</span><span class="p">)</span>
+<a name="ln-139"></a>
+<a name="ln-140"></a><span class="k">end program </span><span class="n">burgers</span>
 </pre></div>
 
     </section>

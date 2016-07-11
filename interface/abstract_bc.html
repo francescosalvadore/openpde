@@ -10,7 +10,7 @@
     <meta name="author" content="Chris MacMackin" >
     <link rel="icon" href="../favicon.png">
 
-    <title>abstract_operate &ndash; openpde</title>
+    <title>abstract_bc &ndash; openpde</title>
 
     <link href="../css/bootstrap.min.css" rel="stylesheet">
     <link href="../css/pygments.css" rel="stylesheet">
@@ -89,7 +89,7 @@
     
   
   <div class="row">
-    <h1>abstract_operate
+    <h1>abstract_bc
 	 <small>Abstract Interface</small>
     
     </h1>
@@ -104,16 +104,16 @@
      
     
     
-    <li><i class="fa fa-code"></i><a href="../src/opendiff_adt_spatial_operator.f90"> Source File</a></li>
+    <li><i class="fa fa-code"></i><a href="../src/opendiff_adt_equation.f90"> Source File</a></li>
      
   </ul>
   <ol class="breadcrumb in-well text-right">
   
-     <li><a href='../sourcefile/opendiff_adt_spatial_operator.f90.html'>opendiff_adt_spatial_operator.f90</a></li>
+     <li><a href='../sourcefile/opendiff_adt_equation.f90.html'>opendiff_adt_equation.f90</a></li>
   
-     <li><a href='../module/opendiff_adt_spatial_operator.html'>opendiff_adt_spatial_operator</a></li>
+     <li><a href='../module/opendiff_adt_equation.html'>opendiff_adt_equation</a></li>
   
-     <li class="active">abstract_operate</li>
+     <li class="active">abstract_bc</li>
   </ol>
 </div>
 </div>
@@ -191,11 +191,11 @@
 	
     
     <h2>abstract interface</h2>
-    <p>Operator operation.</p>
+    <p>Equation boundary condition.</p>
     
     
     <h2>
-private function abstract_operate(this, inp) result(opr)
+private subroutine abstract_bc(this, inp, t)
     
     
     
@@ -224,12 +224,12 @@ private function abstract_operate(this, inp) result(opr)
   
 <tr>
   
-  <td><span class="anchor" id="variable-this%7E7"></span>class(<a href='../type/spatial_operator.html'>spatial_operator</a>),</td>
+  <td><span class="anchor" id="variable-this%7E4"></span>class(<a href='../type/equation.html'>equation</a>),</td>
   <td>intent(in)</td>
   <td></td>
   
   <td></td><td>::</td>
-  <td><strong>this</strong></td><td><p>The operator.</p></td>
+  <td><strong>this</strong></td><td><p>The equation.</p></td>
   
 </tr>
 
@@ -239,12 +239,27 @@ private function abstract_operate(this, inp) result(opr)
   
 <tr>
   
-  <td><span class="anchor" id="variable-inp%7E3"></span>class(<a href='../type/field.html'>field</a>),</td>
-  <td>intent(in),</td>
+  <td><span class="anchor" id="variable-inp"></span>class(<a href='../type/field.html'>field</a>),</td>
+  <td>intent(inout),</td>
   <td></td>
   
   <td>target</td><td>::</td>
   <td><strong>inp</strong></td><td><p>Input field.</p></td>
+  
+</tr>
+
+  
+  
+  
+  
+<tr>
+  
+  <td><span class="anchor" id="variable-t"></span>real(kind=R_P),</td>
+  <td>intent(in)</td>
+  <td></td>
+  
+  <td></td><td>::</td>
+  <td><strong>t</strong></td><td><p>Time.</p></td>
   
 </tr>
 
@@ -254,17 +269,8 @@ private function abstract_operate(this, inp) result(opr)
     
     
     
-    
-    
-    
-    
-	 <h3>Return Value <span class="anchor" id="variable-opr%7E5"></span><small>class(<a href='../type/field.html'>field</a>),
-  allocatable,target</small></h3>
-    <p>Field resulting after the operator application.</p>
-    
-    
     <h3>Description</h3>
-    <p>Operator operation.</p>
+    <p>Equation boundary condition.</p>
     
     <br>
 

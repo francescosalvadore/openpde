@@ -37,6 +37,9 @@ contains
         class(field_fd_1d), pointer            :: rhs_cur  !< Dummy pointer for rhs.
         class(field_fd_1d), pointer            :: opr_cur  !< Dummy pointer for operator result.
         class(mesh_fd_1d),  pointer            :: mesh_cur !< Dummy pointer for mesh.
+        integer(I_P)                           :: ng       !< Number of ghost cells.
+        integer(I_P)                           :: n        !< Counter.
+
         select type(rhs)
             type is(field_fd_1d)
                 rhs_cur => rhs
@@ -58,7 +61,10 @@ contains
                    STOP 'Error getting mesh'
             end select
         end associate
-        allocate(opr_cur%val(1:mesh_cur%n))
+
+        n = mesh_cur%n
+        ng = mesh_cur%ng
+        allocate(opr_cur%val(1-ng:n+ng))
         opr_cur%m => lhs%m
         opr_cur%val = lhs%val + rhs_cur%val
     end function add
@@ -69,6 +75,9 @@ contains
         class(field),       intent(in), target :: rhs      !< Right hand side.
         class(field_fd_1d), pointer            :: rhs_cur  !< Dummy pointer for rhs.
         class(mesh_fd_1d),  pointer            :: mesh_cur !< Dummy pointer for mesh.
+        integer(I_P)                           :: ng       !< Number of ghost cells.
+        integer(I_P)                           :: n        !< Counter.
+
         select type(rhs)
             type is(field_fd_1d)
                 rhs_cur => rhs
@@ -83,8 +92,11 @@ contains
                    STOP 'Error getting mesh'
             end select
         end associate
+
         if(allocated(lhs%val)) deallocate(lhs%val)
-        allocate(lhs%val(1:mesh_cur%n))
+        n = mesh_cur%n
+        ng = mesh_cur%ng
+        allocate(lhs%val(1-ng:n+ng))
         lhs%m   => rhs_cur%m
         lhs%val = rhs_cur%val
     end subroutine assign_field
@@ -95,14 +107,20 @@ contains
         class(mesh),        intent(in), target    :: fieldmesh     !< Mesh of the field.
         integer(I_P),       intent(out), optional :: error         !< Error status.
         class(mesh_fd_1d), pointer                :: fieldmesh_cur !< Dummy pointer for mesh.
+        integer(I_P)                              :: ng            !< Number of ghost cells.
+        integer(I_P)                              :: n             !< Counter.
+
         select type(fieldmesh)
             type is(mesh_fd_1d)
                 fieldmesh_cur => fieldmesh
             class default
                STOP 'Error passing mesh'
         end select
+
         this%m => fieldmesh_cur
-        if (allocated(this%val)) deallocate(this%val) ; allocate(this%val(1:fieldmesh_cur%n))
+        n = fieldmesh_cur%n
+        ng = fieldmesh_cur%ng
+        if (allocated(this%val)) deallocate(this%val) ; allocate(this%val(1-ng:n+ng))
         if (present(error)) error = 0
     end subroutine associate_mesh
 
@@ -116,14 +134,33 @@ contains
 
     subroutine init(this, fieldmesh, description, error)
         !< Initialize finite difference 1D field.
-        class(field_fd_1d), intent(inout)         :: this          !< The field.
-        class(mesh),        intent(in), target    :: fieldmesh     !< Mesh of the field.
-        character(*),       intent(in),  optional :: description   !< Mesh description
-        integer(I_P),       intent(out), optional :: error         !< Error status.
+        class(field_fd_1d), intent(inout)         :: this        !< The field.
+        class(mesh),        intent(in), target    :: fieldmesh   !< Mesh of the field.
+        character(*),       intent(in),  optional :: description !< Mesh description
+        class(mesh_fd_1d),  pointer               :: mesh_cur    !< Dummy pointer for mesh.
+        integer(I_P),       intent(out), optional :: error       !< Error status.
+        integer(I_P)                              :: ng          !< Number of ghost cells.
+        integer(I_P)                              :: n           !< Counter.
+        integer(I4P)                              :: i           !< Counter.
         call this%free
         call this%associate_mesh(fieldmesh=fieldmesh, error=error)
         if (present(description)) this%description = description
-        call random_number(this%val)
+
+!        call random_number(this%val)
+
+        select type(fieldmesh)
+            type is(mesh_fd_1d)
+                mesh_cur => fieldmesh
+            class default
+                STOP 'Error setting mesh'
+        end select
+        n = mesh_cur%n
+        ng = mesh_cur%ng
+        print *,"number of points of mesh in init n,ng: ",n, ng
+        do i = 1-ng,n+ng
+            this%val(i) = sin(i*2.*acos(-1.)/n)
+        enddo
+
         if (present(error)) error = 0
     end subroutine init
 
@@ -135,6 +172,9 @@ contains
         class(field_fd_1d), pointer            :: rhs_cur  !< Dummy pointer for rhs.
         class(field_fd_1d), pointer            :: opr_cur  !< Dummy pointer for operator result.
         class(mesh_fd_1d),  pointer            :: mesh_cur !< Dummy pointer for mesh.
+        integer(I_P)                           :: ng       !< Number of ghost cells.
+        integer(I_P)                           :: n        !< Counter.
+
         select type(rhs)
             type is(field_fd_1d)
                 rhs_cur => rhs
@@ -156,7 +196,10 @@ contains
                    STOP 'Error getting mesh'
             end select
         end associate
-        allocate(opr_cur%val(1:mesh_cur%n))
+
+        n = mesh_cur%n
+        ng = mesh_cur%ng
+        allocate(opr_cur%val(1-ng:n+ng))
         opr_cur%m => lhs%m
         opr_cur%val = lhs%val * rhs_cur%val
     end function mul
@@ -168,6 +211,9 @@ contains
         class(field), allocatable, target :: opr      !< Operator result.
         class(field_fd_1d), pointer       :: opr_cur  !< Dummy pointer for operator result.
         class(mesh_fd_1d),  pointer       :: mesh_cur !< Dummy pointer for mesh.
+        integer(I_P)                      :: ng       !< Number of ghost cells.
+        integer(I_P)                      :: n        !< Counter.
+
         allocate(field_fd_1d :: opr)
         select type(opr)
             type is(field_fd_1d)
@@ -183,7 +229,10 @@ contains
                    STOP 'Error getting mesh'
             end select
         end associate
-        allocate(opr_cur%val(1:mesh_cur%n))
+
+        n = mesh_cur%n
+        ng = mesh_cur%ng
+        allocate(opr_cur%val(1-ng:n+ng))
         opr_cur%m => lhs%m
         opr_cur%val = lhs%val * rhs
     end function mulreal
@@ -193,8 +242,15 @@ contains
         class(field_fd_1d), intent(in)            :: this     !< The field.
         character(len=*),   intent(in)            :: filename !< Output file name.
         integer(I_P),       intent(out), optional :: error    !< Error status.
+        integer(I_P)                              :: imin     !< Lower extent.
+        integer(I_P)                              :: imax     !< Upper extent.
+        integer(I_P)                              :: i        !< Counter.
+        imin = lbound(this%val,1)
+        imax = ubound(this%val,1)
         open(unit=11,file=filename)
-        write(11,*) this%val(:)
+        do i=imin,imax
+            write(11,*) this%val(i)
+        enddo
         close(11)
         if (present(error)) error = 0
     end subroutine output
@@ -206,6 +262,9 @@ contains
         class(field), allocatable, target :: opr      !< Operator result.
         class(field_fd_1d), pointer       :: opr_cur  !< Dummy pointer for operator result.
         class(mesh_fd_1d),  pointer       :: mesh_cur !< Dummy pointer for mesh.
+        integer(I_P)                      :: ng       !< Number of ghost cells.
+        integer(I_P)                      :: n        !< Counter.
+
         allocate(field_fd_1d :: opr)
         select type(opr)
             type is(field_fd_1d)
@@ -221,7 +280,10 @@ contains
                    STOP 'Error getting mesh'
             end select
         end associate
-        allocate(opr_cur%val(1:mesh_cur%n))
+
+        n = mesh_cur%n
+        ng = mesh_cur%ng
+        allocate(opr_cur%val(1-ng:n+ng))
         opr_cur%m => rhs%m
         opr_cur%val = lhs * rhs%val
     end function realmul
@@ -235,7 +297,7 @@ contains
         integer(I_P),       intent(out), optional         :: error       !< Error status.
         if (present(fieldmesh)) call this%associate_mesh(fieldmesh=fieldmesh, error=error)
         if (present(description)) this%description = description
-        if (present(val)) this%val = val
+        if (present(val)) this%val = val ! TO BE FIXED SINCE THERE ARE GHOST NODES
         if (present(error)) error = 0
     end subroutine set
 
@@ -247,6 +309,9 @@ contains
         class(field_fd_1d), pointer            :: rhs_cur  !< Dummy pointer for rhs.
         class(field_fd_1d), pointer            :: opr_cur  !< Dummy pointer for operator result.
         class(mesh_fd_1d),  pointer            :: mesh_cur !< Dummy pointer for mesh.
+        integer(I_P)                           :: ng       !< Number of ghost cells.
+        integer(I_P)                           :: n        !< Counter.
+
         select type(rhs)
             type is(field_fd_1d)
                 rhs_cur => rhs
@@ -268,7 +333,10 @@ contains
                    STOP 'Error getting mesh'
             end select
         end associate
-        allocate(opr_cur%val(1:mesh_cur%n))
+
+        n = mesh_cur%n
+        ng = mesh_cur%ng
+        allocate(opr_cur%val(1-ng:n+ng))
         opr_cur%m => lhs%m
         opr_cur%val = lhs%val - rhs_cur%val
     end function sub

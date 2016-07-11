@@ -23,16 +23,18 @@ contains
         class(equation),         intent(in),    target :: equ   !< The equation.
         real(R_P),               intent(in)            :: t     !< Time.
         class(field),            intent(inout), target :: inp   !< Input field.
-        integer                                        :: error !< Error status.
+        integer(I_P)                                   :: error !< Error status.
         class(field), allocatable                      :: for   !< Temporary
-        select type(inp)
-            type is(field_fd_1d)
-                print *,"t, dt, inp: ",t, this%dt, inp%val
-        end select
+       ! select type(inp)
+       !     type is(field_fd_1d)
+       !         print *,"t, dt, inp: ",t, this%dt, inp%val
+       ! end select
         allocate(for, source=inp)
         ! the temporary variable for seems to be needed by intel compiler
         ! otherwise there is an internal compiler error or seg fault
         ! especially multiplying by this%dt. Why....?
+        call equ%bc(inp=inp, t=t)
+
         for = equ%forcing(inp=inp, t=t)
         inp = inp + this%dt * for
         error = 0

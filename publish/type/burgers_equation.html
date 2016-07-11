@@ -160,9 +160,11 @@
     <div id="boundprocs" class="panel-collapse collapse">
         <div class="list-group">
           
-          <a class="list-group-item" href="../type/burgers_equation.html#boundprocedure-init%7E6">init</a>
+          <a class="list-group-item" href="../type/burgers_equation.html#boundprocedure-bc%7E2">bc</a>
           
           <a class="list-group-item" href="../type/burgers_equation.html#boundprocedure-forcing%7E2">forcing</a>
+          
+          <a class="list-group-item" href="../type/burgers_equation.html#boundprocedure-init%7E6">init</a>
           
         </div>
     </div>
@@ -421,7 +423,7 @@ implementation in a submodule of an interface in a parent module.</p>
     
 	   
 <div class="panel panel-default">
-  <div class="panel-heading codesum"><span class="anchor" id="boundprocedure-init%7E6"></span><h3>procedure, public :: <strong>init</strong>  => <a href='../proc/init_burgers.html'>init_burgers</a> 
+  <div class="panel-heading codesum"><span class="anchor" id="boundprocedure-bc%7E2"></span><h3>procedure, public :: <strong>bc</strong>  => <a href='../proc/bc_burgers.html'>bc_burgers</a> 
     
   </h3></div>
   
@@ -429,7 +431,7 @@ implementation in a submodule of an interface in a parent module.</p>
     
 
 
-    <p>Initialize equation.</p>
+    <p>Equation boundary conditions imposition.</p>
   </div>
   
   <ul class="list-group">
@@ -439,7 +441,7 @@ implementation in a submodule of an interface in a parent module.</p>
          
     
     <h3>
-private function <a href='../proc/init_burgers.html'>init_burgers</a>(this) result(error)
+private subroutine <a href='../proc/bc_burgers.html'>bc_burgers</a>(this, inp, t)
     
     
     
@@ -465,11 +467,41 @@ private function <a href='../proc/init_burgers.html'>init_burgers</a>(this) resu
 <tr>
   
   <td><span class="anchor" ></span>class(<a href='../type/burgers_equation.html'>burgers_equation</a>),</td>
-  <td>intent(inout)</td>
+  <td>intent(in)</td>
   <td></td>
   
   <td></td><td>::</td>
   <td><strong>this</strong></td><td><p>The equation.</p></td>
+  
+</tr>
+
+  
+  
+  
+  
+<tr>
+  
+  <td><span class="anchor" ></span>class(<a href='../type/field.html'>field</a>),</td>
+  <td>intent(inout),</td>
+  <td></td>
+  
+  <td>target</td><td>::</td>
+  <td><strong>inp</strong></td><td><p>Field.</p></td>
+  
+</tr>
+
+  
+  
+  
+  
+<tr>
+  
+  <td><span class="anchor" ></span>real(kind=R_P),</td>
+  <td>intent(in)</td>
+  <td></td>
+  
+  <td></td><td>::</td>
+  <td><strong>t</strong></td><td><p>Time.</p></td>
   
 </tr>
 
@@ -479,15 +511,6 @@ private function <a href='../proc/init_burgers.html'>init_burgers</a>(this) resu
       
     
     
-
-  
-  
-  
-  
-     <h4>Return Value <small>integer(kind=I4P)
-  </small></h4>
-  <p>Error status.</p>
-    
     
     <h4>Description</h4>
        
@@ -495,7 +518,7 @@ private function <a href='../proc/init_burgers.html'>init_burgers</a>(this) resu
 
 
        
-       <p>Initialize equation.</p>
+       <p>Equation boundary conditions imposition.</p>
         
 
       
@@ -621,6 +644,92 @@ private function <a href='../proc/forcing_burgers.html'>forcing_burgers</a>(this
 </div>
 
     
+	   
+<div class="panel panel-default">
+  <div class="panel-heading codesum"><span class="anchor" id="boundprocedure-init%7E6"></span><h3>procedure, public :: <strong>init</strong>  => <a href='../proc/init_burgers.html'>init_burgers</a> 
+    
+  </h3></div>
+  
+  <div class="panel-body">
+    
+
+
+    <p>Initialize equation.</p>
+  </div>
+  
+  <ul class="list-group">
+    
+      <li class="list-group-item">
+      
+         
+    
+    <h3>
+private function <a href='../proc/init_burgers.html'>init_burgers</a>(this) result(error)
+    
+    
+    
+</h3>
+    
+    <h4>Arguments</h4>
+    
+      
+      
+<table class="table table-striped varlist">
+<thead><tr><th>Type</th>
+<th>Intent</th><th>Optional</th>
+<th>Attributes</th><th></th><th>Name</th><th></th></thead>
+
+
+
+<tbody>
+
+  
+  
+  
+  
+<tr>
+  
+  <td><span class="anchor" ></span>class(<a href='../type/burgers_equation.html'>burgers_equation</a>),</td>
+  <td>intent(inout)</td>
+  <td></td>
+  
+  <td></td><td>::</td>
+  <td><strong>this</strong></td><td><p>The equation.</p></td>
+  
+</tr>
+
+</tbody>
+</table>
+
+      
+    
+    
+
+  
+  
+  
+  
+     <h4>Return Value <small>integer(kind=I_P)
+  </small></h4>
+  <p>Error status.</p>
+    
+    
+    <h4>Description</h4>
+       
+       
+
+
+       
+       <p>Initialize equation.</p>
+        
+
+      
+      </li>
+    
+  </ul>
+</div>
+
+    
     </section>
     
     
@@ -634,8 +743,9 @@ private function <a href='../proc/forcing_burgers.html'>forcing_burgers</a>(this
         <span class="c">!&lt; when pointed inside forcing_burgers function.</span>
         <span class="k">class</span><span class="p">(</span><span class="n">spatial_operator_der1</span><span class="p">),</span> <span class="k">pointer</span> <span class="kd">::</span> <span class="n">der1</span> <span class="c">!&lt; First derivative.</span>
         <span class="k">contains</span>
-<span class="k">            procedure</span> <span class="kd">::</span> <span class="n">init</span> <span class="o">=&gt;</span> <span class="n">init_burgers</span>        <span class="c">!&lt; Initialize equation.</span>
+<span class="k">            procedure</span> <span class="kd">::</span> <span class="n">bc</span> <span class="o">=&gt;</span> <span class="n">bc_burgers</span>            <span class="c">!&lt; Equation boundary conditions imposition.</span>
             <span class="k">procedure</span> <span class="kd">::</span> <span class="n">forcing</span> <span class="o">=&gt;</span> <span class="n">forcing_burgers</span>  <span class="c">!&lt; Forcing equation.</span>
+            <span class="k">procedure</span> <span class="kd">::</span> <span class="n">init</span> <span class="o">=&gt;</span> <span class="n">init_burgers</span>        <span class="c">!&lt; Initialize equation.</span>
     <span class="n">endtype</span> <span class="n">burgers_equation</span>
 </pre></div>
 

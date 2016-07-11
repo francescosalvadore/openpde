@@ -128,6 +128,22 @@
   
   
   
+  <div class="panel panel-primary">
+    <div class="panel-heading text-left"><h3 class="panel-title"><a data-toggle="collapse" href="#vars">Variables</a></h3></div>
+    <div id="vars" class="panel-collapse collapse">
+      <div class="list-group">
+        
+        <a class="list-group-item" href="../proc/output.html#variable-imin">imin</a>
+        
+        <a class="list-group-item" href="../proc/output.html#variable-imax">imax</a>
+        
+        <a class="list-group-item" href="../proc/output.html#variable-i%7E2">i</a>
+        
+      </div>
+    </div>
+  </div>
+  
+  
   
   
   
@@ -165,6 +181,8 @@
           
           <a class="list-group-item" href="../proc/associate_mesh.html">associate_mesh</a>
           
+          <a class="list-group-item" href="../proc/bc_burgers.html">bc_burgers</a>
+          
           <a class="list-group-item" href="../proc/forcing_burgers.html">forcing_burgers</a>
           
           <a class="list-group-item" href="../proc/free.html">free</a>
@@ -184,6 +202,8 @@
           <a class="list-group-item" href="../proc/init_burgers.html">init_burgers</a>
           
           <a class="list-group-item" href="../proc/integrate.html">integrate</a>
+          
+          <a class="list-group-item" href="../proc/load_from_json.html">load_from_json</a>
           
           <a class="list-group-item" href="../proc/mul.html">mul</a>
           
@@ -241,7 +261,7 @@ private subroutine output(this, filename, error)
   
 <tr>
   
-  <td><span class="anchor" id="variable-this%7E13"></span>class(<a href='../type/field_fd_1d.html'>field_fd_1d</a>),</td>
+  <td><span class="anchor" id="variable-this%7E14"></span>class(<a href='../type/field_fd_1d.html'>field_fd_1d</a>),</td>
   <td>intent(in)</td>
   <td></td>
   
@@ -293,6 +313,66 @@ private subroutine output(this, filename, error)
      
     <br>
     
+    <section>
+    <h2>Variables</h2>
+    
+<table class="table table-striped varlist">
+<thead><tr><th>Type</th><th>Visibility</th>
+
+<th>Attributes</th><th></th><th>Name</th><th></th><th>Initial</th><th></th></thead>
+
+
+
+<tbody>
+
+  
+  
+  
+  
+<tr>
+  
+  <td><span class="anchor" id="variable-imin"></span>integer(kind=I_P),</td>
+  
+  <td>public</td>
+  <td></td><td>::</td>
+  <td><strong>imin</strong></td><td></td><td></td><td><p>Lower extent.</p></td>
+  
+</tr>
+
+  
+  
+  
+  
+<tr>
+  
+  <td><span class="anchor" id="variable-imax"></span>integer(kind=I_P),</td>
+  
+  <td>public</td>
+  <td></td><td>::</td>
+  <td><strong>imax</strong></td><td></td><td></td><td><p>Upper extent.</p></td>
+  
+</tr>
+
+  
+  
+  
+  
+<tr>
+  
+  <td><span class="anchor" id="variable-i%7E2"></span>integer(kind=I_P),</td>
+  
+  <td>public</td>
+  <td></td><td>::</td>
+  <td><strong>i</strong></td><td></td><td></td><td><p>Counter.</p></td>
+  
+</tr>
+
+</tbody>
+</table>
+
+    </section>
+    <br>
+    
     
     
     
@@ -315,8 +395,15 @@ private subroutine output(this, filename, error)
         <span class="k">class</span><span class="p">(</span><span class="n">field_fd_1d</span><span class="p">),</span> <span class="k">intent</span><span class="p">(</span><span class="n">in</span><span class="p">)</span>            <span class="kd">::</span> <span class="n">this</span>     <span class="c">!&lt; The field.</span>
         <span class="kt">character</span><span class="p">(</span><span class="nb">len</span><span class="o">=*</span><span class="p">),</span>   <span class="k">intent</span><span class="p">(</span><span class="n">in</span><span class="p">)</span>            <span class="kd">::</span> <span class="n">filename</span> <span class="c">!&lt; Output file name.</span>
         <span class="kt">integer</span><span class="p">(</span><span class="n">I_P</span><span class="p">),</span>       <span class="k">intent</span><span class="p">(</span><span class="n">out</span><span class="p">),</span> <span class="k">optional</span> <span class="kd">::</span> <span class="n">error</span>    <span class="c">!&lt; Error status.</span>
+        <span class="kt">integer</span><span class="p">(</span><span class="n">I_P</span><span class="p">)</span>                              <span class="kd">::</span> <span class="n">imin</span>     <span class="c">!&lt; Lower extent.</span>
+        <span class="kt">integer</span><span class="p">(</span><span class="n">I_P</span><span class="p">)</span>                              <span class="kd">::</span> <span class="n">imax</span>     <span class="c">!&lt; Upper extent.</span>
+        <span class="kt">integer</span><span class="p">(</span><span class="n">I_P</span><span class="p">)</span>                              <span class="kd">::</span> <span class="n">i</span>        <span class="c">!&lt; Counter.</span>
+        <span class="n">imin</span> <span class="o">=</span> <span class="nb">lbound</span><span class="p">(</span><span class="n">this</span><span class="p">%</span><span class="n">val</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span>
+        <span class="n">imax</span> <span class="o">=</span> <span class="nb">ubound</span><span class="p">(</span><span class="n">this</span><span class="p">%</span><span class="n">val</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span>
         <span class="k">open</span><span class="p">(</span><span class="n">unit</span><span class="o">=</span><span class="mi">11</span><span class="p">,</span><span class="k">file</span><span class="o">=</span><span class="n">filename</span><span class="p">)</span>
-        <span class="k">write</span><span class="p">(</span><span class="mi">11</span><span class="p">,</span><span class="o">*</span><span class="p">)</span> <span class="n">this</span><span class="p">%</span><span class="n">val</span><span class="p">(:)</span>
+        <span class="k">do </span><span class="n">i</span><span class="o">=</span><span class="n">imin</span><span class="p">,</span><span class="n">imax</span>
+            <span class="k">write</span><span class="p">(</span><span class="mi">11</span><span class="p">,</span><span class="o">*</span><span class="p">)</span> <span class="n">this</span><span class="p">%</span><span class="n">val</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
+        <span class="n">enddo</span>
         <span class="k">close</span><span class="p">(</span><span class="mi">11</span><span class="p">)</span>
         <span class="k">if</span> <span class="p">(</span><span class="nb">present</span><span class="p">(</span><span class="n">error</span><span class="p">))</span> <span class="n">error</span> <span class="o">=</span> <span class="mi">0</span>
     <span class="k">end subroutine </span><span class="n">output</span>

@@ -165,6 +165,8 @@
           
           <a class="list-group-item" href="../proc/associate_mesh.html">associate_mesh</a>
           
+          <a class="list-group-item" href="../proc/bc_burgers.html">bc_burgers</a>
+          
           <a class="list-group-item" href="../proc/forcing_burgers.html">forcing_burgers</a>
           
           <a class="list-group-item" href="../proc/free.html">free</a>
@@ -184,6 +186,8 @@
           <a class="list-group-item" href="../proc/init_burgers.html">init_burgers</a>
           
           <a class="list-group-item" href="../proc/integrate.html">integrate</a>
+          
+          <a class="list-group-item" href="../proc/load_from_json.html">load_from_json</a>
           
           <a class="list-group-item" href="../proc/mul.html">mul</a>
           
@@ -241,7 +245,7 @@ private function init_burgers(this) result(error)
   
 <tr>
   
-  <td><span class="anchor" id="variable-this%7E25"></span>class(<a href='../type/burgers_equation.html'>burgers_equation</a>),</td>
+  <td><span class="anchor" id="variable-this%7E26"></span>class(<a href='../type/burgers_equation.html'>burgers_equation</a>),</td>
   <td>intent(inout)</td>
   <td></td>
   
@@ -260,7 +264,7 @@ private function init_burgers(this) result(error)
     
     
     
-	 <h3>Return Value <small><span class="anchor" id="variable-error%7E16"></span>integer(kind=I4P)
+	 <h3>Return Value <small><span class="anchor" id="variable-error%7E17"></span>integer(kind=I_P)
   </small></h3>
     <p>Error status.</p>
     
@@ -292,7 +296,7 @@ private function init_burgers(this) result(error)
     <div class="highlight"><pre><span></span>    <span class="k">function </span><span class="n">init_burgers</span><span class="p">(</span><span class="n">this</span><span class="p">)</span> <span class="k">result</span><span class="p">(</span><span class="n">error</span><span class="p">)</span>
         <span class="c">!&lt; Initialize equation.</span>
         <span class="k">class</span><span class="p">(</span><span class="n">burgers_equation</span><span class="p">),</span> <span class="k">intent</span><span class="p">(</span><span class="n">inout</span><span class="p">)</span> <span class="kd">::</span> <span class="n">this</span>  <span class="c">!&lt; The equation.</span>
-        <span class="kt">integer</span><span class="p">(</span><span class="n">I4P</span><span class="p">)</span>                           <span class="kd">::</span> <span class="n">error</span> <span class="c">!&lt; Error status.</span>
+        <span class="kt">integer</span><span class="p">(</span><span class="n">I_P</span><span class="p">)</span>                           <span class="kd">::</span> <span class="n">error</span> <span class="c">!&lt; Error status.</span>
         <span class="c">! The next is to be read by JSON</span>
         <span class="k">allocate</span><span class="p">(</span><span class="n">spatial_operator_der1_fd_1d</span> <span class="kd">::</span> <span class="n">this</span><span class="p">%</span><span class="n">der1</span><span class="p">)</span>
         <span class="n">error</span> <span class="o">=</span> <span class="mi">0</span>

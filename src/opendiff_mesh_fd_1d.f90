@@ -3,6 +3,7 @@ module opendiff_mesh_fd_1d
     !< Concrete class of mesh for Finite Difference 1D.
     use opendiff_adt_mesh
     use opendiff_kinds
+    use vtk_fortran
 
     implicit none
     private
@@ -30,7 +31,7 @@ contains
         this%n = 50
         this%ng = 2
         this%s = 1
-        this%h = 0.1_R_P
+        this%h = 0.05_R8P
         if (present(error)) error = 0
     end subroutine init
 
