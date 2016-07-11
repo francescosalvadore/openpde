@@ -18,9 +18,18 @@ module opendiff_adt_equation
             ! deferred methods
             procedure(abstract_forcing), deferred :: forcing   !< Forcing equation.
             procedure(abstract_init),    deferred :: init      !< Initialize the equation.
+            procedure(abstract_bc),      deferred :: bc      !< Initialize the equation.
             ! public methods
             procedure :: free !< Free dynamic memory.
     endtype equation
+
+    abstract interface
+        function abstract_init(this) result(res)
+            import :: equation, field
+            class(equation) :: this
+            integer         :: res
+        end function abstract_init
+    endinterface
 
     abstract interface
         function abstract_forcing(this, inp, t) result(opr)
@@ -33,12 +42,14 @@ module opendiff_adt_equation
     endinterface
 
     abstract interface
-        function abstract_init(this) result(res)
-            import :: equation, field
-            class(equation) :: this
-            integer         :: res
-        end function abstract_init
+        subroutine abstract_bc(this, inp, t)
+            import :: equation, field, R8P
+            class(equation)           :: this
+            class(field), target      :: inp
+            real(R8P)                 :: t
+        end subroutine abstract_bc
     endinterface
+
 contains
     elemental subroutine free(this)
         !< Free dynamic memory.

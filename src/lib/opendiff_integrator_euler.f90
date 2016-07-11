@@ -24,16 +24,19 @@ contains
         class(field),            intent(inout), target :: inp
         integer                                        :: res
         class(field), allocatable                      :: for
-        select type(inp)
-            type is(field_fd_1d)
-                print *,"t, dt, inp: ",t, this%dt, inp%val
-        end select
+       ! select type(inp)
+       !     type is(field_fd_1d)
+       !         print *,"t, dt, inp: ",t, this%dt, inp%val
+       ! end select
         allocate(for, source=inp)
         ! the temporary variable for seems to be needed by intel compiler
         ! otherwise there is an internal compiler error or seg fault
         ! especially multiplying by this%dt. Why....?
+        call equ%bc(inp=inp, t=t)
+
         for = equ%forcing(inp=inp, t=t)
         inp = inp + this%dt * for
+
         res = 0
     end function integrate
 end module opendiff_integrator_euler

@@ -30,7 +30,7 @@ contains
         this%n = 50
         this%ng = 2
         this%s = 1
-        this%h = 0.1_R8P
+        this%h = 0.05_R8P
         if (present(error)) error = 0
     end subroutine init
 
