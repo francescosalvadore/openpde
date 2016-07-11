@@ -60,6 +60,7 @@ Openpde home is at [https://github.com/francescosalvadore/openpde](https://githu
 
 ```bash
 git clone --recursive https://github.com/francescosalvadore/openpde
+git submodule update --init --recursive
 ```
 
 ##### download the latest master-branch archive
