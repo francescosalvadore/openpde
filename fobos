@@ -14,6 +14,9 @@ $DEBUG_GNU   = -O0 -g3 -Warray-bounds -Wcharacter-truncation -Wline-truncation -
 $DEBUG_INT   = -O0 -debug all -warn all -extend-source 132 -traceback
 $OPTIMIZE    = -O2
 $EXDIRS      = ./src/third_party/json-fortran/src/tests/
+               ./src/third_party/VTKFortran/references/
+               ./src/third_party/VTKFortran/src/tests/
+               ./src/third_party/VTKFortran/src/third_party/
 
 # main modes
 [tests-gnu]
@@ -151,4 +154,5 @@ help   = Rule for performing coverage analysis
 rule_1 = FoBiS.py clean -mode tests-gnu
 rule_2 = FoBiS.py build -mode tests-gnu -coverage
 rule_3 = ./run_tests.sh
-rule_4 = gcov -o exe/obj/ src/lib/opendiff.f90
+rule_4 = gcov -o exe/obj/ src/lib/opendiff*.f90
+rule_5 = rm -f *.gcov

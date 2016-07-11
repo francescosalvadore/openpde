@@ -3,6 +3,7 @@ module opendiff_mesh_fd_1d
     !< Concrete class of mesh for Finite Difference 1D.
     use opendiff_adt_mesh
     use opendiff_kinds
+    use vtk_fortran
 
     implicit none
     private
