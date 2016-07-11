@@ -18,12 +18,13 @@ module opendiff_integrator_euler
     endtype integrator_euler
 contains
     function integrate(this, equ, t, inp) result(error)
-        class(integrator_euler), intent(in)            :: this
-        class(equation),         intent(in),    target :: equ
-        real(R8P),               intent(in)            :: t
-        class(field),            intent(inout), target :: inp
-        integer                                        :: error
-        class(field), allocatable                      :: for
+        !< Integrate the field accordingly the equation by means of the Euler scheme.
+        class(integrator_euler), intent(in)            :: this  !< The integrator.
+        class(equation),         intent(in),    target :: equ   !< The equation.
+        real(R_P),               intent(in)            :: t     !< Time.
+        class(field),            intent(inout), target :: inp   !< Input field.
+        integer(I_P)                                   :: error !< Error status.
+        class(field), allocatable                      :: for   !< Temporary
        ! select type(inp)
        !     type is(field_fd_1d)
        !         print *,"t, dt, inp: ",t, this%dt, inp%val

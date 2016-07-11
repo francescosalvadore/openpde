@@ -14,33 +14,22 @@ module myequations
         !< when pointed inside forcing_burgers function.
         class(spatial_operator_der1), pointer :: der1 !< First derivative.
         contains
-            procedure :: init => init_burgers
-            procedure :: forcing => forcing_burgers
-            procedure :: bc => bc_burgers
+            procedure :: bc => bc_burgers            !< Equation boundary conditions imposition.
+            procedure :: forcing => forcing_burgers  !< Forcing equation.
+            procedure :: init => init_burgers        !< Initialize equation.
     endtype burgers_equation
 
 contains
-    function forcing_burgers(this, inp, t) result(opr)
-        !< Return the field after forcing the equation.
-        class(burgers_equation), intent(in)         :: this     !< The equation.
-        class(field),            intent(in), target :: inp      !< Input field.
-        real(R_P),               intent(in)         :: t        !< Time.
-        class(field), allocatable                   :: opr      !< Field computed.
-        class(spatial_operator_der1), pointer       :: der1_cur !< Dummy pointer for spatial operator.
-        allocate(opr, source=inp)
-
-        der1_cur => this%der1
-        opr = der1_cur%operate(inp)
-!OK TOO        opr = this%der1%operate(inp)
-    end function forcing_burgers
-
     subroutine bc_burgers(this, inp, t)
-        class(burgers_equation) :: this
-        class(field), target :: inp
-        real(R8P) :: t
-        class(field_fd_1d), pointer :: inp_cur
-        class(mesh_fd_1d), pointer :: mesh_cur
-        integer :: n,ng,i
+        !< Equation boundary conditions imposition.
+        class(burgers_equation), intent(in)            :: this     !< The equation.
+        class(field),            intent(inout), target :: inp      !< Field.
+        real(R_P),               intent(in)            :: t        !< Time.
+        class(field_fd_1d), pointer                    :: inp_cur  !< Pointer to input field.
+        class(mesh_fd_1d), pointer                     :: mesh_cur !< Pointer to input mehs.
+        integer(I_P)                                   :: ng       !< Number of ghost cells.
+        integer(I_P)                                   :: n        !< Counter.
+        integer(I_P)                                   :: i        !< Counter.
 
         select type(inp)
             type is(field_fd_1d)
@@ -72,12 +61,25 @@ contains
     function init_burgers(this) result(error)
         !< Initialize equation.
         class(burgers_equation), intent(inout) :: this  !< The equation.
-        integer(I4P)                           :: error !< Error status.
+        integer(I_P)                           :: error !< Error status.
         ! The next is to be read by JSON
         allocate(spatial_operator_der1_fd_1d :: this%der1)
         error = 0
     end function init_burgers
 
+    function forcing_burgers(this, inp, t) result(opr)
+        !< Return the field after forcing the equation.
+        class(burgers_equation), intent(in)         :: this     !< The equation.
+        class(field),            intent(in), target :: inp      !< Input field.
+        real(R_P),               intent(in)         :: t        !< Time.
+        class(field), allocatable                   :: opr      !< Field computed.
+        class(spatial_operator_der1), pointer       :: der1_cur !< Dummy pointer for spatial operator.
+        allocate(opr, source=inp)
+
+        der1_cur => this%der1
+        opr = der1_cur%operate(inp)
+!OK TOO        opr = this%der1%operate(inp)
+    end function forcing_burgers
 end module myequations
 
 program burgers
@@ -97,7 +99,7 @@ program burgers
     integer(I_P)                   :: it       !< Time step counter.
     integer(I_P)                   :: er       !< Error status.
     !TEST class(spatialop), allocatable :: der1d
-    character(16) :: output_name
+    character(16)                  :: output_name !< Output file name.
 
     ! These should be done reading from JSON input files and returning right
     ! pointers following factory pattern or similar
