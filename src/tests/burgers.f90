@@ -1,76 +1,108 @@
-!RIMETTERE module myequations
-!RIMETTERE
-!RIMETTERE     use opendiff
-!RIMETTERE
-!RIMETTERE     type, extends(equation) :: burgers_equation_fd_1d
-!RIMETTERE         contains
-!RIMETTERE             procedure :: forcing => forcing_burgers
-!RIMETTERE     endtype burgers_equation_fd_1d
-!RIMETTERE
-!RIMETTERE contains
-!RIMETTERE
-!RIMETTERE     function forcing_burgers(this, inp, t) result(opr)
-!RIMETTERE         class(burgers_equation_fd_1d) :: this
-!RIMETTERE         type(firstderive_operator) :: der
-!RIMETTERE         type(field_fd_1d) :: inp
-!RIMETTERE         type(field_fd_1d) :: opr
-!RIMETTERE         real :: t
-!RIMETTERE
-!RIMETTERE         opr = der%derive(inp)
-!RIMETTERE
-!RIMETTERE     end function forcing_burgers
-!RIMETTERE
-!RIMETTERE end module myequations
-
-program burgers
+module myequations
+    !< Fake Burgers equation.
 
     use opendiff
-!RIMETTERE    use myequations
 
-    integer :: it
-    integer :: er
+    implicit none
+    private
+    public :: burgers_equation
 
-    class(field), allocatable :: u1
-    class(field), allocatable :: u2
-    class(field), allocatable :: u3
-    class(mesh), allocatable :: m1
+    type, extends(equation) :: burgers_equation
+        !< Fake Burgers equations.
+        !<
+        !< @note The reason the next is a pointer is just to make it a pointee
+        !< when pointed inside forcing_burgers function.
+        class(spatial_operator_der1), pointer :: der1 !< First derivative.
+        contains
+            procedure :: init => init_burgers        !< Initialize equation.
+            procedure :: forcing => forcing_burgers  !< Forcing equation.
+    endtype burgers_equation
 
+contains
+    function forcing_burgers(this, inp, t) result(opr)
+        !< Return the field after forcing the equation.
+        class(burgers_equation), intent(in)         :: this     !< The equation.
+        class(field),            intent(in), target :: inp      !< Input field.
+        real(R_P),               intent(in)         :: t        !< Time.
+        class(field), allocatable                   :: opr      !< Field computed.
+        class(spatial_operator_der1), pointer       :: der1_cur !< Dummy pointer for spatial operator.
+        allocate(opr, source=inp)
+!USELESS        associate(d1 => this%der1)
+!USELESS            select type(d1)
+!USELESS                type is(spatialop_fd_1d_der1_c)
+!USELESS                    der1_cur => this%der1
+!USELESS                class default
+!USELESS                   STOP 'Error passing field to add'
+!USELESS            endselect
+!USELESS        endassociate
+        der1_cur => this%der1
+        opr = der1_cur%operate(inp)
+!OK TOO        opr = this%der1%operate(inp)
+    end function forcing_burgers
+
+    function init_burgers(this) result(error)
+        !< Initialize equation.
+        class(burgers_equation), intent(inout) :: this  !< The equation.
+        integer(I4P)                           :: error !< Error status.
+        ! The next is to be read by JSON
+        allocate(spatial_operator_der1_fd_1d :: this%der1)
+        error = 0
+    end function init_burgers
+
+end module myequations
+
+program burgers
+    !< Testing program of fake Burgers equation.
+
+    use opendiff
+    use myequations
+
+    class(mesh), allocatable       :: m1       !< Mesh.
+    class(field), allocatable      :: u1       !< Field 1.
+    class(field), allocatable      :: u2       !< Field 2.
+    class(field), allocatable      :: u3       !< Field 3.
+    class(integrator), allocatable :: integ    !< Integrator.
+    type(burgers_equation)         :: burg_equ !< Burgers equation.
+    integer(I_P)                   :: itmin=0  !< Fist time step.
+    integer(I_P)                   :: itmax=10 !< Last time step.
+    integer(I_P)                   :: it       !< Time step counter.
+    integer(I_P)                   :: er       !< Error status.
+    !DER IN MAIN class(spatialop), allocatable :: der1d
+
+    ! These should be done reading from JSON input files and returning right
+    ! pointers following factory pattern or similar
+    allocate(mesh_fd_1d :: m1)
     allocate(field_fd_1d :: u1)
     allocate(field_fd_1d :: u2)
-    allocate(field_fd_1d :: u3)
-    allocate(mesh_fd_1d :: m1)
+    !DER IN MAIN allocate(spatialop_fd_1d_der1_c :: der1d)
+    allocate(integrator_euler :: integ)
 
-!RIMETTERE    type(burgers_equation_fd_1d) :: burg_equ
+    allocate(u3, source=u1)
 
-    !type(euler_integrator) :: integ
-!RIMETTERE    character(128) :: integrator_type = 'euler'
-!RIMETTERE    class(integrator), allocatable :: integ
-
-!RIMETTERE    if(integrator_type == 'euler') allocate(euler_integrator :: integ)
-!RIMETTERE    if(integrator_type == 'lsrk')  allocate(lsrk_integrator  :: integ)
-!RIMETTERE    integ%dt = 0.1
+    integ%dt = 0.1_R_P
 
     call m1%init(error=er)
 
     call u1%init(m1, error=er)
     call u2%init(m1, error=er)
-!    er = u3%init(m1)
 
-    u3 = u1 + u2
+    er = burg_equ%init()
 
-    call m1%output(error=er)
-
-    call u1%output("1ciao.dat", error=er)
-    call u2%output("2ciao.dat", error=er)
-    call u3%output("3ciao.dat", error=er)
+    u3 = u1 + u1 * u2
+    !DER IN MAIN u3 = der1d%operate(u1)
 
 !RIMETTERE    er = u1%output(filename="inizio.dat")
 !RIMETTERE
-!RIMETTERE    do it = t%itmin,1 !t%itmax
-!RIMETTERE        print*,'it: ',it
-!RIMETTERE        er = integ%integrate(inp=u1, equ=burg_equ, t=it*integ%dt)
-!RIMETTERE    enddo
+    do it = itmin, itmax
+        print*,'it: ',it
+        er = integ%integrate(inp=u1, equ=burg_equ, t=it*integ%dt)
+    enddo
 !RIMETTERE
 !RIMETTERE    er = u1%output(filename="fine.dat")
+
+    call m1%output(error=er)
+    call u1%output("1ciao.dat", error=er)
+    call u2%output("2ciao.dat", error=er)
+    call u3%output("3ciao.dat", error=er)
 
 end program burgers
