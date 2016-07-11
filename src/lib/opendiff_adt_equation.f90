@@ -17,14 +17,23 @@ module opendiff_adt_equation
         character(len=:), allocatable :: description !< Mesh description.
         contains
             ! deferred methods
-            procedure(abstract_forcing), deferred :: forcing !< Forcing equation.
-            procedure(abstract_init),    deferred :: init    !< Initialize equation.
+            procedure(abstract_forcing), deferred :: forcing   !< Forcing equation.
+            procedure(abstract_init),    deferred :: init      !< Initialize the equation.
+            procedure(abstract_bc),      deferred :: bc      !< Initialize the equation.
             ! public methods
             procedure :: free                   !< Free dynamic memory.
             generic   :: load => load_from_json !< Load equation definition from file.
             ! private methods
             procedure :: load_from_json !< Load equation definition from jSON file.
     endtype equation
+
+    abstract interface
+        function abstract_init(this) result(res)
+            import :: equation, field
+            class(equation) :: this
+            integer         :: res
+        end function abstract_init
+    endinterface
 
     abstract interface
         !< Return the field after forcing the equation.
@@ -39,14 +48,14 @@ module opendiff_adt_equation
     endinterface
 
     abstract interface
-        !< Initialize equation.
-        function abstract_init(this) result(error)
-            !< Initialize equation.
-            import :: equation, field, I_P
-            class(equation), intent(inout) :: this  !< The equation.
-            integer(I_P)                   :: error !< Error status.
-        end function abstract_init
+        subroutine abstract_bc(this, inp, t)
+            import :: equation, field, R8P
+            class(equation)           :: this
+            class(field), target      :: inp
+            real(R8P)                 :: t
+        end subroutine abstract_bc
     endinterface
+
 contains
     elemental subroutine free(this)
         !< Free dynamic memory.
