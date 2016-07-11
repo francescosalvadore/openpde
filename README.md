@@ -44,22 +44,79 @@ Anyone is interest to use, to develop or to contribute to openpde is welcome, fe
 
 More details can be found on [wiki](https://github.com/francescosalvadore/openpde/wiki/Copyrights).
 
+### Third Parties
+
+Openpde relies on some third party codes each having its own licence. See them for details:
+
++ [json-fortarn](https://github.com/jacobwilliams/json-fortran)'s [license](https://raw.githubusercontent.com/jacobwilliams/json-fortran/master/LICENSE)
+
 Go to [Top](#top)
 
 ## Download
 
-To be written.
+Openpde home is at [https://github.com/francescosalvadore/openpde](https://github.com/francescosalvadore/openpde). It uses `git submodule` to handle third party dependencies. To download all the source files you can:
+
+##### clone recursively the repository
+
+```bash
+git clone --recursive https://github.com/francescosalvadore/openpde
+```
+
+##### download the latest master-branch archive
+
+[https://github.com/francescosalvadore/openpde/archive/master.zip](https://github.com/francescosalvadore/openpde/archive/master.zip)
+
+##### download a release archive
+
+[https://github.com/francescosalvadore/openpde/releases](https://github.com/francescosalvadore/openpde/releases)
 
 Go to [Top](#top)
 
 ## Compilation
 
-To be written.
+Openpde is still under development phase: the sources change often and strongly, it being still in *alpha* test. As as consequence, an *inflexible* legacy makefile is not yet provided. To build the unstable library you must use the more practical [FoBiS.py](https://github.com/szaghi/FoBiS) building tool.
+
+#### Build tests
+
+To build all tests provided type
+
+```bash
+FoBiS.py build -mode tests-gnu         # build test with GNU gfortran
+# or
+FoBiS.py build -mode tests-gnu-debug   # build test with GNU gfortran with debug options
+# or
+FoBiS.py build -mode tests-intel       # build test with Intel Fortran
+# or
+FoBiS.py build -mode tests-intel-debug # build test with Intel Fortran with debug options
+```
+
+To build only a specific test, e.g. `burgers` one, type
+
+```bash
+FoBiS.py build -mode tests-gnu -t burgers.f90
+```
+You can also specify all other modes listed above.
+
+#### Build only the library
+
+To build the static linked library type
+
+```bash
+FoBiS.py build -mode opendiff-static-gnu         # build library with GNU gfortran
+# or
+FoBiS.py build -mode opendiff-static-gnu-debug   # build library with GNU gfortran with debug options
+# or
+FoBiS.py build -mode opendiff-static-intel       # build library with Intel Fortran
+# or
+FoBiS.py build -mode opendiff-static-intel-debug # build library with Intel Fortran with debug options
+```
 
 Go to [Top](#top)
 
 ## Documentation
 
-To be written.
+Besides this README file openpde's documentation is contained into its own [wiki](https://github.com/francescosalvadore/openpde/wiki). Detailed documentation of the API is contained into the [GitHub Pages](http://francescosalvadore.github.io/openpde/index.html) that can also be created locally by means of [ford tool](https://github.com/cmacmackin/ford).
+
+To be completed.
 
 Go to [Top](#top)

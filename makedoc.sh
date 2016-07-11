@@ -16,4 +16,4 @@ FoBiS.py rule -ex makedoc
 cd doc/html
 git add -f --all './*'
 git commit -m "Travis CI autocommit from travis build ${TRAVIS_BUILD_NUMBER}"
-git push -f origin gh-pages > /dev/null 2>&1
+git push -f origin gh-pages #> /dev/null 2>&1

@@ -17,12 +17,12 @@ module opendiff_integrator_euler
             procedure :: integrate !< Integrate the field accordingly the equation.
     endtype integrator_euler
 contains
-    function integrate(this, equ, t, inp) result(res)
+    function integrate(this, equ, t, inp) result(error)
         class(integrator_euler), intent(in)            :: this
         class(equation),         intent(in),    target :: equ
         real(R8P),               intent(in)            :: t
         class(field),            intent(inout), target :: inp
-        integer                                        :: res
+        integer                                        :: error
         class(field), allocatable                      :: for
        ! select type(inp)
        !     type is(field_fd_1d)
@@ -36,7 +36,6 @@ contains
 
         for = equ%forcing(inp=inp, t=t)
         inp = inp + this%dt * for
-
-        res = 0
+        error = 0
     end function integrate
 end module opendiff_integrator_euler

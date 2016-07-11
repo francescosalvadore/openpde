@@ -1,16 +1,18 @@
 module myequations
+    !< Fake Burgers equation.
 
     use opendiff
-    use opendiff_kinds
 
     implicit none
     private
     public :: burgers_equation
 
     type, extends(equation) :: burgers_equation
-        ! The reason the next is a pointer is just to make it a pointee
-        ! when pointed inside forcing_burgers function
-        class(spatial_operator_der1), pointer :: der1
+        !< Fake Burgers equations.
+        !<
+        !< @note The reason the next is a pointer is just to make it a pointee
+        !< when pointed inside forcing_burgers function.
+        class(spatial_operator_der1), pointer :: der1 !< First derivative.
         contains
             procedure :: init => init_burgers
             procedure :: forcing => forcing_burgers
@@ -18,31 +20,18 @@ module myequations
     endtype burgers_equation
 
 contains
-
-    function init_burgers(this) result(res)
-        class(burgers_equation) :: this
-        integer :: res
-
-        ! The next is to be read by JSON
-        allocate(spatial_operator_der1_fd_1d :: this%der1)
-
-        res = 0
-    end function init_burgers
-
     function forcing_burgers(this, inp, t) result(opr)
-        class(burgers_equation) :: this
-        class(field), target :: inp
-        real(R8P) :: t
-        class(field), allocatable :: opr
-        class(spatial_operator_der1), pointer :: der1_cur
-
+        !< Return the field after forcing the equation.
+        class(burgers_equation), intent(in)         :: this     !< The equation.
+        class(field),            intent(in), target :: inp      !< Input field.
+        real(R_P),               intent(in)         :: t        !< Time.
+        class(field), allocatable                   :: opr      !< Field computed.
+        class(spatial_operator_der1), pointer       :: der1_cur !< Dummy pointer for spatial operator.
         allocate(opr, source=inp)
 
         der1_cur => this%der1
         opr = der1_cur%operate(inp)
-
 !OK TOO        opr = this%der1%operate(inp)
-
     end function forcing_burgers
 
     subroutine bc_burgers(this, inp, t)
@@ -80,26 +69,34 @@ contains
 
     end subroutine bc_burgers
 
+    function init_burgers(this) result(error)
+        !< Initialize equation.
+        class(burgers_equation), intent(inout) :: this  !< The equation.
+        integer(I4P)                           :: error !< Error status.
+        ! The next is to be read by JSON
+        allocate(spatial_operator_der1_fd_1d :: this%der1)
+        error = 0
+    end function init_burgers
+
 end module myequations
 
 program burgers
+    !< Testing program of fake Burgers equation.
 
     use opendiff
     use myequations
 
-    integer :: it
-    integer :: er
-
-    class(mesh), allocatable :: m1
-    class(field), allocatable :: u1
-    !TEST class(field), allocatable :: u2
-    !TEST class(field), allocatable :: u3
+    class(mesh), allocatable       :: m1       !< Mesh.
+    class(field), allocatable      :: u1       !< Field 1.
+    !TEST class(field), allocatable      :: u2       !< Field 2.
+    !TEST class(field), allocatable      :: u3       !< Field 3.
+    class(integrator), allocatable :: integ    !< Integrator.
+    type(burgers_equation)         :: burg_equ !< Burgers equation.
+    integer(I_P)                   :: itmin=0  !< Fist time step.
+    integer(I_P)                   :: itmax=10 !< Last time step.
+    integer(I_P)                   :: it       !< Time step counter.
+    integer(I_P)                   :: er       !< Error status.
     !TEST class(spatialop), allocatable :: der1d
-    class(integrator), allocatable :: integ
-
-    integer :: itmin=0, itmax=100000
-
-    type(burgers_equation) :: burg_equ
     character(16) :: output_name
 
     ! These should be done reading from JSON input files and returning right
@@ -112,7 +109,7 @@ program burgers
 
     !TEST allocate(u3, source=u1)
 
-    integ%dt = 0.001
+    integ%dt = 0.001_R_P
 
     call m1%init(error=er)
 

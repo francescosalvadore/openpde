@@ -12,7 +12,7 @@ module opendiff_spatial_operator_der1_fd_1d
     public :: spatial_operator_der1_fd_1d
 
     type, extends(spatial_operator_der1) :: spatial_operator_der1_fd_1d
-        !< Concrete class of spatial operator for 1D derivative for Finite Difference 1D.
+        !< Concrete class of spatial operator for first derivative for Finite Difference 1D.
         contains
             procedure :: operate !< Operator operation.
     endtype spatial_operator_der1_fd_1d

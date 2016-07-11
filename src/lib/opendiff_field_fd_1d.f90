@@ -12,7 +12,7 @@ module opendiff_field_fd_1d
 
     type, extends(field) :: field_fd_1d
         !< Finite difference 1D class for *field* handling.
-        real(R8P), allocatable, dimension(:) :: val !< Field value.
+        real(R_P), allocatable, dimension(:) :: val !< Field value.
         contains
             ! deferred methods
             procedure,            private :: add            !< Add fields.
@@ -101,7 +101,7 @@ contains
         !< Associate field to a mesh.
         class(field_fd_1d), intent(inout)         :: this          !< The field.
         class(mesh),        intent(in), target    :: fieldmesh     !< Mesh of the field.
-        integer(I4P),       intent(out), optional :: error         !< Error status.
+        integer(I_P),       intent(out), optional :: error         !< Error status.
         class(mesh_fd_1d), pointer                :: fieldmesh_cur !< Dummy pointer for mesh.
         integer                                   :: n, ng
         select type(fieldmesh)
@@ -130,9 +130,9 @@ contains
         class(field_fd_1d), intent(inout)         :: this          !< The field.
         class(mesh),        intent(in), target    :: fieldmesh     !< Mesh of the field.
         character(*),       intent(in),  optional :: description   !< Mesh description
-        integer(I4P),       intent(out), optional :: error         !< Error status.
         integer(I4P)                              :: i, n, ng
         class(mesh_fd_1d),  pointer               :: mesh_cur !< Dummy pointer for mesh.
+        integer(I_P),       intent(out), optional :: error         !< Error status.
         call this%free
         call this%associate_mesh(fieldmesh=fieldmesh, error=error)
         if (present(description)) this%description = description
@@ -195,7 +195,7 @@ contains
     function mulreal(lhs, rhs) result(opr)
         !< Multiply field for real.
         class(field_fd_1d), intent(in)    :: lhs      !< Left hand side.
-        real(R8P),          intent(in)    :: rhs      !< Right hand side.
+        real(R_P),          intent(in)    :: rhs      !< Right hand side.
         class(field), allocatable, target :: opr      !< Operator result.
         class(field_fd_1d), pointer       :: opr_cur  !< Dummy pointer for operator result.
         class(mesh_fd_1d),  pointer       :: mesh_cur !< Dummy pointer for mesh.
@@ -227,10 +227,10 @@ contains
         !< Output field data.
         class(field_fd_1d), intent(in)            :: this     !< The field.
         character(len=*),   intent(in)            :: filename !< Output file name.
-        integer(I4P),       intent(out), optional :: error    !< Error status.
         integer(I4P)                              :: imin,imax,i
         imin = lbound(this%val,1)
         imax = ubound(this%val,1)
+        integer(I_P),       intent(out), optional :: error    !< Error status.
         open(unit=11,file=filename)
         do i=imin,imax
             write(11,*) this%val(i)
@@ -241,7 +241,7 @@ contains
 
     function realmul(lhs, rhs) result(opr)
         !< Multiply real for field.
-        real(R8P),          intent(in)    :: lhs      !< Left hand side.
+        real(R_P),          intent(in)    :: lhs      !< Left hand side.
         class(field_fd_1d), intent(in)    :: rhs      !< Right hand side.
         class(field), allocatable, target :: opr      !< Operator result.
         class(field_fd_1d), pointer       :: opr_cur  !< Dummy pointer for operator result.
@@ -275,8 +275,8 @@ contains
         class(field_fd_1d), intent(inout)                 :: this        !< The field.
         class(mesh),        intent(in),  optional, target :: fieldmesh   !< Mesh of the field.
         character(*),       intent(in),  optional         :: description !< Mesh description
-        real(R8P),          intent(in),  optional         :: val(1:)     !< Field value.
-        integer(I4P),       intent(out), optional         :: error       !< Error status.
+        real(R_P),          intent(in),  optional         :: val(1:)     !< Field value.
+        integer(I_P),       intent(out), optional         :: error       !< Error status.
         if (present(fieldmesh)) call this%associate_mesh(fieldmesh=fieldmesh, error=error)
         if (present(description)) this%description = description
         if (present(val)) this%val = val ! TO BE FIXED SINCE THERE ARE GHOST NODES

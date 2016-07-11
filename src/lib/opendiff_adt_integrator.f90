@@ -12,23 +12,24 @@ module opendiff_adt_integrator
     type, abstract :: integrator
         !< Abstract class for *integrator* handling.
         character(len=:), allocatable :: description !< Mesh description.
-        real(R8P)                     :: dt=0._R8P   !< Time step.
+        real(R_P)                     :: dt=0._R_P   !< Time step.
         contains
             procedure                               :: free      !< Free dynamic memory.
             procedure(abstract_integrate), deferred :: integrate !< Integrate the field accordingly the equation.
     endtype integrator
 
     abstract interface
-        function abstract_integrate(this, equ, t, inp) result(res)
-            import :: equation, field, integrator, R8P
-            class(integrator), intent(in)            :: this
-            class(equation),   intent(in),    target :: equ
-            real(R8P),         intent(in)            :: t
-            class(field),      intent(inout), target :: inp
-            integer                                  :: res
+        !< Integrate the field accordingly the equation.
+        function abstract_integrate(this, equ, t, inp) result(error)
+            !< Integrate the field accordingly the equation.
+            import :: equation, field, integrator, I_P, R_P
+            class(integrator), intent(in)            :: this  !< The integrator.
+            class(equation),   intent(in),    target :: equ   !< The equation.
+            real(R_P),         intent(in)            :: t     !< Time.
+            class(field),      intent(inout), target :: inp   !< Input field.
+            integer(I_P)                             :: error !< Error status.
         end function abstract_integrate
     endinterface
-
 contains
     elemental subroutine free(this)
         !< Free dynamic memory.

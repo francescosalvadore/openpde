@@ -34,65 +34,79 @@ module opendiff_adt_field
     endtype field
 
     abstract interface
+        !< Symmetric operator field.op.field.
         function abstract_simmetric_operator(lhs, rhs) result(opr)
+            !< Symmetric operator field.op.field.
             import :: field
-            class(field), intent(in)         :: lhs
-            class(field), intent(in), target :: rhs
-            class(field), allocatable        :: opr
+            class(field), intent(in)         :: lhs !< Left hand side.
+            class(field), intent(in), target :: rhs !< Right hand side.
+            class(field), allocatable        :: opr !< Operator result.
         end function abstract_simmetric_operator
     endinterface
 
     abstract interface
+        !< Non symmetric operator field.op.real.
         function abstract_field_op_real(lhs, rhs) result(opr)
-            import :: field, R8P
-            class(field), intent(in)  :: lhs
-            real(R8P),    intent(in)  :: rhs
-            class(field), allocatable :: opr
+            !< Non symmetric operator field.op.real.
+            import :: field, R_P
+            class(field), intent(in)  :: lhs !< Left hand side.
+            real(R_P),    intent(in)  :: rhs !< Right hand side.
+            class(field), allocatable :: opr !< Operator result.
         end function abstract_field_op_real
     endinterface
 
     abstract interface
+        !< Non symmetric operator real.op.field.
         function abstract_real_op_field(lhs, rhs) result(opr)
-            import :: field, R8P
-            real(R8P),    intent(in)  :: lhs
-            class(field), intent(in)  :: rhs
-            class(field), allocatable :: opr
+            !< Non symmetric operator real.op.field.
+            import :: field, R_P
+            real(R_P),    intent(in)  :: lhs !< Left hand side.
+            class(field), intent(in)  :: rhs !< Right hand side.
+            class(field), allocatable :: opr !< Operator result.
         end function abstract_real_op_field
     endinterface
 
     abstract interface
+        !< Assignment overloading.
         subroutine abstract_assign(lhs, rhs)
+            !< Assignment overloading.
             import :: field
-            class(field), intent(inout)      :: lhs
-            class(field), intent(in), target :: rhs
+            class(field), intent(inout)      :: lhs !< Left hand side.
+            class(field), intent(in), target :: rhs !< Right hand side.
         end subroutine abstract_assign
     endinterface
 
     abstract interface
+        !< Associate a mesh to field.
         subroutine abstract_associate_mesh(this, fieldmesh, error)
-            import :: field, I4P, mesh
-            class(field), intent(inout)         :: this
-            class(mesh),  intent(in), target    :: fieldmesh
-            integer(I4P), intent(out), optional :: error
+            !< Associate a mesh to field.
+            import :: field, I_P, mesh
+            class(field), intent(inout)         :: this      !< The field.
+            class(mesh),  intent(in), target    :: fieldmesh !< The mesh.
+            integer(I_P), intent(out), optional :: error     !< Error status.
         end subroutine abstract_associate_mesh
     endinterface
 
     abstract interface
+        !< Initialize the field.
         subroutine abstract_init(this, fieldmesh, description, error)
-            import :: field, I4P, mesh
-            class(field), intent(inout)         :: this
-            class(mesh),  intent(in), target    :: fieldmesh
-            character(*), intent(in),  optional :: description
-            integer(I4P), intent(out), optional :: error
+            !< Initialize the field.
+            import :: field, I_P, mesh
+            class(field), intent(inout)         :: this        !< The field.
+            class(mesh),  intent(in), target    :: fieldmesh   !< The mesh.
+            character(*), intent(in),  optional :: description !< Description of the field.
+            integer(I_P), intent(out), optional :: error       !< Error status.
         end subroutine abstract_init
     endinterface
 
     abstract interface
+        !< Output the field.
         subroutine abstract_output(this, filename, error)
-            import :: field, I4P
-            class(field),     intent(in)            :: this
-            character(len=*), intent(in)            :: filename
-            integer(I4P),     intent(out), optional :: error
+            !< Output the field.
+            import :: field, I_P
+            class(field),     intent(in)            :: this     !< The field.
+            character(len=*), intent(in)            :: filename !< Output fiel name.
+            integer(I_P),     intent(out), optional :: error    !< Error status.
         end subroutine abstract_output
     endinterface
 contains

@@ -1,0 +1,4 @@
+[submodule "src/third_party/json-fortran"]
+	path = src/third_party/json-fortran
+	url = https://github.com/jacobwilliams/json-fortran
+  branch = master
