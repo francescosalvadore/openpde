@@ -36,7 +36,17 @@ contains
         call equ%bc(inp=inp, t=t)
 
         for = equ%forcing(inp=inp, t=t)
+
         inp = inp + this%dt * for
+
+!        inp = inp + alpha*this%dt * for
+!
+!        ! implicito stile matrice
+!        inp = linsolve(equ, inp)  ! richiede equ%forcing_implicit
+!
+!        ! implicito nonlineare multigrid
+!        inp = mgsolve(equ, inp)  ! richiede equ%jacobian
+
         error = 0
     end function integrate
 end module opendiff_integrator_euler

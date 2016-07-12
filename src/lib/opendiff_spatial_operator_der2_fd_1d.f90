@@ -1,25 +1,25 @@
 !< Concrete class of spatial operator for 1D derivative for Finite Difference 1D.
-module opendiff_spatial_operator_der1_fd_1d
+module opendiff_spatial_operator_der2_fd_1d
     !< Concrete class of spatial operator for 1D derivative for Finite Difference 1D.
     use opendiff_adt_field
-    use opendiff_adt_spatial_operator_der1
+    use opendiff_adt_spatial_operator_der2
     use opendiff_field_fd_1d
     use opendiff_kinds
     use opendiff_mesh_fd_1d
 
     implicit none
     private
-    public :: spatial_operator_der1_fd_1d
+    public :: spatial_operator_der2_fd_1d
 
-    type, extends(spatial_operator_der1) :: spatial_operator_der1_fd_1d
+    type, extends(spatial_operator_der2) :: spatial_operator_der2_fd_1d
         !< Concrete class of spatial operator for first derivative for Finite Difference 1D.
         contains
             procedure :: operate !< Operator operation.
-    endtype spatial_operator_der1_fd_1d
+    endtype spatial_operator_der2_fd_1d
 contains
     function operate(this, inp, dir) result(opr)
         !< Operator operation.
-        class(spatial_operator_der1_fd_1d), intent(in)         :: this     !< The operator.
+        class(spatial_operator_der2_fd_1d), intent(in)         :: this     !< The operator.
         class(field),                       intent(in), target :: inp      !< Input field.
         class(field), allocatable, target                      :: opr      !< Field resulting after the operator application.
         class(field_fd_1d), pointer                            :: inp_cur  !< Dummy pointer for input field.
@@ -56,13 +56,13 @@ contains
         h = mesh_cur%h
         n = mesh_cur%n
         ng = mesh_cur%ng
-        if(allocated(opr_cur%val)) deallocate(opr_cur%val) ; allocate(opr_cur%val(1-ng:n+ng))
+        allocate(opr_cur%val(1-ng:n+ng))
         opr_cur%m => mesh_cur
         do i=1,n
             !opr_cur%val(i) = (inp_cur%val(i+1) - inp_cur%val(i-1))/(2.*h)
-            opr_cur%val(i) = (inp_cur%val(i+1) - inp_cur%val(i))/(h)
+            opr_cur%val(i) = (inp_cur%val(i+1) - 2._R_P*inp_cur%val(i) + inp_cur%val(i-1))/(h**2)
         enddo
         !opr_cur%val(1) = (inp_cur%val(2) - inp_cur%val(n))/(2.*h)
         !opr_cur%val(n) = (inp_cur%val(1) - inp_cur%val(n-1))/(2.*h)
     end function operate
-end module opendiff_spatial_operator_der1_fd_1d
+end module opendiff_spatial_operator_der2_fd_1d

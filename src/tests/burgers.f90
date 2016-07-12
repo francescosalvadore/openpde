@@ -13,6 +13,8 @@ module myequations
         !< @note The reason the next is a pointer is just to make it a pointee
         !< when pointed inside forcing_burgers function.
         class(spatial_operator_der1), pointer :: der1 !< First derivative.
+        class(spatial_operator_der2), pointer :: der2 !< Second derivative.
+        !class(spatial_operator_interp), pointer :: jac !< Second derivative.
         contains
             procedure :: bc => bc_burgers            !< Equation boundary conditions imposition.
             procedure :: forcing => forcing_burgers  !< Forcing equation.
@@ -64,6 +66,8 @@ contains
         integer(I_P)                           :: error !< Error status.
         ! The next is to be read by JSON
         allocate(spatial_operator_der1_fd_1d :: this%der1)
+        allocate(spatial_operator_der2_fd_1d :: this%der2)
+!        allocate(spatial_operator_interp_fd_1d :: this%jac)
         error = 0
     end function init_burgers
 
@@ -74,12 +78,34 @@ contains
         real(R_P),               intent(in)         :: t        !< Time.
         class(field), allocatable                   :: opr      !< Field computed.
         class(spatial_operator_der1), pointer       :: der1_cur !< Dummy pointer for spatial operator.
+        class(spatial_operator_der2), pointer       :: der2_cur !< Dummy pointer for spatial operator.
+        class(field), allocatable                   :: opr1     !< Field computed.
+        class(field), allocatable                   :: opr2     !< Field computed.
+
         allocate(opr, source=inp)
+        allocate(opr1, source=inp)
+        allocate(opr2, source=inp)
 
         der1_cur => this%der1
-        opr = der1_cur%operate(inp)
+        der2_cur => this%der2
+        opr1 = der1_cur%operate(inp)
+        opr2 = der2_cur%operate(inp)
+!
+!        !OK opr = der1_cur%operate(inp)! + 1._R_P*opr2 
+!        !OK opr = 1._R_P*opr2 
+!
+!        !NOT OK opr = der1_cur%operate(inp)! + 1._R_P*opr2 
+!        opr = opr1
+
+        opr = opr1 + 0.1_R_P * opr2
+
 !OK TOO        opr = this%der1%operate(inp)
+
     end function forcing_burgers
+
+!    function jac_burgers(this, inp, t) result(opr)
+!    opr = 2._R_P * this%jac%operate(inp)
+!    end function jac_burgers
 end module myequations
 
 program burgers
@@ -107,6 +133,7 @@ program burgers
     allocate(field_fd_1d :: u1)
     !TEST allocate(field_fd_1d :: u2)
     !TEST allocate(spatialop_fd_1d_der1_c :: der1d)
+    !allocate(integrator_euler :: integ)
     allocate(integrator_euler :: integ)
 
     !TEST allocate(u3, source=u1)

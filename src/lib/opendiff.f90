@@ -7,11 +7,16 @@ module opendiff
     use opendiff_adt_mesh
     use opendiff_adt_spatial_operator
     use opendiff_adt_spatial_operator_der1
+    use opendiff_adt_spatial_operator_der2
     use opendiff_field_fd_1d
     use opendiff_integrator_euler
     use opendiff_kinds
     use opendiff_mesh_fd_1d
+    use opendiff_mesh_fd_2d
     use opendiff_spatial_operator_der1_fd_1d
+    use opendiff_spatial_operator_der2_fd_1d
+    use opendiff_spatial_operator_der1_fd_2d
+    use opendiff_spatial_operator_der2_fd_2d
 
     implicit none
     private
@@ -24,7 +29,11 @@ module opendiff
     public :: mesh_fd_1d
     public :: spatial_operator
     public :: spatial_operator_der1
+    public :: spatial_operator_der2
     public :: spatial_operator_der1_fd_1d
+    public :: spatial_operator_der2_fd_1d
+    public :: spatial_operator_der1_fd_2d
+    public :: spatial_operator_der2_fd_2d
     ! kinds
     public :: R8P
     public :: R4P
