@@ -1,19 +1,21 @@
 !< Abstract class of mesh.
-module opendiff_adt_mesh
+module openpde_mesh_abstract
     !< Abstract class of mesh.
-    use opendiff_kinds
+    use openpde_kinds
 
     implicit none
     private
     public :: mesh
 
     type, abstract :: mesh
-        !< Abstract class for *mesh* handling.
+        !< Abstract class of mesh.
         character(len=:), allocatable :: description !< Mesh description.
         contains
-            procedure                                 :: free   !< Free dynamic memory.
-            procedure(abstract_meshinit),    deferred :: init   !< Initilize mesh.
-            procedure(abstract_meshoutput) , deferred :: output !< Output mesh.
+            ! deferred public methods
+            procedure(abstract_meshinit),    pass(this), deferred :: init   !< Initilize mesh.
+            procedure(abstract_meshoutput) , pass(this), deferred :: output !< Output mesh.
+            ! public methods
+            procedure, pass(this) :: free !< Free dynamic memory.
     endtype mesh
 
     abstract interface
@@ -42,4 +44,4 @@ contains
         class(mesh), intent(inout) :: this !< The mesh.
         if (allocated(this%description)) deallocate(this%description)
     end subroutine free
-end module opendiff_adt_mesh
+end module openpde_mesh_abstract
