@@ -17,6 +17,8 @@ module scalar_simple_equation_m
     !<
     !< The explicit Euler's method is used for advancing on time.
 
+    use, intrinsic :: iso_fortran_env, only : stderr=>error_unit
+    use json_module
     use openpde
 
     implicit none
@@ -37,6 +39,10 @@ module scalar_simple_equation_m
             procedure, pass(this) :: bc      !< Equation boundary conditions.
             procedure, pass(this) :: forcing !< Forcing equation.
             procedure, pass(this) :: init    !< Initialize equation.
+            ! public methods
+            generic :: load => load_from_json !< Load equation definition from file.
+            ! private methods
+            procedure, pass(this), private :: load_from_json !< Load equation definition from jSON file.
     endtype scalar_simple_equation
 contains
     ! deferred public methods
@@ -59,16 +65,6 @@ contains
         enddo
     end subroutine bc
 
-    function init(this) result(error)
-        !< Initialize equation.
-        class(scalar_simple_equation), intent(inout) :: this  !< The equation.
-        integer(I_P)                                 :: error !< Error status.
-
-        allocate(spatial_operator_d1_FD_1D :: this%du)
-        allocate(spatial_operator_d2_FD_1D :: this%ddu)
-        error = 0
-    end function init
-
     function forcing(this, inp, t) result(opr)
         !< Return the field after forcing the equation.
         class(scalar_simple_equation), intent(in)         :: this    !< The equation.
@@ -89,6 +85,95 @@ contains
         ddu = ddu_opr%operate(inp)
         opr = (-this%a) * du - this%b * ddu
     end function forcing
+
+    subroutine init(this, description, filename, error)
+        !< Initialize equation.
+        class(scalar_simple_equation), intent(inout)         :: this        !< The equation.
+        character(*),                  intent(in),  optional :: description !< Equation description.
+        character(*),                  intent(in),  optional :: filename    !< Initialization file name.
+        integer(I_P),                  intent(out), optional :: error       !< Error status.
+
+:qa
+:q
+:qa
+:visual
+visual
+:q
+q
+q
+Visual
+visual
+:q
+"visual"
+visual
+v
+quit
+:visual
+:quit
+        if (present(filename)) then
+            call this%load(filename=filename, error=error)
+        else
+            this%a = -1.0_R_P
+            this%b = -0.1_R_P
+            allocate(spatial_operator_d1_FD_1D :: this%du)
+            allocate(spatial_operator_d2_FD_1D :: this%ddu)
+            if (present(error)) error = 0
+        endif
+    end subroutine init
+
+    ! private methods
+    subroutine load_from_json(this, filename, error)
+        !< Load mesh definition from JSON file.
+        class(scalar_simple_equation), intent(inout)         :: this      !< The equation.
+        character(*),                  intent(in)            :: filename  !< File name of JSON file.
+        integer(I_P),                  intent(out), optional :: error     !< Error status.
+        character(len=:), allocatable                        :: mesh_type !< Mesh type.
+        type(json_file)                                      :: json      !< JSON file handler.
+        logical                                              :: found     !< Flag inquiring the result json parsing.
+
+        call json%initialize()
+        if (json%failed()) then
+            call json%print_error_message(stderr) ; stop
+        end if
+        call json%load_file(filename=filename)
+        if (json%failed()) then
+            call json%print_error_message(stderr) ; stop
+        end if
+        call json%get('mesh.type', mesh_type, found)
+        if (json%failed()) then
+            call json%print_error_message(stderr) ; stop
+        end if
+        if (.not.found) then
+            write(stderr, "(A)")' error: mesh definition of "'//filename//'" incomplete!'
+            write(stderr, "(A)")'   "type" missing'
+            stop
+        endif
+        if (mesh_type=="finite difference 1D") then
+            allocate(spatial_operator_d1_FD_1D :: this%du)
+            allocate(spatial_operator_d2_FD_1D :: this%ddu)
+            call json%get('equation.a', this%a, found)
+            if (json%failed()) then
+                call json%print_error_message(stderr) ; stop
+            end if
+            if (.not.found) then
+                write(stderr, "(A)")' error: equation definition of "'//filename//'" incomplete!'
+                write(stderr, "(A)")'   "a" missing'
+                stop
+            endif
+            call json%get('equation.b', this%b, found)
+            if (json%failed()) then
+                call json%print_error_message(stderr) ; stop
+            end if
+            if (.not.found) then
+                write(stderr, "(A)")' error: equation definition of "'//filename//'" incomplete!'
+                write(stderr, "(A)")'   "b" missing'
+                stop
+            endif
+        else
+            write(stderr, "(A)")' error: mesh definition of "'//filename//'" is not "finite difference 1D"!'
+            stop
+        endif
+    endsubroutine load_from_json
 end module scalar_simple_equation_m
 
 program scalar_simple
@@ -116,12 +201,12 @@ program scalar_simple
     if (json_found) then
         call mesh_%init(filename='scalar_simple.json')
         call u%init(field_mesh=mesh_)
-        er = equation_%init()
+        call equation_%init(filename='scalar_simple.json')
         integrator_%dt = 0.001_R_P
     else
-        call mesh_%init(error=er)
-        call u%init(field_mesh=mesh_, error=er)
-        er = equation_%init()
+        call mesh_%init
+        call u%init(field_mesh=mesh_)
+        call equation_%init
         integrator_%dt = 0.001_R_P
     endif
 

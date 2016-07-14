@@ -35,12 +35,14 @@ module openpde_equation_abstract
 
     abstract interface
         !< Initialize equation.
-        function abstract_init(this) result(error)
+        subroutine abstract_init(this, description, filename, error)
             !< Initialize equation.
-            import :: equation, field, I_P
-            class(equation), intent(inout) :: this  !< The equation.
-            integer(I_P)                   :: error !< Error status.
-        end function abstract_init
+            import :: equation, I_P
+            class(equation), intent(inout)         :: this        !< The equation.
+            character(*),    intent(in),  optional :: description !< Equation description.
+            character(*),    intent(in),  optional :: filename    !< Initialization file name.
+            integer(I_P),    intent(out), optional :: error       !< Error status.
+        end subroutine abstract_init
     endinterface
 
     abstract interface

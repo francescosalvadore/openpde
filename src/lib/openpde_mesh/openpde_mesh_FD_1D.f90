@@ -25,7 +25,7 @@ module openpde_mesh_FD_1D
             generic               :: load => load_from_json !< Load mesh definition from file.
             procedure, pass(this) :: set                    !< Set mesh.
             ! private methods
-            procedure, pass(this) :: load_from_json !< Load mesh definition from jSON file.
+            procedure, pass(this), private :: load_from_json !< Load mesh definition from jSON file.
     endtype mesh_FD_1D
 contains
     ! public, non TBP
