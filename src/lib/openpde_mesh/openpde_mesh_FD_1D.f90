@@ -2,6 +2,7 @@
 module openpde_mesh_FD_1D
     !< Concrete class of mesh for Finite Difference 1D methods.
     use, intrinsic :: iso_fortran_env, only : stderr=>error_unit
+    use json_module
     use openpde_mesh_abstract
     use openpde_kinds
     use vtk_fortran
@@ -21,7 +22,10 @@ module openpde_mesh_FD_1D
             procedure, pass(this) :: init   !< Initilize mesh.
             procedure, pass(this) :: output !< Output data.
             ! public methods
-            procedure, pass(this) :: set !< Set mesh.
+            generic               :: load => load_from_json !< Load mesh definition from file.
+            procedure, pass(this) :: set                    !< Set mesh.
+            ! private methods
+            procedure, pass(this), private :: load_from_json !< Load mesh definition from jSON file.
     endtype mesh_FD_1D
 contains
     ! public, non TBP
@@ -42,19 +46,24 @@ contains
       end subroutine associate_mesh_FD_1D
 
     ! deferred public methods
-    pure subroutine init(this, description, error)
+    subroutine init(this, description, filename, error)
         !< Initialize mesh.
         class(mesh_FD_1D), intent(inout)         :: this        !< The mesh.
         character(*),      intent(in),  optional :: description !< Mesh description.
+        character(*),      intent(in),  optional :: filename    !< Initialization file name.
         integer(I_P),      intent(out), optional :: error       !< Error status.
 
         call this%free
         if (present(description)) this%description = description
-        this%n = 50
-        this%ng = 2
-        this%s = 1
-        this%h = 0.05_R8P
-        if (present(error)) error = 0
+        if (present(filename)) then
+            call this%load(filename=filename, error=error)
+        else
+            this%n = 50
+            this%ng = 2
+            this%s = 1
+            this%h = 0.05_R8P
+            if (present(error)) error = 0
+        endif
     end subroutine init
 
     subroutine output(this, error)
@@ -88,4 +97,65 @@ contains
         if (present(h)) this%h = h
         if (present(error)) error = 0
     end subroutine set
+
+    ! private methods
+    subroutine load_from_json(this, filename, error)
+        !< Load mesh definition from JSON file.
+        class(mesh_FD_1D), intent(inout)         :: this      !< The mesh.
+        character(*),      intent(in)            :: filename  !< File name of JSON file.
+        integer(I_P),      intent(out), optional :: error     !< Error status.
+        character(len=:), allocatable            :: mesh_type !< Mesh type.
+        type(json_file)                          :: json      !< JSON file handler.
+        logical                                  :: found     !< Flag inquiring the result json parsing.
+
+        call json%initialize()
+        if (json%failed()) then
+            call json%print_error_message(stderr) ; stop
+        end if
+        call json%load_file(filename=filename)
+        if (json%failed()) then
+            call json%print_error_message(stderr) ; stop
+        end if
+        call json%get('mesh.type', mesh_type, found)
+        if (json%failed()) then
+            call json%print_error_message(stderr) ; stop
+        end if
+        if (.not.found) then
+            write(stderr, "(A)")' error: mesh definition of "'//filename//'" incomplete!'
+            write(stderr, "(A)")'   "type" missing'
+            stop
+        endif
+        if (mesh_type=="finite difference 1D") then
+            call json%get('mesh.n', this%n, found)
+            if (json%failed()) then
+                call json%print_error_message(stderr) ; stop
+            end if
+            if (.not.found) then
+                write(stderr, "(A)")' error: mesh definition of "'//filename//'" incomplete!'
+                write(stderr, "(A)")'   "n" missing'
+                stop
+            endif
+            call json%get('mesh.ng', this%ng, found)
+            if (json%failed()) then
+                call json%print_error_message(stderr) ; stop
+            end if
+            if (.not.found) then
+                write(stderr, "(A)")' error: mesh definition of "'//filename//'" incomplete!'
+                write(stderr, "(A)")'   "ng" missing'
+                stop
+            endif
+            call json%get('mesh.h', this%h, found)
+            if (json%failed()) then
+                call json%print_error_message(stderr) ; stop
+            end if
+            if (.not.found) then
+                write(stderr, "(A)")' error: mesh definition of "'//filename//'" incomplete!'
+                write(stderr, "(A)")'   "h" missing'
+                stop
+            endif
+        else
+            write(stderr, "(A)")' error: mesh definition of "'//filename//'" is not "finite difference 1D"!'
+            stop
+        endif
+    endsubroutine load_from_json
 end module openpde_mesh_FD_1D

@@ -20,11 +20,12 @@ module openpde_mesh_abstract
 
     abstract interface
         !< Initialize mesh.
-        subroutine abstract_meshinit(this, description, error)
+        subroutine abstract_meshinit(this, description, filename, error)
             !< Initialize mesh.
             import :: I_P, mesh
             class(mesh),  intent(inout)         :: this        !< The mesh.
             character(*), intent(in),  optional :: description !< Mesh description.
+            character(*), intent(in),  optional :: filename    !< Initialization file name.
             integer(I_P), intent(out), optional :: error       !< Error status.
         end subroutine abstract_meshinit
     endinterface

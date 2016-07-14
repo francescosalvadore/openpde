@@ -1,7 +1,6 @@
 !< Abstract class of equation.
 module openpde_equation_abstract
     !< Abstract class of equation.
-    use json_module
     use openpde_field_abstract
     use openpde_kinds
 
@@ -20,10 +19,7 @@ module openpde_equation_abstract
             procedure(abstract_forcing), pass(this), deferred :: forcing !< Forcing equation.
             procedure(abstract_init),    pass(this), deferred :: init    !< Initialize the equation.
             ! public methods
-            procedure, pass(this) :: free                   !< Free dynamic memory.
-            generic               :: load => load_from_json !< Load equation definition from file.
-            ! private methods
-            procedure, pass(this) :: load_from_json !< Load equation definition from jSON file.
+            procedure, pass(this) :: free !< Free dynamic memory.
     endtype equation
 
     abstract interface
@@ -39,12 +35,14 @@ module openpde_equation_abstract
 
     abstract interface
         !< Initialize equation.
-        function abstract_init(this) result(error)
+        subroutine abstract_init(this, description, filename, error)
             !< Initialize equation.
-            import :: equation, field, I_P
-            class(equation), intent(inout) :: this  !< The equation.
-            integer(I_P)                   :: error !< Error status.
-        end function abstract_init
+            import :: equation, I_P
+            class(equation), intent(inout)         :: this        !< The equation.
+            character(*),    intent(in),  optional :: description !< Equation description.
+            character(*),    intent(in),  optional :: filename    !< Initialization file name.
+            integer(I_P),    intent(out), optional :: error       !< Error status.
+        end subroutine abstract_init
     endinterface
 
     abstract interface
@@ -64,16 +62,4 @@ contains
         class(equation), intent(inout) :: this !< The equation.
         if (allocated(this%description)) deallocate(this%description)
     end subroutine free
-
-    subroutine load_from_json(this, filename, error)
-        !< Load equation definition from JSON file.
-        class(equation), intent(inout)         :: this     !< The equation.
-        character(*),    intent(in)            :: filename !< File name of JSON file.
-        integer(I_P),    intent(out), optional :: error    !< Error status.
-        type(json_file)                        :: json     !< JSON file handler.
-        !logical                                :: found
-        call json%initialize()
-        call json%load_file(filename=filename)
-        !call json%get('version.major', i, found)
-      endsubroutine load_from_json
 end module openpde_equation_abstract

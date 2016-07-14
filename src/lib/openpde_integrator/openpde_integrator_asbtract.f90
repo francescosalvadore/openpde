@@ -14,11 +14,24 @@ module openpde_integrator_abstract
         character(len=:), allocatable :: description !< Integrator description.
         real(R_P)                     :: dt=0._R_P   !< Time step.
         contains
-            ! deferred methods
+            ! deferred public methods
+            procedure(abstract_init),      pass(this), deferred :: init      !< Initilize integrator.
             procedure(abstract_integrate), pass(this), deferred :: integrate !< Integrate the field accordingly to the equation.
             ! public methods
             procedure, pass(this) :: free !< Free dynamic memory.
     endtype integrator
+
+    abstract interface
+        !< Initialize integrator.
+        subroutine abstract_init(this, description, filename, error)
+            !< Initialize integrator.
+            import :: I_P, integrator
+            class(integrator),  intent(inout)   :: this        !< The integrator.
+            character(*), intent(in),  optional :: description !< Integrator description.
+            character(*), intent(in),  optional :: filename    !< Initialization file name.
+            integer(I_P), intent(out), optional :: error       !< Error status.
+        end subroutine abstract_init
+    endinterface
 
     abstract interface
         !< Integrate the field accordingly the equation.
