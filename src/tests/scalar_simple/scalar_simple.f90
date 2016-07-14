@@ -55,8 +55,8 @@ contains
         class(mesh_FD_1D), pointer                           :: mesh_cur !< Pointer to input mehs.
         integer(I_P)                                         :: i        !< Counter.
 
-        call associate_field_FD_1D(field_input=inp, calling_procedure='bc(inp)', field_pointer=inp_cur)
-        call associate_mesh_FD_1D(mesh_input=inp%m, calling_procedure='bc(inp%m)', mesh_pointer=mesh_cur)
+        inp_cur => associate_field_FD_1D(field_input=inp, emsg='calling procedure scalar_simple_eqaution%bc')
+        mesh_cur => associate_mesh_FD_1D(mesh_input=inp%m, emsg='calling procedure scalar_simple_eqaution%bc')
         do i=1-mesh_cur%ng,0
             inp_cur%val(i) = inp_cur%val(i+mesh_cur%n)
         enddo

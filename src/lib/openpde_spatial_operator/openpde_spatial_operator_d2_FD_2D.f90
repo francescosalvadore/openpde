@@ -31,15 +31,9 @@ contains
         integer(I_P)                                           :: j        !< Counter.
 
         allocate(field_FD_2D :: opr)
-        call associate_field_FD_2D(field_input=opr,                                         &
-                                   calling_procedure='operate_spatial_operator_FD_2D(opr)', &
-                                   field_pointer=opr_cur)
-        call associate_field_FD_2D(field_input=inp,                                         &
-                                   calling_procedure='operate_spatial_operator_FD_2D(inp)', &
-                                   field_pointer=inp_cur)
-        call associate_mesh_FD_2D(mesh_input=inp%m,                                          &
-                                  calling_procedure='operate_spatial_operator_FD_2D(inp%m)', &
-                                  mesh_pointer=mesh_cur)
+        opr_cur => associate_field_FD_2D(field_input=opr, emsg='calling procedure spatial_operator_d2_FD_2D%operate')
+        inp_cur => associate_field_FD_2D(field_input=inp, emsg='calling procedure spatial_operator_d2_FD_2D%operate')
+        mesh_cur => associate_mesh_FD_2D(mesh_input=inp%m, emsg='calling procedure spatial_operator_d2_FD_2D%operate')
         call opr_cur%associate_mesh(field_mesh=inp%m)
         dir_= 1 ; if (present(dir)) dir_ = dir
         if (dir_==1) then

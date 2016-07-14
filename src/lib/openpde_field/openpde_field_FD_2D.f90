@@ -31,21 +31,21 @@ module openpde_field_FD_2D
     endtype field_FD_2D
 contains
     ! public, non TBP
-    subroutine associate_field_FD_2D(field_input, calling_procedure, field_pointer)
+    function associate_field_FD_2D(field_input, emsg) result(field_pointer)
         !< Check the type of the field passed as input and return a Finite Difference 2D field pointer associated to field.
-        class(field),       intent(in), target     :: field_input       !< Input field.
-        character(*),       intent(in)             :: calling_procedure !< Name of the calling procedure.
-        class(field_FD_2D), intent(inout), pointer :: field_pointer     !< Finite Difference 2D field pointer.
+        class(field),       intent(in), target   :: field_input   !< Input field.
+        character(*),       intent(in), optional :: emsg          !< Auxiliary error message.
+        class(field_FD_2D), pointer              :: field_pointer !< Finite Difference 2D field pointer.
 
         select type(field_input)
             type is(field_FD_2D)
                 field_pointer => field_input
             class default
-               write(stderr, '(A)')' error: wrong mesh class'
-               write(stderr, '(A)')' Calling procedure "'//calling_procedure//'"'
+               write(stderr, '(A)')'error: cast field to field_FD_2D'
+               if (present(emsg)) write(stderr, '(A)') emsg
                stop
         end select
-      end subroutine associate_field_FD_2D
+      end function associate_field_FD_2D
 
     ! deferred public methods
     subroutine associate_mesh(this, field_mesh, error)
@@ -55,9 +55,7 @@ contains
         integer(I_P),       intent(out), optional :: error      !< Error status.
         class(mesh_FD_2D), pointer                :: mesh_cur   !< Dummy pointer for mesh.
 
-        call associate_mesh_FD_2D(mesh_input=field_mesh,                                      &
-                                  calling_procedure='associate_mesh_field_FD_2D(field_mesh)', &
-                                  mesh_pointer=mesh_cur)
+        mesh_cur => associate_mesh_FD_2D(mesh_input=field_mesh, emsg='calling procedure field_FD_2D%associate_mesh')
         this%m => mesh_cur
         if (allocated(this%val)) deallocate(this%val)
         allocate(this%val(1-mesh_cur%ngx:mesh_cur%nx+mesh_cur%ngx, 1-mesh_cur%ngy:mesh_cur%ny+mesh_cur%ngy))
@@ -77,9 +75,7 @@ contains
         call this%free
         call this%associate_mesh(field_mesh=field_mesh, error=error)
         if (present(description)) this%description = description
-        call associate_mesh_FD_2D(mesh_input=field_mesh,                                           &
-                                                 calling_procedure='init_field_FD_2D(field_mesh)', &
-                                                 mesh_pointer=mesh_cur)
+        mesh_cur => associate_mesh_FD_2D(mesh_input=field_mesh, emsg='calling procedure field_FD_2D%init')
         do j = 1-mesh_cur%ngy, mesh_cur%ny+mesh_cur%ngy
           do i = 1-mesh_cur%ngx, mesh_cur%nx+mesh_cur%ngx
               this%val(i, j) = sin(i*2._R_P*acos(-1._R_P)/mesh_cur%nx)*sin(j*2._R_P*acos(-1._R_P)/mesh_cur%ny)
@@ -123,13 +119,9 @@ contains
         class(field_FD_2D), pointer            :: rhs_cur !< Dummy pointer for rhs.
         class(field_FD_2D), pointer            :: opr_cur !< Dummy pointer for operator result.
 
-        call associate_field_FD_2D(field_input=rhs,                          &
-                                   calling_procedure='add_field_FD_2D(rhs)', &
-                                   field_pointer=rhs_cur)
+        rhs_cur => associate_field_FD_2D(field_input=rhs, emsg='calling procedure field_FD_2D%add')
         allocate(field_FD_2D :: opr)
-        call associate_field_FD_2D(field_input=opr,                          &
-                                   calling_procedure='add_field_FD_2D(opr)', &
-                                   field_pointer=opr_cur)
+        opr_cur => associate_field_FD_2D(field_input=opr, emsg='calling procedure field_FD_2D%add')
         call opr_cur%associate_mesh(field_mesh=lhs%m)
         opr_cur%val = lhs%val + rhs_cur%val
     end function add
@@ -140,9 +132,7 @@ contains
         class(field),       intent(in), target :: rhs     !< Right hand side.
         class(field_FD_2D), pointer            :: rhs_cur !< Dummy pointer for rhs.
 
-        call associate_field_FD_2D(field_input=rhs,                          &
-                                   calling_procedure='add_field_FD_2D(rhs)', &
-                                   field_pointer=rhs_cur)
+        rhs_cur => associate_field_FD_2D(field_input=rhs, emsg='calling procedure field_FD_2D%assign')
         call lhs%associate_mesh(field_mesh=rhs_cur%m)
         lhs%val = rhs_cur%val
     end subroutine assign_field
@@ -155,13 +145,9 @@ contains
         class(field_FD_2D), pointer            :: rhs_cur !< Dummy pointer for rhs.
         class(field_FD_2D), pointer            :: opr_cur !< Dummy pointer for operator result.
 
-        call associate_field_FD_2D(field_input=rhs,                          &
-                                   calling_procedure='add_field_FD_2D(rhs)', &
-                                   field_pointer=rhs_cur)
+        rhs_cur => associate_field_FD_2D(field_input=rhs, emsg='calling procedure field_FD_2D%mul')
         allocate(field_FD_2D :: opr)
-        call associate_field_FD_2D(field_input=opr,                          &
-                                   calling_procedure='add_field_FD_2D(opr)', &
-                                   field_pointer=opr_cur)
+        opr_cur => associate_field_FD_2D(field_input=opr, emsg='calling procedure field_FD_2D%mul')
         call opr_cur%associate_mesh(field_mesh=lhs%m)
         opr_cur%val = lhs%val * rhs_cur%val
     end function mul
@@ -169,14 +155,12 @@ contains
     function mulreal(lhs, rhs) result(opr)
         !< Multiply field for real.
         class(field_FD_2D), intent(in)    :: lhs     !< Left hand side.
-        real(R_P),          intent(in)    :: rhs      !< Right hand side.
+        real(R_P),          intent(in)    :: rhs     !< Right hand side.
         class(field), allocatable, target :: opr     !< Operator result.
         class(field_FD_2D), pointer       :: opr_cur !< Dummy pointer for operator result.
 
         allocate(field_FD_2D :: opr)
-        call associate_field_FD_2D(field_input=opr,                          &
-                                   calling_procedure='add_field_FD_2D(opr)', &
-                                   field_pointer=opr_cur)
+        opr_cur => associate_field_FD_2D(field_input=opr, emsg='calling procedure field_FD_2D%mulreal')
         call opr_cur%associate_mesh(field_mesh=lhs%m)
         opr_cur%val = lhs%val * rhs
     end function mulreal
@@ -189,9 +173,7 @@ contains
         class(field_FD_2D), pointer       :: opr_cur !< Dummy pointer for operator result.
 
         allocate(field_FD_2D :: opr)
-        call associate_field_FD_2D(field_input=opr,                          &
-                                   calling_procedure='add_field_FD_2D(opr)', &
-                                   field_pointer=opr_cur)
+        opr_cur => associate_field_FD_2D(field_input=opr, emsg='calling procedure field_FD_2D%realmul')
         call opr_cur%associate_mesh(field_mesh=rhs%m)
         opr_cur%val = lhs * rhs%val
     end function realmul
@@ -204,13 +186,9 @@ contains
         class(field_FD_2D), pointer            :: rhs_cur !< Dummy pointer for rhs.
         class(field_FD_2D), pointer            :: opr_cur !< Dummy pointer for operator result.
 
-        call associate_field_FD_2D(field_input=rhs,                          &
-                                   calling_procedure='add_field_FD_2D(rhs)', &
-                                   field_pointer=rhs_cur)
+        rhs_cur => associate_field_FD_2D(field_input=rhs, emsg='calling procedure field_FD_2D%sub')
         allocate(field_FD_2D :: opr)
-        call associate_field_FD_2D(field_input=opr,                          &
-                                   calling_procedure='add_field_FD_2D(opr)', &
-                                   field_pointer=opr_cur)
+        opr_cur => associate_field_FD_2D(field_input=opr, emsg='calling procedure field_FD_2D%sub')
         call opr_cur%associate_mesh(field_mesh=lhs%m)
         opr_cur%val = lhs%val - rhs_cur%val
     end function sub
