@@ -51,7 +51,7 @@ contains
         integer(I_P)                                            :: error !< Error status.
         class(field), allocatable                               :: for   !< Temporary
         call equ%bc(inp=inp, t=t)
-        allocate(for, source=inp)
+        allocate(for, mold=inp)
         ! the temporary variable for seems to be needed by intel compiler
         ! otherwise there is an internal compiler error or seg fault
         ! especially multiplying by this%dt. Why....?
