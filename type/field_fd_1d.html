@@ -10,7 +10,7 @@
     <meta name="author" content="Chris MacMackin" >
     <link rel="icon" href="../favicon.png">
 
-    <title>field_fd_1d &ndash; openpde </title>
+    <title>field_FD_1D &ndash; openpde </title>
 
     <link href="../css/bootstrap.min.css" rel="stylesheet">
     <link href="../css/pygments.css" rel="stylesheet">
@@ -68,7 +68,7 @@
             <li><a href="../lists/types.html">Derived Types</a></li>
 				
 				
-            <li><a href="../program/burgers.html">Program</a></li>
+            <li><a href="../program/scalar_simple.html">Program</a></li>
 				
           </ul>
         
@@ -89,7 +89,7 @@
     
   
   <div class="row">
-    <h1>field_fd_1d
+    <h1>field_FD_1D
     <small>Derived Type</small>
     
     </h1>
@@ -104,16 +104,16 @@
      
     
     
-    <li><i class="fa fa-code"></i><a href="../src/opendiff_field_fd_1d.f90"> Source File</a></li>
+    <li><i class="fa fa-code"></i><a href="../src/openpde_field_FD_1D.f90"> Source File</a></li>
      
   </ul>
   <ol class="breadcrumb in-well text-right">
   
-     <li><a href='../sourcefile/opendiff_field_fd_1d.f90.html'>opendiff_field_fd_1d.f90</a></li>
+     <li><a href='../sourcefile/openpde_field_fd_1d.f90.html'>openpde_field_FD_1D.f90</a></li>
   
-     <li><a href='../module/opendiff_field_fd_1d.html'>opendiff_field_fd_1d</a></li>
+     <li><a href='../module/openpde_field_fd_1d.html'>openpde_field_FD_1D</a></li>
   
-     <li class="active">field_fd_1d</li>
+     <li class="active">field_FD_1D</li>
   </ol>
 </div>
 </div>
@@ -133,7 +133,7 @@
     <div id="vars" class="panel-collapse collapse">
       <div class="list-group">
         
-        <a class="list-group-item" href="../type/field_fd_1d.html#variable-val">val</a>
+        <a class="list-group-item" href="../type/field_fd_1d.html#variable-val%7E2">val</a>
         
       </div>
     </div>
@@ -160,25 +160,25 @@
     <div id="boundprocs" class="panel-collapse collapse">
         <div class="list-group">
           
-          <a class="list-group-item" href="../type/field_fd_1d.html#boundprocedure-add">add</a>
+          <a class="list-group-item" href="../type/field_fd_1d.html#boundprocedure-associate_mesh%7E3">associate_mesh</a>
           
-          <a class="list-group-item" href="../type/field_fd_1d.html#boundprocedure-assign_field">assign_field</a>
+          <a class="list-group-item" href="../type/field_fd_1d.html#boundprocedure-init%7E3">init</a>
           
-          <a class="list-group-item" href="../type/field_fd_1d.html#boundprocedure-associate_mesh">associate_mesh</a>
+          <a class="list-group-item" href="../type/field_fd_1d.html#boundprocedure-output%7E3">output</a>
           
-          <a class="list-group-item" href="../type/field_fd_1d.html#boundprocedure-init">init</a>
+          <a class="list-group-item" href="../type/field_fd_1d.html#boundprocedure-add%7E3">add</a>
           
-          <a class="list-group-item" href="../type/field_fd_1d.html#boundprocedure-output">output</a>
+          <a class="list-group-item" href="../type/field_fd_1d.html#boundprocedure-assign_field%7E3">assign_field</a>
           
-          <a class="list-group-item" href="../type/field_fd_1d.html#boundprocedure-sub">sub</a>
+          <a class="list-group-item" href="../type/field_fd_1d.html#boundprocedure-mul%7E3">mul</a>
           
-          <a class="list-group-item" href="../type/field_fd_1d.html#boundprocedure-mul">mul</a>
+          <a class="list-group-item" href="../type/field_fd_1d.html#boundprocedure-mulreal%7E3">mulreal</a>
           
-          <a class="list-group-item" href="../type/field_fd_1d.html#boundprocedure-mulreal">mulreal</a>
+          <a class="list-group-item" href="../type/field_fd_1d.html#boundprocedure-realmul%7E3">realmul</a>
           
-          <a class="list-group-item" href="../type/field_fd_1d.html#boundprocedure-realmul">realmul</a>
+          <a class="list-group-item" href="../type/field_fd_1d.html#boundprocedure-sub%7E3">sub</a>
           
-          <a class="list-group-item" href="../type/field_fd_1d.html#boundprocedure-set">set</a>
+          <a class="list-group-item" href="../type/field_fd_1d.html#boundprocedure-set%7E2">set</a>
           
         </div>
     </div>
@@ -190,7 +190,7 @@
   <div class="panel panel-primary">
     <div class="panel-heading text-left"><h3 class="panel-title">Source Code</h3></div>
     <div class="list-group">
-      <a class="list-group-item" href="../type/field_fd_1d.html#src">field_fd_1d</a>
+      <a class="list-group-item" href="../type/field_fd_1d.html#src">field_FD_1D</a>
     </div>
   </div>
   
@@ -201,27 +201,39 @@
     <div id="alltypes" class="panel-collapse collapse">
         <div class="list-group">
           
-          <a class="list-group-item" href="../type/burgers_equation.html">burgers_equation</a>
-          
           <a class="list-group-item" href="../type/equation.html">equation</a>
           
           <a class="list-group-item" href="../type/field.html">field</a>
           
-          <a class="list-group-item" href="../type/field_fd_1d.html">field_fd_1d</a>
+          <a class="list-group-item" href="../type/field_fd_1d.html">field_FD_1D</a>
+          
+          <a class="list-group-item" href="../type/field_fd_2d.html">field_FD_2D</a>
           
           <a class="list-group-item" href="../type/integrator.html">integrator</a>
           
-          <a class="list-group-item" href="../type/integrator_euler.html">integrator_euler</a>
+          <a class="list-group-item" href="../type/integrator_euler_explicit.html">integrator_euler_explicit</a>
           
           <a class="list-group-item" href="../type/mesh.html">mesh</a>
           
-          <a class="list-group-item" href="../type/mesh_fd_1d.html">mesh_fd_1d</a>
+          <a class="list-group-item" href="../type/mesh_fd_1d.html">mesh_FD_1D</a>
+          
+          <a class="list-group-item" href="../type/mesh_fd_2d.html">mesh_FD_2D</a>
+          
+          <a class="list-group-item" href="../type/scalar_simple_equation.html">scalar_simple_equation</a>
           
           <a class="list-group-item" href="../type/spatial_operator.html">spatial_operator</a>
           
-          <a class="list-group-item" href="../type/spatial_operator_der1.html">spatial_operator_der1</a>
+          <a class="list-group-item" href="../type/spatial_operator_d1.html">spatial_operator_d1</a>
           
-          <a class="list-group-item" href="../type/spatial_operator_der1_fd_1d.html">spatial_operator_der1_fd_1d</a>
+          <a class="list-group-item" href="../type/spatial_operator_d1_fd_1d.html">spatial_operator_d1_FD_1D</a>
+          
+          <a class="list-group-item" href="../type/spatial_operator_d1_fd_2d.html">spatial_operator_d1_FD_2D</a>
+          
+          <a class="list-group-item" href="../type/spatial_operator_d2.html">spatial_operator_d2</a>
+          
+          <a class="list-group-item" href="../type/spatial_operator_d2_fd_1d.html">spatial_operator_d2_FD_1D</a>
+          
+          <a class="list-group-item" href="../type/spatial_operator_d2_fd_2d.html">spatial_operator_d2_FD_2D</a>
           
         </div>
     </div>
@@ -232,7 +244,7 @@
     </div>
     
     <div class="col-lg-9" id='text'>
-    <h2>type, public, extends(<a href='../type/field.html'>field</a>) :: field_fd_1d</h2>
+    <h2>type, public, extends(<a href='../type/field.html'>field</a>) :: field_FD_1D</h2>
     
     
                 <div class="depgraph"><?xml version="1.0" encoding="UTF-8" standalone="no"?>
@@ -241,15 +253,15 @@
 <!-- Generated by graphviz version 2.38.0 (20140413.2041)
  -->
 <!-- Title: type~~field_fd_1d~~InheritsGraph Pages: 1 -->
-<svg id="typefield_fd_1dInheritsGraph" width="263pt" height="32pt"
- viewBox="0.00 0.00 263.00 32.00" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<svg id="typefield_fd_1dInheritsGraph" width="270pt" height="32pt"
+ viewBox="0.00 0.00 270.00 32.00" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
 <g id="type~~field_fd_1d~~InheritsGraph" class="graph" transform="scale(1 1) rotate(0) translate(4 28)">
 <title>type~~field_fd_1d~~InheritsGraph</title>
-<polygon fill="white" stroke="none" points="-4,4 -4,-28 259,-28 259,4 -4,4"/>
+<polygon fill="white" stroke="none" points="-4,4 -4,-28 266,-28 266,4 -4,4"/>
 <!-- type~field_fd_1d -->
 <g id="type~~field_fd_1d~~InheritsGraph_node1" class="node"><title>type~field_fd_1d</title>
-<polygon fill="none" stroke="black" points="255,-24 190,-24 190,-0 255,-0 255,-24"/>
-<text text-anchor="middle" x="222.5" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50">field_fd_1d</text>
+<polygon fill="none" stroke="black" points="262,-24 190,-24 190,-0 262,-0 262,-24"/>
+<text text-anchor="middle" x="226" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50">field_FD_1D</text>
 </g>
 <!-- type~field -->
 <g id="type~~field_fd_1d~~InheritsGraph_node2" class="node"><title>type~field</title>
@@ -261,8 +273,8 @@
 </g>
 <!-- type~field&#45;&gt;type~field_fd_1d -->
 <g id="type~~field_fd_1d~~InheritsGraph_edge2" class="edge"><title>type~field&#45;&gt;type~field_fd_1d</title>
-<path fill="none" stroke="#000000" d="M153.073,-12C161.329,-12 170.673,-12 179.743,-12"/>
-<polygon fill="#000000" stroke="#000000" points="179.795,-15.5001 189.795,-12 179.795,-8.5001 179.795,-15.5001"/>
+<path fill="none" stroke="#000000" d="M153.005,-12C161.162,-12 170.42,-12 179.515,-12"/>
+<polygon fill="#000000" stroke="#000000" points="179.647,-15.5001 189.647,-12 179.647,-8.5001 179.647,-15.5001"/>
 </g>
 <!-- type~mesh -->
 <g id="type~~field_fd_1d~~InheritsGraph_node3" class="node"><title>type~mesh</title>
@@ -375,7 +387,7 @@ implementation in a submodule of an interface in a parent module.</p>
                 
     <br><br>
     
-    <p>Finite difference 1D class for <em>field</em> handling.</p>
+    <p>Concrete class of field for Finite Difference 1D methods.</p>
     <br>
     
     
@@ -397,7 +409,7 @@ implementation in a submodule of an interface in a parent module.</p>
   
 <tr>
   
-  <td><span class="anchor" id="variable-val"></span>real(kind=R_P),</td>
+  <td><span class="anchor" id="variable-val%7E2"></span>real(kind=R_P),</td>
   
   <td>public,</td>
   <td>allocatable, dimension(:)</td><td>::</td>
@@ -422,200 +434,7 @@ implementation in a submodule of an interface in a parent module.</p>
     
 	   
 <div class="panel panel-default">
-  <div class="panel-heading codesum"><span class="anchor" id="boundprocedure-add"></span><h3>procedure, private :: <strong>add</strong>  
-    
-  </h3></div>
-  
-  <div class="panel-body">
-    
-
-
-    <p>Add fields.</p>
-  </div>
-  
-  <ul class="list-group">
-    
-      <li class="list-group-item">
-      
-         
-    
-    <h3>
-private function <a href='../proc/add.html'>add</a>(lhs, rhs) result(opr)
-    
-    
-    
-</h3>
-    
-    <h4>Arguments</h4>
-    
-      
-      
-<table class="table table-striped varlist">
-<thead><tr><th>Type</th>
-<th>Intent</th><th>Optional</th>
-<th>Attributes</th><th></th><th>Name</th><th></th></thead>
-
-
-
-<tbody>
-
-  
-  
-  
-  
-<tr>
-  
-  <td><span class="anchor" ></span>class(<a href='../type/field_fd_1d.html'>field_fd_1d</a>),</td>
-  <td>intent(in)</td>
-  <td></td>
-  
-  <td></td><td>::</td>
-  <td><strong>lhs</strong></td><td><p>Left hand side.</p></td>
-  
-</tr>
-
-  
-  
-  
-  
-<tr>
-  
-  <td><span class="anchor" ></span>class(<a href='../type/field.html'>field</a>),</td>
-  <td>intent(in),</td>
-  <td></td>
-  
-  <td>target</td><td>::</td>
-  <td><strong>rhs</strong></td><td><p>Left hand side.</p></td>
-  
-</tr>
-
-</tbody>
-</table>
-
-      
-    
-    
-
-  
-  
-  
-  
-     <h4>Return Value <small>class(<a href='../type/field.html'>field</a>),
-  allocatable,target</small></h4>
-  <p>Operator result.</p>
-    
-    
-    <h4>Description</h4>
-       
-       
-
-
-       
-       <p>Add fields.</p>
-        
-
-      
-      </li>
-    
-  </ul>
-</div>
-
-    
-	   
-<div class="panel panel-default">
-  <div class="panel-heading codesum"><span class="anchor" id="boundprocedure-assign_field"></span><h3>procedure, private :: <strong>assign_field</strong>  
-    
-  </h3></div>
-  
-  <div class="panel-body">
-    
-
-
-    <p>Assign fields.</p>
-  </div>
-  
-  <ul class="list-group">
-    
-      <li class="list-group-item">
-      
-         
-    
-    <h3>
-private subroutine <a href='../proc/assign_field.html'>assign_field</a>(lhs, rhs)
-    
-    
-    
-</h3>
-    
-    <h4>Arguments</h4>
-    
-      
-      
-<table class="table table-striped varlist">
-<thead><tr><th>Type</th>
-<th>Intent</th><th>Optional</th>
-<th>Attributes</th><th></th><th>Name</th><th></th></thead>
-
-
-
-<tbody>
-
-  
-  
-  
-  
-<tr>
-  
-  <td><span class="anchor" ></span>class(<a href='../type/field_fd_1d.html'>field_fd_1d</a>),</td>
-  <td>intent(inout)</td>
-  <td></td>
-  
-  <td></td><td>::</td>
-  <td><strong>lhs</strong></td><td><p>Left hand side.</p></td>
-  
-</tr>
-
-  
-  
-  
-  
-<tr>
-  
-  <td><span class="anchor" ></span>class(<a href='../type/field.html'>field</a>),</td>
-  <td>intent(in),</td>
-  <td></td>
-  
-  <td>target</td><td>::</td>
-  <td><strong>rhs</strong></td><td><p>Right hand side.</p></td>
-  
-</tr>
-
-</tbody>
-</table>
-
-      
-    
-    
-    
-    <h4>Description</h4>
-       
-       
-
-
-       
-       <p>Assign fields.</p>
-        
-
-      
-      </li>
-    
-  </ul>
-</div>
-
-    
-	   
-<div class="panel panel-default">
-  <div class="panel-heading codesum"><span class="anchor" id="boundprocedure-associate_mesh"></span><h3>procedure, private :: <strong>associate_mesh</strong>  
+  <div class="panel-heading codesum"><span class="anchor" id="boundprocedure-associate_mesh%7E3"></span><h3>procedure, public, pass(this) :: <strong>associate_mesh</strong>  
     
   </h3></div>
   
@@ -633,7 +452,7 @@ private subroutine <a href='../proc/assign_field.html'>assign_field</a>(lhs, rhs
          
     
     <h3>
-private subroutine <a href='../proc/associate_mesh.html'>associate_mesh</a>(this, fieldmesh, error)
+private subroutine <a href='../proc/associate_mesh%7E2.html'>associate_mesh</a>(this, field_mesh, error)
     
     
     
@@ -658,7 +477,7 @@ private subroutine <a href='../proc/associate_mesh.html'>associate_mesh</a>(this
   
 <tr>
   
-  <td><span class="anchor" ></span>class(<a href='../type/field_fd_1d.html'>field_fd_1d</a>),</td>
+  <td><span class="anchor" ></span>class(<a href='../type/field_fd_1d.html'>field_FD_1D</a>),</td>
   <td>intent(inout)</td>
   <td></td>
   
@@ -678,7 +497,7 @@ private subroutine <a href='../proc/associate_mesh.html'>associate_mesh</a>(this
   <td></td>
   
   <td>target</td><td>::</td>
-  <td><strong>fieldmesh</strong></td><td><p>Mesh of the field.</p></td>
+  <td><strong>field_mesh</strong></td><td><p>Mesh of the field.</p></td>
   
 </tr>
 
@@ -722,7 +541,7 @@ private subroutine <a href='../proc/associate_mesh.html'>associate_mesh</a>(this
     
 	   
 <div class="panel panel-default">
-  <div class="panel-heading codesum"><span class="anchor" id="boundprocedure-init"></span><h3>procedure, public :: <strong>init</strong>  
+  <div class="panel-heading codesum"><span class="anchor" id="boundprocedure-init%7E3"></span><h3>procedure, public, pass(this) :: <strong>init</strong>  
     
   </h3></div>
   
@@ -740,7 +559,7 @@ private subroutine <a href='../proc/associate_mesh.html'>associate_mesh</a>(this
          
     
     <h3>
-private subroutine <a href='../proc/init.html'>init</a>(this, fieldmesh, description, error)
+private subroutine <a href='../proc/init%7E2.html'>init</a>(this, field_mesh, description, error)
     
     
     
@@ -765,7 +584,7 @@ private subroutine <a href='../proc/init.html'>init</a>(this, fieldmesh, descrip
   
 <tr>
   
-  <td><span class="anchor" ></span>class(<a href='../type/field_fd_1d.html'>field_fd_1d</a>),</td>
+  <td><span class="anchor" ></span>class(<a href='../type/field_fd_1d.html'>field_FD_1D</a>),</td>
   <td>intent(inout)</td>
   <td></td>
   
@@ -785,7 +604,7 @@ private subroutine <a href='../proc/init.html'>init</a>(this, fieldmesh, descrip
   <td></td>
   
   <td>target</td><td>::</td>
-  <td><strong>fieldmesh</strong></td><td><p>Mesh of the field.</p></td>
+  <td><strong>field_mesh</strong></td><td><p>Mesh of the field.</p></td>
   
 </tr>
 
@@ -844,7 +663,7 @@ private subroutine <a href='../proc/init.html'>init</a>(this, fieldmesh, descrip
     
 	   
 <div class="panel panel-default">
-  <div class="panel-heading codesum"><span class="anchor" id="boundprocedure-output"></span><h3>procedure, public :: <strong>output</strong>  
+  <div class="panel-heading codesum"><span class="anchor" id="boundprocedure-output%7E3"></span><h3>procedure, public, pass(this) :: <strong>output</strong>  
     
   </h3></div>
   
@@ -862,7 +681,7 @@ private subroutine <a href='../proc/init.html'>init</a>(this, fieldmesh, descrip
          
     
     <h3>
-private subroutine <a href='../proc/output.html'>output</a>(this, filename, error)
+private subroutine <a href='../proc/output%7E2.html'>output</a>(this, filename, error)
     
     
     
@@ -887,7 +706,7 @@ private subroutine <a href='../proc/output.html'>output</a>(this, filename, erro
   
 <tr>
   
-  <td><span class="anchor" ></span>class(<a href='../type/field_fd_1d.html'>field_fd_1d</a>),</td>
+  <td><span class="anchor" ></span>class(<a href='../type/field_fd_1d.html'>field_FD_1D</a>),</td>
   <td>intent(in)</td>
   <td></td>
   
@@ -951,7 +770,7 @@ private subroutine <a href='../proc/output.html'>output</a>(this, filename, erro
     
 	   
 <div class="panel panel-default">
-  <div class="panel-heading codesum"><span class="anchor" id="boundprocedure-sub"></span><h3>procedure, private :: <strong>sub</strong>  
+  <div class="panel-heading codesum"><span class="anchor" id="boundprocedure-add%7E3"></span><h3>procedure, private, pass(lhs) :: <strong>add</strong>  
     
   </h3></div>
   
@@ -959,7 +778,7 @@ private subroutine <a href='../proc/output.html'>output</a>(this, filename, erro
     
 
 
-    <p>Subtract fields.</p>
+    <p>Add fields.</p>
   </div>
   
   <ul class="list-group">
@@ -969,7 +788,7 @@ private subroutine <a href='../proc/output.html'>output</a>(this, filename, erro
          
     
     <h3>
-private function <a href='../proc/sub.html'>sub</a>(lhs, rhs) result(opr)
+private function <a href='../proc/add%7E2.html'>add</a>(lhs, rhs) result(opr)
     
     
     
@@ -994,7 +813,7 @@ private function <a href='../proc/sub.html'>sub</a>(lhs, rhs) result(opr)
   
 <tr>
   
-  <td><span class="anchor" ></span>class(<a href='../type/field_fd_1d.html'>field_fd_1d</a>),</td>
+  <td><span class="anchor" ></span>class(<a href='../type/field_fd_1d.html'>field_FD_1D</a>),</td>
   <td>intent(in)</td>
   <td></td>
   
@@ -1040,7 +859,7 @@ private function <a href='../proc/sub.html'>sub</a>(lhs, rhs) result(opr)
 
 
        
-       <p>Subtract fields.</p>
+       <p>Add fields.</p>
         
 
       
@@ -1052,7 +871,7 @@ private function <a href='../proc/sub.html'>sub</a>(lhs, rhs) result(opr)
     
 	   
 <div class="panel panel-default">
-  <div class="panel-heading codesum"><span class="anchor" id="boundprocedure-mul"></span><h3>procedure, private :: <strong>mul</strong>  
+  <div class="panel-heading codesum"><span class="anchor" id="boundprocedure-assign_field%7E3"></span><h3>procedure, private, pass(lhs) :: <strong>assign_field</strong>  
     
   </h3></div>
   
@@ -1060,7 +879,7 @@ private function <a href='../proc/sub.html'>sub</a>(lhs, rhs) result(opr)
     
 
 
-    <p>Multiply fields.</p>
+    <p>Assign fields.</p>
   </div>
   
   <ul class="list-group">
@@ -1070,7 +889,7 @@ private function <a href='../proc/sub.html'>sub</a>(lhs, rhs) result(opr)
          
     
     <h3>
-private function <a href='../proc/mul.html'>mul</a>(lhs, rhs) result(opr)
+private subroutine <a href='../proc/assign_field%7E2.html'>assign_field</a>(lhs, rhs)
     
     
     
@@ -1095,7 +914,99 @@ private function <a href='../proc/mul.html'>mul</a>(lhs, rhs) result(opr)
   
 <tr>
   
-  <td><span class="anchor" ></span>class(<a href='../type/field_fd_1d.html'>field_fd_1d</a>),</td>
+  <td><span class="anchor" ></span>class(<a href='../type/field_fd_1d.html'>field_FD_1D</a>),</td>
+  <td>intent(inout)</td>
+  <td></td>
+  
+  <td></td><td>::</td>
+  <td><strong>lhs</strong></td><td><p>Left hand side.</p></td>
+  
+</tr>
+
+  
+  
+  
+  
+<tr>
+  
+  <td><span class="anchor" ></span>class(<a href='../type/field.html'>field</a>),</td>
+  <td>intent(in),</td>
+  <td></td>
+  
+  <td>target</td><td>::</td>
+  <td><strong>rhs</strong></td><td><p>Right hand side.</p></td>
+  
+</tr>
+
+</tbody>
+</table>
+
+      
+    
+    
+    
+    <h4>Description</h4>
+       
+       
+
+
+       
+       <p>Assign fields.</p>
+        
+
+      
+      </li>
+    
+  </ul>
+</div>
+
+    
+	   
+<div class="panel panel-default">
+  <div class="panel-heading codesum"><span class="anchor" id="boundprocedure-mul%7E3"></span><h3>procedure, private, pass(lhs) :: <strong>mul</strong>  
+    
+  </h3></div>
+  
+  <div class="panel-body">
+    
+
+
+    <p>Multiply fields.</p>
+  </div>
+  
+  <ul class="list-group">
+    
+      <li class="list-group-item">
+      
+         
+    
+    <h3>
+private function <a href='../proc/mul%7E2.html'>mul</a>(lhs, rhs) result(opr)
+    
+    
+    
+</h3>
+    
+    <h4>Arguments</h4>
+    
+      
+      
+<table class="table table-striped varlist">
+<thead><tr><th>Type</th>
+<th>Intent</th><th>Optional</th>
+<th>Attributes</th><th></th><th>Name</th><th></th></thead>
+
+
+
+<tbody>
+
+  
+  
+  
+  
+<tr>
+  
+  <td><span class="anchor" ></span>class(<a href='../type/field_fd_1d.html'>field_FD_1D</a>),</td>
   <td>intent(in)</td>
   <td></td>
   
@@ -1153,7 +1064,7 @@ private function <a href='../proc/mul.html'>mul</a>(lhs, rhs) result(opr)
     
 	   
 <div class="panel panel-default">
-  <div class="panel-heading codesum"><span class="anchor" id="boundprocedure-mulreal"></span><h3>procedure, private :: <strong>mulreal</strong>  
+  <div class="panel-heading codesum"><span class="anchor" id="boundprocedure-mulreal%7E3"></span><h3>procedure, private, pass(lhs) :: <strong>mulreal</strong>  
     
   </h3></div>
   
@@ -1171,7 +1082,7 @@ private function <a href='../proc/mul.html'>mul</a>(lhs, rhs) result(opr)
          
     
     <h3>
-private function <a href='../proc/mulreal.html'>mulreal</a>(lhs, rhs) result(opr)
+private function <a href='../proc/mulreal%7E2.html'>mulreal</a>(lhs, rhs) result(opr)
     
     
     
@@ -1196,7 +1107,7 @@ private function <a href='../proc/mulreal.html'>mulreal</a>(lhs, rhs) result(opr
   
 <tr>
   
-  <td><span class="anchor" ></span>class(<a href='../type/field_fd_1d.html'>field_fd_1d</a>),</td>
+  <td><span class="anchor" ></span>class(<a href='../type/field_fd_1d.html'>field_FD_1D</a>),</td>
   <td>intent(in)</td>
   <td></td>
   
@@ -1254,7 +1165,7 @@ private function <a href='../proc/mulreal.html'>mulreal</a>(lhs, rhs) result(opr
     
 	   
 <div class="panel panel-default">
-  <div class="panel-heading codesum"><span class="anchor" id="boundprocedure-realmul"></span><h3>procedure, private, pass(rhs) :: <strong>realmul</strong>  
+  <div class="panel-heading codesum"><span class="anchor" id="boundprocedure-realmul%7E3"></span><h3>procedure, private, pass(rhs) :: <strong>realmul</strong>  
     
   </h3></div>
   
@@ -1272,7 +1183,7 @@ private function <a href='../proc/mulreal.html'>mulreal</a>(lhs, rhs) result(opr
          
     
     <h3>
-private function <a href='../proc/realmul.html'>realmul</a>(lhs, rhs) result(opr)
+private function <a href='../proc/realmul%7E2.html'>realmul</a>(lhs, rhs) result(opr)
     
     
     
@@ -1312,7 +1223,7 @@ private function <a href='../proc/realmul.html'>realmul</a>(lhs, rhs) result(opr
   
 <tr>
   
-  <td><span class="anchor" ></span>class(<a href='../type/field_fd_1d.html'>field_fd_1d</a>),</td>
+  <td><span class="anchor" ></span>class(<a href='../type/field_fd_1d.html'>field_FD_1D</a>),</td>
   <td>intent(in)</td>
   <td></td>
   
@@ -1355,7 +1266,7 @@ private function <a href='../proc/realmul.html'>realmul</a>(lhs, rhs) result(opr
     
 	   
 <div class="panel panel-default">
-  <div class="panel-heading codesum"><span class="anchor" id="boundprocedure-set"></span><h3>procedure, public :: <strong>set</strong>  
+  <div class="panel-heading codesum"><span class="anchor" id="boundprocedure-sub%7E3"></span><h3>procedure, private, pass(lhs) :: <strong>sub</strong>  
     
   </h3></div>
   
@@ -1363,7 +1274,7 @@ private function <a href='../proc/realmul.html'>realmul</a>(lhs, rhs) result(opr
     
 
 
-    <p>Set field.</p>
+    <p>Subtract fields.</p>
   </div>
   
   <ul class="list-group">
@@ -1373,7 +1284,7 @@ private function <a href='../proc/realmul.html'>realmul</a>(lhs, rhs) result(opr
          
     
     <h3>
-private subroutine <a href='../proc/set.html'>set</a>(this, fieldmesh, description, val, error)
+private function <a href='../proc/sub%7E2.html'>sub</a>(lhs, rhs) result(opr)
     
     
     
@@ -1398,7 +1309,108 @@ private subroutine <a href='../proc/set.html'>set</a>(this, fieldmesh, descripti
   
 <tr>
   
-  <td><span class="anchor" ></span>class(<a href='../type/field_fd_1d.html'>field_fd_1d</a>),</td>
+  <td><span class="anchor" ></span>class(<a href='../type/field_fd_1d.html'>field_FD_1D</a>),</td>
+  <td>intent(in)</td>
+  <td></td>
+  
+  <td></td><td>::</td>
+  <td><strong>lhs</strong></td><td><p>Left hand side.</p></td>
+  
+</tr>
+
+  
+  
+  
+  
+<tr>
+  
+  <td><span class="anchor" ></span>class(<a href='../type/field.html'>field</a>),</td>
+  <td>intent(in),</td>
+  <td></td>
+  
+  <td>target</td><td>::</td>
+  <td><strong>rhs</strong></td><td><p>Left hand side.</p></td>
+  
+</tr>
+
+</tbody>
+</table>
+
+      
+    
+    
+
+  
+  
+  
+  
+     <h4>Return Value <small>class(<a href='../type/field.html'>field</a>),
+  allocatable,target</small></h4>
+  <p>Operator result.</p>
+    
+    
+    <h4>Description</h4>
+       
+       
+
+
+       
+       <p>Subtract fields.</p>
+        
+
+      
+      </li>
+    
+  </ul>
+</div>
+
+    
+	   
+<div class="panel panel-default">
+  <div class="panel-heading codesum"><span class="anchor" id="boundprocedure-set%7E2"></span><h3>procedure, public, pass(this) :: <strong>set</strong>  
+    
+  </h3></div>
+  
+  <div class="panel-body">
+    
+
+
+    <p>Set field.</p>
+  </div>
+  
+  <ul class="list-group">
+    
+      <li class="list-group-item">
+      
+         
+    
+    <h3>
+private subroutine <a href='../proc/set%7E2.html'>set</a>(this, field_mesh, description, val, error)
+    
+    
+    
+</h3>
+    
+    <h4>Arguments</h4>
+    
+      
+      
+<table class="table table-striped varlist">
+<thead><tr><th>Type</th>
+<th>Intent</th><th>Optional</th>
+<th>Attributes</th><th></th><th>Name</th><th></th></thead>
+
+
+
+<tbody>
+
+  
+  
+  
+  
+<tr>
+  
+  <td><span class="anchor" ></span>class(<a href='../type/field_fd_1d.html'>field_FD_1D</a>),</td>
   <td>intent(inout)</td>
   <td></td>
   
@@ -1418,7 +1430,7 @@ private subroutine <a href='../proc/set.html'>set</a>(this, fieldmesh, descripti
   <td>optional</td>
   
   <td>target</td><td>::</td>
-  <td><strong>fieldmesh</strong></td><td><p>Mesh of the field.</p></td>
+  <td><strong>field_mesh</strong></td><td><p>Mesh of the field.</p></td>
   
 </tr>
 
@@ -1480,7 +1492,7 @@ private subroutine <a href='../proc/set.html'>set</a>(this, fieldmesh, descripti
 
 
        
-       <p>Set mesh.</p>
+       <p>Set field.</p>
         
 
       
@@ -1496,24 +1508,24 @@ private subroutine <a href='../proc/set.html'>set</a>(this, fieldmesh, descripti
     
     <section>
     <h2><span class="anchor" id="src"></span>Source Code</h2>
-    <div class="highlight"><pre><span></span>    <span class="k">type</span><span class="p">,</span> <span class="k">extends</span><span class="p">(</span><span class="n">field</span><span class="p">)</span> <span class="kd">::</span> <span class="n">field_fd_1d</span>
-        <span class="c">!&lt; Finite difference 1D class for *field* handling.</span>
+    <div class="highlight"><pre><span></span>    <span class="k">type</span><span class="p">,</span> <span class="k">extends</span><span class="p">(</span><span class="n">field</span><span class="p">)</span> <span class="kd">::</span> <span class="n">field_FD_1D</span>
+        <span class="c">!&lt; Concrete class of field for Finite Difference 1D methods.</span>
         <span class="kt">real</span><span class="p">(</span><span class="n">R_P</span><span class="p">),</span> <span class="k">allocatable</span><span class="p">,</span> <span class="k">dimension</span><span class="p">(:)</span> <span class="kd">::</span> <span class="n">val</span> <span class="c">!&lt; Field value.</span>
         <span class="k">contains</span>
-            <span class="c">! deferred methods</span>
-            <span class="k">procedure</span><span class="p">,</span>            <span class="k">private</span> <span class="kd">::</span> <span class="n">add</span>            <span class="c">!&lt; Add fields.</span>
-            <span class="k">procedure</span><span class="p">,</span>            <span class="k">private</span> <span class="kd">::</span> <span class="n">assign_field</span>   <span class="c">!&lt; Assign fields.</span>
-            <span class="k">procedure</span><span class="p">,</span>            <span class="k">private</span> <span class="kd">::</span> <span class="n">associate_mesh</span> <span class="c">!&lt; Associate field to a mesh.</span>
-            <span class="k">procedure</span>                     <span class="kd">::</span> <span class="n">init</span>           <span class="c">!&lt; Initilize field.</span>
-            <span class="k">procedure</span>                     <span class="kd">::</span> <span class="n">output</span>         <span class="c">!&lt; Output field data.</span>
-            <span class="k">procedure</span><span class="p">,</span>            <span class="k">private</span> <span class="kd">::</span> <span class="n">sub</span>            <span class="c">!&lt; Subtract fields.</span>
-            <span class="k">procedure</span><span class="p">,</span>            <span class="k">private</span> <span class="kd">::</span> <span class="n">mul</span>            <span class="c">!&lt; Multiply fields.</span>
-            <span class="k">procedure</span><span class="p">,</span>            <span class="k">private</span> <span class="kd">::</span> <span class="n">mulreal</span>        <span class="c">!&lt; Multiply field for real.</span>
-            <span class="k">procedure</span><span class="p">,</span> <span class="k">pass</span><span class="p">(</span><span class="n">rhs</span><span class="p">),</span> <span class="k">private</span> <span class="kd">::</span> <span class="n">realmul</span>        <span class="c">!&lt; Multiply real for field.</span>
+            <span class="c">! deferred public methods</span>
+            <span class="k">procedure</span><span class="p">,</span> <span class="k">pass</span><span class="p">(</span><span class="n">this</span><span class="p">)</span> <span class="kd">::</span> <span class="n">associate_mesh</span> <span class="c">!&lt; Associate field to a mesh.</span>
+            <span class="k">procedure</span><span class="p">,</span> <span class="k">pass</span><span class="p">(</span><span class="n">this</span><span class="p">)</span> <span class="kd">::</span> <span class="n">init</span>           <span class="c">!&lt; Initilize field.</span>
+            <span class="k">procedure</span><span class="p">,</span> <span class="k">pass</span><span class="p">(</span><span class="n">this</span><span class="p">)</span> <span class="kd">::</span> <span class="n">output</span>         <span class="c">!&lt; Output field data.</span>
+            <span class="c">! deferred private methods</span>
+            <span class="k">procedure</span><span class="p">,</span> <span class="k">pass</span><span class="p">(</span><span class="n">lhs</span><span class="p">),</span>   <span class="k">private</span> <span class="kd">::</span> <span class="n">add</span>          <span class="c">!&lt; Add fields.</span>
+            <span class="k">procedure</span><span class="p">,</span> <span class="k">pass</span><span class="p">(</span><span class="n">lhs</span><span class="p">),</span>   <span class="k">private</span> <span class="kd">::</span> <span class="n">assign_field</span> <span class="c">!&lt; Assign fields.</span>
+            <span class="k">procedure</span><span class="p">,</span> <span class="k">pass</span><span class="p">(</span><span class="n">lhs</span><span class="p">),</span>   <span class="k">private</span> <span class="kd">::</span> <span class="n">mul</span>          <span class="c">!&lt; Multiply fields.</span>
+            <span class="k">procedure</span><span class="p">,</span> <span class="k">pass</span><span class="p">(</span><span class="n">lhs</span><span class="p">),</span>   <span class="k">private</span> <span class="kd">::</span> <span class="n">mulreal</span>      <span class="c">!&lt; Multiply field for real.</span>
+            <span class="k">procedure</span><span class="p">,</span> <span class="k">pass</span><span class="p">(</span><span class="n">rhs</span><span class="p">),</span>   <span class="k">private</span> <span class="kd">::</span> <span class="n">realmul</span>      <span class="c">!&lt; Multiply real for field.</span>
+            <span class="k">procedure</span><span class="p">,</span> <span class="k">pass</span><span class="p">(</span><span class="n">lhs</span><span class="p">),</span>   <span class="k">private</span> <span class="kd">::</span> <span class="n">sub</span>          <span class="c">!&lt; Subtract fields.</span>
             <span class="c">! public methods</span>
-            <span class="k">procedure</span> <span class="kd">::</span> <span class="n">set</span> <span class="c">!&lt; Set field.</span>
-            <span class="c">! operators</span>
-    <span class="n">endtype</span> <span class="n">field_fd_1d</span>
+            <span class="k">procedure</span><span class="p">,</span> <span class="k">pass</span><span class="p">(</span><span class="n">this</span><span class="p">)</span> <span class="kd">::</span> <span class="n">set</span> <span class="c">!&lt; Set field.</span>
+    <span class="n">endtype</span> <span class="n">field_FD_1D</span>
 </pre></div>
 
     </section>

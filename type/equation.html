@@ -68,7 +68,7 @@
             <li><a href="../lists/types.html">Derived Types</a></li>
 				
 				
-            <li><a href="../program/burgers.html">Program</a></li>
+            <li><a href="../program/scalar_simple.html">Program</a></li>
 				
           </ul>
         
@@ -104,14 +104,14 @@
      
     
     
-    <li><i class="fa fa-code"></i><a href="../src/opendiff_adt_equation.f90"> Source File</a></li>
+    <li><i class="fa fa-code"></i><a href="../src/openpde_equation_abstract.f90"> Source File</a></li>
      
   </ul>
   <ol class="breadcrumb in-well text-right">
   
-     <li><a href='../sourcefile/opendiff_adt_equation.f90.html'>opendiff_adt_equation.f90</a></li>
+     <li><a href='../sourcefile/openpde_equation_abstract.f90.html'>openpde_equation_abstract.f90</a></li>
   
-     <li><a href='../module/opendiff_adt_equation.html'>opendiff_adt_equation</a></li>
+     <li><a href='../module/openpde_equation_abstract.html'>openpde_equation_abstract</a></li>
   
      <li class="active">equation</li>
   </ol>
@@ -133,7 +133,7 @@
     <div id="vars" class="panel-collapse collapse">
       <div class="list-group">
         
-        <a class="list-group-item" href="../type/equation.html#variable-description%7E2">description</a>
+        <a class="list-group-item" href="../type/equation.html#variable-description%7E4">description</a>
         
       </div>
     </div>
@@ -164,13 +164,9 @@
           
           <a class="list-group-item" href="../type/equation.html#boundprocedure-forcing">forcing</a>
           
-          <a class="list-group-item" href="../type/equation.html#boundprocedure-init%7E3">init</a>
+          <a class="list-group-item" href="../type/equation.html#boundprocedure-init%7E6">init</a>
           
-          <a class="list-group-item" href="../type/equation.html#boundprocedure-free%7E2">free</a>
-          
-          <a class="list-group-item" href="../type/equation.html#boundprocedure-load">load</a>
-          
-          <a class="list-group-item" href="../type/equation.html#boundprocedure-load_from_json">load_from_json</a>
+          <a class="list-group-item" href="../type/equation.html#boundprocedure-free%7E3">free</a>
           
         </div>
     </div>
@@ -193,27 +189,39 @@
     <div id="alltypes" class="panel-collapse collapse">
         <div class="list-group">
           
-          <a class="list-group-item" href="../type/burgers_equation.html">burgers_equation</a>
-          
           <a class="list-group-item" href="../type/equation.html">equation</a>
           
           <a class="list-group-item" href="../type/field.html">field</a>
           
-          <a class="list-group-item" href="../type/field_fd_1d.html">field_fd_1d</a>
+          <a class="list-group-item" href="../type/field_fd_1d.html">field_FD_1D</a>
+          
+          <a class="list-group-item" href="../type/field_fd_2d.html">field_FD_2D</a>
           
           <a class="list-group-item" href="../type/integrator.html">integrator</a>
           
-          <a class="list-group-item" href="../type/integrator_euler.html">integrator_euler</a>
+          <a class="list-group-item" href="../type/integrator_euler_explicit.html">integrator_euler_explicit</a>
           
           <a class="list-group-item" href="../type/mesh.html">mesh</a>
           
-          <a class="list-group-item" href="../type/mesh_fd_1d.html">mesh_fd_1d</a>
+          <a class="list-group-item" href="../type/mesh_fd_1d.html">mesh_FD_1D</a>
+          
+          <a class="list-group-item" href="../type/mesh_fd_2d.html">mesh_FD_2D</a>
+          
+          <a class="list-group-item" href="../type/scalar_simple_equation.html">scalar_simple_equation</a>
           
           <a class="list-group-item" href="../type/spatial_operator.html">spatial_operator</a>
           
-          <a class="list-group-item" href="../type/spatial_operator_der1.html">spatial_operator_der1</a>
+          <a class="list-group-item" href="../type/spatial_operator_d1.html">spatial_operator_d1</a>
           
-          <a class="list-group-item" href="../type/spatial_operator_der1_fd_1d.html">spatial_operator_der1_fd_1d</a>
+          <a class="list-group-item" href="../type/spatial_operator_d1_fd_1d.html">spatial_operator_d1_FD_1D</a>
+          
+          <a class="list-group-item" href="../type/spatial_operator_d1_fd_2d.html">spatial_operator_d1_FD_2D</a>
+          
+          <a class="list-group-item" href="../type/spatial_operator_d2.html">spatial_operator_d2</a>
+          
+          <a class="list-group-item" href="../type/spatial_operator_d2_fd_1d.html">spatial_operator_d2_FD_1D</a>
+          
+          <a class="list-group-item" href="../type/spatial_operator_d2_fd_2d.html">spatial_operator_d2_FD_2D</a>
           
         </div>
     </div>
@@ -226,9 +234,8 @@
     <div class="col-lg-9" id='text'>
     <h2>type, public, abstract :: equation</h2>
     
-    <p>Abstract class for <em>equation</em> handling.</p>
-<p>The concrete types are implemented at application level (by the user)
- predefined examples might be provided as well.</p>
+    <p>Abstract class of equation.</p>
+<p>The concrete types are implemented at application level (by the user) predefined examples might be provided as well.</p>
     
     
     <h3>Inherited By</h3>
@@ -239,28 +246,28 @@
 <!-- Generated by graphviz version 2.38.0 (20140413.2041)
  -->
 <!-- Title: type~~equation~~InheritedByGraph Pages: 1 -->
-<svg id="typeequationInheritedByGraph" width="195pt" height="32pt"
- viewBox="0.00 0.00 195.00 32.00" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<svg id="typeequationInheritedByGraph" width="223pt" height="32pt"
+ viewBox="0.00 0.00 223.00 32.00" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
 <g id="type~~equation~~InheritedByGraph" class="graph" transform="scale(1 1) rotate(0) translate(4 28)">
 <title>type~~equation~~InheritedByGraph</title>
-<polygon fill="white" stroke="none" points="-4,4 -4,-28 191,-28 191,4 -4,4"/>
+<polygon fill="white" stroke="none" points="-4,4 -4,-28 219,-28 219,4 -4,4"/>
 <!-- type~equation -->
 <g id="type~~equation~~InheritedByGraph_node1" class="node"><title>type~equation</title>
 <polygon fill="none" stroke="black" points="54,-24 0,-24 0,-0 54,-0 54,-24"/>
 <text text-anchor="middle" x="27" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50">equation</text>
 </g>
-<!-- type~burgers_equation -->
-<g id="type~~equation~~InheritedByGraph_node2" class="node"><title>type~burgers_equation</title>
-<g id="a_type~~equation~~InheritedByGraph_node2"><a xlink:href="../type/burgers_equation.html" xlink:title="burgers_equation">
-<polygon fill="#5cb85c" stroke="#5cb85c" points="187,-24 90,-24 90,-0 187,-0 187,-24"/>
-<text text-anchor="middle" x="138.5" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">burgers_equation</text>
+<!-- type~scalar_simple_equation -->
+<g id="type~~equation~~InheritedByGraph_node2" class="node"><title>type~scalar_simple_equation</title>
+<g id="a_type~~equation~~InheritedByGraph_node2"><a xlink:href="../type/scalar_simple_equation.html" xlink:title="scalar_simple_equation">
+<polygon fill="#5cb85c" stroke="#5cb85c" points="215,-24 90,-24 90,-0 215,-0 215,-24"/>
+<text text-anchor="middle" x="152.5" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">scalar_simple_equation</text>
 </a>
 </g>
 </g>
-<!-- type~equation&#45;&gt;type~burgers_equation -->
-<g id="type~~equation~~InheritedByGraph_edge1" class="edge"><title>type~equation&#45;&gt;type~burgers_equation</title>
-<path fill="none" stroke="#000000" d="M54.228,-12C61.951,-12 70.7244,-12 79.6086,-12"/>
-<polygon fill="#000000" stroke="#000000" points="79.636,-15.5001 89.636,-12 79.6359,-8.5001 79.636,-15.5001"/>
+<!-- type~equation&#45;&gt;type~scalar_simple_equation -->
+<g id="type~~equation~~InheritedByGraph_edge1" class="edge"><title>type~equation&#45;&gt;type~scalar_simple_equation</title>
+<path fill="none" stroke="#000000" d="M54.1912,-12C61.805,-12 70.5128,-12 79.5194,-12"/>
+<polygon fill="#000000" stroke="#000000" points="79.7726,-15.5001 89.7726,-12 79.7726,-8.5001 79.7726,-15.5001"/>
 </g>
 </g>
 </svg>
@@ -377,11 +384,11 @@ implementation in a submodule of an interface in a parent module.</p>
   
 <tr>
   
-  <td><span class="anchor" id="variable-description%7E2"></span>character(len=:),</td>
+  <td><span class="anchor" id="variable-description%7E4"></span>character(len=:),</td>
   
   <td>public,</td>
   <td>allocatable</td><td>::</td>
-  <td><strong>description</strong></td><td></td><td></td><td><p>Mesh description.</p></td>
+  <td><strong>description</strong></td><td></td><td></td><td><p>Equation description.</p></td>
   
 </tr>
 
@@ -402,7 +409,7 @@ implementation in a submodule of an interface in a parent module.</p>
     
 	   
 <div class="panel panel-default">
-  <div class="panel-heading codesum"><span class="anchor" id="boundprocedure-bc"></span><h3>procedure(<a href='../interface/abstract_bc.html'>abstract_bc</a>), public, deferred :: <strong>bc</strong>  
+  <div class="panel-heading codesum"><span class="anchor" id="boundprocedure-bc"></span><h3>procedure(<a href='../interface/abstract_bc.html'>abstract_bc</a>), public, deferred, pass(this) :: <strong>bc</strong>  
     
   </h3></div>
   
@@ -410,7 +417,7 @@ implementation in a submodule of an interface in a parent module.</p>
     
 
 
-    <p>Equation boundary condition.</p>
+    <p>Equation boundary conditions.</p>
   </div>
   
   <ul class="list-group">
@@ -511,7 +518,7 @@ subroutine <a href='../interface/abstract_bc.html'>abstract_bc</a>(this, inp, t)
     
 	   
 <div class="panel panel-default">
-  <div class="panel-heading codesum"><span class="anchor" id="boundprocedure-forcing"></span><h3>procedure(<a href='../interface/abstract_forcing.html'>abstract_forcing</a>), public, deferred :: <strong>forcing</strong>  
+  <div class="panel-heading codesum"><span class="anchor" id="boundprocedure-forcing"></span><h3>procedure(<a href='../interface/abstract_forcing.html'>abstract_forcing</a>), public, deferred, pass(this) :: <strong>forcing</strong>  
     
   </h3></div>
   
@@ -629,7 +636,7 @@ function <a href='../interface/abstract_forcing.html'>abstract_forcing</a>(this,
     
 	   
 <div class="panel panel-default">
-  <div class="panel-heading codesum"><span class="anchor" id="boundprocedure-init%7E3"></span><h3>procedure(<a href='../interface/abstract_init%7E2.html'>abstract_init</a>), public, deferred :: <strong>init</strong>  
+  <div class="panel-heading codesum"><span class="anchor" id="boundprocedure-init%7E6"></span><h3>procedure(<a href='../interface/abstract_init%7E3.html'>abstract_init</a>), public, deferred, pass(this) :: <strong>init</strong>  
     
   </h3></div>
   
@@ -648,7 +655,7 @@ function <a href='../interface/abstract_forcing.html'>abstract_forcing</a>(this,
             
     
     <h3>
-function <a href='../interface/abstract_init%7E2.html'>abstract_init</a>(this) result(error)
+subroutine <a href='../interface/abstract_init%7E3.html'>abstract_init</a>(this, description, filename, error)
     
     
     
@@ -682,20 +689,56 @@ function <a href='../interface/abstract_init%7E2.html'>abstract_init</a>(this) r
   
 </tr>
 
+  
+  
+  
+  
+<tr>
+  
+  <td><span class="anchor" ></span>character(len=*),</td>
+  <td>intent(in),</td>
+  <td>optional</td>
+  
+  <td></td><td>::</td>
+  <td><strong>description</strong></td><td><p>Equation description.</p></td>
+  
+</tr>
+
+  
+  
+  
+  
+<tr>
+  
+  <td><span class="anchor" ></span>character(len=*),</td>
+  <td>intent(in),</td>
+  <td>optional</td>
+  
+  <td></td><td>::</td>
+  <td><strong>filename</strong></td><td><p>Initialization file name.</p></td>
+  
+</tr>
+
+  
+  
+  
+  
+<tr>
+  
+  <td><span class="anchor" ></span>integer(kind=I_P),</td>
+  <td>intent(out),</td>
+  <td>optional</td>
+  
+  <td></td><td>::</td>
+  <td><strong>error</strong></td><td><p>Error status.</p></td>
+  
+</tr>
+
 </tbody>
 </table>
 
       
     
-    
-
-  
-  
-  
-  
-     <h4>Return Value <small>integer(kind=I_P)
-  </small></h4>
-  <p>Error status.</p>
     
     
     <h4>Description</h4>
@@ -717,7 +760,7 @@ function <a href='../interface/abstract_init%7E2.html'>abstract_init</a>(this) r
     
 	   
 <div class="panel panel-default">
-  <div class="panel-heading codesum"><span class="anchor" id="boundprocedure-free%7E2"></span><h3>procedure, public :: <strong>free</strong>  
+  <div class="panel-heading codesum"><span class="anchor" id="boundprocedure-free%7E3"></span><h3>procedure, public, pass(this) :: <strong>free</strong>  
     
   </h3></div>
   
@@ -735,7 +778,7 @@ function <a href='../interface/abstract_init%7E2.html'>abstract_init</a>(this) r
          
     
     <h3>
-private elemental subroutine <a href='../proc/free%7E3.html'>free</a>(this)
+private elemental subroutine <a href='../proc/free%7E5.html'>free</a>(this)
     
     
     
@@ -792,222 +835,6 @@ private elemental subroutine <a href='../proc/free%7E3.html'>free</a>(this)
 </div>
 
     
-	   
-<div class="panel panel-default">
-  <div class="panel-heading codesum"><span class="anchor" id="boundprocedure-load"></span><h3>generic, public :: <strong>load</strong>  => <a href='../type/equation.html#boundprocedure-load_from_json'>load_from_json</a> 
-    
-  </h3></div>
-  
-  <div class="panel-body">
-    
-
-
-    <p>Load equation definition from file.</p>
-  </div>
-  
-  <ul class="list-group">
-    
-      <li class="list-group-item">
-      
-         
-            
-    
-    <h3>
-private subroutine <a href='../proc/load_from_json.html'>load_from_json</a>(this, filename, error)
-    
-    
-    
-</h3>
-    
-    <h4>Arguments</h4>
-    
-      
-      
-<table class="table table-striped varlist">
-<thead><tr><th>Type</th>
-<th>Intent</th><th>Optional</th>
-<th>Attributes</th><th></th><th>Name</th><th></th></thead>
-
-
-
-<tbody>
-
-  
-  
-  
-  
-<tr>
-  
-  <td><span class="anchor" ></span>class(<a href='../type/equation.html'>equation</a>),</td>
-  <td>intent(inout)</td>
-  <td></td>
-  
-  <td></td><td>::</td>
-  <td><strong>this</strong></td><td><p>The equation.</p></td>
-  
-</tr>
-
-  
-  
-  
-  
-<tr>
-  
-  <td><span class="anchor" ></span>character(len=*),</td>
-  <td>intent(in)</td>
-  <td></td>
-  
-  <td></td><td>::</td>
-  <td><strong>filename</strong></td><td><p>File name of JSON file.</p></td>
-  
-</tr>
-
-  
-  
-  
-  
-<tr>
-  
-  <td><span class="anchor" ></span>integer(kind=I_P),</td>
-  <td>intent(out),</td>
-  <td>optional</td>
-  
-  <td></td><td>::</td>
-  <td><strong>error</strong></td><td><p>Error status.</p></td>
-  
-</tr>
-
-</tbody>
-</table>
-
-      
-    
-    
-    
-    <h4>Description</h4>
-       
-       
-
-
-       
-       <p>Load equation definition from JSON file.</p>
-        
-
-         
-      
-      </li>
-    
-  </ul>
-</div>
-
-    
-	   
-<div class="panel panel-default">
-  <div class="panel-heading codesum"><span class="anchor" id="boundprocedure-load_from_json"></span><h3>procedure, public :: <strong>load_from_json</strong>  
-    
-  </h3></div>
-  
-  <div class="panel-body">
-    
-
-
-    <p>Load equation definition from jSON file.</p>
-  </div>
-  
-  <ul class="list-group">
-    
-      <li class="list-group-item">
-      
-         
-    
-    <h3>
-private subroutine <a href='../proc/load_from_json.html'>load_from_json</a>(this, filename, error)
-    
-    
-    
-</h3>
-    
-    <h4>Arguments</h4>
-    
-      
-      
-<table class="table table-striped varlist">
-<thead><tr><th>Type</th>
-<th>Intent</th><th>Optional</th>
-<th>Attributes</th><th></th><th>Name</th><th></th></thead>
-
-
-
-<tbody>
-
-  
-  
-  
-  
-<tr>
-  
-  <td><span class="anchor" ></span>class(<a href='../type/equation.html'>equation</a>),</td>
-  <td>intent(inout)</td>
-  <td></td>
-  
-  <td></td><td>::</td>
-  <td><strong>this</strong></td><td><p>The equation.</p></td>
-  
-</tr>
-
-  
-  
-  
-  
-<tr>
-  
-  <td><span class="anchor" ></span>character(len=*),</td>
-  <td>intent(in)</td>
-  <td></td>
-  
-  <td></td><td>::</td>
-  <td><strong>filename</strong></td><td><p>File name of JSON file.</p></td>
-  
-</tr>
-
-  
-  
-  
-  
-<tr>
-  
-  <td><span class="anchor" ></span>integer(kind=I_P),</td>
-  <td>intent(out),</td>
-  <td>optional</td>
-  
-  <td></td><td>::</td>
-  <td><strong>error</strong></td><td><p>Error status.</p></td>
-  
-</tr>
-
-</tbody>
-</table>
-
-      
-    
-    
-    
-    <h4>Description</h4>
-       
-       
-
-
-       
-       <p>Load equation definition from JSON file.</p>
-        
-
-      
-      </li>
-    
-  </ul>
-</div>
-
-    
     </section>
     
     
@@ -1015,21 +842,17 @@ private subroutine <a href='../proc/load_from_json.html'>load_from_json</a>(this
     <section>
     <h2><span class="anchor" id="src"></span>Source Code</h2>
     <div class="highlight"><pre><span></span>    <span class="k">type</span><span class="p">,</span> <span class="k">abstract</span> <span class="kd">::</span> <span class="n">equation</span>
-        <span class="c">!&lt; Abstract class for *equation* handling.</span>
+        <span class="c">!&lt; Abstract class of equation.</span>
         <span class="c">!&lt;</span>
-        <span class="c">!&lt; The concrete types are implemented at application level (by the user)</span>
-        <span class="c">!&lt; predefined examples might be provided as well.</span>
-        <span class="kt">character</span><span class="p">(</span><span class="nb">len</span><span class="o">=</span><span class="p">:),</span> <span class="k">allocatable</span> <span class="kd">::</span> <span class="n">description</span> <span class="c">!&lt; Mesh description.</span>
+        <span class="c">!&lt; The concrete types are implemented at application level (by the user) predefined examples might be provided as well.</span>
+        <span class="kt">character</span><span class="p">(</span><span class="nb">len</span><span class="o">=</span><span class="p">:),</span> <span class="k">allocatable</span> <span class="kd">::</span> <span class="n">description</span> <span class="c">!&lt; Equation description.</span>
         <span class="k">contains</span>
-            <span class="c">! deferred methods</span>
-            <span class="k">procedure</span><span class="p">(</span><span class="n">abstract_bc</span><span class="p">),</span>      <span class="k">deferred</span> <span class="kd">::</span> <span class="n">bc</span>      <span class="c">!&lt; Equation boundary condition.</span>
-            <span class="k">procedure</span><span class="p">(</span><span class="n">abstract_forcing</span><span class="p">),</span> <span class="k">deferred</span> <span class="kd">::</span> <span class="n">forcing</span> <span class="c">!&lt; Forcing equation.</span>
-            <span class="k">procedure</span><span class="p">(</span><span class="n">abstract_init</span><span class="p">),</span>    <span class="k">deferred</span> <span class="kd">::</span> <span class="n">init</span>    <span class="c">!&lt; Initialize the equation.</span>
+            <span class="c">! deferred public methods</span>
+            <span class="k">procedure</span><span class="p">(</span><span class="n">abstract_bc</span><span class="p">),</span>      <span class="k">pass</span><span class="p">(</span><span class="n">this</span><span class="p">),</span> <span class="k">deferred</span> <span class="kd">::</span> <span class="n">bc</span>      <span class="c">!&lt; Equation boundary conditions.</span>
+            <span class="k">procedure</span><span class="p">(</span><span class="n">abstract_forcing</span><span class="p">),</span> <span class="k">pass</span><span class="p">(</span><span class="n">this</span><span class="p">),</span> <span class="k">deferred</span> <span class="kd">::</span> <span class="n">forcing</span> <span class="c">!&lt; Forcing equation.</span>
+            <span class="k">procedure</span><span class="p">(</span><span class="n">abstract_init</span><span class="p">),</span>    <span class="k">pass</span><span class="p">(</span><span class="n">this</span><span class="p">),</span> <span class="k">deferred</span> <span class="kd">::</span> <span class="n">init</span>    <span class="c">!&lt; Initialize the equation.</span>
             <span class="c">! public methods</span>
-            <span class="k">procedure</span> <span class="kd">::</span> <span class="n">free</span>                   <span class="c">!&lt; Free dynamic memory.</span>
-            <span class="k">generic</span>   <span class="kd">::</span> <span class="n">load</span> <span class="o">=&gt;</span> <span class="n">load_from_json</span> <span class="c">!&lt; Load equation definition from file.</span>
-            <span class="c">! private methods</span>
-            <span class="k">procedure</span> <span class="kd">::</span> <span class="n">load_from_json</span> <span class="c">!&lt; Load equation definition from jSON file.</span>
+            <span class="k">procedure</span><span class="p">,</span> <span class="k">pass</span><span class="p">(</span><span class="n">this</span><span class="p">)</span> <span class="kd">::</span> <span class="n">free</span> <span class="c">!&lt; Free dynamic memory.</span>
     <span class="n">endtype</span> <span class="n">equation</span>
 </pre></div>
 

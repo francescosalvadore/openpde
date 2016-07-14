@@ -1,0 +1,1642 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+	 
+    <meta name="description" content="Documentation for openpde">
+	 
+    <meta name="author" content="Chris MacMackin" >
+    <link rel="icon" href="../favicon.png">
+
+    <title>scalar_simple_equation_m &ndash; openpde</title>
+
+    <link href="../css/bootstrap.min.css" rel="stylesheet">
+    <link href="../css/pygments.css" rel="stylesheet">
+    <link href="../css/font-awesome.min.css" rel="stylesheet">
+    <link href="../css/local.css" rel="stylesheet">
+    
+
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+    
+    <script src="../js/jquery-2.1.3.min.js"></script>
+    <script src="../js/svg-pan-zoom.min.js"></script>
+
+    
+    <script src="../tipuesearch/tipuesearch_content.js"></script>
+    <link  href="../tipuesearch/tipuesearch.css" rel="stylesheet">
+    <script src="../tipuesearch/tipuesearch_set.js"></script>
+    <script src="../tipuesearch/tipuesearch.js"></script>
+    
+
+  </head>
+
+  <body>
+
+    <!-- Fixed navbar -->
+    <nav class="navbar navbar-inverse navbar-fixed-top">
+      <div class="container">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="../index.html">openpde </a>
+        </div>
+        <div id="navbar" class="navbar-collapse collapse">
+          <ul class="nav navbar-nav">
+				
+                
+            <li><a href="../lists/files.html">Source Files</a></li>
+				
+				
+            <li><a href="../lists/modules.html">Modules</a></li>
+				
+				
+            <li><a href="../lists/procedures.html">Procedures</a></li>
+				
+				
+            <li><a href="../lists/absint.html">Abstract Interfaces</a></li>
+								
+            <li><a href="../lists/types.html">Derived Types</a></li>
+				
+				
+            <li><a href="../program/scalar_simple.html">Program</a></li>
+				
+          </ul>
+        
+        <form action="../search.html" class="navbar-form navbar-right" role="search">
+        <div class="form-group">
+          <input type="text" class="form-control" placeholder="Search" name="q" id="tipue_search_input" autocomplete="off" required>
+        </div>
+<!--
+        <button type="submit" class="btn btn-default">Submit</button>
+-->
+        </form>
+        
+        </div><!--/.nav-collapse -->
+      </div>
+    </nav>
+
+    <div class="container">
+    
+  
+  <div class="row">
+    <h1>scalar_simple_equation_m 
+    <small>Module</small>
+    
+    </h1>
+	 
+<div class="row">
+<div class="col-lg-12">
+<div class="well well-sm">
+  <ul class="list-inline" style="margin-bottom:0px;display:inline">
+     
+     
+     
+     
+    
+    
+    <li><i class="fa fa-code"></i><a href="../src/scalar_simple.f90"> Source File</a></li>
+     
+  </ul>
+  <ol class="breadcrumb in-well text-right">
+  
+     <li><a href='../sourcefile/scalar_simple.f90.html'>scalar_simple.f90</a></li>
+  
+     <li class="active">scalar_simple_equation_m</li>
+  </ol>
+</div>
+</div>
+</div>
+    
+  </div>
+  
+  <div class="row">
+    <div class="col-lg-3">
+    
+<div id="sidebar">
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  <div class="panel panel-primary">
+    <div class="panel-heading text-left"><h3 class="panel-title"><a data-toggle="collapse" href="#types">Derived Types</a></h3></div>
+    <div id="types" class="panel-collapse collapse">
+      <div class="list-group">
+        
+        <a class="list-group-item" href="../module/scalar_simple_equation_m.html#type-scalar_simple_equation">scalar_simple_equation</a>
+        
+      </div>
+    </div>
+  </div>
+  
+  
+  
+  <div class="panel panel-primary">
+    <div class="panel-heading text-left"><h3 class="panel-title"><a data-toggle="collapse" href="#funcs">Functions</a></h3></div>
+    <div id="funcs" class="panel-collapse collapse">
+        <div class="list-group">
+          
+          <a class="list-group-item" href="../module/scalar_simple_equation_m.html#proc-forcing">forcing</a>
+          
+        </div>
+    </div>
+  </div>
+  
+  
+  
+  <div class="panel panel-primary">
+    <div class="panel-heading text-left"><h3 class="panel-title"><a data-toggle="collapse" href="#subs">Subroutines</a></h3></div>
+    <div class="list-group">
+        <div id="subs" class="panel-collapse collapse">
+          
+          <a class="list-group-item" href="../module/scalar_simple_equation_m.html#proc-bc">bc</a>
+          
+          <a class="list-group-item" href="../module/scalar_simple_equation_m.html#proc-init%7E6">init</a>
+          
+          <a class="list-group-item" href="../module/scalar_simple_equation_m.html#proc-load_from_json%7E3">load_from_json</a>
+          
+        </div>
+    </div>
+  </div>
+  
+  
+  
+  
+  
+  
+  
+  
+  <hr>
+  
+  <div class="panel panel-default">
+    <div class="panel-heading text-left"><h3 class="panel-title"><a data-toggle="collapse" href="#allmods">All Modules</a></h3></div>
+    <div id="allmods" class="panel-collapse collapse">
+        <div class="list-group">
+          
+          <a class="list-group-item" href="../module/openpde.html">openpde</a>
+          
+          <a class="list-group-item" href="../module/openpde_equation_abstract.html">openpde_equation_abstract</a>
+          
+          <a class="list-group-item" href="../module/openpde_field_abstract.html">openpde_field_abstract</a>
+          
+          <a class="list-group-item" href="../module/openpde_field_fd_1d.html">openpde_field_FD_1D</a>
+          
+          <a class="list-group-item" href="../module/openpde_field_fd_2d.html">openpde_field_FD_2D</a>
+          
+          <a class="list-group-item" href="../module/openpde_integrator_abstract.html">openpde_integrator_abstract</a>
+          
+          <a class="list-group-item" href="../module/openpde_integrator_euler_explicit.html">openpde_integrator_euler_explicit</a>
+          
+          <a class="list-group-item" href="../module/openpde_kinds.html">openpde_kinds</a>
+          
+          <a class="list-group-item" href="../module/openpde_mesh_abstract.html">openpde_mesh_abstract</a>
+          
+          <a class="list-group-item" href="../module/openpde_mesh_fd_1d.html">openpde_mesh_FD_1D</a>
+          
+          <a class="list-group-item" href="../module/openpde_mesh_fd_2d.html">openpde_mesh_FD_2D</a>
+          
+          <a class="list-group-item" href="../module/openpde_spatial_operator_abstract.html">openpde_spatial_operator_abstract</a>
+          
+          <a class="list-group-item" href="../module/openpde_spatial_operator_d1_abstract.html">openpde_spatial_operator_d1_abstract</a>
+          
+          <a class="list-group-item" href="../module/openpde_spatial_operator_d1_fd_1d.html">openpde_spatial_operator_d1_FD_1D</a>
+          
+          <a class="list-group-item" href="../module/openpde_spatial_operator_d1_fd_2d.html">openpde_spatial_operator_d1_FD_2D</a>
+          
+          <a class="list-group-item" href="../module/openpde_spatial_operator_d2_abstract.html">openpde_spatial_operator_d2_abstract</a>
+          
+          <a class="list-group-item" href="../module/openpde_spatial_operator_d2_fd_1d.html">openpde_spatial_operator_d2_FD_1D</a>
+          
+          <a class="list-group-item" href="../module/openpde_spatial_operator_d2_fd_2d.html">openpde_spatial_operator_d2_FD_2D</a>
+          
+          <a class="list-group-item" href="../module/scalar_simple_equation_m.html">scalar_simple_equation_m</a>
+          
+        </div>
+    </div>
+  </div>
+  
+</div>
+
+    </div>
+    
+    <div class="col-lg-9" id='text'>
+    
+    
+  
+    <ul class="list-inline">
+      <li><h4>Uses:</h4></li>
+      
+      <li><a href="https://gcc.gnu.org/onlinedocs/gfortran/ISO_005fFORTRAN_005fENV.html">iso_fortran_env</a></li>
+      
+      <li>json_module</li>
+      
+      <li><a href='../module/openpde.html'>openpde</a></li>
+      
+    </ul>
+  
+
+    
+                <div class="depgraph"><?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
+ "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<!-- Generated by graphviz version 2.38.0 (20140413.2041)
+ -->
+<!-- Title: module~~scalar_simple_equation_m~~UsesGraph Pages: 1 -->
+<svg id="modulescalar_simple_equation_mUsesGraph" width="641pt" height="443pt"
+ viewBox="0.00 0.00 641.00 443.05" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<g id="module~~scalar_simple_equation_m~~UsesGraph" class="graph" transform="scale(0.466861 0.466861) rotate(0) translate(4 945.005)">
+<title>module~~scalar_simple_equation_m~~UsesGraph</title>
+<polygon fill="white" stroke="none" points="-4,4 -4,-945.005 1369,-945.005 1369,4 -4,4"/>
+<!-- module~scalar_simple_equation_m -->
+<g id="module~~scalar_simple_equation_m~~UsesGraph_node1" class="node"><title>module~scalar_simple_equation_m</title>
+<polygon fill="none" stroke="black" points="1365,-364.282 1225,-364.282 1225,-340.282 1365,-340.282 1365,-364.282"/>
+<text text-anchor="middle" x="1295" y="-349.882" font-family="Helvetica,sans-Serif" font-size="10.50">scalar_simple_equation_m</text>
+</g>
+<!-- module~openpde -->
+<g id="module~~scalar_simple_equation_m~~UsesGraph_node2" class="node"><title>module~openpde</title>
+<g id="a_module~~scalar_simple_equation_m~~UsesGraph_node2"><a xlink:href="../module/openpde.html" xlink:title="openpde">
+<polygon fill="#337ab7" stroke="#337ab7" points="1189,-557.282 1134,-557.282 1134,-533.282 1189,-533.282 1189,-557.282"/>
+<text text-anchor="middle" x="1161.5" y="-542.882" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">openpde</text>
+</a>
+</g>
+</g>
+<!-- module~openpde&#45;&gt;module~scalar_simple_equation_m -->
+<g id="module~~scalar_simple_equation_m~~UsesGraph_edge75" class="edge"><title>module~openpde&#45;&gt;module~scalar_simple_equation_m</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M1170.73,-533.209C1192.63,-501.053 1252.59,-413.053 1280,-372.831"/>
+<polygon fill="#000000" stroke="#000000" points="1283.04,-374.585 1285.78,-364.35 1277.25,-370.644 1283.04,-374.585"/>
+</g>
+<!-- iso_fortran_env -->
+<g id="module~~scalar_simple_equation_m~~UsesGraph_node3" class="node"><title>iso_fortran_env</title>
+<g id="a_module~~scalar_simple_equation_m~~UsesGraph_node3"><a xlink:href="https://gcc.gnu.org/onlinedocs/gfortran/ISO_005fFORTRAN_005fENV.html" xlink:title="iso_fortran_env">
+<polygon fill="#337ab7" stroke="#337ab7" points="393.5,-346.282 306.5,-346.282 306.5,-322.282 393.5,-322.282 393.5,-346.282"/>
+<text text-anchor="middle" x="350" y="-331.882" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">iso_fortran_env</text>
+</a>
+</g>
+</g>
+<!-- iso_fortran_env&#45;&gt;module~scalar_simple_equation_m -->
+<g id="module~~scalar_simple_equation_m~~UsesGraph_edge76" class="edge"><title>iso_fortran_env&#45;&gt;module~scalar_simple_equation_m</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M360.164,-321.999C373.152,-304.133 396.997,-269.576 412,-237.282 434.207,-189.479 405.59,-155.581 448,-124.282 703.101,63.9823 903.544,26.4418 1160.5,-159.282"/>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M1162.5,-159.282C1225.81,-204.766 1268.2,-290.791 1285.38,-330.807"/>
+<polygon fill="#000000" stroke="#000000" points="1282.2,-332.28 1289.29,-340.154 1288.66,-329.578 1282.2,-332.28"/>
+</g>
+<!-- module~openpde_mesh_fd_2d -->
+<g id="module~~scalar_simple_equation_m~~UsesGraph_node5" class="node"><title>module~openpde_mesh_fd_2d</title>
+<g id="a_module~~scalar_simple_equation_m~~UsesGraph_node5"><a xlink:href="../module/openpde_mesh_fd_2d.html" xlink:title="openpde_mesh_FD_2D">
+<polygon fill="#337ab7" stroke="#337ab7" points="602.5,-190.282 475.5,-190.282 475.5,-166.282 602.5,-166.282 602.5,-190.282"/>
+<text text-anchor="middle" x="539" y="-175.882" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">openpde_mesh_FD_2D</text>
+</a>
+</g>
+</g>
+<!-- iso_fortran_env&#45;&gt;module~openpde_mesh_fd_2d -->
+<g id="module~~scalar_simple_equation_m~~UsesGraph_edge3" class="edge"><title>iso_fortran_env&#45;&gt;module~openpde_mesh_fd_2d</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M365.674,-322.041C398.173,-294.929 476.411,-229.661 515.286,-197.23"/>
+<polygon fill="#000000" stroke="#000000" points="517.958,-199.56 523.395,-190.466 513.474,-194.184 517.958,-199.56"/>
+</g>
+<!-- module~openpde_field_fd_2d -->
+<g id="module~~scalar_simple_equation_m~~UsesGraph_node8" class="node"><title>module~openpde_field_fd_2d</title>
+<g id="a_module~~scalar_simple_equation_m~~UsesGraph_node8"><a xlink:href="../module/openpde_field_fd_2d.html" xlink:title="openpde_field_FD_2D">
+<polygon fill="#337ab7" stroke="#337ab7" points="826,-287.282 706,-287.282 706,-263.282 826,-263.282 826,-287.282"/>
+<text text-anchor="middle" x="766" y="-272.882" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">openpde_field_FD_2D</text>
+</a>
+</g>
+</g>
+<!-- iso_fortran_env&#45;&gt;module~openpde_field_fd_2d -->
+<g id="module~~scalar_simple_equation_m~~UsesGraph_edge9" class="edge"><title>iso_fortran_env&#45;&gt;module~openpde_field_fd_2d</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M389.222,-322.214C426.698,-311.409 485.663,-297.134 538,-296.282"/>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M540,-296.282C592.405,-295.429 651.389,-289.747 695.813,-284.509"/>
+<polygon fill="#000000" stroke="#000000" points="696.408,-287.963 705.92,-283.295 695.574,-281.013 696.408,-287.963"/>
+</g>
+<!-- module~openpde_field_fd_1d -->
+<g id="module~~scalar_simple_equation_m~~UsesGraph_node10" class="node"><title>module~openpde_field_fd_1d</title>
+<g id="a_module~~scalar_simple_equation_m~~UsesGraph_node10"><a xlink:href="../module/openpde_field_fd_1d.html" xlink:title="openpde_field_FD_1D">
+<polygon fill="#337ab7" stroke="#337ab7" points="826,-405.282 706,-405.282 706,-381.282 826,-381.282 826,-405.282"/>
+<text text-anchor="middle" x="766" y="-390.882" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">openpde_field_FD_1D</text>
+</a>
+</g>
+</g>
+<!-- iso_fortran_env&#45;&gt;module~openpde_field_fd_1d -->
+<g id="module~~scalar_simple_equation_m~~UsesGraph_edge19" class="edge"><title>iso_fortran_env&#45;&gt;module~openpde_field_fd_1d</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M540,-296.282C619.083,-294.995 701.984,-346.749 741.436,-375.173"/>
+<polygon fill="#000000" stroke="#000000" points="739.491,-378.087 749.622,-381.189 743.637,-372.447 739.491,-378.087"/>
+</g>
+<!-- module~openpde_integrator_euler_explicit -->
+<g id="module~~scalar_simple_equation_m~~UsesGraph_node12" class="node"><title>module~openpde_integrator_euler_explicit</title>
+<g id="a_module~~scalar_simple_equation_m~~UsesGraph_node12"><a xlink:href="../module/openpde_integrator_euler_explicit.html" xlink:title="openpde_integrator_euler_explicit">
+<polygon fill="#337ab7" stroke="#337ab7" points="1087.5,-835.282 912.5,-835.282 912.5,-811.282 1087.5,-811.282 1087.5,-835.282"/>
+<text text-anchor="middle" x="1000" y="-820.882" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">openpde_integrator_euler_explicit</text>
+</a>
+</g>
+</g>
+<!-- iso_fortran_env&#45;&gt;module~openpde_integrator_euler_explicit -->
+<g id="module~~scalar_simple_equation_m~~UsesGraph_edge29" class="edge"><title>iso_fortran_env&#45;&gt;module~openpde_integrator_euler_explicit</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M393.711,-341.974C400.739,-345.04 407.264,-349.318 412,-355.282 508.7,-477.048 352.817,-580.327 448,-703.282 471.006,-733.001 727.47,-819.279 765,-821.282"/>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M767,-821.282C811.434,-823.003 860.689,-823.612 902.344,-823.748"/>
+<polygon fill="#000000" stroke="#000000" points="902.477,-827.248 912.486,-823.772 902.494,-820.248 902.477,-827.248"/>
+</g>
+<!-- module~openpde_mesh_fd_1d -->
+<g id="module~~scalar_simple_equation_m~~UsesGraph_node17" class="node"><title>module~openpde_mesh_fd_1d</title>
+<g id="a_module~~scalar_simple_equation_m~~UsesGraph_node17"><a xlink:href="../module/openpde_mesh_fd_1d.html" xlink:title="openpde_mesh_FD_1D">
+<polygon fill="#337ab7" stroke="#337ab7" points="602.5,-386.282 475.5,-386.282 475.5,-362.282 602.5,-362.282 602.5,-386.282"/>
+<text text-anchor="middle" x="539" y="-371.882" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">openpde_mesh_FD_1D</text>
+</a>
+</g>
+</g>
+<!-- iso_fortran_env&#45;&gt;module~openpde_mesh_fd_1d -->
+<g id="module~~scalar_simple_equation_m~~UsesGraph_edge42" class="edge"><title>iso_fortran_env&#45;&gt;module~openpde_mesh_fd_1d</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M393.902,-343.459C416.938,-348.386 445.839,-354.568 471.7,-360.1"/>
+<polygon fill="#000000" stroke="#000000" points="471.306,-363.595 481.817,-362.264 472.77,-356.75 471.306,-363.595"/>
+</g>
+<!-- json_module -->
+<g id="module~~scalar_simple_equation_m~~UsesGraph_node4" class="node"><title>json_module</title>
+<polygon fill="#337ab7" stroke="#337ab7" points="386.5,-388.282 313.5,-388.282 313.5,-364.282 386.5,-364.282 386.5,-388.282"/>
+<text text-anchor="middle" x="350" y="-373.882" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">json_module</text>
+</g>
+<!-- json_module&#45;&gt;module~scalar_simple_equation_m -->
+<g id="module~~scalar_simple_equation_m~~UsesGraph_edge77" class="edge"><title>json_module&#45;&gt;module~scalar_simple_equation_m</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M386.929,-367.755C405.213,-363.418 427.79,-358.065 448,-353.282 528.881,-334.138 562.148,-358.286 630,-310.282 654.154,-293.193 641.491,-270.857 666,-254.282 851.383,-128.91 978.747,-28.7023 1160.5,-159.282"/>
+</g>
+<!-- json_module&#45;&gt;module~openpde_integrator_euler_explicit -->
+<g id="module~~scalar_simple_equation_m~~UsesGraph_edge24" class="edge"><title>json_module&#45;&gt;module~openpde_integrator_euler_explicit</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M367.527,-388.486C381.881,-400.089 401.905,-418.907 412,-440.282 468.593,-560.115 379.376,-622.908 448,-736.282 473.152,-777.835 493.118,-779.71 538,-798.282"/>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M540,-798.282C563.221,-807.891 739.905,-819.943 765,-821.282"/>
+</g>
+<!-- json_module&#45;&gt;module~openpde_mesh_fd_1d -->
+<g id="module~~scalar_simple_equation_m~~UsesGraph_edge44" class="edge"><title>json_module&#45;&gt;module~openpde_mesh_fd_1d</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M386.613,-375.901C408.789,-375.664 438.127,-375.35 465.068,-375.062"/>
+<polygon fill="#000000" stroke="#000000" points="465.294,-378.56 475.256,-374.953 465.219,-371.56 465.294,-378.56"/>
+</g>
+<!-- module~openpde_mesh_fd_2d&#45;&gt;module~openpde -->
+<g id="module~~scalar_simple_equation_m~~UsesGraph_edge58" class="edge"><title>module~openpde_mesh_fd_2d&#45;&gt;module~openpde</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M578.172,-166.268C678.564,-137.295 952.253,-75.6806 1098,-213.282 1143.15,-255.911 1156.37,-455.165 1159.59,-522.774"/>
+<polygon fill="#000000" stroke="#000000" points="1156.11,-523.296 1160.05,-533.13 1163.1,-522.984 1156.11,-523.296"/>
+</g>
+<!-- module~openpde_mesh_fd_2d&#45;&gt;module~openpde_field_fd_2d -->
+<g id="module~~scalar_simple_equation_m~~UsesGraph_edge7" class="edge"><title>module~openpde_mesh_fd_2d&#45;&gt;module~openpde_field_fd_2d</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M568.041,-190.371C608.32,-207.735 682.637,-239.774 727.568,-259.145"/>
+<polygon fill="#000000" stroke="#000000" points="726.391,-262.448 736.959,-263.193 729.162,-256.02 726.391,-262.448"/>
+</g>
+<!-- module~openpde_spatial_operator_d1_fd_2d -->
+<g id="module~~scalar_simple_equation_m~~UsesGraph_node9" class="node"><title>module~openpde_spatial_operator_d1_fd_2d</title>
+<g id="a_module~~scalar_simple_equation_m~~UsesGraph_node9"><a xlink:href="../module/openpde_spatial_operator_d1_fd_2d.html" xlink:title="openpde_spatial_operator_d1_FD_2D">
+<polygon fill="#337ab7" stroke="#337ab7" points="1098,-597.282 902,-597.282 902,-573.282 1098,-573.282 1098,-597.282"/>
+<text text-anchor="middle" x="1000" y="-582.882" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">openpde_spatial_operator_d1_FD_2D</text>
+</a>
+</g>
+</g>
+<!-- module~openpde_mesh_fd_2d&#45;&gt;module~openpde_spatial_operator_d1_fd_2d -->
+<g id="module~~scalar_simple_equation_m~~UsesGraph_edge12" class="edge"><title>module~openpde_mesh_fd_2d&#45;&gt;module~openpde_spatial_operator_d1_fd_2d</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M554.579,-190.357C575.029,-208.182 611.765,-243.626 630,-282.282 670.775,-368.718 601.903,-423.392 666,-494.282 698.221,-529.917 820.686,-556.609 907.726,-571.583"/>
+<polygon fill="#000000" stroke="#000000" points="907.18,-575.04 917.625,-573.261 908.351,-568.138 907.18,-575.04"/>
+</g>
+<!-- module~openpde_spatial_operator_d2_fd_2d -->
+<g id="module~~scalar_simple_equation_m~~UsesGraph_node21" class="node"><title>module~openpde_spatial_operator_d2_fd_2d</title>
+<g id="a_module~~scalar_simple_equation_m~~UsesGraph_node21"><a xlink:href="../module/openpde_spatial_operator_d2_fd_2d.html" xlink:title="openpde_spatial_operator_d2_FD_2D">
+<polygon fill="#337ab7" stroke="#337ab7" points="1098,-287.282 902,-287.282 902,-263.282 1098,-263.282 1098,-287.282"/>
+<text text-anchor="middle" x="1000" y="-272.882" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">openpde_spatial_operator_d2_FD_2D</text>
+</a>
+</g>
+</g>
+<!-- module~openpde_mesh_fd_2d&#45;&gt;module~openpde_spatial_operator_d2_fd_2d -->
+<g id="module~~scalar_simple_equation_m~~UsesGraph_edge53" class="edge"><title>module~openpde_mesh_fd_2d&#45;&gt;module~openpde_spatial_operator_d2_fd_2d</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M602.804,-181.813C669.132,-186.639 776.313,-197.576 866,-221.282 900.977,-230.527 939.054,-246.652 965.468,-258.881"/>
+<polygon fill="#000000" stroke="#000000" points="964.105,-262.107 974.644,-263.19 967.08,-255.771 964.105,-262.107"/>
+</g>
+<!-- module~openpde_spatial_operator_d1_abstract -->
+<g id="module~~scalar_simple_equation_m~~UsesGraph_node6" class="node"><title>module~openpde_spatial_operator_d1_abstract</title>
+<g id="a_module~~scalar_simple_equation_m~~UsesGraph_node6"><a xlink:href="../module/openpde_spatial_operator_d1_abstract.html" xlink:title="openpde_spatial_operator_d1_abstract">
+<polygon fill="#337ab7" stroke="#337ab7" points="866,-717.282 666,-717.282 666,-693.282 866,-693.282 866,-717.282"/>
+<text text-anchor="middle" x="766" y="-702.882" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">openpde_spatial_operator_d1_abstract</text>
+</a>
+</g>
+</g>
+<!-- module~openpde_spatial_operator_d1_abstract&#45;&gt;module~openpde -->
+<g id="module~~scalar_simple_equation_m~~UsesGraph_edge59" class="edge"><title>module~openpde_spatial_operator_d1_abstract&#45;&gt;module~openpde</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M790.22,-717.442C840.907,-743.279 960.037,-799.972 999,-783.282"/>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M1001,-783.282C1093.41,-743.694 1139.33,-618.255 1154.56,-567.209"/>
+<polygon fill="#000000" stroke="#000000" points="1157.95,-568.081 1157.35,-557.503 1151.22,-566.147 1157.95,-568.081"/>
+</g>
+<!-- module~openpde_spatial_operator_d1_abstract&#45;&gt;module~openpde_spatial_operator_d1_fd_2d -->
+<g id="module~~scalar_simple_equation_m~~UsesGraph_edge13" class="edge"><title>module~openpde_spatial_operator_d1_abstract&#45;&gt;module~openpde_spatial_operator_d1_fd_2d</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M832.254,-693.266C843.911,-689.707 855.633,-685.136 866,-679.282 885.431,-668.309 884.356,-657.944 902,-644.282 922.585,-628.343 947.75,-613.145 967.289,-602.167"/>
+<polygon fill="#000000" stroke="#000000" points="969.056,-605.189 976.108,-597.282 965.665,-599.066 969.056,-605.189"/>
+</g>
+<!-- module~openpde_spatial_operator_d1_fd_1d -->
+<g id="module~~scalar_simple_equation_m~~UsesGraph_node13" class="node"><title>module~openpde_spatial_operator_d1_fd_1d</title>
+<g id="a_module~~scalar_simple_equation_m~~UsesGraph_node13"><a xlink:href="../module/openpde_spatial_operator_d1_fd_1d.html" xlink:title="openpde_spatial_operator_d1_FD_1D">
+<polygon fill="#337ab7" stroke="#337ab7" points="1098,-677.282 902,-677.282 902,-653.282 1098,-653.282 1098,-677.282"/>
+<text text-anchor="middle" x="1000" y="-662.882" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">openpde_spatial_operator_d1_FD_1D</text>
+</a>
+</g>
+</g>
+<!-- module~openpde_spatial_operator_d1_abstract&#45;&gt;module~openpde_spatial_operator_d1_fd_1d -->
+<g id="module~~scalar_simple_equation_m~~UsesGraph_edge30" class="edge"><title>module~openpde_spatial_operator_d1_abstract&#45;&gt;module~openpde_spatial_operator_d1_fd_1d</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M836.608,-693.281C862.527,-688.812 892.145,-683.705 918.928,-679.087"/>
+<polygon fill="#000000" stroke="#000000" points="919.781,-682.492 929.041,-677.344 918.592,-675.594 919.781,-682.492"/>
+</g>
+<!-- module~openpde_spatial_operator_d2_abstract -->
+<g id="module~~scalar_simple_equation_m~~UsesGraph_node7" class="node"><title>module~openpde_spatial_operator_d2_abstract</title>
+<g id="a_module~~scalar_simple_equation_m~~UsesGraph_node7"><a xlink:href="../module/openpde_spatial_operator_d2_abstract.html" xlink:title="openpde_spatial_operator_d2_abstract">
+<polygon fill="#337ab7" stroke="#337ab7" points="866,-485.282 666,-485.282 666,-461.282 866,-461.282 866,-485.282"/>
+<text text-anchor="middle" x="766" y="-470.882" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">openpde_spatial_operator_d2_abstract</text>
+</a>
+</g>
+</g>
+<!-- module~openpde_spatial_operator_d2_abstract&#45;&gt;module~openpde -->
+<g id="module~~scalar_simple_equation_m~~UsesGraph_edge60" class="edge"><title>module~openpde_spatial_operator_d2_abstract&#45;&gt;module~openpde</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M815.799,-485.31C831.862,-489.479 849.762,-494.349 866,-499.282 925.847,-517.461 937.161,-535.901 999,-545.282"/>
+</g>
+<!-- module~openpde_spatial_operator_d2_fd_1d -->
+<g id="module~~scalar_simple_equation_m~~UsesGraph_node19" class="node"><title>module~openpde_spatial_operator_d2_fd_1d</title>
+<g id="a_module~~scalar_simple_equation_m~~UsesGraph_node19"><a xlink:href="../module/openpde_spatial_operator_d2_fd_1d.html" xlink:title="openpde_spatial_operator_d2_FD_1D">
+<polygon fill="#337ab7" stroke="#337ab7" points="1098,-405.282 902,-405.282 902,-381.282 1098,-381.282 1098,-405.282"/>
+<text text-anchor="middle" x="1000" y="-390.882" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">openpde_spatial_operator_d2_FD_1D</text>
+</a>
+</g>
+</g>
+<!-- module~openpde_spatial_operator_d2_abstract&#45;&gt;module~openpde_spatial_operator_d2_fd_1d -->
+<g id="module~~scalar_simple_equation_m~~UsesGraph_edge51" class="edge"><title>module~openpde_spatial_operator_d2_abstract&#45;&gt;module~openpde_spatial_operator_d2_fd_1d</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M817.988,-461.232C833.525,-457.202 850.572,-452.416 866,-447.282 899.38,-436.174 936.388,-420.897 962.873,-409.426"/>
+<polygon fill="#000000" stroke="#000000" points="964.363,-412.594 972.128,-405.387 961.563,-406.179 964.363,-412.594"/>
+</g>
+<!-- module~openpde_spatial_operator_d2_abstract&#45;&gt;module~openpde_spatial_operator_d2_fd_2d -->
+<g id="module~~scalar_simple_equation_m~~UsesGraph_edge57" class="edge"><title>module~openpde_spatial_operator_d2_abstract&#45;&gt;module~openpde_spatial_operator_d2_fd_2d</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M792.055,-461.255C812.999,-450.546 843.042,-433.612 866,-414.282 884.807,-398.447 885.295,-390.321 902,-372.282 927.714,-344.514 958.879,-313.845 978.821,-294.574"/>
+<polygon fill="#000000" stroke="#000000" points="981.354,-296.994 986.13,-287.537 976.499,-291.952 981.354,-296.994"/>
+</g>
+<!-- module~openpde_field_fd_2d&#45;&gt;module~openpde -->
+<g id="module~~scalar_simple_equation_m~~UsesGraph_edge61" class="edge"><title>module~openpde_field_fd_2d&#45;&gt;module~openpde</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M792.894,-263.115C853.746,-236.517 1007.53,-181.18 1098,-254.282 1140,-288.218 1155.08,-460.687 1159.2,-522.882"/>
+<polygon fill="#000000" stroke="#000000" points="1155.73,-523.393 1159.85,-533.154 1162.71,-522.954 1155.73,-523.393"/>
+</g>
+<!-- module~openpde_field_fd_2d&#45;&gt;module~openpde_spatial_operator_d1_fd_2d -->
+<g id="module~~scalar_simple_equation_m~~UsesGraph_edge16" class="edge"><title>module~openpde_field_fd_2d&#45;&gt;module~openpde_spatial_operator_d1_fd_2d</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M826.046,-279.202C841.01,-283.018 855.733,-289.723 866,-301.282 942.889,-387.841 825.33,-472.528 902,-559.282 904.858,-562.515 908.069,-565.366 911.54,-567.879"/>
+<polygon fill="#000000" stroke="#000000" points="909.717,-570.867 920.063,-573.148 913.398,-564.913 909.717,-570.867"/>
+</g>
+<!-- module~openpde_field_fd_2d&#45;&gt;module~openpde_spatial_operator_d2_fd_2d -->
+<g id="module~~scalar_simple_equation_m~~UsesGraph_edge54" class="edge"><title>module~openpde_field_fd_2d&#45;&gt;module~openpde_spatial_operator_d2_fd_2d</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M826.144,-275.282C846.051,-275.282 868.927,-275.282 891.382,-275.282"/>
+<polygon fill="#000000" stroke="#000000" points="891.658,-278.782 901.658,-275.282 891.658,-271.782 891.658,-278.782"/>
+</g>
+<!-- module~openpde_spatial_operator_d1_fd_2d&#45;&gt;module~openpde -->
+<g id="module~~scalar_simple_equation_m~~UsesGraph_edge62" class="edge"><title>module~openpde_spatial_operator_d1_fd_2d&#45;&gt;module~openpde</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M1048.86,-573.281C1072.89,-567.254 1101.54,-560.067 1123.81,-554.484"/>
+<polygon fill="#000000" stroke="#000000" points="1124.7,-557.869 1133.55,-552.041 1123,-551.079 1124.7,-557.869"/>
+</g>
+<!-- module~openpde_field_fd_1d&#45;&gt;module~openpde -->
+<g id="module~~scalar_simple_equation_m~~UsesGraph_edge63" class="edge"><title>module~openpde_field_fd_1d&#45;&gt;module~openpde</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M788.517,-405.5C808.758,-417.135 839.787,-435.338 866,-452.282 926.576,-491.437 927.687,-534.464 999,-545.282"/>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M1001,-545.282C1042.57,-551.588 1090.94,-550.414 1123.42,-548.414"/>
+<polygon fill="#000000" stroke="#000000" points="1124.05,-551.879 1133.79,-547.714 1123.58,-544.895 1124.05,-551.879"/>
+</g>
+<!-- module~openpde_field_fd_1d&#45;&gt;module~openpde_spatial_operator_d1_fd_1d -->
+<g id="module~~scalar_simple_equation_m~~UsesGraph_edge34" class="edge"><title>module~openpde_field_fd_1d&#45;&gt;module~openpde_spatial_operator_d1_fd_1d</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M800.798,-405.333C822.603,-414.815 849.818,-430.157 866,-452.282 907.496,-509.016 860.76,-549.361 902,-606.282 915.777,-625.298 937.738,-639.392 957.282,-649.028"/>
+<polygon fill="#000000" stroke="#000000" points="955.804,-652.2 966.344,-653.272 958.773,-645.861 955.804,-652.2"/>
+</g>
+<!-- module~openpde_field_fd_1d&#45;&gt;module~openpde_spatial_operator_d2_fd_1d -->
+<g id="module~~scalar_simple_equation_m~~UsesGraph_edge47" class="edge"><title>module~openpde_field_fd_1d&#45;&gt;module~openpde_spatial_operator_d2_fd_1d</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M826.144,-393.282C846.051,-393.282 868.927,-393.282 891.382,-393.282"/>
+<polygon fill="#000000" stroke="#000000" points="891.658,-396.782 901.658,-393.282 891.658,-389.782 891.658,-396.782"/>
+</g>
+<!-- module~openpde_equation_abstract -->
+<g id="module~~scalar_simple_equation_m~~UsesGraph_node11" class="node"><title>module~openpde_equation_abstract</title>
+<g id="a_module~~scalar_simple_equation_m~~UsesGraph_node11"><a xlink:href="../module/openpde_equation_abstract.html" xlink:title="openpde_equation_abstract">
+<polygon fill="#337ab7" stroke="#337ab7" points="612,-888.282 466,-888.282 466,-864.282 612,-864.282 612,-888.282"/>
+<text text-anchor="middle" x="539" y="-873.882" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">openpde_equation_abstract</text>
+</a>
+</g>
+</g>
+<!-- module~openpde_equation_abstract&#45;&gt;module~openpde -->
+<g id="module~~scalar_simple_equation_m~~UsesGraph_edge64" class="edge"><title>module~openpde_equation_abstract&#45;&gt;module~openpde</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M587.002,-888.374C632.244,-899.121 702.77,-913.546 765,-916.282"/>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M767,-916.282C870.012,-920.811 910.427,-969.072 999,-916.282"/>
+</g>
+<!-- module~openpde_equation_abstract&#45;&gt;module~openpde_integrator_euler_explicit -->
+<g id="module~~scalar_simple_equation_m~~UsesGraph_edge25" class="edge"><title>module~openpde_equation_abstract&#45;&gt;module~openpde_integrator_euler_explicit</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M567.212,-864.174C609.027,-846.826 691.917,-817.382 765,-821.282"/>
+</g>
+<!-- module~openpde_integrator_abstract -->
+<g id="module~~scalar_simple_equation_m~~UsesGraph_node14" class="node"><title>module~openpde_integrator_abstract</title>
+<g id="a_module~~scalar_simple_equation_m~~UsesGraph_node14"><a xlink:href="../module/openpde_integrator_abstract.html" xlink:title="openpde_integrator_abstract">
+<polygon fill="#337ab7" stroke="#337ab7" points="841.5,-888.282 690.5,-888.282 690.5,-864.282 841.5,-864.282 841.5,-888.282"/>
+<text text-anchor="middle" x="766" y="-873.882" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">openpde_integrator_abstract</text>
+</a>
+</g>
+</g>
+<!-- module~openpde_equation_abstract&#45;&gt;module~openpde_integrator_abstract -->
+<g id="module~~scalar_simple_equation_m~~UsesGraph_edge37" class="edge"><title>module~openpde_equation_abstract&#45;&gt;module~openpde_integrator_abstract</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M612.12,-876.282C633.744,-876.282 657.664,-876.282 680.036,-876.282"/>
+<polygon fill="#000000" stroke="#000000" points="680.192,-879.782 690.192,-876.282 680.192,-872.782 680.192,-879.782"/>
+</g>
+<!-- module~openpde_integrator_euler_explicit&#45;&gt;module~openpde -->
+<g id="module~~scalar_simple_equation_m~~UsesGraph_edge65" class="edge"><title>module~openpde_integrator_euler_explicit&#45;&gt;module~openpde</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M1078.39,-811.054C1085.65,-807.512 1092.38,-803.006 1098,-797.282 1130.34,-764.325 1150.95,-622.707 1157.89,-567.468"/>
+<polygon fill="#000000" stroke="#000000" points="1161.39,-567.696 1159.13,-557.345 1154.44,-566.846 1161.39,-567.696"/>
+</g>
+<!-- module~openpde_spatial_operator_d1_fd_1d&#45;&gt;module~openpde -->
+<g id="module~~scalar_simple_equation_m~~UsesGraph_edge66" class="edge"><title>module~openpde_spatial_operator_d1_fd_1d&#45;&gt;module~openpde</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M1070.58,-653.269C1080.32,-649.743 1089.79,-645.182 1098,-639.282 1123.69,-620.824 1141.84,-588.265 1151.73,-566.73"/>
+<polygon fill="#000000" stroke="#000000" points="1155,-567.991 1155.81,-557.427 1148.59,-565.18 1155,-567.991"/>
+</g>
+<!-- module~openpde_integrator_abstract&#45;&gt;module~openpde -->
+<g id="module~~scalar_simple_equation_m~~UsesGraph_edge67" class="edge"><title>module~openpde_integrator_abstract&#45;&gt;module~openpde</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M816.553,-888.32C879.984,-903.194 983.574,-925.476 999,-916.282"/>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M1001,-916.282C1047.12,-888.794 1069.07,-889.507 1098,-844.282 1155.65,-754.18 1161.25,-620.448 1161.04,-567.77"/>
+<polygon fill="#000000" stroke="#000000" points="1164.53,-567.49 1160.91,-557.533 1157.54,-567.574 1164.53,-567.49"/>
+</g>
+<!-- module~openpde_integrator_abstract&#45;&gt;module~openpde_integrator_euler_explicit -->
+<g id="module~~scalar_simple_equation_m~~UsesGraph_edge26" class="edge"><title>module~openpde_integrator_abstract&#45;&gt;module~openpde_integrator_euler_explicit</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M819.644,-864.255C854.228,-856.355 899.648,-845.979 936.127,-837.645"/>
+<polygon fill="#000000" stroke="#000000" points="937.194,-840.992 946.163,-835.352 935.635,-834.167 937.194,-840.992"/>
+</g>
+<!-- module~openpde_kinds -->
+<g id="module~~scalar_simple_equation_m~~UsesGraph_node15" class="node"><title>module~openpde_kinds</title>
+<g id="a_module~~scalar_simple_equation_m~~UsesGraph_node15"><a xlink:href="../module/openpde_kinds.html" xlink:title="openpde_kinds">
+<polygon fill="#337ab7" stroke="#337ab7" points="85,-387.282 0,-387.282 0,-363.282 85,-363.282 85,-387.282"/>
+<text text-anchor="middle" x="42.5" y="-372.882" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">openpde_kinds</text>
+</a>
+</g>
+</g>
+<!-- module~openpde_kinds&#45;&gt;module~openpde -->
+<g id="module~~scalar_simple_equation_m~~UsesGraph_edge68" class="edge"><title>module~openpde_kinds&#45;&gt;module~openpde</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M540,-916.282C637.249,-939.578 665.097,-911.889 765,-916.282"/>
+</g>
+<!-- module~openpde_kinds&#45;&gt;module~openpde_mesh_fd_2d -->
+<g id="module~~scalar_simple_equation_m~~UsesGraph_edge2" class="edge"><title>module~openpde_kinds&#45;&gt;module~openpde_mesh_fd_2d</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M351,-138.282C363.671,-134.913 431.908,-150.933 482.311,-163.695"/>
+<polygon fill="#000000" stroke="#000000" points="481.577,-167.12 492.132,-166.198 483.306,-160.337 481.577,-167.12"/>
+</g>
+<!-- module~openpde_kinds&#45;&gt;module~openpde_field_fd_2d -->
+<g id="module~~scalar_simple_equation_m~~UsesGraph_edge8" class="edge"><title>module~openpde_kinds&#45;&gt;module~openpde_field_fd_2d</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M540,-138.282C580.719,-141.93 593.426,-139.016 630,-157.282 679.214,-181.86 724.813,-228.735 748.337,-255.412"/>
+<polygon fill="#000000" stroke="#000000" points="745.714,-257.73 754.908,-262.995 751.004,-253.145 745.714,-257.73"/>
+</g>
+<!-- module~openpde_kinds&#45;&gt;module~openpde_spatial_operator_d1_fd_2d -->
+<g id="module~~scalar_simple_equation_m~~UsesGraph_edge14" class="edge"><title>module~openpde_kinds&#45;&gt;module~openpde_spatial_operator_d1_fd_2d</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M351,-604.282C434.762,-566.085 673.256,-596.903 765,-589.282"/>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M767,-589.282C807.685,-586.744 852.455,-585.587 891.724,-585.117"/>
+<polygon fill="#000000" stroke="#000000" points="891.885,-588.615 901.847,-585.009 891.81,-581.616 891.885,-588.615"/>
+</g>
+<!-- module~openpde_kinds&#45;&gt;module~openpde_field_fd_1d -->
+<g id="module~~scalar_simple_equation_m~~UsesGraph_edge18" class="edge"><title>module~openpde_kinds&#45;&gt;module~openpde_field_fd_1d</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M43.0538,-387.458C41.7373,-444.189 44.8195,-682.991 185.5,-758.282"/>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M187.5,-758.282C274.944,-805.081 258.76,-645.432 349,-604.282"/>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M351,-604.282C428.165,-569.094 467.952,-614.093 538,-566.282"/>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M540,-566.282C578.156,-540.239 600.539,-549.865 630,-514.282 660.926,-476.93 629.136,-442.788 666,-411.282 674.49,-404.026 684.913,-399.271 695.775,-396.221"/>
+<polygon fill="#000000" stroke="#000000" points="696.887,-399.556 705.831,-393.877 695.297,-392.739 696.887,-399.556"/>
+</g>
+<!-- module~openpde_kinds&#45;&gt;module~openpde_equation_abstract -->
+<g id="module~~scalar_simple_equation_m~~UsesGraph_edge22" class="edge"><title>module~openpde_kinds&#45;&gt;module~openpde_equation_abstract</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M351,-798.282C398.422,-805.07 403.719,-827.004 448,-845.282 461.399,-850.812 476.181,-856.192 489.826,-860.875"/>
+<polygon fill="#000000" stroke="#000000" points="488.93,-864.267 499.525,-864.154 491.172,-857.636 488.93,-864.267"/>
+</g>
+<!-- module~openpde_kinds&#45;&gt;module~openpde_integrator_euler_explicit -->
+<g id="module~~scalar_simple_equation_m~~UsesGraph_edge28" class="edge"><title>module~openpde_kinds&#45;&gt;module~openpde_integrator_euler_explicit</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M351,-798.282C433.177,-810.709 461.204,-766.504 538,-798.282"/>
+</g>
+<!-- module~openpde_kinds&#45;&gt;module~openpde_spatial_operator_d1_fd_1d -->
+<g id="module~~scalar_simple_equation_m~~UsesGraph_edge31" class="edge"><title>module~openpde_kinds&#45;&gt;module~openpde_spatial_operator_d1_fd_1d</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M351,-798.282C394.118,-804.454 404.872,-790.386 448,-784.282 633.707,-757.997 685.953,-778.826 866,-726.282 902.704,-715.57 942.224,-696.368 968.561,-682.361"/>
+<polygon fill="#000000" stroke="#000000" points="970.5,-685.292 977.638,-677.462 967.175,-679.132 970.5,-685.292"/>
+</g>
+<!-- module~openpde_kinds&#45;&gt;module~openpde_integrator_abstract -->
+<g id="module~~scalar_simple_equation_m~~UsesGraph_edge35" class="edge"><title>module~openpde_kinds&#45;&gt;module~openpde_integrator_abstract</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M351,-798.282C411.979,-807.01 393.995,-867.65 448,-897.282 483.841,-916.947 498.243,-906.758 538,-916.282"/>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M540,-916.282C571.757,-923.889 655.708,-905.174 711.597,-890.842"/>
+<polygon fill="#000000" stroke="#000000" points="712.541,-894.213 721.343,-888.315 710.784,-887.437 712.541,-894.213"/>
+</g>
+<!-- module~openpde_field_abstract -->
+<g id="module~~scalar_simple_equation_m~~UsesGraph_node16" class="node"><title>module~openpde_field_abstract</title>
+<g id="a_module~~scalar_simple_equation_m~~UsesGraph_node16"><a xlink:href="../module/openpde_field_abstract.html" xlink:title="openpde_field_abstract">
+<polygon fill="#337ab7" stroke="#337ab7" points="412,-770.282 288,-770.282 288,-746.282 412,-746.282 412,-770.282"/>
+<text text-anchor="middle" x="350" y="-755.882" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">openpde_field_abstract</text>
+</a>
+</g>
+</g>
+<!-- module~openpde_kinds&#45;&gt;module~openpde_field_abstract -->
+<g id="module~~scalar_simple_equation_m~~UsesGraph_edge38" class="edge"><title>module~openpde_kinds&#45;&gt;module~openpde_field_abstract</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M187.5,-758.282C217.502,-774.339 255.355,-775.171 286.872,-771.605"/>
+<polygon fill="#000000" stroke="#000000" points="287.399,-775.066 296.864,-770.307 286.496,-768.125 287.399,-775.066"/>
+</g>
+<!-- module~openpde_kinds&#45;&gt;module~openpde_mesh_fd_1d -->
+<g id="module~~scalar_simple_equation_m~~UsesGraph_edge41" class="edge"><title>module~openpde_kinds&#45;&gt;module~openpde_mesh_fd_1d</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M187.5,-256.282C260.959,-233.348 219.591,-362.034 288,-397.282 336.99,-422.524 357.113,-402.25 412,-397.282 415.056,-397.005 438.908,-392.69 465.051,-387.871"/>
+<polygon fill="#000000" stroke="#000000" points="465.947,-391.265 475.145,-386.006 464.675,-384.381 465.947,-391.265"/>
+</g>
+<!-- module~openpde_spatial_operator_abstract -->
+<g id="module~~scalar_simple_equation_m~~UsesGraph_node18" class="node"><title>module~openpde_spatial_operator_abstract</title>
+<g id="a_module~~scalar_simple_equation_m~~UsesGraph_node18"><a xlink:href="../module/openpde_spatial_operator_abstract.html" xlink:title="openpde_spatial_operator_abstract">
+<polygon fill="#337ab7" stroke="#337ab7" points="630,-694.282 448,-694.282 448,-670.282 630,-670.282 630,-694.282"/>
+<text text-anchor="middle" x="539" y="-679.882" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">openpde_spatial_operator_abstract</text>
+</a>
+</g>
+</g>
+<!-- module~openpde_kinds&#45;&gt;module~openpde_spatial_operator_abstract -->
+<g id="module~~scalar_simple_equation_m~~UsesGraph_edge45" class="edge"><title>module~openpde_kinds&#45;&gt;module~openpde_spatial_operator_abstract</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M187.5,-758.282C252.697,-793.175 275.8,-787.804 349,-798.282"/>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M351,-798.282C379.109,-802.305 387.385,-793.439 412,-779.282 430.815,-768.46 431.123,-759.931 448,-746.282 468.498,-729.704 492.941,-712.471 511.177,-700.07"/>
+<polygon fill="#000000" stroke="#000000" points="513.256,-702.889 519.586,-694.394 509.339,-697.087 513.256,-702.889"/>
+</g>
+<!-- module~openpde_kinds&#45;&gt;module~openpde_spatial_operator_d2_fd_1d -->
+<g id="module~~scalar_simple_equation_m~~UsesGraph_edge48" class="edge"><title>module~openpde_kinds&#45;&gt;module~openpde_spatial_operator_d2_fd_1d</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M187.5,-256.282C223.331,-244.575 831.754,-238.531 866,-254.282 888.336,-264.555 885.295,-278.243 902,-296.282 927.714,-324.049 958.879,-354.719 978.821,-373.989"/>
+<polygon fill="#000000" stroke="#000000" points="976.499,-376.612 986.13,-381.027 981.354,-371.57 976.499,-376.612"/>
+</g>
+<!-- module~openpde_mesh_abstract -->
+<g id="module~~scalar_simple_equation_m~~UsesGraph_node20" class="node"><title>module~openpde_mesh_abstract</title>
+<g id="a_module~~scalar_simple_equation_m~~UsesGraph_node20"><a xlink:href="../module/openpde_mesh_abstract.html" xlink:title="openpde_mesh_abstract">
+<polygon fill="#337ab7" stroke="#337ab7" points="252,-387.282 121,-387.282 121,-363.282 252,-363.282 252,-387.282"/>
+<text text-anchor="middle" x="186.5" y="-372.882" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">openpde_mesh_abstract</text>
+</a>
+</g>
+</g>
+<!-- module~openpde_kinds&#45;&gt;module~openpde_mesh_abstract -->
+<g id="module~~scalar_simple_equation_m~~UsesGraph_edge52" class="edge"><title>module~openpde_kinds&#45;&gt;module~openpde_mesh_abstract</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M85.3367,-375.282C93.3335,-375.282 101.928,-375.282 110.6,-375.282"/>
+<polygon fill="#000000" stroke="#000000" points="110.785,-378.782 120.785,-375.282 110.785,-371.782 110.785,-378.782"/>
+</g>
+<!-- module~openpde_kinds&#45;&gt;module~openpde_spatial_operator_d2_fd_2d -->
+<g id="module~~scalar_simple_equation_m~~UsesGraph_edge55" class="edge"><title>module~openpde_kinds&#45;&gt;module~openpde_spatial_operator_d2_fd_2d</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M52.4628,-363.25C72.6825,-337.289 124.841,-276.716 185.5,-256.282"/>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M187.5,-256.282C246.623,-236.365 234.645,-190.615 288,-158.282 312.4,-143.495 321.427,-145.613 349,-138.282"/>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M351,-138.282C431.321,-116.927 455.22,-130.866 538,-138.282"/>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M540,-138.282C685.679,-151.332 729.697,-130.233 866,-183.282 909.958,-200.39 953.502,-234.668 978.243,-256.21"/>
+<polygon fill="#000000" stroke="#000000" points="976.08,-258.97 985.886,-262.984 980.724,-253.732 976.08,-258.97"/>
+</g>
+<!-- module~openpde_field_abstract&#45;&gt;module~openpde -->
+<g id="module~~scalar_simple_equation_m~~UsesGraph_edge69" class="edge"><title>module~openpde_field_abstract&#45;&gt;module~openpde</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M540,-642.282C630.775,-599.103 664.482,-664.492 765,-665.282"/>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M767,-665.282C776.339,-665.355 1089.69,-610.552 1098,-606.282 1116.98,-596.523 1133.99,-579.05 1145.45,-565.298"/>
+<polygon fill="#000000" stroke="#000000" points="1148.32,-567.313 1151.84,-557.319 1142.86,-562.938 1148.32,-567.313"/>
+</g>
+<!-- module~openpde_field_abstract&#45;&gt;module~openpde_field_fd_2d -->
+<g id="module~~scalar_simple_equation_m~~UsesGraph_edge11" class="edge"><title>module~openpde_field_abstract&#45;&gt;module~openpde_field_fd_2d</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M357.071,-746.188C368.905,-722.253 395.353,-666.948 412,-618.282 433.073,-556.679 406.048,-526.072 448,-476.282 505.05,-408.574 569.074,-459.524 630,-395.282 660.785,-362.821 632.691,-331.147 666,-301.282 674.545,-293.621 685.079,-288.17 696.055,-284.302"/>
+<polygon fill="#000000" stroke="#000000" points="697.256,-287.595 705.775,-281.295 695.187,-280.907 697.256,-287.595"/>
+</g>
+<!-- module~openpde_field_abstract&#45;&gt;module~openpde_spatial_operator_d1_fd_2d -->
+<g id="module~~scalar_simple_equation_m~~UsesGraph_edge15" class="edge"><title>module~openpde_field_abstract&#45;&gt;module~openpde_spatial_operator_d1_fd_2d</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M540,-642.282C551.597,-636.765 752.202,-590.345 765,-589.282"/>
+</g>
+<!-- module~openpde_field_abstract&#45;&gt;module~openpde_field_fd_1d -->
+<g id="module~~scalar_simple_equation_m~~UsesGraph_edge21" class="edge"><title>module~openpde_field_abstract&#45;&gt;module~openpde_field_fd_1d</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M358.16,-746.144C372.869,-721.861 408.445,-666.369 448,-628.282 482.989,-594.591 497.881,-593.665 538,-566.282"/>
+</g>
+<!-- module~openpde_field_abstract&#45;&gt;module~openpde_equation_abstract -->
+<g id="module~~scalar_simple_equation_m~~UsesGraph_edge23" class="edge"><title>module~openpde_field_abstract&#45;&gt;module~openpde_equation_abstract</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M390.092,-770.337C397.935,-773.967 405.693,-778.555 412,-784.282 436.738,-806.742 421.942,-829.367 448,-850.282 452.713,-854.064 457.954,-857.297 463.47,-860.059"/>
+<polygon fill="#000000" stroke="#000000" points="462.408,-863.417 472.968,-864.277 465.25,-857.02 462.408,-863.417"/>
+</g>
+<!-- module~openpde_field_abstract&#45;&gt;module~openpde_integrator_euler_explicit -->
+<g id="module~~scalar_simple_equation_m~~UsesGraph_edge27" class="edge"><title>module~openpde_field_abstract&#45;&gt;module~openpde_integrator_euler_explicit</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M412.043,-765.618C449.421,-771.491 497.66,-781.589 538,-798.282"/>
+</g>
+<!-- module~openpde_field_abstract&#45;&gt;module~openpde_spatial_operator_d1_fd_1d -->
+<g id="module~~scalar_simple_equation_m~~UsesGraph_edge32" class="edge"><title>module~openpde_field_abstract&#45;&gt;module~openpde_spatial_operator_d1_fd_1d</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M767,-665.282C807.756,-665.602 852.541,-665.669 891.802,-665.633"/>
+<polygon fill="#000000" stroke="#000000" points="891.927,-669.133 901.923,-665.622 891.919,-662.133 891.927,-669.133"/>
+</g>
+<!-- module~openpde_field_abstract&#45;&gt;module~openpde_integrator_abstract -->
+<g id="module~~scalar_simple_equation_m~~UsesGraph_edge36" class="edge"><title>module~openpde_field_abstract&#45;&gt;module~openpde_integrator_abstract</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M383.735,-770.405C393.107,-774.359 403.17,-779.085 412,-784.282 429.469,-794.563 429.577,-803.83 448,-812.282 469.506,-822.149 600.146,-846.772 686.866,-862.44"/>
+<polygon fill="#000000" stroke="#000000" points="686.488,-865.928 696.95,-864.257 687.73,-859.039 686.488,-865.928"/>
+</g>
+<!-- module~openpde_field_abstract&#45;&gt;module~openpde_spatial_operator_abstract -->
+<g id="module~~scalar_simple_equation_m~~UsesGraph_edge46" class="edge"><title>module~openpde_field_abstract&#45;&gt;module~openpde_spatial_operator_abstract</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M380.631,-746.239C412.543,-733.27 463.469,-712.573 498.705,-698.252"/>
+<polygon fill="#000000" stroke="#000000" points="500.253,-701.401 508.199,-694.394 497.617,-694.916 500.253,-701.401"/>
+</g>
+<!-- module~openpde_field_abstract&#45;&gt;module~openpde_spatial_operator_d2_fd_1d -->
+<g id="module~~scalar_simple_equation_m~~UsesGraph_edge49" class="edge"><title>module~openpde_field_abstract&#45;&gt;module~openpde_spatial_operator_d2_fd_1d</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M359.323,-746.235C374.416,-725.381 408.428,-682.732 448,-661.282 483.941,-641.8 501.082,-659.843 538,-642.282"/>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M540,-642.282C583.863,-621.417 601.743,-619.79 630,-580.282 664.379,-532.215 622.2,-491.954 666,-452.282 670.663,-448.059 818.413,-423.033 915.519,-406.961"/>
+<polygon fill="#000000" stroke="#000000" points="916.335,-410.373 925.63,-405.289 915.193,-403.467 916.335,-410.373"/>
+</g>
+<!-- module~openpde_field_abstract&#45;&gt;module~openpde_spatial_operator_d2_fd_2d -->
+<g id="module~~scalar_simple_equation_m~~UsesGraph_edge56" class="edge"><title>module~openpde_field_abstract&#45;&gt;module~openpde_spatial_operator_d2_fd_2d</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M356.176,-746.203C374.134,-704.456 433.448,-567.967 448,-552.282 511.214,-484.145 566.879,-517.505 630,-449.282 655.656,-421.552 636.45,-395.819 666,-372.282 737.117,-315.635 779.107,-356.04 866,-329.282 899.94,-318.83 937.305,-303.283 963.766,-291.55"/>
+<polygon fill="#000000" stroke="#000000" points="965.299,-294.699 972.995,-287.417 962.437,-288.31 965.299,-294.699"/>
+</g>
+<!-- module~openpde_mesh_fd_1d&#45;&gt;module~openpde -->
+<g id="module~~scalar_simple_equation_m~~UsesGraph_edge70" class="edge"><title>module~openpde_mesh_fd_1d&#45;&gt;module~openpde</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M581.92,-362.267C641.828,-345.253 746.745,-316.096 765,-315.282"/>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M767,-315.282C916.128,-308.631 983.57,-276.421 1098,-372.282 1143.7,-410.567 1155.98,-485.015 1159.29,-522.523"/>
+<polygon fill="#000000" stroke="#000000" points="1155.83,-523.18 1160.05,-532.896 1162.81,-522.666 1155.83,-523.18"/>
+</g>
+<!-- module~openpde_mesh_fd_1d&#45;&gt;module~openpde_field_fd_1d -->
+<g id="module~~scalar_simple_equation_m~~UsesGraph_edge17" class="edge"><title>module~openpde_mesh_fd_1d&#45;&gt;module~openpde_field_fd_1d</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M602.675,-379.574C631.522,-382.01 665.845,-384.909 695.484,-387.412"/>
+<polygon fill="#000000" stroke="#000000" points="695.496,-390.925 705.755,-388.279 696.085,-383.95 695.496,-390.925"/>
+</g>
+<!-- module~openpde_mesh_fd_1d&#45;&gt;module~openpde_spatial_operator_d1_fd_1d -->
+<g id="module~~scalar_simple_equation_m~~UsesGraph_edge33" class="edge"><title>module~openpde_mesh_fd_1d&#45;&gt;module~openpde_spatial_operator_d1_fd_1d</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M542.773,-386.428C552.294,-425.16 587.486,-546.524 666,-603.282 685.178,-617.146 811.892,-638.087 903.329,-651.725"/>
+<polygon fill="#000000" stroke="#000000" points="903.05,-655.222 913.455,-653.227 904.077,-648.297 903.05,-655.222"/>
+</g>
+<!-- module~openpde_mesh_fd_1d&#45;&gt;module~openpde_spatial_operator_d2_fd_1d -->
+<g id="module~~scalar_simple_equation_m~~UsesGraph_edge50" class="edge"><title>module~openpde_mesh_fd_1d&#45;&gt;module~openpde_spatial_operator_d2_fd_1d</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M767,-315.282C843.725,-311.86 927.753,-352.149 970.529,-376.134"/>
+<polygon fill="#000000" stroke="#000000" points="968.841,-379.2 979.259,-381.126 972.316,-373.124 968.841,-379.2"/>
+</g>
+<!-- module~openpde_spatial_operator_abstract&#45;&gt;module~openpde -->
+<g id="module~~scalar_simple_equation_m~~UsesGraph_edge71" class="edge"><title>module~openpde_spatial_operator_abstract&#45;&gt;module~openpde</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M587.717,-694.315C601.532,-698.267 616.517,-703.015 630,-708.282 646.662,-714.791 649,-720.713 666,-726.282 737.345,-749.655 929.989,-812.844 999,-783.282"/>
+</g>
+<!-- module~openpde_spatial_operator_abstract&#45;&gt;module~openpde_spatial_operator_d1_abstract -->
+<g id="module~~scalar_simple_equation_m~~UsesGraph_edge5" class="edge"><title>module~openpde_spatial_operator_abstract&#45;&gt;module~openpde_spatial_operator_d1_abstract</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M630.22,-691.504C638.656,-692.367 647.266,-693.247 655.85,-694.124"/>
+<polygon fill="#000000" stroke="#000000" points="655.598,-697.617 665.902,-695.152 656.31,-690.653 655.598,-697.617"/>
+</g>
+<!-- module~openpde_spatial_operator_abstract&#45;&gt;module~openpde_spatial_operator_d2_abstract -->
+<g id="module~~scalar_simple_equation_m~~UsesGraph_edge6" class="edge"><title>module~openpde_spatial_operator_abstract&#45;&gt;module~openpde_spatial_operator_d2_abstract</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M606.851,-670.236C615.257,-666.711 623.257,-662.159 630,-656.282 659.698,-630.397 643.94,-607.921 666,-575.282 687.934,-542.83 720.726,-511.409 742.48,-492.215"/>
+<polygon fill="#000000" stroke="#000000" points="744.978,-494.682 750.232,-485.481 740.387,-489.397 744.978,-494.682"/>
+</g>
+<!-- module~openpde_spatial_operator_d2_fd_1d&#45;&gt;module~openpde -->
+<g id="module~~scalar_simple_equation_m~~UsesGraph_edge72" class="edge"><title>module~openpde_spatial_operator_d2_fd_1d&#45;&gt;module~openpde</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M1013.78,-405.464C1041.43,-431.812 1106.98,-494.277 1140.3,-526.031"/>
+<polygon fill="#000000" stroke="#000000" points="1138,-528.677 1147.66,-533.042 1142.83,-523.609 1138,-528.677"/>
+</g>
+<!-- module~openpde_mesh_abstract&#45;&gt;module~openpde -->
+<g id="module~~scalar_simple_equation_m~~UsesGraph_edge73" class="edge"><title>module~openpde_mesh_abstract&#45;&gt;module~openpde</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M351,-454.282C635.645,-513.923 711.464,-501.663 999,-545.282"/>
+</g>
+<!-- module~openpde_mesh_abstract&#45;&gt;module~openpde_mesh_fd_2d -->
+<g id="module~~scalar_simple_equation_m~~UsesGraph_edge4" class="edge"><title>module~openpde_mesh_abstract&#45;&gt;module~openpde_mesh_fd_2d</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M195.464,-363.238C208.079,-343.966 233.156,-304.843 252,-270.282 269.7,-237.819 257.392,-216.024 288,-195.282 339.932,-160.088 412.685,-159.15 466.323,-165.042"/>
+<polygon fill="#000000" stroke="#000000" points="466.099,-168.54 476.445,-166.259 466.935,-161.59 466.099,-168.54"/>
+</g>
+<!-- module~openpde_mesh_abstract&#45;&gt;module~openpde_field_fd_2d -->
+<g id="module~~scalar_simple_equation_m~~UsesGraph_edge10" class="edge"><title>module~openpde_mesh_abstract&#45;&gt;module~openpde_field_fd_2d</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M202.913,-363.282C221.868,-349.135 255.533,-325.952 288,-313.282 424.832,-259.883 600.188,-262.118 695.584,-268.611"/>
+<polygon fill="#000000" stroke="#000000" points="695.464,-272.112 705.688,-269.336 695.964,-265.129 695.464,-272.112"/>
+</g>
+<!-- module~openpde_mesh_abstract&#45;&gt;module~openpde_field_fd_1d -->
+<g id="module~~scalar_simple_equation_m~~UsesGraph_edge20" class="edge"><title>module~openpde_mesh_abstract&#45;&gt;module~openpde_field_fd_1d</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M351,-454.282C417.176,-468.941 606.825,-429.824 704.798,-407.535"/>
+<polygon fill="#000000" stroke="#000000" points="705.591,-410.944 714.559,-405.301 704.03,-404.121 705.591,-410.944"/>
+</g>
+<!-- module~openpde_mesh_abstract&#45;&gt;module~openpde_field_abstract -->
+<g id="module~~scalar_simple_equation_m~~UsesGraph_edge39" class="edge"><title>module~openpde_mesh_abstract&#45;&gt;module~openpde_field_abstract</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M192.439,-387.452C206.907,-423.051 250.53,-530.036 288,-618.282 305.825,-660.262 327.238,-709.039 339.369,-736.523"/>
+<polygon fill="#000000" stroke="#000000" points="336.293,-738.223 343.536,-745.955 342.696,-735.394 336.293,-738.223"/>
+</g>
+<!-- module~openpde_mesh_abstract&#45;&gt;module~openpde_mesh_fd_1d -->
+<g id="module~~scalar_simple_equation_m~~UsesGraph_edge43" class="edge"><title>module~openpde_mesh_abstract&#45;&gt;module~openpde_mesh_fd_1d</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M205.333,-387.566C234.028,-406.484 292.927,-441.861 349,-454.282"/>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M351,-454.282C379.444,-460.583 386.934,-445.13 412,-430.282 429.919,-419.667 429.604,-410.047 448,-400.282 455.828,-396.127 464.402,-392.562 473.048,-389.526"/>
+<polygon fill="#000000" stroke="#000000" points="474.399,-392.766 482.806,-386.318 472.213,-386.116 474.399,-392.766"/>
+</g>
+<!-- module~openpde_spatial_operator_d2_fd_2d&#45;&gt;module~openpde -->
+<g id="module~~scalar_simple_equation_m~~UsesGraph_edge74" class="edge"><title>module~openpde_spatial_operator_d2_fd_2d&#45;&gt;module~openpde</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M1077.87,-287.324C1085.32,-290.892 1092.24,-295.455 1098,-301.282 1129.36,-332.988 1150.42,-469.04 1157.69,-523.055"/>
+<polygon fill="#000000" stroke="#000000" points="1154.22,-523.53 1158.99,-532.989 1161.16,-522.619 1154.22,-523.53"/>
+</g>
+<!-- vtk_fortran -->
+<g id="module~~scalar_simple_equation_m~~UsesGraph_node22" class="node"><title>vtk_fortran</title>
+<polygon fill="#337ab7" stroke="#337ab7" points="382,-228.282 318,-228.282 318,-204.282 382,-204.282 382,-228.282"/>
+<text text-anchor="middle" x="350" y="-213.882" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">vtk_fortran</text>
+</g>
+<!-- vtk_fortran&#45;&gt;module~openpde_mesh_fd_2d -->
+<g id="module~~scalar_simple_equation_m~~UsesGraph_edge1" class="edge"><title>vtk_fortran&#45;&gt;module~openpde_mesh_fd_2d</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M382.3,-209.922C405.84,-205.138 439.007,-198.398 468.684,-192.368"/>
+<polygon fill="#000000" stroke="#000000" points="469.492,-195.775 478.595,-190.353 468.098,-188.915 469.492,-195.775"/>
+</g>
+<!-- vtk_fortran&#45;&gt;module~openpde_mesh_fd_1d -->
+<g id="module~~scalar_simple_equation_m~~UsesGraph_edge40" class="edge"><title>vtk_fortran&#45;&gt;module~openpde_mesh_fd_1d</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M362.405,-228.462C380.005,-246.991 415.19,-282.986 448,-310.282 468.14,-327.037 492.42,-344.139 510.684,-356.444"/>
+<polygon fill="#000000" stroke="#000000" points="508.861,-359.436 519.122,-362.077 512.748,-353.614 508.861,-359.436"/>
+</g>
+</g>
+</svg>
+</div>
+                <script>var panmodulescalar_simple_equation_mUsesGraph = svgPanZoom('#modulescalar_simple_equation_mUsesGraph', {
+                    zoomEnabled: true,
+                    controlIconsEnabled: true,
+                    fit: true,
+                    center: true,});
+                    </script>
+                <div><a type="button" class="graph-help" data-toggle="modal" href="#graph-help-text">Help</a></div>
+                <div class="modal fade" id="graph-help-text" tabindex="-1" role="dialog">
+                  <div class="modal-dialog modal-lg" role="document">
+                    <div class="modal-content">
+                      <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                        <h4 class="modal-title" id="-graph-help-label">Graph Key</h4>
+                      </div>
+                      <div class="modal-body">
+                        
+Nodes of different colours represent the following:
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
+ "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<!-- Generated by graphviz version 2.38.0 (20140413.2041)
+ -->
+<!-- Title: Graph Key Pages: 1 -->
+<svg width="641pt" height="26pt"
+ viewBox="0.00 0.00 641.00 25.98" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<g id="graph0" class="graph" transform="scale(0.811906 0.811906) rotate(0) translate(4 28)">
+<title>Graph Key</title>
+<polygon fill="white" stroke="none" points="-4,4 -4,-28 785.5,-28 785.5,4 -4,4"/>
+<!-- Module -->
+<g id="node1" class="node"><title>Module</title>
+<polygon fill="#337ab7" stroke="#337ab7" points="54,-24 0,-24 0,-0 54,-0 54,-24"/>
+<text text-anchor="middle" x="27" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">Module</text>
+</g>
+<!-- Submodule -->
+<g id="node2" class="node"><title>Submodule</title>
+<polygon fill="#5bc0de" stroke="#5bc0de" points="139.5,-24 72.5,-24 72.5,-0 139.5,-0 139.5,-24"/>
+<text text-anchor="middle" x="106" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">Submodule</text>
+</g>
+<!-- Type -->
+<g id="node3" class="node"><title>Type</title>
+<polygon fill="#5cb85c" stroke="#5cb85c" points="212,-24 158,-24 158,-0 212,-0 212,-24"/>
+<text text-anchor="middle" x="185" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">Type</text>
+</g>
+<!-- Subroutine -->
+<g id="node4" class="node"><title>Subroutine</title>
+<polygon fill="#d9534f" stroke="#d9534f" points="294,-24 230,-24 230,-0 294,-0 294,-24"/>
+<text text-anchor="middle" x="262" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">Subroutine</text>
+</g>
+<!-- Function -->
+<g id="node5" class="node"><title>Function</title>
+<polygon fill="#d94e8f" stroke="#d94e8f" points="366,-24 312,-24 312,-0 366,-0 366,-24"/>
+<text text-anchor="middle" x="339" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">Function</text>
+</g>
+<!-- Interface -->
+<g id="node6" class="node"><title>Interface</title>
+<polygon fill="#a7506f" stroke="#a7506f" points="439.5,-24 384.5,-24 384.5,-0 439.5,-0 439.5,-24"/>
+<text text-anchor="middle" x="412" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">Interface</text>
+</g>
+<!-- Unknown Procedure Type -->
+<g id="node7" class="node"><title>Unknown Procedure Type</title>
+<polygon fill="#777777" stroke="#777777" points="594,-24 458,-24 458,-0 594,-0 594,-24"/>
+<text text-anchor="middle" x="526" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">Unknown Procedure Type</text>
+</g>
+<!-- Program -->
+<g id="node8" class="node"><title>Program</title>
+<polygon fill="#f0ad4e" stroke="#f0ad4e" points="666,-24 612,-24 612,-0 666,-0 666,-24"/>
+<text text-anchor="middle" x="639" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">Program</text>
+</g>
+<!-- This Page&#39;s Entity -->
+<g id="node9" class="node"><title>This Page&#39;s Entity</title>
+<polygon fill="none" stroke="black" points="781.5,-24 684.5,-24 684.5,-0 781.5,-0 781.5,-24"/>
+<text text-anchor="middle" x="733" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50">This Page&#39;s Entity</text>
+</g>
+</g>
+</svg>
+
+Where possible, edges connecting nodes are given different colours to make them
+easier to distinguish in large graphs.
+<h5>Module Graph</h5>
+<p>Solid arrows point from a parent (sub)module to the submodule which is
+descended from it. Dashed arrows point from a module being used to the
+module using it.</p>
+<h5>Type Graph</h5>
+<p>Solid arrows point from one derived type to another which extends
+(inherits from) it. Dashed arrows point from a derived type to another
+type containing it as a components, with a label listing the name(s) of
+said component(s).</p>
+<h5>Call Graph</h5>
+<p>Solid arrows point from a procedure to one which it calls. Dashed 
+arrows point from an interface to procedures which implement that interface.
+This could include the module procedures in a generic interface or the
+implementation in a submodule of an interface in a parent module.</p>
+
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                
+    
+    <p>Scalar simple equation definition.
+ The PDE solved is</p>
+<p>$$ \frac{\partial u}{\partial t} + a \frac{\partial u}{\partial x} + b \frac{\partial^2 u}{\partial x^2} = 0 $$
+ where <code>a</code> and <code>b</code> are two constant scalars.</p>
+<p>This is a one dimensional, unsteady, linear PDE. It is solved adopting a finite difference approximations of
+ first and second derivatives computed on a uniform mesh.</p>
+<p>The spatial operators are approximated as:</p>
+<p>$$ \frac{\partial u}{\partial x}|_i = \frac{u_{i+1}-u_i}{h} \quad i=1,N $$
+ $$ \frac{\partial^2 u}{\partial x^2}|_i = \frac{u_{i+1}-2u_i+u_{i-1}}{h^2} \quad i=1,N $$
+ where <code>N</code> is the number of discrete points and <code>h=L/N</code> is the (uniform) grid resolution, <code>L</code> is the domain length.</p>
+<p>The explicit Euler's method is used for advancing on time.</p>
+    
+    
+    <h3>Used By</h3>
+    
+                <div class="depgraph"><?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
+ "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<!-- Generated by graphviz version 2.38.0 (20140413.2041)
+ -->
+<!-- Title: module~~scalar_simple_equation_m~~UsedByGraph Pages: 1 -->
+<svg id="modulescalar_simple_equation_mUsedByGraph" width="262pt" height="32pt"
+ viewBox="0.00 0.00 262.00 32.00" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<g id="module~~scalar_simple_equation_m~~UsedByGraph" class="graph" transform="scale(1 1) rotate(0) translate(4 28)">
+<title>module~~scalar_simple_equation_m~~UsedByGraph</title>
+<polygon fill="white" stroke="none" points="-4,4 -4,-28 258,-28 258,4 -4,4"/>
+<!-- module~scalar_simple_equation_m -->
+<g id="module~~scalar_simple_equation_m~~UsedByGraph_node1" class="node"><title>module~scalar_simple_equation_m</title>
+<polygon fill="none" stroke="black" points="140,-24 0,-24 0,-0 140,-0 140,-24"/>
+<text text-anchor="middle" x="70" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50">scalar_simple_equation_m</text>
+</g>
+<!-- program~scalar_simple -->
+<g id="module~~scalar_simple_equation_m~~UsedByGraph_node2" class="node"><title>program~scalar_simple</title>
+<g id="a_module~~scalar_simple_equation_m~~UsedByGraph_node2"><a xlink:href="../program/scalar_simple.html" xlink:title="scalar_simple">
+<polygon fill="#f0ad4e" stroke="#f0ad4e" points="254,-24 176,-24 176,-0 254,-0 254,-24"/>
+<text text-anchor="middle" x="215" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">scalar_simple</text>
+</a>
+</g>
+</g>
+<!-- module~scalar_simple_equation_m&#45;&gt;program~scalar_simple -->
+<g id="module~~scalar_simple_equation_m~~UsedByGraph_edge1" class="edge"><title>module~scalar_simple_equation_m&#45;&gt;program~scalar_simple</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M140.406,-12C149.012,-12 157.658,-12 165.846,-12"/>
+<polygon fill="#000000" stroke="#000000" points="165.934,-15.5001 175.934,-12 165.934,-8.5001 165.934,-15.5001"/>
+</g>
+</g>
+</svg>
+</div>
+                <div><a type="button" class="graph-help" data-toggle="modal" href="#graph-help-text">Help</a></div>
+                <div class="modal fade" id="graph-help-text" tabindex="-1" role="dialog">
+                  <div class="modal-dialog modal-lg" role="document">
+                    <div class="modal-content">
+                      <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                        <h4 class="modal-title" id="-graph-help-label">Graph Key</h4>
+                      </div>
+                      <div class="modal-body">
+                        
+Nodes of different colours represent the following:
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
+ "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<!-- Generated by graphviz version 2.38.0 (20140413.2041)
+ -->
+<!-- Title: Graph Key Pages: 1 -->
+<svg width="641pt" height="26pt"
+ viewBox="0.00 0.00 641.00 25.98" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<g id="graph0" class="graph" transform="scale(0.811906 0.811906) rotate(0) translate(4 28)">
+<title>Graph Key</title>
+<polygon fill="white" stroke="none" points="-4,4 -4,-28 785.5,-28 785.5,4 -4,4"/>
+<!-- Module -->
+<g id="node1" class="node"><title>Module</title>
+<polygon fill="#337ab7" stroke="#337ab7" points="54,-24 0,-24 0,-0 54,-0 54,-24"/>
+<text text-anchor="middle" x="27" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">Module</text>
+</g>
+<!-- Submodule -->
+<g id="node2" class="node"><title>Submodule</title>
+<polygon fill="#5bc0de" stroke="#5bc0de" points="139.5,-24 72.5,-24 72.5,-0 139.5,-0 139.5,-24"/>
+<text text-anchor="middle" x="106" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">Submodule</text>
+</g>
+<!-- Type -->
+<g id="node3" class="node"><title>Type</title>
+<polygon fill="#5cb85c" stroke="#5cb85c" points="212,-24 158,-24 158,-0 212,-0 212,-24"/>
+<text text-anchor="middle" x="185" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">Type</text>
+</g>
+<!-- Subroutine -->
+<g id="node4" class="node"><title>Subroutine</title>
+<polygon fill="#d9534f" stroke="#d9534f" points="294,-24 230,-24 230,-0 294,-0 294,-24"/>
+<text text-anchor="middle" x="262" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">Subroutine</text>
+</g>
+<!-- Function -->
+<g id="node5" class="node"><title>Function</title>
+<polygon fill="#d94e8f" stroke="#d94e8f" points="366,-24 312,-24 312,-0 366,-0 366,-24"/>
+<text text-anchor="middle" x="339" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">Function</text>
+</g>
+<!-- Interface -->
+<g id="node6" class="node"><title>Interface</title>
+<polygon fill="#a7506f" stroke="#a7506f" points="439.5,-24 384.5,-24 384.5,-0 439.5,-0 439.5,-24"/>
+<text text-anchor="middle" x="412" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">Interface</text>
+</g>
+<!-- Unknown Procedure Type -->
+<g id="node7" class="node"><title>Unknown Procedure Type</title>
+<polygon fill="#777777" stroke="#777777" points="594,-24 458,-24 458,-0 594,-0 594,-24"/>
+<text text-anchor="middle" x="526" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">Unknown Procedure Type</text>
+</g>
+<!-- Program -->
+<g id="node8" class="node"><title>Program</title>
+<polygon fill="#f0ad4e" stroke="#f0ad4e" points="666,-24 612,-24 612,-0 666,-0 666,-24"/>
+<text text-anchor="middle" x="639" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">Program</text>
+</g>
+<!-- This Page&#39;s Entity -->
+<g id="node9" class="node"><title>This Page&#39;s Entity</title>
+<polygon fill="none" stroke="black" points="781.5,-24 684.5,-24 684.5,-0 781.5,-0 781.5,-24"/>
+<text text-anchor="middle" x="733" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50">This Page&#39;s Entity</text>
+</g>
+</g>
+</svg>
+
+Where possible, edges connecting nodes are given different colours to make them
+easier to distinguish in large graphs.
+<h5>Module Graph</h5>
+<p>Solid arrows point from a parent (sub)module to the submodule which is
+descended from it. Dashed arrows point from a module being used to the
+module using it.</p>
+<h5>Type Graph</h5>
+<p>Solid arrows point from one derived type to another which extends
+(inherits from) it. Dashed arrows point from a derived type to another
+type containing it as a components, with a label listing the name(s) of
+said component(s).</p>
+<h5>Call Graph</h5>
+<p>Solid arrows point from a procedure to one which it calls. Dashed 
+arrows point from an interface to procedures which implement that interface.
+This could include the module procedures in a generic interface or the
+implementation in a submodule of an interface in a parent module.</p>
+
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                
+    <br>
+    
+
+    
+    
+    
+    
+    
+
+    
+    
+    
+    <section>
+     <h2>Derived Types</h2>
+	 
+	   
+<div class="panel panel-default">
+  <div class="panel-heading codesum"><span class="anchor" id="type-scalar_simple_equation"></span><h3>type, public, extends(<a href='../type/equation.html'>equation</a>) :: <a href='../type/scalar_simple_equation.html'>scalar_simple_equation</a>
+    
+  </h3></div>
+  <div class="panel-body">
+     
+     <h4>Components</h4>
+    
+<table class="table table-striped varlist">
+<thead><tr><th>Type</th><th>Visibility</th>
+
+<th>Attributes</th><th></th><th>Name</th><th></th><th>Initial</th><th></th></thead>
+
+
+
+<tbody>
+
+  
+  
+  
+  
+<tr>
+  
+  <td><span class="anchor" id="variable-a"></span>real(kind=R_P),</td>
+  
+  <td>public</td>
+  <td></td><td>::</td>
+  <td><strong>a</strong></td><td> =</td><td>0._R_P</td><td><p><code>a</code> equation coefficient.</p></td>
+  
+</tr>
+
+  
+  
+  
+  
+<tr>
+  
+  <td><span class="anchor" id="variable-b"></span>real(kind=R_P),</td>
+  
+  <td>public</td>
+  <td></td><td>::</td>
+  <td><strong>b</strong></td><td> =</td><td>0._R_P</td><td><p><code>b</code> equation coefficient.</p></td>
+  
+</tr>
+
+  
+  
+  
+  
+<tr>
+  
+  <td><span class="anchor" id="variable-du"></span>class(<a href='../type/spatial_operator_d1.html'>spatial_operator_d1</a>),</td>
+  
+  <td>public,</td>
+  <td>pointer</td><td>::</td>
+  <td><strong>du</strong></td><td></td><td></td><td><p>First derivative.</p></td>
+  
+</tr>
+
+  
+  
+  
+  
+<tr>
+  
+  <td><span class="anchor" id="variable-ddu"></span>class(<a href='../type/spatial_operator_d2.html'>spatial_operator_d2</a>),</td>
+  
+  <td>public,</td>
+  <td>pointer</td><td>::</td>
+  <td><strong>ddu</strong></td><td></td><td></td><td><p>Second derivative.</p></td>
+  
+</tr>
+
+</tbody>
+</table>
+
+     
+     
+          
+     
+     <h4>Type-Bound Procedures</h4>
+      <table class="table table-striped varlist">
+      <tbody>
+      
+       <tr><td>procedure, public, pass(this) :: <strong>bc</strong>  </td>
+       <td><p>Equation boundary conditions.</p></td></tr>
+      
+       <tr><td>procedure, public, pass(this) :: <strong>forcing</strong>  </td>
+       <td><p>Forcing equation.</p></td></tr>
+      
+       <tr><td>procedure, public, pass(this) :: <strong>init</strong>  </td>
+       <td><p>Initialize equation.</p></td></tr>
+      
+       <tr><td>generic, public :: <strong>load</strong>  => load_from_json </td>
+       <td><p>Load equation definition from file.</p></td></tr>
+      
+       <tr><td>procedure, private, pass(this) :: <strong>load_from_json</strong>  </td>
+       <td><p>Load equation definition from jSON file.</p></td></tr>
+      
+       </tbody>
+       </table>
+     
+     
+     <h4>Description</h4>
+       
+       <p>(Fake) scalar_simple equations.</p>
+     
+  </div>
+</div>
+
+     
+    </section>
+	<br>
+    
+    
+     
+    <section>
+    <h2>Functions</h2>
+    
+    
+  <div class="panel panel-default">
+  <div class="panel-heading codesum"><span class="anchor" id="proc-forcing"></span><h3>
+private function <a href='../proc/forcing.html'>forcing</a>(this, inp, t) result(opr)
+    
+    
+    
+</h3></div>
+  <div class="panel-body">
+       
+    
+    <h4>Arguments</h4>
+    
+      
+      
+<table class="table table-striped varlist">
+<thead><tr><th>Type</th>
+<th>Intent</th><th>Optional</th>
+<th>Attributes</th><th></th><th>Name</th><th></th></thead>
+
+
+
+<tbody>
+
+  
+  
+  
+  
+<tr>
+  
+  <td><span class="anchor" ></span>class(<a href='../type/scalar_simple_equation.html'>scalar_simple_equation</a>),</td>
+  <td>intent(in)</td>
+  <td></td>
+  
+  <td></td><td>::</td>
+  <td><strong>this</strong></td><td><p>The equation.</p></td>
+  
+</tr>
+
+  
+  
+  
+  
+<tr>
+  
+  <td><span class="anchor" ></span>class(<a href='../type/field.html'>field</a>),</td>
+  <td>intent(in),</td>
+  <td></td>
+  
+  <td>target</td><td>::</td>
+  <td><strong>inp</strong></td><td><p>Input field.</p></td>
+  
+</tr>
+
+  
+  
+  
+  
+<tr>
+  
+  <td><span class="anchor" ></span>real(kind=R_P),</td>
+  <td>intent(in)</td>
+  <td></td>
+  
+  <td></td><td>::</td>
+  <td><strong>t</strong></td><td><p>Time.</p></td>
+  
+</tr>
+
+</tbody>
+</table>
+
+      
+    
+    
+
+  
+  
+  
+  
+     <h4>Return Value <small>class(<a href='../type/field.html'>field</a>),
+  allocatable</small></h4>
+  <p>Field computed after forcing the residual function.</p>
+    
+    
+    <h4>Description</h4>
+       
+       
+
+
+       
+       <p>Return the field after forcing the equation.</p>
+        
+
+  </div>
+  </div>
+
+    
+    </section>
+    <br>
+    
+
+    
+    <section>
+    <h2>Subroutines</h2>
+    
+    
+  <div class="panel panel-default">
+  <div class="panel-heading codesum"><span class="anchor" id="proc-bc"></span><h3>
+private subroutine <a href='../proc/bc.html'>bc</a>(this, inp, t)
+    
+    
+    
+</h3></div>
+  <div class="panel-body">
+       
+    
+    <h4>Arguments</h4>
+    
+      
+      
+<table class="table table-striped varlist">
+<thead><tr><th>Type</th>
+<th>Intent</th><th>Optional</th>
+<th>Attributes</th><th></th><th>Name</th><th></th></thead>
+
+
+
+<tbody>
+
+  
+  
+  
+  
+<tr>
+  
+  <td><span class="anchor" ></span>class(<a href='../type/scalar_simple_equation.html'>scalar_simple_equation</a>),</td>
+  <td>intent(in)</td>
+  <td></td>
+  
+  <td></td><td>::</td>
+  <td><strong>this</strong></td><td><p>The equation.</p></td>
+  
+</tr>
+
+  
+  
+  
+  
+<tr>
+  
+  <td><span class="anchor" ></span>class(<a href='../type/field.html'>field</a>),</td>
+  <td>intent(inout),</td>
+  <td></td>
+  
+  <td>target</td><td>::</td>
+  <td><strong>inp</strong></td><td><p>Field.</p></td>
+  
+</tr>
+
+  
+  
+  
+  
+<tr>
+  
+  <td><span class="anchor" ></span>real(kind=R_P),</td>
+  <td>intent(in)</td>
+  <td></td>
+  
+  <td></td><td>::</td>
+  <td><strong>t</strong></td><td><p>Time.</p></td>
+  
+</tr>
+
+</tbody>
+</table>
+
+      
+    
+    
+    
+    <h4>Description</h4>
+       
+       
+
+
+       
+       <p>Equation boundary conditions imposition.</p>
+        
+
+  </div>
+  </div>
+
+    
+    
+  <div class="panel panel-default">
+  <div class="panel-heading codesum"><span class="anchor" id="proc-init%7E6"></span><h3>
+private subroutine <a href='../proc/init%7E6.html'>init</a>(this, description, filename, error)
+    
+    
+    
+</h3></div>
+  <div class="panel-body">
+       
+    
+    <h4>Arguments</h4>
+    
+      
+      
+<table class="table table-striped varlist">
+<thead><tr><th>Type</th>
+<th>Intent</th><th>Optional</th>
+<th>Attributes</th><th></th><th>Name</th><th></th></thead>
+
+
+
+<tbody>
+
+  
+  
+  
+  
+<tr>
+  
+  <td><span class="anchor" ></span>class(<a href='../type/scalar_simple_equation.html'>scalar_simple_equation</a>),</td>
+  <td>intent(inout)</td>
+  <td></td>
+  
+  <td></td><td>::</td>
+  <td><strong>this</strong></td><td><p>The equation.</p></td>
+  
+</tr>
+
+  
+  
+  
+  
+<tr>
+  
+  <td><span class="anchor" ></span>character(len=*),</td>
+  <td>intent(in),</td>
+  <td>optional</td>
+  
+  <td></td><td>::</td>
+  <td><strong>description</strong></td><td><p>Equation description.</p></td>
+  
+</tr>
+
+  
+  
+  
+  
+<tr>
+  
+  <td><span class="anchor" ></span>character(len=*),</td>
+  <td>intent(in),</td>
+  <td>optional</td>
+  
+  <td></td><td>::</td>
+  <td><strong>filename</strong></td><td><p>Initialization file name.</p></td>
+  
+</tr>
+
+  
+  
+  
+  
+<tr>
+  
+  <td><span class="anchor" ></span>integer(kind=I_P),</td>
+  <td>intent(out),</td>
+  <td>optional</td>
+  
+  <td></td><td>::</td>
+  <td><strong>error</strong></td><td><p>Error status.</p></td>
+  
+</tr>
+
+</tbody>
+</table>
+
+      
+    
+    
+    
+    <h4>Description</h4>
+       
+       
+
+
+       
+       <p>Initialize equation.</p>
+        
+
+  </div>
+  </div>
+
+    
+    
+  <div class="panel panel-default">
+  <div class="panel-heading codesum"><span class="anchor" id="proc-load_from_json%7E3"></span><h3>
+private subroutine <a href='../proc/load_from_json%7E3.html'>load_from_json</a>(this, filename, error)
+    
+    
+    
+</h3></div>
+  <div class="panel-body">
+       
+    
+    <h4>Arguments</h4>
+    
+      
+      
+<table class="table table-striped varlist">
+<thead><tr><th>Type</th>
+<th>Intent</th><th>Optional</th>
+<th>Attributes</th><th></th><th>Name</th><th></th></thead>
+
+
+
+<tbody>
+
+  
+  
+  
+  
+<tr>
+  
+  <td><span class="anchor" ></span>class(<a href='../type/scalar_simple_equation.html'>scalar_simple_equation</a>),</td>
+  <td>intent(inout)</td>
+  <td></td>
+  
+  <td></td><td>::</td>
+  <td><strong>this</strong></td><td><p>The equation.</p></td>
+  
+</tr>
+
+  
+  
+  
+  
+<tr>
+  
+  <td><span class="anchor" ></span>character(len=*),</td>
+  <td>intent(in)</td>
+  <td></td>
+  
+  <td></td><td>::</td>
+  <td><strong>filename</strong></td><td><p>File name of JSON file.</p></td>
+  
+</tr>
+
+  
+  
+  
+  
+<tr>
+  
+  <td><span class="anchor" ></span>integer(kind=I_P),</td>
+  <td>intent(out),</td>
+  <td>optional</td>
+  
+  <td></td><td>::</td>
+  <td><strong>error</strong></td><td><p>Error status.</p></td>
+  
+</tr>
+
+</tbody>
+</table>
+
+      
+    
+    
+    
+    <h4>Description</h4>
+       
+       
+
+
+       
+       <p>Load mesh definition from JSON file.</p>
+        
+
+  </div>
+  </div>
+
+    
+    </section>    
+    <br>
+    
+    
+    
+    </div>
+  </div>
+
+    <hr>
+    <footer>
+      <div class="row">
+        <div class="col-md-4">&copy; 2016 </div>
+        <div class="col-md-4"><span class="text-center"> openpde was developed by Francesco Salvadore</span></div>
+        <div class="col-md-4">
+          <span class="pull-right">
+            Documentation generated by 
+            <a href="https://github.com/cmacmackin/ford">FORD</a>
+            
+          </span>
+        </div>
+      </div>
+      <br>
+    </footer>
+    </div> <!-- /container -->
+
+
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+<!--
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+-->
+    <script src="../js/bootstrap.min.js"></script>
+    <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+    <script src="../js/ie10-viewport-bug-workaround.js"></script>
+
+    <!-- MathJax JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Config({
+        TeX: { extensions: ['AMSmath.js','AMSsymbols.js','noErrors.js','noUndefined.js'], equationNumbers: { autoNumber: 'AMS' } },
+        jax: ['input/TeX','input/MathML','output/HTML-CSS'],
+        extensions: ['tex2jax.js','mml2jax.js','MathMenu.js','MathZoom.js'],
+        'HTML-CSS': { 
+           styles: { '.MathJax_Display, .MathJax .mo, .MathJax .mi, .MathJax .mn': {color: '#000000 ! important'} }
+        }
+      });
+    </script>
+    <script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+  </body>
+</html>

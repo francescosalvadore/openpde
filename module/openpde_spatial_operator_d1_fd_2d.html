@@ -1,0 +1,894 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+	 
+    <meta name="description" content="Documentation for openpde">
+	 
+    <meta name="author" content="Chris MacMackin" >
+    <link rel="icon" href="../favicon.png">
+
+    <title>openpde_spatial_operator_d1_FD_2D &ndash; openpde</title>
+
+    <link href="../css/bootstrap.min.css" rel="stylesheet">
+    <link href="../css/pygments.css" rel="stylesheet">
+    <link href="../css/font-awesome.min.css" rel="stylesheet">
+    <link href="../css/local.css" rel="stylesheet">
+    
+
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+    
+    <script src="../js/jquery-2.1.3.min.js"></script>
+    <script src="../js/svg-pan-zoom.min.js"></script>
+
+    
+    <script src="../tipuesearch/tipuesearch_content.js"></script>
+    <link  href="../tipuesearch/tipuesearch.css" rel="stylesheet">
+    <script src="../tipuesearch/tipuesearch_set.js"></script>
+    <script src="../tipuesearch/tipuesearch.js"></script>
+    
+
+  </head>
+
+  <body>
+
+    <!-- Fixed navbar -->
+    <nav class="navbar navbar-inverse navbar-fixed-top">
+      <div class="container">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="../index.html">openpde </a>
+        </div>
+        <div id="navbar" class="navbar-collapse collapse">
+          <ul class="nav navbar-nav">
+				
+                
+            <li><a href="../lists/files.html">Source Files</a></li>
+				
+				
+            <li><a href="../lists/modules.html">Modules</a></li>
+				
+				
+            <li><a href="../lists/procedures.html">Procedures</a></li>
+				
+				
+            <li><a href="../lists/absint.html">Abstract Interfaces</a></li>
+								
+            <li><a href="../lists/types.html">Derived Types</a></li>
+				
+				
+            <li><a href="../program/scalar_simple.html">Program</a></li>
+				
+          </ul>
+        
+        <form action="../search.html" class="navbar-form navbar-right" role="search">
+        <div class="form-group">
+          <input type="text" class="form-control" placeholder="Search" name="q" id="tipue_search_input" autocomplete="off" required>
+        </div>
+<!--
+        <button type="submit" class="btn btn-default">Submit</button>
+-->
+        </form>
+        
+        </div><!--/.nav-collapse -->
+      </div>
+    </nav>
+
+    <div class="container">
+    
+  
+  <div class="row">
+    <h1>openpde_spatial_operator_d1_FD_2D 
+    <small>Module</small>
+    
+    </h1>
+	 
+<div class="row">
+<div class="col-lg-12">
+<div class="well well-sm">
+  <ul class="list-inline" style="margin-bottom:0px;display:inline">
+     
+     
+     
+     
+    
+    
+    <li><i class="fa fa-code"></i><a href="../src/openpde_spatial_operator_d1_FD_2D.f90"> Source File</a></li>
+     
+  </ul>
+  <ol class="breadcrumb in-well text-right">
+  
+     <li><a href='../sourcefile/openpde_spatial_operator_d1_fd_2d.f90.html'>openpde_spatial_operator_d1_FD_2D.f90</a></li>
+  
+     <li class="active">openpde_spatial_operator_d1_FD_2D</li>
+  </ol>
+</div>
+</div>
+</div>
+    
+  </div>
+  
+  <div class="row">
+    <div class="col-lg-3">
+    
+<div id="sidebar">
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  <div class="panel panel-primary">
+    <div class="panel-heading text-left"><h3 class="panel-title"><a data-toggle="collapse" href="#types">Derived Types</a></h3></div>
+    <div id="types" class="panel-collapse collapse">
+      <div class="list-group">
+        
+        <a class="list-group-item" href="../module/openpde_spatial_operator_d1_fd_2d.html#type-spatial_operator_d1_fd_2d">spatial_operator_d1_FD_2D</a>
+        
+      </div>
+    </div>
+  </div>
+  
+  
+  
+  <div class="panel panel-primary">
+    <div class="panel-heading text-left"><h3 class="panel-title"><a data-toggle="collapse" href="#funcs">Functions</a></h3></div>
+    <div id="funcs" class="panel-collapse collapse">
+        <div class="list-group">
+          
+          <a class="list-group-item" href="../module/openpde_spatial_operator_d1_fd_2d.html#proc-operate%7E2">operate</a>
+          
+        </div>
+    </div>
+  </div>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  <hr>
+  
+  <div class="panel panel-default">
+    <div class="panel-heading text-left"><h3 class="panel-title"><a data-toggle="collapse" href="#allmods">All Modules</a></h3></div>
+    <div id="allmods" class="panel-collapse collapse">
+        <div class="list-group">
+          
+          <a class="list-group-item" href="../module/openpde.html">openpde</a>
+          
+          <a class="list-group-item" href="../module/openpde_equation_abstract.html">openpde_equation_abstract</a>
+          
+          <a class="list-group-item" href="../module/openpde_field_abstract.html">openpde_field_abstract</a>
+          
+          <a class="list-group-item" href="../module/openpde_field_fd_1d.html">openpde_field_FD_1D</a>
+          
+          <a class="list-group-item" href="../module/openpde_field_fd_2d.html">openpde_field_FD_2D</a>
+          
+          <a class="list-group-item" href="../module/openpde_integrator_abstract.html">openpde_integrator_abstract</a>
+          
+          <a class="list-group-item" href="../module/openpde_integrator_euler_explicit.html">openpde_integrator_euler_explicit</a>
+          
+          <a class="list-group-item" href="../module/openpde_kinds.html">openpde_kinds</a>
+          
+          <a class="list-group-item" href="../module/openpde_mesh_abstract.html">openpde_mesh_abstract</a>
+          
+          <a class="list-group-item" href="../module/openpde_mesh_fd_1d.html">openpde_mesh_FD_1D</a>
+          
+          <a class="list-group-item" href="../module/openpde_mesh_fd_2d.html">openpde_mesh_FD_2D</a>
+          
+          <a class="list-group-item" href="../module/openpde_spatial_operator_abstract.html">openpde_spatial_operator_abstract</a>
+          
+          <a class="list-group-item" href="../module/openpde_spatial_operator_d1_abstract.html">openpde_spatial_operator_d1_abstract</a>
+          
+          <a class="list-group-item" href="../module/openpde_spatial_operator_d1_fd_1d.html">openpde_spatial_operator_d1_FD_1D</a>
+          
+          <a class="list-group-item" href="../module/openpde_spatial_operator_d1_fd_2d.html">openpde_spatial_operator_d1_FD_2D</a>
+          
+          <a class="list-group-item" href="../module/openpde_spatial_operator_d2_abstract.html">openpde_spatial_operator_d2_abstract</a>
+          
+          <a class="list-group-item" href="../module/openpde_spatial_operator_d2_fd_1d.html">openpde_spatial_operator_d2_FD_1D</a>
+          
+          <a class="list-group-item" href="../module/openpde_spatial_operator_d2_fd_2d.html">openpde_spatial_operator_d2_FD_2D</a>
+          
+          <a class="list-group-item" href="../module/scalar_simple_equation_m.html">scalar_simple_equation_m</a>
+          
+        </div>
+    </div>
+  </div>
+  
+</div>
+
+    </div>
+    
+    <div class="col-lg-9" id='text'>
+    
+    
+  
+    <ul class="list-inline">
+      <li><h4>Uses:</h4></li>
+      
+      <li><a href='../module/openpde_field_abstract.html'>openpde_field_abstract</a></li>
+      
+      <li><a href='../module/openpde_spatial_operator_d1_abstract.html'>openpde_spatial_operator_d1_abstract</a></li>
+      
+      <li><a href='../module/openpde_field_fd_2d.html'>openpde_field_FD_2D</a></li>
+      
+      <li><a href='../module/openpde_kinds.html'>openpde_kinds</a></li>
+      
+      <li><a href='../module/openpde_mesh_fd_2d.html'>openpde_mesh_FD_2D</a></li>
+      
+    </ul>
+  
+
+    
+                <div class="depgraph"><?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
+ "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<!-- Generated by graphviz version 2.38.0 (20140413.2041)
+ -->
+<!-- Title: module~~openpde_spatial_operator_d1_fd_2d~~UsesGraph Pages: 1 -->
+<svg id="moduleopenpde_spatial_operator_d1_fd_2dUsesGraph" width="641pt" height="131pt"
+ viewBox="0.00 0.00 641.00 130.52" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<g id="module~~openpde_spatial_operator_d1_fd_2d~~UsesGraph" class="graph" transform="scale(0.577998 0.577998) rotate(0) translate(4 221.821)">
+<title>module~~openpde_spatial_operator_d1_fd_2d~~UsesGraph</title>
+<polygon fill="white" stroke="none" points="-4,4 -4,-221.821 1105,-221.821 1105,4 -4,4"/>
+<!-- module~openpde_spatial_operator_d1_fd_2d -->
+<g id="module~~openpde_spatial_operator_d1_fd_2d~~UsesGraph_node1" class="node"><title>module~openpde_spatial_operator_d1_fd_2d</title>
+<polygon fill="none" stroke="black" points="1101,-125.095 905,-125.095 905,-101.095 1101,-101.095 1101,-125.095"/>
+<text text-anchor="middle" x="1003" y="-110.695" font-family="Helvetica,sans-Serif" font-size="10.50">openpde_spatial_operator_d1_FD_2D</text>
+</g>
+<!-- module~openpde_mesh_fd_2d -->
+<g id="module~~openpde_spatial_operator_d1_fd_2d~~UsesGraph_node2" class="node"><title>module~openpde_mesh_fd_2d</title>
+<g id="a_module~~openpde_spatial_operator_d1_fd_2d~~UsesGraph_node2"><a xlink:href="../module/openpde_mesh_fd_2d.html" xlink:title="openpde_mesh_FD_2D">
+<polygon fill="#337ab7" stroke="#337ab7" points="415,-105.095 288,-105.095 288,-81.0951 415,-81.0951 415,-105.095"/>
+<text text-anchor="middle" x="351.5" y="-90.6951" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">openpde_mesh_FD_2D</text>
+</a>
+</g>
+</g>
+<!-- module~openpde_mesh_fd_2d&#45;&gt;module~openpde_spatial_operator_d1_fd_2d -->
+<g id="module~~openpde_spatial_operator_d1_fd_2d~~UsesGraph_edge16" class="edge"><title>module~openpde_mesh_fd_2d&#45;&gt;module~openpde_spatial_operator_d1_fd_2d</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M401.013,-105.11C439.135,-112.957 493.538,-120.634 541,-114.095"/>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M543,-114.095C643.617,-100.232 667.051,-62.9002 768,-74.0951"/>
+</g>
+<!-- module~openpde_field_fd_2d -->
+<g id="module~~openpde_spatial_operator_d1_fd_2d~~UsesGraph_node6" class="node"><title>module~openpde_field_fd_2d</title>
+<g id="a_module~~openpde_spatial_operator_d1_fd_2d~~UsesGraph_node6"><a xlink:href="../module/openpde_field_fd_2d.html" xlink:title="openpde_field_FD_2D">
+<polygon fill="#337ab7" stroke="#337ab7" points="602,-67.0951 482,-67.0951 482,-43.0951 602,-43.0951 602,-67.0951"/>
+<text text-anchor="middle" x="542" y="-52.6951" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">openpde_field_FD_2D</text>
+</a>
+</g>
+</g>
+<!-- module~openpde_mesh_fd_2d&#45;&gt;module~openpde_field_fd_2d -->
+<g id="module~~openpde_spatial_operator_d1_fd_2d~~UsesGraph_edge11" class="edge"><title>module~openpde_mesh_fd_2d&#45;&gt;module~openpde_field_fd_2d</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M412.143,-81.0717C431.064,-77.2573 452.146,-73.0074 471.687,-69.0681"/>
+<polygon fill="#000000" stroke="#000000" points="472.634,-72.4475 481.745,-67.0403 471.251,-65.5856 472.634,-72.4475"/>
+</g>
+<!-- module~openpde_spatial_operator_d1_abstract -->
+<g id="module~~openpde_spatial_operator_d1_fd_2d~~UsesGraph_node3" class="node"><title>module~openpde_spatial_operator_d1_abstract</title>
+<g id="a_module~~openpde_spatial_operator_d1_fd_2d~~UsesGraph_node3"><a xlink:href="../module/openpde_spatial_operator_d1_abstract.html" xlink:title="openpde_spatial_operator_d1_abstract">
+<polygon fill="#337ab7" stroke="#337ab7" points="869,-165.095 669,-165.095 669,-141.095 869,-141.095 869,-165.095"/>
+<text text-anchor="middle" x="769" y="-150.695" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">openpde_spatial_operator_d1_abstract</text>
+</a>
+</g>
+</g>
+<!-- module~openpde_spatial_operator_d1_abstract&#45;&gt;module~openpde_spatial_operator_d1_fd_2d -->
+<g id="module~~openpde_spatial_operator_d1_fd_2d~~UsesGraph_edge17" class="edge"><title>module~openpde_spatial_operator_d1_abstract&#45;&gt;module~openpde_spatial_operator_d1_fd_2d</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M839.608,-141.094C865.527,-136.625 895.145,-131.518 921.928,-126.901"/>
+<polygon fill="#000000" stroke="#000000" points="922.781,-130.305 932.041,-125.157 921.592,-123.407 922.781,-130.305"/>
+</g>
+<!-- module~openpde_kinds -->
+<g id="module~~openpde_spatial_operator_d1_fd_2d~~UsesGraph_node4" class="node"><title>module~openpde_kinds</title>
+<g id="a_module~~openpde_spatial_operator_d1_fd_2d~~UsesGraph_node4"><a xlink:href="../module/openpde_kinds.html" xlink:title="openpde_kinds">
+<polygon fill="#337ab7" stroke="#337ab7" points="85,-165.095 0,-165.095 0,-141.095 85,-141.095 85,-165.095"/>
+<text text-anchor="middle" x="42.5" y="-150.695" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">openpde_kinds</text>
+</a>
+</g>
+</g>
+<!-- module~openpde_kinds&#45;&gt;module~openpde_spatial_operator_d1_fd_2d -->
+<g id="module~~openpde_spatial_operator_d1_fd_2d~~UsesGraph_edge18" class="edge"><title>module~openpde_kinds&#45;&gt;module~openpde_spatial_operator_d1_fd_2d</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M47.019,-140.951C55.1807,-115.257 78.0574,-55.6561 121,-30.0951 208.835,22.1874 248.494,-8.51473 350.5,-15.0951"/>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M352.5,-15.0951C477.281,-21.6274 510.018,-11.99 633,-34.0951 694.591,-45.1657 705.803,-67.1976 768,-74.0951"/>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M770,-74.0951C825.259,-79.8138 887.292,-90.4655 933.301,-99.1937"/>
+<polygon fill="#000000" stroke="#000000" points="932.681,-102.639 943.161,-101.081 933.998,-95.7633 932.681,-102.639"/>
+</g>
+<!-- module~openpde_kinds&#45;&gt;module~openpde_mesh_fd_2d -->
+<g id="module~~openpde_spatial_operator_d1_fd_2d~~UsesGraph_edge3" class="edge"><title>module~openpde_kinds&#45;&gt;module~openpde_mesh_fd_2d</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M85.0965,-145.632C127.223,-138 194.224,-125.656 252,-114.095 262.764,-111.941 274.172,-109.581 285.262,-107.245"/>
+<polygon fill="#000000" stroke="#000000" points="286.271,-110.609 295.329,-105.113 284.821,-103.761 286.271,-110.609"/>
+</g>
+<!-- module~openpde_field_abstract -->
+<g id="module~~openpde_spatial_operator_d1_fd_2d~~UsesGraph_node5" class="node"><title>module~openpde_field_abstract</title>
+<g id="a_module~~openpde_spatial_operator_d1_fd_2d~~UsesGraph_node5"><a xlink:href="../module/openpde_field_abstract.html" xlink:title="openpde_field_abstract">
+<polygon fill="#337ab7" stroke="#337ab7" points="413.5,-185.095 289.5,-185.095 289.5,-161.095 413.5,-161.095 413.5,-185.095"/>
+<text text-anchor="middle" x="351.5" y="-170.695" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">openpde_field_abstract</text>
+</a>
+</g>
+</g>
+<!-- module~openpde_kinds&#45;&gt;module~openpde_field_abstract -->
+<g id="module~~openpde_spatial_operator_d1_fd_2d~~UsesGraph_edge9" class="edge"><title>module~openpde_kinds&#45;&gt;module~openpde_field_abstract</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M62.7643,-165.125C89.2195,-180.713 138.839,-206.658 185.5,-213.095"/>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M187.5,-213.095C209.966,-216.194 265.379,-200.735 305.364,-188.14"/>
+<polygon fill="#000000" stroke="#000000" points="306.449,-191.468 314.913,-185.095 304.322,-184.799 306.449,-191.468"/>
+</g>
+<!-- module~openpde_kinds&#45;&gt;module~openpde_field_fd_2d -->
+<g id="module~~openpde_spatial_operator_d1_fd_2d~~UsesGraph_edge12" class="edge"><title>module~openpde_kinds&#45;&gt;module~openpde_field_fd_2d</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M352.5,-15.0951C400.308,-18.1792 453.614,-30.3295 491.307,-40.4378"/>
+<polygon fill="#000000" stroke="#000000" points="490.454,-43.833 501.023,-43.0909 492.298,-37.0802 490.454,-43.833"/>
+</g>
+<!-- module~openpde_mesh_abstract -->
+<g id="module~~openpde_spatial_operator_d1_fd_2d~~UsesGraph_node9" class="node"><title>module~openpde_mesh_abstract</title>
+<g id="a_module~~openpde_spatial_operator_d1_fd_2d~~UsesGraph_node9"><a xlink:href="../module/openpde_mesh_abstract.html" xlink:title="openpde_mesh_abstract">
+<polygon fill="#337ab7" stroke="#337ab7" points="252,-185.095 121,-185.095 121,-161.095 252,-161.095 252,-185.095"/>
+<text text-anchor="middle" x="186.5" y="-170.695" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">openpde_mesh_abstract</text>
+</a>
+</g>
+</g>
+<!-- module~openpde_kinds&#45;&gt;module~openpde_mesh_abstract -->
+<g id="module~~openpde_spatial_operator_d1_fd_2d~~UsesGraph_edge1" class="edge"><title>module~openpde_kinds&#45;&gt;module~openpde_mesh_abstract</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M85.3367,-158.988C93.3335,-160.114 101.928,-161.324 110.6,-162.546"/>
+<polygon fill="#000000" stroke="#000000" points="110.394,-166.051 120.785,-163.98 111.371,-159.12 110.394,-166.051"/>
+</g>
+<!-- module~openpde_spatial_operator_abstract -->
+<g id="module~~openpde_spatial_operator_d1_fd_2d~~UsesGraph_node10" class="node"><title>module~openpde_spatial_operator_abstract</title>
+<g id="a_module~~openpde_spatial_operator_d1_fd_2d~~UsesGraph_node10"><a xlink:href="../module/openpde_spatial_operator_abstract.html" xlink:title="openpde_spatial_operator_abstract">
+<polygon fill="#337ab7" stroke="#337ab7" points="633,-185.095 451,-185.095 451,-161.095 633,-161.095 633,-185.095"/>
+<text text-anchor="middle" x="542" y="-170.695" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">openpde_spatial_operator_abstract</text>
+</a>
+</g>
+</g>
+<!-- module~openpde_kinds&#45;&gt;module~openpde_spatial_operator_abstract -->
+<g id="module~~openpde_spatial_operator_d1_fd_2d~~UsesGraph_edge6" class="edge"><title>module~openpde_kinds&#45;&gt;module~openpde_spatial_operator_abstract</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M187.5,-213.095C293.489,-227.716 417.903,-204.234 487.275,-187.521"/>
+<polygon fill="#000000" stroke="#000000" points="488.224,-190.892 497.102,-185.109 486.556,-184.093 488.224,-190.892"/>
+</g>
+<!-- module~openpde_field_abstract&#45;&gt;module~openpde_spatial_operator_d1_fd_2d -->
+<g id="module~~openpde_spatial_operator_d1_fd_2d~~UsesGraph_edge19" class="edge"><title>module~openpde_field_abstract&#45;&gt;module~openpde_spatial_operator_d1_fd_2d</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M380.563,-161.064C416.808,-146.29 482.231,-122.192 541,-114.095"/>
+</g>
+<!-- module~openpde_field_abstract&#45;&gt;module~openpde_field_fd_2d -->
+<g id="module~~openpde_spatial_operator_d1_fd_2d~~UsesGraph_edge15" class="edge"><title>module~openpde_field_abstract&#45;&gt;module~openpde_field_fd_2d</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M390.591,-160.971C399.094,-157.281 407.734,-152.684 415,-147.095 435.856,-131.052 430.713,-116.852 451,-100.095 465.299,-88.284 483.216,-78.5301 499.292,-71.1584"/>
+<polygon fill="#000000" stroke="#000000" points="500.766,-74.3337 508.503,-67.0957 497.941,-67.929 500.766,-74.3337"/>
+</g>
+<!-- module~openpde_field_abstract&#45;&gt;module~openpde_spatial_operator_abstract -->
+<g id="module~~openpde_spatial_operator_d1_fd_2d~~UsesGraph_edge7" class="edge"><title>module~openpde_field_abstract&#45;&gt;module~openpde_spatial_operator_abstract</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M413.701,-173.095C422.292,-173.095 431.304,-173.095 440.394,-173.095"/>
+<polygon fill="#000000" stroke="#000000" points="440.673,-176.595 450.673,-173.095 440.673,-169.595 440.673,-176.595"/>
+</g>
+<!-- module~openpde_field_fd_2d&#45;&gt;module~openpde_spatial_operator_d1_fd_2d -->
+<g id="module~~openpde_spatial_operator_d1_fd_2d~~UsesGraph_edge20" class="edge"><title>module~openpde_field_fd_2d&#45;&gt;module~openpde_spatial_operator_d1_fd_2d</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M602.299,-59.2503C647.716,-62.6391 711.894,-67.8731 768,-74.0951"/>
+</g>
+<!-- vtk_fortran -->
+<g id="module~~openpde_spatial_operator_d1_fd_2d~~UsesGraph_node7" class="node"><title>vtk_fortran</title>
+<polygon fill="#337ab7" stroke="#337ab7" points="218.5,-105.095 154.5,-105.095 154.5,-81.0951 218.5,-81.0951 218.5,-105.095"/>
+<text text-anchor="middle" x="186.5" y="-90.6951" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">vtk_fortran</text>
+</g>
+<!-- vtk_fortran&#45;&gt;module~openpde_mesh_fd_2d -->
+<g id="module~~openpde_spatial_operator_d1_fd_2d~~UsesGraph_edge2" class="edge"><title>vtk_fortran&#45;&gt;module~openpde_mesh_fd_2d</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M218.543,-93.0951C235.371,-93.0951 256.932,-93.0951 277.726,-93.0951"/>
+<polygon fill="#000000" stroke="#000000" points="277.848,-96.5952 287.848,-93.0951 277.848,-89.5952 277.848,-96.5952"/>
+</g>
+<!-- iso_fortran_env -->
+<g id="module~~openpde_spatial_operator_d1_fd_2d~~UsesGraph_node8" class="node"><title>iso_fortran_env</title>
+<g id="a_module~~openpde_spatial_operator_d1_fd_2d~~UsesGraph_node8"><a xlink:href="https://gcc.gnu.org/onlinedocs/gfortran/ISO_005fFORTRAN_005fENV.html" xlink:title="iso_fortran_env">
+<polygon fill="#337ab7" stroke="#337ab7" points="230,-63.0951 143,-63.0951 143,-39.0951 230,-39.0951 230,-63.0951"/>
+<text text-anchor="middle" x="186.5" y="-48.6951" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">iso_fortran_env</text>
+</a>
+</g>
+</g>
+<!-- iso_fortran_env&#45;&gt;module~openpde_mesh_fd_2d -->
+<g id="module~~openpde_spatial_operator_d1_fd_2d~~UsesGraph_edge4" class="edge"><title>iso_fortran_env&#45;&gt;module~openpde_mesh_fd_2d</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M230.326,-62.1301C249.788,-67.1447 273.079,-73.1462 293.954,-78.5248"/>
+<polygon fill="#000000" stroke="#000000" points="293.107,-81.9211 303.665,-81.0271 294.854,-75.1425 293.107,-81.9211"/>
+</g>
+<!-- iso_fortran_env&#45;&gt;module~openpde_field_fd_2d -->
+<g id="module~~openpde_spatial_operator_d1_fd_2d~~UsesGraph_edge13" class="edge"><title>iso_fortran_env&#45;&gt;module~openpde_field_fd_2d</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M230.14,-51.5776C289.999,-52.2549 399.64,-53.4956 471.413,-54.3077"/>
+<polygon fill="#000000" stroke="#000000" points="471.678,-57.8108 481.717,-54.4243 471.757,-50.8113 471.678,-57.8108"/>
+</g>
+<!-- module~openpde_mesh_abstract&#45;&gt;module~openpde_mesh_fd_2d -->
+<g id="module~~openpde_spatial_operator_d1_fd_2d~~UsesGraph_edge5" class="edge"><title>module~openpde_mesh_abstract&#45;&gt;module~openpde_mesh_fd_2d</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M222.477,-161.045C232.291,-157.122 242.791,-152.394 252,-147.095 269.569,-136.986 270.487,-129.301 288,-119.095 294.072,-115.557 300.717,-112.253 307.337,-109.267"/>
+<polygon fill="#000000" stroke="#000000" points="309.146,-112.299 316.947,-105.13 306.378,-105.869 309.146,-112.299"/>
+</g>
+<!-- module~openpde_mesh_abstract&#45;&gt;module~openpde_field_abstract -->
+<g id="module~~openpde_spatial_operator_d1_fd_2d~~UsesGraph_edge10" class="edge"><title>module~openpde_mesh_abstract&#45;&gt;module~openpde_field_abstract</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M252.39,-173.095C261.227,-173.095 270.337,-173.095 279.278,-173.095"/>
+<polygon fill="#000000" stroke="#000000" points="279.279,-176.595 289.279,-173.095 279.278,-169.595 279.279,-176.595"/>
+</g>
+<!-- module~openpde_mesh_abstract&#45;&gt;module~openpde_field_fd_2d -->
+<g id="module~~openpde_spatial_operator_d1_fd_2d~~UsesGraph_edge14" class="edge"><title>module~openpde_mesh_abstract&#45;&gt;module~openpde_field_fd_2d</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M245.894,-161.068C292.387,-150.752 358.763,-134.359 415,-114.095 448.046,-102.188 484.207,-84.7701 509.28,-71.9447"/>
+<polygon fill="#000000" stroke="#000000" points="511.039,-74.9751 518.317,-67.2751 507.826,-68.7562 511.039,-74.9751"/>
+</g>
+<!-- module~openpde_spatial_operator_abstract&#45;&gt;module~openpde_spatial_operator_d1_abstract -->
+<g id="module~~openpde_spatial_operator_d1_fd_2d~~UsesGraph_edge8" class="edge"><title>module~openpde_spatial_operator_abstract&#45;&gt;module~openpde_spatial_operator_d1_abstract</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M633.22,-165.076C641.656,-164.326 650.266,-163.56 658.85,-162.797"/>
+<polygon fill="#000000" stroke="#000000" points="659.252,-166.276 668.902,-161.904 658.632,-159.303 659.252,-166.276"/>
+</g>
+</g>
+</svg>
+</div>
+                <script>var panmoduleopenpde_spatial_operator_d1_fd_2dUsesGraph = svgPanZoom('#moduleopenpde_spatial_operator_d1_fd_2dUsesGraph', {
+                    zoomEnabled: true,
+                    controlIconsEnabled: true,
+                    fit: true,
+                    center: true,});
+                    </script>
+                <div><a type="button" class="graph-help" data-toggle="modal" href="#graph-help-text">Help</a></div>
+                <div class="modal fade" id="graph-help-text" tabindex="-1" role="dialog">
+                  <div class="modal-dialog modal-lg" role="document">
+                    <div class="modal-content">
+                      <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                        <h4 class="modal-title" id="-graph-help-label">Graph Key</h4>
+                      </div>
+                      <div class="modal-body">
+                        
+Nodes of different colours represent the following:
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
+ "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<!-- Generated by graphviz version 2.38.0 (20140413.2041)
+ -->
+<!-- Title: Graph Key Pages: 1 -->
+<svg width="641pt" height="26pt"
+ viewBox="0.00 0.00 641.00 25.98" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<g id="graph0" class="graph" transform="scale(0.811906 0.811906) rotate(0) translate(4 28)">
+<title>Graph Key</title>
+<polygon fill="white" stroke="none" points="-4,4 -4,-28 785.5,-28 785.5,4 -4,4"/>
+<!-- Module -->
+<g id="node1" class="node"><title>Module</title>
+<polygon fill="#337ab7" stroke="#337ab7" points="54,-24 0,-24 0,-0 54,-0 54,-24"/>
+<text text-anchor="middle" x="27" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">Module</text>
+</g>
+<!-- Submodule -->
+<g id="node2" class="node"><title>Submodule</title>
+<polygon fill="#5bc0de" stroke="#5bc0de" points="139.5,-24 72.5,-24 72.5,-0 139.5,-0 139.5,-24"/>
+<text text-anchor="middle" x="106" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">Submodule</text>
+</g>
+<!-- Type -->
+<g id="node3" class="node"><title>Type</title>
+<polygon fill="#5cb85c" stroke="#5cb85c" points="212,-24 158,-24 158,-0 212,-0 212,-24"/>
+<text text-anchor="middle" x="185" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">Type</text>
+</g>
+<!-- Subroutine -->
+<g id="node4" class="node"><title>Subroutine</title>
+<polygon fill="#d9534f" stroke="#d9534f" points="294,-24 230,-24 230,-0 294,-0 294,-24"/>
+<text text-anchor="middle" x="262" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">Subroutine</text>
+</g>
+<!-- Function -->
+<g id="node5" class="node"><title>Function</title>
+<polygon fill="#d94e8f" stroke="#d94e8f" points="366,-24 312,-24 312,-0 366,-0 366,-24"/>
+<text text-anchor="middle" x="339" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">Function</text>
+</g>
+<!-- Interface -->
+<g id="node6" class="node"><title>Interface</title>
+<polygon fill="#a7506f" stroke="#a7506f" points="439.5,-24 384.5,-24 384.5,-0 439.5,-0 439.5,-24"/>
+<text text-anchor="middle" x="412" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">Interface</text>
+</g>
+<!-- Unknown Procedure Type -->
+<g id="node7" class="node"><title>Unknown Procedure Type</title>
+<polygon fill="#777777" stroke="#777777" points="594,-24 458,-24 458,-0 594,-0 594,-24"/>
+<text text-anchor="middle" x="526" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">Unknown Procedure Type</text>
+</g>
+<!-- Program -->
+<g id="node8" class="node"><title>Program</title>
+<polygon fill="#f0ad4e" stroke="#f0ad4e" points="666,-24 612,-24 612,-0 666,-0 666,-24"/>
+<text text-anchor="middle" x="639" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">Program</text>
+</g>
+<!-- This Page&#39;s Entity -->
+<g id="node9" class="node"><title>This Page&#39;s Entity</title>
+<polygon fill="none" stroke="black" points="781.5,-24 684.5,-24 684.5,-0 781.5,-0 781.5,-24"/>
+<text text-anchor="middle" x="733" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50">This Page&#39;s Entity</text>
+</g>
+</g>
+</svg>
+
+Where possible, edges connecting nodes are given different colours to make them
+easier to distinguish in large graphs.
+<h5>Module Graph</h5>
+<p>Solid arrows point from a parent (sub)module to the submodule which is
+descended from it. Dashed arrows point from a module being used to the
+module using it.</p>
+<h5>Type Graph</h5>
+<p>Solid arrows point from one derived type to another which extends
+(inherits from) it. Dashed arrows point from a derived type to another
+type containing it as a components, with a label listing the name(s) of
+said component(s).</p>
+<h5>Call Graph</h5>
+<p>Solid arrows point from a procedure to one which it calls. Dashed 
+arrows point from an interface to procedures which implement that interface.
+This could include the module procedures in a generic interface or the
+implementation in a submodule of an interface in a parent module.</p>
+
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                
+    
+    <p>Concrete class of spatial operator of first derivative for Finite Difference 2D methods.</p>
+    
+    
+    <h3>Used By</h3>
+    
+                <div class="depgraph"><?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
+ "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<!-- Generated by graphviz version 2.38.0 (20140413.2041)
+ -->
+<!-- Title: module~~openpde_spatial_operator_d1_fd_2d~~UsedByGraph Pages: 1 -->
+<svg id="moduleopenpde_spatial_operator_d1_fd_2dUsedByGraph" width="585pt" height="52pt"
+ viewBox="0.00 0.00 585.00 52.00" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<g id="module~~openpde_spatial_operator_d1_fd_2d~~UsedByGraph" class="graph" transform="scale(1 1) rotate(0) translate(4 48)">
+<title>module~~openpde_spatial_operator_d1_fd_2d~~UsedByGraph</title>
+<polygon fill="white" stroke="none" points="-4,4 -4,-48 581,-48 581,4 -4,4"/>
+<!-- module~openpde_spatial_operator_d1_fd_2d -->
+<g id="module~~openpde_spatial_operator_d1_fd_2d~~UsedByGraph_node1" class="node"><title>module~openpde_spatial_operator_d1_fd_2d</title>
+<polygon fill="none" stroke="black" points="196,-24 1.42109e-14,-24 1.42109e-14,-0 196,-0 196,-24"/>
+<text text-anchor="middle" x="98" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50">openpde_spatial_operator_d1_FD_2D</text>
+</g>
+<!-- module~openpde -->
+<g id="module~~openpde_spatial_operator_d1_fd_2d~~UsedByGraph_node2" class="node"><title>module~openpde</title>
+<g id="a_module~~openpde_spatial_operator_d1_fd_2d~~UsedByGraph_node2"><a xlink:href="../module/openpde.html" xlink:title="openpde">
+<polygon fill="#337ab7" stroke="#337ab7" points="287,-24 232,-24 232,-0 287,-0 287,-24"/>
+<text text-anchor="middle" x="259.5" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">openpde</text>
+</a>
+</g>
+</g>
+<!-- module~openpde_spatial_operator_d1_fd_2d&#45;&gt;module~openpde -->
+<g id="module~~openpde_spatial_operator_d1_fd_2d~~UsedByGraph_edge4" class="edge"><title>module~openpde_spatial_operator_d1_fd_2d&#45;&gt;module~openpde</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M196.376,-12C205.295,-12 213.903,-12 221.725,-12"/>
+<polygon fill="#000000" stroke="#000000" points="221.859,-15.5001 231.859,-12 221.859,-8.5001 221.859,-15.5001"/>
+</g>
+<!-- module~scalar_simple_equation_m -->
+<g id="module~~openpde_spatial_operator_d1_fd_2d~~UsedByGraph_node3" class="node"><title>module~scalar_simple_equation_m</title>
+<g id="a_module~~openpde_spatial_operator_d1_fd_2d~~UsedByGraph_node3"><a xlink:href="../module/scalar_simple_equation_m.html" xlink:title="scalar_simple_equation_m">
+<polygon fill="#337ab7" stroke="#337ab7" points="463,-44 323,-44 323,-20 463,-20 463,-44"/>
+<text text-anchor="middle" x="393" y="-29.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">scalar_simple_equation_m</text>
+</a>
+</g>
+</g>
+<!-- module~openpde&#45;&gt;module~scalar_simple_equation_m -->
+<g id="module~~openpde_spatial_operator_d1_fd_2d~~UsedByGraph_edge2" class="edge"><title>module~openpde&#45;&gt;module~scalar_simple_equation_m</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M287.111,-16.0473C294.827,-17.2208 303.673,-18.5663 312.885,-19.9674"/>
+<polygon fill="#000000" stroke="#000000" points="312.576,-23.4605 322.989,-21.504 313.629,-16.5401 312.576,-23.4605"/>
+</g>
+<!-- program~scalar_simple -->
+<g id="module~~openpde_spatial_operator_d1_fd_2d~~UsedByGraph_node4" class="node"><title>program~scalar_simple</title>
+<g id="a_module~~openpde_spatial_operator_d1_fd_2d~~UsedByGraph_node4"><a xlink:href="../program/scalar_simple.html" xlink:title="scalar_simple">
+<polygon fill="#f0ad4e" stroke="#f0ad4e" points="577,-24 499,-24 499,-0 577,-0 577,-24"/>
+<text text-anchor="middle" x="538" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">scalar_simple</text>
+</a>
+</g>
+</g>
+<!-- module~openpde&#45;&gt;program~scalar_simple -->
+<g id="module~~openpde_spatial_operator_d1_fd_2d~~UsedByGraph_edge3" class="edge"><title>module~openpde&#45;&gt;program~scalar_simple</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M287.263,-11.4778C298.325,-11.2864 311.28,-11.0938 323,-11 385.22,-10.5023 400.779,-10.5796 463,-11 471.312,-11.0562 480.149,-11.1478 488.715,-11.2534"/>
+<polygon fill="#000000" stroke="#000000" points="488.93,-14.7564 498.975,-11.3877 489.022,-7.75702 488.93,-14.7564"/>
+</g>
+<!-- module~scalar_simple_equation_m&#45;&gt;program~scalar_simple -->
+<g id="module~~openpde_spatial_operator_d1_fd_2d~~UsedByGraph_edge1" class="edge"><title>module~scalar_simple_equation_m&#45;&gt;program~scalar_simple</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M463.406,-22.2929C472.012,-21.0893 480.658,-19.88 488.846,-18.7349"/>
+<polygon fill="#000000" stroke="#000000" points="489.515,-22.1754 498.934,-17.3239 488.545,-15.2429 489.515,-22.1754"/>
+</g>
+</g>
+</svg>
+</div>
+                <div><a type="button" class="graph-help" data-toggle="modal" href="#graph-help-text">Help</a></div>
+                <div class="modal fade" id="graph-help-text" tabindex="-1" role="dialog">
+                  <div class="modal-dialog modal-lg" role="document">
+                    <div class="modal-content">
+                      <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                        <h4 class="modal-title" id="-graph-help-label">Graph Key</h4>
+                      </div>
+                      <div class="modal-body">
+                        
+Nodes of different colours represent the following:
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
+ "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<!-- Generated by graphviz version 2.38.0 (20140413.2041)
+ -->
+<!-- Title: Graph Key Pages: 1 -->
+<svg width="641pt" height="26pt"
+ viewBox="0.00 0.00 641.00 25.98" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<g id="graph0" class="graph" transform="scale(0.811906 0.811906) rotate(0) translate(4 28)">
+<title>Graph Key</title>
+<polygon fill="white" stroke="none" points="-4,4 -4,-28 785.5,-28 785.5,4 -4,4"/>
+<!-- Module -->
+<g id="node1" class="node"><title>Module</title>
+<polygon fill="#337ab7" stroke="#337ab7" points="54,-24 0,-24 0,-0 54,-0 54,-24"/>
+<text text-anchor="middle" x="27" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">Module</text>
+</g>
+<!-- Submodule -->
+<g id="node2" class="node"><title>Submodule</title>
+<polygon fill="#5bc0de" stroke="#5bc0de" points="139.5,-24 72.5,-24 72.5,-0 139.5,-0 139.5,-24"/>
+<text text-anchor="middle" x="106" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">Submodule</text>
+</g>
+<!-- Type -->
+<g id="node3" class="node"><title>Type</title>
+<polygon fill="#5cb85c" stroke="#5cb85c" points="212,-24 158,-24 158,-0 212,-0 212,-24"/>
+<text text-anchor="middle" x="185" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">Type</text>
+</g>
+<!-- Subroutine -->
+<g id="node4" class="node"><title>Subroutine</title>
+<polygon fill="#d9534f" stroke="#d9534f" points="294,-24 230,-24 230,-0 294,-0 294,-24"/>
+<text text-anchor="middle" x="262" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">Subroutine</text>
+</g>
+<!-- Function -->
+<g id="node5" class="node"><title>Function</title>
+<polygon fill="#d94e8f" stroke="#d94e8f" points="366,-24 312,-24 312,-0 366,-0 366,-24"/>
+<text text-anchor="middle" x="339" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">Function</text>
+</g>
+<!-- Interface -->
+<g id="node6" class="node"><title>Interface</title>
+<polygon fill="#a7506f" stroke="#a7506f" points="439.5,-24 384.5,-24 384.5,-0 439.5,-0 439.5,-24"/>
+<text text-anchor="middle" x="412" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">Interface</text>
+</g>
+<!-- Unknown Procedure Type -->
+<g id="node7" class="node"><title>Unknown Procedure Type</title>
+<polygon fill="#777777" stroke="#777777" points="594,-24 458,-24 458,-0 594,-0 594,-24"/>
+<text text-anchor="middle" x="526" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">Unknown Procedure Type</text>
+</g>
+<!-- Program -->
+<g id="node8" class="node"><title>Program</title>
+<polygon fill="#f0ad4e" stroke="#f0ad4e" points="666,-24 612,-24 612,-0 666,-0 666,-24"/>
+<text text-anchor="middle" x="639" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">Program</text>
+</g>
+<!-- This Page&#39;s Entity -->
+<g id="node9" class="node"><title>This Page&#39;s Entity</title>
+<polygon fill="none" stroke="black" points="781.5,-24 684.5,-24 684.5,-0 781.5,-0 781.5,-24"/>
+<text text-anchor="middle" x="733" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50">This Page&#39;s Entity</text>
+</g>
+</g>
+</svg>
+
+Where possible, edges connecting nodes are given different colours to make them
+easier to distinguish in large graphs.
+<h5>Module Graph</h5>
+<p>Solid arrows point from a parent (sub)module to the submodule which is
+descended from it. Dashed arrows point from a module being used to the
+module using it.</p>
+<h5>Type Graph</h5>
+<p>Solid arrows point from one derived type to another which extends
+(inherits from) it. Dashed arrows point from a derived type to another
+type containing it as a components, with a label listing the name(s) of
+said component(s).</p>
+<h5>Call Graph</h5>
+<p>Solid arrows point from a procedure to one which it calls. Dashed 
+arrows point from an interface to procedures which implement that interface.
+This could include the module procedures in a generic interface or the
+implementation in a submodule of an interface in a parent module.</p>
+
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                
+    <br>
+    
+
+    
+    
+    
+    
+    
+
+    
+    
+    
+    <section>
+     <h2>Derived Types</h2>
+	 
+	   
+<div class="panel panel-default">
+  <div class="panel-heading codesum"><span class="anchor" id="type-spatial_operator_d1_fd_2d"></span><h3>type, public, extends(<a href='../type/spatial_operator_d1.html'>spatial_operator_d1</a>) :: <a href='../type/spatial_operator_d1_fd_2d.html'>spatial_operator_d1_FD_2D</a>
+    
+  </h3></div>
+  <div class="panel-body">
+     
+     
+          
+     
+     <h4>Type-Bound Procedures</h4>
+      <table class="table table-striped varlist">
+      <tbody>
+      
+       <tr><td>procedure, public :: <strong>operate</strong>  </td>
+       <td><p>Operator operation.</p></td></tr>
+      
+       </tbody>
+       </table>
+     
+     
+     <h4>Description</h4>
+       
+       <p>Concrete class of spatial operator of first derivative for Finite Difference 2D methods.</p>
+     
+  </div>
+</div>
+
+     
+    </section>
+	<br>
+    
+    
+     
+    <section>
+    <h2>Functions</h2>
+    
+    
+  <div class="panel panel-default">
+  <div class="panel-heading codesum"><span class="anchor" id="proc-operate%7E2"></span><h3>
+private function <a href='../proc/operate%7E2.html'>operate</a>(this, inp, dir) result(opr)
+    
+    
+    
+</h3></div>
+  <div class="panel-body">
+       
+    
+    <h4>Arguments</h4>
+    
+      
+      
+<table class="table table-striped varlist">
+<thead><tr><th>Type</th>
+<th>Intent</th><th>Optional</th>
+<th>Attributes</th><th></th><th>Name</th><th></th></thead>
+
+
+
+<tbody>
+
+  
+  
+  
+  
+<tr>
+  
+  <td><span class="anchor" ></span>class(<a href='../type/spatial_operator_d1_fd_2d.html'>spatial_operator_d1_FD_2D</a>),</td>
+  <td>intent(in)</td>
+  <td></td>
+  
+  <td></td><td>::</td>
+  <td><strong>this</strong></td><td><p>The operator.</p></td>
+  
+</tr>
+
+  
+  
+  
+  
+<tr>
+  
+  <td><span class="anchor" ></span>class(<a href='../type/field.html'>field</a>),</td>
+  <td>intent(in),</td>
+  <td></td>
+  
+  <td>target</td><td>::</td>
+  <td><strong>inp</strong></td><td><p>Input field.</p></td>
+  
+</tr>
+
+  
+  
+  
+  
+<tr>
+  
+  <td><span class="anchor" ></span>integer(kind=I_P),</td>
+  <td>intent(in),</td>
+  <td>optional</td>
+  
+  <td></td><td>::</td>
+  <td><strong>dir</strong></td><td><p>Direction of operation.</p></td>
+  
+</tr>
+
+</tbody>
+</table>
+
+      
+    
+    
+
+  
+  
+  
+  
+     <h4>Return Value <small>class(<a href='../type/field.html'>field</a>),
+  allocatable,target</small></h4>
+  <p>Field resulting after the operator application.</p>
+    
+    
+    <h4>Description</h4>
+       
+       
+
+
+       
+       <p>Operator operation.</p>
+        
+
+  </div>
+  </div>
+
+    
+    </section>
+    <br>
+    
+
+    
+    
+    
+    </div>
+  </div>
+
+    <hr>
+    <footer>
+      <div class="row">
+        <div class="col-md-4">&copy; 2016 </div>
+        <div class="col-md-4"><span class="text-center"> openpde was developed by Francesco Salvadore</span></div>
+        <div class="col-md-4">
+          <span class="pull-right">
+            Documentation generated by 
+            <a href="https://github.com/cmacmackin/ford">FORD</a>
+            
+          </span>
+        </div>
+      </div>
+      <br>
+    </footer>
+    </div> <!-- /container -->
+
+
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+<!--
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+-->
+    <script src="../js/bootstrap.min.js"></script>
+    <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+    <script src="../js/ie10-viewport-bug-workaround.js"></script>
+
+    <!-- MathJax JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Config({
+        TeX: { extensions: ['AMSmath.js','AMSsymbols.js','noErrors.js','noUndefined.js'], equationNumbers: { autoNumber: 'AMS' } },
+        jax: ['input/TeX','input/MathML','output/HTML-CSS'],
+        extensions: ['tex2jax.js','mml2jax.js','MathMenu.js','MathZoom.js'],
+        'HTML-CSS': { 
+           styles: { '.MathJax_Display, .MathJax .mo, .MathJax .mi, .MathJax .mn': {color: '#000000 ! important'} }
+        }
+      });
+    </script>
+    <script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+  </body>
+</html>

@@ -68,7 +68,7 @@
             <li><a href="../lists/types.html">Derived Types</a></li>
 				
 				
-            <li><a href="../program/burgers.html">Program</a></li>
+            <li><a href="../program/scalar_simple.html">Program</a></li>
 				
           </ul>
         
@@ -104,14 +104,14 @@
      
     
     
-    <li><i class="fa fa-code"></i><a href="../src/opendiff_adt_equation.f90"> Source File</a></li>
+    <li><i class="fa fa-code"></i><a href="../src/openpde_integrator_asbtract.f90"> Source File</a></li>
      
   </ul>
   <ol class="breadcrumb in-well text-right">
   
-     <li><a href='../sourcefile/opendiff_adt_equation.f90.html'>opendiff_adt_equation.f90</a></li>
+     <li><a href='../sourcefile/openpde_integrator_asbtract.f90.html'>openpde_integrator_asbtract.f90</a></li>
   
-     <li><a href='../module/opendiff_adt_equation.html'>opendiff_adt_equation</a></li>
+     <li><a href='../module/openpde_integrator_abstract.html'>openpde_integrator_abstract</a></li>
   
      <li class="active">abstract_init</li>
   </ol>
@@ -165,6 +165,8 @@
           
           <a class="list-group-item" href="../interface/abstract_init%7E2.html">abstract_init</a>
           
+          <a class="list-group-item" href="../interface/abstract_init%7E3.html">abstract_init</a>
+          
           <a class="list-group-item" href="../interface/abstract_integrate.html">abstract_integrate</a>
           
           <a class="list-group-item" href="../interface/abstract_meshinit.html">abstract_meshinit</a>
@@ -191,11 +193,11 @@
 	
     
     <h2>abstract interface</h2>
-    <p>Initialize equation.</p>
+    <p>Initialize integrator.</p>
     
     
     <h2>
-private function abstract_init(this) result(error)
+private subroutine abstract_init(this, description, filename, error)
     
     
     
@@ -224,12 +226,57 @@ private function abstract_init(this) result(error)
   
 <tr>
   
-  <td><span class="anchor" id="variable-this%7E5"></span>class(<a href='../type/equation.html'>equation</a>),</td>
+  <td><span class="anchor" id="variable-this%7E5"></span>class(<a href='../type/integrator.html'>integrator</a>),</td>
   <td>intent(inout)</td>
   <td></td>
   
   <td></td><td>::</td>
-  <td><strong>this</strong></td><td><p>The equation.</p></td>
+  <td><strong>this</strong></td><td><p>The integrator.</p></td>
+  
+</tr>
+
+  
+  
+  
+  
+<tr>
+  
+  <td><span class="anchor" id="variable-description%7E7"></span>character(len=*),</td>
+  <td>intent(in),</td>
+  <td>optional</td>
+  
+  <td></td><td>::</td>
+  <td><strong>description</strong></td><td><p>Integrator description.</p></td>
+  
+</tr>
+
+  
+  
+  
+  
+<tr>
+  
+  <td><span class="anchor" id="variable-filename%7E2"></span>character(len=*),</td>
+  <td>intent(in),</td>
+  <td>optional</td>
+  
+  <td></td><td>::</td>
+  <td><strong>filename</strong></td><td><p>Initialization file name.</p></td>
+  
+</tr>
+
+  
+  
+  
+  
+<tr>
+  
+  <td><span class="anchor" id="variable-error%7E4"></span>integer(kind=I_P),</td>
+  <td>intent(out),</td>
+  <td>optional</td>
+  
+  <td></td><td>::</td>
+  <td><strong>error</strong></td><td><p>Error status.</p></td>
   
 </tr>
 
@@ -239,17 +286,8 @@ private function abstract_init(this) result(error)
     
     
     
-    
-    
-    
-    
-	 <h3>Return Value <span class="anchor" id="variable-error%7E4"></span><small>integer(kind=I_P)
-  </small></h3>
-    <p>Error status.</p>
-    
-    
     <h3>Description</h3>
-    <p>Initialize equation.</p>
+    <p>Initialize integrator.</p>
     
     <br>
 

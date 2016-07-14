@@ -68,7 +68,7 @@
             <li><a href="../lists/types.html">Derived Types</a></li>
 				
 				
-            <li><a href="../program/burgers.html">Program</a></li>
+            <li><a href="../program/scalar_simple.html">Program</a></li>
 				
           </ul>
         
@@ -104,14 +104,14 @@
      
     
     
-    <li><i class="fa fa-code"></i><a href="../src/opendiff_adt_spatial_operator.f90"> Source File</a></li>
+    <li><i class="fa fa-code"></i><a href="../src/openpde_spatial_operator_abstract.f90"> Source File</a></li>
      
   </ul>
   <ol class="breadcrumb in-well text-right">
   
-     <li><a href='../sourcefile/opendiff_adt_spatial_operator.f90.html'>opendiff_adt_spatial_operator.f90</a></li>
+     <li><a href='../sourcefile/openpde_spatial_operator_abstract.f90.html'>openpde_spatial_operator_abstract.f90</a></li>
   
-     <li><a href='../module/opendiff_adt_spatial_operator.html'>opendiff_adt_spatial_operator</a></li>
+     <li><a href='../module/openpde_spatial_operator_abstract.html'>openpde_spatial_operator_abstract</a></li>
   
      <li class="active">abstract_operate</li>
   </ol>
@@ -165,6 +165,8 @@
           
           <a class="list-group-item" href="../interface/abstract_init%7E2.html">abstract_init</a>
           
+          <a class="list-group-item" href="../interface/abstract_init%7E3.html">abstract_init</a>
+          
           <a class="list-group-item" href="../interface/abstract_integrate.html">abstract_integrate</a>
           
           <a class="list-group-item" href="../interface/abstract_meshinit.html">abstract_meshinit</a>
@@ -195,7 +197,7 @@
     
     
     <h2>
-private function abstract_operate(this, inp) result(opr)
+private function abstract_operate(this, inp, dir) result(opr)
     
     
     
@@ -224,7 +226,7 @@ private function abstract_operate(this, inp) result(opr)
   
 <tr>
   
-  <td><span class="anchor" id="variable-this%7E7"></span>class(<a href='../type/spatial_operator.html'>spatial_operator</a>),</td>
+  <td><span class="anchor" id="variable-this%7E4"></span>class(<a href='../type/spatial_operator.html'>spatial_operator</a>),</td>
   <td>intent(in)</td>
   <td></td>
   
@@ -239,12 +241,27 @@ private function abstract_operate(this, inp) result(opr)
   
 <tr>
   
-  <td><span class="anchor" id="variable-inp%7E3"></span>class(<a href='../type/field.html'>field</a>),</td>
+  <td><span class="anchor" id="variable-inp"></span>class(<a href='../type/field.html'>field</a>),</td>
   <td>intent(in),</td>
   <td></td>
   
   <td>target</td><td>::</td>
   <td><strong>inp</strong></td><td><p>Input field.</p></td>
+  
+</tr>
+
+  
+  
+  
+  
+<tr>
+  
+  <td><span class="anchor" id="variable-dir"></span>integer(kind=I_P),</td>
+  <td>intent(in),</td>
+  <td>optional</td>
+  
+  <td></td><td>::</td>
+  <td><strong>dir</strong></td><td><p>Direction of operation.</p></td>
   
 </tr>
 
@@ -258,13 +275,13 @@ private function abstract_operate(this, inp) result(opr)
     
     
     
-	 <h3>Return Value <span class="anchor" id="variable-opr%7E5"></span><small>class(<a href='../type/field.html'>field</a>),
+	 <h3>Return Value <span class="anchor" id="variable-opr%7E4"></span><small>class(<a href='../type/field.html'>field</a>),
   allocatable,target</small></h3>
     <p>Field resulting after the operator application.</p>
     
     
     <h3>Description</h3>
-    <p>Operator operation.</p>
+    <p>Operator function.</p>
     
     <br>
 

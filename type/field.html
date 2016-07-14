@@ -68,7 +68,7 @@
             <li><a href="../lists/types.html">Derived Types</a></li>
 				
 				
-            <li><a href="../program/burgers.html">Program</a></li>
+            <li><a href="../program/scalar_simple.html">Program</a></li>
 				
           </ul>
         
@@ -104,14 +104,14 @@
      
     
     
-    <li><i class="fa fa-code"></i><a href="../src/opendiff_adt_field.f90"> Source File</a></li>
+    <li><i class="fa fa-code"></i><a href="../src/openpde_field_abstract.f90"> Source File</a></li>
      
   </ul>
   <ol class="breadcrumb in-well text-right">
   
-     <li><a href='../sourcefile/opendiff_adt_field.f90.html'>opendiff_adt_field.f90</a></li>
+     <li><a href='../sourcefile/openpde_field_abstract.f90.html'>openpde_field_abstract.f90</a></li>
   
-     <li><a href='../module/opendiff_adt_field.html'>opendiff_adt_field</a></li>
+     <li><a href='../module/openpde_field_abstract.html'>openpde_field_abstract</a></li>
   
      <li class="active">field</li>
   </ol>
@@ -162,25 +162,23 @@
     <div id="boundprocs" class="panel-collapse collapse">
         <div class="list-group">
           
-          <a class="list-group-item" href="../type/field.html#boundprocedure-add%7E2">add</a>
-          
-          <a class="list-group-item" href="../type/field.html#boundprocedure-assign_field%7E2">assign_field</a>
-          
           <a class="list-group-item" href="../type/field.html#boundprocedure-associate_mesh%7E2">associate_mesh</a>
           
           <a class="list-group-item" href="../type/field.html#boundprocedure-init%7E2">init</a>
+          
+          <a class="list-group-item" href="../type/field.html#boundprocedure-output%7E2">output</a>
+          
+          <a class="list-group-item" href="../type/field.html#boundprocedure-add%7E2">add</a>
+          
+          <a class="list-group-item" href="../type/field.html#boundprocedure-assign_field%7E2">assign_field</a>
           
           <a class="list-group-item" href="../type/field.html#boundprocedure-mul%7E2">mul</a>
           
           <a class="list-group-item" href="../type/field.html#boundprocedure-mulreal%7E2">mulreal</a>
           
-          <a class="list-group-item" href="../type/field.html#boundprocedure-output%7E2">output</a>
-          
-          <a class="list-group-item" href="../type/field.html#boundprocedure-sub%7E2">sub</a>
-          
           <a class="list-group-item" href="../type/field.html#boundprocedure-realmul%7E2">realmul</a>
           
-          <a class="list-group-item" href="../type/field.html#boundprocedure-free">free</a>
+          <a class="list-group-item" href="../type/field.html#boundprocedure-sub%7E2">sub</a>
           
           <a class="list-group-item" href="../type/field.html#boundprocedure-operator%28%2B%29">operator(+)</a>
           
@@ -189,6 +187,8 @@
           <a class="list-group-item" href="../type/field.html#boundprocedure-operator%28-%29">operator(-)</a>
           
           <a class="list-group-item" href="../type/field.html#boundprocedure-assignment%28%3D%29">assignment(=)</a>
+          
+          <a class="list-group-item" href="../type/field.html#boundprocedure-free">free</a>
           
         </div>
     </div>
@@ -211,27 +211,39 @@
     <div id="alltypes" class="panel-collapse collapse">
         <div class="list-group">
           
-          <a class="list-group-item" href="../type/burgers_equation.html">burgers_equation</a>
-          
           <a class="list-group-item" href="../type/equation.html">equation</a>
           
           <a class="list-group-item" href="../type/field.html">field</a>
           
-          <a class="list-group-item" href="../type/field_fd_1d.html">field_fd_1d</a>
+          <a class="list-group-item" href="../type/field_fd_1d.html">field_FD_1D</a>
+          
+          <a class="list-group-item" href="../type/field_fd_2d.html">field_FD_2D</a>
           
           <a class="list-group-item" href="../type/integrator.html">integrator</a>
           
-          <a class="list-group-item" href="../type/integrator_euler.html">integrator_euler</a>
+          <a class="list-group-item" href="../type/integrator_euler_explicit.html">integrator_euler_explicit</a>
           
           <a class="list-group-item" href="../type/mesh.html">mesh</a>
           
-          <a class="list-group-item" href="../type/mesh_fd_1d.html">mesh_fd_1d</a>
+          <a class="list-group-item" href="../type/mesh_fd_1d.html">mesh_FD_1D</a>
+          
+          <a class="list-group-item" href="../type/mesh_fd_2d.html">mesh_FD_2D</a>
+          
+          <a class="list-group-item" href="../type/scalar_simple_equation.html">scalar_simple_equation</a>
           
           <a class="list-group-item" href="../type/spatial_operator.html">spatial_operator</a>
           
-          <a class="list-group-item" href="../type/spatial_operator_der1.html">spatial_operator_der1</a>
+          <a class="list-group-item" href="../type/spatial_operator_d1.html">spatial_operator_d1</a>
           
-          <a class="list-group-item" href="../type/spatial_operator_der1_fd_1d.html">spatial_operator_der1_fd_1d</a>
+          <a class="list-group-item" href="../type/spatial_operator_d1_fd_1d.html">spatial_operator_d1_FD_1D</a>
+          
+          <a class="list-group-item" href="../type/spatial_operator_d1_fd_2d.html">spatial_operator_d1_FD_2D</a>
+          
+          <a class="list-group-item" href="../type/spatial_operator_d2.html">spatial_operator_d2</a>
+          
+          <a class="list-group-item" href="../type/spatial_operator_d2_fd_1d.html">spatial_operator_d2_FD_1D</a>
+          
+          <a class="list-group-item" href="../type/spatial_operator_d2_fd_2d.html">spatial_operator_d2_FD_2D</a>
           
         </div>
     </div>
@@ -372,7 +384,7 @@ implementation in a submodule of an interface in a parent module.</p>
                 
     <br><br>
     
-    <p>Abstract class for <em>field</em> handling.</p>
+    <p>Abstract class of field.</p>
     
     
     <h3>Inherited By</h3>
@@ -383,28 +395,41 @@ implementation in a submodule of an interface in a parent module.</p>
 <!-- Generated by graphviz version 2.38.0 (20140413.2041)
  -->
 <!-- Title: type~~field~~InheritedByGraph Pages: 1 -->
-<svg id="typefieldInheritedByGraph" width="163pt" height="32pt"
- viewBox="0.00 0.00 163.00 32.00" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-<g id="type~~field~~InheritedByGraph" class="graph" transform="scale(1 1) rotate(0) translate(4 28)">
+<svg id="typefieldInheritedByGraph" width="170pt" height="74pt"
+ viewBox="0.00 0.00 170.00 74.00" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<g id="type~~field~~InheritedByGraph" class="graph" transform="scale(1 1) rotate(0) translate(4 70)">
 <title>type~~field~~InheritedByGraph</title>
-<polygon fill="white" stroke="none" points="-4,4 -4,-28 159,-28 159,4 -4,4"/>
+<polygon fill="white" stroke="none" points="-4,4 -4,-70 166,-70 166,4 -4,4"/>
 <!-- type~field -->
 <g id="type~~field~~InheritedByGraph_node1" class="node"><title>type~field</title>
-<polygon fill="none" stroke="black" points="54,-24 0,-24 0,-0 54,-0 54,-24"/>
-<text text-anchor="middle" x="27" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50">field</text>
+<polygon fill="none" stroke="black" points="54,-45 0,-45 0,-21 54,-21 54,-45"/>
+<text text-anchor="middle" x="27" y="-30.6" font-family="Helvetica,sans-Serif" font-size="10.50">field</text>
 </g>
 <!-- type~field_fd_1d -->
 <g id="type~~field~~InheritedByGraph_node2" class="node"><title>type~field_fd_1d</title>
-<g id="a_type~~field~~InheritedByGraph_node2"><a xlink:href="../type/field_fd_1d.html" xlink:title="field_fd_1d">
-<polygon fill="#5cb85c" stroke="#5cb85c" points="155,-24 90,-24 90,-0 155,-0 155,-24"/>
-<text text-anchor="middle" x="122.5" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">field_fd_1d</text>
+<g id="a_type~~field~~InheritedByGraph_node2"><a xlink:href="../type/field_fd_1d.html" xlink:title="field_FD_1D">
+<polygon fill="#5cb85c" stroke="#5cb85c" points="162,-66 90,-66 90,-42 162,-42 162,-66"/>
+<text text-anchor="middle" x="126" y="-51.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">field_FD_1D</text>
 </a>
 </g>
 </g>
 <!-- type~field&#45;&gt;type~field_fd_1d -->
 <g id="type~~field~~InheritedByGraph_edge1" class="edge"><title>type~field&#45;&gt;type~field_fd_1d</title>
-<path fill="none" stroke="#000000" d="M54.045,-12C62.0455,-12 71.0599,-12 79.8327,-12"/>
-<polygon fill="#000000" stroke="#000000" points="79.945,-15.5001 89.945,-12 79.9449,-8.5001 79.945,-15.5001"/>
+<path fill="none" stroke="#000000" d="M54.2496,-38.6829C62.2396,-40.4127 71.2583,-42.3652 80.1153,-44.2827"/>
+<polygon fill="#000000" stroke="#000000" points="79.4687,-47.7237 89.9829,-46.419 80.9499,-40.8822 79.4687,-47.7237"/>
+</g>
+<!-- type~field_fd_2d -->
+<g id="type~~field~~InheritedByGraph_node3" class="node"><title>type~field_fd_2d</title>
+<g id="a_type~~field~~InheritedByGraph_node3"><a xlink:href="../type/field_fd_2d.html" xlink:title="field_FD_2D">
+<polygon fill="#5cb85c" stroke="#5cb85c" points="162,-24 90,-24 90,-0 162,-0 162,-24"/>
+<text text-anchor="middle" x="126" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">field_FD_2D</text>
+</a>
+</g>
+</g>
+<!-- type~field&#45;&gt;type~field_fd_2d -->
+<g id="type~~field~~InheritedByGraph_edge2" class="edge"><title>type~field&#45;&gt;type~field_fd_2d</title>
+<path fill="none" stroke="#000000" d="M54.2496,-27.3171C62.2396,-25.5873 71.2583,-23.6348 80.1153,-21.7173"/>
+<polygon fill="#000000" stroke="#000000" points="80.9499,-25.1178 89.9829,-19.581 79.4687,-18.2763 80.9499,-25.1178"/>
 </g>
 </g>
 </svg>
@@ -560,7 +585,7 @@ implementation in a submodule of an interface in a parent module.</p>
     
 	   
 <div class="panel panel-default">
-  <div class="panel-heading codesum"><span class="anchor" id="boundprocedure-add%7E2"></span><h3>procedure(<a href='../interface/abstract_simmetric_operator.html'>abstract_simmetric_operator</a>), private, deferred :: <strong>add</strong>  
+  <div class="panel-heading codesum"><span class="anchor" id="boundprocedure-associate_mesh%7E2"></span><h3>procedure(<a href='../interface/abstract_associate_mesh.html'>abstract_associate_mesh</a>), public, deferred, pass(this) :: <strong>associate_mesh</strong>  
     
   </h3></div>
   
@@ -568,7 +593,7 @@ implementation in a submodule of an interface in a parent module.</p>
     
 
 
-    <p>Add fields.</p>
+    <p>Associate mesh.</p>
   </div>
   
   <ul class="list-group">
@@ -579,204 +604,7 @@ implementation in a submodule of an interface in a parent module.</p>
             
     
     <h3>
-function <a href='../interface/abstract_simmetric_operator.html'>abstract_simmetric_operator</a>(lhs, rhs) result(opr)
-    
-    
-    
-<small>Prototype</small></h3>
-    
-    <h4>Arguments</h4>
-    
-      
-      
-<table class="table table-striped varlist">
-<thead><tr><th>Type</th>
-<th>Intent</th><th>Optional</th>
-<th>Attributes</th><th></th><th>Name</th><th></th></thead>
-
-
-
-<tbody>
-
-  
-  
-  
-  
-<tr>
-  
-  <td><span class="anchor" ></span>class(<a href='../type/field.html'>field</a>),</td>
-  <td>intent(in)</td>
-  <td></td>
-  
-  <td></td><td>::</td>
-  <td><strong>lhs</strong></td><td><p>Left hand side.</p></td>
-  
-</tr>
-
-  
-  
-  
-  
-<tr>
-  
-  <td><span class="anchor" ></span>class(<a href='../type/field.html'>field</a>),</td>
-  <td>intent(in),</td>
-  <td></td>
-  
-  <td>target</td><td>::</td>
-  <td><strong>rhs</strong></td><td><p>Right hand side.</p></td>
-  
-</tr>
-
-</tbody>
-</table>
-
-      
-    
-    
-
-  
-  
-  
-  
-     <h4>Return Value <small>class(<a href='../type/field.html'>field</a>),
-  allocatable</small></h4>
-  <p>Operator result.</p>
-    
-    
-    <h4>Description</h4>
-       
-       
-
-
-       
-       <p>Symmetric operator field.op.field.</p>
-        
-
-         
-      
-      </li>
-    
-  </ul>
-</div>
-
-    
-	   
-<div class="panel panel-default">
-  <div class="panel-heading codesum"><span class="anchor" id="boundprocedure-assign_field%7E2"></span><h3>procedure(<a href='../interface/abstract_assign.html'>abstract_assign</a>), private, deferred :: <strong>assign_field</strong>  
-    
-  </h3></div>
-  
-  <div class="panel-body">
-    
-
-
-    <p>Assign fields.</p>
-  </div>
-  
-  <ul class="list-group">
-    
-      <li class="list-group-item">
-      
-         
-            
-    
-    <h3>
-subroutine <a href='../interface/abstract_assign.html'>abstract_assign</a>(lhs, rhs)
-    
-    
-    
-<small>Prototype</small></h3>
-    
-    <h4>Arguments</h4>
-    
-      
-      
-<table class="table table-striped varlist">
-<thead><tr><th>Type</th>
-<th>Intent</th><th>Optional</th>
-<th>Attributes</th><th></th><th>Name</th><th></th></thead>
-
-
-
-<tbody>
-
-  
-  
-  
-  
-<tr>
-  
-  <td><span class="anchor" ></span>class(<a href='../type/field.html'>field</a>),</td>
-  <td>intent(inout)</td>
-  <td></td>
-  
-  <td></td><td>::</td>
-  <td><strong>lhs</strong></td><td><p>Left hand side.</p></td>
-  
-</tr>
-
-  
-  
-  
-  
-<tr>
-  
-  <td><span class="anchor" ></span>class(<a href='../type/field.html'>field</a>),</td>
-  <td>intent(in),</td>
-  <td></td>
-  
-  <td>target</td><td>::</td>
-  <td><strong>rhs</strong></td><td><p>Right hand side.</p></td>
-  
-</tr>
-
-</tbody>
-</table>
-
-      
-    
-    
-    
-    <h4>Description</h4>
-       
-       
-
-
-       
-       <p>Assignment overloading.</p>
-        
-
-         
-      
-      </li>
-    
-  </ul>
-</div>
-
-    
-	   
-<div class="panel panel-default">
-  <div class="panel-heading codesum"><span class="anchor" id="boundprocedure-associate_mesh%7E2"></span><h3>procedure(<a href='../interface/abstract_associate_mesh.html'>abstract_associate_mesh</a>), private, deferred :: <strong>associate_mesh</strong>  
-    
-  </h3></div>
-  
-  <div class="panel-body">
-    
-
-
-    <p>Associate field to a mesh.</p>
-  </div>
-  
-  <ul class="list-group">
-    
-      <li class="list-group-item">
-      
-         
-            
-    
-    <h3>
-subroutine <a href='../interface/abstract_associate_mesh.html'>abstract_associate_mesh</a>(this, fieldmesh, error)
+subroutine <a href='../interface/abstract_associate_mesh.html'>abstract_associate_mesh</a>(this, field_mesh, error)
     
     
     
@@ -821,7 +649,7 @@ subroutine <a href='../interface/abstract_associate_mesh.html'>abstract_associat
   <td></td>
   
   <td>target</td><td>::</td>
-  <td><strong>fieldmesh</strong></td><td><p>The mesh.</p></td>
+  <td><strong>field_mesh</strong></td><td><p>The mesh.</p></td>
   
 </tr>
 
@@ -866,7 +694,7 @@ subroutine <a href='../interface/abstract_associate_mesh.html'>abstract_associat
     
 	   
 <div class="panel panel-default">
-  <div class="panel-heading codesum"><span class="anchor" id="boundprocedure-init%7E2"></span><h3>procedure(<a href='../interface/abstract_init.html'>abstract_init</a>), public, deferred :: <strong>init</strong>  
+  <div class="panel-heading codesum"><span class="anchor" id="boundprocedure-init%7E2"></span><h3>procedure(<a href='../interface/abstract_init.html'>abstract_init</a>), public, deferred, pass(this) :: <strong>init</strong>  
     
   </h3></div>
   
@@ -885,7 +713,7 @@ subroutine <a href='../interface/abstract_associate_mesh.html'>abstract_associat
             
     
     <h3>
-subroutine <a href='../interface/abstract_init.html'>abstract_init</a>(this, fieldmesh, description, error)
+subroutine <a href='../interface/abstract_init.html'>abstract_init</a>(this, field_mesh, description, error)
     
     
     
@@ -930,7 +758,7 @@ subroutine <a href='../interface/abstract_init.html'>abstract_init</a>(this, fie
   <td></td>
   
   <td>target</td><td>::</td>
-  <td><strong>fieldmesh</strong></td><td><p>The mesh.</p></td>
+  <td><strong>field_mesh</strong></td><td><p>The mesh.</p></td>
   
 </tr>
 
@@ -990,213 +818,7 @@ subroutine <a href='../interface/abstract_init.html'>abstract_init</a>(this, fie
     
 	   
 <div class="panel panel-default">
-  <div class="panel-heading codesum"><span class="anchor" id="boundprocedure-mul%7E2"></span><h3>procedure(<a href='../interface/abstract_simmetric_operator.html'>abstract_simmetric_operator</a>), private, deferred :: <strong>mul</strong>  
-    
-  </h3></div>
-  
-  <div class="panel-body">
-    
-
-
-    <p>Multiply fields.</p>
-  </div>
-  
-  <ul class="list-group">
-    
-      <li class="list-group-item">
-      
-         
-            
-    
-    <h3>
-function <a href='../interface/abstract_simmetric_operator.html'>abstract_simmetric_operator</a>(lhs, rhs) result(opr)
-    
-    
-    
-<small>Prototype</small></h3>
-    
-    <h4>Arguments</h4>
-    
-      
-      
-<table class="table table-striped varlist">
-<thead><tr><th>Type</th>
-<th>Intent</th><th>Optional</th>
-<th>Attributes</th><th></th><th>Name</th><th></th></thead>
-
-
-
-<tbody>
-
-  
-  
-  
-  
-<tr>
-  
-  <td><span class="anchor" ></span>class(<a href='../type/field.html'>field</a>),</td>
-  <td>intent(in)</td>
-  <td></td>
-  
-  <td></td><td>::</td>
-  <td><strong>lhs</strong></td><td><p>Left hand side.</p></td>
-  
-</tr>
-
-  
-  
-  
-  
-<tr>
-  
-  <td><span class="anchor" ></span>class(<a href='../type/field.html'>field</a>),</td>
-  <td>intent(in),</td>
-  <td></td>
-  
-  <td>target</td><td>::</td>
-  <td><strong>rhs</strong></td><td><p>Right hand side.</p></td>
-  
-</tr>
-
-</tbody>
-</table>
-
-      
-    
-    
-
-  
-  
-  
-  
-     <h4>Return Value <small>class(<a href='../type/field.html'>field</a>),
-  allocatable</small></h4>
-  <p>Operator result.</p>
-    
-    
-    <h4>Description</h4>
-       
-       
-
-
-       
-       <p>Symmetric operator field.op.field.</p>
-        
-
-         
-      
-      </li>
-    
-  </ul>
-</div>
-
-    
-	   
-<div class="panel panel-default">
-  <div class="panel-heading codesum"><span class="anchor" id="boundprocedure-mulreal%7E2"></span><h3>procedure(<a href='../interface/abstract_field_op_real.html'>abstract_field_op_real</a>), private, deferred :: <strong>mulreal</strong>  
-    
-  </h3></div>
-  
-  <div class="panel-body">
-    
-
-
-    <p>Multiply field for real.</p>
-  </div>
-  
-  <ul class="list-group">
-    
-      <li class="list-group-item">
-      
-         
-            
-    
-    <h3>
-function <a href='../interface/abstract_field_op_real.html'>abstract_field_op_real</a>(lhs, rhs) result(opr)
-    
-    
-    
-<small>Prototype</small></h3>
-    
-    <h4>Arguments</h4>
-    
-      
-      
-<table class="table table-striped varlist">
-<thead><tr><th>Type</th>
-<th>Intent</th><th>Optional</th>
-<th>Attributes</th><th></th><th>Name</th><th></th></thead>
-
-
-
-<tbody>
-
-  
-  
-  
-  
-<tr>
-  
-  <td><span class="anchor" ></span>class(<a href='../type/field.html'>field</a>),</td>
-  <td>intent(in)</td>
-  <td></td>
-  
-  <td></td><td>::</td>
-  <td><strong>lhs</strong></td><td><p>Left hand side.</p></td>
-  
-</tr>
-
-  
-  
-  
-  
-<tr>
-  
-  <td><span class="anchor" ></span>real(kind=R_P),</td>
-  <td>intent(in)</td>
-  <td></td>
-  
-  <td></td><td>::</td>
-  <td><strong>rhs</strong></td><td><p>Right hand side.</p></td>
-  
-</tr>
-
-</tbody>
-</table>
-
-      
-    
-    
-
-  
-  
-  
-  
-     <h4>Return Value <small>class(<a href='../type/field.html'>field</a>),
-  allocatable</small></h4>
-  <p>Operator result.</p>
-    
-    
-    <h4>Description</h4>
-       
-       
-
-
-       
-       <p>Non symmetric operator field.op.real.</p>
-        
-
-         
-      
-      </li>
-    
-  </ul>
-</div>
-
-    
-	   
-<div class="panel panel-default">
-  <div class="panel-heading codesum"><span class="anchor" id="boundprocedure-output%7E2"></span><h3>procedure(<a href='../interface/abstract_output.html'>abstract_output</a>), public, deferred :: <strong>output</strong>  
+  <div class="panel-heading codesum"><span class="anchor" id="boundprocedure-output%7E2"></span><h3>procedure(<a href='../interface/abstract_output.html'>abstract_output</a>), public, deferred, pass(this) :: <strong>output</strong>  
     
   </h3></div>
   
@@ -1305,7 +927,7 @@ subroutine <a href='../interface/abstract_output.html'>abstract_output</a>(this,
     
 	   
 <div class="panel panel-default">
-  <div class="panel-heading codesum"><span class="anchor" id="boundprocedure-sub%7E2"></span><h3>procedure(<a href='../interface/abstract_simmetric_operator.html'>abstract_simmetric_operator</a>), private, deferred :: <strong>sub</strong>  
+  <div class="panel-heading codesum"><span class="anchor" id="boundprocedure-add%7E2"></span><h3>procedure(<a href='../interface/abstract_simmetric_operator.html'>abstract_simmetric_operator</a>), private, deferred, pass(lhs) :: <strong>add</strong>  
     
   </h3></div>
   
@@ -1313,7 +935,7 @@ subroutine <a href='../interface/abstract_output.html'>abstract_output</a>(this,
     
 
 
-    <p>Subtract fields.</p>
+    <p>Add fields.</p>
   </div>
   
   <ul class="list-group">
@@ -1396,6 +1018,306 @@ function <a href='../interface/abstract_simmetric_operator.html'>abstract_simmet
 
        
        <p>Symmetric operator field.op.field.</p>
+        
+
+         
+      
+      </li>
+    
+  </ul>
+</div>
+
+    
+	   
+<div class="panel panel-default">
+  <div class="panel-heading codesum"><span class="anchor" id="boundprocedure-assign_field%7E2"></span><h3>procedure(<a href='../interface/abstract_assign.html'>abstract_assign</a>), private, deferred, pass(lhs) :: <strong>assign_field</strong>  
+    
+  </h3></div>
+  
+  <div class="panel-body">
+    
+
+
+    <p>Assign fields.</p>
+  </div>
+  
+  <ul class="list-group">
+    
+      <li class="list-group-item">
+      
+         
+            
+    
+    <h3>
+subroutine <a href='../interface/abstract_assign.html'>abstract_assign</a>(lhs, rhs)
+    
+    
+    
+<small>Prototype</small></h3>
+    
+    <h4>Arguments</h4>
+    
+      
+      
+<table class="table table-striped varlist">
+<thead><tr><th>Type</th>
+<th>Intent</th><th>Optional</th>
+<th>Attributes</th><th></th><th>Name</th><th></th></thead>
+
+
+
+<tbody>
+
+  
+  
+  
+  
+<tr>
+  
+  <td><span class="anchor" ></span>class(<a href='../type/field.html'>field</a>),</td>
+  <td>intent(inout)</td>
+  <td></td>
+  
+  <td></td><td>::</td>
+  <td><strong>lhs</strong></td><td><p>Left hand side.</p></td>
+  
+</tr>
+
+  
+  
+  
+  
+<tr>
+  
+  <td><span class="anchor" ></span>class(<a href='../type/field.html'>field</a>),</td>
+  <td>intent(in),</td>
+  <td></td>
+  
+  <td>target</td><td>::</td>
+  <td><strong>rhs</strong></td><td><p>Right hand side.</p></td>
+  
+</tr>
+
+</tbody>
+</table>
+
+      
+    
+    
+    
+    <h4>Description</h4>
+       
+       
+
+
+       
+       <p>Assignment overloading.</p>
+        
+
+         
+      
+      </li>
+    
+  </ul>
+</div>
+
+    
+	   
+<div class="panel panel-default">
+  <div class="panel-heading codesum"><span class="anchor" id="boundprocedure-mul%7E2"></span><h3>procedure(<a href='../interface/abstract_simmetric_operator.html'>abstract_simmetric_operator</a>), private, deferred, pass(lhs) :: <strong>mul</strong>  
+    
+  </h3></div>
+  
+  <div class="panel-body">
+    
+
+
+    <p>Multiply fields.</p>
+  </div>
+  
+  <ul class="list-group">
+    
+      <li class="list-group-item">
+      
+         
+            
+    
+    <h3>
+function <a href='../interface/abstract_simmetric_operator.html'>abstract_simmetric_operator</a>(lhs, rhs) result(opr)
+    
+    
+    
+<small>Prototype</small></h3>
+    
+    <h4>Arguments</h4>
+    
+      
+      
+<table class="table table-striped varlist">
+<thead><tr><th>Type</th>
+<th>Intent</th><th>Optional</th>
+<th>Attributes</th><th></th><th>Name</th><th></th></thead>
+
+
+
+<tbody>
+
+  
+  
+  
+  
+<tr>
+  
+  <td><span class="anchor" ></span>class(<a href='../type/field.html'>field</a>),</td>
+  <td>intent(in)</td>
+  <td></td>
+  
+  <td></td><td>::</td>
+  <td><strong>lhs</strong></td><td><p>Left hand side.</p></td>
+  
+</tr>
+
+  
+  
+  
+  
+<tr>
+  
+  <td><span class="anchor" ></span>class(<a href='../type/field.html'>field</a>),</td>
+  <td>intent(in),</td>
+  <td></td>
+  
+  <td>target</td><td>::</td>
+  <td><strong>rhs</strong></td><td><p>Right hand side.</p></td>
+  
+</tr>
+
+</tbody>
+</table>
+
+      
+    
+    
+
+  
+  
+  
+  
+     <h4>Return Value <small>class(<a href='../type/field.html'>field</a>),
+  allocatable</small></h4>
+  <p>Operator result.</p>
+    
+    
+    <h4>Description</h4>
+       
+       
+
+
+       
+       <p>Symmetric operator field.op.field.</p>
+        
+
+         
+      
+      </li>
+    
+  </ul>
+</div>
+
+    
+	   
+<div class="panel panel-default">
+  <div class="panel-heading codesum"><span class="anchor" id="boundprocedure-mulreal%7E2"></span><h3>procedure(<a href='../interface/abstract_field_op_real.html'>abstract_field_op_real</a>), private, deferred, pass(lhs) :: <strong>mulreal</strong>  
+    
+  </h3></div>
+  
+  <div class="panel-body">
+    
+
+
+    <p>Multiply field for real.</p>
+  </div>
+  
+  <ul class="list-group">
+    
+      <li class="list-group-item">
+      
+         
+            
+    
+    <h3>
+function <a href='../interface/abstract_field_op_real.html'>abstract_field_op_real</a>(lhs, rhs) result(opr)
+    
+    
+    
+<small>Prototype</small></h3>
+    
+    <h4>Arguments</h4>
+    
+      
+      
+<table class="table table-striped varlist">
+<thead><tr><th>Type</th>
+<th>Intent</th><th>Optional</th>
+<th>Attributes</th><th></th><th>Name</th><th></th></thead>
+
+
+
+<tbody>
+
+  
+  
+  
+  
+<tr>
+  
+  <td><span class="anchor" ></span>class(<a href='../type/field.html'>field</a>),</td>
+  <td>intent(in)</td>
+  <td></td>
+  
+  <td></td><td>::</td>
+  <td><strong>lhs</strong></td><td><p>Left hand side.</p></td>
+  
+</tr>
+
+  
+  
+  
+  
+<tr>
+  
+  <td><span class="anchor" ></span>real(kind=R_P),</td>
+  <td>intent(in)</td>
+  <td></td>
+  
+  <td></td><td>::</td>
+  <td><strong>rhs</strong></td><td><p>Right hand side.</p></td>
+  
+</tr>
+
+</tbody>
+</table>
+
+      
+    
+    
+
+  
+  
+  
+  
+     <h4>Return Value <small>class(<a href='../type/field.html'>field</a>),
+  allocatable</small></h4>
+  <p>Operator result.</p>
+    
+    
+    <h4>Description</h4>
+       
+       
+
+
+       
+       <p>Non symmetric operator field.op.real.</p>
         
 
          
@@ -1511,7 +1433,7 @@ function <a href='../interface/abstract_real_op_field.html'>abstract_real_op_fie
     
 	   
 <div class="panel panel-default">
-  <div class="panel-heading codesum"><span class="anchor" id="boundprocedure-free"></span><h3>procedure, public :: <strong>free</strong>  
+  <div class="panel-heading codesum"><span class="anchor" id="boundprocedure-sub%7E2"></span><h3>procedure(<a href='../interface/abstract_simmetric_operator.html'>abstract_simmetric_operator</a>), private, deferred, pass(lhs) :: <strong>sub</strong>  
     
   </h3></div>
   
@@ -1519,7 +1441,7 @@ function <a href='../interface/abstract_real_op_field.html'>abstract_real_op_fie
     
 
 
-    <p>Free dynamic memory.</p>
+    <p>Subtract fields.</p>
   </div>
   
   <ul class="list-group">
@@ -1527,13 +1449,14 @@ function <a href='../interface/abstract_real_op_field.html'>abstract_real_op_fie
       <li class="list-group-item">
       
          
+            
     
     <h3>
-private elemental subroutine <a href='../proc/free%7E2.html'>free</a>(this)
+function <a href='../interface/abstract_simmetric_operator.html'>abstract_simmetric_operator</a>(lhs, rhs) result(opr)
     
     
     
-</h3>
+<small>Prototype</small></h3>
     
     <h4>Arguments</h4>
     
@@ -1555,11 +1478,26 @@ private elemental subroutine <a href='../proc/free%7E2.html'>free</a>(this)
 <tr>
   
   <td><span class="anchor" ></span>class(<a href='../type/field.html'>field</a>),</td>
-  <td>intent(inout)</td>
+  <td>intent(in)</td>
   <td></td>
   
   <td></td><td>::</td>
-  <td><strong>this</strong></td><td><p>The mesh.</p></td>
+  <td><strong>lhs</strong></td><td><p>Left hand side.</p></td>
+  
+</tr>
+
+  
+  
+  
+  
+<tr>
+  
+  <td><span class="anchor" ></span>class(<a href='../type/field.html'>field</a>),</td>
+  <td>intent(in),</td>
+  <td></td>
+  
+  <td>target</td><td>::</td>
+  <td><strong>rhs</strong></td><td><p>Right hand side.</p></td>
   
 </tr>
 
@@ -1569,6 +1507,15 @@ private elemental subroutine <a href='../proc/free%7E2.html'>free</a>(this)
       
     
     
+
+  
+  
+  
+  
+     <h4>Return Value <small>class(<a href='../type/field.html'>field</a>),
+  allocatable</small></h4>
+  <p>Operator result.</p>
+    
     
     <h4>Description</h4>
        
@@ -1576,9 +1523,10 @@ private elemental subroutine <a href='../proc/free%7E2.html'>free</a>(this)
 
 
        
-       <p>Free dynamic memory.</p>
+       <p>Symmetric operator field.op.field.</p>
         
 
+         
       
       </li>
     
@@ -2169,6 +2117,83 @@ subroutine <a href='../interface/abstract_assign.html'>abstract_assign</a>(lhs, 
 </div>
 
     
+	   
+<div class="panel panel-default">
+  <div class="panel-heading codesum"><span class="anchor" id="boundprocedure-free"></span><h3>procedure, public, pass(this) :: <strong>free</strong>  
+    
+  </h3></div>
+  
+  <div class="panel-body">
+    
+
+
+    <p>Free dynamic memory.</p>
+  </div>
+  
+  <ul class="list-group">
+    
+      <li class="list-group-item">
+      
+         
+    
+    <h3>
+private elemental subroutine <a href='../proc/free%7E2.html'>free</a>(this)
+    
+    
+    
+</h3>
+    
+    <h4>Arguments</h4>
+    
+      
+      
+<table class="table table-striped varlist">
+<thead><tr><th>Type</th>
+<th>Intent</th><th>Optional</th>
+<th>Attributes</th><th></th><th>Name</th><th></th></thead>
+
+
+
+<tbody>
+
+  
+  
+  
+  
+<tr>
+  
+  <td><span class="anchor" ></span>class(<a href='../type/field.html'>field</a>),</td>
+  <td>intent(inout)</td>
+  <td></td>
+  
+  <td></td><td>::</td>
+  <td><strong>this</strong></td><td><p>The field.</p></td>
+  
+</tr>
+
+</tbody>
+</table>
+
+      
+    
+    
+    
+    <h4>Description</h4>
+       
+       
+
+
+       
+       <p>Free dynamic memory.</p>
+        
+
+      
+      </li>
+    
+  </ul>
+</div>
+
+    
     </section>
     
     
@@ -2176,28 +2201,28 @@ subroutine <a href='../interface/abstract_assign.html'>abstract_assign</a>(lhs, 
     <section>
     <h2><span class="anchor" id="src"></span>Source Code</h2>
     <div class="highlight"><pre><span></span>    <span class="k">type</span><span class="p">,</span> <span class="k">abstract</span> <span class="kd">::</span> <span class="n">field</span>
-        <span class="c">!&lt; Abstract class for *field* handling.</span>
+        <span class="c">!&lt; Abstract class of field.</span>
         <span class="kt">character</span><span class="p">(</span><span class="nb">len</span><span class="o">=</span><span class="p">:),</span> <span class="k">allocatable</span> <span class="kd">::</span> <span class="n">description</span> <span class="c">!&lt; Field description.</span>
         <span class="k">class</span><span class="p">(</span><span class="n">mesh</span><span class="p">),</span> <span class="k">pointer</span>          <span class="kd">::</span> <span class="n">m</span> <span class="o">=&gt;</span> <span class="nb">null</span><span class="p">()</span> <span class="c">!&lt; Pointer to the mesh of the field.</span>
         <span class="k">contains</span>
-            <span class="c">! deferred methods</span>
-            <span class="k">procedure</span><span class="p">(</span><span class="n">abstract_simmetric_operator</span><span class="p">),</span>       <span class="k">private</span><span class="p">,</span> <span class="k">deferred</span> <span class="kd">::</span> <span class="n">add</span>            <span class="c">!&lt; Add fields.</span>
-            <span class="k">procedure</span><span class="p">(</span><span class="n">abstract_assign</span><span class="p">),</span>                   <span class="k">private</span><span class="p">,</span> <span class="k">deferred</span> <span class="kd">::</span> <span class="n">assign_field</span>   <span class="c">!&lt; Assign fields.</span>
-            <span class="k">procedure</span><span class="p">(</span><span class="n">abstract_associate_mesh</span><span class="p">),</span>           <span class="k">private</span><span class="p">,</span> <span class="k">deferred</span> <span class="kd">::</span> <span class="n">associate_mesh</span> <span class="c">!&lt; Associate field to a mesh.</span>
-            <span class="k">procedure</span><span class="p">(</span><span class="n">abstract_init</span><span class="p">),</span>                              <span class="k">deferred</span> <span class="kd">::</span> <span class="n">init</span>           <span class="c">!&lt; Initilize field.</span>
-            <span class="k">procedure</span><span class="p">(</span><span class="n">abstract_simmetric_operator</span><span class="p">),</span>       <span class="k">private</span><span class="p">,</span> <span class="k">deferred</span> <span class="kd">::</span> <span class="n">mul</span>            <span class="c">!&lt; Multiply fields.</span>
-            <span class="k">procedure</span><span class="p">(</span><span class="n">abstract_field_op_real</span><span class="p">),</span>            <span class="k">private</span><span class="p">,</span> <span class="k">deferred</span> <span class="kd">::</span> <span class="n">mulreal</span>        <span class="c">!&lt; Multiply field for real.</span>
-            <span class="k">procedure</span><span class="p">(</span><span class="n">abstract_output</span><span class="p">),</span>                            <span class="k">deferred</span> <span class="kd">::</span> <span class="n">output</span>         <span class="c">!&lt; Output field data.</span>
-            <span class="k">procedure</span><span class="p">(</span><span class="n">abstract_simmetric_operator</span><span class="p">),</span>       <span class="k">private</span><span class="p">,</span> <span class="k">deferred</span> <span class="kd">::</span> <span class="n">sub</span>            <span class="c">!&lt; Subtract fields.</span>
-            <span class="k">procedure</span><span class="p">(</span><span class="n">abstract_real_op_field</span><span class="p">),</span> <span class="k">pass</span><span class="p">(</span><span class="n">rhs</span><span class="p">),</span> <span class="k">private</span><span class="p">,</span> <span class="k">deferred</span> <span class="kd">::</span> <span class="n">realmul</span>        <span class="c">!&lt; Multiply real for field.</span>
-            <span class="c">!RIMETTERE !procedure :: assigreal   =&gt; assigreal_mesh_fd_1d_scal</span>
-            <span class="c">! public methods</span>
-            <span class="k">procedure</span> <span class="kd">::</span> <span class="n">free</span> <span class="c">!&lt; Free dynamic memory.</span>
-            <span class="c">! operators</span>
+            <span class="c">! deferred public methods</span>
+            <span class="k">procedure</span><span class="p">(</span><span class="n">abstract_associate_mesh</span><span class="p">),</span> <span class="k">pass</span><span class="p">(</span><span class="n">this</span><span class="p">),</span> <span class="k">deferred</span> <span class="kd">::</span> <span class="n">associate_mesh</span> <span class="c">!&lt; Associate mesh.</span>
+            <span class="k">procedure</span><span class="p">(</span><span class="n">abstract_init</span><span class="p">),</span>           <span class="k">pass</span><span class="p">(</span><span class="n">this</span><span class="p">),</span> <span class="k">deferred</span> <span class="kd">::</span> <span class="n">init</span>           <span class="c">!&lt; Initilize field.</span>
+            <span class="k">procedure</span><span class="p">(</span><span class="n">abstract_output</span><span class="p">),</span>         <span class="k">pass</span><span class="p">(</span><span class="n">this</span><span class="p">),</span> <span class="k">deferred</span> <span class="kd">::</span> <span class="n">output</span>         <span class="c">!&lt; Output field data.</span>
+            <span class="c">! deferred private methods</span>
+            <span class="k">procedure</span><span class="p">(</span><span class="n">abstract_simmetric_operator</span><span class="p">),</span> <span class="k">pass</span><span class="p">(</span><span class="n">lhs</span><span class="p">),</span>  <span class="k">private</span><span class="p">,</span> <span class="k">deferred</span> <span class="kd">::</span> <span class="n">add</span>            <span class="c">!&lt; Add fields.</span>
+            <span class="k">procedure</span><span class="p">(</span><span class="n">abstract_assign</span><span class="p">),</span>             <span class="k">pass</span><span class="p">(</span><span class="n">lhs</span><span class="p">),</span>  <span class="k">private</span><span class="p">,</span> <span class="k">deferred</span> <span class="kd">::</span> <span class="n">assign_field</span>   <span class="c">!&lt; Assign fields.</span>
+            <span class="k">procedure</span><span class="p">(</span><span class="n">abstract_simmetric_operator</span><span class="p">),</span> <span class="k">pass</span><span class="p">(</span><span class="n">lhs</span><span class="p">),</span>  <span class="k">private</span><span class="p">,</span> <span class="k">deferred</span> <span class="kd">::</span> <span class="n">mul</span>            <span class="c">!&lt; Multiply fields.</span>
+            <span class="k">procedure</span><span class="p">(</span><span class="n">abstract_field_op_real</span><span class="p">),</span>      <span class="k">pass</span><span class="p">(</span><span class="n">lhs</span><span class="p">),</span>  <span class="k">private</span><span class="p">,</span> <span class="k">deferred</span> <span class="kd">::</span> <span class="n">mulreal</span>        <span class="c">!&lt; Multiply field for real.</span>
+            <span class="k">procedure</span><span class="p">(</span><span class="n">abstract_real_op_field</span><span class="p">),</span>      <span class="k">pass</span><span class="p">(</span><span class="n">rhs</span><span class="p">),</span>  <span class="k">private</span><span class="p">,</span> <span class="k">deferred</span> <span class="kd">::</span> <span class="n">realmul</span>        <span class="c">!&lt; Multiply real for field.</span>
+            <span class="k">procedure</span><span class="p">(</span><span class="n">abstract_simmetric_operator</span><span class="p">),</span> <span class="k">pass</span><span class="p">(</span><span class="n">lhs</span><span class="p">),</span>  <span class="k">private</span><span class="p">,</span> <span class="k">deferred</span> <span class="kd">::</span> <span class="n">sub</span>            <span class="c">!&lt; Subtract fields.</span>
+            <span class="c">! public operators</span>
             <span class="k">generic</span><span class="p">,</span> <span class="k">public</span> <span class="kd">::</span> <span class="n">operator</span><span class="p">(</span><span class="o">+</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="n">add</span>                   <span class="c">!&lt; Operator `+` overloading.</span>
             <span class="k">generic</span><span class="p">,</span> <span class="k">public</span> <span class="kd">::</span> <span class="n">operator</span><span class="p">(</span><span class="o">*</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="n">mul</span><span class="p">,</span> <span class="n">realmul</span><span class="p">,</span> <span class="n">mulreal</span> <span class="c">!&lt; Operator `*` overloading.</span>
             <span class="k">generic</span><span class="p">,</span> <span class="k">public</span> <span class="kd">::</span> <span class="n">operator</span><span class="p">(</span><span class="o">-</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="n">sub</span>                   <span class="c">!&lt; Operator `-` overloading.</span>
             <span class="k">generic</span><span class="p">,</span> <span class="k">public</span> <span class="kd">::</span> <span class="n">assignment</span><span class="p">(</span><span class="o">=</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="n">assign_field</span>        <span class="c">!&lt; Assignment overloading.</span>
+            <span class="c">! public methods</span>
+            <span class="k">procedure</span><span class="p">,</span> <span class="k">pass</span><span class="p">(</span><span class="n">this</span><span class="p">)</span> <span class="kd">::</span> <span class="n">free</span> <span class="c">!&lt; Free dynamic memory.</span>
     <span class="n">endtype</span> <span class="n">field</span>
 </pre></div>
 

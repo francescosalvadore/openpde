@@ -70,7 +70,7 @@ All Types &ndash; openpde
             <li><a href="../lists/types.html">Derived Types</a></li>
 				
 				
-            <li><a href="../program/burgers.html">Program</a></li>
+            <li><a href="../program/scalar_simple.html">Program</a></li>
 				
           </ul>
         
@@ -97,27 +97,39 @@ All Types &ndash; openpde
 			 <tr><th>Type</th><th>Location</th><th>Extends</th><th>Description</th></tr>
 			 </thead><tbody>
 			 
-			   <tr><td><a href='../type/burgers_equation.html'>burgers_equation</a></td><td><a href='../module/myequations.html'>myequations</a></td><td><a href='../type/equation.html'>equation</a></td><td><p>Fake Burgers equations.</p></td></tr>
+			   <tr><td><a href='../type/equation.html'>equation</a></td><td><a href='../module/openpde_equation_abstract.html'>openpde_equation_abstract</a></td><td>None</td><td><p>Abstract class of equation.</p></td></tr>
 			 
-			   <tr><td><a href='../type/equation.html'>equation</a></td><td><a href='../module/opendiff_adt_equation.html'>opendiff_adt_equation</a></td><td>None</td><td><p>Abstract class for <em>equation</em> handling.</p></td></tr>
+			   <tr><td><a href='../type/field.html'>field</a></td><td><a href='../module/openpde_field_abstract.html'>openpde_field_abstract</a></td><td>None</td><td><p>Abstract class of field.</p></td></tr>
 			 
-			   <tr><td><a href='../type/field.html'>field</a></td><td><a href='../module/opendiff_adt_field.html'>opendiff_adt_field</a></td><td>None</td><td><p>Abstract class for <em>field</em> handling.</p></td></tr>
+			   <tr><td><a href='../type/field_fd_1d.html'>field_FD_1D</a></td><td><a href='../module/openpde_field_fd_1d.html'>openpde_field_FD_1D</a></td><td><a href='../type/field.html'>field</a></td><td><p>Concrete class of field for Finite Difference 1D methods.</p></td></tr>
 			 
-			   <tr><td><a href='../type/field_fd_1d.html'>field_fd_1d</a></td><td><a href='../module/opendiff_field_fd_1d.html'>opendiff_field_fd_1d</a></td><td><a href='../type/field.html'>field</a></td><td><p>Finite difference 1D class for <em>field</em> handling.</p></td></tr>
+			   <tr><td><a href='../type/field_fd_2d.html'>field_FD_2D</a></td><td><a href='../module/openpde_field_fd_2d.html'>openpde_field_FD_2D</a></td><td><a href='../type/field.html'>field</a></td><td><p>Concrete class of field for Finite Difference 2D methods.</p></td></tr>
 			 
-			   <tr><td><a href='../type/integrator.html'>integrator</a></td><td><a href='../module/opendiff_adt_integrator.html'>opendiff_adt_integrator</a></td><td>None</td><td><p>Abstract class for <em>integrator</em> handling.</p></td></tr>
+			   <tr><td><a href='../type/integrator.html'>integrator</a></td><td><a href='../module/openpde_integrator_abstract.html'>openpde_integrator_abstract</a></td><td>None</td><td><p>Abstract class of integrator.</p></td></tr>
 			 
-			   <tr><td><a href='../type/integrator_euler.html'>integrator_euler</a></td><td><a href='../module/opendiff_integrator_euler.html'>opendiff_integrator_euler</a></td><td><a href='../type/integrator.html'>integrator</a></td><td><p>Euler integrator.</p></td></tr>
+			   <tr><td><a href='../type/integrator_euler_explicit.html'>integrator_euler_explicit</a></td><td><a href='../module/openpde_integrator_euler_explicit.html'>openpde_integrator_euler_explicit</a></td><td><a href='../type/integrator.html'>integrator</a></td><td><p>Concrete class of integrator, Euler explicit scheme.</p></td></tr>
 			 
-			   <tr><td><a href='../type/mesh.html'>mesh</a></td><td><a href='../module/opendiff_adt_mesh.html'>opendiff_adt_mesh</a></td><td>None</td><td><p>Abstract class for <em>mesh</em> handling.</p></td></tr>
+			   <tr><td><a href='../type/mesh.html'>mesh</a></td><td><a href='../module/openpde_mesh_abstract.html'>openpde_mesh_abstract</a></td><td>None</td><td><p>Abstract class of mesh.</p></td></tr>
 			 
-			   <tr><td><a href='../type/mesh_fd_1d.html'>mesh_fd_1d</a></td><td><a href='../module/opendiff_mesh_fd_1d.html'>opendiff_mesh_fd_1d</a></td><td><a href='../type/mesh.html'>mesh</a></td><td><p>Finite difference 1D class for <em>mesh</em> handling.</p></td></tr>
+			   <tr><td><a href='../type/mesh_fd_1d.html'>mesh_FD_1D</a></td><td><a href='../module/openpde_mesh_fd_1d.html'>openpde_mesh_FD_1D</a></td><td><a href='../type/mesh.html'>mesh</a></td><td><p>Concrete class of mesh for Finite Difference 1D methods.</p></td></tr>
 			 
-			   <tr><td><a href='../type/spatial_operator.html'>spatial_operator</a></td><td><a href='../module/opendiff_adt_spatial_operator.html'>opendiff_adt_spatial_operator</a></td><td>None</td><td><p>Abstract class for <em>spatial operator</em> handling.</p></td></tr>
+			   <tr><td><a href='../type/mesh_fd_2d.html'>mesh_FD_2D</a></td><td><a href='../module/openpde_mesh_fd_2d.html'>openpde_mesh_FD_2D</a></td><td><a href='../type/mesh.html'>mesh</a></td><td><p>Concrete class of mesh for Finite Difference 2D methods.</p></td></tr>
 			 
-			   <tr><td><a href='../type/spatial_operator_der1.html'>spatial_operator_der1</a></td><td><a href='../module/opendiff_adt_spatial_operator_der1.html'>opendiff_adt_spatial_operator_der1</a></td><td><a href='../type/spatial_operator.html'>spatial_operator</a></td><td><p>Abstract class for first derivative for <em>spatial operator</em> handling.</p></td></tr>
+			   <tr><td><a href='../type/scalar_simple_equation.html'>scalar_simple_equation</a></td><td><a href='../module/scalar_simple_equation_m.html'>scalar_simple_equation_m</a></td><td><a href='../type/equation.html'>equation</a></td><td><p>(Fake) scalar_simple equations.</p></td></tr>
 			 
-			   <tr><td><a href='../type/spatial_operator_der1_fd_1d.html'>spatial_operator_der1_fd_1d</a></td><td><a href='../module/opendiff_spatial_operator_der1_fd_1d.html'>opendiff_spatial_operator_der1_fd_1d</a></td><td><a href='../type/spatial_operator_der1.html'>spatial_operator_der1</a></td><td><p>Concrete class of spatial operator for first derivative for Finite Difference 1D.</p></td></tr>
+			   <tr><td><a href='../type/spatial_operator.html'>spatial_operator</a></td><td><a href='../module/openpde_spatial_operator_abstract.html'>openpde_spatial_operator_abstract</a></td><td>None</td><td><p>Abstract class of spatial operator.</p></td></tr>
+			 
+			   <tr><td><a href='../type/spatial_operator_d1.html'>spatial_operator_d1</a></td><td><a href='../module/openpde_spatial_operator_d1_abstract.html'>openpde_spatial_operator_d1_abstract</a></td><td><a href='../type/spatial_operator.html'>spatial_operator</a></td><td><p>Abstract class of spatial operator of first derivative.</p></td></tr>
+			 
+			   <tr><td><a href='../type/spatial_operator_d1_fd_1d.html'>spatial_operator_d1_FD_1D</a></td><td><a href='../module/openpde_spatial_operator_d1_fd_1d.html'>openpde_spatial_operator_d1_FD_1D</a></td><td><a href='../type/spatial_operator_d1.html'>spatial_operator_d1</a></td><td><p>Concrete class of spatial operator of first derivative for Finite Difference 1D methods.</p></td></tr>
+			 
+			   <tr><td><a href='../type/spatial_operator_d1_fd_2d.html'>spatial_operator_d1_FD_2D</a></td><td><a href='../module/openpde_spatial_operator_d1_fd_2d.html'>openpde_spatial_operator_d1_FD_2D</a></td><td><a href='../type/spatial_operator_d1.html'>spatial_operator_d1</a></td><td><p>Concrete class of spatial operator of first derivative for Finite Difference 2D methods.</p></td></tr>
+			 
+			   <tr><td><a href='../type/spatial_operator_d2.html'>spatial_operator_d2</a></td><td><a href='../module/openpde_spatial_operator_d2_abstract.html'>openpde_spatial_operator_d2_abstract</a></td><td><a href='../type/spatial_operator.html'>spatial_operator</a></td><td><p>Abstract class of spatial operator of second derivative.</p></td></tr>
+			 
+			   <tr><td><a href='../type/spatial_operator_d2_fd_1d.html'>spatial_operator_d2_FD_1D</a></td><td><a href='../module/openpde_spatial_operator_d2_fd_1d.html'>openpde_spatial_operator_d2_FD_1D</a></td><td><a href='../type/spatial_operator_d2.html'>spatial_operator_d2</a></td><td><p>Concrete class of spatial operator of second derivative for Finite Difference 1D methods.</p></td></tr>
+			 
+			   <tr><td><a href='../type/spatial_operator_d2_fd_2d.html'>spatial_operator_d2_FD_2D</a></td><td><a href='../module/openpde_spatial_operator_d2_fd_2d.html'>openpde_spatial_operator_d2_FD_2D</a></td><td><a href='../type/spatial_operator_d2.html'>spatial_operator_d2</a></td><td><p>Concrete class of spatial operator of second derivative for Finite Difference 2D methods.</p></td></tr>
 			 
 			 </tbody></table>
              
@@ -127,140 +139,229 @@ All Types &ndash; openpde
 <!-- Generated by graphviz version 2.38.0 (20140413.2041)
  -->
 <!-- Title: type~~graph~~TypeGraph Pages: 1 -->
-<svg id="typegraphTypeGraph" width="467pt" height="216pt"
- viewBox="0.00 0.00 467.00 216.00" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-<g id="type~~graph~~TypeGraph" class="graph" transform="scale(1 1) rotate(0) translate(4 212)">
+<svg id="typegraphTypeGraph" width="470pt" height="342pt"
+ viewBox="0.00 0.00 470.00 342.00" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<g id="type~~graph~~TypeGraph" class="graph" transform="scale(1 1) rotate(0) translate(4 338)">
 <title>type~~graph~~TypeGraph</title>
-<polygon fill="white" stroke="none" points="-4,4 -4,-212 463,-212 463,4 -4,4"/>
-<!-- type~equation -->
-<g id="type~~graph~~TypeGraph_node1" class="node"><title>type~equation</title>
-<g id="a_type~~graph~~TypeGraph_node1"><a xlink:href="../type/equation.html" xlink:title="equation">
-<polygon fill="#5cb85c" stroke="#5cb85c" points="221,-82 167,-82 167,-58 221,-58 221,-82"/>
-<text text-anchor="middle" x="194" y="-67.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">equation</text>
+<polygon fill="white" stroke="none" points="-4,4 -4,-338 466,-338 466,4 -4,4"/>
+<!-- type~mesh -->
+<g id="type~~graph~~TypeGraph_node1" class="node"><title>type~mesh</title>
+<g id="a_type~~graph~~TypeGraph_node1"><a xlink:href="../type/mesh.html" xlink:title="mesh">
+<polygon fill="#5cb85c" stroke="#5cb85c" points="72,-83 18,-83 18,-59 72,-59 72,-83"/>
+<text text-anchor="middle" x="45" y="-68.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">mesh</text>
 </a>
 </g>
-</g>
-<!-- type~burgers_equation -->
-<g id="type~~graph~~TypeGraph_node3" class="node"><title>type~burgers_equation</title>
-<g id="a_type~~graph~~TypeGraph_node3"><a xlink:href="../type/burgers_equation.html" xlink:title="burgers_equation">
-<polygon fill="#5cb85c" stroke="#5cb85c" points="432,-74 335,-74 335,-50 432,-50 432,-74"/>
-<text text-anchor="middle" x="383.5" y="-59.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">burgers_equation</text>
-</a>
-</g>
-</g>
-<!-- type~equation&#45;&gt;type~burgers_equation -->
-<g id="type~~graph~~TypeGraph_edge3" class="edge"><title>type~equation&#45;&gt;type~burgers_equation</title>
-<path fill="none" stroke="#000000" d="M221.071,-68.8876C247.814,-67.7466 290.288,-65.9344 324.958,-64.4551"/>
-<polygon fill="#000000" stroke="#000000" points="325.132,-67.951 334.974,-64.0278 324.834,-60.9573 325.132,-67.951"/>
-</g>
-<!-- type~spatial_operator_der1 -->
-<g id="type~~graph~~TypeGraph_node2" class="node"><title>type~spatial_operator_der1</title>
-<g id="a_type~~graph~~TypeGraph_node2"><a xlink:href="../type/spatial_operator_der1.html" xlink:title="spatial_operator_der1">
-<polygon fill="#5cb85c" stroke="#5cb85c" points="253,-32 135,-32 135,-8 253,-8 253,-32"/>
-<text text-anchor="middle" x="194" y="-17.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">spatial_operator_der1</text>
-</a>
-</g>
-</g>
-<!-- type~spatial_operator_der1&#45;&gt;type~burgers_equation -->
-<g id="type~~graph~~TypeGraph_edge2" class="edge"><title>type~spatial_operator_der1&#45;&gt;type~burgers_equation</title>
-<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M248.73,-32.0355C272.603,-37.383 300.738,-43.6852 325.03,-49.1267"/>
-<polygon fill="#000000" stroke="#000000" points="324.307,-52.5515 334.831,-51.3221 325.838,-45.7208 324.307,-52.5515"/>
-<text text-anchor="middle" x="280.5" y="-43.4" font-family="Helvetica,sans-Serif" font-size="9.50">der1</text>
-</g>
-<!-- type~spatial_operator_der1_fd_1d -->
-<g id="type~~graph~~TypeGraph_node6" class="node"><title>type~spatial_operator_der1_fd_1d</title>
-<g id="a_type~~graph~~TypeGraph_node6"><a xlink:href="../type/spatial_operator_der1_fd_1d.html" xlink:title="spatial_operator_der1_fd_1d">
-<polygon fill="#5cb85c" stroke="#5cb85c" points="459,-24 308,-24 308,-0 459,-0 459,-24"/>
-<text text-anchor="middle" x="383.5" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">spatial_operator_der1_fd_1d</text>
-</a>
-</g>
-</g>
-<!-- type~spatial_operator_der1&#45;&gt;type~spatial_operator_der1_fd_1d -->
-<g id="type~~graph~~TypeGraph_edge5" class="edge"><title>type~spatial_operator_der1&#45;&gt;type~spatial_operator_der1_fd_1d</title>
-<path fill="none" stroke="#000000" d="M253.042,-17.5235C267.111,-16.9233 282.442,-16.2691 297.471,-15.6279"/>
-<polygon fill="#000000" stroke="#000000" points="297.967,-19.11 307.808,-15.1868 297.668,-12.1164 297.967,-19.11"/>
-</g>
-<!-- type~field_fd_1d -->
-<g id="type~~graph~~TypeGraph_node4" class="node"><title>type~field_fd_1d</title>
-<g id="a_type~~graph~~TypeGraph_node4"><a xlink:href="../type/field_fd_1d.html" xlink:title="field_fd_1d">
-<polygon fill="#5cb85c" stroke="#5cb85c" points="416,-166 351,-166 351,-142 416,-142 416,-166"/>
-<text text-anchor="middle" x="383.5" y="-151.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">field_fd_1d</text>
-</a>
-</g>
-</g>
-<!-- type~integrator -->
-<g id="type~~graph~~TypeGraph_node5" class="node"><title>type~integrator</title>
-<g id="a_type~~graph~~TypeGraph_node5"><a xlink:href="../type/integrator.html" xlink:title="integrator">
-<polygon fill="#5cb85c" stroke="#5cb85c" points="74,-208 16,-208 16,-184 74,-184 74,-208"/>
-<text text-anchor="middle" x="45" y="-193.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">integrator</text>
-</a>
-</g>
-</g>
-<!-- type~integrator_euler -->
-<g id="type~~graph~~TypeGraph_node8" class="node"><title>type~integrator_euler</title>
-<g id="a_type~~graph~~TypeGraph_node8"><a xlink:href="../type/integrator_euler.html" xlink:title="integrator_euler">
-<polygon fill="#5cb85c" stroke="#5cb85c" points="238,-208 150,-208 150,-184 238,-184 238,-208"/>
-<text text-anchor="middle" x="194" y="-193.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">integrator_euler</text>
-</a>
-</g>
-</g>
-<!-- type~integrator&#45;&gt;type~integrator_euler -->
-<g id="type~~graph~~TypeGraph_edge7" class="edge"><title>type~integrator&#45;&gt;type~integrator_euler</title>
-<path fill="none" stroke="#000000" d="M74.3431,-196C92.8533,-196 117.602,-196 139.707,-196"/>
-<polygon fill="#000000" stroke="#000000" points="139.975,-199.5 149.975,-196 139.975,-192.5 139.975,-199.5"/>
 </g>
 <!-- type~field -->
-<g id="type~~graph~~TypeGraph_node7" class="node"><title>type~field</title>
-<g id="a_type~~graph~~TypeGraph_node7"><a xlink:href="../type/field.html" xlink:title="field">
-<polygon fill="#5cb85c" stroke="#5cb85c" points="221,-166 167,-166 167,-142 221,-142 221,-166"/>
-<text text-anchor="middle" x="194" y="-151.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">field</text>
-</a>
-</g>
-</g>
-<!-- type~field&#45;&gt;type~field_fd_1d -->
-<g id="type~~graph~~TypeGraph_edge4" class="edge"><title>type~field&#45;&gt;type~field_fd_1d</title>
-<path fill="none" stroke="#000000" d="M221.071,-154C251.935,-154 303.754,-154 340.344,-154"/>
-<polygon fill="#000000" stroke="#000000" points="340.7,-157.5 350.7,-154 340.7,-150.5 340.7,-157.5"/>
-</g>
-<!-- type~spatial_operator -->
-<g id="type~~graph~~TypeGraph_node9" class="node"><title>type~spatial_operator</title>
-<g id="a_type~~graph~~TypeGraph_node9"><a xlink:href="../type/spatial_operator.html" xlink:title="spatial_operator">
-<polygon fill="#5cb85c" stroke="#5cb85c" points="90,-32 0,-32 0,-8 90,-8 90,-32"/>
-<text text-anchor="middle" x="45" y="-17.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">spatial_operator</text>
-</a>
-</g>
-</g>
-<!-- type~spatial_operator&#45;&gt;type~spatial_operator_der1 -->
-<g id="type~~graph~~TypeGraph_edge1" class="edge"><title>type~spatial_operator&#45;&gt;type~spatial_operator_der1</title>
-<path fill="none" stroke="#000000" d="M90.1048,-20C100.963,-20 112.846,-20 124.556,-20"/>
-<polygon fill="#000000" stroke="#000000" points="124.773,-23.5001 134.773,-20 124.773,-16.5001 124.773,-23.5001"/>
-</g>
-<!-- type~mesh_fd_1d -->
-<g id="type~~graph~~TypeGraph_node10" class="node"><title>type~mesh_fd_1d</title>
-<g id="a_type~~graph~~TypeGraph_node10"><a xlink:href="../type/mesh_fd_1d.html" xlink:title="mesh_fd_1d">
-<polygon fill="#5cb85c" stroke="#5cb85c" points="230,-124 158,-124 158,-100 230,-100 230,-124"/>
-<text text-anchor="middle" x="194" y="-109.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">mesh_fd_1d</text>
-</a>
-</g>
-</g>
-<!-- type~mesh -->
-<g id="type~~graph~~TypeGraph_node11" class="node"><title>type~mesh</title>
-<g id="a_type~~graph~~TypeGraph_node11"><a xlink:href="../type/mesh.html" xlink:title="mesh">
-<polygon fill="#5cb85c" stroke="#5cb85c" points="72,-141 18,-141 18,-117 72,-117 72,-141"/>
-<text text-anchor="middle" x="45" y="-126.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">mesh</text>
+<g id="type~~graph~~TypeGraph_node5" class="node"><title>type~field</title>
+<g id="a_type~~graph~~TypeGraph_node5"><a xlink:href="../type/field.html" xlink:title="field">
+<polygon fill="#5cb85c" stroke="#5cb85c" points="225.5,-108 171.5,-108 171.5,-84 225.5,-84 225.5,-108"/>
+<text text-anchor="middle" x="198.5" y="-93.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">field</text>
 </a>
 </g>
 </g>
 <!-- type~mesh&#45;&gt;type~field -->
-<g id="type~~graph~~TypeGraph_edge6" class="edge"><title>type~mesh&#45;&gt;type~field</title>
-<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M72.2807,-133.469C95.9019,-137.487 130.807,-143.423 157.016,-147.88"/>
-<polygon fill="#000000" stroke="#000000" points="156.502,-151.343 166.947,-149.569 157.675,-144.442 156.502,-151.343"/>
-<text text-anchor="middle" x="112.5" y="-142.4" font-family="Helvetica,sans-Serif" font-size="9.50">m</text>
+<g id="type~~graph~~TypeGraph_edge3" class="edge"><title>type~mesh&#45;&gt;type~field</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M72.0438,-75.2977C96.6497,-79.358 133.784,-85.4857 161.272,-90.0218"/>
+<polygon fill="#000000" stroke="#000000" points="160.853,-93.4998 171.289,-91.6748 161.992,-86.5932 160.853,-93.4998"/>
+<text text-anchor="middle" x="112.5" y="-85.4" font-family="Helvetica,sans-Serif" font-size="9.50">m</text>
+</g>
+<!-- type~mesh_fd_2d -->
+<g id="type~~graph~~TypeGraph_node6" class="node"><title>type~mesh_fd_2d</title>
+<g id="a_type~~graph~~TypeGraph_node6"><a xlink:href="../type/mesh_fd_2d.html" xlink:title="mesh_FD_2D">
+<polygon fill="#5cb85c" stroke="#5cb85c" points="238,-66 159,-66 159,-42 238,-42 238,-66"/>
+<text text-anchor="middle" x="198.5" y="-51.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">mesh_FD_2D</text>
+</a>
+</g>
+</g>
+<!-- type~mesh&#45;&gt;type~mesh_fd_2d -->
+<g id="type~~graph~~TypeGraph_edge4" class="edge"><title>type~mesh&#45;&gt;type~mesh_fd_2d</title>
+<path fill="none" stroke="#000000" d="M113.5,-54C124.776,-51.2034 137.169,-50.1473 148.891,-50.0193"/>
+<polygon fill="#000000" stroke="#000000" points="148.938,-53.5199 158.974,-50.1253 149.012,-46.5203 148.938,-53.5199"/>
+</g>
+<!-- type~mesh_fd_1d -->
+<g id="type~~graph~~TypeGraph_node11" class="node"><title>type~mesh_fd_1d</title>
+<g id="a_type~~graph~~TypeGraph_node11"><a xlink:href="../type/mesh_fd_1d.html" xlink:title="mesh_FD_1D">
+<polygon fill="#5cb85c" stroke="#5cb85c" points="238,-24 159,-24 159,-0 238,-0 238,-24"/>
+<text text-anchor="middle" x="198.5" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">mesh_FD_1D</text>
+</a>
+</g>
 </g>
 <!-- type~mesh&#45;&gt;type~mesh_fd_1d -->
-<g id="type~~graph~~TypeGraph_edge8" class="edge"><title>type~mesh&#45;&gt;type~mesh_fd_1d</title>
-<path fill="none" stroke="#000000" d="M72.2807,-125.961C93.1638,-123.546 122.866,-120.111 147.582,-117.252"/>
-<polygon fill="#000000" stroke="#000000" points="148.298,-120.693 157.829,-116.067 147.493,-113.739 148.298,-120.693"/>
+<g id="type~~graph~~TypeGraph_edge10" class="edge"><title>type~mesh&#45;&gt;type~mesh_fd_1d</title>
+<path fill="none" stroke="#000000" d="M72.1029,-64.0869C84.0901,-60.9478 98.5008,-57.224 111.5,-54"/>
+<path fill="none" stroke="#000000" d="M113.5,-54C126.465,-50.7846 123.605,-39.9691 135,-33 139.463,-30.2705 144.325,-27.8462 149.3,-25.7053"/>
+<polygon fill="#000000" stroke="#000000" points="150.899,-28.8378 158.934,-21.9314 148.346,-22.3201 150.899,-28.8378"/>
+</g>
+<!-- type~spatial_operator_d2_fd_2d -->
+<g id="type~~graph~~TypeGraph_node2" class="node"><title>type~spatial_operator_d2_fd_2d</title>
+<g id="a_type~~graph~~TypeGraph_node2"><a xlink:href="../type/spatial_operator_d2_fd_2d.html" xlink:title="spatial_operator_d2_FD_2D">
+<polygon fill="#5cb85c" stroke="#5cb85c" points="462,-326 314,-326 314,-302 462,-302 462,-326"/>
+<text text-anchor="middle" x="388" y="-311.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">spatial_operator_d2_FD_2D</text>
+</a>
+</g>
+</g>
+<!-- type~equation -->
+<g id="type~~graph~~TypeGraph_node3" class="node"><title>type~equation</title>
+<g id="a_type~~graph~~TypeGraph_node3"><a xlink:href="../type/equation.html" xlink:title="equation">
+<polygon fill="#5cb85c" stroke="#5cb85c" points="225.5,-250 171.5,-250 171.5,-226 225.5,-226 225.5,-250"/>
+<text text-anchor="middle" x="198.5" y="-235.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">equation</text>
+</a>
+</g>
+</g>
+<!-- type~scalar_simple_equation -->
+<g id="type~~graph~~TypeGraph_node7" class="node"><title>type~scalar_simple_equation</title>
+<g id="a_type~~graph~~TypeGraph_node7"><a xlink:href="../type/scalar_simple_equation.html" xlink:title="scalar_simple_equation">
+<polygon fill="#5cb85c" stroke="#5cb85c" points="450.5,-242 325.5,-242 325.5,-218 450.5,-218 450.5,-242"/>
+<text text-anchor="middle" x="388" y="-227.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">scalar_simple_equation</text>
+</a>
+</g>
+</g>
+<!-- type~equation&#45;&gt;type~scalar_simple_equation -->
+<g id="type~~graph~~TypeGraph_edge7" class="edge"><title>type~equation&#45;&gt;type~scalar_simple_equation</title>
+<path fill="none" stroke="#000000" d="M225.571,-236.888C248.725,-235.9 283.671,-234.409 315.134,-233.066"/>
+<polygon fill="#000000" stroke="#000000" points="315.366,-236.56 325.208,-232.636 315.068,-229.566 315.366,-236.56"/>
+</g>
+<!-- type~spatial_operator_d1_fd_1d -->
+<g id="type~~graph~~TypeGraph_node4" class="node"><title>type~spatial_operator_d1_fd_1d</title>
+<g id="a_type~~graph~~TypeGraph_node4"><a xlink:href="../type/spatial_operator_d1_fd_1d.html" xlink:title="spatial_operator_d1_FD_1D">
+<polygon fill="#5cb85c" stroke="#5cb85c" points="462,-192 314,-192 314,-168 462,-168 462,-192"/>
+<text text-anchor="middle" x="388" y="-177.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">spatial_operator_d1_FD_1D</text>
+</a>
+</g>
+</g>
+<!-- type~field_fd_1d -->
+<g id="type~~graph~~TypeGraph_node12" class="node"><title>type~field_fd_1d</title>
+<g id="a_type~~graph~~TypeGraph_node12"><a xlink:href="../type/field_fd_1d.html" xlink:title="field_FD_1D">
+<polygon fill="#5cb85c" stroke="#5cb85c" points="424,-108 352,-108 352,-84 424,-84 424,-108"/>
+<text text-anchor="middle" x="388" y="-93.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">field_FD_1D</text>
+</a>
+</g>
+</g>
+<!-- type~field&#45;&gt;type~field_fd_1d -->
+<g id="type~~graph~~TypeGraph_edge11" class="edge"><title>type~field&#45;&gt;type~field_fd_1d</title>
+<path fill="none" stroke="#000000" d="M289,-96C306.238,-94.2096 325.273,-93.8439 341.946,-94.0527"/>
+<polygon fill="#000000" stroke="#000000" points="341.918,-97.5528 351.985,-94.2493 342.056,-90.5541 341.918,-97.5528"/>
+</g>
+<!-- type~field_fd_2d -->
+<g id="type~~graph~~TypeGraph_node17" class="node"><title>type~field_fd_2d</title>
+<g id="a_type~~graph~~TypeGraph_node17"><a xlink:href="../type/field_fd_2d.html" xlink:title="field_FD_2D">
+<polygon fill="#5cb85c" stroke="#5cb85c" points="424,-66 352,-66 352,-42 424,-42 424,-66"/>
+<text text-anchor="middle" x="388" y="-51.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">field_FD_2D</text>
+</a>
+</g>
+</g>
+<!-- type~field&#45;&gt;type~field_fd_2d -->
+<g id="type~~graph~~TypeGraph_edge15" class="edge"><title>type~field&#45;&gt;type~field_fd_2d</title>
+<path fill="none" stroke="#000000" d="M225.608,-97.4069C243.04,-98.001 266.451,-98.1344 287,-96"/>
+<path fill="none" stroke="#000000" d="M289,-96C303.433,-94.5009 301.192,-81.8213 314,-75 322.639,-70.399 332.404,-66.7007 341.917,-63.7685"/>
+<polygon fill="#000000" stroke="#000000" points="343.024,-67.0924 351.681,-60.9843 341.105,-60.3607 343.024,-67.0924"/>
+</g>
+<!-- type~spatial_operator_d1_fd_2d -->
+<g id="type~~graph~~TypeGraph_node8" class="node"><title>type~spatial_operator_d1_fd_2d</title>
+<g id="a_type~~graph~~TypeGraph_node8"><a xlink:href="../type/spatial_operator_d1_fd_2d.html" xlink:title="spatial_operator_d1_FD_2D">
+<polygon fill="#5cb85c" stroke="#5cb85c" points="462,-150 314,-150 314,-126 462,-126 462,-150"/>
+<text text-anchor="middle" x="388" y="-135.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">spatial_operator_d1_FD_2D</text>
+</a>
+</g>
+</g>
+<!-- type~spatial_operator_d2 -->
+<g id="type~~graph~~TypeGraph_node9" class="node"><title>type~spatial_operator_d2</title>
+<g id="a_type~~graph~~TypeGraph_node9"><a xlink:href="../type/spatial_operator_d2.html" xlink:title="spatial_operator_d2">
+<polygon fill="#5cb85c" stroke="#5cb85c" points="252.5,-292 144.5,-292 144.5,-268 252.5,-268 252.5,-292"/>
+<text text-anchor="middle" x="198.5" y="-277.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">spatial_operator_d2</text>
+</a>
+</g>
+</g>
+<!-- type~spatial_operator_d2&#45;&gt;type~spatial_operator_d2_fd_2d -->
+<g id="type~~graph~~TypeGraph_edge1" class="edge"><title>type~spatial_operator_d2&#45;&gt;type~spatial_operator_d2_fd_2d</title>
+<path fill="none" stroke="#000000" d="M289,-303C293.764,-303.362 298.654,-303.777 303.586,-304.227"/>
+<polygon fill="#000000" stroke="#000000" points="303.453,-307.73 313.74,-305.197 304.119,-300.762 303.453,-307.73"/>
+</g>
+<!-- type~spatial_operator_d2&#45;&gt;type~scalar_simple_equation -->
+<g id="type~~graph~~TypeGraph_edge6" class="edge"><title>type~spatial_operator_d2&#45;&gt;type~scalar_simple_equation</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M244.889,-267.896C271.047,-260.921 304.124,-252.1 331.783,-244.725"/>
+<polygon fill="#000000" stroke="#000000" points="332.944,-248.037 341.705,-242.079 331.141,-241.274 332.944,-248.037"/>
+<text text-anchor="middle" x="288" y="-260.4" font-family="Helvetica,sans-Serif" font-size="9.50">ddu</text>
+</g>
+<!-- type~spatial_operator_d2_fd_1d -->
+<g id="type~~graph~~TypeGraph_node13" class="node"><title>type~spatial_operator_d2_fd_1d</title>
+<g id="a_type~~graph~~TypeGraph_node13"><a xlink:href="../type/spatial_operator_d2_fd_1d.html" xlink:title="spatial_operator_d2_FD_1D">
+<polygon fill="#5cb85c" stroke="#5cb85c" points="462,-284 314,-284 314,-260 462,-260 462,-284"/>
+<text text-anchor="middle" x="388" y="-269.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">spatial_operator_d2_FD_1D</text>
+</a>
+</g>
+</g>
+<!-- type~spatial_operator_d2&#45;&gt;type~spatial_operator_d2_fd_1d -->
+<g id="type~~graph~~TypeGraph_edge12" class="edge"><title>type~spatial_operator_d2&#45;&gt;type~spatial_operator_d2_fd_1d</title>
+<path fill="none" stroke="#000000" d="M233.919,-292.125C249.841,-296.932 269.146,-301.642 287,-303"/>
+<path fill="none" stroke="#000000" d="M289,-303C300.933,-303.908 302.68,-296.881 314,-293 319.976,-290.951 326.272,-288.933 332.559,-287.007"/>
+<polygon fill="#000000" stroke="#000000" points="333.808,-290.287 342.383,-284.065 331.799,-283.581 333.808,-290.287"/>
+</g>
+<!-- type~spatial_operator -->
+<g id="type~~graph~~TypeGraph_node10" class="node"><title>type~spatial_operator</title>
+<g id="a_type~~graph~~TypeGraph_node10"><a xlink:href="../type/spatial_operator.html" xlink:title="spatial_operator">
+<polygon fill="#5cb85c" stroke="#5cb85c" points="90,-292 0,-292 0,-268 90,-268 90,-292"/>
+<text text-anchor="middle" x="45" y="-277.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">spatial_operator</text>
+</a>
+</g>
+</g>
+<!-- type~spatial_operator&#45;&gt;type~spatial_operator_d2 -->
+<g id="type~~graph~~TypeGraph_edge9" class="edge"><title>type~spatial_operator&#45;&gt;type~spatial_operator_d2</title>
+<path fill="none" stroke="#000000" d="M113.5,-280C120.087,-278.477 127.043,-277.506 134.018,-276.937"/>
+<polygon fill="#000000" stroke="#000000" points="134.42,-280.42 144.211,-276.373 134.033,-273.431 134.42,-280.42"/>
+</g>
+<!-- type~spatial_operator_d1 -->
+<g id="type~~graph~~TypeGraph_node14" class="node"><title>type~spatial_operator_d1</title>
+<g id="a_type~~graph~~TypeGraph_node14"><a xlink:href="../type/spatial_operator_d1.html" xlink:title="spatial_operator_d1">
+<polygon fill="#5cb85c" stroke="#5cb85c" points="252.5,-208 144.5,-208 144.5,-184 252.5,-184 252.5,-208"/>
+<text text-anchor="middle" x="198.5" y="-193.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">spatial_operator_d1</text>
+</a>
+</g>
+</g>
+<!-- type~spatial_operator&#45;&gt;type~spatial_operator_d1 -->
+<g id="type~~graph~~TypeGraph_edge13" class="edge"><title>type~spatial_operator&#45;&gt;type~spatial_operator_d1</title>
+<path fill="none" stroke="#000000" d="M90.0007,-282.735C97.2469,-282.406 104.631,-281.588 111.5,-280"/>
+<path fill="none" stroke="#000000" d="M113.5,-280C142.326,-273.337 114.03,-237.871 135,-217 136.227,-215.779 137.527,-214.628 138.888,-213.545"/>
+<polygon fill="#000000" stroke="#000000" points="140.82,-216.464 147.249,-208.042 136.971,-210.616 140.82,-216.464"/>
+</g>
+<!-- type~spatial_operator_d1&#45;&gt;type~spatial_operator_d1_fd_1d -->
+<g id="type~~graph~~TypeGraph_edge2" class="edge"><title>type~spatial_operator_d1&#45;&gt;type~spatial_operator_d1_fd_1d</title>
+<path fill="none" stroke="#000000" d="M289,-180C293.76,-179.075 298.675,-178.356 303.651,-177.808"/>
+<polygon fill="#000000" stroke="#000000" points="304.262,-181.269 313.921,-176.915 303.655,-174.295 304.262,-181.269"/>
+</g>
+<!-- type~spatial_operator_d1&#45;&gt;type~scalar_simple_equation -->
+<g id="type~~graph~~TypeGraph_edge5" class="edge"><title>type~spatial_operator_d1&#45;&gt;type~scalar_simple_equation</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M252.728,-205.652C272.174,-209.178 294.501,-213.227 315.293,-216.997"/>
+<polygon fill="#000000" stroke="#000000" points="314.894,-220.482 325.358,-218.822 316.143,-213.594 314.894,-220.482"/>
+<text text-anchor="middle" x="288" y="-215.4" font-family="Helvetica,sans-Serif" font-size="9.50">du</text>
+</g>
+<!-- type~spatial_operator_d1&#45;&gt;type~spatial_operator_d1_fd_2d -->
+<g id="type~~graph~~TypeGraph_edge8" class="edge"><title>type~spatial_operator_d1&#45;&gt;type~spatial_operator_d1_fd_2d</title>
+<path fill="none" stroke="#000000" d="M252.748,-186.458C264.064,-184.376 275.934,-182.151 287,-180"/>
+<path fill="none" stroke="#000000" d="M289,-180C303.244,-177.232 301.192,-165.821 314,-159 317.666,-157.047 321.536,-155.257 325.503,-153.619"/>
+<polygon fill="#000000" stroke="#000000" points="326.772,-156.881 334.886,-150.068 324.295,-150.334 326.772,-156.881"/>
+</g>
+<!-- type~integrator_euler_explicit -->
+<g id="type~~graph~~TypeGraph_node15" class="node"><title>type~integrator_euler_explicit</title>
+<g id="a_type~~graph~~TypeGraph_node15"><a xlink:href="../type/integrator_euler_explicit.html" xlink:title="integrator_euler_explicit">
+<polygon fill="#5cb85c" stroke="#5cb85c" points="262,-334 135,-334 135,-310 262,-310 262,-334"/>
+<text text-anchor="middle" x="198.5" y="-319.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">integrator_euler_explicit</text>
+</a>
+</g>
+</g>
+<!-- type~integrator -->
+<g id="type~~graph~~TypeGraph_node16" class="node"><title>type~integrator</title>
+<g id="a_type~~graph~~TypeGraph_node16"><a xlink:href="../type/integrator.html" xlink:title="integrator">
+<polygon fill="#5cb85c" stroke="#5cb85c" points="74,-334 16,-334 16,-310 74,-310 74,-334"/>
+<text text-anchor="middle" x="45" y="-319.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">integrator</text>
+</a>
+</g>
+</g>
+<!-- type~integrator&#45;&gt;type~integrator_euler_explicit -->
+<g id="type~~graph~~TypeGraph_edge14" class="edge"><title>type~integrator&#45;&gt;type~integrator_euler_explicit</title>
+<path fill="none" stroke="#000000" d="M74.1409,-322C88.5143,-322 106.734,-322 124.728,-322"/>
+<polygon fill="#000000" stroke="#000000" points="124.97,-325.5 134.97,-322 124.97,-318.5 124.97,-325.5"/>
 </g>
 </g>
 </svg>

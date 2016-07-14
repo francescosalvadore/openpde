@@ -1,0 +1,1899 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+	 
+    <meta name="description" content="Documentation for openpde">
+	 
+    <meta name="author" content="Chris MacMackin" >
+    <link rel="icon" href="../favicon.png">
+
+    <title>openpde_field_FD_2D &ndash; openpde</title>
+
+    <link href="../css/bootstrap.min.css" rel="stylesheet">
+    <link href="../css/pygments.css" rel="stylesheet">
+    <link href="../css/font-awesome.min.css" rel="stylesheet">
+    <link href="../css/local.css" rel="stylesheet">
+    
+
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+    
+    <script src="../js/jquery-2.1.3.min.js"></script>
+    <script src="../js/svg-pan-zoom.min.js"></script>
+
+    
+    <script src="../tipuesearch/tipuesearch_content.js"></script>
+    <link  href="../tipuesearch/tipuesearch.css" rel="stylesheet">
+    <script src="../tipuesearch/tipuesearch_set.js"></script>
+    <script src="../tipuesearch/tipuesearch.js"></script>
+    
+
+  </head>
+
+  <body>
+
+    <!-- Fixed navbar -->
+    <nav class="navbar navbar-inverse navbar-fixed-top">
+      <div class="container">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="../index.html">openpde </a>
+        </div>
+        <div id="navbar" class="navbar-collapse collapse">
+          <ul class="nav navbar-nav">
+				
+                
+            <li><a href="../lists/files.html">Source Files</a></li>
+				
+				
+            <li><a href="../lists/modules.html">Modules</a></li>
+				
+				
+            <li><a href="../lists/procedures.html">Procedures</a></li>
+				
+				
+            <li><a href="../lists/absint.html">Abstract Interfaces</a></li>
+								
+            <li><a href="../lists/types.html">Derived Types</a></li>
+				
+				
+            <li><a href="../program/scalar_simple.html">Program</a></li>
+				
+          </ul>
+        
+        <form action="../search.html" class="navbar-form navbar-right" role="search">
+        <div class="form-group">
+          <input type="text" class="form-control" placeholder="Search" name="q" id="tipue_search_input" autocomplete="off" required>
+        </div>
+<!--
+        <button type="submit" class="btn btn-default">Submit</button>
+-->
+        </form>
+        
+        </div><!--/.nav-collapse -->
+      </div>
+    </nav>
+
+    <div class="container">
+    
+  
+  <div class="row">
+    <h1>openpde_field_FD_2D 
+    <small>Module</small>
+    
+    </h1>
+	 
+<div class="row">
+<div class="col-lg-12">
+<div class="well well-sm">
+  <ul class="list-inline" style="margin-bottom:0px;display:inline">
+     
+     
+     
+     
+    
+    
+    <li><i class="fa fa-code"></i><a href="../src/openpde_field_FD_2D.f90"> Source File</a></li>
+     
+  </ul>
+  <ol class="breadcrumb in-well text-right">
+  
+     <li><a href='../sourcefile/openpde_field_fd_2d.f90.html'>openpde_field_FD_2D.f90</a></li>
+  
+     <li class="active">openpde_field_FD_2D</li>
+  </ol>
+</div>
+</div>
+</div>
+    
+  </div>
+  
+  <div class="row">
+    <div class="col-lg-3">
+    
+<div id="sidebar">
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  <div class="panel panel-primary">
+    <div class="panel-heading text-left"><h3 class="panel-title"><a data-toggle="collapse" href="#types">Derived Types</a></h3></div>
+    <div id="types" class="panel-collapse collapse">
+      <div class="list-group">
+        
+        <a class="list-group-item" href="../module/openpde_field_fd_2d.html#type-field_fd_2d">field_FD_2D</a>
+        
+      </div>
+    </div>
+  </div>
+  
+  
+  
+  <div class="panel panel-primary">
+    <div class="panel-heading text-left"><h3 class="panel-title"><a data-toggle="collapse" href="#funcs">Functions</a></h3></div>
+    <div id="funcs" class="panel-collapse collapse">
+        <div class="list-group">
+          
+          <a class="list-group-item" href="../module/openpde_field_fd_2d.html#proc-add">add</a>
+          
+          <a class="list-group-item" href="../module/openpde_field_fd_2d.html#proc-mul">mul</a>
+          
+          <a class="list-group-item" href="../module/openpde_field_fd_2d.html#proc-mulreal">mulreal</a>
+          
+          <a class="list-group-item" href="../module/openpde_field_fd_2d.html#proc-realmul">realmul</a>
+          
+          <a class="list-group-item" href="../module/openpde_field_fd_2d.html#proc-sub">sub</a>
+          
+        </div>
+    </div>
+  </div>
+  
+  
+  
+  <div class="panel panel-primary">
+    <div class="panel-heading text-left"><h3 class="panel-title"><a data-toggle="collapse" href="#subs">Subroutines</a></h3></div>
+    <div class="list-group">
+        <div id="subs" class="panel-collapse collapse">
+          
+          <a class="list-group-item" href="../module/openpde_field_fd_2d.html#proc-associate_field_fd_2d">associate_field_FD_2D</a>
+          
+          <a class="list-group-item" href="../module/openpde_field_fd_2d.html#proc-associate_mesh">associate_mesh</a>
+          
+          <a class="list-group-item" href="../module/openpde_field_fd_2d.html#proc-init">init</a>
+          
+          <a class="list-group-item" href="../module/openpde_field_fd_2d.html#proc-output">output</a>
+          
+          <a class="list-group-item" href="../module/openpde_field_fd_2d.html#proc-assign_field">assign_field</a>
+          
+          <a class="list-group-item" href="../module/openpde_field_fd_2d.html#proc-set">set</a>
+          
+          <a class="list-group-item" href="../module/openpde_field_fd_2d.html#proc-free">free</a>
+          
+        </div>
+    </div>
+  </div>
+  
+  
+  
+  
+  
+  
+  
+  
+  <hr>
+  
+  <div class="panel panel-default">
+    <div class="panel-heading text-left"><h3 class="panel-title"><a data-toggle="collapse" href="#allmods">All Modules</a></h3></div>
+    <div id="allmods" class="panel-collapse collapse">
+        <div class="list-group">
+          
+          <a class="list-group-item" href="../module/openpde.html">openpde</a>
+          
+          <a class="list-group-item" href="../module/openpde_equation_abstract.html">openpde_equation_abstract</a>
+          
+          <a class="list-group-item" href="../module/openpde_field_abstract.html">openpde_field_abstract</a>
+          
+          <a class="list-group-item" href="../module/openpde_field_fd_1d.html">openpde_field_FD_1D</a>
+          
+          <a class="list-group-item" href="../module/openpde_field_fd_2d.html">openpde_field_FD_2D</a>
+          
+          <a class="list-group-item" href="../module/openpde_integrator_abstract.html">openpde_integrator_abstract</a>
+          
+          <a class="list-group-item" href="../module/openpde_integrator_euler_explicit.html">openpde_integrator_euler_explicit</a>
+          
+          <a class="list-group-item" href="../module/openpde_kinds.html">openpde_kinds</a>
+          
+          <a class="list-group-item" href="../module/openpde_mesh_abstract.html">openpde_mesh_abstract</a>
+          
+          <a class="list-group-item" href="../module/openpde_mesh_fd_1d.html">openpde_mesh_FD_1D</a>
+          
+          <a class="list-group-item" href="../module/openpde_mesh_fd_2d.html">openpde_mesh_FD_2D</a>
+          
+          <a class="list-group-item" href="../module/openpde_spatial_operator_abstract.html">openpde_spatial_operator_abstract</a>
+          
+          <a class="list-group-item" href="../module/openpde_spatial_operator_d1_abstract.html">openpde_spatial_operator_d1_abstract</a>
+          
+          <a class="list-group-item" href="../module/openpde_spatial_operator_d1_fd_1d.html">openpde_spatial_operator_d1_FD_1D</a>
+          
+          <a class="list-group-item" href="../module/openpde_spatial_operator_d1_fd_2d.html">openpde_spatial_operator_d1_FD_2D</a>
+          
+          <a class="list-group-item" href="../module/openpde_spatial_operator_d2_abstract.html">openpde_spatial_operator_d2_abstract</a>
+          
+          <a class="list-group-item" href="../module/openpde_spatial_operator_d2_fd_1d.html">openpde_spatial_operator_d2_FD_1D</a>
+          
+          <a class="list-group-item" href="../module/openpde_spatial_operator_d2_fd_2d.html">openpde_spatial_operator_d2_FD_2D</a>
+          
+          <a class="list-group-item" href="../module/scalar_simple_equation_m.html">scalar_simple_equation_m</a>
+          
+        </div>
+    </div>
+  </div>
+  
+</div>
+
+    </div>
+    
+    <div class="col-lg-9" id='text'>
+    
+    
+  
+    <ul class="list-inline">
+      <li><h4>Uses:</h4></li>
+      
+      <li><a href="https://gcc.gnu.org/onlinedocs/gfortran/ISO_005fFORTRAN_005fENV.html">iso_fortran_env</a></li>
+      
+      <li><a href='../module/openpde_field_abstract.html'>openpde_field_abstract</a></li>
+      
+      <li><a href='../module/openpde_mesh_abstract.html'>openpde_mesh_abstract</a></li>
+      
+      <li><a href='../module/openpde_kinds.html'>openpde_kinds</a></li>
+      
+      <li><a href='../module/openpde_mesh_fd_2d.html'>openpde_mesh_FD_2D</a></li>
+      
+    </ul>
+  
+
+    
+                <div class="depgraph"><?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
+ "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<!-- Generated by graphviz version 2.38.0 (20140413.2041)
+ -->
+<!-- Title: module~~openpde_field_fd_2d~~UsesGraph Pages: 1 -->
+<svg id="moduleopenpde_field_fd_2dUsesGraph" width="579pt" height="223pt"
+ viewBox="0.00 0.00 579.00 223.15" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<g id="module~~openpde_field_fd_2d~~UsesGraph" class="graph" transform="scale(1 1) rotate(0) translate(4 219.147)">
+<title>module~~openpde_field_fd_2d~~UsesGraph</title>
+<polygon fill="white" stroke="none" points="-4,4 -4,-219.147 575,-219.147 575,4 -4,4"/>
+<!-- module~openpde_field_fd_2d -->
+<g id="module~~openpde_field_fd_2d~~UsesGraph_node1" class="node"><title>module~openpde_field_fd_2d</title>
+<polygon fill="none" stroke="black" points="571,-84.2659 451,-84.2659 451,-60.2659 571,-60.2659 571,-84.2659"/>
+<text text-anchor="middle" x="511" y="-69.8659" font-family="Helvetica,sans-Serif" font-size="10.50">openpde_field_FD_2D</text>
+</g>
+<!-- module~openpde_mesh_fd_2d -->
+<g id="module~~openpde_field_fd_2d~~UsesGraph_node2" class="node"><title>module~openpde_mesh_fd_2d</title>
+<g id="a_module~~openpde_field_fd_2d~~UsesGraph_node2"><a xlink:href="../module/openpde_mesh_fd_2d.html" xlink:title="openpde_mesh_FD_2D">
+<polygon fill="#337ab7" stroke="#337ab7" points="415,-104.266 288,-104.266 288,-80.2659 415,-80.2659 415,-104.266"/>
+<text text-anchor="middle" x="351.5" y="-89.8659" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">openpde_mesh_FD_2D</text>
+</a>
+</g>
+</g>
+<!-- module~openpde_mesh_fd_2d&#45;&gt;module~openpde_field_fd_2d -->
+<g id="module~~openpde_field_fd_2d~~UsesGraph_edge8" class="edge"><title>module~openpde_mesh_fd_2d&#45;&gt;module~openpde_field_fd_2d</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M415.201,-84.3039C423.648,-83.2312 432.352,-82.1259 440.902,-81.0402"/>
+<polygon fill="#000000" stroke="#000000" points="441.365,-84.5096 450.844,-79.7777 440.483,-77.5654 441.365,-84.5096"/>
+</g>
+<!-- module~openpde_kinds -->
+<g id="module~~openpde_field_fd_2d~~UsesGraph_node3" class="node"><title>module~openpde_kinds</title>
+<g id="a_module~~openpde_field_fd_2d~~UsesGraph_node3"><a xlink:href="../module/openpde_kinds.html" xlink:title="openpde_kinds">
+<polygon fill="#337ab7" stroke="#337ab7" points="85,-64.2659 0,-64.2659 0,-40.2659 85,-40.2659 85,-64.2659"/>
+<text text-anchor="middle" x="42.5" y="-49.8659" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">openpde_kinds</text>
+</a>
+</g>
+</g>
+<!-- module~openpde_kinds&#45;&gt;module~openpde_field_fd_2d -->
+<g id="module~~openpde_field_fd_2d~~UsesGraph_edge9" class="edge"><title>module~openpde_kinds&#45;&gt;module~openpde_field_fd_2d</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M47.0533,-64.3526C55.2818,-89.9361 78.2806,-149.334 121,-175.266 208.491,-228.376 251.755,-221.188 350.5,-194.266"/>
+</g>
+<!-- module~openpde_kinds&#45;&gt;module~openpde_mesh_fd_2d -->
+<g id="module~~openpde_field_fd_2d~~UsesGraph_edge2" class="edge"><title>module~openpde_kinds&#45;&gt;module~openpde_mesh_fd_2d</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M85.2229,-57.7021C134.584,-64.1334 217.625,-74.9531 277.666,-82.7761"/>
+<polygon fill="#000000" stroke="#000000" points="277.476,-86.2808 287.844,-84.1023 278.38,-79.3395 277.476,-86.2808"/>
+</g>
+<!-- module~openpde_mesh_abstract -->
+<g id="module~~openpde_field_fd_2d~~UsesGraph_node5" class="node"><title>module~openpde_mesh_abstract</title>
+<g id="a_module~~openpde_field_fd_2d~~UsesGraph_node5"><a xlink:href="../module/openpde_mesh_abstract.html" xlink:title="openpde_mesh_abstract">
+<polygon fill="#337ab7" stroke="#337ab7" points="252,-44.2659 121,-44.2659 121,-20.2659 252,-20.2659 252,-44.2659"/>
+<text text-anchor="middle" x="186.5" y="-29.8659" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">openpde_mesh_abstract</text>
+</a>
+</g>
+</g>
+<!-- module~openpde_kinds&#45;&gt;module~openpde_mesh_abstract -->
+<g id="module~~openpde_field_fd_2d~~UsesGraph_edge5" class="edge"><title>module~openpde_kinds&#45;&gt;module~openpde_mesh_abstract</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M85.3367,-46.3734C93.3335,-45.2471 101.928,-44.0366 110.6,-42.8152"/>
+<polygon fill="#000000" stroke="#000000" points="111.371,-46.2412 120.785,-41.3807 110.394,-39.3096 111.371,-46.2412"/>
+</g>
+<!-- module~openpde_field_abstract -->
+<g id="module~~openpde_field_fd_2d~~UsesGraph_node6" class="node"><title>module~openpde_field_abstract</title>
+<g id="a_module~~openpde_field_fd_2d~~UsesGraph_node6"><a xlink:href="../module/openpde_field_abstract.html" xlink:title="openpde_field_abstract">
+<polygon fill="#337ab7" stroke="#337ab7" points="413.5,-24.2659 289.5,-24.2659 289.5,-0.265863 413.5,-0.265863 413.5,-24.2659"/>
+<text text-anchor="middle" x="351.5" y="-9.86586" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">openpde_field_abstract</text>
+</a>
+</g>
+</g>
+<!-- module~openpde_kinds&#45;&gt;module~openpde_field_abstract -->
+<g id="module~~openpde_field_fd_2d~~UsesGraph_edge6" class="edge"><title>module~openpde_kinds&#45;&gt;module~openpde_field_abstract</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M60.3612,-40.2236C75.4331,-30.2487 98.5445,-16.8397 121,-11.2659 172.77,1.58449 233.157,0.721207 278.99,-3.02691"/>
+<polygon fill="#000000" stroke="#000000" points="278.86,-6.52898 289.129,-3.92214 279.476,0.443893 278.86,-6.52898"/>
+</g>
+<!-- iso_fortran_env -->
+<g id="module~~openpde_field_fd_2d~~UsesGraph_node4" class="node"><title>iso_fortran_env</title>
+<g id="a_module~~openpde_field_fd_2d~~UsesGraph_node4"><a xlink:href="https://gcc.gnu.org/onlinedocs/gfortran/ISO_005fFORTRAN_005fENV.html" xlink:title="iso_fortran_env">
+<polygon fill="#337ab7" stroke="#337ab7" points="230,-166.266 143,-166.266 143,-142.266 230,-142.266 230,-166.266"/>
+<text text-anchor="middle" x="186.5" y="-151.866" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">iso_fortran_env</text>
+</a>
+</g>
+</g>
+<!-- iso_fortran_env&#45;&gt;module~openpde_field_fd_2d -->
+<g id="module~~openpde_field_fd_2d~~UsesGraph_edge10" class="edge"><title>iso_fortran_env&#45;&gt;module~openpde_field_fd_2d</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M220.473,-166.366C260.674,-180.416 326.253,-200.876 350.5,-194.266"/>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M352.5,-194.266C413.504,-177.634 467.698,-122.542 493.7,-92.4004"/>
+<polygon fill="#000000" stroke="#000000" points="496.496,-94.5139 500.268,-84.6134 491.145,-90.0006 496.496,-94.5139"/>
+</g>
+<!-- iso_fortran_env&#45;&gt;module~openpde_mesh_fd_2d -->
+<g id="module~~openpde_field_fd_2d~~UsesGraph_edge3" class="edge"><title>iso_fortran_env&#45;&gt;module~openpde_mesh_fd_2d</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M226.214,-142.216C234.751,-139.405 243.717,-136.333 252,-133.266 272.709,-125.598 295.492,-116.181 313.926,-108.305"/>
+<polygon fill="#000000" stroke="#000000" points="315.331,-111.511 323.135,-104.345 312.566,-105.08 315.331,-111.511"/>
+</g>
+<!-- module~openpde_mesh_abstract&#45;&gt;module~openpde_field_fd_2d -->
+<g id="module~~openpde_field_fd_2d~~UsesGraph_edge11" class="edge"><title>module~openpde_mesh_abstract&#45;&gt;module~openpde_field_fd_2d</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M252.375,-40.3123C307.006,-47.0883 384.95,-56.7558 440.775,-63.6798"/>
+<polygon fill="#000000" stroke="#000000" points="440.575,-67.1818 450.93,-64.9394 441.437,-60.235 440.575,-67.1818"/>
+</g>
+<!-- module~openpde_mesh_abstract&#45;&gt;module~openpde_mesh_fd_2d -->
+<g id="module~~openpde_field_fd_2d~~UsesGraph_edge4" class="edge"><title>module~openpde_mesh_abstract&#45;&gt;module~openpde_mesh_fd_2d</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M220.485,-44.4078C245.755,-53.7094 280.808,-66.6123 308.15,-76.6769"/>
+<polygon fill="#000000" stroke="#000000" points="307.249,-80.0747 317.842,-80.2446 309.667,-73.5056 307.249,-80.0747"/>
+</g>
+<!-- module~openpde_mesh_abstract&#45;&gt;module~openpde_field_abstract -->
+<g id="module~~openpde_field_fd_2d~~UsesGraph_edge7" class="edge"><title>module~openpde_mesh_abstract&#45;&gt;module~openpde_field_abstract</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M252.39,-24.3039C261.227,-23.2196 270.337,-22.1019 279.278,-21.0048"/>
+<polygon fill="#000000" stroke="#000000" points="279.779,-24.4696 289.279,-19.7777 278.927,-17.5217 279.779,-24.4696"/>
+</g>
+<!-- module~openpde_field_abstract&#45;&gt;module~openpde_field_fd_2d -->
+<g id="module~~openpde_field_fd_2d~~UsesGraph_edge12" class="edge"><title>module~openpde_field_abstract&#45;&gt;module~openpde_field_fd_2d</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M384.372,-24.4078C408.789,-33.7094 442.659,-46.6123 469.079,-56.6769"/>
+<polygon fill="#000000" stroke="#000000" points="467.853,-59.9552 478.444,-60.2446 470.345,-53.4138 467.853,-59.9552"/>
+</g>
+<!-- vtk_fortran -->
+<g id="module~~openpde_field_fd_2d~~UsesGraph_node7" class="node"><title>vtk_fortran</title>
+<polygon fill="#337ab7" stroke="#337ab7" points="218.5,-124.266 154.5,-124.266 154.5,-100.266 218.5,-100.266 218.5,-124.266"/>
+<text text-anchor="middle" x="186.5" y="-109.866" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">vtk_fortran</text>
+</g>
+<!-- vtk_fortran&#45;&gt;module~openpde_mesh_fd_2d -->
+<g id="module~~openpde_field_fd_2d~~UsesGraph_edge1" class="edge"><title>vtk_fortran&#45;&gt;module~openpde_mesh_fd_2d</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M218.543,-108.457C235.371,-106.392 256.932,-103.747 277.726,-101.195"/>
+<polygon fill="#000000" stroke="#000000" points="278.349,-104.645 287.848,-99.9532 277.496,-97.6972 278.349,-104.645"/>
+</g>
+</g>
+</svg>
+</div>
+                <div><a type="button" class="graph-help" data-toggle="modal" href="#graph-help-text">Help</a></div>
+                <div class="modal fade" id="graph-help-text" tabindex="-1" role="dialog">
+                  <div class="modal-dialog modal-lg" role="document">
+                    <div class="modal-content">
+                      <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                        <h4 class="modal-title" id="-graph-help-label">Graph Key</h4>
+                      </div>
+                      <div class="modal-body">
+                        
+Nodes of different colours represent the following:
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
+ "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<!-- Generated by graphviz version 2.38.0 (20140413.2041)
+ -->
+<!-- Title: Graph Key Pages: 1 -->
+<svg width="641pt" height="26pt"
+ viewBox="0.00 0.00 641.00 25.98" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<g id="graph0" class="graph" transform="scale(0.811906 0.811906) rotate(0) translate(4 28)">
+<title>Graph Key</title>
+<polygon fill="white" stroke="none" points="-4,4 -4,-28 785.5,-28 785.5,4 -4,4"/>
+<!-- Module -->
+<g id="node1" class="node"><title>Module</title>
+<polygon fill="#337ab7" stroke="#337ab7" points="54,-24 0,-24 0,-0 54,-0 54,-24"/>
+<text text-anchor="middle" x="27" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">Module</text>
+</g>
+<!-- Submodule -->
+<g id="node2" class="node"><title>Submodule</title>
+<polygon fill="#5bc0de" stroke="#5bc0de" points="139.5,-24 72.5,-24 72.5,-0 139.5,-0 139.5,-24"/>
+<text text-anchor="middle" x="106" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">Submodule</text>
+</g>
+<!-- Type -->
+<g id="node3" class="node"><title>Type</title>
+<polygon fill="#5cb85c" stroke="#5cb85c" points="212,-24 158,-24 158,-0 212,-0 212,-24"/>
+<text text-anchor="middle" x="185" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">Type</text>
+</g>
+<!-- Subroutine -->
+<g id="node4" class="node"><title>Subroutine</title>
+<polygon fill="#d9534f" stroke="#d9534f" points="294,-24 230,-24 230,-0 294,-0 294,-24"/>
+<text text-anchor="middle" x="262" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">Subroutine</text>
+</g>
+<!-- Function -->
+<g id="node5" class="node"><title>Function</title>
+<polygon fill="#d94e8f" stroke="#d94e8f" points="366,-24 312,-24 312,-0 366,-0 366,-24"/>
+<text text-anchor="middle" x="339" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">Function</text>
+</g>
+<!-- Interface -->
+<g id="node6" class="node"><title>Interface</title>
+<polygon fill="#a7506f" stroke="#a7506f" points="439.5,-24 384.5,-24 384.5,-0 439.5,-0 439.5,-24"/>
+<text text-anchor="middle" x="412" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">Interface</text>
+</g>
+<!-- Unknown Procedure Type -->
+<g id="node7" class="node"><title>Unknown Procedure Type</title>
+<polygon fill="#777777" stroke="#777777" points="594,-24 458,-24 458,-0 594,-0 594,-24"/>
+<text text-anchor="middle" x="526" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">Unknown Procedure Type</text>
+</g>
+<!-- Program -->
+<g id="node8" class="node"><title>Program</title>
+<polygon fill="#f0ad4e" stroke="#f0ad4e" points="666,-24 612,-24 612,-0 666,-0 666,-24"/>
+<text text-anchor="middle" x="639" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">Program</text>
+</g>
+<!-- This Page&#39;s Entity -->
+<g id="node9" class="node"><title>This Page&#39;s Entity</title>
+<polygon fill="none" stroke="black" points="781.5,-24 684.5,-24 684.5,-0 781.5,-0 781.5,-24"/>
+<text text-anchor="middle" x="733" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50">This Page&#39;s Entity</text>
+</g>
+</g>
+</svg>
+
+Where possible, edges connecting nodes are given different colours to make them
+easier to distinguish in large graphs.
+<h5>Module Graph</h5>
+<p>Solid arrows point from a parent (sub)module to the submodule which is
+descended from it. Dashed arrows point from a module being used to the
+module using it.</p>
+<h5>Type Graph</h5>
+<p>Solid arrows point from one derived type to another which extends
+(inherits from) it. Dashed arrows point from a derived type to another
+type containing it as a components, with a label listing the name(s) of
+said component(s).</p>
+<h5>Call Graph</h5>
+<p>Solid arrows point from a procedure to one which it calls. Dashed 
+arrows point from an interface to procedures which implement that interface.
+This could include the module procedures in a generic interface or the
+implementation in a submodule of an interface in a parent module.</p>
+
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                
+    
+    <p>Concrete class of field for Finite Difference 2D methods.</p>
+    
+    
+    <h3>Used By</h3>
+    
+                <div class="depgraph"><?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
+ "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<!-- Generated by graphviz version 2.38.0 (20140413.2041)
+ -->
+<!-- Title: module~~openpde_field_fd_2d~~UsedByGraph Pages: 1 -->
+<svg id="moduleopenpde_field_fd_2dUsedByGraph" width="641pt" height="81pt"
+ viewBox="0.00 0.00 641.00 81.31" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<g id="module~~openpde_field_fd_2d~~UsedByGraph" class="graph" transform="scale(0.865047 0.865047) rotate(0) translate(4 90)">
+<title>module~~openpde_field_fd_2d~~UsedByGraph</title>
+<polygon fill="white" stroke="none" points="-4,4 -4,-90 737,-90 737,4 -4,4"/>
+<!-- module~openpde_field_fd_2d -->
+<g id="module~~openpde_field_fd_2d~~UsedByGraph_node1" class="node"><title>module~openpde_field_fd_2d</title>
+<polygon fill="none" stroke="black" points="120,-66 7.10543e-15,-66 7.10543e-15,-42 120,-42 120,-66"/>
+<text text-anchor="middle" x="60" y="-51.6" font-family="Helvetica,sans-Serif" font-size="10.50">openpde_field_FD_2D</text>
+</g>
+<!-- module~openpde -->
+<g id="module~~openpde_field_fd_2d~~UsedByGraph_node2" class="node"><title>module~openpde</title>
+<g id="a_module~~openpde_field_fd_2d~~UsedByGraph_node2"><a xlink:href="../module/openpde.html" xlink:title="openpde">
+<polygon fill="#337ab7" stroke="#337ab7" points="443,-66 388,-66 388,-42 443,-42 443,-66"/>
+<text text-anchor="middle" x="415.5" y="-51.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">openpde</text>
+</a>
+</g>
+</g>
+<!-- module~openpde_field_fd_2d&#45;&gt;module~openpde -->
+<g id="module~~openpde_field_fd_2d~~UsedByGraph_edge6" class="edge"><title>module~openpde_field_fd_2d&#45;&gt;module~openpde</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M106.089,-66.0702C121.766,-69.7043 139.544,-73.2029 156,-75 242.596,-84.457 266.031,-89.0567 352,-75 360.688,-73.5794 369.796,-71.1172 378.289,-68.3673"/>
+<polygon fill="#000000" stroke="#000000" points="379.598,-71.6182 387.913,-65.0522 377.318,-64.9998 379.598,-71.6182"/>
+</g>
+<!-- module~openpde_spatial_operator_d1_fd_2d -->
+<g id="module~~openpde_field_fd_2d~~UsedByGraph_node3" class="node"><title>module~openpde_spatial_operator_d1_fd_2d</title>
+<g id="a_module~~openpde_field_fd_2d~~UsedByGraph_node3"><a xlink:href="../module/openpde_spatial_operator_d1_fd_2d.html" xlink:title="openpde_spatial_operator_d1_FD_2D">
+<polygon fill="#337ab7" stroke="#337ab7" points="352,-66 156,-66 156,-42 352,-42 352,-66"/>
+<text text-anchor="middle" x="254" y="-51.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">openpde_spatial_operator_d1_FD_2D</text>
+</a>
+</g>
+</g>
+<!-- module~openpde_field_fd_2d&#45;&gt;module~openpde_spatial_operator_d1_fd_2d -->
+<g id="module~~openpde_field_fd_2d~~UsedByGraph_edge7" class="edge"><title>module~openpde_field_fd_2d&#45;&gt;module~openpde_spatial_operator_d1_fd_2d</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M120.173,-54C128.33,-54 136.905,-54 145.607,-54"/>
+<polygon fill="#000000" stroke="#000000" points="145.863,-57.5001 155.863,-54 145.863,-50.5001 145.863,-57.5001"/>
+</g>
+<!-- module~openpde_spatial_operator_d2_fd_2d -->
+<g id="module~~openpde_field_fd_2d~~UsedByGraph_node4" class="node"><title>module~openpde_spatial_operator_d2_fd_2d</title>
+<g id="a_module~~openpde_field_fd_2d~~UsedByGraph_node4"><a xlink:href="../module/openpde_spatial_operator_d2_fd_2d.html" xlink:title="openpde_spatial_operator_d2_FD_2D">
+<polygon fill="#337ab7" stroke="#337ab7" points="352,-24 156,-24 156,-0 352,-0 352,-24"/>
+<text text-anchor="middle" x="254" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">openpde_spatial_operator_d2_FD_2D</text>
+</a>
+</g>
+</g>
+<!-- module~openpde_field_fd_2d&#45;&gt;module~openpde_spatial_operator_d2_fd_2d -->
+<g id="module~~openpde_field_fd_2d~~UsedByGraph_edge8" class="edge"><title>module~openpde_field_fd_2d&#45;&gt;module~openpde_spatial_operator_d2_fd_2d</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M115.248,-41.9656C128.572,-39.0217 142.799,-35.888 156,-33 166.141,-30.7815 176.881,-28.4441 187.376,-26.1667"/>
+<polygon fill="#000000" stroke="#000000" points="188.305,-29.5467 197.337,-24.0074 186.822,-22.7056 188.305,-29.5467"/>
+</g>
+<!-- module~scalar_simple_equation_m -->
+<g id="module~~openpde_field_fd_2d~~UsedByGraph_node5" class="node"><title>module~scalar_simple_equation_m</title>
+<g id="a_module~~openpde_field_fd_2d~~UsedByGraph_node5"><a xlink:href="../module/scalar_simple_equation_m.html" xlink:title="scalar_simple_equation_m">
+<polygon fill="#337ab7" stroke="#337ab7" points="619,-86 479,-86 479,-62 619,-62 619,-86"/>
+<text text-anchor="middle" x="549" y="-71.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">scalar_simple_equation_m</text>
+</a>
+</g>
+</g>
+<!-- module~openpde&#45;&gt;module~scalar_simple_equation_m -->
+<g id="module~~openpde_field_fd_2d~~UsedByGraph_edge2" class="edge"><title>module~openpde&#45;&gt;module~scalar_simple_equation_m</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M443.111,-58.0473C450.827,-59.2208 459.673,-60.5663 468.885,-61.9674"/>
+<polygon fill="#000000" stroke="#000000" points="468.576,-65.4605 478.989,-63.504 469.629,-58.5401 468.576,-65.4605"/>
+</g>
+<!-- program~scalar_simple -->
+<g id="module~~openpde_field_fd_2d~~UsedByGraph_node6" class="node"><title>program~scalar_simple</title>
+<g id="a_module~~openpde_field_fd_2d~~UsedByGraph_node6"><a xlink:href="../program/scalar_simple.html" xlink:title="scalar_simple">
+<polygon fill="#f0ad4e" stroke="#f0ad4e" points="733,-66 655,-66 655,-42 733,-42 733,-66"/>
+<text text-anchor="middle" x="694" y="-51.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">scalar_simple</text>
+</a>
+</g>
+</g>
+<!-- module~openpde&#45;&gt;program~scalar_simple -->
+<g id="module~~openpde_field_fd_2d~~UsedByGraph_edge3" class="edge"><title>module~openpde&#45;&gt;program~scalar_simple</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M443.263,-53.4778C454.325,-53.2864 467.28,-53.0938 479,-53 541.22,-52.5023 556.779,-52.5796 619,-53 627.312,-53.0562 636.149,-53.1478 644.715,-53.2534"/>
+<polygon fill="#000000" stroke="#000000" points="644.93,-56.7564 654.975,-53.3877 645.022,-49.757 644.93,-56.7564"/>
+</g>
+<!-- module~openpde_spatial_operator_d1_fd_2d&#45;&gt;module~openpde -->
+<g id="module~~openpde_field_fd_2d~~UsedByGraph_edge4" class="edge"><title>module~openpde_spatial_operator_d1_fd_2d&#45;&gt;module~openpde</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M352.376,-54C361.295,-54 369.903,-54 377.725,-54"/>
+<polygon fill="#000000" stroke="#000000" points="377.859,-57.5001 387.859,-54 377.859,-50.5001 377.859,-57.5001"/>
+</g>
+<!-- module~openpde_spatial_operator_d2_fd_2d&#45;&gt;module~openpde -->
+<g id="module~~openpde_field_fd_2d~~UsedByGraph_edge5" class="edge"><title>module~openpde_spatial_operator_d2_fd_2d&#45;&gt;module~openpde</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M315.534,-24.02C327.671,-26.7342 340.288,-29.7754 352,-33 360.567,-35.3587 369.685,-38.2178 378.232,-41.057"/>
+<polygon fill="#000000" stroke="#000000" points="377.342,-44.451 387.936,-44.3496 379.591,-37.8221 377.342,-44.451"/>
+</g>
+<!-- module~scalar_simple_equation_m&#45;&gt;program~scalar_simple -->
+<g id="module~~openpde_field_fd_2d~~UsedByGraph_edge1" class="edge"><title>module~scalar_simple_equation_m&#45;&gt;program~scalar_simple</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M619.406,-64.2929C628.012,-63.0893 636.658,-61.88 644.846,-60.7349"/>
+<polygon fill="#000000" stroke="#000000" points="645.515,-64.1754 654.934,-59.3239 644.545,-57.2429 645.515,-64.1754"/>
+</g>
+</g>
+</svg>
+</div>
+                <script>var panmoduleopenpde_field_fd_2dUsedByGraph = svgPanZoom('#moduleopenpde_field_fd_2dUsedByGraph', {
+                    zoomEnabled: true,
+                    controlIconsEnabled: true,
+                    fit: true,
+                    center: true,});
+                    </script>
+                <div><a type="button" class="graph-help" data-toggle="modal" href="#graph-help-text">Help</a></div>
+                <div class="modal fade" id="graph-help-text" tabindex="-1" role="dialog">
+                  <div class="modal-dialog modal-lg" role="document">
+                    <div class="modal-content">
+                      <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                        <h4 class="modal-title" id="-graph-help-label">Graph Key</h4>
+                      </div>
+                      <div class="modal-body">
+                        
+Nodes of different colours represent the following:
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
+ "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<!-- Generated by graphviz version 2.38.0 (20140413.2041)
+ -->
+<!-- Title: Graph Key Pages: 1 -->
+<svg width="641pt" height="26pt"
+ viewBox="0.00 0.00 641.00 25.98" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<g id="graph0" class="graph" transform="scale(0.811906 0.811906) rotate(0) translate(4 28)">
+<title>Graph Key</title>
+<polygon fill="white" stroke="none" points="-4,4 -4,-28 785.5,-28 785.5,4 -4,4"/>
+<!-- Module -->
+<g id="node1" class="node"><title>Module</title>
+<polygon fill="#337ab7" stroke="#337ab7" points="54,-24 0,-24 0,-0 54,-0 54,-24"/>
+<text text-anchor="middle" x="27" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">Module</text>
+</g>
+<!-- Submodule -->
+<g id="node2" class="node"><title>Submodule</title>
+<polygon fill="#5bc0de" stroke="#5bc0de" points="139.5,-24 72.5,-24 72.5,-0 139.5,-0 139.5,-24"/>
+<text text-anchor="middle" x="106" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">Submodule</text>
+</g>
+<!-- Type -->
+<g id="node3" class="node"><title>Type</title>
+<polygon fill="#5cb85c" stroke="#5cb85c" points="212,-24 158,-24 158,-0 212,-0 212,-24"/>
+<text text-anchor="middle" x="185" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">Type</text>
+</g>
+<!-- Subroutine -->
+<g id="node4" class="node"><title>Subroutine</title>
+<polygon fill="#d9534f" stroke="#d9534f" points="294,-24 230,-24 230,-0 294,-0 294,-24"/>
+<text text-anchor="middle" x="262" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">Subroutine</text>
+</g>
+<!-- Function -->
+<g id="node5" class="node"><title>Function</title>
+<polygon fill="#d94e8f" stroke="#d94e8f" points="366,-24 312,-24 312,-0 366,-0 366,-24"/>
+<text text-anchor="middle" x="339" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">Function</text>
+</g>
+<!-- Interface -->
+<g id="node6" class="node"><title>Interface</title>
+<polygon fill="#a7506f" stroke="#a7506f" points="439.5,-24 384.5,-24 384.5,-0 439.5,-0 439.5,-24"/>
+<text text-anchor="middle" x="412" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">Interface</text>
+</g>
+<!-- Unknown Procedure Type -->
+<g id="node7" class="node"><title>Unknown Procedure Type</title>
+<polygon fill="#777777" stroke="#777777" points="594,-24 458,-24 458,-0 594,-0 594,-24"/>
+<text text-anchor="middle" x="526" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">Unknown Procedure Type</text>
+</g>
+<!-- Program -->
+<g id="node8" class="node"><title>Program</title>
+<polygon fill="#f0ad4e" stroke="#f0ad4e" points="666,-24 612,-24 612,-0 666,-0 666,-24"/>
+<text text-anchor="middle" x="639" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">Program</text>
+</g>
+<!-- This Page&#39;s Entity -->
+<g id="node9" class="node"><title>This Page&#39;s Entity</title>
+<polygon fill="none" stroke="black" points="781.5,-24 684.5,-24 684.5,-0 781.5,-0 781.5,-24"/>
+<text text-anchor="middle" x="733" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50">This Page&#39;s Entity</text>
+</g>
+</g>
+</svg>
+
+Where possible, edges connecting nodes are given different colours to make them
+easier to distinguish in large graphs.
+<h5>Module Graph</h5>
+<p>Solid arrows point from a parent (sub)module to the submodule which is
+descended from it. Dashed arrows point from a module being used to the
+module using it.</p>
+<h5>Type Graph</h5>
+<p>Solid arrows point from one derived type to another which extends
+(inherits from) it. Dashed arrows point from a derived type to another
+type containing it as a components, with a label listing the name(s) of
+said component(s).</p>
+<h5>Call Graph</h5>
+<p>Solid arrows point from a procedure to one which it calls. Dashed 
+arrows point from an interface to procedures which implement that interface.
+This could include the module procedures in a generic interface or the
+implementation in a submodule of an interface in a parent module.</p>
+
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                
+    <br>
+    
+
+    
+    
+    
+    
+    
+
+    
+    
+    
+    <section>
+     <h2>Derived Types</h2>
+	 
+	   
+<div class="panel panel-default">
+  <div class="panel-heading codesum"><span class="anchor" id="type-field_fd_2d"></span><h3>type, public, extends(<a href='../type/field.html'>field</a>) :: <a href='../type/field_fd_2d.html'>field_FD_2D</a>
+    
+  </h3></div>
+  <div class="panel-body">
+     
+     <h4>Components</h4>
+    
+<table class="table table-striped varlist">
+<thead><tr><th>Type</th><th>Visibility</th>
+
+<th>Attributes</th><th></th><th>Name</th><th></th><th>Initial</th><th></th></thead>
+
+
+
+<tbody>
+
+  
+  
+  
+  
+<tr>
+  
+  <td><span class="anchor" id="variable-val"></span>real(kind=R_P),</td>
+  
+  <td>public,</td>
+  <td>allocatable, dimension(:,:)</td><td>::</td>
+  <td><strong>val</strong></td><td></td><td></td><td><p>Field value.</p></td>
+  
+</tr>
+
+</tbody>
+</table>
+
+     
+     
+          
+     
+     <h4>Type-Bound Procedures</h4>
+      <table class="table table-striped varlist">
+      <tbody>
+      
+       <tr><td>procedure, public, pass(this) :: <strong>associate_mesh</strong>  </td>
+       <td><p>Associate field to a mesh.</p></td></tr>
+      
+       <tr><td>procedure, public, pass(this) :: <strong>init</strong>  </td>
+       <td><p>Initilize field.</p></td></tr>
+      
+       <tr><td>procedure, public, pass(this) :: <strong>output</strong>  </td>
+       <td><p>Output field data.</p></td></tr>
+      
+       <tr><td>procedure, private, pass(lhs) :: <strong>add</strong>  </td>
+       <td><p>Add fields.</p></td></tr>
+      
+       <tr><td>procedure, private, pass(lhs) :: <strong>assign_field</strong>  </td>
+       <td><p>Assign fields.</p></td></tr>
+      
+       <tr><td>procedure, private, pass(lhs) :: <strong>mul</strong>  </td>
+       <td><p>Multiply fields.</p></td></tr>
+      
+       <tr><td>procedure, private, pass(lhs) :: <strong>mulreal</strong>  </td>
+       <td><p>Multiply field for real.</p></td></tr>
+      
+       <tr><td>procedure, private, pass(rhs) :: <strong>realmul</strong>  </td>
+       <td><p>Multiply real for field.</p></td></tr>
+      
+       <tr><td>procedure, private, pass(lhs) :: <strong>sub</strong>  </td>
+       <td><p>Subtract fields.</p></td></tr>
+      
+       <tr><td>procedure, public, pass(this) :: <strong>set</strong>  </td>
+       <td><p>Set field.</p></td></tr>
+      
+       </tbody>
+       </table>
+     
+     
+     <h4>Description</h4>
+       
+       <p>Concrete class of field for Finite Difference 2D methods.</p>
+     
+  </div>
+</div>
+
+     
+    </section>
+	<br>
+    
+    
+     
+    <section>
+    <h2>Functions</h2>
+    
+    
+  <div class="panel panel-default">
+  <div class="panel-heading codesum"><span class="anchor" id="proc-add"></span><h3>
+private function <a href='../proc/add.html'>add</a>(lhs, rhs) result(opr)
+    
+    
+    
+</h3></div>
+  <div class="panel-body">
+       
+    
+    <h4>Arguments</h4>
+    
+      
+      
+<table class="table table-striped varlist">
+<thead><tr><th>Type</th>
+<th>Intent</th><th>Optional</th>
+<th>Attributes</th><th></th><th>Name</th><th></th></thead>
+
+
+
+<tbody>
+
+  
+  
+  
+  
+<tr>
+  
+  <td><span class="anchor" ></span>class(<a href='../type/field_fd_2d.html'>field_FD_2D</a>),</td>
+  <td>intent(in)</td>
+  <td></td>
+  
+  <td></td><td>::</td>
+  <td><strong>lhs</strong></td><td><p>Left hand side.</p></td>
+  
+</tr>
+
+  
+  
+  
+  
+<tr>
+  
+  <td><span class="anchor" ></span>class(<a href='../type/field.html'>field</a>),</td>
+  <td>intent(in),</td>
+  <td></td>
+  
+  <td>target</td><td>::</td>
+  <td><strong>rhs</strong></td><td><p>Left hand side.</p></td>
+  
+</tr>
+
+</tbody>
+</table>
+
+      
+    
+    
+
+  
+  
+  
+  
+     <h4>Return Value <small>class(<a href='../type/field.html'>field</a>),
+  allocatable,target</small></h4>
+  <p>Operator result.</p>
+    
+    
+    <h4>Description</h4>
+       
+       
+
+
+       
+       <p>Add fields.</p>
+        
+
+  </div>
+  </div>
+
+    
+    
+  <div class="panel panel-default">
+  <div class="panel-heading codesum"><span class="anchor" id="proc-mul"></span><h3>
+private function <a href='../proc/mul.html'>mul</a>(lhs, rhs) result(opr)
+    
+    
+    
+</h3></div>
+  <div class="panel-body">
+       
+    
+    <h4>Arguments</h4>
+    
+      
+      
+<table class="table table-striped varlist">
+<thead><tr><th>Type</th>
+<th>Intent</th><th>Optional</th>
+<th>Attributes</th><th></th><th>Name</th><th></th></thead>
+
+
+
+<tbody>
+
+  
+  
+  
+  
+<tr>
+  
+  <td><span class="anchor" ></span>class(<a href='../type/field_fd_2d.html'>field_FD_2D</a>),</td>
+  <td>intent(in)</td>
+  <td></td>
+  
+  <td></td><td>::</td>
+  <td><strong>lhs</strong></td><td><p>Left hand side.</p></td>
+  
+</tr>
+
+  
+  
+  
+  
+<tr>
+  
+  <td><span class="anchor" ></span>class(<a href='../type/field.html'>field</a>),</td>
+  <td>intent(in),</td>
+  <td></td>
+  
+  <td>target</td><td>::</td>
+  <td><strong>rhs</strong></td><td><p>Left hand side.</p></td>
+  
+</tr>
+
+</tbody>
+</table>
+
+      
+    
+    
+
+  
+  
+  
+  
+     <h4>Return Value <small>class(<a href='../type/field.html'>field</a>),
+  allocatable,target</small></h4>
+  <p>Operator result.</p>
+    
+    
+    <h4>Description</h4>
+       
+       
+
+
+       
+       <p>Multiply fields.</p>
+        
+
+  </div>
+  </div>
+
+    
+    
+  <div class="panel panel-default">
+  <div class="panel-heading codesum"><span class="anchor" id="proc-mulreal"></span><h3>
+private function <a href='../proc/mulreal.html'>mulreal</a>(lhs, rhs) result(opr)
+    
+    
+    
+</h3></div>
+  <div class="panel-body">
+       
+    
+    <h4>Arguments</h4>
+    
+      
+      
+<table class="table table-striped varlist">
+<thead><tr><th>Type</th>
+<th>Intent</th><th>Optional</th>
+<th>Attributes</th><th></th><th>Name</th><th></th></thead>
+
+
+
+<tbody>
+
+  
+  
+  
+  
+<tr>
+  
+  <td><span class="anchor" ></span>class(<a href='../type/field_fd_2d.html'>field_FD_2D</a>),</td>
+  <td>intent(in)</td>
+  <td></td>
+  
+  <td></td><td>::</td>
+  <td><strong>lhs</strong></td><td><p>Left hand side.</p></td>
+  
+</tr>
+
+  
+  
+  
+  
+<tr>
+  
+  <td><span class="anchor" ></span>real(kind=R_P),</td>
+  <td>intent(in)</td>
+  <td></td>
+  
+  <td></td><td>::</td>
+  <td><strong>rhs</strong></td><td><p>Right hand side.</p></td>
+  
+</tr>
+
+</tbody>
+</table>
+
+      
+    
+    
+
+  
+  
+  
+  
+     <h4>Return Value <small>class(<a href='../type/field.html'>field</a>),
+  allocatable,target</small></h4>
+  <p>Operator result.</p>
+    
+    
+    <h4>Description</h4>
+       
+       
+
+
+       
+       <p>Multiply field for real.</p>
+        
+
+  </div>
+  </div>
+
+    
+    
+  <div class="panel panel-default">
+  <div class="panel-heading codesum"><span class="anchor" id="proc-realmul"></span><h3>
+private function <a href='../proc/realmul.html'>realmul</a>(lhs, rhs) result(opr)
+    
+    
+    
+</h3></div>
+  <div class="panel-body">
+       
+    
+    <h4>Arguments</h4>
+    
+      
+      
+<table class="table table-striped varlist">
+<thead><tr><th>Type</th>
+<th>Intent</th><th>Optional</th>
+<th>Attributes</th><th></th><th>Name</th><th></th></thead>
+
+
+
+<tbody>
+
+  
+  
+  
+  
+<tr>
+  
+  <td><span class="anchor" ></span>real(kind=R_P),</td>
+  <td>intent(in)</td>
+  <td></td>
+  
+  <td></td><td>::</td>
+  <td><strong>lhs</strong></td><td><p>Left hand side.</p></td>
+  
+</tr>
+
+  
+  
+  
+  
+<tr>
+  
+  <td><span class="anchor" ></span>class(<a href='../type/field_fd_2d.html'>field_FD_2D</a>),</td>
+  <td>intent(in)</td>
+  <td></td>
+  
+  <td></td><td>::</td>
+  <td><strong>rhs</strong></td><td><p>Right hand side.</p></td>
+  
+</tr>
+
+</tbody>
+</table>
+
+      
+    
+    
+
+  
+  
+  
+  
+     <h4>Return Value <small>class(<a href='../type/field.html'>field</a>),
+  allocatable,target</small></h4>
+  <p>Operator result.</p>
+    
+    
+    <h4>Description</h4>
+       
+       
+
+
+       
+       <p>Multiply real for field.</p>
+        
+
+  </div>
+  </div>
+
+    
+    
+  <div class="panel panel-default">
+  <div class="panel-heading codesum"><span class="anchor" id="proc-sub"></span><h3>
+private function <a href='../proc/sub.html'>sub</a>(lhs, rhs) result(opr)
+    
+    
+    
+</h3></div>
+  <div class="panel-body">
+       
+    
+    <h4>Arguments</h4>
+    
+      
+      
+<table class="table table-striped varlist">
+<thead><tr><th>Type</th>
+<th>Intent</th><th>Optional</th>
+<th>Attributes</th><th></th><th>Name</th><th></th></thead>
+
+
+
+<tbody>
+
+  
+  
+  
+  
+<tr>
+  
+  <td><span class="anchor" ></span>class(<a href='../type/field_fd_2d.html'>field_FD_2D</a>),</td>
+  <td>intent(in)</td>
+  <td></td>
+  
+  <td></td><td>::</td>
+  <td><strong>lhs</strong></td><td><p>Left hand side.</p></td>
+  
+</tr>
+
+  
+  
+  
+  
+<tr>
+  
+  <td><span class="anchor" ></span>class(<a href='../type/field.html'>field</a>),</td>
+  <td>intent(in),</td>
+  <td></td>
+  
+  <td>target</td><td>::</td>
+  <td><strong>rhs</strong></td><td><p>Left hand side.</p></td>
+  
+</tr>
+
+</tbody>
+</table>
+
+      
+    
+    
+
+  
+  
+  
+  
+     <h4>Return Value <small>class(<a href='../type/field.html'>field</a>),
+  allocatable,target</small></h4>
+  <p>Operator result.</p>
+    
+    
+    <h4>Description</h4>
+       
+       
+
+
+       
+       <p>Subtract fields.</p>
+        
+
+  </div>
+  </div>
+
+    
+    </section>
+    <br>
+    
+
+    
+    <section>
+    <h2>Subroutines</h2>
+    
+    
+  <div class="panel panel-default">
+  <div class="panel-heading codesum"><span class="anchor" id="proc-associate_field_fd_2d"></span><h3>
+public subroutine <a href='../proc/associate_field_fd_2d.html'>associate_field_FD_2D</a>(field_input, calling_procedure, field_pointer)
+    
+    
+    
+</h3></div>
+  <div class="panel-body">
+       
+    
+    <h4>Arguments</h4>
+    
+      
+      
+<table class="table table-striped varlist">
+<thead><tr><th>Type</th>
+<th>Intent</th><th>Optional</th>
+<th>Attributes</th><th></th><th>Name</th><th></th></thead>
+
+
+
+<tbody>
+
+  
+  
+  
+  
+<tr>
+  
+  <td><span class="anchor" ></span>class(<a href='../type/field.html'>field</a>),</td>
+  <td>intent(in),</td>
+  <td></td>
+  
+  <td>target</td><td>::</td>
+  <td><strong>field_input</strong></td><td><p>Input field.</p></td>
+  
+</tr>
+
+  
+  
+  
+  
+<tr>
+  
+  <td><span class="anchor" ></span>character(len=*),</td>
+  <td>intent(in)</td>
+  <td></td>
+  
+  <td></td><td>::</td>
+  <td><strong>calling_procedure</strong></td><td><p>Name of the calling procedure.</p></td>
+  
+</tr>
+
+  
+  
+  
+  
+<tr>
+  
+  <td><span class="anchor" ></span>class(<a href='../type/field_fd_2d.html'>field_FD_2D</a>),</td>
+  <td>intent(inout),</td>
+  <td></td>
+  
+  <td>pointer</td><td>::</td>
+  <td><strong>field_pointer</strong></td><td><p>Finite Difference 2D field pointer.</p></td>
+  
+</tr>
+
+</tbody>
+</table>
+
+      
+    
+    
+    
+    <h4>Description</h4>
+       
+       
+
+
+       
+       <p>Check the type of the field passed as input and return a Finite Difference 2D field pointer associated to field.</p>
+        
+
+  </div>
+  </div>
+
+    
+    
+  <div class="panel panel-default">
+  <div class="panel-heading codesum"><span class="anchor" id="proc-associate_mesh"></span><h3>
+private subroutine <a href='../proc/associate_mesh.html'>associate_mesh</a>(this, field_mesh, error)
+    
+    
+    
+</h3></div>
+  <div class="panel-body">
+       
+    
+    <h4>Arguments</h4>
+    
+      
+      
+<table class="table table-striped varlist">
+<thead><tr><th>Type</th>
+<th>Intent</th><th>Optional</th>
+<th>Attributes</th><th></th><th>Name</th><th></th></thead>
+
+
+
+<tbody>
+
+  
+  
+  
+  
+<tr>
+  
+  <td><span class="anchor" ></span>class(<a href='../type/field_fd_2d.html'>field_FD_2D</a>),</td>
+  <td>intent(inout)</td>
+  <td></td>
+  
+  <td></td><td>::</td>
+  <td><strong>this</strong></td><td><p>The field.</p></td>
+  
+</tr>
+
+  
+  
+  
+  
+<tr>
+  
+  <td><span class="anchor" ></span>class(<a href='../type/mesh.html'>mesh</a>),</td>
+  <td>intent(in),</td>
+  <td></td>
+  
+  <td>target</td><td>::</td>
+  <td><strong>field_mesh</strong></td><td><p>Mesh of the field.</p></td>
+  
+</tr>
+
+  
+  
+  
+  
+<tr>
+  
+  <td><span class="anchor" ></span>integer(kind=I_P),</td>
+  <td>intent(out),</td>
+  <td>optional</td>
+  
+  <td></td><td>::</td>
+  <td><strong>error</strong></td><td><p>Error status.</p></td>
+  
+</tr>
+
+</tbody>
+</table>
+
+      
+    
+    
+    
+    <h4>Description</h4>
+       
+       
+
+
+       
+       <p>Associate field to a mesh.</p>
+        
+
+  </div>
+  </div>
+
+    
+    
+  <div class="panel panel-default">
+  <div class="panel-heading codesum"><span class="anchor" id="proc-init"></span><h3>
+private subroutine <a href='../proc/init.html'>init</a>(this, field_mesh, description, error)
+    
+    
+    
+</h3></div>
+  <div class="panel-body">
+       
+    
+    <h4>Arguments</h4>
+    
+      
+      
+<table class="table table-striped varlist">
+<thead><tr><th>Type</th>
+<th>Intent</th><th>Optional</th>
+<th>Attributes</th><th></th><th>Name</th><th></th></thead>
+
+
+
+<tbody>
+
+  
+  
+  
+  
+<tr>
+  
+  <td><span class="anchor" ></span>class(<a href='../type/field_fd_2d.html'>field_FD_2D</a>),</td>
+  <td>intent(inout)</td>
+  <td></td>
+  
+  <td></td><td>::</td>
+  <td><strong>this</strong></td><td><p>The field.</p></td>
+  
+</tr>
+
+  
+  
+  
+  
+<tr>
+  
+  <td><span class="anchor" ></span>class(<a href='../type/mesh.html'>mesh</a>),</td>
+  <td>intent(in),</td>
+  <td></td>
+  
+  <td>target</td><td>::</td>
+  <td><strong>field_mesh</strong></td><td><p>Mesh of the field.</p></td>
+  
+</tr>
+
+  
+  
+  
+  
+<tr>
+  
+  <td><span class="anchor" ></span>character(len=*),</td>
+  <td>intent(in),</td>
+  <td>optional</td>
+  
+  <td></td><td>::</td>
+  <td><strong>description</strong></td><td><p>Mesh description</p></td>
+  
+</tr>
+
+  
+  
+  
+  
+<tr>
+  
+  <td><span class="anchor" ></span>integer(kind=I_P),</td>
+  <td>intent(out),</td>
+  <td>optional</td>
+  
+  <td></td><td>::</td>
+  <td><strong>error</strong></td><td><p>Error status.</p></td>
+  
+</tr>
+
+</tbody>
+</table>
+
+      
+    
+    
+    
+    <h4>Description</h4>
+       
+       
+
+
+       
+       <p>Initialize finite difference 2D field.</p>
+        
+
+  </div>
+  </div>
+
+    
+    
+  <div class="panel panel-default">
+  <div class="panel-heading codesum"><span class="anchor" id="proc-output"></span><h3>
+private subroutine <a href='../proc/output.html'>output</a>(this, filename, error)
+    
+    
+    
+</h3></div>
+  <div class="panel-body">
+       
+    
+    <h4>Arguments</h4>
+    
+      
+      
+<table class="table table-striped varlist">
+<thead><tr><th>Type</th>
+<th>Intent</th><th>Optional</th>
+<th>Attributes</th><th></th><th>Name</th><th></th></thead>
+
+
+
+<tbody>
+
+  
+  
+  
+  
+<tr>
+  
+  <td><span class="anchor" ></span>class(<a href='../type/field_fd_2d.html'>field_FD_2D</a>),</td>
+  <td>intent(in)</td>
+  <td></td>
+  
+  <td></td><td>::</td>
+  <td><strong>this</strong></td><td><p>The field.</p></td>
+  
+</tr>
+
+  
+  
+  
+  
+<tr>
+  
+  <td><span class="anchor" ></span>character(len=*),</td>
+  <td>intent(in)</td>
+  <td></td>
+  
+  <td></td><td>::</td>
+  <td><strong>filename</strong></td><td><p>Output file name.</p></td>
+  
+</tr>
+
+  
+  
+  
+  
+<tr>
+  
+  <td><span class="anchor" ></span>integer(kind=I_P),</td>
+  <td>intent(out),</td>
+  <td>optional</td>
+  
+  <td></td><td>::</td>
+  <td><strong>error</strong></td><td><p>Error status.</p></td>
+  
+</tr>
+
+</tbody>
+</table>
+
+      
+    
+    
+    
+    <h4>Description</h4>
+       
+       
+
+
+       
+       <p>Output field data.</p>
+        
+
+  </div>
+  </div>
+
+    
+    
+  <div class="panel panel-default">
+  <div class="panel-heading codesum"><span class="anchor" id="proc-assign_field"></span><h3>
+private subroutine <a href='../proc/assign_field.html'>assign_field</a>(lhs, rhs)
+    
+    
+    
+</h3></div>
+  <div class="panel-body">
+       
+    
+    <h4>Arguments</h4>
+    
+      
+      
+<table class="table table-striped varlist">
+<thead><tr><th>Type</th>
+<th>Intent</th><th>Optional</th>
+<th>Attributes</th><th></th><th>Name</th><th></th></thead>
+
+
+
+<tbody>
+
+  
+  
+  
+  
+<tr>
+  
+  <td><span class="anchor" ></span>class(<a href='../type/field_fd_2d.html'>field_FD_2D</a>),</td>
+  <td>intent(inout)</td>
+  <td></td>
+  
+  <td></td><td>::</td>
+  <td><strong>lhs</strong></td><td><p>Left hand side.</p></td>
+  
+</tr>
+
+  
+  
+  
+  
+<tr>
+  
+  <td><span class="anchor" ></span>class(<a href='../type/field.html'>field</a>),</td>
+  <td>intent(in),</td>
+  <td></td>
+  
+  <td>target</td><td>::</td>
+  <td><strong>rhs</strong></td><td><p>Right hand side.</p></td>
+  
+</tr>
+
+</tbody>
+</table>
+
+      
+    
+    
+    
+    <h4>Description</h4>
+       
+       
+
+
+       
+       <p>Assign fields.</p>
+        
+
+  </div>
+  </div>
+
+    
+    
+  <div class="panel panel-default">
+  <div class="panel-heading codesum"><span class="anchor" id="proc-set"></span><h3>
+private subroutine <a href='../proc/set.html'>set</a>(this, field_mesh, description, val, error)
+    
+    
+    
+</h3></div>
+  <div class="panel-body">
+       
+    
+    <h4>Arguments</h4>
+    
+      
+      
+<table class="table table-striped varlist">
+<thead><tr><th>Type</th>
+<th>Intent</th><th>Optional</th>
+<th>Attributes</th><th></th><th>Name</th><th></th></thead>
+
+
+
+<tbody>
+
+  
+  
+  
+  
+<tr>
+  
+  <td><span class="anchor" ></span>class(<a href='../type/field_fd_2d.html'>field_FD_2D</a>),</td>
+  <td>intent(inout)</td>
+  <td></td>
+  
+  <td></td><td>::</td>
+  <td><strong>this</strong></td><td><p>The field.</p></td>
+  
+</tr>
+
+  
+  
+  
+  
+<tr>
+  
+  <td><span class="anchor" ></span>class(<a href='../type/mesh.html'>mesh</a>),</td>
+  <td>intent(in),</td>
+  <td>optional</td>
+  
+  <td>target</td><td>::</td>
+  <td><strong>field_mesh</strong></td><td><p>Mesh of the field.</p></td>
+  
+</tr>
+
+  
+  
+  
+  
+<tr>
+  
+  <td><span class="anchor" ></span>character(len=*),</td>
+  <td>intent(in),</td>
+  <td>optional</td>
+  
+  <td></td><td>::</td>
+  <td><strong>description</strong></td><td><p>Mesh description</p></td>
+  
+</tr>
+
+  
+  
+  
+  
+<tr>
+  
+  <td><span class="anchor" ></span>real(kind=R_P),</td>
+  <td>intent(in),</td>
+  <td>optional</td>
+  
+  <td></td><td>::</td>
+  <td><strong>val</strong>(1:,1:)</td><td><p>Field value.</p></td>
+  
+</tr>
+
+  
+  
+  
+  
+<tr>
+  
+  <td><span class="anchor" ></span>integer(kind=I_P),</td>
+  <td>intent(out),</td>
+  <td>optional</td>
+  
+  <td></td><td>::</td>
+  <td><strong>error</strong></td><td><p>Error status.</p></td>
+  
+</tr>
+
+</tbody>
+</table>
+
+      
+    
+    
+    
+    <h4>Description</h4>
+       
+       
+
+
+       
+       <p>Set field.</p>
+        
+
+  </div>
+  </div>
+
+    
+    
+  <div class="panel panel-default">
+  <div class="panel-heading codesum"><span class="anchor" id="proc-free"></span><h3>
+private elemental subroutine <a href='../proc/free.html'>free</a>(this)
+    
+    
+    
+</h3></div>
+  <div class="panel-body">
+       
+    
+    <h4>Arguments</h4>
+    
+      
+      
+<table class="table table-striped varlist">
+<thead><tr><th>Type</th>
+<th>Intent</th><th>Optional</th>
+<th>Attributes</th><th></th><th>Name</th><th></th></thead>
+
+
+
+<tbody>
+
+  
+  
+  
+  
+<tr>
+  
+  <td><span class="anchor" ></span>class(<a href='../type/field_fd_2d.html'>field_FD_2D</a>),</td>
+  <td>intent(inout)</td>
+  <td></td>
+  
+  <td></td><td>::</td>
+  <td><strong>this</strong></td><td><p>The field.</p></td>
+  
+</tr>
+
+</tbody>
+</table>
+
+      
+    
+    
+    
+    <h4>Description</h4>
+       
+       
+
+
+       
+       <p>Free dynamic memory.</p>
+        
+
+  </div>
+  </div>
+
+    
+    </section>    
+    <br>
+    
+    
+    
+    </div>
+  </div>
+
+    <hr>
+    <footer>
+      <div class="row">
+        <div class="col-md-4">&copy; 2016 </div>
+        <div class="col-md-4"><span class="text-center"> openpde was developed by Francesco Salvadore</span></div>
+        <div class="col-md-4">
+          <span class="pull-right">
+            Documentation generated by 
+            <a href="https://github.com/cmacmackin/ford">FORD</a>
+            
+          </span>
+        </div>
+      </div>
+      <br>
+    </footer>
+    </div> <!-- /container -->
+
+
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+<!--
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+-->
+    <script src="../js/bootstrap.min.js"></script>
+    <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+    <script src="../js/ie10-viewport-bug-workaround.js"></script>
+
+    <!-- MathJax JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Config({
+        TeX: { extensions: ['AMSmath.js','AMSsymbols.js','noErrors.js','noUndefined.js'], equationNumbers: { autoNumber: 'AMS' } },
+        jax: ['input/TeX','input/MathML','output/HTML-CSS'],
+        extensions: ['tex2jax.js','mml2jax.js','MathMenu.js','MathZoom.js'],
+        'HTML-CSS': { 
+           styles: { '.MathJax_Display, .MathJax .mo, .MathJax .mi, .MathJax .mn': {color: '#000000 ! important'} }
+        }
+      });
+    </script>
+    <script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+  </body>
+</html>
