@@ -45,10 +45,11 @@ contains
       end subroutine associate_mesh_FD_2D
 
     ! deferred public methods
-    pure subroutine init(this, description, error)
+    pure subroutine init(this, description, filename, error)
         !< Initialize mesh.
         class(mesh_FD_2D), intent(inout)         :: this        !< The mesh.
         character(*),      intent(in),  optional :: description !< Mesh description.
+        character(*),      intent(in),  optional :: filename    !< Initialization file name.
         integer(I_P),      intent(out), optional :: error       !< Error status.
 
         call this%free

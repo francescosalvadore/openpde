@@ -1,0 +1,8 @@
+{
+  "mesh": {
+    "type": "finite difference 1D",
+    "n": 50,
+    "ng": 2,
+    "h": 0.05E+0
+  }
+}
