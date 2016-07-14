@@ -8,5 +8,9 @@
   "equation": {
     "a": -1.0E+0,
     "b": -0.1E+0,
+  },
+  "integrator": {
+    "type": "euler explicit",
+    "dt": 0.001E+0,
   }
 }

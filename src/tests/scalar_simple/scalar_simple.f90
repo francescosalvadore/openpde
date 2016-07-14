@@ -93,23 +93,6 @@ contains
         character(*),                  intent(in),  optional :: filename    !< Initialization file name.
         integer(I_P),                  intent(out), optional :: error       !< Error status.
 
-:qa
-:q
-:qa
-:visual
-visual
-:q
-q
-q
-Visual
-visual
-:q
-"visual"
-visual
-v
-quit
-:visual
-:quit
         if (present(filename)) then
             call this%load(filename=filename, error=error)
         else
@@ -202,12 +185,12 @@ program scalar_simple
         call mesh_%init(filename='scalar_simple.json')
         call u%init(field_mesh=mesh_)
         call equation_%init(filename='scalar_simple.json')
-        integrator_%dt = 0.001_R_P
+        call integrator_%init(filename='scalar_simple.json')
     else
         call mesh_%init
         call u%init(field_mesh=mesh_)
         call equation_%init
-        integrator_%dt = 0.001_R_P
+        call integrator_%init
     endif
 
     output_name = "out_XXXXXXXX.dat"
