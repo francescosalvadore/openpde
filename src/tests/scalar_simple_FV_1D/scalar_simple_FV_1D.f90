@@ -59,12 +59,28 @@ contains
         inp_cur => associate_field_FV_1D(field_input=inp, emsg='calling procedure scalar_simple_eqaution%bc')
         mesh_cur => associate_mesh_FV_1D(mesh_input=inp%m, emsg='calling procedure scalar_simple_eqaution%bc')
         do b=1, mesh_cur%nb
-            do i=1-mesh_cur%blocks(b)%ng,0
-                inp_cur%blocks(b)%val(i) = inp_cur%blocks(b)%val(i+mesh_cur%blocks(b)%n)
-            enddo
-            do i=mesh_cur%blocks(b)%n+1, mesh_cur%blocks(b)%n+mesh_cur%blocks(b)%ng
-                inp_cur%blocks(b)%val(i) = inp_cur%blocks(b)%val(i-mesh_cur%blocks(b)%n)
-            enddo
+            if (b==1) then
+                do i=1-mesh_cur%blocks(b)%ng,0
+                    inp_cur%blocks(b)%val(i) = inp_cur%blocks(mesh_cur%nb)%val(i+mesh_cur%blocks(mesh_cur%nb)%n)
+                enddo
+                do i=mesh_cur%blocks(b)%n+1, mesh_cur%blocks(b)%n+mesh_cur%blocks(b)%ng
+                    inp_cur%blocks(b)%val(i) = inp_cur%blocks(b+1)%val(i-mesh_cur%blocks(b+1)%n)
+                enddo
+            elseif (b==mesh_cur%nb) then
+                do i=1-mesh_cur%blocks(b)%ng,0
+                    inp_cur%blocks(b)%val(i) = inp_cur%blocks(b-1)%val(i+mesh_cur%blocks(b-1)%n)
+                enddo
+                do i=mesh_cur%blocks(b)%n+1, mesh_cur%blocks(b)%n+mesh_cur%blocks(b)%ng
+                    inp_cur%blocks(b)%val(i) = inp_cur%blocks(1)%val(i-mesh_cur%blocks(1)%n)
+                enddo
+            else
+                do i=1-mesh_cur%blocks(b)%ng,0
+                    inp_cur%blocks(b)%val(i) = inp_cur%blocks(b-1)%val(i+mesh_cur%blocks(b-1)%n)
+                enddo
+                do i=mesh_cur%blocks(b)%n+1, mesh_cur%blocks(b)%n+mesh_cur%blocks(b)%ng
+                    inp_cur%blocks(b)%val(i) = inp_cur%blocks(b+1)%val(i-mesh_cur%blocks(b+1)%n)
+                enddo
+            endif
         end do
     end subroutine bc
 

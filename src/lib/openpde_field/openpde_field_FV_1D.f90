@@ -84,7 +84,7 @@ contains
         if (present(description)) this%description = description
         mesh_cur => associate_mesh_FV_1D(mesh_input=field_mesh, emsg='calling procedure field_FV_1D%init')
         do b=1, this%nb
-            call this%blocks(b)%init(mesh_block=mesh_cur%blocks(b), error=error)
+            call this%blocks(b)%init(mesh_field=mesh_cur, b=b, error=error)
         end do
         if (present(error)) error = 0
     end subroutine init
@@ -100,7 +100,7 @@ contains
         mesh_cur => associate_mesh_FV_1D(mesh_input=this%m, emsg='calling procedure field_FV_1D%output')
         open(unit=11, file=filename)
         do b=1, mesh_cur%nb
-            call this%blocks(b)%output(unit=11, error=error)
+            call this%blocks(b)%output(unit=11, mesh_block=mesh_cur%blocks(b), error=error)
         enddo
         close(11)
         if (present(error)) error = 0

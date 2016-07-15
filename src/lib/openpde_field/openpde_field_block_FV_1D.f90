@@ -3,6 +3,7 @@ module openpde_field_block_FV_1D
     !< Concrete class of field block for Finite Volume 1D methods.
     use, intrinsic :: iso_fortran_env, only : stderr=>error_unit
     use openpde_kinds
+    use openpde_mesh_FV_1D
     use openpde_mesh_block_FV_1D
 
     implicit none
@@ -51,32 +52,34 @@ contains
         if (allocated(this%val)) deallocate(this%val)
     end subroutine free
 
-    subroutine init(this, mesh_block, error)
+    subroutine init(this, mesh_field, b, error)
         !< Initialize block.
         class(field_block_FV_1D), intent(inout)         :: this       !< The block.
-        type(mesh_block_FV_1D),   intent(in)            :: mesh_block !< Mesh of the block.
+        type(mesh_FV_1D),         intent(in)            :: mesh_field !< Mesh of the whole field.
+        integer(I_P),             intent(in)            :: b          !< Block index.
         integer(I_P),             intent(out), optional :: error      !< Error status.
+        integer(I_P)                                    :: offset     !< Cells offset.
+        integer(I_P)                                    :: n          !< Total number of Cells.
         integer(I_P)                                    :: i          !< Counter.
 
-        call this%alloc(mesh_block=mesh_block, error=error)
-        do i = 1-mesh_block%ng, mesh_block%n+mesh_block%ng
-            this%val(i) = sin(i*2._R_P*acos(-1._R_P)/mesh_block%n)
+        offset = 0 ; if (b>1) offset = sum(mesh_field%blocks(1:b-1)%n, dim=1)
+        n = sum(mesh_field%blocks%n, dim=1)
+        call this%alloc(mesh_block=mesh_field%blocks(b), error=error)
+        do i = 1, mesh_field%blocks(b)%n
+            this%val(i) = sin((i+offset)*2._R_P*acos(-1._R_P)/n)
         enddo
         if (present(error)) error = 0
     end subroutine init
 
-    subroutine output(this, unit, error)
+    subroutine output(this, unit, mesh_block, error)
         !< Output block data.
-        class(field_block_FV_1D), intent(in)            :: this !< The block.
-        integer(I_P),             intent(in)            :: unit !< Unit file.
-        integer(I_P),             intent(out), optional :: error!< Error status.
-        integer(I_P)                                    :: imin !< Lower extent.
-        integer(I_P)                                    :: imax !< Upper extent.
-        integer(I_P)                                    :: i    !< Counter.
+        class(field_block_FV_1D), intent(in)            :: this       !< The block.
+        integer(I_P),             intent(in)            :: unit       !< Unit file.
+        type(mesh_block_FV_1D),   intent(in)            :: mesh_block !< Mesh of the block.
+        integer(I_P),             intent(out), optional :: error      !< Error status.
+        integer(I_P)                                    :: i          !< Counter.
 
-        imin = lbound(this%val, dim=1)
-        imax = ubound(this%val, dim=1)
-        do i=imin, imax
+        do i=1, mesh_block%n
             write(unit, *) this%val(i)
         enddo
         if (present(error)) error = 0
