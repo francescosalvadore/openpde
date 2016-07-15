@@ -3,8 +3,8 @@ module openpde_field_FD_1D
     !< Concrete class of field for Finite Difference 1D methods.
     use, intrinsic :: iso_fortran_env, only : stderr=>error_unit
     use openpde_field_abstract
-    use openpde_mesh_abstract
     use openpde_kinds
+    use openpde_mesh_abstract
     use openpde_mesh_FD_1D
 
     implicit none

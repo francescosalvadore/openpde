@@ -12,14 +12,17 @@ module openpde
     ! concrete classes definition
     use openpde_field_FD_1D
     use openpde_field_FD_2D
+    use openpde_field_FV_1D
     use openpde_integrator_euler_explicit
     use openpde_mesh_FD_1D
     use openpde_mesh_FD_2D
     use openpde_mesh_FV_1D
     use openpde_spatial_operator_d1_FD_1D
     use openpde_spatial_operator_d1_FD_2D
+    use openpde_spatial_operator_d1_FV_1D
     use openpde_spatial_operator_d2_FD_1D
     use openpde_spatial_operator_d2_FD_2D
+    use openpde_spatial_operator_d2_FV_1D
     ! kinds definition
     use openpde_kinds
 
@@ -36,14 +39,17 @@ module openpde
     ! concrete classes
     public :: associate_field_FD_1D, field_FD_1D
     public :: associate_field_FD_2D, field_FD_2D
+    public :: associate_field_FV_1D, field_FV_1D
     public :: integrator_euler_explicit
     public :: associate_mesh_FD_1D, mesh_FD_1D
     public :: associate_mesh_FD_2D, mesh_FD_2D
     public :: associate_mesh_FV_1D, mesh_FV_1D
     public :: spatial_operator_d1_FD_1D
     public :: spatial_operator_d1_FD_2D
+    public :: spatial_operator_d1_FV_1D
     public :: spatial_operator_d2_FD_1D
     public :: spatial_operator_d2_FD_2D
+    public :: spatial_operator_d2_FV_1D
     ! kinds
     public :: R8P
     public :: R4P

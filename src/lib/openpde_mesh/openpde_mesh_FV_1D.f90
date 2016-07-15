@@ -2,12 +2,13 @@
 module openpde_mesh_FV_1D
     !< Concrete class of mesh for Finite Volume 1D methods.
     !<
-    !< This mesh is based on a uniform, Cartesian cell-centered discretization of the domain.
+    !< This mesh is based on a uniform, Cartesian cell-centered discretization of the domain,
+    !< that is a multiblock mesh.
     use, intrinsic :: iso_fortran_env, only : stderr=>error_unit
     use json_module
+    use openpde_kinds
     use openpde_mesh_abstract
     use openpde_mesh_block_FV_1D
-    use openpde_kinds
     use stringifor
     use vtk_fortran
 
