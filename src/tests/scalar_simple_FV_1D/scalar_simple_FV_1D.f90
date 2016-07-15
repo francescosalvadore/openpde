@@ -1,6 +1,6 @@
-!< Openpde test: scalar simple equation for Finite Difference 1D methods.
-module scalar_simple_equation_FD_1D_m
-    !< Scalar simple equation definition for Finite Difference 1D methods.
+!< Openpde test: scalar simple equation for Finite Volume 1D methods.
+module scalar_simple_equation_FV_1D_m
+    !< Scalar simple equation definition for Finite Volume 1D methods.
     !< The PDE solved is
     !<
     !< $$ \frac{\partial u}{\partial t} + a \frac{\partial u}{\partial x} + b \frac{\partial^2 u}{\partial x^2} = 0 $$
@@ -26,7 +26,7 @@ module scalar_simple_equation_FD_1D_m
     public :: scalar_simple_equation
 
     type, extends(equation) :: scalar_simple_equation
-        !< Scalar simple equations for Finite Difference 1D methods.
+        !< Scalar simple equations for Finite Volume 1D methods.
         !<
         !< @note The reason the `du` and `ddu` are pointers is just to make them a pointee when pointed
         !< inside [[equation:forcing]] function.
@@ -52,17 +52,17 @@ contains
         class(field),                  intent(inout), target :: inp      !< Field.
         real(R_P),                     intent(in)            :: t        !< Time.
         class(field_FD_1D), pointer                          :: inp_cur  !< Pointer to input field.
-        class(mesh_FD_1D), pointer                           :: mesh_cur !< Pointer to input mehs.
+        class(mesh_FV_1D), pointer                           :: mesh_cur !< Pointer to input mehs.
         integer(I_P)                                         :: i        !< Counter.
 
         inp_cur => associate_field_FD_1D(field_input=inp, emsg='calling procedure scalar_simple_eqaution%bc')
-        mesh_cur => associate_mesh_FD_1D(mesh_input=inp%m, emsg='calling procedure scalar_simple_eqaution%bc')
-        do i=1-mesh_cur%ng,0
-            inp_cur%val(i) = inp_cur%val(i+mesh_cur%n)
-        enddo
-        do i=mesh_cur%n+1, mesh_cur%n+mesh_cur%ng
-            inp_cur%val(i) = inp_cur%val(i-mesh_cur%n)
-        enddo
+        mesh_cur => associate_mesh_FV_1D(mesh_input=inp%m, emsg='calling procedure scalar_simple_eqaution%bc')
+        ! do i=1-mesh_cur%ng,0
+        !     inp_cur%val(i) = inp_cur%val(i+mesh_cur%n)
+        ! enddo
+        ! do i=mesh_cur%n+1, mesh_cur%n+mesh_cur%ng
+        !     inp_cur%val(i) = inp_cur%val(i-mesh_cur%n)
+        ! enddo
     end subroutine bc
 
     function forcing(this, inp, t) result(opr)
@@ -157,13 +157,13 @@ contains
             stop
         endif
     endsubroutine load_from_json
-end module scalar_simple_equation_FD_1D_m
+end module scalar_simple_equation_FV_1D_m
 
-program scalar_simple_FD_1D
-    !< Openpde test: scalar simple equation for Finite Difference 1D methods.
+program scalar_simple_FV_1D
+    !< Openpde test: scalar simple equation for Finite Volume 1D methods.
 
     use openpde
-    use scalar_simple_equation_FD_1D_m
+    use scalar_simple_equation_FV_1D_m
 
     class(mesh),       allocatable :: mesh_       !< The mesh.
     class(field),      allocatable :: u           !< The field.
@@ -176,33 +176,33 @@ program scalar_simple_FD_1D
     character(16)                  :: output_name !< Output file name.
     logical                        :: json_found  !< Flag inquiring the presence of json input file.
 
-    allocate(mesh_FD_1D :: mesh_)
-    allocate(field_FD_1D :: u)
-    allocate(scalar_simple_equation :: equation_)
-    allocate(integrator_euler_explicit :: integrator_)
-    inquire(file='scalar_simple.json', exist=json_found)
+    allocate(mesh_FV_1D :: mesh_)
+    ! allocate(field_FD_1D :: u)
+    ! allocate(scalar_simple_equation :: equation_)
+    ! allocate(integrator_euler_explicit :: integrator_)
+    inquire(file='scalar_simple_FV_1D.json', exist=json_found)
     if (json_found) then
-        call mesh_%init(filename='scalar_simple.json')
-        call u%init(field_mesh=mesh_)
-        call equation_%init(filename='scalar_simple.json')
-        call integrator_%init(filename='scalar_simple.json')
+        call mesh_%init(filename='scalar_simple_FV_1D.json')
+        ! call u%init(field_mesh=mesh_)
+        ! call equation_%init(filename='scalar_simple.json')
+        ! call integrator_%init(filename='scalar_simple.json')
     else
         call mesh_%init
-        call u%init(field_mesh=mesh_)
-        call equation_%init
-        call integrator_%init
+        ! call u%init(field_mesh=mesh_)
+        ! call equation_%init
+        ! call integrator_%init
     endif
 
-    output_name = "out_XXXXXXXX.dat"
-    write(output_name(5:12),"(I8.8)") itmin
-    call u%output(output_name, error=er)
-    do it = itmin, itmax
-        er = integrator_%integrate(inp=u, equ=equation_, t=it*integrator_%dt)
-        if(mod(it,10)==0) then
-            print*,'it: ',it
-            write(output_name(5:12),"(I8.8)") it
-            call u%output(output_name, error=er)
-        endif
-    enddo
-    call mesh_%output(error=er)
-end program scalar_simple_FD_1D
+    ! output_name = "out_XXXXXXXX.dat"
+    ! write(output_name(5:12),"(I8.8)") itmin
+    ! call u%output(output_name, error=er)
+    ! do it = itmin, itmax
+    !     er = integrator_%integrate(inp=u, equ=equation_, t=it*integrator_%dt)
+    !     if(mod(it,10)==0) then
+    !         print*,'it: ',it
+    !         write(output_name(5:12),"(I8.8)") it
+    !         call u%output(output_name, error=er)
+    !     endif
+    ! enddo
+    ! call mesh_%output(error=er)
+end program scalar_simple_FV_1D

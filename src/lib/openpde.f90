@@ -15,6 +15,7 @@ module openpde
     use openpde_integrator_euler_explicit
     use openpde_mesh_FD_1D
     use openpde_mesh_FD_2D
+    use openpde_mesh_FV_1D
     use openpde_spatial_operator_d1_FD_1D
     use openpde_spatial_operator_d1_FD_2D
     use openpde_spatial_operator_d2_FD_1D
@@ -38,6 +39,7 @@ module openpde
     public :: integrator_euler_explicit
     public :: associate_mesh_FD_1D, mesh_FD_1D
     public :: associate_mesh_FD_2D, mesh_FD_2D
+    public :: associate_mesh_FV_1D, mesh_FV_1D
     public :: spatial_operator_d1_FD_1D
     public :: spatial_operator_d1_FD_2D
     public :: spatial_operator_d2_FD_1D

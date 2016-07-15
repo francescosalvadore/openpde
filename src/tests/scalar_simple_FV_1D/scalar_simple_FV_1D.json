@@ -1,0 +1,24 @@
+{
+  "mesh": {
+    "type": "finite volume 1D",
+    "nb": 2,
+    "block1": {
+      "n": 25,
+      "ng": 2,
+      "h": 0.05E+0
+    },
+    "block2": {
+      "n": 25,
+      "ng": 2,
+      "h": 0.05E+0
+    }
+  },
+  "equation": {
+    "a": -1.0E+0,
+    "b": -0.1E+0,
+  },
+  "integrator": {
+    "type": "euler explicit",
+    "dt": 0.001E+0,
+  }
+}

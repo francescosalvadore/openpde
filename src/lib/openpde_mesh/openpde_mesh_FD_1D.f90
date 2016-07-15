@@ -157,5 +157,6 @@ contains
             write(stderr, "(A)")' error: mesh definition of "'//filename//'" is not "finite difference 1D"!'
             stop
         endif
+        if (present(error)) error = 0
     endsubroutine load_from_json
 end module openpde_mesh_FD_1D
