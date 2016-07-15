@@ -180,12 +180,12 @@ program scalar_simple_FD_1D
     allocate(field_FD_1D :: u)
     allocate(scalar_simple_equation :: equation_)
     allocate(integrator_euler_explicit :: integrator_)
-    inquire(file='scalar_simple.json', exist=json_found)
+    inquire(file='scalar_simple_FD_1D.json', exist=json_found)
     if (json_found) then
-        call mesh_%init(filename='scalar_simple.json')
+        call mesh_%init(filename='scalar_simple_FD_1D.json')
         call u%init(field_mesh=mesh_)
-        call equation_%init(filename='scalar_simple.json')
-        call integrator_%init(filename='scalar_simple.json')
+        call equation_%init(filename='scalar_simple_FD_1D.json')
+        call integrator_%init(filename='scalar_simple_FD_1D.json')
     else
         call mesh_%init
         call u%init(field_mesh=mesh_)
