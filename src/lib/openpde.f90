@@ -4,6 +4,7 @@ module openpde
     ! abstract classes definition
     use openpde_equation_abstract
     use openpde_field_abstract
+    use openpde_field_surface_abstract
     use openpde_integrator_abstract
     use openpde_mesh_abstract
     use openpde_spatial_operator_abstract
@@ -13,6 +14,7 @@ module openpde
     use openpde_field_FD_1D
     use openpde_field_FD_2D
     use openpde_field_FV_1D
+    use openpde_field_surface_FV_1D
     use openpde_integrator_euler_explicit
     use openpde_mesh_FD_1D
     use openpde_mesh_FD_2D
@@ -31,6 +33,7 @@ module openpde
     ! abstract classes
     public :: equation
     public :: field
+    public :: field_surface
     public :: integrator
     public :: mesh
     public :: spatial_operator
@@ -40,6 +43,7 @@ module openpde
     public :: associate_field_FD_1D, field_FD_1D
     public :: associate_field_FD_2D, field_FD_2D
     public :: associate_field_FV_1D, field_FV_1D
+    public :: associate_field_surface_FV_1D, field_surface_FV_1D
     public :: integrator_euler_explicit
     public :: associate_mesh_FD_1D, mesh_FD_1D
     public :: associate_mesh_FD_2D, mesh_FD_2D

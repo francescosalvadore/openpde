@@ -25,12 +25,12 @@ module openpde_field_block_FV_1D
             generic, public :: operator(-) => sub                   !< Operator `-` overloading.
             generic, public :: assignment(=) => assign_block        !< Assignment overloading.
             ! private methods
-            procedure, pass(lhs),   private :: add          !< Add blocks.
-            procedure, pass(lhs),   private :: assign_block !< Assign blocks.
-            procedure, pass(lhs),   private :: mul          !< Multiply blocks.
-            procedure, pass(lhs),   private :: mulreal      !< Multiply block for real.
-            procedure, pass(rhs),   private :: realmul      !< Multiply real for block.
-            procedure, pass(lhs),   private :: sub          !< Subtract blocks.
+            procedure, pass(lhs), private :: add          !< Add blocks.
+            procedure, pass(lhs), private :: assign_block !< Assign blocks.
+            procedure, pass(lhs), private :: mul          !< Multiply blocks.
+            procedure, pass(lhs), private :: mulreal      !< Multiply block for real.
+            procedure, pass(rhs), private :: realmul      !< Multiply real for block.
+            procedure, pass(lhs), private :: sub          !< Subtract blocks.
     endtype field_block_FV_1D
 contains
     ! public methods
