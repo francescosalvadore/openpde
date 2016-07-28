@@ -74,6 +74,9 @@ contains
         call this%associate_mesh(field_mesh=field_mesh, error=error)
         if (present(description)) this%description = description
         mesh_cur => associate_mesh_FD_1D(mesh_input=field_mesh, emsg='calling procedure field_FD_1D%init')
+
+        !this%val(:) = 0._R_P
+        !do i = 1, mesh_cur%n
         do i = 1-mesh_cur%ng, mesh_cur%n+mesh_cur%ng
             this%val(i) = sin(i*2._R_P*acos(-1._R_P)/mesh_cur%n)
         enddo

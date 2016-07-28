@@ -1,0 +1,16 @@
+{
+  "mesh": {
+    "type": "finite difference 1D",
+    "n": 50,
+    "ng": 2,
+    "h": 0.05E+0
+  },
+  "equation": {
+    "a": -10.0E+0,
+    "b": -1.E+0,
+  },
+  "integrator": {
+    "type": "euler explicit",
+    "dt": 0.001E+0,
+  }
+}
