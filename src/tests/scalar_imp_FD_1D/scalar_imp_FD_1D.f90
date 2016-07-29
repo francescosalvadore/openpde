@@ -116,6 +116,7 @@ contains
 
         allocate(v2f_FD_1D :: this%v2f_opr)
         this%v2f_opr%mesh => inp(1)%m
+        this%v2f_opr%n_equ = n_equ
 
     end subroutine init
 
@@ -197,10 +198,10 @@ contains
         class(f2m_d2), pointer          :: ddui_opr             !< Dummy pointer of the first derivative operator.
 
         ddui_opr => this%ddui_opr
-        this%ddui = ddui_opr%operate(inp(1)) !RIMETTERE ,1,1)
+        this%ddui = ddui_opr%operate(inp) !RIMETTERE ,1,1)
 
         dui_opr => this%dui_opr
-        this%dui = dui_opr%operate(inp(1)) !RIMETTERE ,1,1)
+        this%dui = dui_opr%operate(inp) !RIMETTERE ,1,1)
 
         this%resvar_i = (-this%a) * this%dui - this%b * this%ddui
 
@@ -300,16 +301,6 @@ program scalar_imp_FD_1D
         call equation_%init(n_equ=1, field_mesh=mesh_,inp=u)
         call integrator_%init(equ=equation_)
     endif
-
-    !associate(u1 => u(1))
-    !    select type(u1)
-    !        type is(field_FD_1D)
-    !            print*,"u%val: ",u1%val
-    !        class default
-    !            STOP 'error I know'
-    !    end select
-    !end associate
-    !u(1) = u(1)
 
     output_name = "out_XXXXXXXX.dat"
     write(output_name(5:12),"(I8.8)") itmin

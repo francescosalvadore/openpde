@@ -18,31 +18,33 @@ module openpde_v2f_FD_1D
             procedure :: operate !< Operator operation.
     endtype v2f_FD_1D
 contains
-    function operate(this, vec) result(fie)
+    subroutine operate(this, vec, fie)
         !< Operator operation.
         class(v2f_FD_1D), intent(in)        :: this      !< The operator.
         class(vector), intent(in)           :: vec       !< Input vector.
-        class(field), allocatable           :: fie       !< Returned field.
+        class(field), intent(inout), dimension(:) :: fie       !< Returned field.
         class(field_FD_1D), pointer         :: fie_cur   !< Dummy pointer for input field.
         class(mesh_FD_1D),  pointer         :: mesh_cur  !< Dummy pointer for mesh.
         integer(I_P)                        :: i         !< Counter.
+        integer(I_P)                        :: i_equ         !< Counter.
+        integer(I_P)                        :: i_vec         !< Counter.
         integer(I_P)                        :: n         !< Number of points.
-        !integer(I_P)                        :: ng        !< Number of points.
+        integer(I_P)                        :: n_equ         !< Number of points.
 
-        n = vec%n
+        n_equ = this%n_equ
+        n = vec%n / n_equ
 
-        allocate(field_FD_1D :: fie)
-        call fie%init(field_mesh=this%mesh)
+        do i_equ = 1, n_equ
+            call fie(i_equ)%init(field_mesh=this%mesh)
 
-        !mesh_cur => associate_mesh_FD_1D(mesh_input=this%mesh)
-        !ng = mesh_cur%ng
+            fie_cur => associate_field_FD_1D(field_input=fie(i_equ))
 
-        fie_cur => associate_field_FD_1D(field_input=fie)
-
-        ! No concrete features of vector are used so dynamic casting is not needed
-        do i=1, n
-            fie_cur%val(i) = vec%get(i)
+            ! No concrete features of vector are used so dynamic casting is not needed
+            do i=1, n
+                i_vec = n*(n_equ-1) + i
+                fie_cur%val(i) = vec%get(i_vec)
+            enddo
         enddo
 
-    end function operate
+    end subroutine operate
 end module openpde_v2f_FD_1D

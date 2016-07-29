@@ -24,7 +24,7 @@ module openpde_f2m_abstract
             !< Operator function.
             import :: I_P, f2m, field, matrix
             class(f2m), intent(in)         :: this !< The operator.
-            class(field),            intent(in), target   :: inp  !< Input field.
+            class(field), intent(in), dimension(:), target   :: inp  !< Input field.
             class(matrix), allocatable, target            :: opr  !< Matrix representing the operator as f(u)=A*u
         end function abstract_operate
     endinterface

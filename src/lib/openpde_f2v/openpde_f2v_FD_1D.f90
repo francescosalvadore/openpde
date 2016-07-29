@@ -21,25 +21,33 @@ contains
     function operate(this, fie) result(vec)
         !< Operator operation.
         class(f2v_FD_1D), intent(in)       :: this     !< The operator.
-        class(field), intent(in), target   :: fie      !< Input field.
+        class(field), intent(in), dimension(:), target   :: fie      !< Input field.
         class(vector), allocatable         :: vec      !< Returned vector.
         class(field_FD_1D), pointer        :: fie_cur  !< Dummy pointer for input field.
         class(mesh_FD_1D),  pointer        :: mesh_cur !< Dummy pointer for mesh.
         integer(I_P)                       :: i        !< Counter.
+        integer(I_P)                       :: i_equ        !< Counter.
+        integer(I_P)                       :: i_vec        !< Counter.
         integer(I_P)                       :: n        !< Number of points.
+        integer(I_P)                       :: n_equ        !< Number of points.
 
-        fie_cur => associate_field_FD_1D(field_input=fie, emsg='casting error')
+        n_equ = size(fie)
 
-        mesh_cur => associate_mesh_FD_1D(mesh_input=fie%m, emsg='mesh')
+        mesh_cur => associate_mesh_FD_1D(mesh_input=fie(1)%m, emsg='mesh')
         n =  mesh_cur%n
 
         allocate(vec, mold=this%vec)
-        call vec%init(n)
+        call vec%init(n*n_equ)
+ 
+        do i_equ = 1,n_equ
+            fie_cur => associate_field_FD_1D(field_input=fie(i_equ), emsg='casting error')
 
-        ! No concrete features of vector are used so dynamic casting is not needed
-        do i=1, n
-        !    print*,"i, fie_cur%val(i) :",i, fie_cur%val(i)
-            call vec%set(i, fie_cur%val(i))
+            ! No concrete features of vector are used so dynamic casting is not needed
+            do i=1, n
+                i_vec = n*(i_equ-1)+i
+            !    print*,"i, fie_cur%val(i) :",i, fie_cur%val(i)
+                call vec%set(i_vec, fie_cur%val(i))
+            enddo
         enddo
     end function operate
 end module openpde_f2v_FD_1D

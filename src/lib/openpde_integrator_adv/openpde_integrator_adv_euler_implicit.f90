@@ -105,7 +105,7 @@ contains
         ! (2b) Compute the linear solver matrix and vector
         this%matA = this%mat_identity - this%dt * equ%resvar_i
         !this%matA = this%mat_identity - ((1._R_P-this%alpha)*this%dt) * equ%resvar_i
-        this%vecB = equ%f2v_opr%operate(inp(1))
+        this%vecB = equ%f2v_opr%operate(inp)
 
         ! (2c) Impose boundary conditions
         call equ%bc_i(matA=this%matA, vecB=this%vecB, t=t)
@@ -122,7 +122,7 @@ contains
         ! (2f) Assign the solution to the input field
         this%vecS = equ%solver%sol
 !        call this%vecS%output("vecS.dat")
-        inp(1) = equ%v2f_opr%operate(this%vecS)
+        call equ%v2f_opr%operate(this%vecS, inp)
 
 !        STOP
 

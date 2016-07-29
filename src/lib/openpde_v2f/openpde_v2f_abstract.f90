@@ -13,6 +13,7 @@ module openpde_v2f_abstract
     type, abstract :: v2f
         !< Abstract class of v2f.
         class(mesh), pointer :: mesh
+        integer(I_P) :: n_equ
         contains
             ! deferred public methods
             procedure(abstract_operate), pass(this), deferred :: operate !< Operator function.
@@ -20,12 +21,12 @@ module openpde_v2f_abstract
 
     abstract interface
         !< Operator operation.
-        function abstract_operate(this, vec) result(fie)
+        subroutine abstract_operate(this, vec, fie)
             !< Operator function.
             import :: I_P, v2f, field, vector
-            class(v2f), intent(in)              :: this !< The operator.
-            class(vector), intent(in)           :: vec  !< Input vector.
-            class(field), allocatable           :: fie  !< Resulting field.
-        end function abstract_operate
+            class(v2f), intent(in)                   :: this !< The operator.
+            class(vector), intent(in)                :: vec  !< Input vector.
+            class(field), intent(inout), dimension(:)  :: fie  !< Resulting field.
+        end subroutine abstract_operate
     endinterface
 end module openpde_v2f_abstract

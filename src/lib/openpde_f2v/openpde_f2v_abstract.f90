@@ -23,7 +23,7 @@ module openpde_f2v_abstract
             !< Operator function.
             import :: I_P, f2v, field, vector
             class(f2v), intent(in)              :: this !< The operator.
-            class(field),  intent(in), target   :: fie  !< Input field.
+            class(field),  intent(in), target, dimension(:)   :: fie  !< Input field.
             class(vector), allocatable          :: vec  !< Resulting vector.
         end function abstract_operate
     endinterface
