@@ -54,13 +54,13 @@ contains
 
         call this%free
         if (present(description)) this%description = description
-        this%nx = 10
-        this%ny = 8
+        this%nx = 50
+        this%ny = 40
         this%ngx = 2
         this%ngy = 2
         this%s = 1
         this%hx = 0.05_R8P
-        this%hy = 0.08_R8P
+        this%hy = 0.07_R8P
         if (present(error)) error = 0
     end subroutine init
 

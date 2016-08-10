@@ -18,7 +18,7 @@ module openpde_f2m_d1_FD_1D
             procedure :: operate !< Operator operation.
     endtype f2m_d1_FD_1D
 contains
-    function operate(this, inp) result(opr)
+    function operate(this, inp, i_equ, i_fie, dir) result(opr)
         !< Operator 2 derivative implicit FD 1D
         class(f2m_d1_FD_1D), intent(in)                        :: this     !< The operator.
         class(field),  dimension(:), intent(in), target        :: inp      !< Input field.
@@ -29,11 +29,20 @@ contains
         integer(I_P)                                           :: n        !< Number of points.
         integer(I_P)                                           :: n_equ    !< Number of points.
         integer(I_P)                                           :: n_tot    !< Number of points.
-        integer(I_P)                                           :: i_equ    !< Counter.
+        integer(I_P), intent(in), optional                     :: i_equ    !< Counter.
+        integer(I_P), intent(in), optional                     :: i_fie    !< Counter.
+        integer(I_P)                                           :: i_equ_    !< Counter.
+        integer(I_P)                                           :: i_fie_    !< Counter.
+        integer(I_P),            intent(in), optional          :: dir  !< Direction of operation.
         real(R_P)                                              :: invd     !< Temporary 1/D**2
+        integer(I_P)                                           :: i_row_offset
+        integer(I_P)                                           :: i_col_offset
+
+        i_equ_= 1 ; if (present(i_equ)) i_equ_ = i_equ                 
+        i_fie_= 1 ; if (present(i_fie)) i_fie_ = i_fie                 
 
         n_equ = size(inp)
-        mesh_cur => associate_mesh_FD_1D(mesh_input=inp(1)%m)
+        mesh_cur => associate_mesh_FD_1D(mesh_input=inp(i_equ_)%m)
         n =  mesh_cur%n
         n_tot = n * n_equ
 
@@ -41,20 +50,21 @@ contains
         invd = 1._R_P/(2._R_P*mesh_cur%h)
 
         allocate(opr, mold=this%mat)
-        call opr%init(n)
+        call opr%init(n_tot)
 
-        do i_equ = 1,n_equ
-            inp_cur => associate_field_FD_1D(field_input=inp(i_equ), emsg='casting error')
+        inp_cur => associate_field_FD_1D(field_input=inp(i_equ_), emsg='casting error')
 
-            call opr%set(1_I_P, 1_I_P, invd)
+        i_row_offset = (i_equ_-1)*n
+        i_col_offset = (i_fie_-1)*n
 
-            do i=2, n - 1
-                call opr%set(i, i-1,  -1._R_P * invd)
-                call opr%set(i, i+1,  1._R_P * invd)
-            enddo
+        call opr%set(1_I_P+i_row_offset, 1_I_P+i_col_offset, invd)
 
-            call opr%set(n, n, invd)
+        do i=2, n - 1
+            call opr%set(i+i_row_offset, i+i_col_offset-1, -1._R_P * invd)
+            call opr%set(i+i_row_offset, i+i_col_offset+1,  1._R_P * invd)
         enddo
+
+        call opr%set(n+i_row_offset, n+i_col_offset, invd)
 
     end function operate
 end module openpde_f2m_d1_FD_1D

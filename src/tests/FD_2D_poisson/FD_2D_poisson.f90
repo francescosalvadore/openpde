@@ -51,15 +51,18 @@ contains
         integer(I_P)                          :: nx,  ny, n
         class(mesh_FD_2D), pointer :: mesh_cur
 
+        this%n_equ = n_equ
+
         mesh_cur => associate_mesh_FD_2D(mesh_input=field_mesh)
         nx = mesh_cur%nx
         ny = mesh_cur%ny
-
-        this%n_equ = n_equ
         n = nx * ny
         this%n_size = n
 
+        this%m => field_mesh
+
         ! explicit section
+        this%enable_explicit = .true.
         allocate(field_FD_2D :: this%resvar_e(n_equ))
         do ie=1,n_equ
             call this%resvar_e(ie)%init(field_mesh=field_mesh)
@@ -80,6 +83,7 @@ contains
         endif
 
         ! implicit section     
+        this%enable_implicit = .false.
         allocate(linsolver_gmlapack :: this%solver)
         call this%solver%init(n) !TODO should be generalized on 50
 
@@ -152,10 +156,15 @@ contains
         !class(matrix_simple), pointer  :: matA_cur
         integer(I_P) :: nx, ny, j, i_vec, n, k
 
+        mesh_cur => associate_mesh_FD_2D(mesh_input=this%m)
+
         !n = matA%n
         !matA_cur => associate_matrix_simple(matrix_input=matA)
         !vecB_cur => associate_vector_simple(vector_input=vecB)
-        nx = 50; ny= 40; n=nx*ny
+        !nx = 50; ny= 40; n=nx*ny
+        nx = mesh_cur%nx 
+        ny = mesh_cur%ny 
+        n  = nx*ny
         do j=1,ny,ny-1
         do i=1,nx
             i_vec = (j-1)*nx+i
@@ -181,17 +190,16 @@ contains
     end subroutine bc_i
 
     subroutine resid_e(this, inp, t)
-        !< Return the field after forcing the equation.
-        class(fd_2d_poisson_equation_adv), intent(inout)         :: this    !< The equation.
-        class(field),                  intent(in), target, dimension(:) :: inp     !< Input field.
-        real(R_P),                     intent(in)         :: t       !< Time.
+        !< Return the field of residuals.
+        class(fd_2d_poisson_equation_adv), intent(inout) :: this  !< The equation.
+        class(field), intent(in), target, dimension(:)   :: inp   !< Input field.
+        real(R_P), intent(in)                            :: t     !< Time.
 
         associate(dd => this%ddu_opr, T => inp(1), R => this%resvar_e(1), ddux => this%ddux, dduy => this%dduy, &
-                  x  => 1           , y => 2     , a => this%a          , b    => this%b)
+                  x => 1, y => 2, a => this%a, b => this%b)
             ddux = dd%operate(T, x) 
             dduy = dd%operate(T, y)
             R = a * ddux + b * dduy
-            R = 0._R_P * R !RIMETTERE SENZA
             !IT SHOULD BE R = a * dd%operate(T, x) + b *dd%operate(T, y)
         end associate
 
@@ -199,17 +207,16 @@ contains
 
     subroutine resid_i(this, inp, t)
         !< Return the matrix of residuals.
-        class(fd_2d_poisson_equation_adv), intent(inout) :: this   !< The equation.
-        class(field),  intent(in), target, dimension(:) :: inp  !< Input field.
-        real(R_P),  intent(in)                       :: t       !< Time.
-        class(f2m_d1), pointer          :: dui_opr             !< Dummy pointer of the first derivative operator.
-        class(f2m_d2), pointer          :: ddui_opr             !< Dummy pointer of the first derivative operator.
+        class(fd_2d_poisson_equation_adv), intent(inout) :: this  !< The equation.
+        class(field), intent(in), target, dimension(:)   :: inp   !< Input field.
+        real(R_P), intent(in)                            :: t     !< Time.
 
         associate(ddi => this%ddui_opr, R => this%resvar_i, dduix => this%dduix, dduiy => this%dduiy, &
-                  Teq => 1, T => 1, x => 1, y => 2, a => this%a , b    => this%b)
+                  Teq => 1, T => 1, x => 1, y => 2, a => this%a , b => this%b)
             dduix = ddi%operate(inp, Teq, T, x)
             dduiy = ddi%operate(inp, Teq, T, y)
-            R = a * dduix !+ b * dduiy
+            R = a * dduix + b * dduiy
+            !IT SHOULD BE R = a * ddi%operate(inp, Teq, T, x) + b * ddi%operate(inp, Teq, T, y)
         end associate
 
     end subroutine resid_i

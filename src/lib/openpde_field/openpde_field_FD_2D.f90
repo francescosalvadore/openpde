@@ -102,9 +102,10 @@ contains
         jmax = ubound(this%val, dim=2)
         open(unit=11, file=filename)
         do j=jmin, jmax
-          do i=imin, imax
-              write(11, *) this%val(i, j)
-          enddo
+            do i=imin, imax
+                write(11, *) i, j, this%val(i, j)
+            enddo
+            write(11, *) 
         enddo
         close(11)
         if (present(error)) error = 0

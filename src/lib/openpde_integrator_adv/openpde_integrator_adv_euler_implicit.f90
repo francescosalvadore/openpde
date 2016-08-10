@@ -85,44 +85,51 @@ contains
         !--------------------------------------------------------------------------------------------
         ! (1) Explicit section
         !--------------------------------------------------------------------------------------------
-        ! (1a) Imposes boundary conditions: modify "inp" field array
-        call equ%bc_e(inp=inp, t=t)
+        print*,'equ%enable_explicit :',equ%enable_explicit
+        print*,'equ%enable_implicit :',equ%enable_implicit
+        if(equ%enable_explicit) then
+            print*,'Explicit solver enabled'
+            ! (1a) Imposes boundary conditions: modify "inp" field array
+            call equ%bc_e(inp=inp, t=t)
 
-        ! (1b) Computes the residual term: modify "equ%resvar_e" 
-        call equ%resid_e(inp=inp, t=t)
+            ! (1b) Computes the residual term: modify "equ%resvar_e" 
+            call equ%resid_e(inp=inp, t=t)
 
-        ! (1c) Updates the inp field according to Euler scheme
-        do ie=1,size(inp)
-            inp(ie) = inp(ie) + this%dt * equ%resvar_e(ie) 
-        enddo
-
+            ! (1c) Updates the inp field according to Euler scheme
+            do ie=1,size(inp)
+                inp(ie) = inp(ie) + this%dt * equ%resvar_e(ie) 
+            enddo
+        endif
         !--------------------------------------------------------------------------------------------
         ! (2) Implicit section
         !--------------------------------------------------------------------------------------------
-        ! (2a) Computes the residual term: modify "equ%resvar_i" 
-        call equ%resid_i(inp=inp, t=t)
+        if(equ%enable_implicit) then
+            print*,'Implicit solver enabled'
+            ! (2a) Computes the residual term: modify "equ%resvar_i" 
+            call equ%resid_i(inp=inp, t=t)
 
-        ! (2b) Compute the linear solver matrix and vector
-        this%matA = this%mat_identity - this%dt * equ%resvar_i
-        !this%matA = this%mat_identity - ((1._R_P-this%alpha)*this%dt) * equ%resvar_i
-        this%vecB = equ%f2v_opr%operate(inp)
+            ! (2b) Compute the linear solver matrix and vector
+            this%matA = this%mat_identity - this%dt * equ%resvar_i
+            !this%matA = this%mat_identity - ((1._R_P-this%alpha)*this%dt) * equ%resvar_i
+            this%vecB = equ%f2v_opr%operate(inp)
 
-        ! (2c) Impose boundary conditions
-        call equ%bc_i(matA=this%matA, vecB=this%vecB, t=t)
-!        call this%matA%output("matA.dat")
-!        call this%vecB%output("vecB.dat")
+            ! (2c) Impose boundary conditions
+            call equ%bc_i(matA=this%matA, vecB=this%vecB, t=t)
+!            call this%matA%output("matA.dat")
+!            call this%vecB%output("vecB.dat")
 
-        ! (2d) Assign solver vector and matrix (A and b of A*x=b)
-        call equ%solver%set_vector(this%vecB)
-        call equ%solver%set_matrix(this%matA)
+            ! (2d) Assign solver vector and matrix (A and b of A*x=b)
+            call equ%solver%set_vector(this%vecB)
+            call equ%solver%set_matrix(this%matA)
 
-        ! (2e) Solve linear system
-        call equ%solver%solve()
+            ! (2e) Solve linear system
+            call equ%solver%solve()
 
-        ! (2f) Assign the solution to the input field
-        this%vecS = equ%solver%sol
-!        call this%vecS%output("vecS.dat")
-        call equ%v2f_opr%operate(this%vecS, inp)
+            ! (2f) Assign the solution to the input field
+            this%vecS = equ%solver%sol
+!            call this%vecS%output("vecS.dat")
+            call equ%v2f_opr%operate(this%vecS, inp)
+        endif
 
 !        STOP
 

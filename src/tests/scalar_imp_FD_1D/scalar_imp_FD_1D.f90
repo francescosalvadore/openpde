@@ -75,6 +75,7 @@ contains
         this%n_size = n
 
         ! explicit section
+        this%enable_explicit = .false.
         allocate(field_FD_1D :: this%resvar_e(n_equ))
         do ie=1,n_equ
             call this%resvar_e(ie)%init(field_mesh=field_mesh)
@@ -96,6 +97,7 @@ contains
         endif
 
         ! implicit section     
+        this%enable_implicit = .true.
         allocate(linsolver_gmlapack :: this%solver)
         call this%solver%init(n) !TODO should be generalized on 50
 

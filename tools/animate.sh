@@ -13,8 +13,8 @@ for((i=0;i<1;i++)); do # fake loop to use | gnuplot at the end
         #echo "set term png"
         #echo "set output \"${FILE}.png\""
         # (3) TO SCREEN
-        echo "set grid; show grid"
-        echo "set yrange [] writeback" # to fix the yrange
+        echo "set grid; show grid;"
+        echo "set yrange [] writeback;" # to fix the yrange
         echo "plot \"${FILE}\" using 1 w lp;"
         echo "set yrange restore"
         echo "pause 1.0/5."

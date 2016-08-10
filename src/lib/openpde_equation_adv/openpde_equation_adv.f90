@@ -20,12 +20,20 @@ module openpde_equation_adv
         !< The really-concrete types are implemented at application level (by the user).
         character(len=:), allocatable :: description !< Equation description.
         integer(I_P)                  :: n_equ       !< Number of equations
-        integer(I_P)                  :: n_size       !< Number of elements (vector size for linear solvers)
+        class(mesh), pointer          :: m
+        logical                       :: enable_explicit  = .false.
+        logical                       :: enable_implicit  = .false.
+        logical                       :: enable_multigrid = .false.
+        !< Explicit section
         class(field), allocatable, dimension(:) :: resvar_e
+        !< Implicit section
+        integer(I_P)                  :: n_size       !< Number of elements (vector size for linear solvers)
         class(matrix), allocatable              :: resvar_i
         class(linsolver), allocatable :: solver
         class(f2v), allocatable :: f2v_opr
         class(v2f), allocatable :: v2f_opr
+        !< Multigrid section
+        !< .............
         contains
             ! not deferred but to be implemented by concrete
             procedure :: init     !< Initialize the equation.

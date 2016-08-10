@@ -41,8 +41,11 @@ module openpde
     use openpde_matrix_simple
     use openpde_f2v_FD_1D
     use openpde_v2f_FD_1D
+    use openpde_f2v_FD_2D
+    use openpde_v2f_FD_2D
     use openpde_f2m_d1_FD_1D
     use openpde_f2m_d2_FD_1D
+    use openpde_f2m_d2_FD_2D
     use openpde_linsolver_gmlapack
     ! kinds definition
     use openpde_kinds
@@ -87,8 +90,11 @@ module openpde
     public :: matrix_simple
     public :: f2v_FD_1D
     public :: v2f_FD_1D
+    public :: f2v_FD_2D
+    public :: v2f_FD_2D
     public :: f2m_d1_FD_1D
     public :: f2m_d2_FD_1D
+    public :: f2m_d2_FD_2D
     public :: linsolver_gmlapack
     public :: integrator_adv_euler_explicit
     public :: integrator_adv_euler_implicit

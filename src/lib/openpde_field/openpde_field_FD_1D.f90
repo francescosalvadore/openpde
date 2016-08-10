@@ -28,6 +28,9 @@ module openpde_field_FD_1D
             procedure, pass(lhs),   private :: sub          !< Subtract fields.
             ! public methods
             procedure, pass(this) :: set !< Set field.
+
+            !procedure, pass(rhs) :: newrealmul
+            !public :: operator(**) => newrealmul
     endtype field_FD_1D
 contains
     ! public, non TBP
@@ -169,6 +172,19 @@ contains
         call opr_cur%associate_mesh(field_mesh=rhs%m)
         opr_cur%val = lhs * rhs%val
     end function realmul
+
+    function newrealmul(lhs, rhs) result(opr)
+        !< Multiply real for field.
+        real(R_P),          intent(in)    :: lhs     !< Left hand side.
+        class(field_FD_1D), intent(in)    :: rhs     !< Right hand side.
+        class(field), allocatable, target :: opr     !< Operator result.
+        class(field_FD_1D), pointer       :: opr_cur !< Dummy pointer for operator result.
+
+        allocate(field_FD_1D :: opr)
+        opr_cur => associate_field_FD_1D(field_input=opr, emsg='calling procedure field_FD_1D%realmul')
+        call opr_cur%associate_mesh(field_mesh=rhs%m)
+        opr_cur%val = lhs * rhs%val
+    end function newrealmul
 
     function sub(lhs, rhs) result(opr)
         !< Subtract fields.
