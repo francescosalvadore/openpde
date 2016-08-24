@@ -81,12 +81,11 @@ contains
         integer(I_P)                                            :: error !< Error status.
         class(field), allocatable, dimension(:)                               :: for   !< Temporary
         integer(I_P)                                            :: ie !< Count equation
+        integer(I_P)                                            :: iv !< Count equation
        
         !--------------------------------------------------------------------------------------------
         ! (1) Explicit section
         !--------------------------------------------------------------------------------------------
-        print*,'equ%enable_explicit :',equ%enable_explicit
-        print*,'equ%enable_implicit :',equ%enable_implicit
         if(equ%enable_explicit) then
             print*,'Explicit solver enabled'
             ! (1a) Imposes boundary conditions: modify "inp" field array
@@ -129,6 +128,114 @@ contains
             this%vecS = equ%solver%sol
 !            call this%vecS%output("vecS.dat")
             call equ%v2f_opr%operate(this%vecS, inp)
+        endif
+        !--------------------------------------------------------------------------------------------
+        ! (3) Multigrid
+        !--------------------------------------------------------------------------------------------
+        if(equ%enable_multigrid) then
+            n_levels = equ%mg%n_levels
+
+            equ%mg%inp_levels(:,1) = inp(:)
+             
+            !  du
+            ! ---- + R(u) = 0
+            !  dt
+
+            ! Start multigrid v-cycle
+            v_cycle: do iv=1,equ%mg%max_nv
+                ! Iterations for actual grid (fine grid) - Smoothing iteration
+                i_mg = 1
+                do i_up = 1,equ%mg%n_it_up(i_mg)
+                    ! R(u) evaluation
+                    call equ%resid_emg(inp=equ%mg%inp_levels(:,i_mg), t=t, output=equ%mg%resvar_mg(:,i_mg))
+                    ! Summing du/dt (it results 0 only when converged)
+                    call this%temp_sum(equ%mg%resvar_mg(:,i_mg))
+                    ! Check convergence
+                    equ%mg%norm_var = equ%mg%norm(equ%mg%resvar_mg(:,i_mg))
+                    print*,"iv, Multigrid convergence norm: ",iv, equ%mg%norm_var
+                    if(equ%mg%norm_var < equ%mg%tolerance) then
+                        print*,"iv, Convergence reached: ",iv
+                        exit v_cycle
+                    endif
+                    ! Update of current estimate
+                    equ%mg%inp_levels(:,i_mg) = equ%mg%inp_levels(:,i_mg) + equ%mg%resvar_mg(:,i_mg) * equ%ng%tau(:,i_mg)
+                enddo
+
+                ! Iterations for nested grids (coarse grids) - downward
+                do i_mg=2,n_levels
+
+                    !---------------------------------------------------------------------------
+                    ! Tasks:
+                    ! (1) Approximation of coarse grid solution
+                    ! (2) Source term evaluation
+                    !---------------------------------------------------------------------------
+                    ! Restriction of solution fine => coarse
+                    equ%mg%inp_levels(:,i_mg)       = equ%mg%restriction(equ%mg%inp_levels(:,i_mg-1))
+                    ! Save restriction
+                    equ%mg%inp0_levels(:,i_mg)      = equ%mg%inp_levels(:,i_mg)
+                    ! Collect residuals fine => coarse
+                    equ%mg%source_mg_levels(:,i_mg) = equ%mg%collect(equ%mg%resvar_mg(:,i_mg-1))
+                    ! Compute R(u) on coarse grid (same result as normal explicit case)
+                    call equ%resid_emg(inp=equ%mg%inp_levels(:,i_mg), t=t, output=equ%mg%resvar_mg(:,i_mg))
+                    ! Summing du/dt (it results 0 only when converged)
+                    call this%temp_sum(equ%mg%resvar_mg(:,i_mg))
+                    ! Compute source term for coarse grid
+                    equ%mg%source_mg_levels(:,i_mg) = equ%mg%source_mg_levels(:,i_mg) - equ%mg%resvar_mg(:,i_mg)
+                    !---------------------------------------------------------------------------
+
+                    !---------------------------------------------------------------------------
+                    ! Tasks:
+                    ! (1) Smoothing iteration: new estimate computation
+                    !---------------------------------------------------------------------------
+                    do i_up = 1,equ%mg%n_it_up(:,i_mg)
+                        ! Compute R(u) on coarse grid (same result as normal explicit case)
+                        call equ%resid_emg(inp=equ%mg%inp_levels(:,i_mg), t=t, output=equ%mg%resvar_mg(:,i_mg))
+                        ! Summing du/dt (it results 0 only when converged)
+                        call this%temp_sum(equ%mg%resvar_mg(:,i_mg))
+                        ! Add source term 
+                        equ%mg%resvar_mg(:,i_mg) = equ%mg%resvar_mg(:,i_mg) + equ%mg%source_mg_levels(:,i_mg)
+                        ! Update of current estimate
+                        equ%mg%inp_levels(:,i_mg) = equ%mg%inp_levels(:,i_mg) + equ%mg%resvar_mg(:,i_mg) * equ%ng%tau(:,i_mg)
+                    enddo
+                enddo
+
+                do i_mg=n_levels-1,2,-1
+
+                    !---------------------------------------------------------------------------
+                    ! Tasks:
+                    ! (1) Correction estimation
+                    ! (2) Prolungation
+                    !---------------------------------------------------------------------------
+                    ! Compute correction at coarser grid
+                    equ%mg%inp_levels(:,i_mg+1) = equ%mg%inp_levels(:,i_mg+1) - equ%mg%inp0_levels(:,i_mg+1) ! now inp_levels is the correction
+                    ! Prolongation coarse => fine
+                    equ%mg%inp_levels(:,i_mg)   = equ%mg%inp_levels(:,i_mg) + equ%mg%prolongation(equ%mg%inp_levels(:,i_mg+1))
+
+                    !---------------------------------------------------------------------------
+                    ! Tasks:
+                    ! (1) Smoothing iteration: new estimate computation
+                    !---------------------------------------------------------------------------
+                    do i_down = 1,equ%mg%n_it_down(:,i_mg)
+                        ! Compute R(u) on coarse grid (same result as normal explicit case)
+                        call equ%resid_emg(inp=equ%mg%inp_levels(:,i_mg), t=t, output=equ%mg%resvar_mg(:,i_mg))
+                        ! Summing du/dt (it results 0 only when converged)
+                        call this%temp_sum(equ%mg%resvar_mg(:,i_mg))
+                        ! Add source term 
+                        equ%mg%resvar_mg(:,i_mg) = equ%mg%resvar_mg(:,i_mg) + equ%mg%source_mg_levels(:,i_mg)
+                        ! Update of current estimate
+                        equ%mg%inp_levels(:,i_mg) = equ%mg%inp_levels(:,i_mg) + equ%mg%resvar_mg(:,i_mg) * equ%ng%tau(:,i_mg)
+                    enddo
+
+                enddo
+                i_mg = 1
+                ! Compute correction at coarser grid
+                equ%mg%inp_levels(:,i_mg+1) = equ%mg%inp_levels(:,i_mg+1) - equ%mg%inp0_levels(:,i_mg+1) ! now inp_levels is the correction
+                ! Prolungation to finest grid
+                equ%mg%inp_levels(:,i_mg)   = equ%mg%inp_levels(:,i_mg) + equ%mg%prolongation(equ%mg%inp_levels(:,i_mg+1))
+            enddo v_cycle
+
+            inp(:) = equ%mg%inp_levels(:,1)
+
         endif
 
 !        STOP

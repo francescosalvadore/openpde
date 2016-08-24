@@ -58,7 +58,7 @@ contains
         if (present(filename)) then
             call this%load(filename=filename, error=error)
         else
-            this%n = 50
+            this%n = 49
             this%ng = 2
             this%s = 1
             this%h = 0.05_R8P

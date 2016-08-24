@@ -83,7 +83,7 @@ contains
         endif
 
         ! implicit section     
-        this%enable_implicit = .false.
+        this%enable_implicit = .true.
         allocate(linsolver_gmlapack :: this%solver)
         call this%solver%init(n) !TODO should be generalized on 50
 
@@ -200,10 +200,26 @@ contains
             ddux = dd%operate(T, x) 
             dduy = dd%operate(T, y)
             R = a * ddux + b * dduy
-            !IT SHOULD BE R = a * dd%operate(T, x) + b *dd%operate(T, y)
+            !INTEL BUG R = a * dd%operate(T, x) + b *dd%operate(T, y)
         end associate
 
     end subroutine resid_e
+
+    subroutine resid_emg(this, inp, t)
+        !< Return the field of residuals.
+        class(fd_2d_poisson_equation_adv), intent(inout) :: this  !< The equation.
+        class(field), intent(in), target, dimension(:)   :: inp   !< Input field.
+        real(R_P), intent(in)                            :: t     !< Time.
+
+        associate(dd => this%ddu_opr, T => inp(1), R => this%resvar_e(1), ddux => this%ddux, dduy => this%dduy, &
+                  x => 1, y => 2, a => this%a, b => this%b)
+            ddux = dd%operate(T, x) 
+            dduy = dd%operate(T, y)
+            R = a * ddux + b * dduy
+            !INTEL BUG R = a * dd%operate(T, x) + b *dd%operate(T, y)
+        end associate
+
+    end subroutine resid_emg
 
     subroutine resid_i(this, inp, t)
         !< Return the matrix of residuals.

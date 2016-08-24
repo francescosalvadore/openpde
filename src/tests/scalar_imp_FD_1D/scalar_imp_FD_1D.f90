@@ -36,6 +36,8 @@ module scalar_imp_equation_FD_1D_m
         class(spatial_operator_d2), pointer :: ddu_opr      !< Second derivative.
         class(field), allocatable           :: du           !< Dummy storage of the first derivative operator result.
         class(field), allocatable           :: ddu          !< Dummy storage of the second derivative operator result.
+        class(field), allocatable           :: dumg(:)           !< Dummy storage of the first derivative operator result.
+        class(field), allocatable           :: ddumg(:)          !< Dummy storage of the second derivative operator result.
 
         class(f2m_d2), pointer :: ddui_opr                   !< First derivative implicit.
         class(f2m_d1), pointer :: dui_opr                   !< First derivative implicit.
@@ -75,7 +77,7 @@ contains
         this%n_size = n
 
         ! explicit section
-        this%enable_explicit = .false.
+        this%enable_explicit = .true.
         allocate(field_FD_1D :: this%resvar_e(n_equ))
         do ie=1,n_equ
             call this%resvar_e(ie)%init(field_mesh=field_mesh)
@@ -97,7 +99,7 @@ contains
         endif
 
         ! implicit section     
-        this%enable_implicit = .true.
+        this%enable_implicit = .false.
         allocate(linsolver_gmlapack :: this%solver)
         call this%solver%init(n) !TODO should be generalized on 50
 
@@ -119,6 +121,14 @@ contains
         allocate(v2f_FD_1D :: this%v2f_opr)
         this%v2f_opr%mesh => inp(1)%m
         this%v2f_opr%n_equ = n_equ
+
+        ! multigrid section
+        allocate(multigrid_FD_1D :: this%mg)
+        call this%mg%init(inp(1))
+        allocate(this%dumg(size(inp), this%mg%n_levels), mold=inp(1))
+        call this%mg%create_subgrids(inp, this%dumg)
+        allocate(this%ddumg(size(inp), this%mg%n_levels), mold=inp(1))
+        call this%mg%create_subgrids(inp, this%ddumg)
 
     end subroutine init
 
@@ -190,6 +200,26 @@ contains
         this%resvar_e(1) = (-this%a) * this%du - this%b * this%ddu
 
     end subroutine resid_e
+
+    subroutine resid_emg(this, inp, t, output, i_mg)
+        !< Return the field after forcing the equation.
+        class(scalar_imp_equation_adv), intent(in)         :: this    !< The equation.
+        class(field),                  target, dimension(:) :: inp     !< Input field.
+        class(field),                  intent(inout), target, dimension(:) :: output     !< Input field.
+        real(R_P),                     intent(in)         :: t       !< Time.
+        class(spatial_operator_d1), pointer               :: du_opr  !< Dummy pointer of the first derivative operator.
+        class(spatial_operator_d2), pointer               :: ddu_opr !< Dummy pointer of the second derivative operator.
+
+        call this%bc_emg(inp, t)
+
+        du_opr           => this%du_opr
+        ddu_opr          => this%ddu_opr
+        this%dumg(i_mg)  =  du_opr%operate(inp(1))
+        this%ddumg(i_mg) =  ddu_opr%operate(inp(1))
+
+        output(1) = (-this%a) * this%dumg(i_mg) - this%b * this%ddumg(i_mg)
+
+    end subroutine resid_emg
 
     subroutine resid_i(this, inp, t)
         !< Return the matrix of residuals.

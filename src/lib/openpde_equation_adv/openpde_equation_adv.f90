@@ -33,12 +33,15 @@ module openpde_equation_adv
         class(f2v), allocatable :: f2v_opr
         class(v2f), allocatable :: v2f_opr
         !< Multigrid section
-        !< .............
+        class(multigrid), allocatable :: mg  
+        class(field), allocatable, dimension(:) :: resvar_mg
+        class(field), allocatable, dimension(:) :: source_mg
         contains
             ! not deferred but to be implemented by concrete
             procedure :: init     !< Initialize the equation.
             procedure :: resid_e  !< Residual explicit
             procedure :: resid_i  !< Residual implicit
+            procedure :: resid_emg  !< Residual for multigrid
             procedure :: bc_e     !< Equation boundary conditions explicit.
             procedure :: bc_i     !< Equation boundary conditions implicit.
             procedure :: jacobian !< Jacobian for multigrid solution
@@ -88,6 +91,16 @@ contains
         real(R_P),       intent(in)         :: t    !< Time.
         STOP 'resid_e to be implemented by your equation and depending on your integrator'
     end subroutine resid_e
+
+    !< Return the field after forcing the equation.
+    subroutine resid_emg(this, inp, t, output)
+        !< Return the field after forcing the equation.
+        class(equation_adv), intent(inout)     :: this !< The equation.
+        class(field),    intent(in), target, dimension(:) :: inp  !< Input field.
+        class(field),    intent(out), target, dimension(:) :: output  !< Input field.
+        real(R_P),       intent(in)         :: t    !< Time.
+        STOP 'resid_emg to be implemented by your equation and depending on your integrator'
+    end subroutine resid_emg
 
     !< Return the field after forcing the equation.
     subroutine resid_i(this, inp, t)
