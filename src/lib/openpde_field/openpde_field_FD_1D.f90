@@ -32,9 +32,15 @@ module openpde_field_FD_1D
             !procedure, pass(rhs) :: newrealmul
             !public :: operator(**) => newrealmul
     endtype field_FD_1D
+
+    interface associate_field_FD_1D
+       module procedure associate_field_FD_1D_scalar, &
+                        associate_field_FD_1D_rank1,  &
+                        associate_field_FD_1D_rank2
+    end interface
 contains
     ! public, non TBP
-    function associate_field_FD_1D(field_input, emsg) result(field_pointer)
+    function associate_field_FD_1D_scalar(field_input, emsg) result(field_pointer)
         !< Check the type of the field passed as input and return a Finite Difference 1D field pointer associated to field.
         class(field),       intent(in), target   :: field_input   !< Input field.
         character(*),       intent(in), optional :: emsg          !< Auxiliary error message.
@@ -48,7 +54,39 @@ contains
                if (present(emsg)) write(stderr, '(A)') emsg
                stop
         end select
-      end function associate_field_FD_1D
+    end function associate_field_FD_1D_scalar
+
+    function associate_field_FD_1D_rank1(field_input, emsg) result(field_pointer)
+        !< Check the type of the field passed as input and return a Finite Difference 1D field pointer associated to field.
+        class(field),       intent(in), target   :: field_input(:)   !< Input field.
+        character(*),       intent(in), optional :: emsg             !< Auxiliary error message.
+        class(field_FD_1D), pointer              :: field_pointer(:) !< Finite Difference 1D field pointer.
+
+        select type(field_input)
+            type is(field_FD_1D)
+                field_pointer => field_input
+            class default
+               write(stderr, '(A)')'error: cast field to field_FD_1D'
+               if (present(emsg)) write(stderr, '(A)') emsg
+               stop
+        end select
+    end function associate_field_FD_1D_rank1
+
+    function associate_field_FD_1D_rank2(field_input, emsg) result(field_pointer)
+        !< Check the type of the field passed as input and return a Finite Difference 1D field pointer associated to field.
+        class(field),       intent(in), target   :: field_input(:,:)   !< Input field.
+        character(*),       intent(in), optional :: emsg               !< Auxiliary error message.
+        class(field_FD_1D), pointer              :: field_pointer(:,:) !< Finite Difference 1D field pointer.
+
+        select type(field_input)
+            type is(field_FD_1D)
+                field_pointer => field_input
+            class default
+               write(stderr, '(A)')'error: cast field to field_FD_1D'
+               if (present(emsg)) write(stderr, '(A)') emsg
+               stop
+        end select
+    end function associate_field_FD_1D_rank2
 
     ! deferred public methods
     subroutine associate_mesh(this, field_mesh, error)

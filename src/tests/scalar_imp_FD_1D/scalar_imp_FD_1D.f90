@@ -36,8 +36,8 @@ module scalar_imp_equation_FD_1D_m
         class(spatial_operator_d2), pointer :: ddu_opr      !< Second derivative.
         class(field), allocatable           :: du           !< Dummy storage of the first derivative operator result.
         class(field), allocatable           :: ddu          !< Dummy storage of the second derivative operator result.
-        class(field), allocatable           :: dumg(:)           !< Dummy storage of the first derivative operator result.
-        class(field), allocatable           :: ddumg(:)          !< Dummy storage of the second derivative operator result.
+        class(field), allocatable           :: dumg(:,:)           !< Dummy storage of the first derivative operator result.
+        class(field), allocatable           :: ddumg(:,:)          !< Dummy storage of the second derivative operator result.
 
         class(f2m_d2), pointer :: ddui_opr                   !< First derivative implicit.
         class(f2m_d1), pointer :: dui_opr                   !< First derivative implicit.
@@ -59,16 +59,16 @@ contains
     ! deferred public methods
     subroutine init(this, n_equ, field_mesh, inp, description, filename, error)
         !< Initialize equation.
-        class(scalar_imp_equation_adv), intent(inout)        :: this        !< The equation.
-        integer(I_P),   intent(in)            :: n_equ       !< Number of equations
-        class(mesh),    intent(in), target    :: field_mesh  !< Mesh of the field.
-        class(field),   intent(in), target, dimension(:) :: inp     !< Input field.
-        character(*),   intent(in),  optional :: description !< Equation description.
-        character(*),   intent(in),  optional :: filename    !< Initialization file name.
-        integer(I_P),   intent(out), optional :: error       !< Error status.
-        integer(I_P)                          :: ie          !< Equation index
-        integer(I_P)                          :: n
-        class(mesh_FD_1D), pointer :: mesh_cur
+        class(scalar_imp_equation_adv), intent(inout)         :: this        !< The equation.
+        integer(I_P),                   intent(in)            :: n_equ       !< Number of equations
+        class(mesh),                    intent(in), target    :: field_mesh  !< Mesh of the field.
+        class(field),                   intent(in), target    :: inp(:)      !< Input field.
+        character(*),                   intent(in),  optional :: description !< Equation description.
+        character(*),                   intent(in),  optional :: filename    !< Initialization file name.
+        integer(I_P),                   intent(out), optional :: error       !< Error status.
+        integer(I_P)                                          :: ie          !< Equation index
+        integer(I_P)                                          :: n           !< Counter.
+        class(mesh_FD_1D), pointer                            :: mesh_cur    !< Mesh pointer.
 
         mesh_cur => associate_mesh_FD_1D(mesh_input=field_mesh)
         n = mesh_cur%n
@@ -98,7 +98,7 @@ contains
             if (present(error)) error = 0
         endif
 
-        ! implicit section     
+        ! implicit section
         this%enable_implicit = .false.
         allocate(linsolver_gmlapack :: this%solver)
         call this%solver%init(n) !TODO should be generalized on 50
@@ -113,7 +113,7 @@ contains
         allocate(this%ddui, mold=this%solver%mat)
 
         allocate(this%resvar_i, mold=this%solver%mat)
-        call this%resvar_i%init(n) 
+        call this%resvar_i%init(n)
 
         allocate(f2v_FD_1D :: this%f2v_opr)
         allocate(this%f2v_opr%vec, mold=this%solver%vec) ! TODO should be put in init()
@@ -124,23 +124,23 @@ contains
 
         ! multigrid section
         allocate(multigrid_FD_1D :: this%mg)
-        call this%mg%init(inp(1))
-        allocate(this%dumg(size(inp), this%mg%n_levels), mold=inp(1))
-        call this%mg%create_subgrids(inp, this%dumg)
-        allocate(this%ddumg(size(inp), this%mg%n_levels), mold=inp(1))
-        call this%mg%create_subgrids(inp, this%ddumg)
+        call this%mg%init(inp=inp(1), levels_number=2)
+        allocate(this%dumg(size(inp, dim=1), this%mg%levels_number), mold=inp(1))
+        call this%mg%create_subgrids_field(inp=inp, subgrids=this%dumg)
+        allocate(this%ddumg(size(inp, dim=1), this%mg%levels_number), mold=inp(1))
+        call this%mg%create_subgrids_field(inp=inp, subgrids=this%ddumg)
 
     end subroutine init
 
     subroutine bc_e(this, inp, t)
         !< Equation boundary or fixed conditions imposition.
         class(scalar_imp_equation_adv), intent(in)            :: this     !< The equation.
-        class(field),                  intent(inout), target, dimension(:) :: inp      !< Field.
-        real(R_P),                     intent(in)            :: t        !< Time.
-        class(field_FD_1D), pointer                          :: inp_cur  !< Pointer to input field.
-        class(mesh_FD_1D), pointer                           :: mesh_cur !< Pointer to input mehs.
-        integer(I_P)                                         :: i        !< Counter.
-        integer(I_P)                                         :: ie        !< Counter.
+        class(field),                   intent(inout), target :: inp(:)   !< Field.
+        real(R_P),                      intent(in)            :: t        !< Time.
+        class(field_FD_1D), pointer                           :: inp_cur  !< Pointer to input field.
+        class(mesh_FD_1D), pointer                            :: mesh_cur !< Pointer to input mehs.
+        integer(I_P)                                          :: i        !< Counter.
+        integer(I_P)                                          :: ie       !< Counter.
 
         do ie=1,size(inp)
             inp_cur => associate_field_FD_1D(field_input=inp(ie), emsg='calling procedure scalar_simple_eqaution%bc')
@@ -157,16 +157,15 @@ contains
     subroutine bc_i(this, matA, vecB, t)
         !< Equation boundary conditions imposition.
         class(scalar_imp_equation_adv), intent(in)            :: this     !< The equation.
-        class(matrix),    intent(inout), target :: matA  !< Input field.
-        class(vector),    intent(inout), target :: vecB  !< Input field.
-        real(R_P),                     intent(in)            :: t        !< Time.
-        class(field_FD_1D), pointer                          :: inp_cur  !< Pointer to input field.
-        class(mesh_FD_1D), pointer                           :: mesh_cur !< Pointer to input mehs.
-        integer(I_P)                                         :: i        !< Counter.
-        integer(I_P)                                         :: ie        !< Counter.
-        !class(vector_simple), pointer  :: vecB_cur
-        !class(matrix_simple), pointer  :: matA_cur
-        integer(I_P) :: n, j 
+        class(matrix),                  intent(inout), target :: matA     !< Input field.
+        class(vector),                  intent(inout), target :: vecB     !< Input field.
+        real(R_P),                      intent(in)            :: t        !< Time.
+        class(field_FD_1D), pointer                           :: inp_cur  !< Pointer to input field.
+        class(mesh_FD_1D), pointer                            :: mesh_cur !< Pointer to input mehs.
+        integer(I_P)                                          :: i        !< Counter.
+        integer(I_P)                                          :: ie       !< Counter.
+        integer(I_P)                                          :: n        !< Counter.
+        integer(I_P)                                          :: j        !< Counter.
 
         n = matA%n
         !matA_cur => associate_matrix_simple(matrix_input=matA)
@@ -186,11 +185,11 @@ contains
 
     subroutine resid_e(this, inp, t)
         !< Return the field after forcing the equation.
-        class(scalar_imp_equation_adv), intent(inout)         :: this    !< The equation.
-        class(field),                  intent(in), target, dimension(:) :: inp     !< Input field.
-        real(R_P),                     intent(in)         :: t       !< Time.
-        class(spatial_operator_d1), pointer               :: du_opr  !< Dummy pointer of the first derivative operator.
-        class(spatial_operator_d2), pointer               :: ddu_opr !< Dummy pointer of the second derivative operator.
+        class(scalar_imp_equation_adv), intent(inout)      :: this    !< The equation.
+        class(field),                   intent(in), target :: inp(:)  !< Input field.
+        real(R_P),                      intent(in)         :: t       !< Time.
+        class(spatial_operator_d1), pointer                :: du_opr  !< Dummy pointer of the first derivative operator.
+        class(spatial_operator_d2), pointer                :: ddu_opr !< Dummy pointer of the second derivative operator.
 
         du_opr   => this%du_opr
         ddu_opr  => this%ddu_opr
@@ -203,31 +202,33 @@ contains
 
     subroutine resid_emg(this, inp, t, output, i_mg)
         !< Return the field after forcing the equation.
-        class(scalar_imp_equation_adv), intent(in)         :: this    !< The equation.
-        class(field),                  target, dimension(:) :: inp     !< Input field.
-        class(field),                  intent(inout), target, dimension(:) :: output     !< Input field.
-        real(R_P),                     intent(in)         :: t       !< Time.
-        class(spatial_operator_d1), pointer               :: du_opr  !< Dummy pointer of the first derivative operator.
-        class(spatial_operator_d2), pointer               :: ddu_opr !< Dummy pointer of the second derivative operator.
+        class(scalar_imp_equation_adv), intent(inout)         :: this      !< The equation.
+        class(field),                   intent(inout), target :: inp(:)    !< Input field.
+        real(R_P),                      intent(in)            :: t         !< Time.
+        class(field),                   intent(inout), target :: output(:) !< Input field.
+        integer(I_P),                   intent(in)            :: i_mg      !< Time.
+        class(spatial_operator_d1), pointer                   :: du_opr    !< Dummy pointer of the first derivative operator.
+        class(spatial_operator_d2), pointer                   :: ddu_opr   !< Dummy pointer of the second derivative operator.
 
-        call this%bc_emg(inp, t)
+        ! call this%bc_emg(inp, t) ! cazzo
+        call this%bc_e(inp, t)
 
         du_opr           => this%du_opr
         ddu_opr          => this%ddu_opr
-        this%dumg(i_mg)  =  du_opr%operate(inp(1))
-        this%ddumg(i_mg) =  ddu_opr%operate(inp(1))
+        this%dumg(1, i_mg)  =  du_opr%operate(inp(1))
+        this%ddumg(1, i_mg) =  ddu_opr%operate(inp(1))
 
-        output(1) = (-this%a) * this%dumg(i_mg) - this%b * this%ddumg(i_mg)
+        output(1) = (-this%a) * this%dumg(1, i_mg) - this%b * this%ddumg(1, i_mg)
 
     end subroutine resid_emg
 
     subroutine resid_i(this, inp, t)
         !< Return the matrix of residuals.
-        class(scalar_imp_equation_adv), intent(inout) :: this   !< The equation.
-        class(field),  intent(in), target, dimension(:) :: inp  !< Input field.
-        real(R_P),  intent(in)                       :: t       !< Time.
-        class(f2m_d1), pointer          :: dui_opr             !< Dummy pointer of the first derivative operator.
-        class(f2m_d2), pointer          :: ddui_opr             !< Dummy pointer of the first derivative operator.
+        class(scalar_imp_equation_adv), intent(inout)      :: this     !< The equation.
+        class(field),                   intent(in), target :: inp(:)   !< Input field.
+        real(R_P),                      intent(in)         :: t        !< Time.
+        class(f2m_d1), pointer                             :: dui_opr  !< Dummy pointer of the first derivative operator.
+        class(f2m_d2), pointer                             :: ddui_opr !< Dummy pointer of the first derivative operator.
 
         ddui_opr => this%ddui_opr
         this%ddui = ddui_opr%operate(inp) !RIMETTERE ,1,1)
@@ -242,12 +243,12 @@ contains
     ! private methods
     subroutine load_from_json(this, filename, error)
         !< Load mesh definition from JSON file.
-        class(scalar_imp_equation_adv), intent(inout)        :: this      !< The equation.
-        character(*),                  intent(in)            :: filename  !< File name of JSON file.
-        integer(I_P),                  intent(out), optional :: error     !< Error status.
-        character(len=:), allocatable                        :: mesh_type !< Mesh type.
-        type(json_file)                                      :: json      !< JSON file handler.
-        logical                                              :: found     !< Flag inquiring the result json parsing.
+        class(scalar_imp_equation_adv), intent(inout)         :: this      !< The equation.
+        character(*),                   intent(in)            :: filename  !< File name of JSON file.
+        integer(I_P),                   intent(out), optional :: error     !< Error status.
+        character(len=:), allocatable                         :: mesh_type !< Mesh type.
+        type(json_file)                                       :: json      !< JSON file handler.
+        logical                                               :: found     !< Flag inquiring the result json parsing.
 
         call json%initialize()
         if (json%failed()) then

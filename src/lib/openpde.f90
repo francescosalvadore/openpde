@@ -47,6 +47,7 @@ module openpde
     use openpde_f2m_d2_FD_1D
     use openpde_f2m_d2_FD_2D
     use openpde_linsolver_gmlapack
+    use openpde_multigrid_FD_1D
     ! kinds definition
     use openpde_kinds
 
@@ -96,6 +97,7 @@ module openpde
     public :: f2m_d2_FD_1D
     public :: f2m_d2_FD_2D
     public :: linsolver_gmlapack
+    public :: multigrid_FD_1D
     public :: integrator_adv_euler_explicit
     public :: integrator_adv_euler_implicit
     ! kinds

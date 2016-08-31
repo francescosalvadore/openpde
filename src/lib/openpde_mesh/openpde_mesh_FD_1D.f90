@@ -24,12 +24,19 @@ module openpde_mesh_FD_1D
             ! public methods
             generic               :: load => load_from_json !< Load mesh definition from file.
             procedure, pass(this) :: set                    !< Set mesh.
+            ! operators
+            generic               :: assignment(=) => assign_mesh_FD_1D !< Overloading `=` operator.
             ! private methods
-            procedure, pass(this), private :: load_from_json !< Load mesh definition from jSON file.
+            procedure, pass(lhs),  private :: assign_mesh_FD_1D !< Implementation of `=` operator.
+            procedure, pass(this), private :: load_from_json    !< Load mesh definition from jSON file.
     endtype mesh_FD_1D
+    interface associate_mesh_FD_1D
+       module procedure associate_mesh_FD_1D_scalar,&
+                        associate_mesh_FD_1D_rank1
+    endinterface associate_mesh_FD_1D
 contains
     ! public, non TBP
-    function associate_mesh_FD_1D(mesh_input, emsg) result(mesh_pointer)
+    function associate_mesh_FD_1D_scalar(mesh_input, emsg) result(mesh_pointer)
         !< Check the type of the mesh passed as input and return a Finite Difference 1D mesh pointer associated to mesh.
         class(mesh),       intent(in), target   :: mesh_input    !< Input mesh.
         character(*),      intent(in), optional :: emsg          !< Auxiliary error message.
@@ -43,7 +50,23 @@ contains
                if (present(emsg)) write(stderr, '(A)') emsg
                stop
         end select
-      end function associate_mesh_FD_1D
+      end function associate_mesh_FD_1D_scalar
+
+      function associate_mesh_FD_1D_rank1(mesh_input, emsg) result(mesh_pointer)
+        !< Check the type of the mesh passed as input and return a Finite Difference 1D mesh pointer associated to mesh.
+        class(mesh),       intent(in), target   :: mesh_input(:)   !< Input mesh.
+        character(*),      intent(in), optional :: emsg            !< Auxiliary error message.
+        class(mesh_FD_1D), pointer              :: mesh_pointer(:) !< Finite Difference 1D mesh pointer.
+
+        select type(mesh_input)
+            type is(mesh_FD_1D)
+                mesh_pointer => mesh_input
+            class default
+               write(stderr, '(A)')'error: cast mesh to mesh_FD_1D'
+               if (present(emsg)) write(stderr, '(A)') emsg
+               stop
+        end select
+      end function associate_mesh_FD_1D_rank1
 
     ! deferred public methods
     subroutine init(this, description, filename, error)
@@ -99,6 +122,20 @@ contains
     end subroutine set
 
     ! private methods
+    elemental subroutine assign_mesh_FD_1D(lhs, rhs)
+        !< Implementation of `=` operator.
+        !<
+        !< @note This implementation is not polymorphic: in future this must become a deferred procudere of the
+        !< abstract [[mesh]] class, thus must become actually polymorphic (maybe a `select type` construct will be necessary).
+        class(mesh_FD_1D), intent(inout) :: lhs !< Left hand side.
+        type(mesh_FD_1D),  intent(in)    :: rhs !< Right hand side.
+
+        lhs%n  = rhs%n
+        lhs%ng = rhs%ng
+        lhs%s  = rhs%s
+        lhs%h  = rhs%h
+    end subroutine assign_mesh_FD_1D
+
     subroutine load_from_json(this, filename, error)
         !< Load mesh definition from JSON file.
         class(mesh_FD_1D), intent(inout)         :: this      !< The mesh.

@@ -9,6 +9,7 @@ module openpde_integrator_adv_euler_implicit
     use openpde_vector_abstract
     use openpde_integrator_adv_abstract
     use openpde_kinds
+    use openpde_field_FD_1D
 
     implicit none
     private
@@ -16,10 +17,10 @@ module openpde_integrator_adv_euler_implicit
 
     type, extends(integrator_adv) :: integrator_adv_euler_implicit
         !< Concrete class of integrator, Euler implicit scheme.
-        real(R_P)                         :: alpha
-        class(matrix), allocatable        :: matA
-        class(vector), allocatable        :: vecB, vecS
-        class(matrix), allocatable        :: mat_identity
+        real(R_P)                  :: alpha
+        class(matrix), allocatable :: matA
+        class(vector), allocatable :: vecB, vecS
+        class(matrix), allocatable :: mat_identity
         contains
             ! deferred public methods
             procedure, pass(this) :: init      !< Initilize integrator.
@@ -71,177 +72,199 @@ contains
 
     end subroutine init
 
-    function integrate(this, equ, t, inp) result(error)
-        !< Integrate the field accordingly the to equation by means of the Euler explicit scheme.
-        use openpde_field_FD_1D
-        class(integrator_adv_euler_implicit), intent(inout)            :: this  !< The integrator.
-        class(equation_adv),                  intent(inout),    target :: equ   !< The equation.
-        real(R_P),                        intent(in)            :: t     !< Time.
-        class(field), intent(inout), target, dimension(:) :: inp   !< Input field.
-        integer(I_P)                                            :: error !< Error status.
-        class(field), allocatable, dimension(:)                               :: for   !< Temporary
-        integer(I_P)                                            :: ie !< Count equation
-        integer(I_P)                                            :: iv !< Count equation
-       
-        !--------------------------------------------------------------------------------------------
-        ! (1) Explicit section
-        !--------------------------------------------------------------------------------------------
-        if(equ%enable_explicit) then
-            print*,'Explicit solver enabled'
-            ! (1a) Imposes boundary conditions: modify "inp" field array
-            call equ%bc_e(inp=inp, t=t)
+   function integrate(this, equ, t, inp) result(error)
+      !< Integrate the field accordingly the to equation definition.
+      class(integrator_adv_euler_implicit), intent(inout)         :: this           !< The integrator.
+      class(equation_adv),                  intent(inout), target :: equ            !< The equation.
+      real(R_P),                            intent(in)            :: t              !< Time.
+      class(field),                         intent(inout), target :: inp(:)         !< Input field.
+      integer(I_P)                                                :: error          !< Error status.
+      class(field), allocatable, dimension(:)                     :: for            !< Temporary
+      class(field_FD_1D), pointer                                 :: inp_cur(:)     !< Field input pointer.
+      class(field_FD_1D), pointer                                 :: fields(:,:)    !< Fields pointer to MG fields.
+      class(field_FD_1D), pointer                                 :: fields0(:,:)   !< Initial fields pointer to MG fields.
+      class(field_FD_1D), pointer                                 :: residuals(:,:) !< Residual field pointer to MG fields.
+      class(field_FD_1D), pointer                                 :: sources(:,:)   !< Sources field pointer to MG fields.
+      class(field_FD_1D), pointer                                 :: tau(:,:)       !< Field input pointer.
+      integer(I_P)                                                :: ie             !< Counter.
+      integer(I_P)                                                :: iv             !< Counter.
+      integer(I_P)                                                :: n_levels       !< Counter.
+      integer(I_P)                                                :: i_mg           !< Counter.
+      integer(I_P)                                                :: i_up           !< Counter.
+      integer(I_P)                                                :: i_down         !< Counter.
 
-            ! (1b) Computes the residual term: modify "equ%resvar_e" 
-            call equ%resid_e(inp=inp, t=t)
+      if(equ%enable_explicit) then
+          print*,'Explicit solver enabled'
+          ! (1a) Imposes boundary conditions: modify "inp" field array
+          call equ%bc_e(inp=inp, t=t)
 
-            ! (1c) Updates the inp field according to Euler scheme
-            do ie=1,size(inp)
-                inp(ie) = inp(ie) + this%dt * equ%resvar_e(ie) 
-            enddo
-        endif
-        !--------------------------------------------------------------------------------------------
-        ! (2) Implicit section
-        !--------------------------------------------------------------------------------------------
-        if(equ%enable_implicit) then
-            print*,'Implicit solver enabled'
-            ! (2a) Computes the residual term: modify "equ%resvar_i" 
-            call equ%resid_i(inp=inp, t=t)
+          ! (1b) Computes the residual term: modify "equ%resvar_e"
+          call equ%resid_e(inp=inp, t=t)
 
-            ! (2b) Compute the linear solver matrix and vector
-            this%matA = this%mat_identity - this%dt * equ%resvar_i
-            !this%matA = this%mat_identity - ((1._R_P-this%alpha)*this%dt) * equ%resvar_i
-            this%vecB = equ%f2v_opr%operate(inp)
+          ! (1c) Updates the inp field according to Euler scheme
+          do ie=1,size(inp)
+              inp(ie) = inp(ie) + this%dt * equ%resvar_e(ie)
+          enddo
+      endif
 
-            ! (2c) Impose boundary conditions
-            call equ%bc_i(matA=this%matA, vecB=this%vecB, t=t)
-!            call this%matA%output("matA.dat")
-!            call this%vecB%output("vecB.dat")
+      if(equ%enable_implicit) then
+          print*,'Implicit solver enabled'
+          ! (2a) Computes the residual term: modify "equ%resvar_i"
+          call equ%resid_i(inp=inp, t=t)
 
-            ! (2d) Assign solver vector and matrix (A and b of A*x=b)
-            call equ%solver%set_vector(this%vecB)
-            call equ%solver%set_matrix(this%matA)
+          ! (2b) Compute the linear solver matrix and vector
+          this%matA = this%mat_identity - this%dt * equ%resvar_i
+          !this%matA = this%mat_identity - ((1._R_P-this%alpha)*this%dt) * equ%resvar_i
+          this%vecB = equ%f2v_opr%operate(inp)
 
-            ! (2e) Solve linear system
-            call equ%solver%solve()
+          ! (2c) Impose boundary conditions
+          call equ%bc_i(matA=this%matA, vecB=this%vecB, t=t)
+!          call this%matA%output("matA.dat")
+!          call this%vecB%output("vecB.dat")
 
-            ! (2f) Assign the solution to the input field
-            this%vecS = equ%solver%sol
-!            call this%vecS%output("vecS.dat")
-            call equ%v2f_opr%operate(this%vecS, inp)
-        endif
-        !--------------------------------------------------------------------------------------------
-        ! (3) Multigrid
-        !--------------------------------------------------------------------------------------------
-        if(equ%enable_multigrid) then
-            n_levels = equ%mg%n_levels
+          ! (2d) Assign solver vector and matrix (A and b of A*x=b)
+          call equ%solver%set_vector(this%vecB)
+          call equ%solver%set_matrix(this%matA)
 
-            equ%mg%inp_levels(:,1) = inp(:)
-             
-            !  du
-            ! ---- + R(u) = 0
-            !  dt
+          ! (2e) Solve linear system
+          call equ%solver%solve()
 
-            ! Start multigrid v-cycle
-            v_cycle: do iv=1,equ%mg%max_nv
-                ! Iterations for actual grid (fine grid) - Smoothing iteration
-                i_mg = 1
-                do i_up = 1,equ%mg%n_it_up(i_mg)
-                    ! R(u) evaluation
-                    call equ%resid_emg(inp=equ%mg%inp_levels(:,i_mg), t=t, output=equ%mg%resvar_mg(:,i_mg))
-                    ! Summing du/dt (it results 0 only when converged)
-                    call this%temp_sum(equ%mg%resvar_mg(:,i_mg))
-                    ! Check convergence
-                    equ%mg%norm_var = equ%mg%norm(equ%mg%resvar_mg(:,i_mg))
-                    print*,"iv, Multigrid convergence norm: ",iv, equ%mg%norm_var
-                    if(equ%mg%norm_var < equ%mg%tolerance) then
-                        print*,"iv, Convergence reached: ",iv
-                        exit v_cycle
-                    endif
-                    ! Update of current estimate
-                    equ%mg%inp_levels(:,i_mg) = equ%mg%inp_levels(:,i_mg) + equ%mg%resvar_mg(:,i_mg) * equ%ng%tau(:,i_mg)
+          ! (2f) Assign the solution to the input field
+          this%vecS = equ%solver%sol
+!          call this%vecS%output("vecS.dat")
+          call equ%v2f_opr%operate(this%vecS, inp)
+      endif
+
+      if(equ%enable_multigrid) then
+         n_levels = equ%mg%levels_number
+
+         inp_cur => associate_field_FD_1D(field_input=inp, emsg='calling procedure integrator_adv_euler_implicit%integrate')
+         tau => associate_field_FD_1D(field_input=equ%mg%tau, emsg='calling procedure integrator_adv_euler_implicit%integrate')
+         fields => associate_field_FD_1D(field_input=equ%mg%fields, &
+                                         emsg='calling procedure integrator_adv_euler_implicit%integrate')
+         fields0 => associate_field_FD_1D(field_input=equ%mg%fields0, &
+                                          emsg='calling procedure integrator_adv_euler_implicit%integrate')
+         residuals => associate_field_FD_1D(field_input=equ%mg%residuals, &
+                                            emsg='calling procedure integrator_adv_euler_implicit%integrate')
+         sources => associate_field_FD_1D(field_input=equ%mg%sources, &
+                                          emsg='calling procedure integrator_adv_euler_implicit%integrate')
+         do ie=1, equ%n_equ
+            fields(ie, 1) = inp_cur(ie)
+         enddo
+
+         !  du
+         ! ---- + R(u) = 0
+         !  dt
+
+         ! Start multigrid v-cycle
+         v_cycle: do iv=1,equ%mg%max_iterations
+             ! Iterations for actual grid (fine grid) - Smoothing iteration
+             i_mg = 1
+             do i_up=1, equ%mg%n_it_up(i_mg)
+                ! R(u) evaluation
+                call equ%resid_emg(inp=fields(:,i_mg), t=t, output=residuals(:,i_mg))
+                ! Summing du/dt (it results 0 only when converged)
+                ! call this%temp_sum(residuals(:,i_mg)) ! TODO implement temp_sum
+                ! Check convergence
+                ! equ%mg%norm = equ%mg%compute_norm(residuals(:,i_mg)) ! TODO implement norm
+                print*,"iv, Multigrid convergence norm: ", iv, equ%mg%norm
+                if(equ%mg%norm <= equ%mg%tolerance) then
+                   print*,"iv, Convergence reached: ", iv
+                   exit v_cycle
+                endif
+                ! Update of current estimate
+                do ie=1, equ%n_equ
+                   fields(ie, i_mg) = fields(ie, i_mg) + residuals(ie, i_mg) * tau(ie, i_mg)
                 enddo
+             enddo
 
                 ! Iterations for nested grids (coarse grids) - downward
-                do i_mg=2,n_levels
+             do i_mg=2, n_levels
 
-                    !---------------------------------------------------------------------------
-                    ! Tasks:
-                    ! (1) Approximation of coarse grid solution
-                    ! (2) Source term evaluation
-                    !---------------------------------------------------------------------------
-                    ! Restriction of solution fine => coarse
-                    equ%mg%inp_levels(:,i_mg)       = equ%mg%restriction(equ%mg%inp_levels(:,i_mg-1))
-                    ! Save restriction
-                    equ%mg%inp0_levels(:,i_mg)      = equ%mg%inp_levels(:,i_mg)
-                    ! Collect residuals fine => coarse
-                    equ%mg%source_mg_levels(:,i_mg) = equ%mg%collect(equ%mg%resvar_mg(:,i_mg-1))
-                    ! Compute R(u) on coarse grid (same result as normal explicit case)
-                    call equ%resid_emg(inp=equ%mg%inp_levels(:,i_mg), t=t, output=equ%mg%resvar_mg(:,i_mg))
-                    ! Summing du/dt (it results 0 only when converged)
-                    call this%temp_sum(equ%mg%resvar_mg(:,i_mg))
-                    ! Compute source term for coarse grid
-                    equ%mg%source_mg_levels(:,i_mg) = equ%mg%source_mg_levels(:,i_mg) - equ%mg%resvar_mg(:,i_mg)
-                    !---------------------------------------------------------------------------
-
-                    !---------------------------------------------------------------------------
-                    ! Tasks:
-                    ! (1) Smoothing iteration: new estimate computation
-                    !---------------------------------------------------------------------------
-                    do i_up = 1,equ%mg%n_it_up(:,i_mg)
-                        ! Compute R(u) on coarse grid (same result as normal explicit case)
-                        call equ%resid_emg(inp=equ%mg%inp_levels(:,i_mg), t=t, output=equ%mg%resvar_mg(:,i_mg))
-                        ! Summing du/dt (it results 0 only when converged)
-                        call this%temp_sum(equ%mg%resvar_mg(:,i_mg))
-                        ! Add source term 
-                        equ%mg%resvar_mg(:,i_mg) = equ%mg%resvar_mg(:,i_mg) + equ%mg%source_mg_levels(:,i_mg)
-                        ! Update of current estimate
-                        equ%mg%inp_levels(:,i_mg) = equ%mg%inp_levels(:,i_mg) + equ%mg%resvar_mg(:,i_mg) * equ%ng%tau(:,i_mg)
-                    enddo
+                ! Tasks:
+                ! (1) Approximation of coarse grid solution
+                ! (2) Source term evaluation
+                ! Restriction of solution fine => coarse
+                ! fields(:,i_mg) = equ%mg%restriction(fields(:,i_mg-1)) ! TODO implement resistriction
+                ! Save restriction
+                do ie=1, equ%n_equ
+                   fields0(ie, i_mg) = fields(ie, i_mg)
+                enddo
+                ! Collect residuals fine => coarse
+                ! sources(:,i_mg) = equ%mg%collect(residuals(:,i_mg-1)) ! TODO implement collect
+                ! Compute R(u) on coarse grid (same result as normal explicit case)
+                call equ%resid_emg(inp=fields(:,i_mg), t=t, output=residuals(:,i_mg))
+                ! Summing du/dt (it results 0 only when converged)
+                ! call this%temp_sum(residuals(:,i_mg)) ! TODO implement temp_sum
+                ! Compute source term for coarse grid
+                do ie=1, equ%n_equ
+                   sources(ie, i_mg) = sources(ie, i_mg) - residuals(ie, i_mg)
                 enddo
 
-                do i_mg=n_levels-1,2,-1
-
-                    !---------------------------------------------------------------------------
-                    ! Tasks:
-                    ! (1) Correction estimation
-                    ! (2) Prolungation
-                    !---------------------------------------------------------------------------
-                    ! Compute correction at coarser grid
-                    equ%mg%inp_levels(:,i_mg+1) = equ%mg%inp_levels(:,i_mg+1) - equ%mg%inp0_levels(:,i_mg+1) ! now inp_levels is the correction
-                    ! Prolongation coarse => fine
-                    equ%mg%inp_levels(:,i_mg)   = equ%mg%inp_levels(:,i_mg) + equ%mg%prolongation(equ%mg%inp_levels(:,i_mg+1))
-
-                    !---------------------------------------------------------------------------
-                    ! Tasks:
-                    ! (1) Smoothing iteration: new estimate computation
-                    !---------------------------------------------------------------------------
-                    do i_down = 1,equ%mg%n_it_down(:,i_mg)
-                        ! Compute R(u) on coarse grid (same result as normal explicit case)
-                        call equ%resid_emg(inp=equ%mg%inp_levels(:,i_mg), t=t, output=equ%mg%resvar_mg(:,i_mg))
-                        ! Summing du/dt (it results 0 only when converged)
-                        call this%temp_sum(equ%mg%resvar_mg(:,i_mg))
-                        ! Add source term 
-                        equ%mg%resvar_mg(:,i_mg) = equ%mg%resvar_mg(:,i_mg) + equ%mg%source_mg_levels(:,i_mg)
-                        ! Update of current estimate
-                        equ%mg%inp_levels(:,i_mg) = equ%mg%inp_levels(:,i_mg) + equ%mg%resvar_mg(:,i_mg) * equ%ng%tau(:,i_mg)
-                    enddo
-
+                ! Tasks:
+                ! (1) Smoothing iteration: new estimate computation
+                !---------------------------------------------------------------------------
+                do i_up=1, equ%mg%n_it_up(i_mg)
+                   ! Compute R(u) on coarse grid (same result as normal explicit case)
+                   call equ%resid_emg(inp=fields(:,i_mg), t=t, output=residuals(:,i_mg))
+                   ! Summing du/dt (it results 0 only when converged)
+                   ! call this%temp_sum(residuals(:,i_mg)) ! TODO implement temp_sum
+                   ! Add source term
+                   do ie=1, equ%n_equ
+                      residuals(ie, i_mg) = residuals(ie, i_mg) + sources(ie, i_mg)
+                   enddo
+                   ! Update of current estimate
+                   do ie=1, equ%n_equ
+                      fields(ie, i_mg) = fields(ie, i_mg) + residuals(ie, i_mg) * tau(ie, i_mg)
+                   enddo
                 enddo
-                i_mg = 1
+             enddo
+
+             do i_mg=n_levels-1,2,-1
+                ! Tasks:
+                ! (1) Correction estimation
+                ! (2) Prolungation
                 ! Compute correction at coarser grid
-                equ%mg%inp_levels(:,i_mg+1) = equ%mg%inp_levels(:,i_mg+1) - equ%mg%inp0_levels(:,i_mg+1) ! now inp_levels is the correction
-                ! Prolungation to finest grid
-                equ%mg%inp_levels(:,i_mg)   = equ%mg%inp_levels(:,i_mg) + equ%mg%prolongation(equ%mg%inp_levels(:,i_mg+1))
-            enddo v_cycle
+                do ie=1, equ%n_equ
+                   fields(ie, i_mg+1) = fields(ie, i_mg+1) - fields0(ie, i_mg+1) ! now fields is the correction
+                enddo
+                ! Prolongation coarse => fine
+                ! fields(:,i_mg) = fields(:,i_mg) + equ%mg%prolongation(fields(:,i_mg+1)) ! TODO implement prolongation
 
-            inp(:) = equ%mg%inp_levels(:,1)
+                ! Tasks:
+                ! (1) Smoothing iteration: new estimate computation
+                do i_down=1, equ%mg%n_it_down(i_mg)
+                    ! Compute R(u) on coarse grid (same result as normal explicit case)
+                    call equ%resid_emg(inp=fields(:,i_mg), t=t, output=residuals(:,i_mg))
+                    ! Summing du/dt (it results 0 only when converged)
+                    ! call this%temp_sum(residuals(:,i_mg)) ! TODO implement temp_sum
+                    ! Add source term
+                    do ie=1, equ%n_equ
+                       residuals(ie, i_mg) = residuals(ie, i_mg) + sources(ie, i_mg)
+                    enddo
+                    ! Update of current estimate
+                    do ie=1, equ%n_equ
+                       fields(ie, i_mg) = fields(ie, i_mg) + residuals(ie, i_mg) * tau(ie, i_mg)
+                    enddo
+                enddo
 
-        endif
+            enddo
+            i_mg = 1
+            ! Compute correction at coarser grid
+            do ie=1, equ%n_equ
+               fields(ie, i_mg+1) = fields(ie, i_mg+1) - fields0(ie, i_mg+1) ! now fields correction
+            enddo
+            ! Prolungation to finest grid
+            ! fields(:,i_mg) = fields(:,i_mg) + equ%mg%prolongation(fields(:,i_mg+1)) ! TODO implement prolongation
+         enddo v_cycle
 
-!        STOP
+         do ie=1, size(inp, dim=1)
+             inp_cur(ie) =  fields(ie, 1)
+         enddo
 
-        error = 0
-    end function integrate
+      endif
+      error = 0
+   end function integrate
 
     ! private methods
     subroutine load_from_json(this, filename, error)
