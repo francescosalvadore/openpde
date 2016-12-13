@@ -23,6 +23,7 @@ module openpde_field_block_FV_1D
             generic, public :: operator(+) => add                   !< Operator `+` overloading.
             generic, public :: operator(*) => mul, realmul, mulreal !< Operator `*` overloading.
             generic, public :: operator(-) => sub                   !< Operator `-` overloading.
+            generic, public :: operator(/) => div                   !< Operator `-` overloading.
             generic, public :: assignment(=) => assign_block        !< Assignment overloading.
             ! private methods
             procedure, pass(lhs), private :: add          !< Add blocks.
@@ -31,6 +32,7 @@ module openpde_field_block_FV_1D
             procedure, pass(lhs), private :: mulreal      !< Multiply block for real.
             procedure, pass(rhs), private :: realmul      !< Multiply real for block.
             procedure, pass(lhs), private :: sub          !< Subtract blocks.
+            procedure, pass(lhs), private :: div          !< Subtract blocks.
     endtype field_block_FV_1D
 contains
     ! public methods
@@ -138,4 +140,13 @@ contains
 
         opr%val = lhs%val - rhs%val
     end function sub
+
+    elemental function div(lhs, rhs) result(opr)
+        !< Subtract blocks.
+        class(field_block_FV_1D), intent(in) :: lhs !< Left hand side.
+        type(field_block_FV_1D),  intent(in) :: rhs !< Left hand side.
+        type(field_block_FV_1D)              :: opr !< Operator result.
+
+        opr%val = lhs%val / rhs%val
+    end function div
 end module openpde_field_block_FV_1D

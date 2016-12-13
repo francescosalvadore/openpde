@@ -26,6 +26,7 @@ module openpde_field_FD_1D
             procedure, pass(lhs),   private :: mulreal      !< Multiply field for real.
             procedure, pass(rhs),   private :: realmul      !< Multiply real for field.
             procedure, pass(lhs),   private :: sub          !< Subtract fields.
+            procedure, pass(lhs),   private :: div          !< Subtract fields.
             ! public methods
             procedure, pass(this) :: set !< Set field.
 
@@ -116,11 +117,13 @@ contains
         if (present(description)) this%description = description
         mesh_cur => associate_mesh_FD_1D(mesh_input=field_mesh, emsg='calling procedure field_FD_1D%init')
 
-        !this%val(:) = 0._R_P
-        !do i = 1, mesh_cur%n
-        do i = 1-mesh_cur%ng, mesh_cur%n+mesh_cur%ng
-            this%val(i) = sin(i*2._R_P*acos(-1._R_P)/mesh_cur%n)
-        enddo
+        this%val(:) = 0._R_P
+
+!        do i = 1, mesh_cur%n
+!        do i = 1-mesh_cur%ng, mesh_cur%n+mesh_cur%ng
+!            this%val(i) = sin(i*2._R_P*acos(-1._R_P)/mesh_cur%n)
+!        enddo
+
         if (present(error)) error = 0
     end subroutine init
 
@@ -238,6 +241,21 @@ contains
         call opr_cur%associate_mesh(field_mesh=lhs%m)
         opr_cur%val = lhs%val - rhs_cur%val
     end function sub
+
+    function div(lhs, rhs) result(opr)
+        !< Subtract fields.
+        class(field_FD_1D), intent(in)         :: lhs     !< Left hand side.
+        class(field),       intent(in), target :: rhs     !< Left hand side.
+        class(field), allocatable, target      :: opr     !< Operator result.
+        class(field_FD_1D), pointer            :: rhs_cur !< Dummy pointer for rhs.
+        class(field_FD_1D), pointer            :: opr_cur !< Dummy pointer for operator result.
+
+        rhs_cur => associate_field_FD_1D(field_input=rhs, emsg='calling procedure field_FD_1D%sub')
+        allocate(field_FD_1D :: opr)
+        opr_cur => associate_field_FD_1D(field_input=opr, emsg='calling procedure field_FD_1D%sub')
+        call opr_cur%associate_mesh(field_mesh=lhs%m)
+        opr_cur%val = lhs%val/rhs_cur%val
+    end function div
 
     ! public methods
      subroutine set(this, field_mesh, description, val, error)

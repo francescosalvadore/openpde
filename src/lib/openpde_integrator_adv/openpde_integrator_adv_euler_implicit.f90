@@ -49,7 +49,7 @@ contains
         if (present(filename)) then
             call this%load(filename=filename, error=error)
         else
-            this%dt = 0.001_R_P
+            this%dt = 0.005_R_P
             if (present(error)) error = 0
         endif
 
@@ -94,7 +94,7 @@ contains
       integer(I_P)                                                :: i_down         !< Counter.
 
       if(equ%enable_explicit) then
-          print*,'Explicit solver enabled'
+          !print*,'Explicit solver enabled'
           ! (1a) Imposes boundary conditions: modify "inp" field array
           call equ%bc_e(inp=inp, t=t)
 
@@ -108,7 +108,7 @@ contains
       endif
 
       if(equ%enable_implicit) then
-          print*,'Implicit solver enabled'
+          !print*,'Implicit solver enabled'
           ! (2a) Computes the residual term: modify "equ%resvar_i"
           call equ%resid_i(inp=inp, t=t)
 

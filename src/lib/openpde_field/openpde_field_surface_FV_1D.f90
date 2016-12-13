@@ -36,6 +36,7 @@ module openpde_field_surface_FV_1D
             procedure, pass(lhs), private :: mulreal      !< Multiply field for real.
             procedure, pass(rhs), private :: realmul      !< Multiply real for field.
             procedure, pass(lhs), private :: sub          !< Subtract fields.
+            procedure, pass(lhs), private :: div          !< Subtract fields.
     endtype field_surface_FV_1D
 contains
     ! public, non TBP
@@ -212,6 +213,21 @@ contains
         call opr_cur%associate_mesh(field_mesh=lhs%m)
         opr_cur%blocks = lhs%blocks - rhs_cur%blocks
     end function sub
+
+    function div(lhs, rhs) result(opr)
+        !< Subtract fields.
+        class(field_surface_FV_1D), intent(in)         :: lhs     !< Left hand side.
+        class(field),               intent(in), target :: rhs     !< Left hand side.
+        class(field), allocatable, target              :: opr     !< Operator result.
+        class(field_surface_FV_1D), pointer            :: rhs_cur !< Dummy pointer for rhs.
+        class(field_surface_FV_1D), pointer            :: opr_cur !< Dummy pointer for operator result.
+
+        rhs_cur => associate_field_surface_FV_1D(field_input=rhs, emsg='calling procedure field_surface_FV_1D%sub')
+        allocate(field_surface_FV_1D :: opr)
+        opr_cur => associate_field_surface_FV_1D(field_input=opr, emsg='calling procedure field_surface_FV_1D%sub')
+        call opr_cur%associate_mesh(field_mesh=lhs%m)
+        opr_cur%blocks = lhs%blocks / rhs_cur%blocks
+    end function div
 
     ! public overridden methods
     elemental subroutine free(this)

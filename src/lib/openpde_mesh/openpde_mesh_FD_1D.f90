@@ -81,10 +81,10 @@ contains
         if (present(filename)) then
             call this%load(filename=filename, error=error)
         else
-            this%n = 49
+            this%n = 128
             this%ng = 2
             this%s = 1
-            this%h = 0.05_R8P
+            this%h = 12._R_P/128 !0.05_R8P
             if (present(error)) error = 0
         endif
     end subroutine init

@@ -62,7 +62,7 @@ contains
         class(scalar_imp_equation_adv), intent(inout)         :: this        !< The equation.
         integer(I_P),                   intent(in)            :: n_equ       !< Number of equations
         class(mesh),                    intent(in), target    :: field_mesh  !< Mesh of the field.
-        class(field),                   intent(in), target    :: inp(:)      !< Input field.
+        class(field),                   intent(inout), target    :: inp(:)      !< Input field.
         character(*),                   intent(in),  optional :: description !< Equation description.
         character(*),                   intent(in),  optional :: filename    !< Initialization file name.
         integer(I_P),                   intent(out), optional :: error       !< Error status.
