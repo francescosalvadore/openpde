@@ -1,0 +1,1133 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+	 
+    <meta name="description" content="Documentation for openpde">
+	 
+    <meta name="author" content="Francesco Salvadore" >
+    <link rel="icon" href="../favicon.png">
+
+    <title>openpde_field_FV_1D.f90 &ndash; openpde</title>
+
+    <link href="../css/bootstrap.min.css" rel="stylesheet">
+    <link href="../css/pygments.css" rel="stylesheet">
+    <link href="../css/font-awesome.min.css" rel="stylesheet">
+    <link href="../css/local.css" rel="stylesheet">
+    
+
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+    
+    <script src="../js/jquery-2.1.3.min.js"></script>
+    <script src="../js/svg-pan-zoom.min.js"></script>
+
+    
+    <script src="../tipuesearch/tipuesearch_content.js"></script>
+    <link  href="../tipuesearch/tipuesearch.css" rel="stylesheet">
+    <script src="../tipuesearch/tipuesearch_set.js"></script>
+    <script src="../tipuesearch/tipuesearch.js"></script>
+    
+
+  </head>
+
+  <body>
+
+    <!-- Fixed navbar -->
+    <nav class="navbar navbar-inverse navbar-fixed-top">
+      <div class="container">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="../index.html">openpde </a>
+        </div>
+        <div id="navbar" class="navbar-collapse collapse">
+          <ul class="nav navbar-nav">
+				
+            <li class="dropdown hidden-xs visible-sm visible-md hidden-lg">
+              <a href="#" class="dropdown-toggle"
+              data-toggle="dropdown" role="button"
+              aria-haspopup="true"
+		 aria-expanded="false">Contents <span class="caret"></span></a>
+	      <ul class="dropdown-menu">
+              
+            <li><a href="../lists/files.html">Source Files</a></li>
+				
+				
+            <li><a href="../lists/modules.html">Modules</a></li>
+				
+            
+                                
+            <li><a href="../lists/procedures.html">Procedures</a></li>
+				
+				
+            <li><a href="../lists/absint.html">Abstract Interfaces</a></li>
+								
+            <li><a href="../lists/types.html">Derived Types</a></li>
+				
+				
+            </ul>
+            </li>
+
+<li class="visible-xs hidden-sm visible-lg"><a href="../lists/files.html">Source Files</a></li>
+
+
+<li class="visible-xs hidden-sm visible-lg"><a href="../lists/modules.html">Modules</a></li>
+
+
+
+<li class="visible-xs hidden-sm visible-lg"><a href="../lists/procedures.html">Procedures</a></li>
+
+
+<li class="visible-xs hidden-sm visible-lg"><a href="../lists/absint.html">Abstract Interfaces</a></li>
+                             
+<li class="visible-xs hidden-sm visible-lg"><a href="../lists/types.html">Derived Types</a></li>
+
+
+          </ul>
+        
+        <form action="../search.html" class="navbar-form navbar-right" role="search">
+        <div class="form-group">
+          <input type="text" class="form-control" placeholder="Search" name="q" id="tipue_search_input" autocomplete="off" required>
+        </div>
+<!--
+        <button type="submit" class="btn btn-default">Submit</button>
+-->
+        </form>
+        
+        </div><!--/.nav-collapse -->
+      </div>
+    </nav>
+
+    <div class="container">
+    
+  
+  <div class="row">
+    <h1>openpde_field_FV_1D.f90
+    <small>Source File</small>
+    
+    </h1>
+    
+<div class="row">
+  <div class="col-lg-12">
+<div class="well well-sm">
+  <ul class="list-inline" style="margin-bottom:0px;display:inline">
+     
+     
+     
+     
+    
+    
+     <li><i class="fa fa-list-ol"></i>
+       <a data-toggle="tooltip"
+	  data-placement="bottom" data-html="true"
+	  title=" 4.4% of total for source files.">167 statements</a>
+     </li> 
+     
+     
+    <li><i class="fa fa-code"></i><a href="../src/openpde_field_FV_1D.f90"> Source File</a></li>
+     
+  </ul>
+  <ol class="breadcrumb in-well text-right">
+  
+     <li class="active">openpde_field_FV_1D.f90</li>
+  </ol>
+</div>
+</div>
+</div>
+<script>
+  $(function () {
+  $('[data-toggle="tooltip"]').tooltip()
+  })
+</script>
+
+  </div>
+  <div class="row">
+    <div class="col-md-3 hidden-xs hidden-sm visible-md visible-lg">
+    
+<div id="sidebar">
+  
+
+
+
+
+
+
+<div class="panel panel-primary">
+  <div class="panel-heading text-left"><h3 class="panel-title"><a data-toggle="collapse" href="#mods-0">Modules</a></h3></div>
+  <div id="mods-0" class="panel-collapse collapse">
+    <div class="list-group">
+      
+      <a class="list-group-item" href="../module/openpde_field_fv_1d.html">openpde_field_FV_1D</a>
+      
+    </div>
+  </div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="panel panel-primary">
+  <div class="panel-heading text-left"><h3 class="panel-title">Source Code</h3></div>
+  <div class="list-group">
+    <a class="list-group-item" href="../sourcefile/openpde_field_fv_1d.f90.html#src">openpde_field_FV_1D.f90</a>
+  </div>
+</div>
+
+
+  <hr>
+  
+
+<div class="panel panel-default">
+  <div class="panel-heading text-left"><h3 class="panel-title"><a data-toggle="collapse" href="#allfiles-0">All Source Files</a></h3></div>
+  <div id="allfiles-0" class="panel-collapse collapse">
+    <div class="list-group">
+      
+      <a class="list-group-item" href="../sourcefile/openpde.f90.html">openpde.f90</a>
+      
+      <a class="list-group-item" href="../sourcefile/openpde_equation_abstract.f90.html">openpde_equation_abstract.f90</a>
+      
+      <a class="list-group-item" href="../sourcefile/openpde_equation_adv.f90.html">openpde_equation_adv.f90</a>
+      
+      <a class="list-group-item" href="../sourcefile/openpde_f2m_abstract.f90.html">openpde_f2m_abstract.f90</a>
+      
+      <a class="list-group-item" href="../sourcefile/openpde_f2m_d1_abstract.f90.html">openpde_f2m_d1_abstract.f90</a>
+      
+      <a class="list-group-item" href="../sourcefile/openpde_f2m_d1_fd_1d.f90.html">openpde_f2m_d1_FD_1D.f90</a>
+      
+      <a class="list-group-item" href="../sourcefile/openpde_f2m_d2_abstract.f90.html">openpde_f2m_d2_abstract.f90</a>
+      
+      <a class="list-group-item" href="../sourcefile/openpde_f2m_d2_fd_1d.f90.html">openpde_f2m_d2_FD_1D.f90</a>
+      
+      <a class="list-group-item" href="../sourcefile/openpde_f2m_d2_fd_2d.f90.html">openpde_f2m_d2_FD_2D.f90</a>
+      
+      <a class="list-group-item" href="../sourcefile/openpde_f2v_abstract.f90.html">openpde_f2v_abstract.f90</a>
+      
+      <a class="list-group-item" href="../sourcefile/openpde_f2v_fd_1d.f90.html">openpde_f2v_FD_1D.f90</a>
+      
+      <a class="list-group-item" href="../sourcefile/openpde_f2v_fd_2d.f90.html">openpde_f2v_FD_2D.f90</a>
+      
+      <a class="list-group-item" href="../sourcefile/openpde_field_abstract.f90.html">openpde_field_abstract.f90</a>
+      
+      <a class="list-group-item" href="../sourcefile/openpde_field_block_fv_1d.f90.html">openpde_field_block_FV_1D.f90</a>
+      
+      <a class="list-group-item" href="../sourcefile/openpde_field_fd_1d.f90.html">openpde_field_FD_1D.f90</a>
+      
+      <a class="list-group-item" href="../sourcefile/openpde_field_fd_2d.f90.html">openpde_field_FD_2D.f90</a>
+      
+      <a class="list-group-item" href="../sourcefile/openpde_field_fv_1d.f90.html">openpde_field_FV_1D.f90</a>
+      
+      <a class="list-group-item" href="../sourcefile/openpde_field_surface_abstract.f90.html">openpde_field_surface_abstract.f90</a>
+      
+      <a class="list-group-item" href="../sourcefile/openpde_field_surface_block_fv_1d.f90.html">openpde_field_surface_block_FV_1D.f90</a>
+      
+      <a class="list-group-item" href="../sourcefile/openpde_field_surface_fv_1d.f90.html">openpde_field_surface_FV_1D.f90</a>
+      
+      <a class="list-group-item" href="../sourcefile/openpde_integrator_adv_abstract.f90.html">openpde_integrator_adv_abstract.f90</a>
+      
+      <a class="list-group-item" href="../sourcefile/openpde_integrator_adv_euler_explicit.f90.html">openpde_integrator_adv_euler_explicit.f90</a>
+      
+      <a class="list-group-item" href="../sourcefile/openpde_integrator_adv_euler_implicit.f90.html">openpde_integrator_adv_euler_implicit.f90</a>
+      
+      <a class="list-group-item" href="../sourcefile/openpde_integrator_adv_rk_implicit.f90.html">openpde_integrator_adv_rk_implicit.f90</a>
+      
+      <a class="list-group-item" href="../sourcefile/openpde_integrator_asbtract.f90.html">openpde_integrator_asbtract.f90</a>
+      
+      <a class="list-group-item" href="../sourcefile/openpde_integrator_euler_explicit.f90.html">openpde_integrator_euler_explicit.f90</a>
+      
+      <a class="list-group-item" href="../sourcefile/openpde_kinds.f90.html">openpde_kinds.f90</a>
+      
+      <a class="list-group-item" href="../sourcefile/openpde_linsolver_abstract.f90.html">openpde_linsolver_abstract.f90</a>
+      
+      <a class="list-group-item" href="../sourcefile/openpde_linsolver_gmlapack.f90.html">openpde_linsolver_gmlapack.f90</a>
+      
+      <a class="list-group-item" href="../sourcefile/openpde_matrix_abstract.f90.html">openpde_matrix_abstract.f90</a>
+      
+      <a class="list-group-item" href="../sourcefile/openpde_matrix_simple.f90.html">openpde_matrix_simple.f90</a>
+      
+      <a class="list-group-item" href="../sourcefile/openpde_mesh_abstract.f90.html">openpde_mesh_abstract.f90</a>
+      
+      <a class="list-group-item" href="../sourcefile/openpde_mesh_block_fv_1d.f90.html">openpde_mesh_block_FV_1D.f90</a>
+      
+      <a class="list-group-item" href="../sourcefile/openpde_mesh_fd_1d.f90.html">openpde_mesh_FD_1D.f90</a>
+      
+      <a class="list-group-item" href="../sourcefile/openpde_mesh_fd_2d.f90.html">openpde_mesh_FD_2D.f90</a>
+      
+      <a class="list-group-item" href="../sourcefile/openpde_mesh_fv_1d.f90.html">openpde_mesh_FV_1D.f90</a>
+      
+      <a class="list-group-item" href="../sourcefile/openpde_multigrid_abstract.f90.html">openpde_multigrid_abstract.f90</a>
+      
+      <a class="list-group-item" href="../sourcefile/openpde_multigrid_fd_1d.f90.html">openpde_multigrid_FD_1D.f90</a>
+      
+      <a class="list-group-item" href="../sourcefile/openpde_spatial_operator_abstract.f90.html">openpde_spatial_operator_abstract.f90</a>
+      
+      <a class="list-group-item" href="../sourcefile/openpde_spatial_operator_d1_abstract.f90.html">openpde_spatial_operator_d1_abstract.f90</a>
+      
+      <a class="list-group-item" href="../sourcefile/openpde_spatial_operator_d1_fd_1d.f90.html">openpde_spatial_operator_d1_FD_1D.f90</a>
+      
+      <a class="list-group-item" href="../sourcefile/openpde_spatial_operator_d1_fd_2d.f90.html">openpde_spatial_operator_d1_FD_2D.f90</a>
+      
+      <a class="list-group-item" href="../sourcefile/openpde_spatial_operator_d1_fv_1d.f90.html">openpde_spatial_operator_d1_FV_1D.f90</a>
+      
+      <a class="list-group-item" href="../sourcefile/openpde_spatial_operator_d2_abstract.f90.html">openpde_spatial_operator_d2_abstract.f90</a>
+      
+      <a class="list-group-item" href="../sourcefile/openpde_spatial_operator_d2_fd_1d.f90.html">openpde_spatial_operator_d2_FD_1D.f90</a>
+      
+      <a class="list-group-item" href="../sourcefile/openpde_spatial_operator_d2_fd_2d.f90.html">openpde_spatial_operator_d2_FD_2D.f90</a>
+      
+      <a class="list-group-item" href="../sourcefile/openpde_spatial_operator_d2_fv_1d.f90.html">openpde_spatial_operator_d2_FV_1D.f90</a>
+      
+      <a class="list-group-item" href="../sourcefile/openpde_v2f_abstract.f90.html">openpde_v2f_abstract.f90</a>
+      
+      <a class="list-group-item" href="../sourcefile/openpde_v2f_fd_1d.f90.html">openpde_v2f_FD_1D.f90</a>
+      
+      <a class="list-group-item" href="../sourcefile/openpde_v2f_fd_2d.f90.html">openpde_v2f_FD_2D.f90</a>
+      
+      <a class="list-group-item" href="../sourcefile/openpde_vector_abstract.f90.html">openpde_vector_abstract.f90</a>
+      
+      <a class="list-group-item" href="../sourcefile/openpde_vector_simple.f90.html">openpde_vector_simple.f90</a>
+      
+    </div>
+  </div>
+</div>
+
+
+</div>  
+
+    </div>
+    <div class="col-md-9" id='text'>
+    <p>Concrete class of field for Finite Volume 1D methods.</p>
+    
+    <h3>This File Depends On</h3>
+    
+                <div class="depgraph"><?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
+ "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<!-- Generated by graphviz version 2.40.1 (20161225.0304)
+ -->
+<!-- Title: sourcefile~~openpde_field_fv_1d.f90~~EfferentGraph Pages: 1 -->
+<svg id="sourcefileopenpde_field_fv_1df90EfferentGraph" width="641pt" height="137pt"
+ viewBox="0.00 0.00 641.00 136.95" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<g id="sourcefile~~openpde_field_fv_1d.f90~~EfferentGraph" class="graph" transform="scale(.7292 .7292) rotate(0) translate(4 183.7961)">
+<title>sourcefile~~openpde_field_fv_1d.f90~~EfferentGraph</title>
+<polygon fill="#ffffff" stroke="transparent" points="-4,4 -4,-183.7961 875,-183.7961 875,4 -4,4"/>
+<!-- sourcefile~openpde_field_fv_1d.f90 -->
+<g id="sourcefile~~openpde_field_fv_1d.f90~~EfferentGraph_node1" class="node">
+<title>sourcefile~openpde_field_fv_1d.f90</title>
+<polygon fill="none" stroke="#000000" points="871,-60.7961 734,-60.7961 734,-36.7961 871,-36.7961 871,-60.7961"/>
+<text text-anchor="middle" x="802.5" y="-46.3961" font-family="Helvetica,sans-Serif" font-size="10.50" fill="#000000">openpde_field_FV_1D.f90</text>
+</g>
+<!-- sourcefile~openpde_field_abstract.f90 -->
+<g id="sourcefile~~openpde_field_fv_1d.f90~~EfferentGraph_node2" class="node">
+<title>sourcefile~openpde_field_abstract.f90</title>
+<g id="a_sourcefile~~openpde_field_fv_1d.f90~~EfferentGraph_node2"><a xlink:href="../sourcefile/openpde_field_abstract.f90.html" xlink:title="openpde_field_abstract.f90">
+<polygon fill="#f0ad4e" stroke="#f0ad4e" points="493,-179.7961 351,-179.7961 351,-155.7961 493,-155.7961 493,-179.7961"/>
+<text text-anchor="middle" x="422" y="-165.3961" font-family="Helvetica,sans-Serif" font-size="10.50" fill="#ffffff">openpde_field_abstract.f90</text>
+</a>
+</g>
+</g>
+<!-- sourcefile~openpde_field_abstract.f90&#45;&gt;sourcefile~openpde_field_fv_1d.f90 -->
+<g id="sourcefile~~openpde_field_fv_1d.f90~~EfferentGraph_edge11" class="edge">
+<title>sourcefile~openpde_field_abstract.f90&#45;&gt;sourcefile~openpde_field_fv_1d.f90</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M478.6659,-155.7745C516.8742,-147.7219 568.4351,-136.9581 614,-127.7961"/>
+</g>
+<!-- sourcefile~openpde_mesh_fv_1d.f90 -->
+<g id="sourcefile~~openpde_field_fv_1d.f90~~EfferentGraph_node3" class="node">
+<title>sourcefile~openpde_mesh_fv_1d.f90</title>
+<g id="a_sourcefile~~openpde_field_fv_1d.f90~~EfferentGraph_node3"><a xlink:href="../sourcefile/openpde_mesh_fv_1d.f90.html" xlink:title="openpde_mesh_FV_1D.f90">
+<polygon fill="#f0ad4e" stroke="#f0ad4e" points="494,-99.7961 350,-99.7961 350,-75.7961 494,-75.7961 494,-99.7961"/>
+<text text-anchor="middle" x="422" y="-85.3961" font-family="Helvetica,sans-Serif" font-size="10.50" fill="#ffffff">openpde_mesh_FV_1D.f90</text>
+</a>
+</g>
+</g>
+<!-- sourcefile~openpde_mesh_fv_1d.f90&#45;&gt;sourcefile~openpde_field_fv_1d.f90 -->
+<g id="sourcefile~~openpde_field_fv_1d.f90~~EfferentGraph_edge12" class="edge">
+<title>sourcefile~openpde_mesh_fv_1d.f90&#45;&gt;sourcefile~openpde_field_fv_1d.f90</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M461.5906,-99.8745C508.9349,-113.6439 585.3759,-133.5517 614,-127.7961"/>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M614,-127.7961C672.9175,-115.9491 736.3823,-85.2 772.5899,-65.7447"/>
+<polygon fill="#000000" stroke="#000000" points="774.5163,-68.6809 781.6209,-60.8211 771.1656,-62.5349 774.5163,-68.6809"/>
+</g>
+<!-- sourcefile~openpde_field_block_fv_1d.f90 -->
+<g id="sourcefile~~openpde_field_fv_1d.f90~~EfferentGraph_node6" class="node">
+<title>sourcefile~openpde_field_block_fv_1d.f90</title>
+<g id="a_sourcefile~~openpde_field_fv_1d.f90~~EfferentGraph_node6"><a xlink:href="../sourcefile/openpde_field_block_fv_1d.f90.html" xlink:title="openpde_field_block_FV_1D.f90">
+<polygon fill="#f0ad4e" stroke="#f0ad4e" points="698,-60.7961 530,-60.7961 530,-36.7961 698,-36.7961 698,-60.7961"/>
+<text text-anchor="middle" x="614" y="-46.3961" font-family="Helvetica,sans-Serif" font-size="10.50" fill="#ffffff">openpde_field_block_FV_1D.f90</text>
+</a>
+</g>
+</g>
+<!-- sourcefile~openpde_mesh_fv_1d.f90&#45;&gt;sourcefile~openpde_field_block_fv_1d.f90 -->
+<g id="sourcefile~~openpde_field_fv_1d.f90~~EfferentGraph_edge9" class="edge">
+<title>sourcefile~openpde_mesh_fv_1d.f90&#45;&gt;sourcefile~openpde_field_block_fv_1d.f90</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M481.173,-75.7765C501.2471,-71.699 523.8535,-67.1071 544.6481,-62.8832"/>
+<polygon fill="#000000" stroke="#000000" points="545.5887,-66.2637 554.6919,-60.843 544.1953,-59.4037 545.5887,-66.2637"/>
+</g>
+<!-- sourcefile~openpde_mesh_block_fv_1d.f90 -->
+<g id="sourcefile~~openpde_field_fv_1d.f90~~EfferentGraph_node4" class="node">
+<title>sourcefile~openpde_mesh_block_fv_1d.f90</title>
+<g id="a_sourcefile~~openpde_field_fv_1d.f90~~EfferentGraph_node4"><a xlink:href="../sourcefile/openpde_mesh_block_fv_1d.f90.html" xlink:title="openpde_mesh_block_FV_1D.f90">
+<polygon fill="#f0ad4e" stroke="#f0ad4e" points="314,-60.7961 139,-60.7961 139,-36.7961 314,-36.7961 314,-60.7961"/>
+<text text-anchor="middle" x="226.5" y="-46.3961" font-family="Helvetica,sans-Serif" font-size="10.50" fill="#ffffff">openpde_mesh_block_FV_1D.f90</text>
+</a>
+</g>
+</g>
+<!-- sourcefile~openpde_mesh_block_fv_1d.f90&#45;&gt;sourcefile~openpde_field_fv_1d.f90 -->
+<g id="sourcefile~~openpde_field_fv_1d.f90~~EfferentGraph_edge13" class="edge">
+<title>sourcefile~openpde_mesh_block_fv_1d.f90&#45;&gt;sourcefile~openpde_field_fv_1d.f90</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M314.1358,-49.4531C347.8719,-49.2988 386.747,-48.6257 422,-46.7961"/>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M422,-46.7961C508.8717,-42.2874 527.1441,-3.994 614,-8.7961"/>
+</g>
+<!-- sourcefile~openpde_mesh_block_fv_1d.f90&#45;&gt;sourcefile~openpde_mesh_fv_1d.f90 -->
+<g id="sourcefile~~openpde_field_fv_1d.f90~~EfferentGraph_edge3" class="edge">
+<title>sourcefile~openpde_mesh_block_fv_1d.f90&#45;&gt;sourcefile~openpde_mesh_fv_1d.f90</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M286.7517,-60.8156C307.2846,-64.9117 330.4195,-69.5268 351.6725,-73.7665"/>
+<polygon fill="#000000" stroke="#000000" points="351.1192,-77.2251 361.6107,-75.7491 352.4887,-70.3603 351.1192,-77.2251"/>
+</g>
+<!-- sourcefile~openpde_mesh_block_fv_1d.f90&#45;&gt;sourcefile~openpde_field_block_fv_1d.f90 -->
+<g id="sourcefile~~openpde_field_fv_1d.f90~~EfferentGraph_edge7" class="edge">
+<title>sourcefile~openpde_mesh_block_fv_1d.f90&#45;&gt;sourcefile~openpde_field_block_fv_1d.f90</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M422,-46.7961C453.7038,-45.1506 488.3905,-45.0062 519.4532,-45.4737"/>
+<polygon fill="#000000" stroke="#000000" points="519.7796,-48.9799 529.839,-45.6545 519.9014,-41.9809 519.7796,-48.9799"/>
+</g>
+<!-- sourcefile~openpde_kinds.f90 -->
+<g id="sourcefile~~openpde_field_fv_1d.f90~~EfferentGraph_node5" class="node">
+<title>sourcefile~openpde_kinds.f90</title>
+<g id="a_sourcefile~~openpde_field_fv_1d.f90~~EfferentGraph_node5"><a xlink:href="../sourcefile/openpde_kinds.f90.html" xlink:title="openpde_kinds.f90">
+<polygon fill="#f0ad4e" stroke="#f0ad4e" points="103,-100.7961 0,-100.7961 0,-76.7961 103,-76.7961 103,-100.7961"/>
+<text text-anchor="middle" x="51.5" y="-86.3961" font-family="Helvetica,sans-Serif" font-size="10.50" fill="#ffffff">openpde_kinds.f90</text>
+</a>
+</g>
+</g>
+<!-- sourcefile~openpde_kinds.f90&#45;&gt;sourcefile~openpde_field_fv_1d.f90 -->
+<g id="sourcefile~~openpde_field_fv_1d.f90~~EfferentGraph_edge14" class="edge">
+<title>sourcefile~openpde_kinds.f90&#45;&gt;sourcefile~openpde_field_fv_1d.f90</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M64.1527,-76.5591C80.1201,-61.9846 109.1249,-38.2942 139,-27.7961 257.9317,13.9965 296.1088,-2.2569 422,-8.7961"/>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M422,-8.7961C507.2763,-11.9148 528.7968,-4.0854 614,-8.7961"/>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M614,-8.7961C662.1413,-11.4577 715.821,-23.8 753.5454,-34.0795"/>
+<polygon fill="#000000" stroke="#000000" points="752.6892,-37.4741 763.2611,-36.7775 754.5622,-30.7294 752.6892,-37.4741"/>
+</g>
+<!-- sourcefile~openpde_kinds.f90&#45;&gt;sourcefile~openpde_field_abstract.f90 -->
+<g id="sourcefile~~openpde_field_fv_1d.f90~~EfferentGraph_edge2" class="edge">
+<title>sourcefile~openpde_kinds.f90&#45;&gt;sourcefile~openpde_field_abstract.f90</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M64.1466,-101.0504C80.1079,-115.6425 109.1065,-139.3505 139,-149.7961 204.1072,-172.5461 282.7031,-175.7876 340.5286,-174.0591"/>
+<polygon fill="#000000" stroke="#000000" points="340.843,-177.5502 350.7124,-173.6971 340.5943,-170.5546 340.843,-177.5502"/>
+</g>
+<!-- sourcefile~openpde_kinds.f90&#45;&gt;sourcefile~openpde_mesh_fv_1d.f90 -->
+<g id="sourcefile~~openpde_field_fv_1d.f90~~EfferentGraph_edge4" class="edge">
+<title>sourcefile~openpde_kinds.f90&#45;&gt;sourcefile~openpde_mesh_fv_1d.f90</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M103.0164,-88.657C164.2295,-88.4918 267.1568,-88.214 339.5024,-88.0187"/>
+<polygon fill="#000000" stroke="#000000" points="339.9554,-91.5176 349.9458,-87.9905 339.9364,-84.5176 339.9554,-91.5176"/>
+</g>
+<!-- sourcefile~openpde_kinds.f90&#45;&gt;sourcefile~openpde_mesh_block_fv_1d.f90 -->
+<g id="sourcefile~~openpde_field_fv_1d.f90~~EfferentGraph_edge6" class="edge">
+<title>sourcefile~openpde_kinds.f90&#45;&gt;sourcefile~openpde_mesh_block_fv_1d.f90</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M103.0593,-77.0111C122.1205,-72.6542 143.9358,-67.6679 163.8724,-63.1109"/>
+<polygon fill="#000000" stroke="#000000" points="164.8253,-66.4835 173.794,-60.8431 163.2655,-59.6595 164.8253,-66.4835"/>
+</g>
+<!-- sourcefile~openpde_kinds.f90&#45;&gt;sourcefile~openpde_field_block_fv_1d.f90 -->
+<g id="sourcefile~~openpde_field_fv_1d.f90~~EfferentGraph_edge8" class="edge">
+<title>sourcefile~openpde_kinds.f90&#45;&gt;sourcefile~openpde_field_block_fv_1d.f90</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M422,-8.7961C471.0058,-11.3416 525.6859,-23.6985 564.1195,-34.013"/>
+<polygon fill="#000000" stroke="#000000" points="563.449,-37.4581 574.0182,-36.7207 565.2961,-30.7061 563.449,-37.4581"/>
+</g>
+<!-- sourcefile~openpde_mesh_abstract.f90 -->
+<g id="sourcefile~~openpde_field_fv_1d.f90~~EfferentGraph_node7" class="node">
+<title>sourcefile~openpde_mesh_abstract.f90</title>
+<g id="a_sourcefile~~openpde_field_fv_1d.f90~~EfferentGraph_node7"><a xlink:href="../sourcefile/openpde_mesh_abstract.f90.html" xlink:title="openpde_mesh_abstract.f90">
+<polygon fill="#f0ad4e" stroke="#f0ad4e" points="301,-140.7961 152,-140.7961 152,-116.7961 301,-116.7961 301,-140.7961"/>
+<text text-anchor="middle" x="226.5" y="-126.3961" font-family="Helvetica,sans-Serif" font-size="10.50" fill="#ffffff">openpde_mesh_abstract.f90</text>
+</a>
+</g>
+</g>
+<!-- sourcefile~openpde_kinds.f90&#45;&gt;sourcefile~openpde_mesh_abstract.f90 -->
+<g id="sourcefile~~openpde_field_fv_1d.f90~~EfferentGraph_edge10" class="edge">
+<title>sourcefile~openpde_kinds.f90&#45;&gt;sourcefile~openpde_mesh_abstract.f90</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M103.0593,-100.581C122.1205,-104.9379 143.9358,-109.9242 163.8724,-114.4812"/>
+<polygon fill="#000000" stroke="#000000" points="163.2655,-117.9327 173.794,-116.749 164.8253,-111.1086 163.2655,-117.9327"/>
+</g>
+<!-- sourcefile~openpde_field_block_fv_1d.f90&#45;&gt;sourcefile~openpde_field_fv_1d.f90 -->
+<g id="sourcefile~~openpde_field_fv_1d.f90~~EfferentGraph_edge15" class="edge">
+<title>sourcefile~openpde_field_block_fv_1d.f90&#45;&gt;sourcefile~openpde_field_fv_1d.f90</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M698.0512,-48.7961C706.5666,-48.7961 715.1942,-48.7961 723.6519,-48.7961"/>
+<polygon fill="#000000" stroke="#000000" points="723.865,-52.2962 733.865,-48.7961 723.8649,-45.2962 723.865,-52.2962"/>
+</g>
+<!-- sourcefile~openpde_mesh_abstract.f90&#45;&gt;sourcefile~openpde_field_fv_1d.f90 -->
+<g id="sourcefile~~openpde_field_fv_1d.f90~~EfferentGraph_edge16" class="edge">
+<title>sourcefile~openpde_mesh_abstract.f90&#45;&gt;sourcefile~openpde_field_fv_1d.f90</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M301.2872,-137.1491C379.9685,-143.9576 506.989,-149.3135 614,-127.7961"/>
+</g>
+<!-- sourcefile~openpde_mesh_abstract.f90&#45;&gt;sourcefile~openpde_field_abstract.f90 -->
+<g id="sourcefile~~openpde_field_fv_1d.f90~~EfferentGraph_edge1" class="edge">
+<title>sourcefile~openpde_mesh_abstract.f90&#45;&gt;sourcefile~openpde_field_abstract.f90</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M286.7517,-140.8156C307.2846,-144.9117 330.4195,-149.5268 351.6725,-153.7665"/>
+<polygon fill="#000000" stroke="#000000" points="351.1192,-157.2251 361.6107,-155.7491 352.4887,-150.3603 351.1192,-157.2251"/>
+</g>
+<!-- sourcefile~openpde_mesh_abstract.f90&#45;&gt;sourcefile~openpde_mesh_fv_1d.f90 -->
+<g id="sourcefile~~openpde_field_fv_1d.f90~~EfferentGraph_edge5" class="edge">
+<title>sourcefile~openpde_mesh_abstract.f90&#45;&gt;sourcefile~openpde_mesh_fv_1d.f90</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M283.8355,-116.7717C306.0163,-112.12 331.5667,-106.7616 354.6162,-101.9277"/>
+<polygon fill="#000000" stroke="#000000" points="355.5969,-105.2983 364.6655,-99.8202 354.16,-98.4473 355.5969,-105.2983"/>
+</g>
+</g>
+</svg>
+</div>
+                <script>var pansourcefileopenpde_field_fv_1df90EfferentGraph = svgPanZoom('#sourcefileopenpde_field_fv_1df90EfferentGraph', {
+                    zoomEnabled: true,
+                    controlIconsEnabled: true,
+                    fit: true,
+                    center: true,});
+                    </script>
+                <div><a type="button" class="graph-help" data-toggle="modal" href="#graph-help-text">Help</a></div>
+                <div class="modal fade" id="graph-help-text" tabindex="-1" role="dialog">
+                  <div class="modal-dialog modal-lg" role="document">
+                    <div class="modal-content">
+                      <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                        <h4 class="modal-title" id="-graph-help-label">Graph Key</h4>
+                      </div>
+                      <div class="modal-body">
+                        
+    <p>Nodes of different colours represent the following: </p>
+    <?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
+ "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<!-- Generated by graphviz version 2.40.1 (20161225.0304)
+ -->
+<!-- Title: Graph Key Pages: 1 -->
+<svg width="190pt" height="32pt"
+ viewBox="0.00 0.00 190.00 32.00" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<g id="graph0" class="graph" transform="scale(1 1) rotate(0) translate(4 28)">
+<title>Graph Key</title>
+<polygon fill="#ffffff" stroke="transparent" points="-4,4 -4,-28 186,-28 186,4 -4,4"/>
+<!-- Source File -->
+<g id="node1" class="node">
+<title>Source File</title>
+<polygon fill="#f0ad4e" stroke="#f0ad4e" points="67,-24 0,-24 0,0 67,0 67,-24"/>
+<text text-anchor="middle" x="33.5" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="#ffffff">Source File</text>
+</g>
+<!-- This Page&#39;s Entity -->
+<g id="node2" class="node">
+<title>This Page&#39;s Entity</title>
+<polygon fill="none" stroke="#000000" points="182,-24 85,-24 85,0 182,0 182,-24"/>
+<text text-anchor="middle" x="133.5" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="#000000">This Page&#39;s Entity</text>
+</g>
+</g>
+</svg>
+
+    
+    <p>Solid arrows point from a file to a file which depends upon it. A file 
+    is dependent upon another if the latter must be compiled before the former
+    can be.
+    </p>
+    
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                
+    
+      
+      <h3>Files Dependent On This One</h3>
+      
+                <div class="depgraph"><?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
+ "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<!-- Generated by graphviz version 2.40.1 (20161225.0304)
+ -->
+<!-- Title: sourcefile~~openpde_field_fv_1d.f90~~AfferentGraph Pages: 1 -->
+<svg id="sourcefileopenpde_field_fv_1df90AfferentGraph" width="503pt" height="141pt"
+ viewBox="0.00 0.00 503.00 141.37" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<g id="sourcefile~~openpde_field_fv_1d.f90~~AfferentGraph" class="graph" transform="scale(1 1) rotate(0) translate(4 137.3672)">
+<title>sourcefile~~openpde_field_fv_1d.f90~~AfferentGraph</title>
+<polygon fill="#ffffff" stroke="transparent" points="-4,4 -4,-137.3672 499,-137.3672 499,4 -4,4"/>
+<!-- sourcefile~openpde_field_fv_1d.f90 -->
+<g id="sourcefile~~openpde_field_fv_1d.f90~~AfferentGraph_node1" class="node">
+<title>sourcefile~openpde_field_fv_1d.f90</title>
+<polygon fill="none" stroke="#000000" points="137,-87 0,-87 0,-63 137,-63 137,-87"/>
+<text text-anchor="middle" x="68.5" y="-72.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="#000000">openpde_field_FV_1D.f90</text>
+</g>
+<!-- sourcefile~openpde.f90 -->
+<g id="sourcefile~~openpde_field_fv_1d.f90~~AfferentGraph_node2" class="node">
+<title>sourcefile~openpde.f90</title>
+<g id="a_sourcefile~~openpde_field_fv_1d.f90~~AfferentGraph_node2"><a xlink:href="../sourcefile/openpde.f90.html" xlink:title="openpde.f90">
+<polygon fill="#f0ad4e" stroke="#f0ad4e" points="495,-87 422,-87 422,-63 495,-63 495,-87"/>
+<text text-anchor="middle" x="458.5" y="-72.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="#ffffff">openpde.f90</text>
+</a>
+</g>
+</g>
+<!-- sourcefile~openpde_field_fv_1d.f90&#45;&gt;sourcefile~openpde.f90 -->
+<g id="sourcefile~~openpde_field_fv_1d.f90~~AfferentGraph_edge4" class="edge">
+<title>sourcefile~openpde_field_fv_1d.f90&#45;&gt;sourcefile~openpde.f90</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M91.3731,-87.1667C112.0385,-97.426 143.6286,-111.3185 173,-117 265.9437,-134.9788 294.577,-141.5687 386,-117 403.6312,-112.2618 421.4006,-102.0745 434.9348,-92.9199"/>
+<polygon fill="#000000" stroke="#000000" points="437.0105,-95.739 443.1731,-87.1208 432.9812,-90.0149 437.0105,-95.739"/>
+</g>
+<!-- sourcefile~openpde_field_surface_fv_1d.f90 -->
+<g id="sourcefile~~openpde_field_fv_1d.f90~~AfferentGraph_node3" class="node">
+<title>sourcefile~openpde_field_surface_fv_1d.f90</title>
+<g id="a_sourcefile~~openpde_field_fv_1d.f90~~AfferentGraph_node3"><a xlink:href="../sourcefile/openpde_field_surface_fv_1d.f90.html" xlink:title="openpde_field_surface_FV_1D.f90">
+<polygon fill="#f0ad4e" stroke="#f0ad4e" points="368.5,-108 190.5,-108 190.5,-84 368.5,-84 368.5,-108"/>
+<text text-anchor="middle" x="279.5" y="-93.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="#ffffff">openpde_field_surface_FV_1D.f90</text>
+</a>
+</g>
+</g>
+<!-- sourcefile~openpde_field_fv_1d.f90&#45;&gt;sourcefile~openpde_field_surface_fv_1d.f90 -->
+<g id="sourcefile~~openpde_field_fv_1d.f90~~AfferentGraph_edge5" class="edge">
+<title>sourcefile~openpde_field_fv_1d.f90&#45;&gt;sourcefile~openpde_field_surface_fv_1d.f90</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M137.0057,-81.8181C150.7913,-83.1901 165.5419,-84.6582 180.1355,-86.1106"/>
+<polygon fill="#000000" stroke="#000000" points="179.9023,-89.6046 190.1998,-87.1123 180.5956,-82.6391 179.9023,-89.6046"/>
+</g>
+<!-- sourcefile~openpde_spatial_operator_d2_fv_1d.f90 -->
+<g id="sourcefile~~openpde_field_fv_1d.f90~~AfferentGraph_node4" class="node">
+<title>sourcefile~openpde_spatial_operator_d2_fv_1d.f90</title>
+<g id="a_sourcefile~~openpde_field_fv_1d.f90~~AfferentGraph_node4"><a xlink:href="../sourcefile/openpde_spatial_operator_d2_fv_1d.f90.html" xlink:title="openpde_spatial_operator_d2_FV_1D.f90">
+<polygon fill="#f0ad4e" stroke="#f0ad4e" points="386,-66 173,-66 173,-42 386,-42 386,-66"/>
+<text text-anchor="middle" x="279.5" y="-51.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="#ffffff">openpde_spatial_operator_d2_FV_1D.f90</text>
+</a>
+</g>
+</g>
+<!-- sourcefile~openpde_field_fv_1d.f90&#45;&gt;sourcefile~openpde_spatial_operator_d2_fv_1d.f90 -->
+<g id="sourcefile~~openpde_field_fv_1d.f90~~AfferentGraph_edge6" class="edge">
+<title>sourcefile~openpde_field_fv_1d.f90&#45;&gt;sourcefile~openpde_spatial_operator_d2_fv_1d.f90</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M137.0057,-68.1819C145.2222,-67.3641 153.7814,-66.5123 162.4459,-65.6499"/>
+<polygon fill="#000000" stroke="#000000" points="163.0472,-69.1075 172.6514,-64.6342 162.3539,-62.1419 163.0472,-69.1075"/>
+</g>
+<!-- sourcefile~openpde_spatial_operator_d1_fv_1d.f90 -->
+<g id="sourcefile~~openpde_field_fv_1d.f90~~AfferentGraph_node5" class="node">
+<title>sourcefile~openpde_spatial_operator_d1_fv_1d.f90</title>
+<g id="a_sourcefile~~openpde_field_fv_1d.f90~~AfferentGraph_node5"><a xlink:href="../sourcefile/openpde_spatial_operator_d1_fv_1d.f90.html" xlink:title="openpde_spatial_operator_d1_FV_1D.f90">
+<polygon fill="#f0ad4e" stroke="#f0ad4e" points="386,-24 173,-24 173,0 386,0 386,-24"/>
+<text text-anchor="middle" x="279.5" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="#ffffff">openpde_spatial_operator_d1_FV_1D.f90</text>
+</a>
+</g>
+</g>
+<!-- sourcefile~openpde_field_fv_1d.f90&#45;&gt;sourcefile~openpde_spatial_operator_d1_fv_1d.f90 -->
+<g id="sourcefile~~openpde_field_fv_1d.f90~~AfferentGraph_edge7" class="edge">
+<title>sourcefile~openpde_field_fv_1d.f90&#45;&gt;sourcefile~openpde_spatial_operator_d1_fv_1d.f90</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M94.6422,-62.8981C115.4913,-53.6388 145.632,-41.1199 173,-33 181.27,-30.5464 189.9874,-28.2988 198.7279,-26.262"/>
+<polygon fill="#000000" stroke="#000000" points="199.5914,-29.6554 208.5833,-24.0522 198.0598,-22.825 199.5914,-29.6554"/>
+</g>
+<!-- sourcefile~openpde_field_surface_fv_1d.f90&#45;&gt;sourcefile~openpde.f90 -->
+<g id="sourcefile~~openpde_field_fv_1d.f90~~AfferentGraph_edge1" class="edge">
+<title>sourcefile~openpde_field_surface_fv_1d.f90&#45;&gt;sourcefile~openpde.f90</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M368.7378,-85.5308C383.5253,-83.7959 398.3223,-82.06 411.5141,-80.5123"/>
+<polygon fill="#000000" stroke="#000000" points="412.1947,-83.9566 421.7187,-79.3151 411.379,-77.0042 412.1947,-83.9566"/>
+</g>
+<!-- sourcefile~openpde_spatial_operator_d2_fv_1d.f90&#45;&gt;sourcefile~openpde.f90 -->
+<g id="sourcefile~~openpde_field_fv_1d.f90~~AfferentGraph_edge2" class="edge">
+<title>sourcefile~openpde_spatial_operator_d2_fv_1d.f90&#45;&gt;sourcefile~openpde.f90</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M381.8089,-66.0027C392.1647,-67.2176 402.2868,-68.4052 411.6053,-69.4984"/>
+<polygon fill="#000000" stroke="#000000" points="411.4145,-72.9999 421.7543,-70.689 412.2302,-66.0476 411.4145,-72.9999"/>
+</g>
+<!-- sourcefile~openpde_spatial_operator_d1_fv_1d.f90&#45;&gt;sourcefile~openpde.f90 -->
+<g id="sourcefile~~openpde_field_fv_1d.f90~~AfferentGraph_edge3" class="edge">
+<title>sourcefile~openpde_spatial_operator_d1_fv_1d.f90&#45;&gt;sourcefile~openpde.f90</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M356.561,-24.0371C366.6093,-26.5215 376.6517,-29.4826 386,-33 402.3714,-39.16 419.3593,-48.7999 432.7722,-57.2915"/>
+<polygon fill="#000000" stroke="#000000" points="431.145,-60.4084 441.4355,-62.9298 434.9635,-54.5415 431.145,-60.4084"/>
+</g>
+</g>
+</svg>
+</div>
+                <div><a type="button" class="graph-help" data-toggle="modal" href="#graph-help-text">Help</a></div>
+                <div class="modal fade" id="graph-help-text" tabindex="-1" role="dialog">
+                  <div class="modal-dialog modal-lg" role="document">
+                    <div class="modal-content">
+                      <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                        <h4 class="modal-title" id="-graph-help-label">Graph Key</h4>
+                      </div>
+                      <div class="modal-body">
+                        
+    <p>Nodes of different colours represent the following: </p>
+    <?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
+ "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<!-- Generated by graphviz version 2.40.1 (20161225.0304)
+ -->
+<!-- Title: Graph Key Pages: 1 -->
+<svg width="190pt" height="32pt"
+ viewBox="0.00 0.00 190.00 32.00" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<g id="graph0" class="graph" transform="scale(1 1) rotate(0) translate(4 28)">
+<title>Graph Key</title>
+<polygon fill="#ffffff" stroke="transparent" points="-4,4 -4,-28 186,-28 186,4 -4,4"/>
+<!-- Source File -->
+<g id="node1" class="node">
+<title>Source File</title>
+<polygon fill="#f0ad4e" stroke="#f0ad4e" points="67,-24 0,-24 0,0 67,0 67,-24"/>
+<text text-anchor="middle" x="33.5" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="#ffffff">Source File</text>
+</g>
+<!-- This Page&#39;s Entity -->
+<g id="node2" class="node">
+<title>This Page&#39;s Entity</title>
+<polygon fill="none" stroke="#000000" points="182,-24 85,-24 85,0 182,0 182,-24"/>
+<text text-anchor="middle" x="133.5" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="#000000">This Page&#39;s Entity</text>
+</g>
+</g>
+</svg>
+
+    
+    <p>Solid arrows point from a file to a file which depends upon it. A file 
+    is dependent upon another if the latter must be compiled before the former
+    can be.
+    </p>
+    
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                
+      
+      <br>
+
+    <section class="visible-xs visible-sm hidden-md">
+      
+
+
+
+
+
+
+<div class="panel panel-primary">
+  <div class="panel-heading text-left"><h3 class="panel-title"><a data-toggle="collapse" href="#mods-1">Modules</a></h3></div>
+  <div id="mods-1" class="panel-collapse collapse">
+    <div class="list-group">
+      
+      <a class="list-group-item" href="../module/openpde_field_fv_1d.html">openpde_field_FV_1D</a>
+      
+    </div>
+  </div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="panel panel-primary">
+  <div class="panel-heading text-left"><h3 class="panel-title">Source Code</h3></div>
+  <div class="list-group">
+    <a class="list-group-item" href="../sourcefile/openpde_field_fv_1d.f90.html#src">openpde_field_FV_1D.f90</a>
+  </div>
+</div>
+
+
+    </section>
+    <br class="visible-xs visible-sm hidden-md">
+
+    <section>
+      <h2><span class="anchor" id="src"></span>Source Code</h2>
+    <div class="hl"><pre><span></span><a name="ln-1"></a><span class="c">!&lt; Concrete class of field for Finite Volume 1D methods.</span>
+<a name="ln-2"></a><span class="k">module </span><span class="n">openpde_field_FV_1D</span>
+<a name="ln-3"></a>    <span class="c">!&lt; Concrete class of field for Finite Volume 1D methods.</span>
+<a name="ln-4"></a>    <span class="c">!&lt;</span>
+<a name="ln-5"></a>    <span class="c">!&lt; This field is associated to a meh based on a uniform, Cartesian cell-centered discretization of the domain,</span>
+<a name="ln-6"></a>    <span class="c">!&lt; that is a multiblock mesh.</span>
+<a name="ln-7"></a>    <span class="k">use</span><span class="p">,</span> <span class="k">intrinsic</span> <span class="kd">::</span> <span class="n">iso_fortran_env</span><span class="p">,</span> <span class="n">only</span> <span class="p">:</span> <span class="n">stderr</span><span class="o">=&gt;</span><span class="n">error_unit</span>
+<a name="ln-8"></a>    <span class="k">use </span><span class="n">openpde_field_abstract</span>
+<a name="ln-9"></a>    <span class="k">use </span><span class="n">openpde_field_block_FV_1D</span>
+<a name="ln-10"></a>    <span class="k">use </span><span class="n">openpde_kinds</span>
+<a name="ln-11"></a>    <span class="k">use </span><span class="n">openpde_mesh_abstract</span>
+<a name="ln-12"></a>    <span class="k">use </span><span class="n">openpde_mesh_FV_1D</span>
+<a name="ln-13"></a>    <span class="k">use </span><span class="n">openpde_mesh_block_FV_1D</span>
+<a name="ln-14"></a>
+<a name="ln-15"></a>    <span class="k">implicit none</span>
+<a name="ln-16"></a><span class="k">    private</span>
+<a name="ln-17"></a><span class="k">    public</span> <span class="kd">::</span> <span class="n">associate_field_FV_1D</span><span class="p">,</span> <span class="n">field_FV_1D</span>
+<a name="ln-18"></a>
+<a name="ln-19"></a>    <span class="k">type</span><span class="p">,</span> <span class="k">extends</span><span class="p">(</span><span class="n">field</span><span class="p">)</span> <span class="kd">::</span> <span class="n">field_FV_1D</span>
+<a name="ln-20"></a>        <span class="c">!&lt; Concrete class of field for Finite Volume 1D methods.</span>
+<a name="ln-21"></a>        <span class="kt">integer</span><span class="p">(</span><span class="n">I_P</span><span class="p">)</span>                                       <span class="kd">::</span> <span class="n">nb</span>     <span class="c">!&lt; Number of blocks.</span>
+<a name="ln-22"></a>        <span class="k">type</span><span class="p">(</span><span class="n">field_block_FV_1D</span><span class="p">),</span> <span class="k">allocatable</span><span class="p">,</span> <span class="k">dimension</span><span class="p">(:)</span> <span class="kd">::</span> <span class="n">blocks</span> <span class="c">!&lt; The blocks.</span>
+<a name="ln-23"></a>        <span class="k">contains</span>
+<a name="ln-24"></a>            <span class="c">! deferred public methods</span>
+<a name="ln-25"></a>            <span class="k">procedure</span><span class="p">,</span> <span class="k">pass</span><span class="p">(</span><span class="n">this</span><span class="p">)</span> <span class="kd">::</span> <span class="n">associate_mesh</span> <span class="c">!&lt; Associate field to a mesh.</span>
+<a name="ln-26"></a>            <span class="k">procedure</span><span class="p">,</span> <span class="k">pass</span><span class="p">(</span><span class="n">this</span><span class="p">)</span> <span class="kd">::</span> <span class="n">init</span>           <span class="c">!&lt; Initilize field.</span>
+<a name="ln-27"></a>            <span class="k">procedure</span><span class="p">,</span> <span class="k">pass</span><span class="p">(</span><span class="n">this</span><span class="p">)</span> <span class="kd">::</span> <span class="n">output</span>         <span class="c">!&lt; Output field data.</span>
+<a name="ln-28"></a>            <span class="c">! deferred private methods</span>
+<a name="ln-29"></a>            <span class="k">procedure</span><span class="p">,</span> <span class="k">pass</span><span class="p">(</span><span class="n">lhs</span><span class="p">),</span>   <span class="k">private</span> <span class="kd">::</span> <span class="n">add</span>          <span class="c">!&lt; Add fields.</span>
+<a name="ln-30"></a>            <span class="k">procedure</span><span class="p">,</span> <span class="k">pass</span><span class="p">(</span><span class="n">lhs</span><span class="p">),</span>   <span class="k">private</span> <span class="kd">::</span> <span class="n">assign_field</span> <span class="c">!&lt; Assign fields.</span>
+<a name="ln-31"></a>            <span class="k">procedure</span><span class="p">,</span> <span class="k">pass</span><span class="p">(</span><span class="n">lhs</span><span class="p">),</span>   <span class="k">private</span> <span class="kd">::</span> <span class="n">mul</span>          <span class="c">!&lt; Multiply fields.</span>
+<a name="ln-32"></a>            <span class="k">procedure</span><span class="p">,</span> <span class="k">pass</span><span class="p">(</span><span class="n">lhs</span><span class="p">),</span>   <span class="k">private</span> <span class="kd">::</span> <span class="n">mulreal</span>      <span class="c">!&lt; Multiply field for real.</span>
+<a name="ln-33"></a>            <span class="k">procedure</span><span class="p">,</span> <span class="k">pass</span><span class="p">(</span><span class="n">rhs</span><span class="p">),</span>   <span class="k">private</span> <span class="kd">::</span> <span class="n">realmul</span>      <span class="c">!&lt; Multiply real for field.</span>
+<a name="ln-34"></a>            <span class="k">procedure</span><span class="p">,</span> <span class="k">pass</span><span class="p">(</span><span class="n">lhs</span><span class="p">),</span>   <span class="k">private</span> <span class="kd">::</span> <span class="n">sub</span>          <span class="c">!&lt; Subtract fields.</span>
+<a name="ln-35"></a>            <span class="k">procedure</span><span class="p">,</span> <span class="k">pass</span><span class="p">(</span><span class="n">lhs</span><span class="p">),</span>   <span class="k">private</span> <span class="kd">::</span> <span class="n">div</span>          <span class="c">!&lt; Subtract fields.</span>
+<a name="ln-36"></a>    <span class="n">endtype</span> <span class="n">field_FV_1D</span>
+<a name="ln-37"></a><span class="k">contains</span>
+<a name="ln-38"></a>    <span class="c">! public, non TBP</span>
+<a name="ln-39"></a>    <span class="k">function </span><span class="n">associate_field_FV_1D</span><span class="p">(</span><span class="n">field_input</span><span class="p">,</span> <span class="n">emsg</span><span class="p">)</span> <span class="k">result</span><span class="p">(</span><span class="n">field_pointer</span><span class="p">)</span>
+<a name="ln-40"></a>        <span class="c">!&lt; Check the type of the field passed as input and return a Finite Difference 1D field pointer associated to field.</span>
+<a name="ln-41"></a>        <span class="k">class</span><span class="p">(</span><span class="n">field</span><span class="p">),</span>       <span class="k">intent</span><span class="p">(</span><span class="n">in</span><span class="p">),</span> <span class="k">target</span>   <span class="kd">::</span> <span class="n">field_input</span>   <span class="c">!&lt; Input field.</span>
+<a name="ln-42"></a>        <span class="kt">character</span><span class="p">(</span><span class="o">*</span><span class="p">),</span>       <span class="k">intent</span><span class="p">(</span><span class="n">in</span><span class="p">),</span> <span class="k">optional</span> <span class="kd">::</span> <span class="n">emsg</span>          <span class="c">!&lt; Auxiliary error message.</span>
+<a name="ln-43"></a>        <span class="k">class</span><span class="p">(</span><span class="n">field_FV_1D</span><span class="p">),</span> <span class="k">pointer</span>              <span class="kd">::</span> <span class="n">field_pointer</span> <span class="c">!&lt; Finite Difference 1D field pointer.</span>
+<a name="ln-44"></a>
+<a name="ln-45"></a>        <span class="k">select type</span><span class="p">(</span><span class="n">field_input</span><span class="p">)</span>
+<a name="ln-46"></a>            <span class="k">type is</span><span class="p">(</span><span class="n">field_FV_1D</span><span class="p">)</span>
+<a name="ln-47"></a>                <span class="n">field_pointer</span> <span class="o">=&gt;</span> <span class="n">field_input</span>
+<a name="ln-48"></a>            <span class="k">class </span><span class="n">default</span>
+<a name="ln-49"></a>               <span class="k">write</span><span class="p">(</span><span class="n">stderr</span><span class="p">,</span> <span class="s1">&#39;(A)&#39;</span><span class="p">)</span><span class="s1">&#39;error: cast field to field_FV_1D&#39;</span>
+<a name="ln-50"></a>               <span class="k">if</span> <span class="p">(</span><span class="nb">present</span><span class="p">(</span><span class="n">emsg</span><span class="p">))</span> <span class="k">write</span><span class="p">(</span><span class="n">stderr</span><span class="p">,</span> <span class="s1">&#39;(A)&#39;</span><span class="p">)</span> <span class="n">emsg</span>
+<a name="ln-51"></a>               <span class="k">stop</span>
+<a name="ln-52"></a><span class="k">        end select</span>
+<a name="ln-53"></a><span class="k">      end function </span><span class="n">associate_field_FV_1D</span>
+<a name="ln-54"></a>
+<a name="ln-55"></a>    <span class="c">! deferred public methods</span>
+<a name="ln-56"></a>    <span class="k">subroutine </span><span class="n">associate_mesh</span><span class="p">(</span><span class="n">this</span><span class="p">,</span> <span class="n">field_mesh</span><span class="p">,</span> <span class="n">error</span><span class="p">)</span>
+<a name="ln-57"></a>        <span class="c">!&lt; Associate field to a mesh.</span>
+<a name="ln-58"></a>        <span class="k">class</span><span class="p">(</span><span class="n">field_FV_1D</span><span class="p">),</span> <span class="k">intent</span><span class="p">(</span><span class="n">inout</span><span class="p">)</span>         <span class="kd">::</span> <span class="n">this</span>       <span class="c">!&lt; The field.</span>
+<a name="ln-59"></a>        <span class="k">class</span><span class="p">(</span><span class="n">mesh</span><span class="p">),</span>        <span class="k">intent</span><span class="p">(</span><span class="n">in</span><span class="p">),</span> <span class="k">target</span>    <span class="kd">::</span> <span class="n">field_mesh</span> <span class="c">!&lt; Mesh of the field.</span>
+<a name="ln-60"></a>        <span class="kt">integer</span><span class="p">(</span><span class="n">I_P</span><span class="p">),</span>       <span class="k">intent</span><span class="p">(</span><span class="n">out</span><span class="p">),</span> <span class="k">optional</span> <span class="kd">::</span> <span class="n">error</span>      <span class="c">!&lt; Error status.</span>
+<a name="ln-61"></a>        <span class="k">class</span><span class="p">(</span><span class="n">mesh_FV_1D</span><span class="p">),</span> <span class="k">pointer</span>                <span class="kd">::</span> <span class="n">mesh_cur</span>   <span class="c">!&lt; Dummy pointer for mesh.</span>
+<a name="ln-62"></a>        <span class="kt">integer</span><span class="p">(</span><span class="n">I_P</span><span class="p">)</span>                              <span class="kd">::</span> <span class="n">b</span>          <span class="c">!&lt; Counter.</span>
+<a name="ln-63"></a>
+<a name="ln-64"></a>        <span class="n">mesh_cur</span> <span class="o">=&gt;</span> <span class="n">associate_mesh_FV_1D</span><span class="p">(</span><span class="n">mesh_input</span><span class="o">=</span><span class="n">field_mesh</span><span class="p">,</span> <span class="n">emsg</span><span class="o">=</span><span class="s1">&#39;calling procedure field_FV_1D%associate_mesh&#39;</span><span class="p">)</span>
+<a name="ln-65"></a>        <span class="n">this</span><span class="p">%</span><span class="n">m</span> <span class="o">=&gt;</span> <span class="n">mesh_cur</span>
+<a name="ln-66"></a>        <span class="n">this</span><span class="p">%</span><span class="n">nb</span> <span class="o">=</span> <span class="n">mesh_cur</span><span class="p">%</span><span class="n">nb</span>
+<a name="ln-67"></a>        <span class="k">if</span> <span class="p">(</span><span class="nb">allocated</span><span class="p">(</span><span class="n">this</span><span class="p">%</span><span class="n">blocks</span><span class="p">))</span> <span class="k">deallocate</span><span class="p">(</span><span class="n">this</span><span class="p">%</span><span class="n">blocks</span><span class="p">)</span> <span class="p">;</span> <span class="k">allocate</span><span class="p">(</span><span class="n">this</span><span class="p">%</span><span class="n">blocks</span><span class="p">(</span><span class="mi">1</span><span class="p">:</span><span class="n">this</span><span class="p">%</span><span class="n">nb</span><span class="p">))</span>
+<a name="ln-68"></a>        <span class="k">do </span><span class="n">b</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">this</span><span class="p">%</span><span class="n">nb</span>
+<a name="ln-69"></a>            <span class="k">call </span><span class="n">this</span><span class="p">%</span><span class="n">blocks</span><span class="p">(</span><span class="n">b</span><span class="p">)%</span><span class="n">alloc</span><span class="p">(</span><span class="n">mesh_block</span><span class="o">=</span><span class="n">mesh_cur</span><span class="p">%</span><span class="n">blocks</span><span class="p">(</span><span class="n">b</span><span class="p">),</span> <span class="n">error</span><span class="o">=</span><span class="n">error</span><span class="p">)</span>
+<a name="ln-70"></a>        <span class="k">end do</span>
+<a name="ln-71"></a><span class="k">        if</span> <span class="p">(</span><span class="nb">present</span><span class="p">(</span><span class="n">error</span><span class="p">))</span> <span class="n">error</span> <span class="o">=</span> <span class="mi">0</span>
+<a name="ln-72"></a>    <span class="k">end subroutine </span><span class="n">associate_mesh</span>
+<a name="ln-73"></a>
+<a name="ln-74"></a>    <span class="k">subroutine </span><span class="n">init</span><span class="p">(</span><span class="n">this</span><span class="p">,</span> <span class="n">field_mesh</span><span class="p">,</span> <span class="n">description</span><span class="p">,</span> <span class="n">error</span><span class="p">)</span>
+<a name="ln-75"></a>        <span class="c">!&lt; Initialize finite difference 1D field.</span>
+<a name="ln-76"></a>        <span class="k">class</span><span class="p">(</span><span class="n">field_FV_1D</span><span class="p">),</span> <span class="k">intent</span><span class="p">(</span><span class="n">inout</span><span class="p">)</span>         <span class="kd">::</span> <span class="n">this</span>        <span class="c">!&lt; The field.</span>
+<a name="ln-77"></a>        <span class="k">class</span><span class="p">(</span><span class="n">mesh</span><span class="p">),</span>        <span class="k">intent</span><span class="p">(</span><span class="n">in</span><span class="p">),</span> <span class="k">target</span>    <span class="kd">::</span> <span class="n">field_mesh</span>  <span class="c">!&lt; Mesh of the field.</span>
+<a name="ln-78"></a>        <span class="kt">character</span><span class="p">(</span><span class="o">*</span><span class="p">),</span>       <span class="k">intent</span><span class="p">(</span><span class="n">in</span><span class="p">),</span>  <span class="k">optional</span> <span class="kd">::</span> <span class="n">description</span> <span class="c">!&lt; Mesh description</span>
+<a name="ln-79"></a>        <span class="kt">integer</span><span class="p">(</span><span class="n">I_P</span><span class="p">),</span>       <span class="k">intent</span><span class="p">(</span><span class="n">out</span><span class="p">),</span> <span class="k">optional</span> <span class="kd">::</span> <span class="n">error</span>       <span class="c">!&lt; Error status.</span>
+<a name="ln-80"></a>        <span class="k">class</span><span class="p">(</span><span class="n">mesh_FV_1D</span><span class="p">),</span>  <span class="k">pointer</span>               <span class="kd">::</span> <span class="n">mesh_cur</span>    <span class="c">!&lt; Dummy pointer for mesh.</span>
+<a name="ln-81"></a>        <span class="kt">integer</span><span class="p">(</span><span class="n">I_P</span><span class="p">)</span>                              <span class="kd">::</span> <span class="n">b</span>           <span class="c">!&lt; Counter.</span>
+<a name="ln-82"></a>
+<a name="ln-83"></a>        <span class="k">call </span><span class="n">this</span><span class="p">%</span><span class="n">free</span>
+<a name="ln-84"></a>        <span class="k">call </span><span class="n">this</span><span class="p">%</span><span class="n">associate_mesh</span><span class="p">(</span><span class="n">field_mesh</span><span class="o">=</span><span class="n">field_mesh</span><span class="p">,</span> <span class="n">error</span><span class="o">=</span><span class="n">error</span><span class="p">)</span>
+<a name="ln-85"></a>        <span class="k">if</span> <span class="p">(</span><span class="nb">present</span><span class="p">(</span><span class="n">description</span><span class="p">))</span> <span class="n">this</span><span class="p">%</span><span class="n">description</span> <span class="o">=</span> <span class="n">description</span>
+<a name="ln-86"></a>        <span class="n">mesh_cur</span> <span class="o">=&gt;</span> <span class="n">associate_mesh_FV_1D</span><span class="p">(</span><span class="n">mesh_input</span><span class="o">=</span><span class="n">field_mesh</span><span class="p">,</span> <span class="n">emsg</span><span class="o">=</span><span class="s1">&#39;calling procedure field_FV_1D%init&#39;</span><span class="p">)</span>
+<a name="ln-87"></a>        <span class="k">do </span><span class="n">b</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">this</span><span class="p">%</span><span class="n">nb</span>
+<a name="ln-88"></a>            <span class="k">call </span><span class="n">this</span><span class="p">%</span><span class="n">blocks</span><span class="p">(</span><span class="n">b</span><span class="p">)%</span><span class="n">init</span><span class="p">(</span><span class="n">mesh_field</span><span class="o">=</span><span class="n">mesh_cur</span><span class="p">,</span> <span class="n">b</span><span class="o">=</span><span class="n">b</span><span class="p">,</span> <span class="n">error</span><span class="o">=</span><span class="n">error</span><span class="p">)</span>
+<a name="ln-89"></a>        <span class="k">end do</span>
+<a name="ln-90"></a><span class="k">        if</span> <span class="p">(</span><span class="nb">present</span><span class="p">(</span><span class="n">error</span><span class="p">))</span> <span class="n">error</span> <span class="o">=</span> <span class="mi">0</span>
+<a name="ln-91"></a>    <span class="k">end subroutine </span><span class="n">init</span>
+<a name="ln-92"></a>
+<a name="ln-93"></a>    <span class="k">subroutine </span><span class="n">output</span><span class="p">(</span><span class="n">this</span><span class="p">,</span> <span class="n">filename</span><span class="p">,</span> <span class="n">error</span><span class="p">)</span>
+<a name="ln-94"></a>        <span class="c">!&lt; Output field data.</span>
+<a name="ln-95"></a>        <span class="k">class</span><span class="p">(</span><span class="n">field_FV_1D</span><span class="p">),</span> <span class="k">intent</span><span class="p">(</span><span class="n">in</span><span class="p">)</span>            <span class="kd">::</span> <span class="n">this</span>     <span class="c">!&lt; The field.</span>
+<a name="ln-96"></a>        <span class="kt">character</span><span class="p">(</span><span class="nb">len</span><span class="o">=*</span><span class="p">),</span>   <span class="k">intent</span><span class="p">(</span><span class="n">in</span><span class="p">)</span>            <span class="kd">::</span> <span class="n">filename</span> <span class="c">!&lt; Output file name.</span>
+<a name="ln-97"></a>        <span class="kt">integer</span><span class="p">(</span><span class="n">I_P</span><span class="p">),</span>       <span class="k">intent</span><span class="p">(</span><span class="n">out</span><span class="p">),</span> <span class="k">optional</span> <span class="kd">::</span> <span class="n">error</span>    <span class="c">!&lt; Error status.</span>
+<a name="ln-98"></a>        <span class="k">class</span><span class="p">(</span><span class="n">mesh_FV_1D</span><span class="p">),</span>  <span class="k">pointer</span>               <span class="kd">::</span> <span class="n">mesh_cur</span> <span class="c">!&lt; Dummy pointer for mesh.</span>
+<a name="ln-99"></a>        <span class="kt">integer</span><span class="p">(</span><span class="n">I_P</span><span class="p">)</span>                              <span class="kd">::</span> <span class="n">b</span>        <span class="c">!&lt; Counter.</span>
+<a name="ln-100"></a>
+<a name="ln-101"></a>        <span class="n">mesh_cur</span> <span class="o">=&gt;</span> <span class="n">associate_mesh_FV_1D</span><span class="p">(</span><span class="n">mesh_input</span><span class="o">=</span><span class="n">this</span><span class="p">%</span><span class="n">m</span><span class="p">,</span> <span class="n">emsg</span><span class="o">=</span><span class="s1">&#39;calling procedure field_FV_1D%output&#39;</span><span class="p">)</span>
+<a name="ln-102"></a>        <span class="k">open</span><span class="p">(</span><span class="n">unit</span><span class="o">=</span><span class="mi">11</span><span class="p">,</span> <span class="k">file</span><span class="o">=</span><span class="n">filename</span><span class="p">)</span>
+<a name="ln-103"></a>        <span class="k">do </span><span class="n">b</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">mesh_cur</span><span class="p">%</span><span class="n">nb</span>
+<a name="ln-104"></a>            <span class="k">call </span><span class="n">this</span><span class="p">%</span><span class="n">blocks</span><span class="p">(</span><span class="n">b</span><span class="p">)%</span><span class="n">output</span><span class="p">(</span><span class="n">unit</span><span class="o">=</span><span class="mi">11</span><span class="p">,</span> <span class="n">mesh_block</span><span class="o">=</span><span class="n">mesh_cur</span><span class="p">%</span><span class="n">blocks</span><span class="p">(</span><span class="n">b</span><span class="p">),</span> <span class="n">error</span><span class="o">=</span><span class="n">error</span><span class="p">)</span>
+<a name="ln-105"></a>        <span class="n">enddo</span>
+<a name="ln-106"></a>        <span class="k">close</span><span class="p">(</span><span class="mi">11</span><span class="p">)</span>
+<a name="ln-107"></a>        <span class="k">if</span> <span class="p">(</span><span class="nb">present</span><span class="p">(</span><span class="n">error</span><span class="p">))</span> <span class="n">error</span> <span class="o">=</span> <span class="mi">0</span>
+<a name="ln-108"></a>    <span class="k">end subroutine </span><span class="n">output</span>
+<a name="ln-109"></a>
+<a name="ln-110"></a>    <span class="c">! deferred private methods</span>
+<a name="ln-111"></a>    <span class="k">function </span><span class="n">add</span><span class="p">(</span><span class="n">lhs</span><span class="p">,</span> <span class="n">rhs</span><span class="p">)</span> <span class="k">result</span><span class="p">(</span><span class="n">opr</span><span class="p">)</span>
+<a name="ln-112"></a>        <span class="c">!&lt; Add fields.</span>
+<a name="ln-113"></a>        <span class="k">class</span><span class="p">(</span><span class="n">field_FV_1D</span><span class="p">),</span> <span class="k">intent</span><span class="p">(</span><span class="n">in</span><span class="p">)</span>         <span class="kd">::</span> <span class="n">lhs</span>     <span class="c">!&lt; Left hand side.</span>
+<a name="ln-114"></a>        <span class="k">class</span><span class="p">(</span><span class="n">field</span><span class="p">),</span>       <span class="k">intent</span><span class="p">(</span><span class="n">in</span><span class="p">),</span> <span class="k">target</span> <span class="kd">::</span> <span class="n">rhs</span>     <span class="c">!&lt; Left hand side.</span>
+<a name="ln-115"></a>        <span class="k">class</span><span class="p">(</span><span class="n">field</span><span class="p">),</span> <span class="k">allocatable</span><span class="p">,</span> <span class="k">target</span>      <span class="kd">::</span> <span class="n">opr</span>     <span class="c">!&lt; Operator result.</span>
+<a name="ln-116"></a>        <span class="k">class</span><span class="p">(</span><span class="n">field_FV_1D</span><span class="p">),</span> <span class="k">pointer</span>            <span class="kd">::</span> <span class="n">rhs_cur</span> <span class="c">!&lt; Dummy pointer for rhs.</span>
+<a name="ln-117"></a>        <span class="k">class</span><span class="p">(</span><span class="n">field_FV_1D</span><span class="p">),</span> <span class="k">pointer</span>            <span class="kd">::</span> <span class="n">opr_cur</span> <span class="c">!&lt; Dummy pointer for operator result.</span>
+<a name="ln-118"></a>
+<a name="ln-119"></a>        <span class="n">rhs_cur</span> <span class="o">=&gt;</span> <span class="n">associate_field_FV_1D</span><span class="p">(</span><span class="n">field_input</span><span class="o">=</span><span class="n">rhs</span><span class="p">,</span> <span class="n">emsg</span><span class="o">=</span><span class="s1">&#39;calling procedure field_FV_1D%add&#39;</span><span class="p">)</span>
+<a name="ln-120"></a>        <span class="k">allocate</span><span class="p">(</span><span class="n">field_FV_1D</span> <span class="kd">::</span> <span class="n">opr</span><span class="p">)</span>
+<a name="ln-121"></a>        <span class="n">opr_cur</span> <span class="o">=&gt;</span> <span class="n">associate_field_FV_1D</span><span class="p">(</span><span class="n">field_input</span><span class="o">=</span><span class="n">opr</span><span class="p">,</span> <span class="n">emsg</span><span class="o">=</span><span class="s1">&#39;calling procedure field_FV_1D%add&#39;</span><span class="p">)</span>
+<a name="ln-122"></a>        <span class="k">call </span><span class="n">opr_cur</span><span class="p">%</span><span class="n">associate_mesh</span><span class="p">(</span><span class="n">field_mesh</span><span class="o">=</span><span class="n">lhs</span><span class="p">%</span><span class="n">m</span><span class="p">)</span>
+<a name="ln-123"></a>        <span class="n">opr_cur</span><span class="p">%</span><span class="n">blocks</span> <span class="o">=</span> <span class="n">lhs</span><span class="p">%</span><span class="n">blocks</span> <span class="o">+</span> <span class="n">rhs_cur</span><span class="p">%</span><span class="n">blocks</span>
+<a name="ln-124"></a>    <span class="k">end function </span><span class="n">add</span>
+<a name="ln-125"></a>
+<a name="ln-126"></a>    <span class="k">subroutine </span><span class="n">assign_field</span><span class="p">(</span><span class="n">lhs</span><span class="p">,</span> <span class="n">rhs</span><span class="p">)</span>
+<a name="ln-127"></a>        <span class="c">!&lt; Assign fields.</span>
+<a name="ln-128"></a>        <span class="k">class</span><span class="p">(</span><span class="n">field_FV_1D</span><span class="p">),</span> <span class="k">intent</span><span class="p">(</span><span class="n">inout</span><span class="p">)</span>      <span class="kd">::</span> <span class="n">lhs</span>     <span class="c">!&lt; Left hand side.</span>
+<a name="ln-129"></a>        <span class="k">class</span><span class="p">(</span><span class="n">field</span><span class="p">),</span>       <span class="k">intent</span><span class="p">(</span><span class="n">in</span><span class="p">),</span> <span class="k">target</span> <span class="kd">::</span> <span class="n">rhs</span>     <span class="c">!&lt; Right hand side.</span>
+<a name="ln-130"></a>        <span class="k">class</span><span class="p">(</span><span class="n">field_FV_1D</span><span class="p">),</span> <span class="k">pointer</span>            <span class="kd">::</span> <span class="n">rhs_cur</span> <span class="c">!&lt; Dummy pointer for rhs.</span>
+<a name="ln-131"></a>
+<a name="ln-132"></a>        <span class="n">rhs_cur</span> <span class="o">=&gt;</span> <span class="n">associate_field_FV_1D</span><span class="p">(</span><span class="n">field_input</span><span class="o">=</span><span class="n">rhs</span><span class="p">,</span> <span class="n">emsg</span><span class="o">=</span><span class="s1">&#39;calling procedure field_FV_1D%assign&#39;</span><span class="p">)</span>
+<a name="ln-133"></a>        <span class="k">call </span><span class="n">lhs</span><span class="p">%</span><span class="n">associate_mesh</span><span class="p">(</span><span class="n">field_mesh</span><span class="o">=</span><span class="n">rhs_cur</span><span class="p">%</span><span class="n">m</span><span class="p">)</span>
+<a name="ln-134"></a>        <span class="n">lhs</span><span class="p">%</span><span class="n">blocks</span> <span class="o">=</span> <span class="n">rhs_cur</span><span class="p">%</span><span class="n">blocks</span>
+<a name="ln-135"></a>    <span class="k">end subroutine </span><span class="n">assign_field</span>
+<a name="ln-136"></a>
+<a name="ln-137"></a>    <span class="k">function </span><span class="n">mul</span><span class="p">(</span><span class="n">lhs</span><span class="p">,</span> <span class="n">rhs</span><span class="p">)</span> <span class="k">result</span><span class="p">(</span><span class="n">opr</span><span class="p">)</span>
+<a name="ln-138"></a>        <span class="c">!&lt; Multiply fields.</span>
+<a name="ln-139"></a>        <span class="k">class</span><span class="p">(</span><span class="n">field_FV_1D</span><span class="p">),</span> <span class="k">intent</span><span class="p">(</span><span class="n">in</span><span class="p">)</span>         <span class="kd">::</span> <span class="n">lhs</span>     <span class="c">!&lt; Left hand side.</span>
+<a name="ln-140"></a>        <span class="k">class</span><span class="p">(</span><span class="n">field</span><span class="p">),</span>       <span class="k">intent</span><span class="p">(</span><span class="n">in</span><span class="p">),</span> <span class="k">target</span> <span class="kd">::</span> <span class="n">rhs</span>     <span class="c">!&lt; Left hand side.</span>
+<a name="ln-141"></a>        <span class="k">class</span><span class="p">(</span><span class="n">field</span><span class="p">),</span> <span class="k">allocatable</span><span class="p">,</span> <span class="k">target</span>      <span class="kd">::</span> <span class="n">opr</span>     <span class="c">!&lt; Operator result.</span>
+<a name="ln-142"></a>        <span class="k">class</span><span class="p">(</span><span class="n">field_FV_1D</span><span class="p">),</span> <span class="k">pointer</span>            <span class="kd">::</span> <span class="n">rhs_cur</span> <span class="c">!&lt; Dummy pointer for rhs.</span>
+<a name="ln-143"></a>        <span class="k">class</span><span class="p">(</span><span class="n">field_FV_1D</span><span class="p">),</span> <span class="k">pointer</span>            <span class="kd">::</span> <span class="n">opr_cur</span> <span class="c">!&lt; Dummy pointer for operator result.</span>
+<a name="ln-144"></a>
+<a name="ln-145"></a>        <span class="n">rhs_cur</span> <span class="o">=&gt;</span> <span class="n">associate_field_FV_1D</span><span class="p">(</span><span class="n">field_input</span><span class="o">=</span><span class="n">rhs</span><span class="p">,</span> <span class="n">emsg</span><span class="o">=</span><span class="s1">&#39;calling procedure field_FV_1D%mul&#39;</span><span class="p">)</span>
+<a name="ln-146"></a>        <span class="k">allocate</span><span class="p">(</span><span class="n">field_FV_1D</span> <span class="kd">::</span> <span class="n">opr</span><span class="p">)</span>
+<a name="ln-147"></a>        <span class="n">opr_cur</span> <span class="o">=&gt;</span> <span class="n">associate_field_FV_1D</span><span class="p">(</span><span class="n">field_input</span><span class="o">=</span><span class="n">opr</span><span class="p">,</span> <span class="n">emsg</span><span class="o">=</span><span class="s1">&#39;calling procedure field_FV_1D%mul&#39;</span><span class="p">)</span>
+<a name="ln-148"></a>        <span class="k">call </span><span class="n">opr_cur</span><span class="p">%</span><span class="n">associate_mesh</span><span class="p">(</span><span class="n">field_mesh</span><span class="o">=</span><span class="n">lhs</span><span class="p">%</span><span class="n">m</span><span class="p">)</span>
+<a name="ln-149"></a>        <span class="n">opr_cur</span><span class="p">%</span><span class="n">blocks</span> <span class="o">=</span> <span class="n">lhs</span><span class="p">%</span><span class="n">blocks</span> <span class="o">*</span> <span class="n">rhs_cur</span><span class="p">%</span><span class="n">blocks</span>
+<a name="ln-150"></a>    <span class="k">end function </span><span class="n">mul</span>
+<a name="ln-151"></a>
+<a name="ln-152"></a>    <span class="k">function </span><span class="n">mulreal</span><span class="p">(</span><span class="n">lhs</span><span class="p">,</span> <span class="n">rhs</span><span class="p">)</span> <span class="k">result</span><span class="p">(</span><span class="n">opr</span><span class="p">)</span>
+<a name="ln-153"></a>        <span class="c">!&lt; Multiply field for real.</span>
+<a name="ln-154"></a>        <span class="k">class</span><span class="p">(</span><span class="n">field_FV_1D</span><span class="p">),</span> <span class="k">intent</span><span class="p">(</span><span class="n">in</span><span class="p">)</span>    <span class="kd">::</span> <span class="n">lhs</span>     <span class="c">!&lt; Left hand side.</span>
+<a name="ln-155"></a>        <span class="kt">real</span><span class="p">(</span><span class="n">R_P</span><span class="p">),</span>          <span class="k">intent</span><span class="p">(</span><span class="n">in</span><span class="p">)</span>    <span class="kd">::</span> <span class="n">rhs</span>     <span class="c">!&lt; Right hand side.</span>
+<a name="ln-156"></a>        <span class="k">class</span><span class="p">(</span><span class="n">field</span><span class="p">),</span> <span class="k">allocatable</span><span class="p">,</span> <span class="k">target</span> <span class="kd">::</span> <span class="n">opr</span>     <span class="c">!&lt; Operator result.</span>
+<a name="ln-157"></a>        <span class="k">class</span><span class="p">(</span><span class="n">field_FV_1D</span><span class="p">),</span> <span class="k">pointer</span>       <span class="kd">::</span> <span class="n">opr_cur</span> <span class="c">!&lt; Dummy pointer for operator result.</span>
+<a name="ln-158"></a>
+<a name="ln-159"></a>        <span class="k">allocate</span><span class="p">(</span><span class="n">field_FV_1D</span> <span class="kd">::</span> <span class="n">opr</span><span class="p">)</span>
+<a name="ln-160"></a>        <span class="n">opr_cur</span> <span class="o">=&gt;</span> <span class="n">associate_field_FV_1D</span><span class="p">(</span><span class="n">field_input</span><span class="o">=</span><span class="n">opr</span><span class="p">,</span> <span class="n">emsg</span><span class="o">=</span><span class="s1">&#39;calling procedure field_FV_1D%mulreal&#39;</span><span class="p">)</span>
+<a name="ln-161"></a>        <span class="k">call </span><span class="n">opr_cur</span><span class="p">%</span><span class="n">associate_mesh</span><span class="p">(</span><span class="n">field_mesh</span><span class="o">=</span><span class="n">lhs</span><span class="p">%</span><span class="n">m</span><span class="p">)</span>
+<a name="ln-162"></a>        <span class="n">opr_cur</span><span class="p">%</span><span class="n">blocks</span> <span class="o">=</span> <span class="n">lhs</span><span class="p">%</span><span class="n">blocks</span> <span class="o">*</span> <span class="n">rhs</span>
+<a name="ln-163"></a>    <span class="k">end function </span><span class="n">mulreal</span>
+<a name="ln-164"></a>
+<a name="ln-165"></a>    <span class="k">function </span><span class="n">realmul</span><span class="p">(</span><span class="n">lhs</span><span class="p">,</span> <span class="n">rhs</span><span class="p">)</span> <span class="k">result</span><span class="p">(</span><span class="n">opr</span><span class="p">)</span>
+<a name="ln-166"></a>        <span class="c">!&lt; Multiply real for field.</span>
+<a name="ln-167"></a>        <span class="kt">real</span><span class="p">(</span><span class="n">R_P</span><span class="p">),</span>          <span class="k">intent</span><span class="p">(</span><span class="n">in</span><span class="p">)</span>    <span class="kd">::</span> <span class="n">lhs</span>     <span class="c">!&lt; Left hand side.</span>
+<a name="ln-168"></a>        <span class="k">class</span><span class="p">(</span><span class="n">field_FV_1D</span><span class="p">),</span> <span class="k">intent</span><span class="p">(</span><span class="n">in</span><span class="p">)</span>    <span class="kd">::</span> <span class="n">rhs</span>     <span class="c">!&lt; Right hand side.</span>
+<a name="ln-169"></a>        <span class="k">class</span><span class="p">(</span><span class="n">field</span><span class="p">),</span> <span class="k">allocatable</span><span class="p">,</span> <span class="k">target</span> <span class="kd">::</span> <span class="n">opr</span>     <span class="c">!&lt; Operator result.</span>
+<a name="ln-170"></a>        <span class="k">class</span><span class="p">(</span><span class="n">field_FV_1D</span><span class="p">),</span> <span class="k">pointer</span>       <span class="kd">::</span> <span class="n">opr_cur</span> <span class="c">!&lt; Dummy pointer for operator result.</span>
+<a name="ln-171"></a>
+<a name="ln-172"></a>        <span class="k">allocate</span><span class="p">(</span><span class="n">field_FV_1D</span> <span class="kd">::</span> <span class="n">opr</span><span class="p">)</span>
+<a name="ln-173"></a>        <span class="n">opr_cur</span> <span class="o">=&gt;</span> <span class="n">associate_field_FV_1D</span><span class="p">(</span><span class="n">field_input</span><span class="o">=</span><span class="n">opr</span><span class="p">,</span> <span class="n">emsg</span><span class="o">=</span><span class="s1">&#39;calling procedure field_FV_1D%realmul&#39;</span><span class="p">)</span>
+<a name="ln-174"></a>        <span class="k">call </span><span class="n">opr_cur</span><span class="p">%</span><span class="n">associate_mesh</span><span class="p">(</span><span class="n">field_mesh</span><span class="o">=</span><span class="n">rhs</span><span class="p">%</span><span class="n">m</span><span class="p">)</span>
+<a name="ln-175"></a>        <span class="n">opr_cur</span><span class="p">%</span><span class="n">blocks</span> <span class="o">=</span> <span class="n">lhs</span> <span class="o">*</span> <span class="n">rhs</span><span class="p">%</span><span class="n">blocks</span>
+<a name="ln-176"></a>    <span class="k">end function </span><span class="n">realmul</span>
+<a name="ln-177"></a>
+<a name="ln-178"></a>    <span class="k">function </span><span class="n">sub</span><span class="p">(</span><span class="n">lhs</span><span class="p">,</span> <span class="n">rhs</span><span class="p">)</span> <span class="k">result</span><span class="p">(</span><span class="n">opr</span><span class="p">)</span>
+<a name="ln-179"></a>        <span class="c">!&lt; Subtract fields.</span>
+<a name="ln-180"></a>        <span class="k">class</span><span class="p">(</span><span class="n">field_FV_1D</span><span class="p">),</span> <span class="k">intent</span><span class="p">(</span><span class="n">in</span><span class="p">)</span>         <span class="kd">::</span> <span class="n">lhs</span>     <span class="c">!&lt; Left hand side.</span>
+<a name="ln-181"></a>        <span class="k">class</span><span class="p">(</span><span class="n">field</span><span class="p">),</span>       <span class="k">intent</span><span class="p">(</span><span class="n">in</span><span class="p">),</span> <span class="k">target</span> <span class="kd">::</span> <span class="n">rhs</span>     <span class="c">!&lt; Left hand side.</span>
+<a name="ln-182"></a>        <span class="k">class</span><span class="p">(</span><span class="n">field</span><span class="p">),</span> <span class="k">allocatable</span><span class="p">,</span> <span class="k">target</span>      <span class="kd">::</span> <span class="n">opr</span>     <span class="c">!&lt; Operator result.</span>
+<a name="ln-183"></a>        <span class="k">class</span><span class="p">(</span><span class="n">field_FV_1D</span><span class="p">),</span> <span class="k">pointer</span>            <span class="kd">::</span> <span class="n">rhs_cur</span> <span class="c">!&lt; Dummy pointer for rhs.</span>
+<a name="ln-184"></a>        <span class="k">class</span><span class="p">(</span><span class="n">field_FV_1D</span><span class="p">),</span> <span class="k">pointer</span>            <span class="kd">::</span> <span class="n">opr_cur</span> <span class="c">!&lt; Dummy pointer for operator result.</span>
+<a name="ln-185"></a>
+<a name="ln-186"></a>        <span class="n">rhs_cur</span> <span class="o">=&gt;</span> <span class="n">associate_field_FV_1D</span><span class="p">(</span><span class="n">field_input</span><span class="o">=</span><span class="n">rhs</span><span class="p">,</span> <span class="n">emsg</span><span class="o">=</span><span class="s1">&#39;calling procedure field_FV_1D%sub&#39;</span><span class="p">)</span>
+<a name="ln-187"></a>        <span class="k">allocate</span><span class="p">(</span><span class="n">field_FV_1D</span> <span class="kd">::</span> <span class="n">opr</span><span class="p">)</span>
+<a name="ln-188"></a>        <span class="n">opr_cur</span> <span class="o">=&gt;</span> <span class="n">associate_field_FV_1D</span><span class="p">(</span><span class="n">field_input</span><span class="o">=</span><span class="n">opr</span><span class="p">,</span> <span class="n">emsg</span><span class="o">=</span><span class="s1">&#39;calling procedure field_FV_1D%sub&#39;</span><span class="p">)</span>
+<a name="ln-189"></a>        <span class="k">call </span><span class="n">opr_cur</span><span class="p">%</span><span class="n">associate_mesh</span><span class="p">(</span><span class="n">field_mesh</span><span class="o">=</span><span class="n">lhs</span><span class="p">%</span><span class="n">m</span><span class="p">)</span>
+<a name="ln-190"></a>        <span class="n">opr_cur</span><span class="p">%</span><span class="n">blocks</span> <span class="o">=</span> <span class="n">lhs</span><span class="p">%</span><span class="n">blocks</span> <span class="o">-</span> <span class="n">rhs_cur</span><span class="p">%</span><span class="n">blocks</span>
+<a name="ln-191"></a>    <span class="k">end function </span><span class="n">sub</span>
+<a name="ln-192"></a>
+<a name="ln-193"></a>    <span class="k">function </span><span class="n">div</span><span class="p">(</span><span class="n">lhs</span><span class="p">,</span> <span class="n">rhs</span><span class="p">)</span> <span class="k">result</span><span class="p">(</span><span class="n">opr</span><span class="p">)</span>
+<a name="ln-194"></a>        <span class="c">!&lt; Subtract fields.</span>
+<a name="ln-195"></a>        <span class="k">class</span><span class="p">(</span><span class="n">field_FV_1D</span><span class="p">),</span> <span class="k">intent</span><span class="p">(</span><span class="n">in</span><span class="p">)</span>         <span class="kd">::</span> <span class="n">lhs</span>     <span class="c">!&lt; Left hand side.</span>
+<a name="ln-196"></a>        <span class="k">class</span><span class="p">(</span><span class="n">field</span><span class="p">),</span>       <span class="k">intent</span><span class="p">(</span><span class="n">in</span><span class="p">),</span> <span class="k">target</span> <span class="kd">::</span> <span class="n">rhs</span>     <span class="c">!&lt; Left hand side.</span>
+<a name="ln-197"></a>        <span class="k">class</span><span class="p">(</span><span class="n">field</span><span class="p">),</span> <span class="k">allocatable</span><span class="p">,</span> <span class="k">target</span>      <span class="kd">::</span> <span class="n">opr</span>     <span class="c">!&lt; Operator result.</span>
+<a name="ln-198"></a>        <span class="k">class</span><span class="p">(</span><span class="n">field_FV_1D</span><span class="p">),</span> <span class="k">pointer</span>            <span class="kd">::</span> <span class="n">rhs_cur</span> <span class="c">!&lt; Dummy pointer for rhs.</span>
+<a name="ln-199"></a>        <span class="k">class</span><span class="p">(</span><span class="n">field_FV_1D</span><span class="p">),</span> <span class="k">pointer</span>            <span class="kd">::</span> <span class="n">opr_cur</span> <span class="c">!&lt; Dummy pointer for operator result.</span>
+<a name="ln-200"></a>
+<a name="ln-201"></a>        <span class="n">rhs_cur</span> <span class="o">=&gt;</span> <span class="n">associate_field_FV_1D</span><span class="p">(</span><span class="n">field_input</span><span class="o">=</span><span class="n">rhs</span><span class="p">,</span> <span class="n">emsg</span><span class="o">=</span><span class="s1">&#39;calling procedure field_FV_1D%sub&#39;</span><span class="p">)</span>
+<a name="ln-202"></a>        <span class="k">allocate</span><span class="p">(</span><span class="n">field_FV_1D</span> <span class="kd">::</span> <span class="n">opr</span><span class="p">)</span>
+<a name="ln-203"></a>        <span class="n">opr_cur</span> <span class="o">=&gt;</span> <span class="n">associate_field_FV_1D</span><span class="p">(</span><span class="n">field_input</span><span class="o">=</span><span class="n">opr</span><span class="p">,</span> <span class="n">emsg</span><span class="o">=</span><span class="s1">&#39;calling procedure field_FV_1D%sub&#39;</span><span class="p">)</span>
+<a name="ln-204"></a>        <span class="k">call </span><span class="n">opr_cur</span><span class="p">%</span><span class="n">associate_mesh</span><span class="p">(</span><span class="n">field_mesh</span><span class="o">=</span><span class="n">lhs</span><span class="p">%</span><span class="n">m</span><span class="p">)</span>
+<a name="ln-205"></a>        <span class="n">opr_cur</span><span class="p">%</span><span class="n">blocks</span> <span class="o">=</span> <span class="n">lhs</span><span class="p">%</span><span class="n">blocks</span> <span class="o">/</span> <span class="n">rhs_cur</span><span class="p">%</span><span class="n">blocks</span>
+<a name="ln-206"></a>    <span class="k">end function </span><span class="n">div</span>
+<a name="ln-207"></a>
+<a name="ln-208"></a>    <span class="c">! public overridden methods</span>
+<a name="ln-209"></a>    <span class="k">elemental subroutine </span><span class="n">free</span><span class="p">(</span><span class="n">this</span><span class="p">)</span>
+<a name="ln-210"></a>        <span class="c">!&lt; Free dynamic memory.</span>
+<a name="ln-211"></a>        <span class="k">class</span><span class="p">(</span><span class="n">field_FV_1D</span><span class="p">),</span> <span class="k">intent</span><span class="p">(</span><span class="n">inout</span><span class="p">)</span> <span class="kd">::</span> <span class="n">this</span> <span class="c">!&lt; The field.</span>
+<a name="ln-212"></a>
+<a name="ln-213"></a>        <span class="c">! call this%field%free</span>
+<a name="ln-214"></a>        <span class="k">if</span> <span class="p">(</span><span class="nb">allocated</span><span class="p">(</span><span class="n">this</span><span class="p">%</span><span class="n">blocks</span><span class="p">))</span> <span class="k">deallocate</span><span class="p">(</span><span class="n">this</span><span class="p">%</span><span class="n">blocks</span><span class="p">)</span>
+<a name="ln-215"></a>    <span class="k">end subroutine </span><span class="n">free</span>
+<a name="ln-216"></a><span class="k">end module </span><span class="n">openpde_field_FV_1D</span>
+</pre></div>
+
+    </section>
+    </div>
+  </div>
+
+  <section class="visible-xs visible-sm hidden-md">
+    <hr>
+    
+
+<div class="panel panel-default">
+  <div class="panel-heading text-left"><h3 class="panel-title"><a data-toggle="collapse" href="#allfiles-1">All Source Files</a></h3></div>
+  <div id="allfiles-1" class="panel-collapse collapse">
+    <div class="list-group">
+      
+      <a class="list-group-item" href="../sourcefile/openpde.f90.html">openpde.f90</a>
+      
+      <a class="list-group-item" href="../sourcefile/openpde_equation_abstract.f90.html">openpde_equation_abstract.f90</a>
+      
+      <a class="list-group-item" href="../sourcefile/openpde_equation_adv.f90.html">openpde_equation_adv.f90</a>
+      
+      <a class="list-group-item" href="../sourcefile/openpde_f2m_abstract.f90.html">openpde_f2m_abstract.f90</a>
+      
+      <a class="list-group-item" href="../sourcefile/openpde_f2m_d1_abstract.f90.html">openpde_f2m_d1_abstract.f90</a>
+      
+      <a class="list-group-item" href="../sourcefile/openpde_f2m_d1_fd_1d.f90.html">openpde_f2m_d1_FD_1D.f90</a>
+      
+      <a class="list-group-item" href="../sourcefile/openpde_f2m_d2_abstract.f90.html">openpde_f2m_d2_abstract.f90</a>
+      
+      <a class="list-group-item" href="../sourcefile/openpde_f2m_d2_fd_1d.f90.html">openpde_f2m_d2_FD_1D.f90</a>
+      
+      <a class="list-group-item" href="../sourcefile/openpde_f2m_d2_fd_2d.f90.html">openpde_f2m_d2_FD_2D.f90</a>
+      
+      <a class="list-group-item" href="../sourcefile/openpde_f2v_abstract.f90.html">openpde_f2v_abstract.f90</a>
+      
+      <a class="list-group-item" href="../sourcefile/openpde_f2v_fd_1d.f90.html">openpde_f2v_FD_1D.f90</a>
+      
+      <a class="list-group-item" href="../sourcefile/openpde_f2v_fd_2d.f90.html">openpde_f2v_FD_2D.f90</a>
+      
+      <a class="list-group-item" href="../sourcefile/openpde_field_abstract.f90.html">openpde_field_abstract.f90</a>
+      
+      <a class="list-group-item" href="../sourcefile/openpde_field_block_fv_1d.f90.html">openpde_field_block_FV_1D.f90</a>
+      
+      <a class="list-group-item" href="../sourcefile/openpde_field_fd_1d.f90.html">openpde_field_FD_1D.f90</a>
+      
+      <a class="list-group-item" href="../sourcefile/openpde_field_fd_2d.f90.html">openpde_field_FD_2D.f90</a>
+      
+      <a class="list-group-item" href="../sourcefile/openpde_field_fv_1d.f90.html">openpde_field_FV_1D.f90</a>
+      
+      <a class="list-group-item" href="../sourcefile/openpde_field_surface_abstract.f90.html">openpde_field_surface_abstract.f90</a>
+      
+      <a class="list-group-item" href="../sourcefile/openpde_field_surface_block_fv_1d.f90.html">openpde_field_surface_block_FV_1D.f90</a>
+      
+      <a class="list-group-item" href="../sourcefile/openpde_field_surface_fv_1d.f90.html">openpde_field_surface_FV_1D.f90</a>
+      
+      <a class="list-group-item" href="../sourcefile/openpde_integrator_adv_abstract.f90.html">openpde_integrator_adv_abstract.f90</a>
+      
+      <a class="list-group-item" href="../sourcefile/openpde_integrator_adv_euler_explicit.f90.html">openpde_integrator_adv_euler_explicit.f90</a>
+      
+      <a class="list-group-item" href="../sourcefile/openpde_integrator_adv_euler_implicit.f90.html">openpde_integrator_adv_euler_implicit.f90</a>
+      
+      <a class="list-group-item" href="../sourcefile/openpde_integrator_adv_rk_implicit.f90.html">openpde_integrator_adv_rk_implicit.f90</a>
+      
+      <a class="list-group-item" href="../sourcefile/openpde_integrator_asbtract.f90.html">openpde_integrator_asbtract.f90</a>
+      
+      <a class="list-group-item" href="../sourcefile/openpde_integrator_euler_explicit.f90.html">openpde_integrator_euler_explicit.f90</a>
+      
+      <a class="list-group-item" href="../sourcefile/openpde_kinds.f90.html">openpde_kinds.f90</a>
+      
+      <a class="list-group-item" href="../sourcefile/openpde_linsolver_abstract.f90.html">openpde_linsolver_abstract.f90</a>
+      
+      <a class="list-group-item" href="../sourcefile/openpde_linsolver_gmlapack.f90.html">openpde_linsolver_gmlapack.f90</a>
+      
+      <a class="list-group-item" href="../sourcefile/openpde_matrix_abstract.f90.html">openpde_matrix_abstract.f90</a>
+      
+      <a class="list-group-item" href="../sourcefile/openpde_matrix_simple.f90.html">openpde_matrix_simple.f90</a>
+      
+      <a class="list-group-item" href="../sourcefile/openpde_mesh_abstract.f90.html">openpde_mesh_abstract.f90</a>
+      
+      <a class="list-group-item" href="../sourcefile/openpde_mesh_block_fv_1d.f90.html">openpde_mesh_block_FV_1D.f90</a>
+      
+      <a class="list-group-item" href="../sourcefile/openpde_mesh_fd_1d.f90.html">openpde_mesh_FD_1D.f90</a>
+      
+      <a class="list-group-item" href="../sourcefile/openpde_mesh_fd_2d.f90.html">openpde_mesh_FD_2D.f90</a>
+      
+      <a class="list-group-item" href="../sourcefile/openpde_mesh_fv_1d.f90.html">openpde_mesh_FV_1D.f90</a>
+      
+      <a class="list-group-item" href="../sourcefile/openpde_multigrid_abstract.f90.html">openpde_multigrid_abstract.f90</a>
+      
+      <a class="list-group-item" href="../sourcefile/openpde_multigrid_fd_1d.f90.html">openpde_multigrid_FD_1D.f90</a>
+      
+      <a class="list-group-item" href="../sourcefile/openpde_spatial_operator_abstract.f90.html">openpde_spatial_operator_abstract.f90</a>
+      
+      <a class="list-group-item" href="../sourcefile/openpde_spatial_operator_d1_abstract.f90.html">openpde_spatial_operator_d1_abstract.f90</a>
+      
+      <a class="list-group-item" href="../sourcefile/openpde_spatial_operator_d1_fd_1d.f90.html">openpde_spatial_operator_d1_FD_1D.f90</a>
+      
+      <a class="list-group-item" href="../sourcefile/openpde_spatial_operator_d1_fd_2d.f90.html">openpde_spatial_operator_d1_FD_2D.f90</a>
+      
+      <a class="list-group-item" href="../sourcefile/openpde_spatial_operator_d1_fv_1d.f90.html">openpde_spatial_operator_d1_FV_1D.f90</a>
+      
+      <a class="list-group-item" href="../sourcefile/openpde_spatial_operator_d2_abstract.f90.html">openpde_spatial_operator_d2_abstract.f90</a>
+      
+      <a class="list-group-item" href="../sourcefile/openpde_spatial_operator_d2_fd_1d.f90.html">openpde_spatial_operator_d2_FD_1D.f90</a>
+      
+      <a class="list-group-item" href="../sourcefile/openpde_spatial_operator_d2_fd_2d.f90.html">openpde_spatial_operator_d2_FD_2D.f90</a>
+      
+      <a class="list-group-item" href="../sourcefile/openpde_spatial_operator_d2_fv_1d.f90.html">openpde_spatial_operator_d2_FV_1D.f90</a>
+      
+      <a class="list-group-item" href="../sourcefile/openpde_v2f_abstract.f90.html">openpde_v2f_abstract.f90</a>
+      
+      <a class="list-group-item" href="../sourcefile/openpde_v2f_fd_1d.f90.html">openpde_v2f_FD_1D.f90</a>
+      
+      <a class="list-group-item" href="../sourcefile/openpde_v2f_fd_2d.f90.html">openpde_v2f_FD_2D.f90</a>
+      
+      <a class="list-group-item" href="../sourcefile/openpde_vector_abstract.f90.html">openpde_vector_abstract.f90</a>
+      
+      <a class="list-group-item" href="../sourcefile/openpde_vector_simple.f90.html">openpde_vector_simple.f90</a>
+      
+    </div>
+  </div>
+</div>
+
+
+  </section>
+  
+    <hr>    
+    </div> <!-- /container -->
+    <footer>
+      <div class="container">
+      <div class="row">
+        <div class="col-xs-6 col-md-4"><p>&copy; 2017 </p></div>
+        <div class="col-xs-6 col-md-4 col-md-push-4">
+          <p class="text-right">
+            Documentation generated by 
+            <a href="https://github.com/cmacmackin/ford">FORD</a>
+            
+          </p>
+        </div>
+        <div class="col-xs-12 col-md-4 col-md-pull-4"><p class="text-center"> openpde was developed by Francesco Salvadore</p></div>
+      </div>
+      <br>
+      </div> <!-- /container -->    
+    </footer>
+
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+<!--
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+-->
+    <script src="../js/bootstrap.min.js"></script>
+    <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+    <script src="../js/ie10-viewport-bug-workaround.js"></script>
+
+    <!-- MathJax JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Config({
+        TeX: { extensions: ['AMSmath.js','AMSsymbols.js','noErrors.js','noUndefined.js'], equationNumbers: { autoNumber: 'AMS' } },
+        jax: ['input/TeX','input/MathML','output/HTML-CSS'],
+        extensions: ['tex2jax.js','mml2jax.js','MathMenu.js','MathZoom.js'],
+        'HTML-CSS': { 
+           styles: { '.MathJax_Display, .MathJax .mo, .MathJax .mi, .MathJax .mn': {color: '#000000 ! important'} }
+        }
+      });
+    </script>
+    <script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+  </body>
+</html>

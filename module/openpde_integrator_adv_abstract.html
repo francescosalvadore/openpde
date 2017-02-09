@@ -1,0 +1,1567 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+	 
+    <meta name="description" content="Documentation for openpde">
+	 
+    <meta name="author" content="Francesco Salvadore" >
+    <link rel="icon" href="../favicon.png">
+
+    <title>openpde_integrator_adv_abstract &ndash; openpde</title>
+
+    <link href="../css/bootstrap.min.css" rel="stylesheet">
+    <link href="../css/pygments.css" rel="stylesheet">
+    <link href="../css/font-awesome.min.css" rel="stylesheet">
+    <link href="../css/local.css" rel="stylesheet">
+    
+
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+    
+    <script src="../js/jquery-2.1.3.min.js"></script>
+    <script src="../js/svg-pan-zoom.min.js"></script>
+
+    
+    <script src="../tipuesearch/tipuesearch_content.js"></script>
+    <link  href="../tipuesearch/tipuesearch.css" rel="stylesheet">
+    <script src="../tipuesearch/tipuesearch_set.js"></script>
+    <script src="../tipuesearch/tipuesearch.js"></script>
+    
+
+  </head>
+
+  <body>
+
+    <!-- Fixed navbar -->
+    <nav class="navbar navbar-inverse navbar-fixed-top">
+      <div class="container">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="../index.html">openpde </a>
+        </div>
+        <div id="navbar" class="navbar-collapse collapse">
+          <ul class="nav navbar-nav">
+				
+            <li class="dropdown hidden-xs visible-sm visible-md hidden-lg">
+              <a href="#" class="dropdown-toggle"
+              data-toggle="dropdown" role="button"
+              aria-haspopup="true"
+		 aria-expanded="false">Contents <span class="caret"></span></a>
+	      <ul class="dropdown-menu">
+              
+            <li><a href="../lists/files.html">Source Files</a></li>
+				
+				
+            <li><a href="../lists/modules.html">Modules</a></li>
+				
+            
+                                
+            <li><a href="../lists/procedures.html">Procedures</a></li>
+				
+				
+            <li><a href="../lists/absint.html">Abstract Interfaces</a></li>
+								
+            <li><a href="../lists/types.html">Derived Types</a></li>
+				
+				
+            </ul>
+            </li>
+
+<li class="visible-xs hidden-sm visible-lg"><a href="../lists/files.html">Source Files</a></li>
+
+
+<li class="visible-xs hidden-sm visible-lg"><a href="../lists/modules.html">Modules</a></li>
+
+
+
+<li class="visible-xs hidden-sm visible-lg"><a href="../lists/procedures.html">Procedures</a></li>
+
+
+<li class="visible-xs hidden-sm visible-lg"><a href="../lists/absint.html">Abstract Interfaces</a></li>
+                             
+<li class="visible-xs hidden-sm visible-lg"><a href="../lists/types.html">Derived Types</a></li>
+
+
+          </ul>
+        
+        <form action="../search.html" class="navbar-form navbar-right" role="search">
+        <div class="form-group">
+          <input type="text" class="form-control" placeholder="Search" name="q" id="tipue_search_input" autocomplete="off" required>
+        </div>
+<!--
+        <button type="submit" class="btn btn-default">Submit</button>
+-->
+        </form>
+        
+        </div><!--/.nav-collapse -->
+      </div>
+    </nav>
+
+    <div class="container">
+    
+  
+  <div class="row">
+    <h1>openpde_integrator_adv_abstract 
+    <small>Module</small>
+    
+    </h1>
+    
+<div class="row">
+  <div class="col-lg-12">
+<div class="well well-sm">
+  <ul class="list-inline" style="margin-bottom:0px;display:inline">
+     
+     
+     
+     
+    
+    
+     <li><i class="fa fa-list-ol"></i>
+       <a data-toggle="tooltip"
+	  data-placement="bottom" data-html="true"
+	  title=" 1.1% of total for modules and submodules.">41 statements</a>
+     </li> 
+     
+     
+    <li><i class="fa fa-code"></i><a href="../src/openpde_integrator_adv_abstract.f90"> Source File</a></li>
+     
+  </ul>
+  <ol class="breadcrumb in-well text-right">
+  
+     <li><a href='../sourcefile/openpde_integrator_adv_abstract.f90.html'>openpde_integrator_adv_abstract.f90</a></li>
+  
+     <li class="active">openpde_integrator_adv_abstract</li>
+  </ol>
+</div>
+</div>
+</div>
+<script>
+  $(function () {
+  $('[data-toggle="tooltip"]').tooltip()
+  })
+</script>
+
+  </div>
+  
+  <div class="row">
+    <div class="col-md-3 hidden-xs hidden-sm visible-md visible-lg">
+    
+<div id="sidebar">
+  
+
+
+
+
+
+
+
+
+
+
+<div class="panel panel-primary">
+  <div class="panel-heading text-left"><h3 class="panel-title"><a data-toggle="collapse" href="#absints-0">Abstract Interfaces</a></h3></div>
+  <div id="absints-0" class="panel-collapse collapse">
+    <div class="list-group">
+      
+      <a class="list-group-item" href="../module/openpde_integrator_adv_abstract.html#interface-abstract_init%7E3">abstract_init</a>
+      
+      <a class="list-group-item" href="../module/openpde_integrator_adv_abstract.html#interface-abstract_integrate">abstract_integrate</a>
+      
+    </div>
+  </div>
+</div>
+
+
+<div class="panel panel-primary">
+  <div class="panel-heading text-left"><h3 class="panel-title"><a data-toggle="collapse" href="#types-0">Derived Types</a></h3></div>
+  <div id="types-0" class="panel-collapse collapse">
+    <div class="list-group">
+      
+      <a class="list-group-item" href="../module/openpde_integrator_adv_abstract.html#type-integrator_adv">integrator_adv</a>
+      
+    </div>
+  </div>
+</div>
+
+
+
+<div class="panel panel-primary">
+  <div class="panel-heading text-left"><h3 class="panel-title"><a data-toggle="collapse" href="#subs-0">Subroutines</a></h3></div>
+  <div class="list-group">
+    <div id="subs-0" class="panel-collapse collapse">
+      
+      <a class="list-group-item" href="../module/openpde_integrator_adv_abstract.html#proc-free%7E9">free</a>
+      
+    </div>
+  </div>
+</div>
+
+
+
+
+
+
+
+
+
+  <hr>
+  
+
+<div class="panel panel-default">
+  <div class="panel-heading text-left"><h3 class="panel-title"><a data-toggle="collapse" href="#allmods-0">All Modules</a></h3></div>
+  <div id="allmods-0" class="panel-collapse collapse">
+    <div class="list-group">
+      
+      <a class="list-group-item" href="../module/openpde.html">openpde</a>
+      
+      <a class="list-group-item" href="../module/openpde_equation_abstract.html">openpde_equation_abstract</a>
+      
+      <a class="list-group-item" href="../module/openpde_equation_adv.html">openpde_equation_adv</a>
+      
+      <a class="list-group-item" href="../module/openpde_f2m_abstract.html">openpde_f2m_abstract</a>
+      
+      <a class="list-group-item" href="../module/openpde_f2m_d1_abstract.html">openpde_f2m_d1_abstract</a>
+      
+      <a class="list-group-item" href="../module/openpde_f2m_d1_fd_1d.html">openpde_f2m_d1_FD_1D</a>
+      
+      <a class="list-group-item" href="../module/openpde_f2m_d2_abstract.html">openpde_f2m_d2_abstract</a>
+      
+      <a class="list-group-item" href="../module/openpde_f2m_d2_fd_1d.html">openpde_f2m_d2_FD_1D</a>
+      
+      <a class="list-group-item" href="../module/openpde_f2m_d2_fd_2d.html">openpde_f2m_d2_FD_2D</a>
+      
+      <a class="list-group-item" href="../module/openpde_f2v_abstract.html">openpde_f2v_abstract</a>
+      
+      <a class="list-group-item" href="../module/openpde_f2v_fd_1d.html">openpde_f2v_FD_1D</a>
+      
+      <a class="list-group-item" href="../module/openpde_f2v_fd_2d.html">openpde_f2v_FD_2D</a>
+      
+      <a class="list-group-item" href="../module/openpde_field_abstract.html">openpde_field_abstract</a>
+      
+      <a class="list-group-item" href="../module/openpde_field_block_fv_1d.html">openpde_field_block_FV_1D</a>
+      
+      <a class="list-group-item" href="../module/openpde_field_fd_1d.html">openpde_field_FD_1D</a>
+      
+      <a class="list-group-item" href="../module/openpde_field_fd_2d.html">openpde_field_FD_2D</a>
+      
+      <a class="list-group-item" href="../module/openpde_field_fv_1d.html">openpde_field_FV_1D</a>
+      
+      <a class="list-group-item" href="../module/openpde_field_surface_abstract.html">openpde_field_surface_abstract</a>
+      
+      <a class="list-group-item" href="../module/openpde_field_surface_block_fv_1d.html">openpde_field_surface_block_FV_1D</a>
+      
+      <a class="list-group-item" href="../module/openpde_field_surface_fv_1d.html">openpde_field_surface_FV_1D</a>
+      
+      <a class="list-group-item" href="../module/openpde_integrator_abstract.html">openpde_integrator_abstract</a>
+      
+      <a class="list-group-item" href="../module/openpde_integrator_adv_abstract.html">openpde_integrator_adv_abstract</a>
+      
+      <a class="list-group-item" href="../module/openpde_integrator_adv_euler_explicit.html">openpde_integrator_adv_euler_explicit</a>
+      
+      <a class="list-group-item" href="../module/openpde_integrator_adv_euler_implicit.html">openpde_integrator_adv_euler_implicit</a>
+      
+      <a class="list-group-item" href="../module/openpde_integrator_adv_rk_implicit.html">openpde_integrator_adv_rk_implicit</a>
+      
+      <a class="list-group-item" href="../module/openpde_integrator_euler_explicit.html">openpde_integrator_euler_explicit</a>
+      
+      <a class="list-group-item" href="../module/openpde_kinds.html">openpde_kinds</a>
+      
+      <a class="list-group-item" href="../module/openpde_linsolver_abstract.html">openpde_linsolver_abstract</a>
+      
+      <a class="list-group-item" href="../module/openpde_linsolver_gmlapack.html">openpde_linsolver_gmlapack</a>
+      
+      <a class="list-group-item" href="../module/openpde_matrix_abstract.html">openpde_matrix_abstract</a>
+      
+      <a class="list-group-item" href="../module/openpde_matrix_simple.html">openpde_matrix_simple</a>
+      
+      <a class="list-group-item" href="../module/openpde_mesh_abstract.html">openpde_mesh_abstract</a>
+      
+      <a class="list-group-item" href="../module/openpde_mesh_block_fv_1d.html">openpde_mesh_block_FV_1D</a>
+      
+      <a class="list-group-item" href="../module/openpde_mesh_fd_1d.html">openpde_mesh_FD_1D</a>
+      
+      <a class="list-group-item" href="../module/openpde_mesh_fd_2d.html">openpde_mesh_FD_2D</a>
+      
+      <a class="list-group-item" href="../module/openpde_mesh_fv_1d.html">openpde_mesh_FV_1D</a>
+      
+      <a class="list-group-item" href="../module/openpde_multigrid_abstract.html">openpde_multigrid_abstract</a>
+      
+      <a class="list-group-item" href="../module/openpde_multigrid_fd_1d.html">openpde_multigrid_FD_1D</a>
+      
+      <a class="list-group-item" href="../module/openpde_spatial_operator_abstract.html">openpde_spatial_operator_abstract</a>
+      
+      <a class="list-group-item" href="../module/openpde_spatial_operator_d1_abstract.html">openpde_spatial_operator_d1_abstract</a>
+      
+      <a class="list-group-item" href="../module/openpde_spatial_operator_d1_fd_1d.html">openpde_spatial_operator_d1_FD_1D</a>
+      
+      <a class="list-group-item" href="../module/openpde_spatial_operator_d1_fd_2d.html">openpde_spatial_operator_d1_FD_2D</a>
+      
+      <a class="list-group-item" href="../module/openpde_spatial_operator_d1_fv_1d.html">openpde_spatial_operator_d1_FV_1D</a>
+      
+      <a class="list-group-item" href="../module/openpde_spatial_operator_d2_abstract.html">openpde_spatial_operator_d2_abstract</a>
+      
+      <a class="list-group-item" href="../module/openpde_spatial_operator_d2_fd_1d.html">openpde_spatial_operator_d2_FD_1D</a>
+      
+      <a class="list-group-item" href="../module/openpde_spatial_operator_d2_fd_2d.html">openpde_spatial_operator_d2_FD_2D</a>
+      
+      <a class="list-group-item" href="../module/openpde_spatial_operator_d2_fv_1d.html">openpde_spatial_operator_d2_FV_1D</a>
+      
+      <a class="list-group-item" href="../module/openpde_v2f_abstract.html">openpde_v2f_abstract</a>
+      
+      <a class="list-group-item" href="../module/openpde_v2f_fd_1d.html">openpde_v2f_FD_1D</a>
+      
+      <a class="list-group-item" href="../module/openpde_v2f_fd_2d.html">openpde_v2f_FD_2D</a>
+      
+      <a class="list-group-item" href="../module/openpde_vector_abstract.html">openpde_vector_abstract</a>
+      
+      <a class="list-group-item" href="../module/openpde_vector_simple.html">openpde_vector_simple</a>
+      
+    </div>
+  </div>
+</div>
+
+
+</div>  
+
+    </div>
+    
+    <div class="col-md-9" id='text'>
+      
+    
+  
+    <ul class="list-inline">
+      <li><h4>Uses:</h4></li>
+      
+      <li><a href='../module/openpde_field_abstract.html'>openpde_field_abstract</a></li>
+      
+      <li><a href='../module/openpde_equation_adv.html'>openpde_equation_adv</a></li>
+      
+      <li><a href='../module/openpde_kinds.html'>openpde_kinds</a></li>
+      
+    </ul>
+    
+                <div class="depgraph"><?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
+ "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<!-- Generated by graphviz version 2.40.1 (20161225.0304)
+ -->
+<!-- Title: module~~openpde_integrator_adv_abstract~~UsesGraph Pages: 1 -->
+<svg id="moduleopenpde_integrator_adv_abstractUsesGraph" width="641pt" height="255pt"
+ viewBox="0.00 0.00 641.00 255.43" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<g id="module~~openpde_integrator_adv_abstract~~UsesGraph" class="graph" transform="scale(.6527 .6527) rotate(0) translate(4 387.3167)">
+<title>module~~openpde_integrator_adv_abstract~~UsesGraph</title>
+<polygon fill="#ffffff" stroke="transparent" points="-4,4 -4,-387.3167 978,-387.3167 978,4 -4,4"/>
+<!-- module~openpde_integrator_adv_abstract -->
+<g id="module~~openpde_integrator_adv_abstract~~UsesGraph_node1" class="node">
+<title>module~openpde_integrator_adv_abstract</title>
+<polygon fill="none" stroke="#000000" points="974,-115.2036 800,-115.2036 800,-91.2036 974,-91.2036 974,-115.2036"/>
+<text text-anchor="middle" x="887" y="-100.8036" font-family="Helvetica,sans-Serif" font-size="10.50" fill="#000000">openpde_integrator_adv_abstract</text>
+</g>
+<!-- module~openpde_equation_adv -->
+<g id="module~~openpde_integrator_adv_abstract~~UsesGraph_node2" class="node">
+<title>module~openpde_equation_adv</title>
+<g id="a_module~~openpde_integrator_adv_abstract~~UsesGraph_node2"><a xlink:href="../module/openpde_equation_adv.html" xlink:title="openpde_equation_adv">
+<polygon fill="#337ab7" stroke="#337ab7" points="764,-135.2036 639,-135.2036 639,-111.2036 764,-111.2036 764,-135.2036"/>
+<text text-anchor="middle" x="701.5" y="-120.8036" font-family="Helvetica,sans-Serif" font-size="10.50" fill="#ffffff">openpde_equation_adv</text>
+</a>
+</g>
+</g>
+<!-- module~openpde_equation_adv&#45;&gt;module~openpde_integrator_adv_abstract -->
+<g id="module~~openpde_integrator_adv_abstract~~UsesGraph_edge28" class="edge">
+<title>module~openpde_equation_adv&#45;&gt;module~openpde_integrator_adv_abstract</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M764.0432,-116.4604C772.2835,-115.5719 780.8809,-114.645 789.5331,-113.7121"/>
+<polygon fill="#000000" stroke="#000000" points="790.13,-117.1682 799.6972,-112.6163 789.3796,-110.2085 790.13,-117.1682"/>
+</g>
+<!-- module~openpde_field_abstract -->
+<g id="module~~openpde_integrator_adv_abstract~~UsesGraph_node3" class="node">
+<title>module~openpde_field_abstract</title>
+<g id="a_module~~openpde_integrator_adv_abstract~~UsesGraph_node3"><a xlink:href="../module/openpde_field_abstract.html" xlink:title="openpde_field_abstract">
+<polygon fill="#337ab7" stroke="#337ab7" points="417,-97.2036 293,-97.2036 293,-73.2036 417,-73.2036 417,-97.2036"/>
+<text text-anchor="middle" x="355" y="-82.8036" font-family="Helvetica,sans-Serif" font-size="10.50" fill="#ffffff">openpde_field_abstract</text>
+</a>
+</g>
+</g>
+<!-- module~openpde_field_abstract&#45;&gt;module~openpde_integrator_adv_abstract -->
+<g id="module~~openpde_integrator_adv_abstract~~UsesGraph_edge29" class="edge">
+<title>module~openpde_field_abstract&#45;&gt;module~openpde_integrator_adv_abstract</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M417.1744,-82.5633C450.7551,-81.6242 492.9205,-81.2282 530.5,-83.2036"/>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M530.5,-83.2036C606.3952,-87.1931 626.5776,-70.451 701.5,-83.2036"/>
+</g>
+<!-- module~openpde_field_abstract&#45;&gt;module~openpde_equation_adv -->
+<g id="module~~openpde_integrator_adv_abstract~~UsesGraph_edge21" class="edge">
+<title>module~openpde_field_abstract&#45;&gt;module~openpde_equation_adv</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M530.5,-83.2036C574.1455,-85.4978 622.5294,-97.7649 656.6598,-108.1167"/>
+<polygon fill="#000000" stroke="#000000" points="655.7443,-111.4971 666.3322,-111.1148 657.8168,-104.8109 655.7443,-111.4971"/>
+</g>
+<!-- module~openpde_f2v_abstract -->
+<g id="module~~openpde_integrator_adv_abstract~~UsesGraph_node5" class="node">
+<title>module~openpde_f2v_abstract</title>
+<g id="a_module~~openpde_integrator_adv_abstract~~UsesGraph_node5"><a xlink:href="../module/openpde_f2v_abstract.html" xlink:title="openpde_f2v_abstract">
+<polygon fill="#337ab7" stroke="#337ab7" points="590,-177.2036 471,-177.2036 471,-153.2036 590,-153.2036 590,-177.2036"/>
+<text text-anchor="middle" x="530.5" y="-162.8036" font-family="Helvetica,sans-Serif" font-size="10.50" fill="#ffffff">openpde_f2v_abstract</text>
+</a>
+</g>
+</g>
+<!-- module~openpde_field_abstract&#45;&gt;module~openpde_f2v_abstract -->
+<g id="module~~openpde_integrator_adv_abstract~~UsesGraph_edge2" class="edge">
+<title>module~openpde_field_abstract&#45;&gt;module~openpde_f2v_abstract</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M372.9251,-97.2367C392.956,-110.2563 426.6953,-130.9288 458,-144.2036 462.7786,-146.2299 467.8141,-148.132 472.9126,-149.8997"/>
+<polygon fill="#000000" stroke="#000000" points="472.151,-153.3335 482.7439,-153.1308 474.3366,-146.6834 472.151,-153.3335"/>
+</g>
+<!-- module~openpde_multigrid_abstract -->
+<g id="module~~openpde_integrator_adv_abstract~~UsesGraph_node8" class="node">
+<title>module~openpde_multigrid_abstract</title>
+<g id="a_module~~openpde_integrator_adv_abstract~~UsesGraph_node8"><a xlink:href="../module/openpde_multigrid_abstract.html" xlink:title="openpde_multigrid_abstract">
+<polygon fill="#337ab7" stroke="#337ab7" points="603,-55.2036 458,-55.2036 458,-31.2036 603,-31.2036 603,-55.2036"/>
+<text text-anchor="middle" x="530.5" y="-40.8036" font-family="Helvetica,sans-Serif" font-size="10.50" fill="#ffffff">openpde_multigrid_abstract</text>
+</a>
+</g>
+</g>
+<!-- module~openpde_field_abstract&#45;&gt;module~openpde_multigrid_abstract -->
+<g id="module~~openpde_integrator_adv_abstract~~UsesGraph_edge7" class="edge">
+<title>module~openpde_field_abstract&#45;&gt;module~openpde_multigrid_abstract</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M405.2913,-73.1681C425.5775,-68.3132 449.152,-62.6715 470.3379,-57.6013"/>
+<polygon fill="#000000" stroke="#000000" points="471.2906,-60.9723 480.2014,-55.2409 469.6614,-54.1645 471.2906,-60.9723"/>
+</g>
+<!-- module~openpde_v2f_abstract -->
+<g id="module~~openpde_integrator_adv_abstract~~UsesGraph_node9" class="node">
+<title>module~openpde_v2f_abstract</title>
+<g id="a_module~~openpde_integrator_adv_abstract~~UsesGraph_node9"><a xlink:href="../module/openpde_v2f_abstract.html" xlink:title="openpde_v2f_abstract">
+<polygon fill="#337ab7" stroke="#337ab7" points="590,-135.2036 471,-135.2036 471,-111.2036 590,-111.2036 590,-135.2036"/>
+<text text-anchor="middle" x="530.5" y="-120.8036" font-family="Helvetica,sans-Serif" font-size="10.50" fill="#ffffff">openpde_v2f_abstract</text>
+</a>
+</g>
+</g>
+<!-- module~openpde_field_abstract&#45;&gt;module~openpde_v2f_abstract -->
+<g id="module~~openpde_integrator_adv_abstract~~UsesGraph_edge10" class="edge">
+<title>module~openpde_field_abstract&#45;&gt;module~openpde_v2f_abstract</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M410.5293,-97.227C427.8991,-100.988 447.225,-105.1725 465.2029,-109.0652"/>
+<polygon fill="#000000" stroke="#000000" points="464.5167,-112.4976 475.0309,-111.1932 465.9981,-105.6562 464.5167,-112.4976"/>
+</g>
+<!-- module~openpde_kinds -->
+<g id="module~~openpde_integrator_adv_abstract~~UsesGraph_node4" class="node">
+<title>module~openpde_kinds</title>
+<g id="a_module~~openpde_integrator_adv_abstract~~UsesGraph_node4"><a xlink:href="../module/openpde_kinds.html" xlink:title="openpde_kinds">
+<polygon fill="#337ab7" stroke="#337ab7" points="85,-117.2036 0,-117.2036 0,-93.2036 85,-93.2036 85,-117.2036"/>
+<text text-anchor="middle" x="42.5" y="-102.8036" font-family="Helvetica,sans-Serif" font-size="10.50" fill="#ffffff">openpde_kinds</text>
+</a>
+</g>
+</g>
+<!-- module~openpde_kinds&#45;&gt;module~openpde_integrator_adv_abstract -->
+<g id="module~~openpde_integrator_adv_abstract~~UsesGraph_edge30" class="edge">
+<title>module~openpde_kinds&#45;&gt;module~openpde_integrator_adv_abstract</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M53.2589,-93.0107C75.3266,-69.2355 128.5383,-18.0537 186.5,-7.2036"/>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M186.5,-7.2036C260.1103,6.5759 280.1885,-3.8004 355,-7.2036"/>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M355,-7.2036C465.3096,-12.2215 497.7542,11.2134 603,-22.2036 652.0783,-37.7866 650.7373,-74.5633 701.5,-83.2036"/>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M701.5,-83.2036C730.1231,-87.7068 761.3922,-91.5049 789.9633,-94.5408"/>
+<polygon fill="#000000" stroke="#000000" points="789.6387,-98.0259 799.948,-95.5828 790.3653,-91.0637 789.6387,-98.0259"/>
+</g>
+<!-- module~openpde_kinds&#45;&gt;module~openpde_equation_adv -->
+<g id="module~~openpde_integrator_adv_abstract~~UsesGraph_edge17" class="edge">
+<title>module~openpde_kinds&#45;&gt;module~openpde_equation_adv</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M186.5,-281.2036C234.8811,-301.923 237.8724,-326.1647 288,-342.2036 390.9659,-375.1486 431.6625,-405.0043 530.5,-361.2036"/>
+</g>
+<!-- module~openpde_kinds&#45;&gt;module~openpde_field_abstract -->
+<g id="module~~openpde_integrator_adv_abstract~~UsesGraph_edge27" class="edge">
+<title>module~openpde_kinds&#45;&gt;module~openpde_field_abstract</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M186.5,-7.2036C243.8455,3.5312 304.3254,-39.8973 334.8461,-66.2707"/>
+<polygon fill="#000000" stroke="#000000" points="332.8349,-69.1661 342.6325,-73.198 337.4876,-63.9362 332.8349,-69.1661"/>
+</g>
+<!-- module~openpde_kinds&#45;&gt;module~openpde_f2v_abstract -->
+<g id="module~~openpde_integrator_adv_abstract~~UsesGraph_edge1" class="edge">
+<title>module~openpde_kinds&#45;&gt;module~openpde_f2v_abstract</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M355,-163.2036C388.3464,-150.6754 427.8358,-150.0066 460.9035,-152.9784"/>
+<polygon fill="#000000" stroke="#000000" points="460.6408,-156.4698 470.9458,-154.0085 461.3552,-149.5063 460.6408,-156.4698"/>
+</g>
+<!-- module~openpde_matrix_abstract -->
+<g id="module~~openpde_integrator_adv_abstract~~UsesGraph_node6" class="node">
+<title>module~openpde_matrix_abstract</title>
+<g id="a_module~~openpde_integrator_adv_abstract~~UsesGraph_node6"><a xlink:href="../module/openpde_matrix_abstract.html" xlink:title="openpde_matrix_abstract">
+<polygon fill="#337ab7" stroke="#337ab7" points="422,-333.2036 288,-333.2036 288,-309.2036 422,-309.2036 422,-333.2036"/>
+<text text-anchor="middle" x="355" y="-318.8036" font-family="Helvetica,sans-Serif" font-size="10.50" fill="#ffffff">openpde_matrix_abstract</text>
+</a>
+</g>
+</g>
+<!-- module~openpde_kinds&#45;&gt;module~openpde_matrix_abstract -->
+<g id="module~~openpde_integrator_adv_abstract~~UsesGraph_edge4" class="edge">
+<title>module~openpde_kinds&#45;&gt;module~openpde_matrix_abstract</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M186.5,-281.2036C215.2655,-293.2825 248.3956,-302.1413 277.626,-308.4058"/>
+<polygon fill="#000000" stroke="#000000" points="277.2864,-311.9098 287.7889,-310.5145 278.7086,-305.0558 277.2864,-311.9098"/>
+</g>
+<!-- module~openpde_vector_abstract -->
+<g id="module~~openpde_integrator_adv_abstract~~UsesGraph_node7" class="node">
+<title>module~openpde_vector_abstract</title>
+<g id="a_module~~openpde_integrator_adv_abstract~~UsesGraph_node7"><a xlink:href="../module/openpde_vector_abstract.html" xlink:title="openpde_vector_abstract">
+<polygon fill="#337ab7" stroke="#337ab7" points="422,-215.2036 288,-215.2036 288,-191.2036 422,-191.2036 422,-215.2036"/>
+<text text-anchor="middle" x="355" y="-200.8036" font-family="Helvetica,sans-Serif" font-size="10.50" fill="#ffffff">openpde_vector_abstract</text>
+</a>
+</g>
+</g>
+<!-- module~openpde_kinds&#45;&gt;module~openpde_vector_abstract -->
+<g id="module~~openpde_integrator_adv_abstract~~UsesGraph_edge5" class="edge">
+<title>module~openpde_kinds&#45;&gt;module~openpde_vector_abstract</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M186.5,-281.2036C241.8474,-304.4445 305.8329,-252.6012 336.6032,-222.6111"/>
+<polygon fill="#000000" stroke="#000000" points="339.0975,-225.0665 343.685,-215.5164 334.1432,-220.1213 339.0975,-225.0665"/>
+</g>
+<!-- module~openpde_kinds&#45;&gt;module~openpde_multigrid_abstract -->
+<g id="module~~openpde_integrator_adv_abstract~~UsesGraph_edge6" class="edge">
+<title>module~openpde_kinds&#45;&gt;module~openpde_multigrid_abstract</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M355,-7.2036C397.8434,-9.1525 445.4496,-19.4463 480.258,-28.5299"/>
+<polygon fill="#000000" stroke="#000000" points="479.6109,-31.9796 490.1751,-31.1753 481.4151,-25.2161 479.6109,-31.9796"/>
+</g>
+<!-- module~openpde_kinds&#45;&gt;module~openpde_v2f_abstract -->
+<g id="module~~openpde_integrator_adv_abstract~~UsesGraph_edge9" class="edge">
+<title>module~openpde_kinds&#45;&gt;module~openpde_v2f_abstract</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M47.5861,-117.5921C62.5866,-152.1662 110.4225,-249.2579 186.5,-281.2036"/>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M186.5,-281.2036C244.6015,-305.601 233.459,-213.7678 288,-182.2036 314.7892,-166.7 326.0254,-174.0893 355,-163.2036"/>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M355,-163.2036C388.9343,-150.4545 428.1496,-141.0464 460.8927,-134.5692"/>
+<polygon fill="#000000" stroke="#000000" points="461.6769,-137.9825 470.8335,-132.6526 460.3517,-131.1091 461.6769,-137.9825"/>
+</g>
+<!-- module~openpde_mesh_abstract -->
+<g id="module~~openpde_integrator_adv_abstract~~UsesGraph_node10" class="node">
+<title>module~openpde_mesh_abstract</title>
+<g id="a_module~~openpde_integrator_adv_abstract~~UsesGraph_node10"><a xlink:href="../module/openpde_mesh_abstract.html" xlink:title="openpde_mesh_abstract">
+<polygon fill="#337ab7" stroke="#337ab7" points="252,-117.2036 121,-117.2036 121,-93.2036 252,-93.2036 252,-117.2036"/>
+<text text-anchor="middle" x="186.5" y="-102.8036" font-family="Helvetica,sans-Serif" font-size="10.50" fill="#ffffff">openpde_mesh_abstract</text>
+</a>
+</g>
+</g>
+<!-- module~openpde_kinds&#45;&gt;module~openpde_mesh_abstract -->
+<g id="module~~openpde_integrator_adv_abstract~~UsesGraph_edge13" class="edge">
+<title>module~openpde_kinds&#45;&gt;module~openpde_mesh_abstract</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M85.3149,-105.2036C93.3592,-105.2036 101.9887,-105.2036 110.6925,-105.2036"/>
+<polygon fill="#000000" stroke="#000000" points="110.9137,-108.7037 120.9137,-105.2036 110.9136,-101.7037 110.9137,-108.7037"/>
+</g>
+<!-- module~openpde_linsolver_abstract -->
+<g id="module~~openpde_integrator_adv_abstract~~UsesGraph_node11" class="node">
+<title>module~openpde_linsolver_abstract</title>
+<g id="a_module~~openpde_integrator_adv_abstract~~UsesGraph_node11"><a xlink:href="../module/openpde_linsolver_abstract.html" xlink:title="openpde_linsolver_abstract">
+<polygon fill="#337ab7" stroke="#337ab7" points="602.5,-295.2036 458.5,-295.2036 458.5,-271.2036 602.5,-271.2036 602.5,-295.2036"/>
+<text text-anchor="middle" x="530.5" y="-280.8036" font-family="Helvetica,sans-Serif" font-size="10.50" fill="#ffffff">openpde_linsolver_abstract</text>
+</a>
+</g>
+</g>
+<!-- module~openpde_kinds&#45;&gt;module~openpde_linsolver_abstract -->
+<g id="module~~openpde_integrator_adv_abstract~~UsesGraph_edge14" class="edge">
+<title>module~openpde_kinds&#45;&gt;module~openpde_linsolver_abstract</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M186.5,-281.2036C231.9203,-300.276 361.652,-295.5981 448.172,-289.8597"/>
+<polygon fill="#000000" stroke="#000000" points="448.4987,-293.3456 458.2379,-289.1745 448.0232,-286.3618 448.4987,-293.3456"/>
+</g>
+<!-- module~openpde_f2v_abstract&#45;&gt;module~openpde_equation_adv -->
+<g id="module~~openpde_integrator_adv_abstract~~UsesGraph_edge18" class="edge">
+<title>module~openpde_f2v_abstract&#45;&gt;module~openpde_equation_adv</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M579.5017,-153.1681C599.1784,-148.3352 622.03,-142.7225 642.6002,-137.6702"/>
+<polygon fill="#000000" stroke="#000000" points="643.6146,-141.0252 652.4911,-135.2409 641.9449,-134.2272 643.6146,-141.0252"/>
+</g>
+<!-- module~openpde_matrix_abstract&#45;&gt;module~openpde_equation_adv -->
+<g id="module~~openpde_integrator_adv_abstract~~UsesGraph_edge19" class="edge">
+<title>module~openpde_matrix_abstract&#45;&gt;module~openpde_equation_adv</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M386.8675,-333.2192C430.1579,-348.7319 505.0724,-372.472 530.5,-361.2036"/>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M530.5,-361.2036C624.519,-319.5383 676.6716,-195.302 694.459,-144.8547"/>
+<polygon fill="#000000" stroke="#000000" points="697.814,-145.8606 697.7358,-135.2661 691.19,-143.597 697.814,-145.8606"/>
+</g>
+<!-- module~openpde_matrix_abstract&#45;&gt;module~openpde_linsolver_abstract -->
+<g id="module~~openpde_integrator_adv_abstract~~UsesGraph_edge15" class="edge">
+<title>module~openpde_matrix_abstract&#45;&gt;module~openpde_linsolver_abstract</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M410.5293,-309.1801C427.8991,-305.4192 447.225,-301.2346 465.2029,-297.342"/>
+<polygon fill="#000000" stroke="#000000" points="465.9981,-300.751 475.0309,-295.214 464.5167,-293.9095 465.9981,-300.751"/>
+</g>
+<!-- module~openpde_vector_abstract&#45;&gt;module~openpde_equation_adv -->
+<g id="module~~openpde_integrator_adv_abstract~~UsesGraph_edge20" class="edge">
+<title>module~openpde_vector_abstract&#45;&gt;module~openpde_equation_adv</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M390.4966,-215.3159C433.7756,-229.3785 504.3795,-249.8514 530.5,-243.2036"/>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M530.5,-243.2036C595.0289,-226.7805 654.9515,-172.1948 683.6861,-142.6308"/>
+<polygon fill="#000000" stroke="#000000" points="686.2592,-145.004 690.6233,-135.3497 681.1912,-140.1754 686.2592,-145.004"/>
+</g>
+<!-- module~openpde_vector_abstract&#45;&gt;module~openpde_f2v_abstract -->
+<g id="module~~openpde_integrator_adv_abstract~~UsesGraph_edge3" class="edge">
+<title>module~openpde_vector_abstract&#45;&gt;module~openpde_f2v_abstract</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M410.5293,-191.1801C427.8991,-187.4192 447.225,-183.2346 465.2029,-179.342"/>
+<polygon fill="#000000" stroke="#000000" points="465.9981,-182.751 475.0309,-177.214 464.5167,-175.9095 465.9981,-182.751"/>
+</g>
+<!-- module~openpde_vector_abstract&#45;&gt;module~openpde_v2f_abstract -->
+<g id="module~~openpde_integrator_adv_abstract~~UsesGraph_edge11" class="edge">
+<title>module~openpde_vector_abstract&#45;&gt;module~openpde_v2f_abstract</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M393.3876,-191.1196C403.0691,-187.3247 413.2042,-182.6699 422,-177.2036 440.435,-165.7467 439.0776,-154.8363 458,-144.2036 461.2773,-142.362 464.7305,-140.6695 468.2791,-139.1157"/>
+<polygon fill="#000000" stroke="#000000" points="469.837,-142.263 477.8396,-135.3198 467.2538,-135.7571 469.837,-142.263"/>
+</g>
+<!-- module~openpde_vector_abstract&#45;&gt;module~openpde_linsolver_abstract -->
+<g id="module~~openpde_integrator_adv_abstract~~UsesGraph_edge16" class="edge">
+<title>module~openpde_vector_abstract&#45;&gt;module~openpde_linsolver_abstract</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M375.8839,-215.2485C396.4005,-226.8175 428.789,-244.3822 458,-257.2036 466.2734,-260.835 475.2303,-264.3608 483.9334,-267.5837"/>
+<polygon fill="#000000" stroke="#000000" points="483.0075,-270.9707 493.6017,-271.0833 485.39,-264.3886 483.0075,-270.9707"/>
+</g>
+<!-- module~openpde_multigrid_abstract&#45;&gt;module~openpde_equation_adv -->
+<g id="module~~openpde_integrator_adv_abstract~~UsesGraph_edge22" class="edge">
+<title>module~openpde_multigrid_abstract&#45;&gt;module~openpde_equation_adv</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M571.3757,-55.3142C581.9681,-59.1326 593.1573,-63.7921 603,-69.2036 620.7622,-78.9692 621.4869,-86.998 639,-97.2036 645.0717,-100.7418 651.7169,-104.0457 658.3365,-107.0316"/>
+<polygon fill="#000000" stroke="#000000" points="657.3778,-110.4294 667.9468,-111.1692 660.1459,-104 657.3778,-110.4294"/>
+</g>
+<!-- module~openpde_v2f_abstract&#45;&gt;module~openpde_equation_adv -->
+<g id="module~~openpde_integrator_adv_abstract~~UsesGraph_edge23" class="edge">
+<title>module~openpde_v2f_abstract&#45;&gt;module~openpde_equation_adv</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M590.3075,-123.2036C602.6948,-123.2036 615.8753,-123.2036 628.6688,-123.2036"/>
+<polygon fill="#000000" stroke="#000000" points="628.8234,-126.7037 638.8234,-123.2036 628.8234,-119.7037 628.8234,-126.7037"/>
+</g>
+<!-- module~openpde_mesh_abstract&#45;&gt;module~openpde_equation_adv -->
+<g id="module~~openpde_integrator_adv_abstract~~UsesGraph_edge24" class="edge">
+<title>module~openpde_mesh_abstract&#45;&gt;module~openpde_equation_adv</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M192.5944,-117.3814C205.926,-142.5368 240.3407,-199.9107 288,-224.2036 384.3174,-273.2986 425.7318,-269.8678 530.5,-243.2036"/>
+</g>
+<!-- module~openpde_mesh_abstract&#45;&gt;module~openpde_field_abstract -->
+<g id="module~~openpde_integrator_adv_abstract~~UsesGraph_edge26" class="edge">
+<title>module~openpde_mesh_abstract&#45;&gt;module~openpde_field_abstract</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M252.129,-97.4138C262.1782,-96.221 272.5994,-94.9841 282.7813,-93.7755"/>
+<polygon fill="#000000" stroke="#000000" points="283.343,-97.2335 292.8607,-92.5792 282.5179,-90.2823 283.343,-97.2335"/>
+</g>
+<!-- module~openpde_mesh_abstract&#45;&gt;module~openpde_multigrid_abstract -->
+<g id="module~~openpde_integrator_adv_abstract~~UsesGraph_edge8" class="edge">
+<title>module~openpde_mesh_abstract&#45;&gt;module~openpde_multigrid_abstract</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M210.4403,-93.1609C230.5958,-83.6077 260.462,-70.8009 288,-64.2036 340.2606,-51.6834 400.4402,-46.4201 447.7752,-44.2934"/>
+<polygon fill="#000000" stroke="#000000" points="448.1313,-47.7818 457.9792,-43.8743 447.844,-40.7877 448.1313,-47.7818"/>
+</g>
+<!-- module~openpde_mesh_abstract&#45;&gt;module~openpde_v2f_abstract -->
+<g id="module~~openpde_integrator_adv_abstract~~UsesGraph_edge12" class="edge">
+<title>module~openpde_mesh_abstract&#45;&gt;module~openpde_v2f_abstract</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M252.0135,-108.6316C311.7194,-111.7558 399.6489,-116.3567 460.6692,-119.5496"/>
+<polygon fill="#000000" stroke="#000000" points="460.8094,-123.0617 470.9786,-120.0891 461.1752,-116.0712 460.8094,-123.0617"/>
+</g>
+<!-- module~openpde_linsolver_abstract&#45;&gt;module~openpde_equation_adv -->
+<g id="module~~openpde_integrator_adv_abstract~~UsesGraph_edge25" class="edge">
+<title>module~openpde_linsolver_abstract&#45;&gt;module~openpde_equation_adv</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M577.0588,-271.1349C586.1695,-267.5322 595.2813,-262.958 603,-257.2036 644.1782,-226.5046 675.6904,-173.7662 691.0866,-144.4416"/>
+<polygon fill="#000000" stroke="#000000" points="694.2428,-145.9568 695.6808,-135.46 688.0108,-142.769 694.2428,-145.9568"/>
+</g>
+</g>
+</svg>
+</div>
+                <script>var panmoduleopenpde_integrator_adv_abstractUsesGraph = svgPanZoom('#moduleopenpde_integrator_adv_abstractUsesGraph', {
+                    zoomEnabled: true,
+                    controlIconsEnabled: true,
+                    fit: true,
+                    center: true,});
+                    </script>
+                <div><a type="button" class="graph-help" data-toggle="modal" href="#graph-help-text">Help</a></div>
+                <div class="modal fade" id="graph-help-text" tabindex="-1" role="dialog">
+                  <div class="modal-dialog modal-lg" role="document">
+                    <div class="modal-content">
+                      <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                        <h4 class="modal-title" id="-graph-help-label">Graph Key</h4>
+                      </div>
+                      <div class="modal-body">
+                        
+    <p>Nodes of different colours represent the following: </p>
+    <?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
+ "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<!-- Generated by graphviz version 2.40.1 (20161225.0304)
+ -->
+<!-- Title: Graph Key Pages: 1 -->
+<svg width="490pt" height="32pt"
+ viewBox="0.00 0.00 489.50 32.00" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<g id="graph0" class="graph" transform="scale(1 1) rotate(0) translate(4 28)">
+<title>Graph Key</title>
+<polygon fill="#ffffff" stroke="transparent" points="-4,4 -4,-28 485.5,-28 485.5,4 -4,4"/>
+<!-- Module -->
+<g id="node1" class="node">
+<title>Module</title>
+<polygon fill="#337ab7" stroke="#337ab7" points="54,-24 0,-24 0,0 54,0 54,-24"/>
+<text text-anchor="middle" x="27" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="#ffffff">Module</text>
+</g>
+<!-- Submodule -->
+<g id="node2" class="node">
+<title>Submodule</title>
+<polygon fill="#5bc0de" stroke="#5bc0de" points="139.5,-24 72.5,-24 72.5,0 139.5,0 139.5,-24"/>
+<text text-anchor="middle" x="106" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="#ffffff">Submodule</text>
+</g>
+<!-- Subroutine -->
+<g id="node3" class="node">
+<title>Subroutine</title>
+<polygon fill="#d9534f" stroke="#d9534f" points="222,-24 158,-24 158,0 222,0 222,-24"/>
+<text text-anchor="middle" x="190" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="#ffffff">Subroutine</text>
+</g>
+<!-- Function -->
+<g id="node4" class="node">
+<title>Function</title>
+<polygon fill="#d94e8f" stroke="#d94e8f" points="294,-24 240,-24 240,0 294,0 294,-24"/>
+<text text-anchor="middle" x="267" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="#ffffff">Function</text>
+</g>
+<!-- Program -->
+<g id="node5" class="node">
+<title>Program</title>
+<polygon fill="#f0ad4e" stroke="#f0ad4e" points="366,-24 312,-24 312,0 366,0 366,-24"/>
+<text text-anchor="middle" x="339" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="#ffffff">Program</text>
+</g>
+<!-- This Page&#39;s Entity -->
+<g id="node6" class="node">
+<title>This Page&#39;s Entity</title>
+<polygon fill="none" stroke="#000000" points="481.5,-24 384.5,-24 384.5,0 481.5,0 481.5,-24"/>
+<text text-anchor="middle" x="433" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="#000000">This Page&#39;s Entity</text>
+</g>
+</g>
+</svg>
+
+    
+    <p>Solid arrows point from a parent (sub)module to the submodule which is
+    descended from it. Dashed arrows point from a module being used to the
+    module or program unit using it.
+    </p>
+    
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                
+    
+
+    
+    <p>Abstract class of integrator.</p>
+    
+    
+    <h3>Used By</h3>
+    
+                <div class="depgraph"><?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
+ "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<!-- Generated by graphviz version 2.40.1 (20161225.0304)
+ -->
+<!-- Title: module~~openpde_integrator_adv_abstract~~UsedByGraph Pages: 1 -->
+<svg id="moduleopenpde_integrator_adv_abstractUsedByGraph" width="507pt" height="154pt"
+ viewBox="0.00 0.00 507.00 154.00" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<g id="module~~openpde_integrator_adv_abstract~~UsedByGraph" class="graph" transform="scale(1 1) rotate(0) translate(4 150)">
+<title>module~~openpde_integrator_adv_abstract~~UsedByGraph</title>
+<polygon fill="#ffffff" stroke="transparent" points="-4,4 -4,-150 503,-150 503,4 -4,4"/>
+<!-- module~openpde_integrator_adv_abstract -->
+<g id="module~~openpde_integrator_adv_abstract~~UsedByGraph_node1" class="node">
+<title>module~openpde_integrator_adv_abstract</title>
+<polygon fill="none" stroke="#000000" points="174,-84 0,-84 0,-60 174,-60 174,-84"/>
+<text text-anchor="middle" x="87" y="-69.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="#000000">openpde_integrator_adv_abstract</text>
+</g>
+<!-- module~openpde_integrator_adv_rk_implicit -->
+<g id="module~~openpde_integrator_adv_abstract~~UsedByGraph_node2" class="node">
+<title>module~openpde_integrator_adv_rk_implicit</title>
+<g id="a_module~~openpde_integrator_adv_abstract~~UsedByGraph_node2"><a xlink:href="../module/openpde_integrator_adv_rk_implicit.html" xlink:title="openpde_integrator_adv_rk_implicit">
+<polygon fill="#337ab7" stroke="#337ab7" points="400.5,-146 217.5,-146 217.5,-122 400.5,-122 400.5,-146"/>
+<text text-anchor="middle" x="309" y="-131.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="#ffffff">openpde_integrator_adv_rk_implicit</text>
+</a>
+</g>
+</g>
+<!-- module~openpde_integrator_adv_abstract&#45;&gt;module~openpde_integrator_adv_rk_implicit -->
+<g id="module~~openpde_integrator_adv_abstract~~UsedByGraph_edge4" class="edge">
+<title>module~openpde_integrator_adv_abstract&#45;&gt;module~openpde_integrator_adv_rk_implicit</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M119.8416,-84.0704C144.4422,-92.8363 179.0472,-104.5871 210,-113 218.7158,-115.3689 227.9233,-117.6333 237.0734,-119.7395"/>
+<polygon fill="#000000" stroke="#000000" points="236.4297,-123.182 246.9538,-121.9604 237.9648,-116.3524 236.4297,-123.182"/>
+</g>
+<!-- module~openpde_integrator_adv_euler_implicit -->
+<g id="module~~openpde_integrator_adv_abstract~~UsedByGraph_node3" class="node">
+<title>module~openpde_integrator_adv_euler_implicit</title>
+<g id="a_module~~openpde_integrator_adv_abstract~~UsedByGraph_node3"><a xlink:href="../module/openpde_integrator_adv_euler_implicit.html" xlink:title="openpde_integrator_adv_euler_implicit">
+<polygon fill="#337ab7" stroke="#337ab7" points="408,-104 210,-104 210,-80 408,-80 408,-104"/>
+<text text-anchor="middle" x="309" y="-89.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="#ffffff">openpde_integrator_adv_euler_implicit</text>
+</a>
+</g>
+</g>
+<!-- module~openpde_integrator_adv_abstract&#45;&gt;module~openpde_integrator_adv_euler_implicit -->
+<g id="module~~openpde_integrator_adv_abstract~~UsedByGraph_edge5" class="edge">
+<title>module~openpde_integrator_adv_abstract&#45;&gt;module~openpde_integrator_adv_euler_implicit</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M174.1031,-79.8471C182.4848,-80.6022 191.0573,-81.3745 199.617,-82.1457"/>
+<polygon fill="#000000" stroke="#000000" points="199.3735,-85.6378 209.6473,-83.0493 200.0017,-78.6661 199.3735,-85.6378"/>
+</g>
+<!-- module~openpde -->
+<g id="module~~openpde_integrator_adv_abstract~~UsedByGraph_node4" class="node">
+<title>module~openpde</title>
+<g id="a_module~~openpde_integrator_adv_abstract~~UsedByGraph_node4"><a xlink:href="../module/openpde.html" xlink:title="openpde">
+<polygon fill="#337ab7" stroke="#337ab7" points="499,-84 444,-84 444,-60 499,-60 499,-84"/>
+<text text-anchor="middle" x="471.5" y="-69.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="#ffffff">openpde</text>
+</a>
+</g>
+</g>
+<!-- module~openpde_integrator_adv_abstract&#45;&gt;module~openpde -->
+<g id="module~~openpde_integrator_adv_abstract~~UsedByGraph_edge6" class="edge">
+<title>module~openpde_integrator_adv_abstract&#45;&gt;module~openpde</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M174.1958,-71.211C238.7572,-70.7528 328.8667,-70.3769 408,-71 416.387,-71.066 425.3965,-71.1811 433.9181,-71.3103"/>
+<polygon fill="#000000" stroke="#000000" points="433.9407,-74.811 443.9958,-71.4725 434.0534,-67.8119 433.9407,-74.811"/>
+</g>
+<!-- module~openpde_integrator_adv_euler_explicit -->
+<g id="module~~openpde_integrator_adv_abstract~~UsedByGraph_node5" class="node">
+<title>module~openpde_integrator_adv_euler_explicit</title>
+<g id="a_module~~openpde_integrator_adv_abstract~~UsedByGraph_node5"><a xlink:href="../module/openpde_integrator_adv_euler_explicit.html" xlink:title="openpde_integrator_adv_euler_explicit">
+<polygon fill="#337ab7" stroke="#337ab7" points="408,-24 210,-24 210,0 408,0 408,-24"/>
+<text text-anchor="middle" x="309" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="#ffffff">openpde_integrator_adv_euler_explicit</text>
+</a>
+</g>
+</g>
+<!-- module~openpde_integrator_adv_abstract&#45;&gt;module~openpde_integrator_adv_euler_explicit -->
+<g id="module~~openpde_integrator_adv_abstract~~UsedByGraph_edge7" class="edge">
+<title>module~openpde_integrator_adv_abstract&#45;&gt;module~openpde_integrator_adv_euler_explicit</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M129.9401,-59.9847C153.5478,-53.4156 183.3674,-45.1778 210,-38 223.8069,-34.2789 238.7156,-30.3282 252.6691,-26.6599"/>
+<polygon fill="#000000" stroke="#000000" points="253.8469,-29.9694 262.6313,-24.046 252.0704,-23.1986 253.8469,-29.9694"/>
+</g>
+<!-- module~openpde_integrator_adv_rk_implicit&#45;&gt;module~openpde -->
+<g id="module~~openpde_integrator_adv_abstract~~UsedByGraph_edge1" class="edge">
+<title>module~openpde_integrator_adv_rk_implicit&#45;&gt;module~openpde</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M381.0513,-121.9544C390.2791,-119.4746 399.4726,-116.517 408,-113 422.114,-107.179 436.5147,-98.1807 448.0263,-90.0954"/>
+<polygon fill="#000000" stroke="#000000" points="450.1728,-92.8622 456.2135,-84.1582 446.0634,-87.1954 450.1728,-92.8622"/>
+</g>
+<!-- module~openpde_integrator_adv_euler_implicit&#45;&gt;module~openpde -->
+<g id="module~~openpde_integrator_adv_abstract~~UsedByGraph_edge2" class="edge">
+<title>module~openpde_integrator_adv_euler_implicit&#45;&gt;module~openpde</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M406.8088,-79.962C416.2612,-78.7986 425.4014,-77.6737 433.6878,-76.6538"/>
+<polygon fill="#000000" stroke="#000000" points="434.1889,-80.1186 443.6865,-75.4232 433.3338,-73.1711 434.1889,-80.1186"/>
+</g>
+<!-- module~openpde_integrator_adv_euler_explicit&#45;&gt;module~openpde -->
+<g id="module~~openpde_integrator_adv_abstract~~UsedByGraph_edge3" class="edge">
+<title>module~openpde_integrator_adv_euler_explicit&#45;&gt;module~openpde</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M364.2021,-24.0498C378.6709,-27.8687 394.1059,-32.5436 408,-38 419.7934,-42.6314 432.1985,-48.9227 442.8836,-54.8344"/>
+<polygon fill="#000000" stroke="#000000" points="441.348,-57.9872 451.7723,-59.8806 444.8039,-51.8998 441.348,-57.9872"/>
+</g>
+</g>
+</svg>
+</div>
+                <div><a type="button" class="graph-help" data-toggle="modal" href="#graph-help-text">Help</a></div>
+                <div class="modal fade" id="graph-help-text" tabindex="-1" role="dialog">
+                  <div class="modal-dialog modal-lg" role="document">
+                    <div class="modal-content">
+                      <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                        <h4 class="modal-title" id="-graph-help-label">Graph Key</h4>
+                      </div>
+                      <div class="modal-body">
+                        
+    <p>Nodes of different colours represent the following: </p>
+    <?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
+ "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<!-- Generated by graphviz version 2.40.1 (20161225.0304)
+ -->
+<!-- Title: Graph Key Pages: 1 -->
+<svg width="490pt" height="32pt"
+ viewBox="0.00 0.00 489.50 32.00" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<g id="graph0" class="graph" transform="scale(1 1) rotate(0) translate(4 28)">
+<title>Graph Key</title>
+<polygon fill="#ffffff" stroke="transparent" points="-4,4 -4,-28 485.5,-28 485.5,4 -4,4"/>
+<!-- Module -->
+<g id="node1" class="node">
+<title>Module</title>
+<polygon fill="#337ab7" stroke="#337ab7" points="54,-24 0,-24 0,0 54,0 54,-24"/>
+<text text-anchor="middle" x="27" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="#ffffff">Module</text>
+</g>
+<!-- Submodule -->
+<g id="node2" class="node">
+<title>Submodule</title>
+<polygon fill="#5bc0de" stroke="#5bc0de" points="139.5,-24 72.5,-24 72.5,0 139.5,0 139.5,-24"/>
+<text text-anchor="middle" x="106" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="#ffffff">Submodule</text>
+</g>
+<!-- Subroutine -->
+<g id="node3" class="node">
+<title>Subroutine</title>
+<polygon fill="#d9534f" stroke="#d9534f" points="222,-24 158,-24 158,0 222,0 222,-24"/>
+<text text-anchor="middle" x="190" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="#ffffff">Subroutine</text>
+</g>
+<!-- Function -->
+<g id="node4" class="node">
+<title>Function</title>
+<polygon fill="#d94e8f" stroke="#d94e8f" points="294,-24 240,-24 240,0 294,0 294,-24"/>
+<text text-anchor="middle" x="267" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="#ffffff">Function</text>
+</g>
+<!-- Program -->
+<g id="node5" class="node">
+<title>Program</title>
+<polygon fill="#f0ad4e" stroke="#f0ad4e" points="366,-24 312,-24 312,0 366,0 366,-24"/>
+<text text-anchor="middle" x="339" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="#ffffff">Program</text>
+</g>
+<!-- This Page&#39;s Entity -->
+<g id="node6" class="node">
+<title>This Page&#39;s Entity</title>
+<polygon fill="none" stroke="#000000" points="481.5,-24 384.5,-24 384.5,0 481.5,0 481.5,-24"/>
+<text text-anchor="middle" x="433" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="#000000">This Page&#39;s Entity</text>
+</g>
+</g>
+</svg>
+
+    
+    <p>Solid arrows point from a parent (sub)module to the submodule which is
+    descended from it. Dashed arrows point from a module being used to the
+    module or program unit using it.
+    </p>
+    
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                
+    <br>
+    
+
+    <section class="visible-xs visible-sm hidden-md">
+      
+
+
+
+
+
+
+
+
+
+
+<div class="panel panel-primary">
+  <div class="panel-heading text-left"><h3 class="panel-title"><a data-toggle="collapse" href="#absints-1">Abstract Interfaces</a></h3></div>
+  <div id="absints-1" class="panel-collapse collapse">
+    <div class="list-group">
+      
+      <a class="list-group-item" href="../module/openpde_integrator_adv_abstract.html#interface-abstract_init%7E3">abstract_init</a>
+      
+      <a class="list-group-item" href="../module/openpde_integrator_adv_abstract.html#interface-abstract_integrate">abstract_integrate</a>
+      
+    </div>
+  </div>
+</div>
+
+
+<div class="panel panel-primary">
+  <div class="panel-heading text-left"><h3 class="panel-title"><a data-toggle="collapse" href="#types-1">Derived Types</a></h3></div>
+  <div id="types-1" class="panel-collapse collapse">
+    <div class="list-group">
+      
+      <a class="list-group-item" href="../module/openpde_integrator_adv_abstract.html#type-integrator_adv">integrator_adv</a>
+      
+    </div>
+  </div>
+</div>
+
+
+
+<div class="panel panel-primary">
+  <div class="panel-heading text-left"><h3 class="panel-title"><a data-toggle="collapse" href="#subs-1">Subroutines</a></h3></div>
+  <div class="list-group">
+    <div id="subs-1" class="panel-collapse collapse">
+      
+      <a class="list-group-item" href="../module/openpde_integrator_adv_abstract.html#proc-free%7E9">free</a>
+      
+    </div>
+  </div>
+</div>
+
+
+
+
+
+
+
+
+
+    </section>
+    <br class="visible-xs visible-sm hidden-md">
+
+    
+
+    
+    
+    
+    
+    
+
+    
+    <section>
+     <h2>Abstract Interfaces</h2>
+	 
+	   
+<div class="panel panel-default">
+  <div class="panel-heading codesum"><span class="anchor" id="interface-abstract_init%7E3"></span><h3>abstract interface
+    
+  </h3></div>
+  
+  <div class="panel-body">
+    
+
+
+    <p>Initialize integrator.</p>
+  </div>
+  
+  <ul class="list-group">
+    <li class="list-group-item">
+    
+    
+    <h3>
+private subroutine <a href='../interface/abstract_init%7E3.html'>abstract_init</a>(this, equ, description, filename, error)
+    
+    
+	 
+</h3>
+    
+
+
+
+
+
+
+
+<p>Initialize integrator.</p>
+    
+    <h4>Arguments</h4>
+    
+      
+      
+<table class="table table-striped varlist">
+<thead><tr><th>Type</th>
+<th>Intent</th><th>Optional</th>
+<th>Attributes</th><th></th><th>Name</th><th></th></thead>
+
+
+
+<tbody>
+
+  
+  
+  
+  
+<tr>
+  
+  <td><span class="anchor" ></span>class(<a href='../type/integrator_adv.html'>integrator_adv</a>),</td>
+  <td>intent(inout)</td>
+  <td></td>
+  
+  <td></td><td>::</td>
+  <td><strong>this</strong></td><td><p>The integrator.</p></td>
+  
+</tr>
+
+  
+  
+  
+  
+<tr>
+  
+  <td><span class="anchor" ></span>class(<a href='../type/equation_adv.html'>equation_adv</a>),</td>
+  <td>intent(inout),</td>
+  <td></td>
+  
+  <td>target</td><td>::</td>
+  <td><strong>equ</strong></td><td><p>The equation.</p></td>
+  
+</tr>
+
+  
+  
+  
+  
+<tr>
+  
+  <td><span class="anchor" ></span>character(len=*),</td>
+  <td>intent(in),</td>
+  <td>optional</td>
+  
+  <td></td><td>::</td>
+  <td><strong>description</strong></td><td><p>Integrator description.</p></td>
+  
+</tr>
+
+  
+  
+  
+  
+<tr>
+  
+  <td><span class="anchor" ></span>character(len=*),</td>
+  <td>intent(in),</td>
+  <td>optional</td>
+  
+  <td></td><td>::</td>
+  <td><strong>filename</strong></td><td><p>Initialization file name.</p></td>
+  
+</tr>
+
+  
+  
+  
+  
+<tr>
+  
+  <td><span class="anchor" ></span>integer(kind=I_P),</td>
+  <td>intent(out),</td>
+  <td>optional</td>
+  
+  <td></td><td>::</td>
+  <td><strong>error</strong></td><td><p>Error status.</p></td>
+  
+</tr>
+
+</tbody>
+</table>
+
+      
+    
+    
+
+    </li>
+  </ul>
+</div>
+
+    
+	   
+<div class="panel panel-default">
+  <div class="panel-heading codesum"><span class="anchor" id="interface-abstract_integrate"></span><h3>abstract interface
+    
+  </h3></div>
+  
+  <div class="panel-body">
+    
+
+
+    <p>Integrate the field accordingly the equation.</p>
+  </div>
+  
+  <ul class="list-group">
+    <li class="list-group-item">
+    
+    
+    <h3>
+private function <a href='../interface/abstract_integrate.html'>abstract_integrate</a>(this, equ, t, inp) result(error)
+    
+    
+	 
+</h3>
+    
+
+
+
+
+
+
+
+<p>Integrate the field accordingly to the equation.</p>
+    
+    <h4>Arguments</h4>
+    
+      
+      
+<table class="table table-striped varlist">
+<thead><tr><th>Type</th>
+<th>Intent</th><th>Optional</th>
+<th>Attributes</th><th></th><th>Name</th><th></th></thead>
+
+
+
+<tbody>
+
+  
+  
+  
+  
+<tr>
+  
+  <td><span class="anchor" ></span>class(<a href='../type/integrator_adv.html'>integrator_adv</a>),</td>
+  <td>intent(inout)</td>
+  <td></td>
+  
+  <td></td><td>::</td>
+  <td><strong>this</strong></td><td><p>The integrator.</p></td>
+  
+</tr>
+
+  
+  
+  
+  
+<tr>
+  
+  <td><span class="anchor" ></span>class(<a href='../type/equation_adv.html'>equation_adv</a>),</td>
+  <td>intent(inout),</td>
+  <td></td>
+  
+  <td>target</td><td>::</td>
+  <td><strong>equ</strong></td><td><p>The equation.</p></td>
+  
+</tr>
+
+  
+  
+  
+  
+<tr>
+  
+  <td><span class="anchor" ></span>real(kind=R_P),</td>
+  <td>intent(in)</td>
+  <td></td>
+  
+  <td></td><td>::</td>
+  <td><strong>t</strong></td><td><p>Time.</p></td>
+  
+</tr>
+
+  
+  
+  
+  
+<tr>
+  
+  <td><span class="anchor" ></span>class(<a href='../type/field.html'>field</a>),</td>
+  <td>intent(inout),</td>
+  <td></td>
+  
+  <td>target, dimension(:)</td><td>::</td>
+  <td><strong>inp</strong></td><td><p>Input field.</p></td>
+  
+</tr>
+
+</tbody>
+</table>
+
+      
+    
+    
+
+  
+  
+  
+  
+     <h4>Return Value <small>integer(kind=I_P)
+  </small></h4>
+  <p>Error status.</p>
+    
+
+    </li>
+  </ul>
+</div>
+
+    
+    </section>
+	<br>
+    
+    
+    
+    <section>
+     <h2>Derived Types</h2>
+	 
+	   
+<div class="panel panel-default">
+  <div class="panel-heading codesum"><span class="anchor" id="type-integrator_adv"></span><h3>type, public, abstract :: <a href='../type/integrator_adv.html'>integrator_adv</a>
+    
+  </h3></div>
+  <div class="panel-body">
+    
+    
+    <p>Abstract class of integrator.</p>
+    
+     
+     <h4>Components</h4>
+    
+<table class="table table-striped varlist">
+<thead><tr><th>Type</th><th>Visibility</th>
+
+<th>Attributes</th><th></th><th>Name</th><th></th><th>Initial</th><th></th></thead>
+
+
+
+<tbody>
+
+  
+  
+  
+  
+<tr>
+  
+  <td><span class="anchor" id="variable-description%7E4"></span>character(len=:),</td>
+  
+  <td>public,</td>
+  <td>allocatable</td><td>::</td>
+  <td><strong>description</strong></td><td></td><td></td><td><p>Integrator description.</p></td>
+  
+</tr>
+
+  
+  
+  
+  
+<tr>
+  
+  <td><span class="anchor" id="variable-dt"></span>real(kind=R_P),</td>
+  
+  <td>public</td>
+  <td></td><td>::</td>
+  <td><strong>dt</strong></td><td> =</td><td>0._R_P</td><td><p>Time step.</p></td>
+  
+</tr>
+
+</tbody>
+</table>
+
+     
+     
+          
+     
+     <h4>Type-Bound Procedures</h4>
+      <table class="table table-striped varlist">
+      <tbody>
+      
+       <tr><td>procedure(abstract_init), public, pass(this) :: <strong><a href='../type/integrator_adv.html#boundprocedure-init%7E10'>init</a></strong>  </td>
+       <td><p>Initilize integrator.</p></td></tr>
+      
+       <tr><td>procedure(abstract_integrate), public, pass(this) :: <strong><a href='../type/integrator_adv.html#boundprocedure-integrate'>integrate</a></strong>  </td>
+       <td><p>Integrate the field accordingly to the equation.</p></td></tr>
+      
+       <tr><td>procedure, public, pass(this) :: <strong><a href='../type/integrator_adv.html#boundprocedure-free%7E4'>free</a></strong>  </td>
+       <td><p>Free dynamic memory.</p></td></tr>
+      
+       </tbody>
+       </table>
+     
+  </div>
+</div>
+
+     
+    </section>
+	<br>
+    
+    
+    
+
+    
+    <section>
+    <h2>Subroutines</h2>
+    
+    
+  <div class="panel panel-default">
+  <div class="panel-heading codesum"><span class="anchor" id="proc-free%7E9"></span><h3>
+private elemental subroutine <a href='../proc/free%7E9.html'>free</a>(this)
+    
+    
+	 
+</h3></div>
+  <div class="panel-body">
+       
+    
+
+
+
+
+
+
+
+<p>Free dynamic memory.</p>
+    
+    <h4>Arguments</h4>
+    
+      
+      
+<table class="table table-striped varlist">
+<thead><tr><th>Type</th>
+<th>Intent</th><th>Optional</th>
+<th>Attributes</th><th></th><th>Name</th><th></th></thead>
+
+
+
+<tbody>
+
+  
+  
+  
+  
+<tr>
+  
+  <td><span class="anchor" ></span>class(<a href='../type/integrator_adv.html'>integrator_adv</a>),</td>
+  <td>intent(inout)</td>
+  <td></td>
+  
+  <td></td><td>::</td>
+  <td><strong>this</strong></td><td><p>The integrator.</p></td>
+  
+</tr>
+
+</tbody>
+</table>
+
+      
+    
+    
+
+  </div>
+  </div>
+
+    
+    </section>    
+    <br>
+    
+    
+    
+    </div>
+  </div>
+
+  <section class="visible-xs visible-sm hidden-md">
+    <hr>
+    
+
+<div class="panel panel-default">
+  <div class="panel-heading text-left"><h3 class="panel-title"><a data-toggle="collapse" href="#allmods-1">All Modules</a></h3></div>
+  <div id="allmods-1" class="panel-collapse collapse">
+    <div class="list-group">
+      
+      <a class="list-group-item" href="../module/openpde.html">openpde</a>
+      
+      <a class="list-group-item" href="../module/openpde_equation_abstract.html">openpde_equation_abstract</a>
+      
+      <a class="list-group-item" href="../module/openpde_equation_adv.html">openpde_equation_adv</a>
+      
+      <a class="list-group-item" href="../module/openpde_f2m_abstract.html">openpde_f2m_abstract</a>
+      
+      <a class="list-group-item" href="../module/openpde_f2m_d1_abstract.html">openpde_f2m_d1_abstract</a>
+      
+      <a class="list-group-item" href="../module/openpde_f2m_d1_fd_1d.html">openpde_f2m_d1_FD_1D</a>
+      
+      <a class="list-group-item" href="../module/openpde_f2m_d2_abstract.html">openpde_f2m_d2_abstract</a>
+      
+      <a class="list-group-item" href="../module/openpde_f2m_d2_fd_1d.html">openpde_f2m_d2_FD_1D</a>
+      
+      <a class="list-group-item" href="../module/openpde_f2m_d2_fd_2d.html">openpde_f2m_d2_FD_2D</a>
+      
+      <a class="list-group-item" href="../module/openpde_f2v_abstract.html">openpde_f2v_abstract</a>
+      
+      <a class="list-group-item" href="../module/openpde_f2v_fd_1d.html">openpde_f2v_FD_1D</a>
+      
+      <a class="list-group-item" href="../module/openpde_f2v_fd_2d.html">openpde_f2v_FD_2D</a>
+      
+      <a class="list-group-item" href="../module/openpde_field_abstract.html">openpde_field_abstract</a>
+      
+      <a class="list-group-item" href="../module/openpde_field_block_fv_1d.html">openpde_field_block_FV_1D</a>
+      
+      <a class="list-group-item" href="../module/openpde_field_fd_1d.html">openpde_field_FD_1D</a>
+      
+      <a class="list-group-item" href="../module/openpde_field_fd_2d.html">openpde_field_FD_2D</a>
+      
+      <a class="list-group-item" href="../module/openpde_field_fv_1d.html">openpde_field_FV_1D</a>
+      
+      <a class="list-group-item" href="../module/openpde_field_surface_abstract.html">openpde_field_surface_abstract</a>
+      
+      <a class="list-group-item" href="../module/openpde_field_surface_block_fv_1d.html">openpde_field_surface_block_FV_1D</a>
+      
+      <a class="list-group-item" href="../module/openpde_field_surface_fv_1d.html">openpde_field_surface_FV_1D</a>
+      
+      <a class="list-group-item" href="../module/openpde_integrator_abstract.html">openpde_integrator_abstract</a>
+      
+      <a class="list-group-item" href="../module/openpde_integrator_adv_abstract.html">openpde_integrator_adv_abstract</a>
+      
+      <a class="list-group-item" href="../module/openpde_integrator_adv_euler_explicit.html">openpde_integrator_adv_euler_explicit</a>
+      
+      <a class="list-group-item" href="../module/openpde_integrator_adv_euler_implicit.html">openpde_integrator_adv_euler_implicit</a>
+      
+      <a class="list-group-item" href="../module/openpde_integrator_adv_rk_implicit.html">openpde_integrator_adv_rk_implicit</a>
+      
+      <a class="list-group-item" href="../module/openpde_integrator_euler_explicit.html">openpde_integrator_euler_explicit</a>
+      
+      <a class="list-group-item" href="../module/openpde_kinds.html">openpde_kinds</a>
+      
+      <a class="list-group-item" href="../module/openpde_linsolver_abstract.html">openpde_linsolver_abstract</a>
+      
+      <a class="list-group-item" href="../module/openpde_linsolver_gmlapack.html">openpde_linsolver_gmlapack</a>
+      
+      <a class="list-group-item" href="../module/openpde_matrix_abstract.html">openpde_matrix_abstract</a>
+      
+      <a class="list-group-item" href="../module/openpde_matrix_simple.html">openpde_matrix_simple</a>
+      
+      <a class="list-group-item" href="../module/openpde_mesh_abstract.html">openpde_mesh_abstract</a>
+      
+      <a class="list-group-item" href="../module/openpde_mesh_block_fv_1d.html">openpde_mesh_block_FV_1D</a>
+      
+      <a class="list-group-item" href="../module/openpde_mesh_fd_1d.html">openpde_mesh_FD_1D</a>
+      
+      <a class="list-group-item" href="../module/openpde_mesh_fd_2d.html">openpde_mesh_FD_2D</a>
+      
+      <a class="list-group-item" href="../module/openpde_mesh_fv_1d.html">openpde_mesh_FV_1D</a>
+      
+      <a class="list-group-item" href="../module/openpde_multigrid_abstract.html">openpde_multigrid_abstract</a>
+      
+      <a class="list-group-item" href="../module/openpde_multigrid_fd_1d.html">openpde_multigrid_FD_1D</a>
+      
+      <a class="list-group-item" href="../module/openpde_spatial_operator_abstract.html">openpde_spatial_operator_abstract</a>
+      
+      <a class="list-group-item" href="../module/openpde_spatial_operator_d1_abstract.html">openpde_spatial_operator_d1_abstract</a>
+      
+      <a class="list-group-item" href="../module/openpde_spatial_operator_d1_fd_1d.html">openpde_spatial_operator_d1_FD_1D</a>
+      
+      <a class="list-group-item" href="../module/openpde_spatial_operator_d1_fd_2d.html">openpde_spatial_operator_d1_FD_2D</a>
+      
+      <a class="list-group-item" href="../module/openpde_spatial_operator_d1_fv_1d.html">openpde_spatial_operator_d1_FV_1D</a>
+      
+      <a class="list-group-item" href="../module/openpde_spatial_operator_d2_abstract.html">openpde_spatial_operator_d2_abstract</a>
+      
+      <a class="list-group-item" href="../module/openpde_spatial_operator_d2_fd_1d.html">openpde_spatial_operator_d2_FD_1D</a>
+      
+      <a class="list-group-item" href="../module/openpde_spatial_operator_d2_fd_2d.html">openpde_spatial_operator_d2_FD_2D</a>
+      
+      <a class="list-group-item" href="../module/openpde_spatial_operator_d2_fv_1d.html">openpde_spatial_operator_d2_FV_1D</a>
+      
+      <a class="list-group-item" href="../module/openpde_v2f_abstract.html">openpde_v2f_abstract</a>
+      
+      <a class="list-group-item" href="../module/openpde_v2f_fd_1d.html">openpde_v2f_FD_1D</a>
+      
+      <a class="list-group-item" href="../module/openpde_v2f_fd_2d.html">openpde_v2f_FD_2D</a>
+      
+      <a class="list-group-item" href="../module/openpde_vector_abstract.html">openpde_vector_abstract</a>
+      
+      <a class="list-group-item" href="../module/openpde_vector_simple.html">openpde_vector_simple</a>
+      
+    </div>
+  </div>
+</div>
+
+
+  </section>
+  
+    <hr>    
+    </div> <!-- /container -->
+    <footer>
+      <div class="container">
+      <div class="row">
+        <div class="col-xs-6 col-md-4"><p>&copy; 2017 </p></div>
+        <div class="col-xs-6 col-md-4 col-md-push-4">
+          <p class="text-right">
+            Documentation generated by 
+            <a href="https://github.com/cmacmackin/ford">FORD</a>
+            
+          </p>
+        </div>
+        <div class="col-xs-12 col-md-4 col-md-pull-4"><p class="text-center"> openpde was developed by Francesco Salvadore</p></div>
+      </div>
+      <br>
+      </div> <!-- /container -->    
+    </footer>
+
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+<!--
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+-->
+    <script src="../js/bootstrap.min.js"></script>
+    <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+    <script src="../js/ie10-viewport-bug-workaround.js"></script>
+
+    <!-- MathJax JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Config({
+        TeX: { extensions: ['AMSmath.js','AMSsymbols.js','noErrors.js','noUndefined.js'], equationNumbers: { autoNumber: 'AMS' } },
+        jax: ['input/TeX','input/MathML','output/HTML-CSS'],
+        extensions: ['tex2jax.js','mml2jax.js','MathMenu.js','MathZoom.js'],
+        'HTML-CSS': { 
+           styles: { '.MathJax_Display, .MathJax .mo, .MathJax .mi, .MathJax .mn': {color: '#000000 ! important'} }
+        }
+      });
+    </script>
+    <script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+  </body>
+</html>

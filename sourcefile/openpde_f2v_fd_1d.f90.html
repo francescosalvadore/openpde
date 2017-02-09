@@ -1,0 +1,935 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+	 
+    <meta name="description" content="Documentation for openpde">
+	 
+    <meta name="author" content="Francesco Salvadore" >
+    <link rel="icon" href="../favicon.png">
+
+    <title>openpde_f2v_FD_1D.f90 &ndash; openpde</title>
+
+    <link href="../css/bootstrap.min.css" rel="stylesheet">
+    <link href="../css/pygments.css" rel="stylesheet">
+    <link href="../css/font-awesome.min.css" rel="stylesheet">
+    <link href="../css/local.css" rel="stylesheet">
+    
+
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+    
+    <script src="../js/jquery-2.1.3.min.js"></script>
+    <script src="../js/svg-pan-zoom.min.js"></script>
+
+    
+    <script src="../tipuesearch/tipuesearch_content.js"></script>
+    <link  href="../tipuesearch/tipuesearch.css" rel="stylesheet">
+    <script src="../tipuesearch/tipuesearch_set.js"></script>
+    <script src="../tipuesearch/tipuesearch.js"></script>
+    
+
+  </head>
+
+  <body>
+
+    <!-- Fixed navbar -->
+    <nav class="navbar navbar-inverse navbar-fixed-top">
+      <div class="container">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="../index.html">openpde </a>
+        </div>
+        <div id="navbar" class="navbar-collapse collapse">
+          <ul class="nav navbar-nav">
+				
+            <li class="dropdown hidden-xs visible-sm visible-md hidden-lg">
+              <a href="#" class="dropdown-toggle"
+              data-toggle="dropdown" role="button"
+              aria-haspopup="true"
+		 aria-expanded="false">Contents <span class="caret"></span></a>
+	      <ul class="dropdown-menu">
+              
+            <li><a href="../lists/files.html">Source Files</a></li>
+				
+				
+            <li><a href="../lists/modules.html">Modules</a></li>
+				
+            
+                                
+            <li><a href="../lists/procedures.html">Procedures</a></li>
+				
+				
+            <li><a href="../lists/absint.html">Abstract Interfaces</a></li>
+								
+            <li><a href="../lists/types.html">Derived Types</a></li>
+				
+				
+            </ul>
+            </li>
+
+<li class="visible-xs hidden-sm visible-lg"><a href="../lists/files.html">Source Files</a></li>
+
+
+<li class="visible-xs hidden-sm visible-lg"><a href="../lists/modules.html">Modules</a></li>
+
+
+
+<li class="visible-xs hidden-sm visible-lg"><a href="../lists/procedures.html">Procedures</a></li>
+
+
+<li class="visible-xs hidden-sm visible-lg"><a href="../lists/absint.html">Abstract Interfaces</a></li>
+                             
+<li class="visible-xs hidden-sm visible-lg"><a href="../lists/types.html">Derived Types</a></li>
+
+
+          </ul>
+        
+        <form action="../search.html" class="navbar-form navbar-right" role="search">
+        <div class="form-group">
+          <input type="text" class="form-control" placeholder="Search" name="q" id="tipue_search_input" autocomplete="off" required>
+        </div>
+<!--
+        <button type="submit" class="btn btn-default">Submit</button>
+-->
+        </form>
+        
+        </div><!--/.nav-collapse -->
+      </div>
+    </nav>
+
+    <div class="container">
+    
+  
+  <div class="row">
+    <h1>openpde_f2v_FD_1D.f90
+    <small>Source File</small>
+    
+    </h1>
+    
+<div class="row">
+  <div class="col-lg-12">
+<div class="well well-sm">
+  <ul class="list-inline" style="margin-bottom:0px;display:inline">
+     
+     
+     
+     
+    
+    
+     <li><i class="fa fa-list-ol"></i>
+       <a data-toggle="tooltip"
+	  data-placement="bottom" data-html="true"
+	  title=" 1.0% of total for source files.">40 statements</a>
+     </li> 
+     
+     
+    <li><i class="fa fa-code"></i><a href="../src/openpde_f2v_FD_1D.f90"> Source File</a></li>
+     
+  </ul>
+  <ol class="breadcrumb in-well text-right">
+  
+     <li class="active">openpde_f2v_FD_1D.f90</li>
+  </ol>
+</div>
+</div>
+</div>
+<script>
+  $(function () {
+  $('[data-toggle="tooltip"]').tooltip()
+  })
+</script>
+
+  </div>
+  <div class="row">
+    <div class="col-md-3 hidden-xs hidden-sm visible-md visible-lg">
+    
+<div id="sidebar">
+  
+
+
+
+
+
+
+<div class="panel panel-primary">
+  <div class="panel-heading text-left"><h3 class="panel-title"><a data-toggle="collapse" href="#mods-0">Modules</a></h3></div>
+  <div id="mods-0" class="panel-collapse collapse">
+    <div class="list-group">
+      
+      <a class="list-group-item" href="../module/openpde_f2v_fd_1d.html">openpde_f2v_FD_1D</a>
+      
+    </div>
+  </div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="panel panel-primary">
+  <div class="panel-heading text-left"><h3 class="panel-title">Source Code</h3></div>
+  <div class="list-group">
+    <a class="list-group-item" href="../sourcefile/openpde_f2v_fd_1d.f90.html#src">openpde_f2v_FD_1D.f90</a>
+  </div>
+</div>
+
+
+  <hr>
+  
+
+<div class="panel panel-default">
+  <div class="panel-heading text-left"><h3 class="panel-title"><a data-toggle="collapse" href="#allfiles-0">All Source Files</a></h3></div>
+  <div id="allfiles-0" class="panel-collapse collapse">
+    <div class="list-group">
+      
+      <a class="list-group-item" href="../sourcefile/openpde.f90.html">openpde.f90</a>
+      
+      <a class="list-group-item" href="../sourcefile/openpde_equation_abstract.f90.html">openpde_equation_abstract.f90</a>
+      
+      <a class="list-group-item" href="../sourcefile/openpde_equation_adv.f90.html">openpde_equation_adv.f90</a>
+      
+      <a class="list-group-item" href="../sourcefile/openpde_f2m_abstract.f90.html">openpde_f2m_abstract.f90</a>
+      
+      <a class="list-group-item" href="../sourcefile/openpde_f2m_d1_abstract.f90.html">openpde_f2m_d1_abstract.f90</a>
+      
+      <a class="list-group-item" href="../sourcefile/openpde_f2m_d1_fd_1d.f90.html">openpde_f2m_d1_FD_1D.f90</a>
+      
+      <a class="list-group-item" href="../sourcefile/openpde_f2m_d2_abstract.f90.html">openpde_f2m_d2_abstract.f90</a>
+      
+      <a class="list-group-item" href="../sourcefile/openpde_f2m_d2_fd_1d.f90.html">openpde_f2m_d2_FD_1D.f90</a>
+      
+      <a class="list-group-item" href="../sourcefile/openpde_f2m_d2_fd_2d.f90.html">openpde_f2m_d2_FD_2D.f90</a>
+      
+      <a class="list-group-item" href="../sourcefile/openpde_f2v_abstract.f90.html">openpde_f2v_abstract.f90</a>
+      
+      <a class="list-group-item" href="../sourcefile/openpde_f2v_fd_1d.f90.html">openpde_f2v_FD_1D.f90</a>
+      
+      <a class="list-group-item" href="../sourcefile/openpde_f2v_fd_2d.f90.html">openpde_f2v_FD_2D.f90</a>
+      
+      <a class="list-group-item" href="../sourcefile/openpde_field_abstract.f90.html">openpde_field_abstract.f90</a>
+      
+      <a class="list-group-item" href="../sourcefile/openpde_field_block_fv_1d.f90.html">openpde_field_block_FV_1D.f90</a>
+      
+      <a class="list-group-item" href="../sourcefile/openpde_field_fd_1d.f90.html">openpde_field_FD_1D.f90</a>
+      
+      <a class="list-group-item" href="../sourcefile/openpde_field_fd_2d.f90.html">openpde_field_FD_2D.f90</a>
+      
+      <a class="list-group-item" href="../sourcefile/openpde_field_fv_1d.f90.html">openpde_field_FV_1D.f90</a>
+      
+      <a class="list-group-item" href="../sourcefile/openpde_field_surface_abstract.f90.html">openpde_field_surface_abstract.f90</a>
+      
+      <a class="list-group-item" href="../sourcefile/openpde_field_surface_block_fv_1d.f90.html">openpde_field_surface_block_FV_1D.f90</a>
+      
+      <a class="list-group-item" href="../sourcefile/openpde_field_surface_fv_1d.f90.html">openpde_field_surface_FV_1D.f90</a>
+      
+      <a class="list-group-item" href="../sourcefile/openpde_integrator_adv_abstract.f90.html">openpde_integrator_adv_abstract.f90</a>
+      
+      <a class="list-group-item" href="../sourcefile/openpde_integrator_adv_euler_explicit.f90.html">openpde_integrator_adv_euler_explicit.f90</a>
+      
+      <a class="list-group-item" href="../sourcefile/openpde_integrator_adv_euler_implicit.f90.html">openpde_integrator_adv_euler_implicit.f90</a>
+      
+      <a class="list-group-item" href="../sourcefile/openpde_integrator_adv_rk_implicit.f90.html">openpde_integrator_adv_rk_implicit.f90</a>
+      
+      <a class="list-group-item" href="../sourcefile/openpde_integrator_asbtract.f90.html">openpde_integrator_asbtract.f90</a>
+      
+      <a class="list-group-item" href="../sourcefile/openpde_integrator_euler_explicit.f90.html">openpde_integrator_euler_explicit.f90</a>
+      
+      <a class="list-group-item" href="../sourcefile/openpde_kinds.f90.html">openpde_kinds.f90</a>
+      
+      <a class="list-group-item" href="../sourcefile/openpde_linsolver_abstract.f90.html">openpde_linsolver_abstract.f90</a>
+      
+      <a class="list-group-item" href="../sourcefile/openpde_linsolver_gmlapack.f90.html">openpde_linsolver_gmlapack.f90</a>
+      
+      <a class="list-group-item" href="../sourcefile/openpde_matrix_abstract.f90.html">openpde_matrix_abstract.f90</a>
+      
+      <a class="list-group-item" href="../sourcefile/openpde_matrix_simple.f90.html">openpde_matrix_simple.f90</a>
+      
+      <a class="list-group-item" href="../sourcefile/openpde_mesh_abstract.f90.html">openpde_mesh_abstract.f90</a>
+      
+      <a class="list-group-item" href="../sourcefile/openpde_mesh_block_fv_1d.f90.html">openpde_mesh_block_FV_1D.f90</a>
+      
+      <a class="list-group-item" href="../sourcefile/openpde_mesh_fd_1d.f90.html">openpde_mesh_FD_1D.f90</a>
+      
+      <a class="list-group-item" href="../sourcefile/openpde_mesh_fd_2d.f90.html">openpde_mesh_FD_2D.f90</a>
+      
+      <a class="list-group-item" href="../sourcefile/openpde_mesh_fv_1d.f90.html">openpde_mesh_FV_1D.f90</a>
+      
+      <a class="list-group-item" href="../sourcefile/openpde_multigrid_abstract.f90.html">openpde_multigrid_abstract.f90</a>
+      
+      <a class="list-group-item" href="../sourcefile/openpde_multigrid_fd_1d.f90.html">openpde_multigrid_FD_1D.f90</a>
+      
+      <a class="list-group-item" href="../sourcefile/openpde_spatial_operator_abstract.f90.html">openpde_spatial_operator_abstract.f90</a>
+      
+      <a class="list-group-item" href="../sourcefile/openpde_spatial_operator_d1_abstract.f90.html">openpde_spatial_operator_d1_abstract.f90</a>
+      
+      <a class="list-group-item" href="../sourcefile/openpde_spatial_operator_d1_fd_1d.f90.html">openpde_spatial_operator_d1_FD_1D.f90</a>
+      
+      <a class="list-group-item" href="../sourcefile/openpde_spatial_operator_d1_fd_2d.f90.html">openpde_spatial_operator_d1_FD_2D.f90</a>
+      
+      <a class="list-group-item" href="../sourcefile/openpde_spatial_operator_d1_fv_1d.f90.html">openpde_spatial_operator_d1_FV_1D.f90</a>
+      
+      <a class="list-group-item" href="../sourcefile/openpde_spatial_operator_d2_abstract.f90.html">openpde_spatial_operator_d2_abstract.f90</a>
+      
+      <a class="list-group-item" href="../sourcefile/openpde_spatial_operator_d2_fd_1d.f90.html">openpde_spatial_operator_d2_FD_1D.f90</a>
+      
+      <a class="list-group-item" href="../sourcefile/openpde_spatial_operator_d2_fd_2d.f90.html">openpde_spatial_operator_d2_FD_2D.f90</a>
+      
+      <a class="list-group-item" href="../sourcefile/openpde_spatial_operator_d2_fv_1d.f90.html">openpde_spatial_operator_d2_FV_1D.f90</a>
+      
+      <a class="list-group-item" href="../sourcefile/openpde_v2f_abstract.f90.html">openpde_v2f_abstract.f90</a>
+      
+      <a class="list-group-item" href="../sourcefile/openpde_v2f_fd_1d.f90.html">openpde_v2f_FD_1D.f90</a>
+      
+      <a class="list-group-item" href="../sourcefile/openpde_v2f_fd_2d.f90.html">openpde_v2f_FD_2D.f90</a>
+      
+      <a class="list-group-item" href="../sourcefile/openpde_vector_abstract.f90.html">openpde_vector_abstract.f90</a>
+      
+      <a class="list-group-item" href="../sourcefile/openpde_vector_simple.f90.html">openpde_vector_simple.f90</a>
+      
+    </div>
+  </div>
+</div>
+
+
+</div>  
+
+    </div>
+    <div class="col-md-9" id='text'>
+    <p>Concrete class of f2v (field to vector) for FD 1D</p>
+    
+    <h3>This File Depends On</h3>
+    
+                <div class="depgraph"><?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
+ "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<!-- Generated by graphviz version 2.40.1 (20161225.0304)
+ -->
+<!-- Title: sourcefile~~openpde_f2v_fd_1d.f90~~EfferentGraph Pages: 1 -->
+<svg id="sourcefileopenpde_f2v_fd_1df90EfferentGraph" width="641pt" height="191pt"
+ viewBox="0.00 0.00 641.00 190.87" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<g id="sourcefile~~openpde_f2v_fd_1d.f90~~EfferentGraph" class="graph" transform="scale(.7751 .7751) rotate(0) translate(4 242.2587)">
+<title>sourcefile~~openpde_f2v_fd_1d.f90~~EfferentGraph</title>
+<polygon fill="#ffffff" stroke="transparent" points="-4,4 -4,-242.2587 823,-242.2587 823,4 -4,4"/>
+<!-- sourcefile~openpde_f2v_fd_1d.f90 -->
+<g id="sourcefile~~openpde_f2v_fd_1d.f90~~EfferentGraph_node1" class="node">
+<title>sourcefile~openpde_f2v_fd_1d.f90</title>
+<polygon fill="none" stroke="#000000" points="819,-158.2587 686,-158.2587 686,-134.2587 819,-134.2587 819,-158.2587"/>
+<text text-anchor="middle" x="752.5" y="-143.8587" font-family="Helvetica,sans-Serif" font-size="10.50" fill="#000000">openpde_f2v_FD_1D.f90</text>
+</g>
+<!-- sourcefile~openpde_vector_abstract.f90 -->
+<g id="sourcefile~~openpde_f2v_fd_1d.f90~~EfferentGraph_node2" class="node">
+<title>sourcefile~openpde_vector_abstract.f90</title>
+<g id="a_sourcefile~~openpde_f2v_fd_1d.f90~~EfferentGraph_node2"><a xlink:href="../sourcefile/openpde_vector_abstract.f90.html" xlink:title="openpde_vector_abstract.f90">
+<polygon fill="#f0ad4e" stroke="#f0ad4e" points="476,-238.2587 324,-238.2587 324,-214.2587 476,-214.2587 476,-238.2587"/>
+<text text-anchor="middle" x="400" y="-223.8587" font-family="Helvetica,sans-Serif" font-size="10.50" fill="#ffffff">openpde_vector_abstract.f90</text>
+</a>
+</g>
+</g>
+<!-- sourcefile~openpde_vector_abstract.f90&#45;&gt;sourcefile~openpde_f2v_fd_1d.f90 -->
+<g id="sourcefile~~openpde_f2v_fd_1d.f90~~EfferentGraph_edge14" class="edge">
+<title>sourcefile~openpde_vector_abstract.f90&#45;&gt;sourcefile~openpde_f2v_fd_1d.f90</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M476.0911,-229.4161C526.529,-229.3577 593.558,-225.1111 650,-207.2587 679.4099,-197.9565 709.2977,-178.8271 729.15,-164.456"/>
+<polygon fill="#000000" stroke="#000000" points="731.3214,-167.2032 737.27,-158.4359 727.1524,-161.58 731.3214,-167.2032"/>
+</g>
+<!-- sourcefile~openpde_f2v_abstract.f90 -->
+<g id="sourcefile~~openpde_f2v_fd_1d.f90~~EfferentGraph_node7" class="node">
+<title>sourcefile~openpde_f2v_abstract.f90</title>
+<g id="a_sourcefile~~openpde_f2v_fd_1d.f90~~EfferentGraph_node7"><a xlink:href="../sourcefile/openpde_f2v_abstract.f90.html" xlink:title="openpde_f2v_abstract.f90">
+<polygon fill="#f0ad4e" stroke="#f0ad4e" points="649.5,-198.2587 512.5,-198.2587 512.5,-174.2587 649.5,-174.2587 649.5,-198.2587"/>
+<text text-anchor="middle" x="581" y="-183.8587" font-family="Helvetica,sans-Serif" font-size="10.50" fill="#ffffff">openpde_f2v_abstract.f90</text>
+</a>
+</g>
+</g>
+<!-- sourcefile~openpde_vector_abstract.f90&#45;&gt;sourcefile~openpde_f2v_abstract.f90 -->
+<g id="sourcefile~~openpde_f2v_fd_1d.f90~~EfferentGraph_edge11" class="edge">
+<title>sourcefile~openpde_vector_abstract.f90&#45;&gt;sourcefile~openpde_f2v_abstract.f90</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M454.306,-214.2574C473.9036,-209.9265 496.2123,-204.9963 516.5911,-200.4928"/>
+<polygon fill="#000000" stroke="#000000" points="517.4107,-203.8962 526.4198,-198.3207 515.9001,-197.0611 517.4107,-203.8962"/>
+</g>
+<!-- sourcefile~openpde_field_abstract.f90 -->
+<g id="sourcefile~~openpde_f2v_fd_1d.f90~~EfferentGraph_node3" class="node">
+<title>sourcefile~openpde_field_abstract.f90</title>
+<g id="a_sourcefile~~openpde_f2v_fd_1d.f90~~EfferentGraph_node3"><a xlink:href="../sourcefile/openpde_field_abstract.f90.html" xlink:title="openpde_field_abstract.f90">
+<polygon fill="#f0ad4e" stroke="#f0ad4e" points="471,-158.2587 329,-158.2587 329,-134.2587 471,-134.2587 471,-158.2587"/>
+<text text-anchor="middle" x="400" y="-143.8587" font-family="Helvetica,sans-Serif" font-size="10.50" fill="#ffffff">openpde_field_abstract.f90</text>
+</a>
+</g>
+</g>
+<!-- sourcefile~openpde_field_abstract.f90&#45;&gt;sourcefile~openpde_f2v_fd_1d.f90 -->
+<g id="sourcefile~~openpde_f2v_fd_1d.f90~~EfferentGraph_edge15" class="edge">
+<title>sourcefile~openpde_field_abstract.f90&#45;&gt;sourcefile~openpde_f2v_fd_1d.f90</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M471.3336,-146.2587C530.5726,-146.2587 614.6733,-146.2587 675.444,-146.2587"/>
+<polygon fill="#000000" stroke="#000000" points="675.7474,-149.7588 685.7474,-146.2587 675.7473,-142.7588 675.7474,-149.7588"/>
+</g>
+<!-- sourcefile~openpde_field_fd_1d.f90 -->
+<g id="sourcefile~~openpde_f2v_fd_1d.f90~~EfferentGraph_node4" class="node">
+<title>sourcefile~openpde_field_fd_1d.f90</title>
+<g id="a_sourcefile~~openpde_f2v_fd_1d.f90~~EfferentGraph_node4"><a xlink:href="../sourcefile/openpde_field_fd_1d.f90.html" xlink:title="openpde_field_FD_1D.f90">
+<polygon fill="#f0ad4e" stroke="#f0ad4e" points="650,-118.2587 512,-118.2587 512,-94.2587 650,-94.2587 650,-118.2587"/>
+<text text-anchor="middle" x="581" y="-103.8587" font-family="Helvetica,sans-Serif" font-size="10.50" fill="#ffffff">openpde_field_FD_1D.f90</text>
+</a>
+</g>
+</g>
+<!-- sourcefile~openpde_field_abstract.f90&#45;&gt;sourcefile~openpde_field_fd_1d.f90 -->
+<g id="sourcefile~~openpde_f2v_fd_1d.f90~~EfferentGraph_edge7" class="edge">
+<title>sourcefile~openpde_field_abstract.f90&#45;&gt;sourcefile~openpde_field_fd_1d.f90</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M454.306,-134.2574C473.9036,-129.9265 496.2123,-124.9963 516.5911,-120.4928"/>
+<polygon fill="#000000" stroke="#000000" points="517.4107,-123.8962 526.4198,-118.3207 515.9001,-117.0611 517.4107,-123.8962"/>
+</g>
+<!-- sourcefile~openpde_field_abstract.f90&#45;&gt;sourcefile~openpde_f2v_abstract.f90 -->
+<g id="sourcefile~~openpde_f2v_fd_1d.f90~~EfferentGraph_edge12" class="edge">
+<title>sourcefile~openpde_field_abstract.f90&#45;&gt;sourcefile~openpde_f2v_abstract.f90</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M454.306,-158.2601C473.9036,-162.591 496.2123,-167.5211 516.5911,-172.0247"/>
+<polygon fill="#000000" stroke="#000000" points="515.9001,-175.4564 526.4198,-174.1968 517.4107,-168.6213 515.9001,-175.4564"/>
+</g>
+<!-- sourcefile~openpde_field_fd_1d.f90&#45;&gt;sourcefile~openpde_f2v_fd_1d.f90 -->
+<g id="sourcefile~~openpde_f2v_fd_1d.f90~~EfferentGraph_edge16" class="edge">
+<title>sourcefile~openpde_field_fd_1d.f90&#45;&gt;sourcefile~openpde_f2v_fd_1d.f90</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M632.4557,-118.2601C650.8559,-122.5517 671.7784,-127.4316 690.9446,-131.9018"/>
+<polygon fill="#000000" stroke="#000000" points="690.2509,-135.3339 700.7845,-134.1968 691.8409,-128.5168 690.2509,-135.3339"/>
+</g>
+<!-- sourcefile~openpde_kinds.f90 -->
+<g id="sourcefile~~openpde_f2v_fd_1d.f90~~EfferentGraph_node5" class="node">
+<title>sourcefile~openpde_kinds.f90</title>
+<g id="a_sourcefile~~openpde_f2v_fd_1d.f90~~EfferentGraph_node5"><a xlink:href="../sourcefile/openpde_kinds.f90.html" xlink:title="openpde_kinds.f90">
+<polygon fill="#f0ad4e" stroke="#f0ad4e" points="103,-118.2587 0,-118.2587 0,-94.2587 103,-94.2587 103,-118.2587"/>
+<text text-anchor="middle" x="51.5" y="-103.8587" font-family="Helvetica,sans-Serif" font-size="10.50" fill="#ffffff">openpde_kinds.f90</text>
+</a>
+</g>
+</g>
+<!-- sourcefile~openpde_kinds.f90&#45;&gt;sourcefile~openpde_f2v_fd_1d.f90 -->
+<g id="sourcefile~~openpde_f2v_fd_1d.f90~~EfferentGraph_edge17" class="edge">
+<title>sourcefile~openpde_kinds.f90&#45;&gt;sourcefile~openpde_f2v_fd_1d.f90</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M67.8759,-94.1939C95.9275,-74.4798 155.7483,-36.5253 213.5,-26.2587"/>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M213.5,-26.2587C374.3121,2.329 422.754,14.1885 581,-26.2587"/>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M581,-26.2587C644.7899,-44.6311 704.8683,-97.8863 734.0507,-126.8862"/>
+<polygon fill="#000000" stroke="#000000" points="731.5969,-129.3825 741.1145,-134.0373 736.577,-124.4633 731.5969,-129.3825"/>
+</g>
+<!-- sourcefile~openpde_kinds.f90&#45;&gt;sourcefile~openpde_vector_abstract.f90 -->
+<g id="sourcefile~~openpde_f2v_fd_1d.f90~~EfferentGraph_edge1" class="edge">
+<title>sourcefile~openpde_kinds.f90&#45;&gt;sourcefile~openpde_vector_abstract.f90</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M213.5,-146.2587C267.332,-155.7462 273.4865,-179.3713 324,-200.2587 332.9906,-203.9764 342.7254,-207.5987 352.1309,-210.9016"/>
+<polygon fill="#000000" stroke="#000000" points="351.1736,-214.2736 361.7683,-214.2185 353.4517,-207.6546 351.1736,-214.2736"/>
+</g>
+<!-- sourcefile~openpde_kinds.f90&#45;&gt;sourcefile~openpde_field_abstract.f90 -->
+<g id="sourcefile~~openpde_f2v_fd_1d.f90~~EfferentGraph_edge4" class="edge">
+<title>sourcefile~openpde_kinds.f90&#45;&gt;sourcefile~openpde_field_abstract.f90</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M213.5,-146.2587C247.5992,-152.2685 285.7533,-153.2574 318.6246,-152.3714"/>
+<polygon fill="#000000" stroke="#000000" points="318.7674,-155.8687 328.6461,-152.0398 318.5358,-148.8726 318.7674,-155.8687"/>
+</g>
+<!-- sourcefile~openpde_kinds.f90&#45;&gt;sourcefile~openpde_field_fd_1d.f90 -->
+<g id="sourcefile~~openpde_f2v_fd_1d.f90~~EfferentGraph_edge8" class="edge">
+<title>sourcefile~openpde_kinds.f90&#45;&gt;sourcefile~openpde_field_fd_1d.f90</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M93.4629,-118.278C125.9741,-127.1853 172.2742,-138.993 213.5,-146.2587"/>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M213.5,-146.2587C255.2436,-153.6157 357.6735,-108.5218 400,-106.2587"/>
+</g>
+<!-- sourcefile~openpde_mesh_fd_1d.f90 -->
+<g id="sourcefile~~openpde_f2v_fd_1d.f90~~EfferentGraph_node6" class="node">
+<title>sourcefile~openpde_mesh_fd_1d.f90</title>
+<g id="a_sourcefile~~openpde_f2v_fd_1d.f90~~EfferentGraph_node6"><a xlink:href="../sourcefile/openpde_mesh_fd_1d.f90.html" xlink:title="openpde_mesh_FD_1D.f90">
+<polygon fill="#f0ad4e" stroke="#f0ad4e" points="472.5,-78.2587 327.5,-78.2587 327.5,-54.2587 472.5,-54.2587 472.5,-78.2587"/>
+<text text-anchor="middle" x="400" y="-63.8587" font-family="Helvetica,sans-Serif" font-size="10.50" fill="#ffffff">openpde_mesh_FD_1D.f90</text>
+</a>
+</g>
+</g>
+<!-- sourcefile~openpde_kinds.f90&#45;&gt;sourcefile~openpde_mesh_fd_1d.f90 -->
+<g id="sourcefile~~openpde_f2v_fd_1d.f90~~EfferentGraph_edge10" class="edge">
+<title>sourcefile~openpde_kinds.f90&#45;&gt;sourcefile~openpde_mesh_fd_1d.f90</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M213.5,-26.2587C239.3946,-21.6554 304.958,-38.1649 350.9927,-51.359"/>
+<polygon fill="#000000" stroke="#000000" points="350.2081,-54.7756 360.7873,-54.2002 352.1583,-48.0528 350.2081,-54.7756"/>
+</g>
+<!-- sourcefile~openpde_kinds.f90&#45;&gt;sourcefile~openpde_f2v_abstract.f90 -->
+<g id="sourcefile~~openpde_f2v_fd_1d.f90~~EfferentGraph_edge13" class="edge">
+<title>sourcefile~openpde_kinds.f90&#45;&gt;sourcefile~openpde_f2v_abstract.f90</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M213.5,-146.2587C262.7314,-154.9354 274.4369,-160.7386 324,-167.2587 383.4468,-175.0791 451.0849,-179.9185 502.0461,-182.7549"/>
+<polygon fill="#000000" stroke="#000000" points="502.1583,-186.266 512.3332,-183.3129 502.5375,-179.2763 502.1583,-186.266"/>
+</g>
+<!-- sourcefile~openpde_mesh_abstract.f90 -->
+<g id="sourcefile~~openpde_f2v_fd_1d.f90~~EfferentGraph_node8" class="node">
+<title>sourcefile~openpde_mesh_abstract.f90</title>
+<g id="a_sourcefile~~openpde_f2v_fd_1d.f90~~EfferentGraph_node8"><a xlink:href="../sourcefile/openpde_mesh_abstract.f90.html" xlink:title="openpde_mesh_abstract.f90">
+<polygon fill="#f0ad4e" stroke="#f0ad4e" points="288,-118.2587 139,-118.2587 139,-94.2587 288,-94.2587 288,-118.2587"/>
+<text text-anchor="middle" x="213.5" y="-103.8587" font-family="Helvetica,sans-Serif" font-size="10.50" fill="#ffffff">openpde_mesh_abstract.f90</text>
+</a>
+</g>
+</g>
+<!-- sourcefile~openpde_kinds.f90&#45;&gt;sourcefile~openpde_mesh_abstract.f90 -->
+<g id="sourcefile~~openpde_f2v_fd_1d.f90~~EfferentGraph_edge2" class="edge">
+<title>sourcefile~openpde_kinds.f90&#45;&gt;sourcefile~openpde_mesh_abstract.f90</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M103.2032,-106.2587C111.3895,-106.2587 120.0372,-106.2587 128.7429,-106.2587"/>
+<polygon fill="#000000" stroke="#000000" points="128.9651,-109.7588 138.9651,-106.2587 128.965,-102.7588 128.9651,-109.7588"/>
+</g>
+<!-- sourcefile~openpde_mesh_fd_1d.f90&#45;&gt;sourcefile~openpde_f2v_fd_1d.f90 -->
+<g id="sourcefile~~openpde_f2v_fd_1d.f90~~EfferentGraph_edge18" class="edge">
+<title>sourcefile~openpde_mesh_fd_1d.f90&#45;&gt;sourcefile~openpde_f2v_fd_1d.f90</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M436.2364,-54.1972C480.8524,-40.0559 554.0298,-19.3652 581,-26.2587"/>
+</g>
+<!-- sourcefile~openpde_mesh_fd_1d.f90&#45;&gt;sourcefile~openpde_field_fd_1d.f90 -->
+<g id="sourcefile~~openpde_f2v_fd_1d.f90~~EfferentGraph_edge5" class="edge">
+<title>sourcefile~openpde_mesh_fd_1d.f90&#45;&gt;sourcefile~openpde_field_fd_1d.f90</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M454.306,-78.2601C473.9036,-82.591 496.2123,-87.5211 516.5911,-92.0247"/>
+<polygon fill="#000000" stroke="#000000" points="515.9001,-95.4564 526.4198,-94.1968 517.4107,-88.6213 515.9001,-95.4564"/>
+</g>
+<!-- sourcefile~openpde_f2v_abstract.f90&#45;&gt;sourcefile~openpde_f2v_fd_1d.f90 -->
+<g id="sourcefile~~openpde_f2v_fd_1d.f90~~EfferentGraph_edge19" class="edge">
+<title>sourcefile~openpde_f2v_abstract.f90&#45;&gt;sourcefile~openpde_f2v_fd_1d.f90</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M632.4557,-174.2574C650.8559,-169.9658 671.7784,-165.0859 690.9446,-160.6157"/>
+<polygon fill="#000000" stroke="#000000" points="691.8409,-164.0007 700.7845,-158.3207 690.2509,-157.1836 691.8409,-164.0007"/>
+</g>
+<!-- sourcefile~openpde_mesh_abstract.f90&#45;&gt;sourcefile~openpde_field_abstract.f90 -->
+<g id="sourcefile~~openpde_f2v_fd_1d.f90~~EfferentGraph_edge3" class="edge">
+<title>sourcefile~openpde_mesh_abstract.f90&#45;&gt;sourcefile~openpde_field_abstract.f90</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M269.4561,-118.2601C289.7411,-122.6107 312.8449,-127.566 333.9201,-132.0861"/>
+<polygon fill="#000000" stroke="#000000" points="333.2496,-135.5218 343.7613,-134.1968 334.7176,-128.6775 333.2496,-135.5218"/>
+</g>
+<!-- sourcefile~openpde_mesh_abstract.f90&#45;&gt;sourcefile~openpde_field_fd_1d.f90 -->
+<g id="sourcefile~~openpde_f2v_fd_1d.f90~~EfferentGraph_edge6" class="edge">
+<title>sourcefile~openpde_mesh_abstract.f90&#45;&gt;sourcefile~openpde_field_fd_1d.f90</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M288.4157,-108.0826C322.4859,-108.4431 363.3028,-108.2208 400,-106.2587"/>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M400,-106.2587C433.2695,-104.48 470.028,-104.1746 501.6788,-104.4273"/>
+<polygon fill="#000000" stroke="#000000" points="501.7302,-107.9279 511.7646,-104.5278 501.8,-100.9282 501.7302,-107.9279"/>
+</g>
+<!-- sourcefile~openpde_mesh_abstract.f90&#45;&gt;sourcefile~openpde_mesh_fd_1d.f90 -->
+<g id="sourcefile~~openpde_f2v_fd_1d.f90~~EfferentGraph_edge9" class="edge">
+<title>sourcefile~openpde_mesh_abstract.f90&#45;&gt;sourcefile~openpde_mesh_fd_1d.f90</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M269.4561,-94.2574C289.7411,-89.9068 312.8449,-84.9515 333.9201,-80.4314"/>
+<polygon fill="#000000" stroke="#000000" points="334.7176,-83.84 343.7613,-78.3207 333.2496,-76.9957 334.7176,-83.84"/>
+</g>
+</g>
+</svg>
+</div>
+                <script>var pansourcefileopenpde_f2v_fd_1df90EfferentGraph = svgPanZoom('#sourcefileopenpde_f2v_fd_1df90EfferentGraph', {
+                    zoomEnabled: true,
+                    controlIconsEnabled: true,
+                    fit: true,
+                    center: true,});
+                    </script>
+                <div><a type="button" class="graph-help" data-toggle="modal" href="#graph-help-text">Help</a></div>
+                <div class="modal fade" id="graph-help-text" tabindex="-1" role="dialog">
+                  <div class="modal-dialog modal-lg" role="document">
+                    <div class="modal-content">
+                      <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                        <h4 class="modal-title" id="-graph-help-label">Graph Key</h4>
+                      </div>
+                      <div class="modal-body">
+                        
+    <p>Nodes of different colours represent the following: </p>
+    <?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
+ "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<!-- Generated by graphviz version 2.40.1 (20161225.0304)
+ -->
+<!-- Title: Graph Key Pages: 1 -->
+<svg width="190pt" height="32pt"
+ viewBox="0.00 0.00 190.00 32.00" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<g id="graph0" class="graph" transform="scale(1 1) rotate(0) translate(4 28)">
+<title>Graph Key</title>
+<polygon fill="#ffffff" stroke="transparent" points="-4,4 -4,-28 186,-28 186,4 -4,4"/>
+<!-- Source File -->
+<g id="node1" class="node">
+<title>Source File</title>
+<polygon fill="#f0ad4e" stroke="#f0ad4e" points="67,-24 0,-24 0,0 67,0 67,-24"/>
+<text text-anchor="middle" x="33.5" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="#ffffff">Source File</text>
+</g>
+<!-- This Page&#39;s Entity -->
+<g id="node2" class="node">
+<title>This Page&#39;s Entity</title>
+<polygon fill="none" stroke="#000000" points="182,-24 85,-24 85,0 182,0 182,-24"/>
+<text text-anchor="middle" x="133.5" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="#000000">This Page&#39;s Entity</text>
+</g>
+</g>
+</svg>
+
+    
+    <p>Solid arrows point from a file to a file which depends upon it. A file 
+    is dependent upon another if the latter must be compiled before the former
+    can be.
+    </p>
+    
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                
+    
+      
+      <h3>Files Dependent On This One</h3>
+      
+                <div class="depgraph"><?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
+ "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<!-- Generated by graphviz version 2.40.1 (20161225.0304)
+ -->
+<!-- Title: sourcefile~~openpde_f2v_fd_1d.f90~~AfferentGraph Pages: 1 -->
+<svg id="sourcefileopenpde_f2v_fd_1df90AfferentGraph" width="250pt" height="32pt"
+ viewBox="0.00 0.00 250.00 32.00" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<g id="sourcefile~~openpde_f2v_fd_1d.f90~~AfferentGraph" class="graph" transform="scale(1 1) rotate(0) translate(4 28)">
+<title>sourcefile~~openpde_f2v_fd_1d.f90~~AfferentGraph</title>
+<polygon fill="#ffffff" stroke="transparent" points="-4,4 -4,-28 246,-28 246,4 -4,4"/>
+<!-- sourcefile~openpde_f2v_fd_1d.f90 -->
+<g id="sourcefile~~openpde_f2v_fd_1d.f90~~AfferentGraph_node1" class="node">
+<title>sourcefile~openpde_f2v_fd_1d.f90</title>
+<polygon fill="none" stroke="#000000" points="133,-24 0,-24 0,0 133,0 133,-24"/>
+<text text-anchor="middle" x="66.5" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="#000000">openpde_f2v_FD_1D.f90</text>
+</g>
+<!-- sourcefile~openpde.f90 -->
+<g id="sourcefile~~openpde_f2v_fd_1d.f90~~AfferentGraph_node2" class="node">
+<title>sourcefile~openpde.f90</title>
+<g id="a_sourcefile~~openpde_f2v_fd_1d.f90~~AfferentGraph_node2"><a xlink:href="../sourcefile/openpde.f90.html" xlink:title="openpde.f90">
+<polygon fill="#f0ad4e" stroke="#f0ad4e" points="242,-24 169,-24 169,0 242,0 242,-24"/>
+<text text-anchor="middle" x="205.5" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="#ffffff">openpde.f90</text>
+</a>
+</g>
+</g>
+<!-- sourcefile~openpde_f2v_fd_1d.f90&#45;&gt;sourcefile~openpde.f90 -->
+<g id="sourcefile~~openpde_f2v_fd_1d.f90~~AfferentGraph_edge1" class="edge">
+<title>sourcefile~openpde_f2v_fd_1d.f90&#45;&gt;sourcefile~openpde.f90</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M133.1501,-12C141.7724,-12 150.4532,-12 158.6606,-12"/>
+<polygon fill="#000000" stroke="#000000" points="158.7635,-15.5001 168.7634,-12 158.7634,-8.5001 158.7635,-15.5001"/>
+</g>
+</g>
+</svg>
+</div>
+                <div><a type="button" class="graph-help" data-toggle="modal" href="#graph-help-text">Help</a></div>
+                <div class="modal fade" id="graph-help-text" tabindex="-1" role="dialog">
+                  <div class="modal-dialog modal-lg" role="document">
+                    <div class="modal-content">
+                      <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                        <h4 class="modal-title" id="-graph-help-label">Graph Key</h4>
+                      </div>
+                      <div class="modal-body">
+                        
+    <p>Nodes of different colours represent the following: </p>
+    <?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
+ "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<!-- Generated by graphviz version 2.40.1 (20161225.0304)
+ -->
+<!-- Title: Graph Key Pages: 1 -->
+<svg width="190pt" height="32pt"
+ viewBox="0.00 0.00 190.00 32.00" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<g id="graph0" class="graph" transform="scale(1 1) rotate(0) translate(4 28)">
+<title>Graph Key</title>
+<polygon fill="#ffffff" stroke="transparent" points="-4,4 -4,-28 186,-28 186,4 -4,4"/>
+<!-- Source File -->
+<g id="node1" class="node">
+<title>Source File</title>
+<polygon fill="#f0ad4e" stroke="#f0ad4e" points="67,-24 0,-24 0,0 67,0 67,-24"/>
+<text text-anchor="middle" x="33.5" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="#ffffff">Source File</text>
+</g>
+<!-- This Page&#39;s Entity -->
+<g id="node2" class="node">
+<title>This Page&#39;s Entity</title>
+<polygon fill="none" stroke="#000000" points="182,-24 85,-24 85,0 182,0 182,-24"/>
+<text text-anchor="middle" x="133.5" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="#000000">This Page&#39;s Entity</text>
+</g>
+</g>
+</svg>
+
+    
+    <p>Solid arrows point from a file to a file which depends upon it. A file 
+    is dependent upon another if the latter must be compiled before the former
+    can be.
+    </p>
+    
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                
+      
+      <br>
+
+    <section class="visible-xs visible-sm hidden-md">
+      
+
+
+
+
+
+
+<div class="panel panel-primary">
+  <div class="panel-heading text-left"><h3 class="panel-title"><a data-toggle="collapse" href="#mods-1">Modules</a></h3></div>
+  <div id="mods-1" class="panel-collapse collapse">
+    <div class="list-group">
+      
+      <a class="list-group-item" href="../module/openpde_f2v_fd_1d.html">openpde_f2v_FD_1D</a>
+      
+    </div>
+  </div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="panel panel-primary">
+  <div class="panel-heading text-left"><h3 class="panel-title">Source Code</h3></div>
+  <div class="list-group">
+    <a class="list-group-item" href="../sourcefile/openpde_f2v_fd_1d.f90.html#src">openpde_f2v_FD_1D.f90</a>
+  </div>
+</div>
+
+
+    </section>
+    <br class="visible-xs visible-sm hidden-md">
+
+    <section>
+      <h2><span class="anchor" id="src"></span>Source Code</h2>
+    <div class="hl"><pre><span></span><a name="ln-1"></a><span class="c">!&lt; Concrete class of f2v (field to vector) for FD 1D</span>
+<a name="ln-2"></a><span class="k">module </span><span class="n">openpde_f2v_FD_1D</span>
+<a name="ln-3"></a>    <span class="c">!&lt; Concrete class of f2v (field to vector) for FD 1D</span>
+<a name="ln-4"></a>    <span class="k">use </span><span class="n">openpde_field_abstract</span>
+<a name="ln-5"></a>    <span class="k">use </span><span class="n">openpde_f2v_abstract</span>
+<a name="ln-6"></a>    <span class="k">use </span><span class="n">openpde_field_FD_1D</span>
+<a name="ln-7"></a>    <span class="k">use </span><span class="n">openpde_kinds</span>
+<a name="ln-8"></a>    <span class="k">use </span><span class="n">openpde_mesh_FD_1D</span>
+<a name="ln-9"></a>    <span class="k">use </span><span class="n">openpde_vector_abstract</span>
+<a name="ln-10"></a>
+<a name="ln-11"></a>    <span class="k">implicit none</span>
+<a name="ln-12"></a><span class="k">    private</span>
+<a name="ln-13"></a><span class="k">    public</span> <span class="kd">::</span> <span class="n">f2v_FD_1D</span>
+<a name="ln-14"></a>
+<a name="ln-15"></a>    <span class="k">type</span><span class="p">,</span> <span class="k">extends</span><span class="p">(</span><span class="n">f2v</span><span class="p">)</span> <span class="kd">::</span> <span class="n">f2v_FD_1D</span>
+<a name="ln-16"></a>        <span class="c">!&lt; Concrete class of f2v (field to vector) for FD 1D</span>
+<a name="ln-17"></a>        <span class="k">contains</span>
+<a name="ln-18"></a><span class="k">            procedure</span> <span class="kd">::</span> <span class="n">operate</span> <span class="c">!&lt; Operator operation.</span>
+<a name="ln-19"></a>    <span class="n">endtype</span> <span class="n">f2v_FD_1D</span>
+<a name="ln-20"></a><span class="k">contains</span>
+<a name="ln-21"></a><span class="k">    function </span><span class="n">operate</span><span class="p">(</span><span class="n">this</span><span class="p">,</span> <span class="n">fie</span><span class="p">)</span> <span class="k">result</span><span class="p">(</span><span class="n">vec</span><span class="p">)</span>
+<a name="ln-22"></a>        <span class="c">!&lt; Operator operation.</span>
+<a name="ln-23"></a>        <span class="k">class</span><span class="p">(</span><span class="n">f2v_FD_1D</span><span class="p">),</span> <span class="k">intent</span><span class="p">(</span><span class="n">in</span><span class="p">)</span>       <span class="kd">::</span> <span class="n">this</span>     <span class="c">!&lt; The operator.</span>
+<a name="ln-24"></a>        <span class="k">class</span><span class="p">(</span><span class="n">field</span><span class="p">),</span> <span class="k">intent</span><span class="p">(</span><span class="n">in</span><span class="p">),</span> <span class="k">dimension</span><span class="p">(:),</span> <span class="k">target</span>   <span class="kd">::</span> <span class="n">fie</span>      <span class="c">!&lt; Input field.</span>
+<a name="ln-25"></a>        <span class="k">class</span><span class="p">(</span><span class="n">vector</span><span class="p">),</span> <span class="k">allocatable</span>         <span class="kd">::</span> <span class="n">vec</span>      <span class="c">!&lt; Returned vector.</span>
+<a name="ln-26"></a>        <span class="k">class</span><span class="p">(</span><span class="n">field_FD_1D</span><span class="p">),</span> <span class="k">pointer</span>        <span class="kd">::</span> <span class="n">fie_cur</span>  <span class="c">!&lt; Dummy pointer for input field.</span>
+<a name="ln-27"></a>        <span class="k">class</span><span class="p">(</span><span class="n">mesh_FD_1D</span><span class="p">),</span>  <span class="k">pointer</span>        <span class="kd">::</span> <span class="n">mesh_cur</span> <span class="c">!&lt; Dummy pointer for mesh.</span>
+<a name="ln-28"></a>        <span class="kt">integer</span><span class="p">(</span><span class="n">I_P</span><span class="p">)</span>                       <span class="kd">::</span> <span class="n">i</span>        <span class="c">!&lt; Counter.</span>
+<a name="ln-29"></a>        <span class="kt">integer</span><span class="p">(</span><span class="n">I_P</span><span class="p">)</span>                       <span class="kd">::</span> <span class="n">i_equ</span>        <span class="c">!&lt; Counter.</span>
+<a name="ln-30"></a>        <span class="kt">integer</span><span class="p">(</span><span class="n">I_P</span><span class="p">)</span>                       <span class="kd">::</span> <span class="n">i_vec</span>        <span class="c">!&lt; Counter.</span>
+<a name="ln-31"></a>        <span class="kt">integer</span><span class="p">(</span><span class="n">I_P</span><span class="p">)</span>                       <span class="kd">::</span> <span class="n">n</span>        <span class="c">!&lt; Number of points.</span>
+<a name="ln-32"></a>        <span class="kt">integer</span><span class="p">(</span><span class="n">I_P</span><span class="p">)</span>                       <span class="kd">::</span> <span class="n">n_equ</span>        <span class="c">!&lt; Number of points.</span>
+<a name="ln-33"></a>
+<a name="ln-34"></a>        <span class="n">n_equ</span> <span class="o">=</span> <span class="n">size</span><span class="p">(</span><span class="n">fie</span><span class="p">)</span>
+<a name="ln-35"></a>
+<a name="ln-36"></a>        <span class="n">mesh_cur</span> <span class="o">=&gt;</span> <span class="n">associate_mesh_FD_1D</span><span class="p">(</span><span class="n">mesh_input</span><span class="o">=</span><span class="n">fie</span><span class="p">(</span><span class="mi">1</span><span class="p">)%</span><span class="n">m</span><span class="p">,</span> <span class="n">emsg</span><span class="o">=</span><span class="s1">&#39;mesh&#39;</span><span class="p">)</span>
+<a name="ln-37"></a>        <span class="n">n</span> <span class="o">=</span>  <span class="n">mesh_cur</span><span class="p">%</span><span class="n">n</span>
+<a name="ln-38"></a>
+<a name="ln-39"></a>        <span class="k">allocate</span><span class="p">(</span><span class="n">vec</span><span class="p">,</span> <span class="n">mold</span><span class="o">=</span><span class="n">this</span><span class="p">%</span><span class="n">vec</span><span class="p">)</span>
+<a name="ln-40"></a>        <span class="k">call </span><span class="n">vec</span><span class="p">%</span><span class="n">init</span><span class="p">(</span><span class="n">n</span><span class="o">*</span><span class="n">n_equ</span><span class="p">)</span>
+<a name="ln-41"></a> 
+<a name="ln-42"></a>        <span class="k">do </span><span class="n">i_equ</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span><span class="n">n_equ</span>
+<a name="ln-43"></a>            <span class="n">fie_cur</span> <span class="o">=&gt;</span> <span class="n">associate_field_FD_1D</span><span class="p">(</span><span class="n">field_input</span><span class="o">=</span><span class="n">fie</span><span class="p">(</span><span class="n">i_equ</span><span class="p">),</span> <span class="n">emsg</span><span class="o">=</span><span class="s1">&#39;casting error&#39;</span><span class="p">)</span>
+<a name="ln-44"></a>
+<a name="ln-45"></a>            <span class="c">! No concrete features of vector are used so dynamic casting is not needed</span>
+<a name="ln-46"></a>            <span class="k">do </span><span class="n">i</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">n</span>
+<a name="ln-47"></a>                <span class="n">i_vec</span> <span class="o">=</span> <span class="n">n</span><span class="o">*</span><span class="p">(</span><span class="n">i_equ</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span><span class="o">+</span><span class="n">i</span>
+<a name="ln-48"></a>            <span class="c">!    print*,&quot;i, fie_cur%val(i) :&quot;,i, fie_cur%val(i)</span>
+<a name="ln-49"></a>                <span class="k">call </span><span class="n">vec</span><span class="p">%</span><span class="n">set</span><span class="p">(</span><span class="n">i_vec</span><span class="p">,</span> <span class="n">fie_cur</span><span class="p">%</span><span class="n">val</span><span class="p">(</span><span class="n">i</span><span class="p">))</span>
+<a name="ln-50"></a>            <span class="n">enddo</span>
+<a name="ln-51"></a>        <span class="n">enddo</span>
+<a name="ln-52"></a>    <span class="k">end function </span><span class="n">operate</span>
+<a name="ln-53"></a><span class="k">end module </span><span class="n">openpde_f2v_FD_1D</span>
+</pre></div>
+
+    </section>
+    </div>
+  </div>
+
+  <section class="visible-xs visible-sm hidden-md">
+    <hr>
+    
+
+<div class="panel panel-default">
+  <div class="panel-heading text-left"><h3 class="panel-title"><a data-toggle="collapse" href="#allfiles-1">All Source Files</a></h3></div>
+  <div id="allfiles-1" class="panel-collapse collapse">
+    <div class="list-group">
+      
+      <a class="list-group-item" href="../sourcefile/openpde.f90.html">openpde.f90</a>
+      
+      <a class="list-group-item" href="../sourcefile/openpde_equation_abstract.f90.html">openpde_equation_abstract.f90</a>
+      
+      <a class="list-group-item" href="../sourcefile/openpde_equation_adv.f90.html">openpde_equation_adv.f90</a>
+      
+      <a class="list-group-item" href="../sourcefile/openpde_f2m_abstract.f90.html">openpde_f2m_abstract.f90</a>
+      
+      <a class="list-group-item" href="../sourcefile/openpde_f2m_d1_abstract.f90.html">openpde_f2m_d1_abstract.f90</a>
+      
+      <a class="list-group-item" href="../sourcefile/openpde_f2m_d1_fd_1d.f90.html">openpde_f2m_d1_FD_1D.f90</a>
+      
+      <a class="list-group-item" href="../sourcefile/openpde_f2m_d2_abstract.f90.html">openpde_f2m_d2_abstract.f90</a>
+      
+      <a class="list-group-item" href="../sourcefile/openpde_f2m_d2_fd_1d.f90.html">openpde_f2m_d2_FD_1D.f90</a>
+      
+      <a class="list-group-item" href="../sourcefile/openpde_f2m_d2_fd_2d.f90.html">openpde_f2m_d2_FD_2D.f90</a>
+      
+      <a class="list-group-item" href="../sourcefile/openpde_f2v_abstract.f90.html">openpde_f2v_abstract.f90</a>
+      
+      <a class="list-group-item" href="../sourcefile/openpde_f2v_fd_1d.f90.html">openpde_f2v_FD_1D.f90</a>
+      
+      <a class="list-group-item" href="../sourcefile/openpde_f2v_fd_2d.f90.html">openpde_f2v_FD_2D.f90</a>
+      
+      <a class="list-group-item" href="../sourcefile/openpde_field_abstract.f90.html">openpde_field_abstract.f90</a>
+      
+      <a class="list-group-item" href="../sourcefile/openpde_field_block_fv_1d.f90.html">openpde_field_block_FV_1D.f90</a>
+      
+      <a class="list-group-item" href="../sourcefile/openpde_field_fd_1d.f90.html">openpde_field_FD_1D.f90</a>
+      
+      <a class="list-group-item" href="../sourcefile/openpde_field_fd_2d.f90.html">openpde_field_FD_2D.f90</a>
+      
+      <a class="list-group-item" href="../sourcefile/openpde_field_fv_1d.f90.html">openpde_field_FV_1D.f90</a>
+      
+      <a class="list-group-item" href="../sourcefile/openpde_field_surface_abstract.f90.html">openpde_field_surface_abstract.f90</a>
+      
+      <a class="list-group-item" href="../sourcefile/openpde_field_surface_block_fv_1d.f90.html">openpde_field_surface_block_FV_1D.f90</a>
+      
+      <a class="list-group-item" href="../sourcefile/openpde_field_surface_fv_1d.f90.html">openpde_field_surface_FV_1D.f90</a>
+      
+      <a class="list-group-item" href="../sourcefile/openpde_integrator_adv_abstract.f90.html">openpde_integrator_adv_abstract.f90</a>
+      
+      <a class="list-group-item" href="../sourcefile/openpde_integrator_adv_euler_explicit.f90.html">openpde_integrator_adv_euler_explicit.f90</a>
+      
+      <a class="list-group-item" href="../sourcefile/openpde_integrator_adv_euler_implicit.f90.html">openpde_integrator_adv_euler_implicit.f90</a>
+      
+      <a class="list-group-item" href="../sourcefile/openpde_integrator_adv_rk_implicit.f90.html">openpde_integrator_adv_rk_implicit.f90</a>
+      
+      <a class="list-group-item" href="../sourcefile/openpde_integrator_asbtract.f90.html">openpde_integrator_asbtract.f90</a>
+      
+      <a class="list-group-item" href="../sourcefile/openpde_integrator_euler_explicit.f90.html">openpde_integrator_euler_explicit.f90</a>
+      
+      <a class="list-group-item" href="../sourcefile/openpde_kinds.f90.html">openpde_kinds.f90</a>
+      
+      <a class="list-group-item" href="../sourcefile/openpde_linsolver_abstract.f90.html">openpde_linsolver_abstract.f90</a>
+      
+      <a class="list-group-item" href="../sourcefile/openpde_linsolver_gmlapack.f90.html">openpde_linsolver_gmlapack.f90</a>
+      
+      <a class="list-group-item" href="../sourcefile/openpde_matrix_abstract.f90.html">openpde_matrix_abstract.f90</a>
+      
+      <a class="list-group-item" href="../sourcefile/openpde_matrix_simple.f90.html">openpde_matrix_simple.f90</a>
+      
+      <a class="list-group-item" href="../sourcefile/openpde_mesh_abstract.f90.html">openpde_mesh_abstract.f90</a>
+      
+      <a class="list-group-item" href="../sourcefile/openpde_mesh_block_fv_1d.f90.html">openpde_mesh_block_FV_1D.f90</a>
+      
+      <a class="list-group-item" href="../sourcefile/openpde_mesh_fd_1d.f90.html">openpde_mesh_FD_1D.f90</a>
+      
+      <a class="list-group-item" href="../sourcefile/openpde_mesh_fd_2d.f90.html">openpde_mesh_FD_2D.f90</a>
+      
+      <a class="list-group-item" href="../sourcefile/openpde_mesh_fv_1d.f90.html">openpde_mesh_FV_1D.f90</a>
+      
+      <a class="list-group-item" href="../sourcefile/openpde_multigrid_abstract.f90.html">openpde_multigrid_abstract.f90</a>
+      
+      <a class="list-group-item" href="../sourcefile/openpde_multigrid_fd_1d.f90.html">openpde_multigrid_FD_1D.f90</a>
+      
+      <a class="list-group-item" href="../sourcefile/openpde_spatial_operator_abstract.f90.html">openpde_spatial_operator_abstract.f90</a>
+      
+      <a class="list-group-item" href="../sourcefile/openpde_spatial_operator_d1_abstract.f90.html">openpde_spatial_operator_d1_abstract.f90</a>
+      
+      <a class="list-group-item" href="../sourcefile/openpde_spatial_operator_d1_fd_1d.f90.html">openpde_spatial_operator_d1_FD_1D.f90</a>
+      
+      <a class="list-group-item" href="../sourcefile/openpde_spatial_operator_d1_fd_2d.f90.html">openpde_spatial_operator_d1_FD_2D.f90</a>
+      
+      <a class="list-group-item" href="../sourcefile/openpde_spatial_operator_d1_fv_1d.f90.html">openpde_spatial_operator_d1_FV_1D.f90</a>
+      
+      <a class="list-group-item" href="../sourcefile/openpde_spatial_operator_d2_abstract.f90.html">openpde_spatial_operator_d2_abstract.f90</a>
+      
+      <a class="list-group-item" href="../sourcefile/openpde_spatial_operator_d2_fd_1d.f90.html">openpde_spatial_operator_d2_FD_1D.f90</a>
+      
+      <a class="list-group-item" href="../sourcefile/openpde_spatial_operator_d2_fd_2d.f90.html">openpde_spatial_operator_d2_FD_2D.f90</a>
+      
+      <a class="list-group-item" href="../sourcefile/openpde_spatial_operator_d2_fv_1d.f90.html">openpde_spatial_operator_d2_FV_1D.f90</a>
+      
+      <a class="list-group-item" href="../sourcefile/openpde_v2f_abstract.f90.html">openpde_v2f_abstract.f90</a>
+      
+      <a class="list-group-item" href="../sourcefile/openpde_v2f_fd_1d.f90.html">openpde_v2f_FD_1D.f90</a>
+      
+      <a class="list-group-item" href="../sourcefile/openpde_v2f_fd_2d.f90.html">openpde_v2f_FD_2D.f90</a>
+      
+      <a class="list-group-item" href="../sourcefile/openpde_vector_abstract.f90.html">openpde_vector_abstract.f90</a>
+      
+      <a class="list-group-item" href="../sourcefile/openpde_vector_simple.f90.html">openpde_vector_simple.f90</a>
+      
+    </div>
+  </div>
+</div>
+
+
+  </section>
+  
+    <hr>    
+    </div> <!-- /container -->
+    <footer>
+      <div class="container">
+      <div class="row">
+        <div class="col-xs-6 col-md-4"><p>&copy; 2017 </p></div>
+        <div class="col-xs-6 col-md-4 col-md-push-4">
+          <p class="text-right">
+            Documentation generated by 
+            <a href="https://github.com/cmacmackin/ford">FORD</a>
+            
+          </p>
+        </div>
+        <div class="col-xs-12 col-md-4 col-md-pull-4"><p class="text-center"> openpde was developed by Francesco Salvadore</p></div>
+      </div>
+      <br>
+      </div> <!-- /container -->    
+    </footer>
+
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+<!--
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+-->
+    <script src="../js/bootstrap.min.js"></script>
+    <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+    <script src="../js/ie10-viewport-bug-workaround.js"></script>
+
+    <!-- MathJax JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Config({
+        TeX: { extensions: ['AMSmath.js','AMSsymbols.js','noErrors.js','noUndefined.js'], equationNumbers: { autoNumber: 'AMS' } },
+        jax: ['input/TeX','input/MathML','output/HTML-CSS'],
+        extensions: ['tex2jax.js','mml2jax.js','MathMenu.js','MathZoom.js'],
+        'HTML-CSS': { 
+           styles: { '.MathJax_Display, .MathJax .mo, .MathJax .mi, .MathJax .mn': {color: '#000000 ! important'} }
+        }
+      });
+    </script>
+    <script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+  </body>
+</html>

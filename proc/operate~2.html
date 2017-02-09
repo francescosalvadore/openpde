@@ -7,7 +7,7 @@
 	 
     <meta name="description" content="Documentation for openpde">
 	 
-    <meta name="author" content="Chris MacMackin" >
+    <meta name="author" content="Francesco Salvadore" >
     <link rel="icon" href="../favicon.png">
 
     <title>operate &ndash; openpde</title>
@@ -53,13 +53,20 @@
         <div id="navbar" class="navbar-collapse collapse">
           <ul class="nav navbar-nav">
 				
-                
+            <li class="dropdown hidden-xs visible-sm visible-md hidden-lg">
+              <a href="#" class="dropdown-toggle"
+              data-toggle="dropdown" role="button"
+              aria-haspopup="true"
+		 aria-expanded="false">Contents <span class="caret"></span></a>
+	      <ul class="dropdown-menu">
+              
             <li><a href="../lists/files.html">Source Files</a></li>
 				
 				
             <li><a href="../lists/modules.html">Modules</a></li>
 				
-				
+            
+                                
             <li><a href="../lists/procedures.html">Procedures</a></li>
 				
 				
@@ -68,8 +75,24 @@
             <li><a href="../lists/types.html">Derived Types</a></li>
 				
 				
-            <li><a href="../program/scalar_simple.html">Program</a></li>
-				
+            </ul>
+            </li>
+
+<li class="visible-xs hidden-sm visible-lg"><a href="../lists/files.html">Source Files</a></li>
+
+
+<li class="visible-xs hidden-sm visible-lg"><a href="../lists/modules.html">Modules</a></li>
+
+
+
+<li class="visible-xs hidden-sm visible-lg"><a href="../lists/procedures.html">Procedures</a></li>
+
+
+<li class="visible-xs hidden-sm visible-lg"><a href="../lists/absint.html">Abstract Interfaces</a></li>
+                             
+<li class="visible-xs hidden-sm visible-lg"><a href="../lists/types.html">Derived Types</a></li>
+
+
           </ul>
         
         <form action="../search.html" class="navbar-form navbar-right" role="search">
@@ -90,12 +113,12 @@
   
   <div class="row">
     <h1>operate
-    <small>Function</small>
+      <small>Subroutine</small>
     
     </h1>
-	 
+    
 <div class="row">
-<div class="col-lg-12">
+  <div class="col-lg-12">
 <div class="well well-sm">
   <ul class="list-inline" style="margin-bottom:0px;display:inline">
      
@@ -104,198 +127,421 @@
      
     
     
-    <li><i class="fa fa-code"></i><a href="../src/openpde_spatial_operator_d1_FD_2D.f90"> Source File</a></li>
+     <li><i class="fa fa-list-ol"></i>
+       <a data-toggle="tooltip"
+	  data-placement="bottom" data-html="true"
+	  title=" 0.9% of total for procedures.">22 statements</a>
+     </li> 
+     
+     
+    <li><i class="fa fa-code"></i><a href="../src/openpde_v2f_FD_1D.f90"> Source File</a></li>
      
   </ul>
   <ol class="breadcrumb in-well text-right">
   
-     <li><a href='../sourcefile/openpde_spatial_operator_d1_fd_2d.f90.html'>openpde_spatial_operator_d1_FD_2D.f90</a></li>
+     <li><a href='../sourcefile/openpde_v2f_fd_1d.f90.html'>openpde_v2f_FD_1D.f90</a></li>
   
-     <li><a href='../module/openpde_spatial_operator_d1_fd_2d.html'>openpde_spatial_operator_d1_FD_2D</a></li>
+     <li><a href='../module/openpde_v2f_fd_1d.html'>openpde_v2f_FD_1D</a></li>
   
      <li class="active">operate</li>
   </ol>
 </div>
 </div>
 </div>
-    
+<script>
+  $(function () {
+  $('[data-toggle="tooltip"]').tooltip()
+  })
+</script>
+
   </div>
   
   <div class="row">
-    <div class="col-lg-3">
+    <div class="col-md-3 hidden-xs hidden-sm visible-md visible-lg">
     
 <div id="sidebar">
   
-  
-  
-  <div class="panel panel-primary">
-    <div class="panel-heading text-left"><h3 class="panel-title"><a data-toggle="collapse" href="#vars">Variables</a></h3></div>
-    <div id="vars" class="panel-collapse collapse">
-      <div class="list-group">
-        
-        <a class="list-group-item" href="../proc/operate%7E2.html#variable-inp_cur%7E2">inp_cur</a>
-        
-        <a class="list-group-item" href="../proc/operate%7E2.html#variable-opr_cur%7E12">opr_cur</a>
-        
-        <a class="list-group-item" href="../proc/operate%7E2.html#variable-mesh_cur%7E6">mesh_cur</a>
-        
-        <a class="list-group-item" href="../proc/operate%7E2.html#variable-dir_%7E2">dir_</a>
-        
-        <a class="list-group-item" href="../proc/operate%7E2.html#variable-i%7E6">i</a>
-        
-        <a class="list-group-item" href="../proc/operate%7E2.html#variable-j%7E4">j</a>
-        
-      </div>
-    </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="panel panel-primary">
+  <div class="panel-heading text-left"><h3 class="panel-title">Source Code</h3></div>
+  <div class="list-group">
+    <a class="list-group-item" href="../proc/operate%7E2.html#src">operate</a>
   </div>
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  <div class="panel panel-primary">
-    <div class="panel-heading text-left"><h3 class="panel-title">Source Code</h3></div>
-    <div class="list-group">
-      <a class="list-group-item" href="../proc/operate%7E2.html#src">operate</a>
-    </div>
-  </div>
-  
+</div>
+
+
   <hr>
   
-  <div class="panel panel-default">
-    <div class="panel-heading text-left"><h3 class="panel-title"><a data-toggle="collapse" href="#allprocs">All Procedures</a></h3></div>
-    <div id="allprocs" class="panel-collapse collapse">
-        <div class="list-group">
-          
-          <a class="list-group-item" href="../proc/add.html">add</a>
-          
-          <a class="list-group-item" href="../proc/add%7E2.html">add</a>
-          
-          <a class="list-group-item" href="../proc/assign_field.html">assign_field</a>
-          
-          <a class="list-group-item" href="../proc/assign_field%7E2.html">assign_field</a>
-          
-          <a class="list-group-item" href="../proc/associate_field_fd_1d.html">associate_field_FD_1D</a>
-          
-          <a class="list-group-item" href="../proc/associate_field_fd_2d.html">associate_field_FD_2D</a>
-          
-          <a class="list-group-item" href="../proc/associate_mesh.html">associate_mesh</a>
-          
-          <a class="list-group-item" href="../proc/associate_mesh%7E2.html">associate_mesh</a>
-          
-          <a class="list-group-item" href="../proc/associate_mesh_fd_1d.html">associate_mesh_FD_1D</a>
-          
-          <a class="list-group-item" href="../proc/associate_mesh_fd_2d.html">associate_mesh_FD_2D</a>
-          
-          <a class="list-group-item" href="../proc/bc.html">bc</a>
-          
-          <a class="list-group-item" href="../proc/forcing.html">forcing</a>
-          
-          <a class="list-group-item" href="../proc/free.html">free</a>
-          
-          <a class="list-group-item" href="../proc/free%7E2.html">free</a>
-          
-          <a class="list-group-item" href="../proc/free%7E3.html">free</a>
-          
-          <a class="list-group-item" href="../proc/free%7E4.html">free</a>
-          
-          <a class="list-group-item" href="../proc/free%7E5.html">free</a>
-          
-          <a class="list-group-item" href="../proc/free%7E6.html">free</a>
-          
-          <a class="list-group-item" href="../proc/init.html">init</a>
-          
-          <a class="list-group-item" href="../proc/init%7E2.html">init</a>
-          
-          <a class="list-group-item" href="../proc/init%7E3.html">init</a>
-          
-          <a class="list-group-item" href="../proc/init%7E4.html">init</a>
-          
-          <a class="list-group-item" href="../proc/init%7E5.html">init</a>
-          
-          <a class="list-group-item" href="../proc/init%7E6.html">init</a>
-          
-          <a class="list-group-item" href="../proc/integrate.html">integrate</a>
-          
-          <a class="list-group-item" href="../proc/load_from_json.html">load_from_json</a>
-          
-          <a class="list-group-item" href="../proc/load_from_json%7E2.html">load_from_json</a>
-          
-          <a class="list-group-item" href="../proc/load_from_json%7E3.html">load_from_json</a>
-          
-          <a class="list-group-item" href="../proc/mul.html">mul</a>
-          
-          <a class="list-group-item" href="../proc/mul%7E2.html">mul</a>
-          
-          <a class="list-group-item" href="../proc/mulreal.html">mulreal</a>
-          
-          <a class="list-group-item" href="../proc/mulreal%7E2.html">mulreal</a>
-          
-          <a class="list-group-item" href="../proc/operate.html">operate</a>
-          
-          <a class="list-group-item" href="../proc/operate%7E2.html">operate</a>
-          
-          <a class="list-group-item" href="../proc/operate%7E3.html">operate</a>
-          
-          <a class="list-group-item" href="../proc/operate%7E4.html">operate</a>
-          
-          <a class="list-group-item" href="../proc/output.html">output</a>
-          
-          <a class="list-group-item" href="../proc/output%7E2.html">output</a>
-          
-          <a class="list-group-item" href="../proc/output%7E3.html">output</a>
-          
-          <a class="list-group-item" href="../proc/output%7E4.html">output</a>
-          
-          <a class="list-group-item" href="../proc/realmul.html">realmul</a>
-          
-          <a class="list-group-item" href="../proc/realmul%7E2.html">realmul</a>
-          
-          <a class="list-group-item" href="../proc/set.html">set</a>
-          
-          <a class="list-group-item" href="../proc/set%7E2.html">set</a>
-          
-          <a class="list-group-item" href="../proc/set%7E3.html">set</a>
-          
-          <a class="list-group-item" href="../proc/set%7E4.html">set</a>
-          
-          <a class="list-group-item" href="../proc/sub.html">sub</a>
-          
-          <a class="list-group-item" href="../proc/sub%7E2.html">sub</a>
-          
-        </div>
+
+<div class="panel panel-default">
+  <div class="panel-heading text-left"><h3 class="panel-title"><a data-toggle="collapse" href="#allprocs-0">All Procedures</a></h3></div>
+  <div id="allprocs-0" class="panel-collapse collapse">
+    <div class="list-group">
+      
+      <a class="list-group-item" href="../proc/add.html">add</a>
+      
+      <a class="list-group-item" href="../proc/add%7E2.html">add</a>
+      
+      <a class="list-group-item" href="../proc/add%7E3.html">add</a>
+      
+      <a class="list-group-item" href="../proc/add%7E4.html">add</a>
+      
+      <a class="list-group-item" href="../proc/add%7E5.html">add</a>
+      
+      <a class="list-group-item" href="../proc/add%7E6.html">add</a>
+      
+      <a class="list-group-item" href="../proc/add%7E7.html">add</a>
+      
+      <a class="list-group-item" href="../proc/alloc.html">alloc</a>
+      
+      <a class="list-group-item" href="../proc/alloc%7E2.html">alloc</a>
+      
+      <a class="list-group-item" href="../proc/assign_block.html">assign_block</a>
+      
+      <a class="list-group-item" href="../proc/assign_block%7E2.html">assign_block</a>
+      
+      <a class="list-group-item" href="../proc/assign_field.html">assign_field</a>
+      
+      <a class="list-group-item" href="../proc/assign_field%7E2.html">assign_field</a>
+      
+      <a class="list-group-item" href="../proc/assign_field%7E3.html">assign_field</a>
+      
+      <a class="list-group-item" href="../proc/assign_field%7E4.html">assign_field</a>
+      
+      <a class="list-group-item" href="../proc/assign_matrix.html">assign_matrix</a>
+      
+      <a class="list-group-item" href="../proc/assign_mesh_fd_1d.html">assign_mesh_FD_1D</a>
+      
+      <a class="list-group-item" href="../proc/assign_vector.html">assign_vector</a>
+      
+      <a class="list-group-item" href="../interface/associate_field_fd_1d.html">associate_field_FD_1D</a>
+      
+      <a class="list-group-item" href="../proc/associate_field_fd_1d_rank1.html">associate_field_FD_1D_rank1</a>
+      
+      <a class="list-group-item" href="../proc/associate_field_fd_1d_rank2.html">associate_field_FD_1D_rank2</a>
+      
+      <a class="list-group-item" href="../proc/associate_field_fd_1d_scalar.html">associate_field_FD_1D_scalar</a>
+      
+      <a class="list-group-item" href="../proc/associate_field_fd_2d.html">associate_field_FD_2D</a>
+      
+      <a class="list-group-item" href="../proc/associate_field_fv_1d.html">associate_field_FV_1D</a>
+      
+      <a class="list-group-item" href="../proc/associate_field_surface_fv_1d.html">associate_field_surface_FV_1D</a>
+      
+      <a class="list-group-item" href="../proc/associate_matrix_simple.html">associate_matrix_simple</a>
+      
+      <a class="list-group-item" href="../proc/associate_mesh.html">associate_mesh</a>
+      
+      <a class="list-group-item" href="../proc/associate_mesh%7E2.html">associate_mesh</a>
+      
+      <a class="list-group-item" href="../proc/associate_mesh%7E3.html">associate_mesh</a>
+      
+      <a class="list-group-item" href="../proc/associate_mesh%7E4.html">associate_mesh</a>
+      
+      <a class="list-group-item" href="../interface/associate_mesh_fd_1d.html">associate_mesh_FD_1D</a>
+      
+      <a class="list-group-item" href="../proc/associate_mesh_fd_1d_rank1.html">associate_mesh_FD_1D_rank1</a>
+      
+      <a class="list-group-item" href="../proc/associate_mesh_fd_1d_scalar.html">associate_mesh_FD_1D_scalar</a>
+      
+      <a class="list-group-item" href="../proc/associate_mesh_fd_2d.html">associate_mesh_FD_2D</a>
+      
+      <a class="list-group-item" href="../proc/associate_mesh_fv_1d.html">associate_mesh_FV_1D</a>
+      
+      <a class="list-group-item" href="../proc/associate_vector_simple.html">associate_vector_simple</a>
+      
+      <a class="list-group-item" href="../proc/bc_e.html">bc_e</a>
+      
+      <a class="list-group-item" href="../proc/bc_i.html">bc_i</a>
+      
+      <a class="list-group-item" href="../proc/compute_fluxes.html">compute_fluxes</a>
+      
+      <a class="list-group-item" href="../proc/compute_fluxes%7E2.html">compute_fluxes</a>
+      
+      <a class="list-group-item" href="../proc/create_subgrids_field.html">create_subgrids_field</a>
+      
+      <a class="list-group-item" href="../proc/div.html">div</a>
+      
+      <a class="list-group-item" href="../proc/div%7E2.html">div</a>
+      
+      <a class="list-group-item" href="../proc/div%7E3.html">div</a>
+      
+      <a class="list-group-item" href="../proc/div%7E4.html">div</a>
+      
+      <a class="list-group-item" href="../proc/div%7E5.html">div</a>
+      
+      <a class="list-group-item" href="../proc/div%7E6.html">div</a>
+      
+      <a class="list-group-item" href="../proc/free.html">free</a>
+      
+      <a class="list-group-item" href="../proc/free%7E2.html">free</a>
+      
+      <a class="list-group-item" href="../proc/free%7E3.html">free</a>
+      
+      <a class="list-group-item" href="../proc/free%7E4.html">free</a>
+      
+      <a class="list-group-item" href="../proc/free%7E5.html">free</a>
+      
+      <a class="list-group-item" href="../proc/free%7E6.html">free</a>
+      
+      <a class="list-group-item" href="../proc/free%7E7.html">free</a>
+      
+      <a class="list-group-item" href="../proc/free%7E8.html">free</a>
+      
+      <a class="list-group-item" href="../proc/free%7E9.html">free</a>
+      
+      <a class="list-group-item" href="../proc/free%7E10.html">free</a>
+      
+      <a class="list-group-item" href="../proc/free%7E11.html">free</a>
+      
+      <a class="list-group-item" href="../proc/free%7E12.html">free</a>
+      
+      <a class="list-group-item" href="../proc/free%7E13.html">free</a>
+      
+      <a class="list-group-item" href="../proc/free%7E14.html">free</a>
+      
+      <a class="list-group-item" href="../proc/free%7E15.html">free</a>
+      
+      <a class="list-group-item" href="../proc/free%7E16.html">free</a>
+      
+      <a class="list-group-item" href="../proc/free%7E17.html">free</a>
+      
+      <a class="list-group-item" href="../proc/get.html">get</a>
+      
+      <a class="list-group-item" href="../proc/init.html">init</a>
+      
+      <a class="list-group-item" href="../proc/init%7E2.html">init</a>
+      
+      <a class="list-group-item" href="../proc/init%7E3.html">init</a>
+      
+      <a class="list-group-item" href="../proc/init%7E4.html">init</a>
+      
+      <a class="list-group-item" href="../proc/init%7E5.html">init</a>
+      
+      <a class="list-group-item" href="../proc/init%7E6.html">init</a>
+      
+      <a class="list-group-item" href="../proc/init%7E7.html">init</a>
+      
+      <a class="list-group-item" href="../proc/init%7E8.html">init</a>
+      
+      <a class="list-group-item" href="../proc/init%7E9.html">init</a>
+      
+      <a class="list-group-item" href="../proc/init%7E10.html">init</a>
+      
+      <a class="list-group-item" href="../proc/init%7E11.html">init</a>
+      
+      <a class="list-group-item" href="../proc/init%7E12.html">init</a>
+      
+      <a class="list-group-item" href="../proc/init%7E13.html">init</a>
+      
+      <a class="list-group-item" href="../proc/init%7E14.html">init</a>
+      
+      <a class="list-group-item" href="../proc/init%7E15.html">init</a>
+      
+      <a class="list-group-item" href="../proc/init%7E16.html">init</a>
+      
+      <a class="list-group-item" href="../proc/init%7E17.html">init</a>
+      
+      <a class="list-group-item" href="../proc/init%7E18.html">init</a>
+      
+      <a class="list-group-item" href="../proc/integrate.html">integrate</a>
+      
+      <a class="list-group-item" href="../proc/integrate%7E2.html">integrate</a>
+      
+      <a class="list-group-item" href="../proc/integrate%7E3.html">integrate</a>
+      
+      <a class="list-group-item" href="../proc/integrate%7E4.html">integrate</a>
+      
+      <a class="list-group-item" href="../proc/jacobian.html">jacobian</a>
+      
+      <a class="list-group-item" href="../proc/load_from_json.html">load_from_json</a>
+      
+      <a class="list-group-item" href="../proc/load_from_json%7E2.html">load_from_json</a>
+      
+      <a class="list-group-item" href="../proc/load_from_json%7E3.html">load_from_json</a>
+      
+      <a class="list-group-item" href="../proc/load_from_json%7E4.html">load_from_json</a>
+      
+      <a class="list-group-item" href="../proc/load_from_json%7E5.html">load_from_json</a>
+      
+      <a class="list-group-item" href="../proc/load_from_json%7E6.html">load_from_json</a>
+      
+      <a class="list-group-item" href="../proc/load_from_json%7E7.html">load_from_json</a>
+      
+      <a class="list-group-item" href="../proc/mul.html">mul</a>
+      
+      <a class="list-group-item" href="../proc/mul%7E2.html">mul</a>
+      
+      <a class="list-group-item" href="../proc/mul%7E3.html">mul</a>
+      
+      <a class="list-group-item" href="../proc/mul%7E4.html">mul</a>
+      
+      <a class="list-group-item" href="../proc/mul%7E5.html">mul</a>
+      
+      <a class="list-group-item" href="../proc/mul%7E6.html">mul</a>
+      
+      <a class="list-group-item" href="../proc/mulreal.html">mulreal</a>
+      
+      <a class="list-group-item" href="../proc/mulreal%7E2.html">mulreal</a>
+      
+      <a class="list-group-item" href="../proc/mulreal%7E3.html">mulreal</a>
+      
+      <a class="list-group-item" href="../proc/mulreal%7E4.html">mulreal</a>
+      
+      <a class="list-group-item" href="../proc/mulreal%7E5.html">mulreal</a>
+      
+      <a class="list-group-item" href="../proc/mulreal%7E6.html">mulreal</a>
+      
+      <a class="list-group-item" href="../proc/newrealmul.html">newrealmul</a>
+      
+      <a class="list-group-item" href="../proc/operate.html">operate</a>
+      
+      <a class="list-group-item" href="../proc/operate%7E2.html">operate</a>
+      
+      <a class="list-group-item" href="../proc/operate%7E3.html">operate</a>
+      
+      <a class="list-group-item" href="../proc/operate%7E4.html">operate</a>
+      
+      <a class="list-group-item" href="../proc/operate%7E5.html">operate</a>
+      
+      <a class="list-group-item" href="../proc/operate%7E6.html">operate</a>
+      
+      <a class="list-group-item" href="../proc/operate%7E7.html">operate</a>
+      
+      <a class="list-group-item" href="../proc/operate%7E8.html">operate</a>
+      
+      <a class="list-group-item" href="../proc/operate%7E9.html">operate</a>
+      
+      <a class="list-group-item" href="../proc/operate%7E10.html">operate</a>
+      
+      <a class="list-group-item" href="../proc/operate%7E11.html">operate</a>
+      
+      <a class="list-group-item" href="../proc/operate%7E12.html">operate</a>
+      
+      <a class="list-group-item" href="../proc/operate%7E13.html">operate</a>
+      
+      <a class="list-group-item" href="../proc/output.html">output</a>
+      
+      <a class="list-group-item" href="../proc/output%7E2.html">output</a>
+      
+      <a class="list-group-item" href="../proc/output%7E3.html">output</a>
+      
+      <a class="list-group-item" href="../proc/output%7E4.html">output</a>
+      
+      <a class="list-group-item" href="../proc/output%7E5.html">output</a>
+      
+      <a class="list-group-item" href="../proc/output%7E6.html">output</a>
+      
+      <a class="list-group-item" href="../proc/output%7E7.html">output</a>
+      
+      <a class="list-group-item" href="../proc/output%7E8.html">output</a>
+      
+      <a class="list-group-item" href="../proc/output%7E9.html">output</a>
+      
+      <a class="list-group-item" href="../proc/output%7E10.html">output</a>
+      
+      <a class="list-group-item" href="../proc/output%7E11.html">output</a>
+      
+      <a class="list-group-item" href="../proc/output%7E12.html">output</a>
+      
+      <a class="list-group-item" href="../proc/realmul.html">realmul</a>
+      
+      <a class="list-group-item" href="../proc/realmul%7E2.html">realmul</a>
+      
+      <a class="list-group-item" href="../proc/realmul%7E3.html">realmul</a>
+      
+      <a class="list-group-item" href="../proc/realmul%7E4.html">realmul</a>
+      
+      <a class="list-group-item" href="../proc/realmul%7E5.html">realmul</a>
+      
+      <a class="list-group-item" href="../proc/realmul%7E6.html">realmul</a>
+      
+      <a class="list-group-item" href="../proc/realmul%7E7.html">realmul</a>
+      
+      <a class="list-group-item" href="../proc/resid_e.html">resid_e</a>
+      
+      <a class="list-group-item" href="../proc/resid_emg.html">resid_emg</a>
+      
+      <a class="list-group-item" href="../proc/resid_i.html">resid_i</a>
+      
+      <a class="list-group-item" href="../proc/set.html">set</a>
+      
+      <a class="list-group-item" href="../proc/set%7E2.html">set</a>
+      
+      <a class="list-group-item" href="../proc/set%7E3.html">set</a>
+      
+      <a class="list-group-item" href="../proc/set%7E4.html">set</a>
+      
+      <a class="list-group-item" href="../proc/set%7E5.html">set</a>
+      
+      <a class="list-group-item" href="../proc/set%7E6.html">set</a>
+      
+      <a class="list-group-item" href="../proc/set%7E7.html">set</a>
+      
+      <a class="list-group-item" href="../proc/set%7E8.html">set</a>
+      
+      <a class="list-group-item" href="../proc/set_matrix.html">set_matrix</a>
+      
+      <a class="list-group-item" href="../proc/set_vector.html">set_vector</a>
+      
+      <a class="list-group-item" href="../proc/solve.html">solve</a>
+      
+      <a class="list-group-item" href="../proc/sub.html">sub</a>
+      
+      <a class="list-group-item" href="../proc/sub%7E2.html">sub</a>
+      
+      <a class="list-group-item" href="../proc/sub%7E3.html">sub</a>
+      
+      <a class="list-group-item" href="../proc/sub%7E4.html">sub</a>
+      
+      <a class="list-group-item" href="../proc/sub%7E5.html">sub</a>
+      
+      <a class="list-group-item" href="../proc/sub%7E6.html">sub</a>
+      
+      <a class="list-group-item" href="../proc/sub%7E7.html">sub</a>
+      
     </div>
   </div>
-  
 </div>
+
+
+</div>  
 
     </div>
     
-    <div class="col-lg-9" id='text'>
+    <div class="col-md-9" id='text'>
     <h2>
-private function operate(this, inp, dir) result(opr)
+private subroutine operate(this, vec, fie)
     
     
-    
+	 
 </h2>
     
   
 
 
+    
+    <p>Operator operation.</p>
+    
 
     <h3>Arguments</h3>
     
@@ -315,7 +561,7 @@ private function operate(this, inp, dir) result(opr)
   
 <tr>
   
-  <td><span class="anchor" id="variable-this%7E24"></span>class(<a href='../type/spatial_operator_d1_fd_2d.html'>spatial_operator_d1_FD_2D</a>),</td>
+  <td><span class="anchor" id="variable-this%7E61"></span>class(<a href='../type/v2f_fd_1d.html'>v2f_FD_1D</a>),</td>
   <td>intent(in)</td>
   <td></td>
   
@@ -330,12 +576,12 @@ private function operate(this, inp, dir) result(opr)
   
 <tr>
   
-  <td><span class="anchor" id="variable-inp%7E6"></span>class(<a href='../type/field.html'>field</a>),</td>
-  <td>intent(in),</td>
+  <td><span class="anchor" id="variable-vec%7E7"></span>class(<a href='../type/vector.html'>vector</a>),</td>
+  <td>intent(in)</td>
   <td></td>
   
-  <td>target</td><td>::</td>
-  <td><strong>inp</strong></td><td><p>Input field.</p></td>
+  <td></td><td>::</td>
+  <td><strong>vec</strong></td><td><p>Input vector.</p></td>
   
 </tr>
 
@@ -345,12 +591,12 @@ private function operate(this, inp, dir) result(opr)
   
 <tr>
   
-  <td><span class="anchor" id="variable-dir%7E3"></span>integer(kind=I_P),</td>
-  <td>intent(in),</td>
-  <td>optional</td>
+  <td><span class="anchor" id="variable-fie%7E4"></span>class(<a href='../type/field.html'>field</a>),</td>
+  <td>intent(inout),</td>
+  <td></td>
   
-  <td></td><td>::</td>
-  <td><strong>dir</strong></td><td><p>Direction of operation.</p></td>
+  <td>dimension(:)</td><td>::</td>
+  <td><strong>fie</strong></td><td><p>Returned field.</p></td>
   
 </tr>
 
@@ -360,62 +606,84 @@ private function operate(this, inp, dir) result(opr)
     
     
     
-    
-    
-    
-    
-	 <h3>Return Value <small><span class="anchor" id="variable-opr%7E17"></span>class(<a href='../type/field.html'>field</a>),
-  allocatable,target</small></h3>
-    <p>Field resulting after the operator application.</p>
-    
-    
-    <h3>Description</h3>
-    <p>Operator operation.</p>
-    
-    
      <h3>Calls</h3>
      
                 <div class="depgraph"><?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
  "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
-<!-- Generated by graphviz version 2.38.0 (20140413.2041)
+<!-- Generated by graphviz version 2.40.1 (20161225.0304)
  -->
 <!-- Title: proc~~operate~2~~CallsGraph Pages: 1 -->
-<svg id="procoperate2CallsGraph" width="228pt" height="74pt"
- viewBox="0.00 0.00 228.00 74.00" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-<g id="proc~~operate~2~~CallsGraph" class="graph" transform="scale(1 1) rotate(0) translate(4 70)">
+<svg id="procoperate2CallsGraph" width="414pt" height="116pt"
+ viewBox="0.00 0.00 414.00 116.00" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<g id="proc~~operate~2~~CallsGraph" class="graph" transform="scale(1 1) rotate(0) translate(4 112)">
 <title>proc~~operate~2~~CallsGraph</title>
-<polygon fill="white" stroke="none" points="-4,4 -4,-70 224,-70 224,4 -4,4"/>
+<polygon fill="#ffffff" stroke="transparent" points="-4,4 -4,-112 410,-112 410,4 -4,4"/>
 <!-- proc~operate~2 -->
-<g id="proc~~operate~2~~CallsGraph_node1" class="node"><title>proc~operate~2</title>
-<polygon fill="none" stroke="black" points="54,-45 0,-45 0,-21 54,-21 54,-45"/>
-<text text-anchor="middle" x="27" y="-30.6" font-family="Helvetica,sans-Serif" font-size="10.50">operate</text>
+<g id="proc~~operate~2~~CallsGraph_node1" class="node">
+<title>proc~operate~2</title>
+<polygon fill="none" stroke="#000000" points="54,-66 0,-66 0,-42 54,-42 54,-66"/>
+<text text-anchor="middle" x="27" y="-51.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="#000000">operate</text>
 </g>
-<!-- proc~associate_mesh_fd_2d -->
-<g id="proc~~operate~2~~CallsGraph_node2" class="node"><title>proc~associate_mesh_fd_2d</title>
-<g id="a_proc~~operate~2~~CallsGraph_node2"><a xlink:href="../proc/associate_mesh_fd_2d.html" xlink:title="associate_mesh_FD_2D">
-<polygon fill="#d9534f" stroke="#d9534f" points="220,-66 90,-66 90,-42 220,-42 220,-66"/>
-<text text-anchor="middle" x="155" y="-51.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">associate_mesh_FD_2D</text>
+<!-- interface~associate_field_fd_1d -->
+<g id="proc~~operate~2~~CallsGraph_node2" class="node">
+<title>interface~associate_field_fd_1d</title>
+<g id="a_proc~~operate~2~~CallsGraph_node2"><a xlink:href="../interface/associate_field_fd_1d.html" xlink:title="associate_field_FD_1D">
+<polygon fill="#a7506f" stroke="#a7506f" points="213,-66 90,-66 90,-42 213,-42 213,-66"/>
+<text text-anchor="middle" x="151.5" y="-51.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="#ffffff">associate_field_FD_1D</text>
 </a>
 </g>
 </g>
-<!-- proc~operate~2&#45;&gt;proc~associate_mesh_fd_2d -->
-<g id="proc~~operate~2~~CallsGraph_edge1" class="edge"><title>proc~operate~2&#45;&gt;proc~associate_mesh_fd_2d</title>
-<path fill="none" stroke="#000000" d="M54.1073,-37.3512C61.8359,-38.6393 70.7082,-40.118 79.9062,-41.651"/>
-<polygon fill="#000000" stroke="#000000" points="79.5369,-45.1377 89.9763,-43.3294 80.6877,-38.2329 79.5369,-45.1377"/>
+<!-- proc~operate~2&#45;&gt;interface~associate_field_fd_1d -->
+<g id="proc~~operate~2~~CallsGraph_edge4" class="edge">
+<title>proc~operate~2&#45;&gt;interface~associate_field_fd_1d</title>
+<path fill="none" stroke="#000000" d="M54.0146,-54C61.7049,-54 70.4649,-54 79.5061,-54"/>
+<polygon fill="#000000" stroke="#000000" points="79.7914,-57.5001 89.7914,-54 79.7914,-50.5001 79.7914,-57.5001"/>
 </g>
-<!-- proc~associate_field_fd_2d -->
-<g id="proc~~operate~2~~CallsGraph_node3" class="node"><title>proc~associate_field_fd_2d</title>
-<g id="a_proc~~operate~2~~CallsGraph_node3"><a xlink:href="../proc/associate_field_fd_2d.html" xlink:title="associate_field_FD_2D">
-<polygon fill="#d9534f" stroke="#d9534f" points="216.5,-24 93.5,-24 93.5,-0 216.5,-0 216.5,-24"/>
-<text text-anchor="middle" x="155" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">associate_field_FD_2D</text>
+<!-- proc~associate_field_fd_1d_scalar -->
+<g id="proc~~operate~2~~CallsGraph_node3" class="node">
+<title>proc~associate_field_fd_1d_scalar</title>
+<g id="a_proc~~operate~2~~CallsGraph_node3"><a xlink:href="../proc/associate_field_fd_1d_scalar.html" xlink:title="associate_field_FD_1D_scalar">
+<polygon fill="#d94e8f" stroke="#d94e8f" points="406,-108 249,-108 249,-84 406,-84 406,-108"/>
+<text text-anchor="middle" x="327.5" y="-93.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="#ffffff">associate_field_FD_1D_scalar</text>
 </a>
 </g>
 </g>
-<!-- proc~operate~2&#45;&gt;proc~associate_field_fd_2d -->
-<g id="proc~~operate~2~~CallsGraph_edge2" class="edge"><title>proc~operate~2&#45;&gt;proc~associate_field_fd_2d</title>
-<path fill="none" stroke="#000000" d="M54.1073,-28.6488C62.7926,-27.2012 72.9224,-25.5129 83.3357,-23.7774"/>
-<polygon fill="#000000" stroke="#000000" points="84.0801,-27.2017 93.3686,-22.1052 82.9293,-20.2969 84.0801,-27.2017"/>
+<!-- interface~associate_field_fd_1d&#45;&gt;proc~associate_field_fd_1d_scalar -->
+<g id="proc~~operate~2~~CallsGraph_edge1" class="edge">
+<title>interface~associate_field_fd_1d&#45;&gt;proc~associate_field_fd_1d_scalar</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M201.9345,-66.0355C222.2786,-70.8903 245.9202,-76.5321 267.1665,-81.6022"/>
+<polygon fill="#000000" stroke="#000000" points="266.5188,-85.0459 277.0581,-83.9627 268.1437,-78.2371 266.5188,-85.0459"/>
+</g>
+<!-- proc~associate_field_fd_1d_rank2 -->
+<g id="proc~~operate~2~~CallsGraph_node4" class="node">
+<title>proc~associate_field_fd_1d_rank2</title>
+<g id="a_proc~~operate~2~~CallsGraph_node4"><a xlink:href="../proc/associate_field_fd_1d_rank2.html" xlink:title="associate_field_FD_1D_rank2">
+<polygon fill="#d94e8f" stroke="#d94e8f" points="405.5,-66 249.5,-66 249.5,-42 405.5,-42 405.5,-66"/>
+<text text-anchor="middle" x="327.5" y="-51.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="#ffffff">associate_field_FD_1D_rank2</text>
+</a>
+</g>
+</g>
+<!-- interface~associate_field_fd_1d&#45;&gt;proc~associate_field_fd_1d_rank2 -->
+<g id="proc~~operate~2~~CallsGraph_edge2" class="edge">
+<title>interface~associate_field_fd_1d&#45;&gt;proc~associate_field_fd_1d_rank2</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M213.0563,-54C221.4635,-54 230.2258,-54 238.9947,-54"/>
+<polygon fill="#000000" stroke="#000000" points="239.2709,-57.5001 249.2709,-54 239.2708,-50.5001 239.2709,-57.5001"/>
+</g>
+<!-- proc~associate_field_fd_1d_rank1 -->
+<g id="proc~~operate~2~~CallsGraph_node5" class="node">
+<title>proc~associate_field_fd_1d_rank1</title>
+<g id="a_proc~~operate~2~~CallsGraph_node5"><a xlink:href="../proc/associate_field_fd_1d_rank1.html" xlink:title="associate_field_FD_1D_rank1">
+<polygon fill="#d94e8f" stroke="#d94e8f" points="405.5,-24 249.5,-24 249.5,0 405.5,0 405.5,-24"/>
+<text text-anchor="middle" x="327.5" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="#ffffff">associate_field_FD_1D_rank1</text>
+</a>
+</g>
+</g>
+<!-- interface~associate_field_fd_1d&#45;&gt;proc~associate_field_fd_1d_rank1 -->
+<g id="proc~~operate~2~~CallsGraph_edge3" class="edge">
+<title>interface~associate_field_fd_1d&#45;&gt;proc~associate_field_fd_1d_rank1</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M201.9345,-41.9645C222.2786,-37.1097 245.9202,-31.4679 267.1665,-26.3978"/>
+<polygon fill="#000000" stroke="#000000" points="268.1437,-29.7629 277.0581,-24.0373 266.5188,-22.9541 268.1437,-29.7629"/>
 </g>
 </g>
 </svg>
@@ -430,83 +698,64 @@ private function operate(this, inp, dir) result(opr)
                       </div>
                       <div class="modal-body">
                         
-Nodes of different colours represent the following:
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+    <p>Nodes of different colours represent the following: </p>
+    <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
  "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
-<!-- Generated by graphviz version 2.38.0 (20140413.2041)
+<!-- Generated by graphviz version 2.40.1 (20161225.0304)
  -->
 <!-- Title: Graph Key Pages: 1 -->
-<svg width="641pt" height="26pt"
- viewBox="0.00 0.00 641.00 25.98" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-<g id="graph0" class="graph" transform="scale(0.811906 0.811906) rotate(0) translate(4 28)">
+<svg width="560pt" height="32pt"
+ viewBox="0.00 0.00 559.50 32.00" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<g id="graph0" class="graph" transform="scale(1 1) rotate(0) translate(4 28)">
 <title>Graph Key</title>
-<polygon fill="white" stroke="none" points="-4,4 -4,-28 785.5,-28 785.5,4 -4,4"/>
-<!-- Module -->
-<g id="node1" class="node"><title>Module</title>
-<polygon fill="#337ab7" stroke="#337ab7" points="54,-24 0,-24 0,-0 54,-0 54,-24"/>
-<text text-anchor="middle" x="27" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">Module</text>
-</g>
-<!-- Submodule -->
-<g id="node2" class="node"><title>Submodule</title>
-<polygon fill="#5bc0de" stroke="#5bc0de" points="139.5,-24 72.5,-24 72.5,-0 139.5,-0 139.5,-24"/>
-<text text-anchor="middle" x="106" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">Submodule</text>
-</g>
-<!-- Type -->
-<g id="node3" class="node"><title>Type</title>
-<polygon fill="#5cb85c" stroke="#5cb85c" points="212,-24 158,-24 158,-0 212,-0 212,-24"/>
-<text text-anchor="middle" x="185" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">Type</text>
-</g>
+<polygon fill="#ffffff" stroke="transparent" points="-4,4 -4,-28 555.5,-28 555.5,4 -4,4"/>
 <!-- Subroutine -->
-<g id="node4" class="node"><title>Subroutine</title>
-<polygon fill="#d9534f" stroke="#d9534f" points="294,-24 230,-24 230,-0 294,-0 294,-24"/>
-<text text-anchor="middle" x="262" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">Subroutine</text>
+<g id="node1" class="node">
+<title>Subroutine</title>
+<polygon fill="#d9534f" stroke="#d9534f" points="64,-24 0,-24 0,0 64,0 64,-24"/>
+<text text-anchor="middle" x="32" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="#ffffff">Subroutine</text>
 </g>
 <!-- Function -->
-<g id="node5" class="node"><title>Function</title>
-<polygon fill="#d94e8f" stroke="#d94e8f" points="366,-24 312,-24 312,-0 366,-0 366,-24"/>
-<text text-anchor="middle" x="339" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">Function</text>
+<g id="node2" class="node">
+<title>Function</title>
+<polygon fill="#d94e8f" stroke="#d94e8f" points="136,-24 82,-24 82,0 136,0 136,-24"/>
+<text text-anchor="middle" x="109" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="#ffffff">Function</text>
 </g>
 <!-- Interface -->
-<g id="node6" class="node"><title>Interface</title>
-<polygon fill="#a7506f" stroke="#a7506f" points="439.5,-24 384.5,-24 384.5,-0 439.5,-0 439.5,-24"/>
-<text text-anchor="middle" x="412" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">Interface</text>
+<g id="node3" class="node">
+<title>Interface</title>
+<polygon fill="#a7506f" stroke="#a7506f" points="209.5,-24 154.5,-24 154.5,0 209.5,0 209.5,-24"/>
+<text text-anchor="middle" x="182" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="#ffffff">Interface</text>
 </g>
 <!-- Unknown Procedure Type -->
-<g id="node7" class="node"><title>Unknown Procedure Type</title>
-<polygon fill="#777777" stroke="#777777" points="594,-24 458,-24 458,-0 594,-0 594,-24"/>
-<text text-anchor="middle" x="526" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">Unknown Procedure Type</text>
+<g id="node4" class="node">
+<title>Unknown Procedure Type</title>
+<polygon fill="#777777" stroke="#777777" points="364,-24 228,-24 228,0 364,0 364,-24"/>
+<text text-anchor="middle" x="296" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="#ffffff">Unknown Procedure Type</text>
 </g>
 <!-- Program -->
-<g id="node8" class="node"><title>Program</title>
-<polygon fill="#f0ad4e" stroke="#f0ad4e" points="666,-24 612,-24 612,-0 666,-0 666,-24"/>
-<text text-anchor="middle" x="639" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">Program</text>
+<g id="node5" class="node">
+<title>Program</title>
+<polygon fill="#f0ad4e" stroke="#f0ad4e" points="436,-24 382,-24 382,0 436,0 436,-24"/>
+<text text-anchor="middle" x="409" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="#ffffff">Program</text>
 </g>
 <!-- This Page&#39;s Entity -->
-<g id="node9" class="node"><title>This Page&#39;s Entity</title>
-<polygon fill="none" stroke="black" points="781.5,-24 684.5,-24 684.5,-0 781.5,-0 781.5,-24"/>
-<text text-anchor="middle" x="733" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50">This Page&#39;s Entity</text>
+<g id="node6" class="node">
+<title>This Page&#39;s Entity</title>
+<polygon fill="none" stroke="#000000" points="551.5,-24 454.5,-24 454.5,0 551.5,0 551.5,-24"/>
+<text text-anchor="middle" x="503" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="#000000">This Page&#39;s Entity</text>
 </g>
 </g>
 </svg>
 
-Where possible, edges connecting nodes are given different colours to make them
-easier to distinguish in large graphs.
-<h5>Module Graph</h5>
-<p>Solid arrows point from a parent (sub)module to the submodule which is
-descended from it. Dashed arrows point from a module being used to the
-module using it.</p>
-<h5>Type Graph</h5>
-<p>Solid arrows point from one derived type to another which extends
-(inherits from) it. Dashed arrows point from a derived type to another
-type containing it as a components, with a label listing the name(s) of
-said component(s).</p>
-<h5>Call Graph</h5>
-<p>Solid arrows point from a procedure to one which it calls. Dashed 
-arrows point from an interface to procedures which implement that interface.
-This could include the module procedures in a generic interface or the
-implementation in a submodule of an interface in a parent module.</p>
-
+    
+    <p>Solid arrows point from a procedure to one which it calls. Dashed 
+    arrows point from an interface to procedures which implement that interface.
+    This could include the module procedures in a generic interface or the
+    implementation in a submodule of an interface in a parent module.
+    </p>
+    
                       </div>
                     </div>
                   </div>
@@ -515,108 +764,42 @@ implementation in a submodule of an interface in a parent module.</p>
      
      
     <br>
-    
-    <section>
-    <h2>Variables</h2>
-    
-<table class="table table-striped varlist">
-<thead><tr><th>Type</th><th>Visibility</th>
 
-<th>Attributes</th><th></th><th>Name</th><th></th><th>Initial</th><th></th></thead>
+    <section class="visible-xs visible-sm hidden-md">
+      
 
 
 
-<tbody>
 
-  
-  
-  
-  
-<tr>
-  
-  <td><span class="anchor" id="variable-inp_cur%7E2"></span>class(field_FD_2D),</td>
-  
-  <td>public,</td>
-  <td>pointer</td><td>::</td>
-  <td><strong>inp_cur</strong></td><td></td><td></td><td><p>Dummy pointer for input field.</p></td>
-  
-</tr>
 
-  
-  
-  
-  
-<tr>
-  
-  <td><span class="anchor" id="variable-opr_cur%7E12"></span>class(field_FD_2D),</td>
-  
-  <td>public,</td>
-  <td>pointer</td><td>::</td>
-  <td><strong>opr_cur</strong></td><td></td><td></td><td><p>Dummy pointer for operator result.</p></td>
-  
-</tr>
 
-  
-  
-  
-  
-<tr>
-  
-  <td><span class="anchor" id="variable-mesh_cur%7E6"></span>class(mesh_FD_2D),</td>
-  
-  <td>public,</td>
-  <td>pointer</td><td>::</td>
-  <td><strong>mesh_cur</strong></td><td></td><td></td><td><p>Dummy pointer for mesh.</p></td>
-  
-</tr>
 
-  
-  
-  
-  
-<tr>
-  
-  <td><span class="anchor" id="variable-dir_%7E2"></span>integer(kind=I_P),</td>
-  
-  <td>public</td>
-  <td></td><td>::</td>
-  <td><strong>dir_</strong></td><td></td><td></td><td><p>Direction of operation.</p></td>
-  
-</tr>
 
-  
-  
-  
-  
-<tr>
-  
-  <td><span class="anchor" id="variable-i%7E6"></span>integer(kind=I_P),</td>
-  
-  <td>public</td>
-  <td></td><td>::</td>
-  <td><strong>i</strong></td><td></td><td></td><td><p>Counter.</p></td>
-  
-</tr>
 
-  
-  
-  
-  
-<tr>
-  
-  <td><span class="anchor" id="variable-j%7E4"></span>integer(kind=I_P),</td>
-  
-  <td>public</td>
-  <td></td><td>::</td>
-  <td><strong>j</strong></td><td></td><td></td><td><p>Counter.</p></td>
-  
-</tr>
 
-</tbody>
-</table>
+
+
+
+
+
+
+
+
+
+
+<div class="panel panel-primary">
+  <div class="panel-heading text-left"><h3 class="panel-title">Source Code</h3></div>
+  <div class="list-group">
+    <a class="list-group-item" href="../proc/operate%7E2.html#src">operate</a>
+  </div>
+</div>
+
 
     </section>
-    <br>
+    <br class="visible-xs visible-sm hidden-md">
+
+    
+
     
     
     
@@ -635,41 +818,35 @@ implementation in a submodule of an interface in a parent module.</p>
     
     <section>
     <h2><span class="anchor" id="src"></span>Source Code</h2>
-    <div class="highlight"><pre><span></span>    <span class="k">function </span><span class="n">operate</span><span class="p">(</span><span class="n">this</span><span class="p">,</span> <span class="n">inp</span><span class="p">,</span> <span class="n">dir</span><span class="p">)</span> <span class="k">result</span><span class="p">(</span><span class="n">opr</span><span class="p">)</span>
+    <div class="highlight"><pre><span></span>    <span class="k">subroutine </span><span class="n">operate</span><span class="p">(</span><span class="n">this</span><span class="p">,</span> <span class="n">vec</span><span class="p">,</span> <span class="n">fie</span><span class="p">)</span>
         <span class="c">!&lt; Operator operation.</span>
-        <span class="k">class</span><span class="p">(</span><span class="n">spatial_operator_d1_FD_2D</span><span class="p">),</span> <span class="k">intent</span><span class="p">(</span><span class="n">in</span><span class="p">)</span>           <span class="kd">::</span> <span class="n">this</span>     <span class="c">!&lt; The operator.</span>
-        <span class="k">class</span><span class="p">(</span><span class="n">field</span><span class="p">),</span>                     <span class="k">intent</span><span class="p">(</span><span class="n">in</span><span class="p">),</span> <span class="k">target</span>   <span class="kd">::</span> <span class="n">inp</span>      <span class="c">!&lt; Input field.</span>
-        <span class="kt">integer</span><span class="p">(</span><span class="n">I_P</span><span class="p">),</span>                     <span class="k">intent</span><span class="p">(</span><span class="n">in</span><span class="p">),</span> <span class="k">optional</span> <span class="kd">::</span> <span class="n">dir</span>      <span class="c">!&lt; Direction of operation.</span>
-        <span class="k">class</span><span class="p">(</span><span class="n">field</span><span class="p">),</span> <span class="k">allocatable</span><span class="p">,</span> <span class="k">target</span>                      <span class="kd">::</span> <span class="n">opr</span>      <span class="c">!&lt; Field resulting after the operator application.</span>
-        <span class="k">class</span><span class="p">(</span><span class="n">field_FD_2D</span><span class="p">),</span> <span class="k">pointer</span>                            <span class="kd">::</span> <span class="n">inp_cur</span>  <span class="c">!&lt; Dummy pointer for input field.</span>
-        <span class="k">class</span><span class="p">(</span><span class="n">field_FD_2D</span><span class="p">),</span> <span class="k">pointer</span>                            <span class="kd">::</span> <span class="n">opr_cur</span>  <span class="c">!&lt; Dummy pointer for operator result.</span>
-        <span class="k">class</span><span class="p">(</span><span class="n">mesh_FD_2D</span><span class="p">),</span>  <span class="k">pointer</span>                            <span class="kd">::</span> <span class="n">mesh_cur</span> <span class="c">!&lt; Dummy pointer for mesh.</span>
-        <span class="kt">integer</span><span class="p">(</span><span class="n">I_P</span><span class="p">)</span>                                           <span class="kd">::</span> <span class="n">dir_</span>     <span class="c">!&lt; Direction of operation.</span>
-        <span class="kt">integer</span><span class="p">(</span><span class="n">I_P</span><span class="p">)</span>                                           <span class="kd">::</span> <span class="n">i</span>        <span class="c">!&lt; Counter.</span>
-        <span class="kt">integer</span><span class="p">(</span><span class="n">I_P</span><span class="p">)</span>                                           <span class="kd">::</span> <span class="n">j</span>        <span class="c">!&lt; Counter.</span>
+        <span class="k">class</span><span class="p">(</span><span class="n">v2f_FD_1D</span><span class="p">),</span> <span class="k">intent</span><span class="p">(</span><span class="n">in</span><span class="p">)</span>        <span class="kd">::</span> <span class="n">this</span>      <span class="c">!&lt; The operator.</span>
+        <span class="k">class</span><span class="p">(</span><span class="n">vector</span><span class="p">),</span> <span class="k">intent</span><span class="p">(</span><span class="n">in</span><span class="p">)</span>           <span class="kd">::</span> <span class="n">vec</span>       <span class="c">!&lt; Input vector.</span>
+        <span class="k">class</span><span class="p">(</span><span class="n">field</span><span class="p">),</span> <span class="k">intent</span><span class="p">(</span><span class="n">inout</span><span class="p">),</span> <span class="k">dimension</span><span class="p">(:)</span> <span class="kd">::</span> <span class="n">fie</span>       <span class="c">!&lt; Returned field.</span>
+        <span class="k">class</span><span class="p">(</span><span class="n">field_FD_1D</span><span class="p">),</span> <span class="k">pointer</span>         <span class="kd">::</span> <span class="n">fie_cur</span>   <span class="c">!&lt; Dummy pointer for input field.</span>
+        <span class="k">class</span><span class="p">(</span><span class="n">mesh_FD_1D</span><span class="p">),</span>  <span class="k">pointer</span>         <span class="kd">::</span> <span class="n">mesh_cur</span>  <span class="c">!&lt; Dummy pointer for mesh.</span>
+        <span class="kt">integer</span><span class="p">(</span><span class="n">I_P</span><span class="p">)</span>                        <span class="kd">::</span> <span class="n">i</span>         <span class="c">!&lt; Counter.</span>
+        <span class="kt">integer</span><span class="p">(</span><span class="n">I_P</span><span class="p">)</span>                        <span class="kd">::</span> <span class="n">i_equ</span>         <span class="c">!&lt; Counter.</span>
+        <span class="kt">integer</span><span class="p">(</span><span class="n">I_P</span><span class="p">)</span>                        <span class="kd">::</span> <span class="n">i_vec</span>         <span class="c">!&lt; Counter.</span>
+        <span class="kt">integer</span><span class="p">(</span><span class="n">I_P</span><span class="p">)</span>                        <span class="kd">::</span> <span class="n">n</span>         <span class="c">!&lt; Number of points.</span>
+        <span class="kt">integer</span><span class="p">(</span><span class="n">I_P</span><span class="p">)</span>                        <span class="kd">::</span> <span class="n">n_equ</span>         <span class="c">!&lt; Number of points.</span>
 
-        <span class="k">allocate</span><span class="p">(</span><span class="n">field_FD_2D</span> <span class="kd">::</span> <span class="n">opr</span><span class="p">)</span>
-        <span class="k">call </span><span class="n">associate_field_FD_2D</span><span class="p">(</span><span class="n">field_input</span><span class="o">=</span><span class="n">opr</span><span class="p">,</span>                                         <span class="p">&amp;</span>
-                                   <span class="n">calling_procedure</span><span class="o">=</span><span class="s1">&#39;operate_spatial_operator_FD_2D(opr)&#39;</span><span class="p">,</span> <span class="p">&amp;</span>
-                                   <span class="n">field_pointer</span><span class="o">=</span><span class="n">opr_cur</span><span class="p">)</span>
-        <span class="k">call </span><span class="n">associate_field_FD_2D</span><span class="p">(</span><span class="n">field_input</span><span class="o">=</span><span class="n">inp</span><span class="p">,</span>                                         <span class="p">&amp;</span>
-                                   <span class="n">calling_procedure</span><span class="o">=</span><span class="s1">&#39;operate_spatial_operator_FD_2D(inp)&#39;</span><span class="p">,</span> <span class="p">&amp;</span>
-                                   <span class="n">field_pointer</span><span class="o">=</span><span class="n">inp_cur</span><span class="p">)</span>
-        <span class="k">call </span><span class="n">associate_mesh_FD_2D</span><span class="p">(</span><span class="n">mesh_input</span><span class="o">=</span><span class="n">inp</span><span class="p">%</span><span class="n">m</span><span class="p">,</span>                                          <span class="p">&amp;</span>
-                                  <span class="n">calling_procedure</span><span class="o">=</span><span class="s1">&#39;operate_spatial_operator_FD_2D(inp%m)&#39;</span><span class="p">,</span> <span class="p">&amp;</span>
-                                  <span class="n">mesh_pointer</span><span class="o">=</span><span class="n">mesh_cur</span><span class="p">)</span>
-        <span class="k">call </span><span class="n">opr_cur</span><span class="p">%</span><span class="n">associate_mesh</span><span class="p">(</span><span class="n">field_mesh</span><span class="o">=</span><span class="n">inp</span><span class="p">%</span><span class="n">m</span><span class="p">)</span>
-        <span class="n">dir_</span><span class="o">=</span> <span class="mi">1</span> <span class="p">;</span> <span class="k">if</span> <span class="p">(</span><span class="nb">present</span><span class="p">(</span><span class="n">dir</span><span class="p">))</span> <span class="n">dir_</span> <span class="o">=</span> <span class="n">dir</span>
-        <span class="k">if</span> <span class="p">(</span><span class="n">dir_</span><span class="o">==</span><span class="mi">1</span><span class="p">)</span> <span class="k">then</span>
-<span class="k">            do </span><span class="n">i</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">mesh_cur</span><span class="p">%</span><span class="n">nx</span>
-                <span class="n">opr_cur</span><span class="p">%</span><span class="n">val</span><span class="p">(</span><span class="n">i</span><span class="p">,</span> <span class="p">:)</span> <span class="o">=</span> <span class="p">(</span><span class="n">inp_cur</span><span class="p">%</span><span class="n">val</span><span class="p">(</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">,</span> <span class="p">:)</span> <span class="o">-</span> <span class="n">inp_cur</span><span class="p">%</span><span class="n">val</span><span class="p">(</span><span class="n">i</span><span class="p">,</span> <span class="p">:))</span><span class="o">/</span><span class="p">(</span><span class="n">mesh_cur</span><span class="p">%</span><span class="n">hx</span><span class="p">)</span>
+        <span class="n">n_equ</span> <span class="o">=</span> <span class="n">this</span><span class="p">%</span><span class="n">n_equ</span>
+        <span class="n">n</span> <span class="o">=</span> <span class="n">vec</span><span class="p">%</span><span class="n">n</span> <span class="o">/</span> <span class="n">n_equ</span>
+
+        <span class="k">do </span><span class="n">i_equ</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span> <span class="n">n_equ</span>
+            <span class="k">call </span><span class="n">fie</span><span class="p">(</span><span class="n">i_equ</span><span class="p">)%</span><span class="n">init</span><span class="p">(</span><span class="n">field_mesh</span><span class="o">=</span><span class="n">this</span><span class="p">%</span><span class="n">mesh</span><span class="p">)</span>
+
+            <span class="n">fie_cur</span> <span class="o">=&gt;</span> <span class="n">associate_field_FD_1D</span><span class="p">(</span><span class="n">field_input</span><span class="o">=</span><span class="n">fie</span><span class="p">(</span><span class="n">i_equ</span><span class="p">))</span>
+
+            <span class="c">! No concrete features of vector are used so dynamic casting is not needed</span>
+            <span class="k">do </span><span class="n">i</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">n</span>
+                <span class="n">i_vec</span> <span class="o">=</span> <span class="n">n</span><span class="o">*</span><span class="p">(</span><span class="n">n_equ</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span> <span class="o">+</span> <span class="n">i</span>
+                <span class="n">fie_cur</span><span class="p">%</span><span class="n">val</span><span class="p">(</span><span class="n">i</span><span class="p">)</span> <span class="o">=</span> <span class="n">vec</span><span class="p">%</span><span class="n">get</span><span class="p">(</span><span class="n">i_vec</span><span class="p">)</span>
             <span class="n">enddo</span>
-        <span class="k">else</span>
-<span class="k">            do </span><span class="n">j</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">mesh_cur</span><span class="p">%</span><span class="n">ny</span>
-                <span class="n">opr_cur</span><span class="p">%</span><span class="n">val</span><span class="p">(:,</span> <span class="n">j</span><span class="p">)</span> <span class="o">=</span> <span class="p">(</span><span class="n">inp_cur</span><span class="p">%</span><span class="n">val</span><span class="p">(:,</span> <span class="n">j</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span> <span class="o">-</span> <span class="n">inp_cur</span><span class="p">%</span><span class="n">val</span><span class="p">(:,</span> <span class="n">j</span><span class="p">))</span><span class="o">/</span><span class="p">(</span><span class="n">mesh_cur</span><span class="p">%</span><span class="n">hy</span><span class="p">)</span>
-            <span class="n">enddo</span>
-        <span class="n">endif</span>
-    <span class="k">end function </span><span class="n">operate</span>
+        <span class="n">enddo</span>
+
+    <span class="k">end subroutine </span><span class="n">operate</span>
 </pre></div>
 
     </section>
@@ -679,23 +856,362 @@ implementation in a submodule of an interface in a parent module.</p>
     </div>
   </div>
 
+  <section class="visible-xs visible-sm hidden-md">
     <hr>
+    
+
+<div class="panel panel-default">
+  <div class="panel-heading text-left"><h3 class="panel-title"><a data-toggle="collapse" href="#allprocs-1">All Procedures</a></h3></div>
+  <div id="allprocs-1" class="panel-collapse collapse">
+    <div class="list-group">
+      
+      <a class="list-group-item" href="../proc/add.html">add</a>
+      
+      <a class="list-group-item" href="../proc/add%7E2.html">add</a>
+      
+      <a class="list-group-item" href="../proc/add%7E3.html">add</a>
+      
+      <a class="list-group-item" href="../proc/add%7E4.html">add</a>
+      
+      <a class="list-group-item" href="../proc/add%7E5.html">add</a>
+      
+      <a class="list-group-item" href="../proc/add%7E6.html">add</a>
+      
+      <a class="list-group-item" href="../proc/add%7E7.html">add</a>
+      
+      <a class="list-group-item" href="../proc/alloc.html">alloc</a>
+      
+      <a class="list-group-item" href="../proc/alloc%7E2.html">alloc</a>
+      
+      <a class="list-group-item" href="../proc/assign_block.html">assign_block</a>
+      
+      <a class="list-group-item" href="../proc/assign_block%7E2.html">assign_block</a>
+      
+      <a class="list-group-item" href="../proc/assign_field.html">assign_field</a>
+      
+      <a class="list-group-item" href="../proc/assign_field%7E2.html">assign_field</a>
+      
+      <a class="list-group-item" href="../proc/assign_field%7E3.html">assign_field</a>
+      
+      <a class="list-group-item" href="../proc/assign_field%7E4.html">assign_field</a>
+      
+      <a class="list-group-item" href="../proc/assign_matrix.html">assign_matrix</a>
+      
+      <a class="list-group-item" href="../proc/assign_mesh_fd_1d.html">assign_mesh_FD_1D</a>
+      
+      <a class="list-group-item" href="../proc/assign_vector.html">assign_vector</a>
+      
+      <a class="list-group-item" href="../interface/associate_field_fd_1d.html">associate_field_FD_1D</a>
+      
+      <a class="list-group-item" href="../proc/associate_field_fd_1d_rank1.html">associate_field_FD_1D_rank1</a>
+      
+      <a class="list-group-item" href="../proc/associate_field_fd_1d_rank2.html">associate_field_FD_1D_rank2</a>
+      
+      <a class="list-group-item" href="../proc/associate_field_fd_1d_scalar.html">associate_field_FD_1D_scalar</a>
+      
+      <a class="list-group-item" href="../proc/associate_field_fd_2d.html">associate_field_FD_2D</a>
+      
+      <a class="list-group-item" href="../proc/associate_field_fv_1d.html">associate_field_FV_1D</a>
+      
+      <a class="list-group-item" href="../proc/associate_field_surface_fv_1d.html">associate_field_surface_FV_1D</a>
+      
+      <a class="list-group-item" href="../proc/associate_matrix_simple.html">associate_matrix_simple</a>
+      
+      <a class="list-group-item" href="../proc/associate_mesh.html">associate_mesh</a>
+      
+      <a class="list-group-item" href="../proc/associate_mesh%7E2.html">associate_mesh</a>
+      
+      <a class="list-group-item" href="../proc/associate_mesh%7E3.html">associate_mesh</a>
+      
+      <a class="list-group-item" href="../proc/associate_mesh%7E4.html">associate_mesh</a>
+      
+      <a class="list-group-item" href="../interface/associate_mesh_fd_1d.html">associate_mesh_FD_1D</a>
+      
+      <a class="list-group-item" href="../proc/associate_mesh_fd_1d_rank1.html">associate_mesh_FD_1D_rank1</a>
+      
+      <a class="list-group-item" href="../proc/associate_mesh_fd_1d_scalar.html">associate_mesh_FD_1D_scalar</a>
+      
+      <a class="list-group-item" href="../proc/associate_mesh_fd_2d.html">associate_mesh_FD_2D</a>
+      
+      <a class="list-group-item" href="../proc/associate_mesh_fv_1d.html">associate_mesh_FV_1D</a>
+      
+      <a class="list-group-item" href="../proc/associate_vector_simple.html">associate_vector_simple</a>
+      
+      <a class="list-group-item" href="../proc/bc_e.html">bc_e</a>
+      
+      <a class="list-group-item" href="../proc/bc_i.html">bc_i</a>
+      
+      <a class="list-group-item" href="../proc/compute_fluxes.html">compute_fluxes</a>
+      
+      <a class="list-group-item" href="../proc/compute_fluxes%7E2.html">compute_fluxes</a>
+      
+      <a class="list-group-item" href="../proc/create_subgrids_field.html">create_subgrids_field</a>
+      
+      <a class="list-group-item" href="../proc/div.html">div</a>
+      
+      <a class="list-group-item" href="../proc/div%7E2.html">div</a>
+      
+      <a class="list-group-item" href="../proc/div%7E3.html">div</a>
+      
+      <a class="list-group-item" href="../proc/div%7E4.html">div</a>
+      
+      <a class="list-group-item" href="../proc/div%7E5.html">div</a>
+      
+      <a class="list-group-item" href="../proc/div%7E6.html">div</a>
+      
+      <a class="list-group-item" href="../proc/free.html">free</a>
+      
+      <a class="list-group-item" href="../proc/free%7E2.html">free</a>
+      
+      <a class="list-group-item" href="../proc/free%7E3.html">free</a>
+      
+      <a class="list-group-item" href="../proc/free%7E4.html">free</a>
+      
+      <a class="list-group-item" href="../proc/free%7E5.html">free</a>
+      
+      <a class="list-group-item" href="../proc/free%7E6.html">free</a>
+      
+      <a class="list-group-item" href="../proc/free%7E7.html">free</a>
+      
+      <a class="list-group-item" href="../proc/free%7E8.html">free</a>
+      
+      <a class="list-group-item" href="../proc/free%7E9.html">free</a>
+      
+      <a class="list-group-item" href="../proc/free%7E10.html">free</a>
+      
+      <a class="list-group-item" href="../proc/free%7E11.html">free</a>
+      
+      <a class="list-group-item" href="../proc/free%7E12.html">free</a>
+      
+      <a class="list-group-item" href="../proc/free%7E13.html">free</a>
+      
+      <a class="list-group-item" href="../proc/free%7E14.html">free</a>
+      
+      <a class="list-group-item" href="../proc/free%7E15.html">free</a>
+      
+      <a class="list-group-item" href="../proc/free%7E16.html">free</a>
+      
+      <a class="list-group-item" href="../proc/free%7E17.html">free</a>
+      
+      <a class="list-group-item" href="../proc/get.html">get</a>
+      
+      <a class="list-group-item" href="../proc/init.html">init</a>
+      
+      <a class="list-group-item" href="../proc/init%7E2.html">init</a>
+      
+      <a class="list-group-item" href="../proc/init%7E3.html">init</a>
+      
+      <a class="list-group-item" href="../proc/init%7E4.html">init</a>
+      
+      <a class="list-group-item" href="../proc/init%7E5.html">init</a>
+      
+      <a class="list-group-item" href="../proc/init%7E6.html">init</a>
+      
+      <a class="list-group-item" href="../proc/init%7E7.html">init</a>
+      
+      <a class="list-group-item" href="../proc/init%7E8.html">init</a>
+      
+      <a class="list-group-item" href="../proc/init%7E9.html">init</a>
+      
+      <a class="list-group-item" href="../proc/init%7E10.html">init</a>
+      
+      <a class="list-group-item" href="../proc/init%7E11.html">init</a>
+      
+      <a class="list-group-item" href="../proc/init%7E12.html">init</a>
+      
+      <a class="list-group-item" href="../proc/init%7E13.html">init</a>
+      
+      <a class="list-group-item" href="../proc/init%7E14.html">init</a>
+      
+      <a class="list-group-item" href="../proc/init%7E15.html">init</a>
+      
+      <a class="list-group-item" href="../proc/init%7E16.html">init</a>
+      
+      <a class="list-group-item" href="../proc/init%7E17.html">init</a>
+      
+      <a class="list-group-item" href="../proc/init%7E18.html">init</a>
+      
+      <a class="list-group-item" href="../proc/integrate.html">integrate</a>
+      
+      <a class="list-group-item" href="../proc/integrate%7E2.html">integrate</a>
+      
+      <a class="list-group-item" href="../proc/integrate%7E3.html">integrate</a>
+      
+      <a class="list-group-item" href="../proc/integrate%7E4.html">integrate</a>
+      
+      <a class="list-group-item" href="../proc/jacobian.html">jacobian</a>
+      
+      <a class="list-group-item" href="../proc/load_from_json.html">load_from_json</a>
+      
+      <a class="list-group-item" href="../proc/load_from_json%7E2.html">load_from_json</a>
+      
+      <a class="list-group-item" href="../proc/load_from_json%7E3.html">load_from_json</a>
+      
+      <a class="list-group-item" href="../proc/load_from_json%7E4.html">load_from_json</a>
+      
+      <a class="list-group-item" href="../proc/load_from_json%7E5.html">load_from_json</a>
+      
+      <a class="list-group-item" href="../proc/load_from_json%7E6.html">load_from_json</a>
+      
+      <a class="list-group-item" href="../proc/load_from_json%7E7.html">load_from_json</a>
+      
+      <a class="list-group-item" href="../proc/mul.html">mul</a>
+      
+      <a class="list-group-item" href="../proc/mul%7E2.html">mul</a>
+      
+      <a class="list-group-item" href="../proc/mul%7E3.html">mul</a>
+      
+      <a class="list-group-item" href="../proc/mul%7E4.html">mul</a>
+      
+      <a class="list-group-item" href="../proc/mul%7E5.html">mul</a>
+      
+      <a class="list-group-item" href="../proc/mul%7E6.html">mul</a>
+      
+      <a class="list-group-item" href="../proc/mulreal.html">mulreal</a>
+      
+      <a class="list-group-item" href="../proc/mulreal%7E2.html">mulreal</a>
+      
+      <a class="list-group-item" href="../proc/mulreal%7E3.html">mulreal</a>
+      
+      <a class="list-group-item" href="../proc/mulreal%7E4.html">mulreal</a>
+      
+      <a class="list-group-item" href="../proc/mulreal%7E5.html">mulreal</a>
+      
+      <a class="list-group-item" href="../proc/mulreal%7E6.html">mulreal</a>
+      
+      <a class="list-group-item" href="../proc/newrealmul.html">newrealmul</a>
+      
+      <a class="list-group-item" href="../proc/operate.html">operate</a>
+      
+      <a class="list-group-item" href="../proc/operate%7E2.html">operate</a>
+      
+      <a class="list-group-item" href="../proc/operate%7E3.html">operate</a>
+      
+      <a class="list-group-item" href="../proc/operate%7E4.html">operate</a>
+      
+      <a class="list-group-item" href="../proc/operate%7E5.html">operate</a>
+      
+      <a class="list-group-item" href="../proc/operate%7E6.html">operate</a>
+      
+      <a class="list-group-item" href="../proc/operate%7E7.html">operate</a>
+      
+      <a class="list-group-item" href="../proc/operate%7E8.html">operate</a>
+      
+      <a class="list-group-item" href="../proc/operate%7E9.html">operate</a>
+      
+      <a class="list-group-item" href="../proc/operate%7E10.html">operate</a>
+      
+      <a class="list-group-item" href="../proc/operate%7E11.html">operate</a>
+      
+      <a class="list-group-item" href="../proc/operate%7E12.html">operate</a>
+      
+      <a class="list-group-item" href="../proc/operate%7E13.html">operate</a>
+      
+      <a class="list-group-item" href="../proc/output.html">output</a>
+      
+      <a class="list-group-item" href="../proc/output%7E2.html">output</a>
+      
+      <a class="list-group-item" href="../proc/output%7E3.html">output</a>
+      
+      <a class="list-group-item" href="../proc/output%7E4.html">output</a>
+      
+      <a class="list-group-item" href="../proc/output%7E5.html">output</a>
+      
+      <a class="list-group-item" href="../proc/output%7E6.html">output</a>
+      
+      <a class="list-group-item" href="../proc/output%7E7.html">output</a>
+      
+      <a class="list-group-item" href="../proc/output%7E8.html">output</a>
+      
+      <a class="list-group-item" href="../proc/output%7E9.html">output</a>
+      
+      <a class="list-group-item" href="../proc/output%7E10.html">output</a>
+      
+      <a class="list-group-item" href="../proc/output%7E11.html">output</a>
+      
+      <a class="list-group-item" href="../proc/output%7E12.html">output</a>
+      
+      <a class="list-group-item" href="../proc/realmul.html">realmul</a>
+      
+      <a class="list-group-item" href="../proc/realmul%7E2.html">realmul</a>
+      
+      <a class="list-group-item" href="../proc/realmul%7E3.html">realmul</a>
+      
+      <a class="list-group-item" href="../proc/realmul%7E4.html">realmul</a>
+      
+      <a class="list-group-item" href="../proc/realmul%7E5.html">realmul</a>
+      
+      <a class="list-group-item" href="../proc/realmul%7E6.html">realmul</a>
+      
+      <a class="list-group-item" href="../proc/realmul%7E7.html">realmul</a>
+      
+      <a class="list-group-item" href="../proc/resid_e.html">resid_e</a>
+      
+      <a class="list-group-item" href="../proc/resid_emg.html">resid_emg</a>
+      
+      <a class="list-group-item" href="../proc/resid_i.html">resid_i</a>
+      
+      <a class="list-group-item" href="../proc/set.html">set</a>
+      
+      <a class="list-group-item" href="../proc/set%7E2.html">set</a>
+      
+      <a class="list-group-item" href="../proc/set%7E3.html">set</a>
+      
+      <a class="list-group-item" href="../proc/set%7E4.html">set</a>
+      
+      <a class="list-group-item" href="../proc/set%7E5.html">set</a>
+      
+      <a class="list-group-item" href="../proc/set%7E6.html">set</a>
+      
+      <a class="list-group-item" href="../proc/set%7E7.html">set</a>
+      
+      <a class="list-group-item" href="../proc/set%7E8.html">set</a>
+      
+      <a class="list-group-item" href="../proc/set_matrix.html">set_matrix</a>
+      
+      <a class="list-group-item" href="../proc/set_vector.html">set_vector</a>
+      
+      <a class="list-group-item" href="../proc/solve.html">solve</a>
+      
+      <a class="list-group-item" href="../proc/sub.html">sub</a>
+      
+      <a class="list-group-item" href="../proc/sub%7E2.html">sub</a>
+      
+      <a class="list-group-item" href="../proc/sub%7E3.html">sub</a>
+      
+      <a class="list-group-item" href="../proc/sub%7E4.html">sub</a>
+      
+      <a class="list-group-item" href="../proc/sub%7E5.html">sub</a>
+      
+      <a class="list-group-item" href="../proc/sub%7E6.html">sub</a>
+      
+      <a class="list-group-item" href="../proc/sub%7E7.html">sub</a>
+      
+    </div>
+  </div>
+</div>
+
+
+  </section>
+
+    <hr>    
+    </div> <!-- /container -->
     <footer>
+      <div class="container">
       <div class="row">
-        <div class="col-md-4">&copy; 2016 </div>
-        <div class="col-md-4"><span class="text-center"> openpde was developed by Francesco Salvadore</span></div>
-        <div class="col-md-4">
-          <span class="pull-right">
+        <div class="col-xs-6 col-md-4"><p>&copy; 2017 </p></div>
+        <div class="col-xs-6 col-md-4 col-md-push-4">
+          <p class="text-right">
             Documentation generated by 
             <a href="https://github.com/cmacmackin/ford">FORD</a>
             
-          </span>
+          </p>
         </div>
+        <div class="col-xs-12 col-md-4 col-md-pull-4"><p class="text-center"> openpde was developed by Francesco Salvadore</p></div>
       </div>
       <br>
+      </div> <!-- /container -->    
     </footer>
-    </div> <!-- /container -->
-
 
     <!-- Bootstrap core JavaScript
     ================================================== -->

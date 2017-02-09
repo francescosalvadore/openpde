@@ -24,10 +24,12 @@ module openpde_field_abstract
             procedure(abstract_field_op_real),      pass(lhs),  private, deferred :: mulreal        !< Multiply field for real.
             procedure(abstract_real_op_field),      pass(rhs),  private, deferred :: realmul        !< Multiply real for field.
             procedure(abstract_simmetric_operator), pass(lhs),  private, deferred :: sub            !< Subtract fields.
+            procedure(abstract_simmetric_operator), pass(lhs),  private, deferred :: div            !< Divide fields.
             ! public operators
             generic, public :: operator(+) => add                   !< Operator `+` overloading.
             generic, public :: operator(*) => mul, realmul, mulreal !< Operator `*` overloading.
             generic, public :: operator(-) => sub                   !< Operator `-` overloading.
+            generic, public :: operator(/) => div                   !< Operator `-` overloading.
             generic, public :: assignment(=) => assign_field        !< Assignment overloading.
             ! public methods
             procedure, pass(this) :: free !< Free dynamic memory.

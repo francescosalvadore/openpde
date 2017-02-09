@@ -28,21 +28,21 @@ module openpde_mesh_FD_2D
     endtype mesh_FD_2D
 contains
     ! public, non TBP
-    subroutine associate_mesh_FD_2D(mesh_input, calling_procedure, mesh_pointer)
+    function associate_mesh_FD_2D(mesh_input, emsg) result(mesh_pointer)
         !< Check the type of the mesh passed as input and return a Finite Difference 2D mesh pointer associated to mesh.
-        class(mesh),       intent(in), target     :: mesh_input        !< Input mesh.
-        character(*),      intent(in)             :: calling_procedure !< Name of the calling procedure.
-        class(mesh_FD_2D), intent(inout), pointer :: mesh_pointer      !< Finite Difference 1D mesh pointer.
+        class(mesh),       intent(in), target   :: mesh_input    !< Input mesh.
+        character(*),      intent(in), optional :: emsg          !< Auxiliary error message.
+        class(mesh_FD_2D), pointer              :: mesh_pointer  !< Finite Difference 2D mesh pointer.
 
         select type(mesh_input)
             type is(mesh_FD_2D)
                 mesh_pointer => mesh_input
             class default
-               write(stderr, '(A)')' error: wrong mesh class'
-               write(stderr, '(A)')' Calling procedure "'//calling_procedure//'"'
+               write(stderr, '(A)')'error: cast mesh to mesh_FD_2D'
+               if (present(emsg)) write(stderr, '(A)') emsg
                stop
         end select
-      end subroutine associate_mesh_FD_2D
+      end function associate_mesh_FD_2D
 
     ! deferred public methods
     pure subroutine init(this, description, filename, error)
@@ -54,13 +54,13 @@ contains
 
         call this%free
         if (present(description)) this%description = description
-        this%nx = 10
-        this%ny = 8
+        this%nx = 50
+        this%ny = 40
         this%ngx = 2
         this%ngy = 2
         this%s = 1
         this%hx = 0.05_R8P
-        this%hy = 0.08_R8P
+        this%hy = 0.07_R8P
         if (present(error)) error = 0
     end subroutine init
 

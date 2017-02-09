@@ -7,7 +7,7 @@
 	 
     <meta name="description" content="Documentation for openpde">
 	 
-    <meta name="author" content="Chris MacMackin" >
+    <meta name="author" content="Francesco Salvadore" >
     <link rel="icon" href="./favicon.png">
 
     <title> openpde </title>
@@ -53,13 +53,20 @@
         <div id="navbar" class="navbar-collapse collapse">
           <ul class="nav navbar-nav">
 				
-                
+            <li class="dropdown hidden-xs visible-sm visible-md hidden-lg">
+              <a href="#" class="dropdown-toggle"
+              data-toggle="dropdown" role="button"
+              aria-haspopup="true"
+		 aria-expanded="false">Contents <span class="caret"></span></a>
+	      <ul class="dropdown-menu">
+              
             <li><a href="./lists/files.html">Source Files</a></li>
 				
 				
             <li><a href="./lists/modules.html">Modules</a></li>
 				
-				
+            
+                                
             <li><a href="./lists/procedures.html">Procedures</a></li>
 				
 				
@@ -68,8 +75,24 @@
             <li><a href="./lists/types.html">Derived Types</a></li>
 				
 				
-            <li><a href="./program/scalar_simple.html">Program</a></li>
-				
+            </ul>
+            </li>
+
+<li class="visible-xs hidden-sm visible-lg"><a href="./lists/files.html">Source Files</a></li>
+
+
+<li class="visible-xs hidden-sm visible-lg"><a href="./lists/modules.html">Modules</a></li>
+
+
+
+<li class="visible-xs hidden-sm visible-lg"><a href="./lists/procedures.html">Procedures</a></li>
+
+
+<li class="visible-xs hidden-sm visible-lg"><a href="./lists/absint.html">Abstract Interfaces</a></li>
+                             
+<li class="visible-xs hidden-sm visible-lg"><a href="./lists/types.html">Derived Types</a></li>
+
+
           </ul>
         
         <form action="./search.html" class="navbar-form navbar-right" role="search">
@@ -106,13 +129,13 @@
 
       <div class="row" id='text'>
 		  
-        <div class="col-lg-8">
+        <div class="col-md-8">
 		  
           <h1>openpde</h1>
           
         </div>
 		  
-        <div class="col-lg-4">
+        <div class="col-md-4">
 	  <div class="well">
           <h2>Developer Info</h2>
           <h4>Francesco Salvadore</h4>
@@ -142,7 +165,7 @@
       
 		
       <div class="row">
-          <div class="col-lg-3">
+        <div class="col-xs-6 col-sm-3">
               <h3>Source Files</h3>
               <ul>
                 
@@ -155,35 +178,35 @@
                   
                 
                   
-                    <li><a href='./sourcefile/openpde_field_abstract.f90.html'>openpde_field_abstract.f90</a></li>
+                    <li><a href='./sourcefile/openpde_equation_adv.f90.html'>openpde_equation_adv.f90</a></li>
                   
                 
                   
-                    <li><a href='./sourcefile/openpde_field_fd_1d.f90.html'>openpde_field_FD_1D.f90</a></li>
+                    <li><a href='./sourcefile/openpde_f2m_abstract.f90.html'>openpde_f2m_abstract.f90</a></li>
                   
                 
                   
-                    <li><a href='./sourcefile/openpde_field_fd_2d.f90.html'>openpde_field_FD_2D.f90</a></li>
+                    <li><a href='./sourcefile/openpde_f2m_d1_abstract.f90.html'>openpde_f2m_d1_abstract.f90</a></li>
                   
                 
                   
-                    <li><a href='./sourcefile/openpde_integrator_asbtract.f90.html'>openpde_integrator_asbtract.f90</a></li>
+                    <li><a href='./sourcefile/openpde_f2m_d1_fd_1d.f90.html'>openpde_f2m_d1_FD_1D.f90</a></li>
                   
                 
                   
-                    <li><a href='./sourcefile/openpde_integrator_euler_explicit.f90.html'>openpde_integrator_euler_explicit.f90</a></li>
+                    <li><a href='./sourcefile/openpde_f2m_d2_abstract.f90.html'>openpde_f2m_d2_abstract.f90</a></li>
                   
                 
                   
-                    <li><a href='./sourcefile/openpde_kinds.f90.html'>openpde_kinds.f90</a></li>
+                    <li><a href='./sourcefile/openpde_f2m_d2_fd_1d.f90.html'>openpde_f2m_d2_FD_1D.f90</a></li>
                   
                 
                   
-                    <li><a href='./sourcefile/openpde_mesh_abstract.f90.html'>openpde_mesh_abstract.f90</a></li>
+                    <li><a href='./sourcefile/openpde_f2m_d2_fd_2d.f90.html'>openpde_f2m_d2_FD_2D.f90</a></li>
                   
                 
                   
-                    <li><a href='./sourcefile/openpde_mesh_fd_1d.f90.html'>openpde_mesh_FD_1D.f90</a></li>
+                    <li><a href='./sourcefile/openpde_f2v_abstract.f90.html'>openpde_f2v_abstract.f90</a></li>
                   
                 
                   
@@ -206,10 +229,76 @@
                 
                   
                 
+                  
+                
+                  
+                
+                  
+                
+                  
+                
+                  
+                
+                  
+                
+                  
+                
+                  
+                
+                  
+                
+                  
+                
+                  
+                
+                  
+                
+                  
+                
+                  
+                
+                  
+                
+                  
+                
+                  
+                
+                  
+                
+                  
+                
+                  
+                
+                  
+                
+                  
+                
+                  
+                
+                  
+                
+                  
+                
+                  
+                
+                  
+                
+                  
+                
+                  
+                
+                  
+                
+                  
+                
+                  
+                
+                  
+                
               </ul>
           </div>
           
-          <div class="col-lg-3">
+		  <div class="col-xs-6 col-sm-3">
               <h3>Modules</h3>
               <ul>
                 
@@ -222,35 +311,35 @@
                   
                 
                   
-                    <li><a href='./module/openpde_field_abstract.html'>openpde_field_abstract</a></li>
+                    <li><a href='./module/openpde_equation_adv.html'>openpde_equation_adv</a></li>
                   
                 
                   
-                    <li><a href='./module/openpde_field_fd_1d.html'>openpde_field_FD_1D</a></li>
+                    <li><a href='./module/openpde_f2m_abstract.html'>openpde_f2m_abstract</a></li>
                   
                 
                   
-                    <li><a href='./module/openpde_field_fd_2d.html'>openpde_field_FD_2D</a></li>
+                    <li><a href='./module/openpde_f2m_d1_abstract.html'>openpde_f2m_d1_abstract</a></li>
                   
                 
                   
-                    <li><a href='./module/openpde_integrator_abstract.html'>openpde_integrator_abstract</a></li>
+                    <li><a href='./module/openpde_f2m_d1_fd_1d.html'>openpde_f2m_d1_FD_1D</a></li>
                   
                 
                   
-                    <li><a href='./module/openpde_integrator_euler_explicit.html'>openpde_integrator_euler_explicit</a></li>
+                    <li><a href='./module/openpde_f2m_d2_abstract.html'>openpde_f2m_d2_abstract</a></li>
                   
                 
                   
-                    <li><a href='./module/openpde_kinds.html'>openpde_kinds</a></li>
+                    <li><a href='./module/openpde_f2m_d2_fd_1d.html'>openpde_f2m_d2_FD_1D</a></li>
                   
                 
                   
-                    <li><a href='./module/openpde_mesh_abstract.html'>openpde_mesh_abstract</a></li>
+                    <li><a href='./module/openpde_f2m_d2_fd_2d.html'>openpde_f2m_d2_FD_2D</a></li>
                   
                 
                   
-                    <li><a href='./module/openpde_mesh_fd_1d.html'>openpde_mesh_FD_1D</a></li>
+                    <li><a href='./module/openpde_f2v_abstract.html'>openpde_f2v_abstract</a></li>
                   
                 
                   
@@ -273,11 +362,77 @@
                 
                   
                 
+                  
+                
+                  
+                
+                  
+                
+                  
+                
+                  
+                
+                  
+                
+                  
+                
+                  
+                
+                  
+                
+                  
+                
+                  
+                
+                  
+                
+                  
+                
+                  
+                
+                  
+                
+                  
+                
+                  
+                
+                  
+                
+                  
+                
+                  
+                
+                  
+                
+                  
+                
+                  
+                
+                  
+                
+                  
+                
+                  
+                
+                  
+                
+                  
+                
+                  
+                
+                  
+                
+                  
+                
+                  
+                
+                  
+                
               </ul>
           </div>
           
           
-          <div class="col-lg-3">
+		  <div class="col-xs-6 col-sm-3">
               <h3>Procedures</h3>
               <ul>
                 
@@ -290,35 +445,35 @@
                   
                 
                   
-                    <li><a href='./proc/assign_field.html'>assign_field</a></li>
+                    <li><a href='./proc/add%7E3.html'>add</a></li>
                   
                 
                   
-                    <li><a href='./proc/assign_field%7E2.html'>assign_field</a></li>
+                    <li><a href='./proc/add%7E4.html'>add</a></li>
                   
                 
                   
-                    <li><a href='./proc/associate_field_fd_1d.html'>associate_field_FD_1D</a></li>
+                    <li><a href='./proc/add%7E5.html'>add</a></li>
                   
                 
                   
-                    <li><a href='./proc/associate_field_fd_2d.html'>associate_field_FD_2D</a></li>
+                    <li><a href='./proc/add%7E6.html'>add</a></li>
                   
                 
                   
-                    <li><a href='./proc/associate_mesh.html'>associate_mesh</a></li>
+                    <li><a href='./proc/add%7E7.html'>add</a></li>
                   
                 
                   
-                    <li><a href='./proc/associate_mesh%7E2.html'>associate_mesh</a></li>
+                    <li><a href='./proc/alloc.html'>alloc</a></li>
                   
                 
                   
-                    <li><a href='./proc/associate_mesh_fd_1d.html'>associate_mesh_FD_1D</a></li>
+                    <li><a href='./proc/alloc%7E2.html'>alloc</a></li>
                   
                 
                   
-                    <li><a href='./proc/associate_mesh_fd_2d.html'>associate_mesh_FD_2D</a></li>
+                    <li><a href='./proc/assign_block.html'>assign_block</a></li>
                   
                 
                   
@@ -399,11 +554,237 @@
                 
                   
                 
+                  
+                
+                  
+                
+                  
+                
+                  
+                
+                  
+                
+                  
+                
+                  
+                
+                  
+                
+                  
+                
+                  
+                
+                  
+                
+                  
+                
+                  
+                
+                  
+                
+                  
+                
+                  
+                
+                  
+                
+                  
+                
+                  
+                
+                  
+                
+                  
+                
+                  
+                
+                  
+                
+                  
+                
+                  
+                
+                  
+                
+                  
+                
+                  
+                
+                  
+                
+                  
+                
+                  
+                
+                  
+                
+                  
+                
+                  
+                
+                  
+                
+                  
+                
+                  
+                
+                  
+                
+                  
+                
+                  
+                
+                  
+                
+                  
+                
+                  
+                
+                  
+                
+                  
+                
+                  
+                
+                  
+                
+                  
+                
+                  
+                
+                  
+                
+                  
+                
+                  
+                
+                  
+                
+                  
+                
+                  
+                
+                  
+                
+                  
+                
+                  
+                
+                  
+                
+                  
+                
+                  
+                
+                  
+                
+                  
+                
+                  
+                
+                  
+                
+                  
+                
+                  
+                
+                  
+                
+                  
+                
+                  
+                
+                  
+                
+                  
+                
+                  
+                
+                  
+                
+                  
+                
+                  
+                
+                  
+                
+                  
+                
+                  
+                
+                  
+                
+                  
+                
+                  
+                
+                  
+                
+                  
+                
+                  
+                
+                  
+                
+                  
+                
+                  
+                
+                  
+                
+                  
+                
+                  
+                
+                  
+                
+                  
+                
+                  
+                
+                  
+                
+                  
+                
+                  
+                
+                  
+                
+                  
+                
+                  
+                
+                  
+                
+                  
+                
+                  
+                
+                  
+                
+                  
+                
+                  
+                
+                  
+                
+                  
+                
+                  
+                
+                  
+                
+                  
+                
+                  
+                
+                  
+                
               </ul>
           </div>
           
           
-          <div class="col-lg-3">
+		  <div class="col-xs-6 col-sm-3">
               <h3>Derived Types</h3>
               <ul>
                 
@@ -412,39 +793,39 @@
                   
                 
                   
-                    <li><a href='./type/field.html'>field</a></li>
+                    <li><a href='./type/equation_adv.html'>equation_adv</a></li>
                   
                 
                   
-                    <li><a href='./type/field_fd_1d.html'>field_FD_1D</a></li>
+                    <li><a href='./type/f2m.html'>f2m</a></li>
                   
                 
                   
-                    <li><a href='./type/field_fd_2d.html'>field_FD_2D</a></li>
+                    <li><a href='./type/f2m_d1.html'>f2m_d1</a></li>
                   
                 
                   
-                    <li><a href='./type/integrator.html'>integrator</a></li>
+                    <li><a href='./type/f2m_d1_fd_1d.html'>f2m_d1_FD_1D</a></li>
                   
                 
                   
-                    <li><a href='./type/integrator_euler_explicit.html'>integrator_euler_explicit</a></li>
+                    <li><a href='./type/f2m_d2.html'>f2m_d2</a></li>
                   
                 
                   
-                    <li><a href='./type/mesh.html'>mesh</a></li>
+                    <li><a href='./type/f2m_d2_fd_1d.html'>f2m_d2_FD_1D</a></li>
                   
                 
                   
-                    <li><a href='./type/mesh_fd_1d.html'>mesh_FD_1D</a></li>
+                    <li><a href='./type/f2m_d2_fd_2d.html'>f2m_d2_FD_2D</a></li>
                   
                 
                   
-                    <li><a href='./type/mesh_fd_2d.html'>mesh_FD_2D</a></li>
+                    <li><a href='./type/f2v.html'>f2v</a></li>
                   
                 
                   
-                    <li><a href='./type/scalar_simple_equation.html'>scalar_simple_equation</a></li>
+                    <li><a href='./type/f2v_fd_1d.html'>f2v_FD_1D</a></li>
                   
                 
                   
@@ -463,28 +844,95 @@
                 
                   
                 
+                  
+                
+                  
+                
+                  
+                
+                  
+                
+                  
+                
+                  
+                
+                  
+                
+                  
+                
+                  
+                
+                  
+                
+                  
+                
+                  
+                
+                  
+                
+                  
+                
+                  
+                
+                  
+                
+                  
+                
+                  
+                
+                  
+                
+                  
+                
+                  
+                
+                  
+                
+                  
+                
+                  
+                
+                  
+                
+                  
+                
+                  
+                
+                  
+                
+                  
+                
+                  
+                
+                  
+                
+                  
+                
+                  
+                
               </ul>
           </div>
           
       </div>
 
-    <hr>
+    <hr>    
+    </div> <!-- /container -->
     <footer>
+      <div class="container">
       <div class="row">
-        <div class="col-md-4">&copy; 2016 </div>
-        <div class="col-md-4"><span class="text-center"> openpde was developed by Francesco Salvadore</span></div>
-        <div class="col-md-4">
-          <span class="pull-right">
+        <div class="col-xs-6 col-md-4"><p>&copy; 2017 </p></div>
+        <div class="col-xs-6 col-md-4 col-md-push-4">
+          <p class="text-right">
             Documentation generated by 
             <a href="https://github.com/cmacmackin/ford">FORD</a>
             
-          </span>
+          </p>
         </div>
+        <div class="col-xs-12 col-md-4 col-md-pull-4"><p class="text-center"> openpde was developed by Francesco Salvadore</p></div>
       </div>
       <br>
+      </div> <!-- /container -->    
     </footer>
-    </div> <!-- /container -->
-
 
     <!-- Bootstrap core JavaScript
     ================================================== -->

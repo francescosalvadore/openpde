@@ -1,0 +1,1193 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+	 
+    <meta name="description" content="Documentation for openpde">
+	 
+    <meta name="author" content="Francesco Salvadore" >
+    <link rel="icon" href="../favicon.png">
+
+    <title>openpde_matrix_abstract.f90 &ndash; openpde</title>
+
+    <link href="../css/bootstrap.min.css" rel="stylesheet">
+    <link href="../css/pygments.css" rel="stylesheet">
+    <link href="../css/font-awesome.min.css" rel="stylesheet">
+    <link href="../css/local.css" rel="stylesheet">
+    
+
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+    
+    <script src="../js/jquery-2.1.3.min.js"></script>
+    <script src="../js/svg-pan-zoom.min.js"></script>
+
+    
+    <script src="../tipuesearch/tipuesearch_content.js"></script>
+    <link  href="../tipuesearch/tipuesearch.css" rel="stylesheet">
+    <script src="../tipuesearch/tipuesearch_set.js"></script>
+    <script src="../tipuesearch/tipuesearch.js"></script>
+    
+
+  </head>
+
+  <body>
+
+    <!-- Fixed navbar -->
+    <nav class="navbar navbar-inverse navbar-fixed-top">
+      <div class="container">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="../index.html">openpde </a>
+        </div>
+        <div id="navbar" class="navbar-collapse collapse">
+          <ul class="nav navbar-nav">
+				
+            <li class="dropdown hidden-xs visible-sm visible-md hidden-lg">
+              <a href="#" class="dropdown-toggle"
+              data-toggle="dropdown" role="button"
+              aria-haspopup="true"
+		 aria-expanded="false">Contents <span class="caret"></span></a>
+	      <ul class="dropdown-menu">
+              
+            <li><a href="../lists/files.html">Source Files</a></li>
+				
+				
+            <li><a href="../lists/modules.html">Modules</a></li>
+				
+            
+                                
+            <li><a href="../lists/procedures.html">Procedures</a></li>
+				
+				
+            <li><a href="../lists/absint.html">Abstract Interfaces</a></li>
+								
+            <li><a href="../lists/types.html">Derived Types</a></li>
+				
+				
+            </ul>
+            </li>
+
+<li class="visible-xs hidden-sm visible-lg"><a href="../lists/files.html">Source Files</a></li>
+
+
+<li class="visible-xs hidden-sm visible-lg"><a href="../lists/modules.html">Modules</a></li>
+
+
+
+<li class="visible-xs hidden-sm visible-lg"><a href="../lists/procedures.html">Procedures</a></li>
+
+
+<li class="visible-xs hidden-sm visible-lg"><a href="../lists/absint.html">Abstract Interfaces</a></li>
+                             
+<li class="visible-xs hidden-sm visible-lg"><a href="../lists/types.html">Derived Types</a></li>
+
+
+          </ul>
+        
+        <form action="../search.html" class="navbar-form navbar-right" role="search">
+        <div class="form-group">
+          <input type="text" class="form-control" placeholder="Search" name="q" id="tipue_search_input" autocomplete="off" required>
+        </div>
+<!--
+        <button type="submit" class="btn btn-default">Submit</button>
+-->
+        </form>
+        
+        </div><!--/.nav-collapse -->
+      </div>
+    </nav>
+
+    <div class="container">
+    
+  
+  <div class="row">
+    <h1>openpde_matrix_abstract.f90
+    <small>Source File</small>
+    
+    </h1>
+    
+<div class="row">
+  <div class="col-lg-12">
+<div class="well well-sm">
+  <ul class="list-inline" style="margin-bottom:0px;display:inline">
+     
+     
+     
+     
+    
+    
+     <li><i class="fa fa-list-ol"></i>
+       <a data-toggle="tooltip"
+	  data-placement="bottom" data-html="true"
+	  title=" 2.0% of total for source files.">76 statements</a>
+     </li> 
+     
+     
+    <li><i class="fa fa-code"></i><a href="../src/openpde_matrix_abstract.f90"> Source File</a></li>
+     
+  </ul>
+  <ol class="breadcrumb in-well text-right">
+  
+     <li class="active">openpde_matrix_abstract.f90</li>
+  </ol>
+</div>
+</div>
+</div>
+<script>
+  $(function () {
+  $('[data-toggle="tooltip"]').tooltip()
+  })
+</script>
+
+  </div>
+  <div class="row">
+    <div class="col-md-3 hidden-xs hidden-sm visible-md visible-lg">
+    
+<div id="sidebar">
+  
+
+
+
+
+
+
+<div class="panel panel-primary">
+  <div class="panel-heading text-left"><h3 class="panel-title"><a data-toggle="collapse" href="#mods-0">Modules</a></h3></div>
+  <div id="mods-0" class="panel-collapse collapse">
+    <div class="list-group">
+      
+      <a class="list-group-item" href="../module/openpde_matrix_abstract.html">openpde_matrix_abstract</a>
+      
+    </div>
+  </div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="panel panel-primary">
+  <div class="panel-heading text-left"><h3 class="panel-title">Source Code</h3></div>
+  <div class="list-group">
+    <a class="list-group-item" href="../sourcefile/openpde_matrix_abstract.f90.html#src">openpde_matrix_abstract.f90</a>
+  </div>
+</div>
+
+
+  <hr>
+  
+
+<div class="panel panel-default">
+  <div class="panel-heading text-left"><h3 class="panel-title"><a data-toggle="collapse" href="#allfiles-0">All Source Files</a></h3></div>
+  <div id="allfiles-0" class="panel-collapse collapse">
+    <div class="list-group">
+      
+      <a class="list-group-item" href="../sourcefile/openpde.f90.html">openpde.f90</a>
+      
+      <a class="list-group-item" href="../sourcefile/openpde_equation_abstract.f90.html">openpde_equation_abstract.f90</a>
+      
+      <a class="list-group-item" href="../sourcefile/openpde_equation_adv.f90.html">openpde_equation_adv.f90</a>
+      
+      <a class="list-group-item" href="../sourcefile/openpde_f2m_abstract.f90.html">openpde_f2m_abstract.f90</a>
+      
+      <a class="list-group-item" href="../sourcefile/openpde_f2m_d1_abstract.f90.html">openpde_f2m_d1_abstract.f90</a>
+      
+      <a class="list-group-item" href="../sourcefile/openpde_f2m_d1_fd_1d.f90.html">openpde_f2m_d1_FD_1D.f90</a>
+      
+      <a class="list-group-item" href="../sourcefile/openpde_f2m_d2_abstract.f90.html">openpde_f2m_d2_abstract.f90</a>
+      
+      <a class="list-group-item" href="../sourcefile/openpde_f2m_d2_fd_1d.f90.html">openpde_f2m_d2_FD_1D.f90</a>
+      
+      <a class="list-group-item" href="../sourcefile/openpde_f2m_d2_fd_2d.f90.html">openpde_f2m_d2_FD_2D.f90</a>
+      
+      <a class="list-group-item" href="../sourcefile/openpde_f2v_abstract.f90.html">openpde_f2v_abstract.f90</a>
+      
+      <a class="list-group-item" href="../sourcefile/openpde_f2v_fd_1d.f90.html">openpde_f2v_FD_1D.f90</a>
+      
+      <a class="list-group-item" href="../sourcefile/openpde_f2v_fd_2d.f90.html">openpde_f2v_FD_2D.f90</a>
+      
+      <a class="list-group-item" href="../sourcefile/openpde_field_abstract.f90.html">openpde_field_abstract.f90</a>
+      
+      <a class="list-group-item" href="../sourcefile/openpde_field_block_fv_1d.f90.html">openpde_field_block_FV_1D.f90</a>
+      
+      <a class="list-group-item" href="../sourcefile/openpde_field_fd_1d.f90.html">openpde_field_FD_1D.f90</a>
+      
+      <a class="list-group-item" href="../sourcefile/openpde_field_fd_2d.f90.html">openpde_field_FD_2D.f90</a>
+      
+      <a class="list-group-item" href="../sourcefile/openpde_field_fv_1d.f90.html">openpde_field_FV_1D.f90</a>
+      
+      <a class="list-group-item" href="../sourcefile/openpde_field_surface_abstract.f90.html">openpde_field_surface_abstract.f90</a>
+      
+      <a class="list-group-item" href="../sourcefile/openpde_field_surface_block_fv_1d.f90.html">openpde_field_surface_block_FV_1D.f90</a>
+      
+      <a class="list-group-item" href="../sourcefile/openpde_field_surface_fv_1d.f90.html">openpde_field_surface_FV_1D.f90</a>
+      
+      <a class="list-group-item" href="../sourcefile/openpde_integrator_adv_abstract.f90.html">openpde_integrator_adv_abstract.f90</a>
+      
+      <a class="list-group-item" href="../sourcefile/openpde_integrator_adv_euler_explicit.f90.html">openpde_integrator_adv_euler_explicit.f90</a>
+      
+      <a class="list-group-item" href="../sourcefile/openpde_integrator_adv_euler_implicit.f90.html">openpde_integrator_adv_euler_implicit.f90</a>
+      
+      <a class="list-group-item" href="../sourcefile/openpde_integrator_adv_rk_implicit.f90.html">openpde_integrator_adv_rk_implicit.f90</a>
+      
+      <a class="list-group-item" href="../sourcefile/openpde_integrator_asbtract.f90.html">openpde_integrator_asbtract.f90</a>
+      
+      <a class="list-group-item" href="../sourcefile/openpde_integrator_euler_explicit.f90.html">openpde_integrator_euler_explicit.f90</a>
+      
+      <a class="list-group-item" href="../sourcefile/openpde_kinds.f90.html">openpde_kinds.f90</a>
+      
+      <a class="list-group-item" href="../sourcefile/openpde_linsolver_abstract.f90.html">openpde_linsolver_abstract.f90</a>
+      
+      <a class="list-group-item" href="../sourcefile/openpde_linsolver_gmlapack.f90.html">openpde_linsolver_gmlapack.f90</a>
+      
+      <a class="list-group-item" href="../sourcefile/openpde_matrix_abstract.f90.html">openpde_matrix_abstract.f90</a>
+      
+      <a class="list-group-item" href="../sourcefile/openpde_matrix_simple.f90.html">openpde_matrix_simple.f90</a>
+      
+      <a class="list-group-item" href="../sourcefile/openpde_mesh_abstract.f90.html">openpde_mesh_abstract.f90</a>
+      
+      <a class="list-group-item" href="../sourcefile/openpde_mesh_block_fv_1d.f90.html">openpde_mesh_block_FV_1D.f90</a>
+      
+      <a class="list-group-item" href="../sourcefile/openpde_mesh_fd_1d.f90.html">openpde_mesh_FD_1D.f90</a>
+      
+      <a class="list-group-item" href="../sourcefile/openpde_mesh_fd_2d.f90.html">openpde_mesh_FD_2D.f90</a>
+      
+      <a class="list-group-item" href="../sourcefile/openpde_mesh_fv_1d.f90.html">openpde_mesh_FV_1D.f90</a>
+      
+      <a class="list-group-item" href="../sourcefile/openpde_multigrid_abstract.f90.html">openpde_multigrid_abstract.f90</a>
+      
+      <a class="list-group-item" href="../sourcefile/openpde_multigrid_fd_1d.f90.html">openpde_multigrid_FD_1D.f90</a>
+      
+      <a class="list-group-item" href="../sourcefile/openpde_spatial_operator_abstract.f90.html">openpde_spatial_operator_abstract.f90</a>
+      
+      <a class="list-group-item" href="../sourcefile/openpde_spatial_operator_d1_abstract.f90.html">openpde_spatial_operator_d1_abstract.f90</a>
+      
+      <a class="list-group-item" href="../sourcefile/openpde_spatial_operator_d1_fd_1d.f90.html">openpde_spatial_operator_d1_FD_1D.f90</a>
+      
+      <a class="list-group-item" href="../sourcefile/openpde_spatial_operator_d1_fd_2d.f90.html">openpde_spatial_operator_d1_FD_2D.f90</a>
+      
+      <a class="list-group-item" href="../sourcefile/openpde_spatial_operator_d1_fv_1d.f90.html">openpde_spatial_operator_d1_FV_1D.f90</a>
+      
+      <a class="list-group-item" href="../sourcefile/openpde_spatial_operator_d2_abstract.f90.html">openpde_spatial_operator_d2_abstract.f90</a>
+      
+      <a class="list-group-item" href="../sourcefile/openpde_spatial_operator_d2_fd_1d.f90.html">openpde_spatial_operator_d2_FD_1D.f90</a>
+      
+      <a class="list-group-item" href="../sourcefile/openpde_spatial_operator_d2_fd_2d.f90.html">openpde_spatial_operator_d2_FD_2D.f90</a>
+      
+      <a class="list-group-item" href="../sourcefile/openpde_spatial_operator_d2_fv_1d.f90.html">openpde_spatial_operator_d2_FV_1D.f90</a>
+      
+      <a class="list-group-item" href="../sourcefile/openpde_v2f_abstract.f90.html">openpde_v2f_abstract.f90</a>
+      
+      <a class="list-group-item" href="../sourcefile/openpde_v2f_fd_1d.f90.html">openpde_v2f_FD_1D.f90</a>
+      
+      <a class="list-group-item" href="../sourcefile/openpde_v2f_fd_2d.f90.html">openpde_v2f_FD_2D.f90</a>
+      
+      <a class="list-group-item" href="../sourcefile/openpde_vector_abstract.f90.html">openpde_vector_abstract.f90</a>
+      
+      <a class="list-group-item" href="../sourcefile/openpde_vector_simple.f90.html">openpde_vector_simple.f90</a>
+      
+    </div>
+  </div>
+</div>
+
+
+</div>  
+
+    </div>
+    <div class="col-md-9" id='text'>
+    <p>Abstract class of matrix.</p>
+    
+    <h3>This File Depends On</h3>
+    
+                <div class="depgraph"><?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
+ "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<!-- Generated by graphviz version 2.40.1 (20161225.0304)
+ -->
+<!-- Title: sourcefile~~openpde_matrix_abstract.f90~~EfferentGraph Pages: 1 -->
+<svg id="sourcefileopenpde_matrix_abstractf90EfferentGraph" width="299pt" height="32pt"
+ viewBox="0.00 0.00 299.00 32.00" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<g id="sourcefile~~openpde_matrix_abstract.f90~~EfferentGraph" class="graph" transform="scale(1 1) rotate(0) translate(4 28)">
+<title>sourcefile~~openpde_matrix_abstract.f90~~EfferentGraph</title>
+<polygon fill="#ffffff" stroke="transparent" points="-4,4 -4,-28 295,-28 295,4 -4,4"/>
+<!-- sourcefile~openpde_matrix_abstract.f90 -->
+<g id="sourcefile~~openpde_matrix_abstract.f90~~EfferentGraph_node1" class="node">
+<title>sourcefile~openpde_matrix_abstract.f90</title>
+<polygon fill="none" stroke="#000000" points="291,-24 139,-24 139,0 291,0 291,-24"/>
+<text text-anchor="middle" x="215" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="#000000">openpde_matrix_abstract.f90</text>
+</g>
+<!-- sourcefile~openpde_kinds.f90 -->
+<g id="sourcefile~~openpde_matrix_abstract.f90~~EfferentGraph_node2" class="node">
+<title>sourcefile~openpde_kinds.f90</title>
+<g id="a_sourcefile~~openpde_matrix_abstract.f90~~EfferentGraph_node2"><a xlink:href="../sourcefile/openpde_kinds.f90.html" xlink:title="openpde_kinds.f90">
+<polygon fill="#f0ad4e" stroke="#f0ad4e" points="103,-24 0,-24 0,0 103,0 103,-24"/>
+<text text-anchor="middle" x="51.5" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="#ffffff">openpde_kinds.f90</text>
+</a>
+</g>
+</g>
+<!-- sourcefile~openpde_kinds.f90&#45;&gt;sourcefile~openpde_matrix_abstract.f90 -->
+<g id="sourcefile~~openpde_matrix_abstract.f90~~EfferentGraph_edge1" class="edge">
+<title>sourcefile~openpde_kinds.f90&#45;&gt;sourcefile~openpde_matrix_abstract.f90</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M103.2324,-12C111.3688,-12 119.9659,-12 128.6324,-12"/>
+<polygon fill="#000000" stroke="#000000" points="128.8146,-15.5001 138.8146,-12 128.8146,-8.5001 128.8146,-15.5001"/>
+</g>
+</g>
+</svg>
+</div>
+                <div><a type="button" class="graph-help" data-toggle="modal" href="#graph-help-text">Help</a></div>
+                <div class="modal fade" id="graph-help-text" tabindex="-1" role="dialog">
+                  <div class="modal-dialog modal-lg" role="document">
+                    <div class="modal-content">
+                      <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                        <h4 class="modal-title" id="-graph-help-label">Graph Key</h4>
+                      </div>
+                      <div class="modal-body">
+                        
+    <p>Nodes of different colours represent the following: </p>
+    <?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
+ "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<!-- Generated by graphviz version 2.40.1 (20161225.0304)
+ -->
+<!-- Title: Graph Key Pages: 1 -->
+<svg width="190pt" height="32pt"
+ viewBox="0.00 0.00 190.00 32.00" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<g id="graph0" class="graph" transform="scale(1 1) rotate(0) translate(4 28)">
+<title>Graph Key</title>
+<polygon fill="#ffffff" stroke="transparent" points="-4,4 -4,-28 186,-28 186,4 -4,4"/>
+<!-- Source File -->
+<g id="node1" class="node">
+<title>Source File</title>
+<polygon fill="#f0ad4e" stroke="#f0ad4e" points="67,-24 0,-24 0,0 67,0 67,-24"/>
+<text text-anchor="middle" x="33.5" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="#ffffff">Source File</text>
+</g>
+<!-- This Page&#39;s Entity -->
+<g id="node2" class="node">
+<title>This Page&#39;s Entity</title>
+<polygon fill="none" stroke="#000000" points="182,-24 85,-24 85,0 182,0 182,-24"/>
+<text text-anchor="middle" x="133.5" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="#000000">This Page&#39;s Entity</text>
+</g>
+</g>
+</svg>
+
+    
+    <p>Solid arrows point from a file to a file which depends upon it. A file 
+    is dependent upon another if the latter must be compiled before the former
+    can be.
+    </p>
+    
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                
+    
+      
+      <h3>Files Dependent On This One</h3>
+      
+                <div class="depgraph"><?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
+ "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<!-- Generated by graphviz version 2.40.1 (20161225.0304)
+ -->
+<!-- Title: sourcefile~~openpde_matrix_abstract.f90~~AfferentGraph Pages: 1 -->
+<svg id="sourcefileopenpde_matrix_abstractf90AfferentGraph" width="641pt" height="265pt"
+ viewBox="0.00 0.00 641.00 265.26" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<g id="sourcefile~~openpde_matrix_abstract.f90~~AfferentGraph" class="graph" transform="scale(.5564 .5564) rotate(0) translate(4 472.7311)">
+<title>sourcefile~~openpde_matrix_abstract.f90~~AfferentGraph</title>
+<polygon fill="#ffffff" stroke="transparent" points="-4,4 -4,-472.7311 1148,-472.7311 1148,4 -4,4"/>
+<!-- sourcefile~openpde_matrix_abstract.f90 -->
+<g id="sourcefile~~openpde_matrix_abstract.f90~~AfferentGraph_node1" class="node">
+<title>sourcefile~openpde_matrix_abstract.f90</title>
+<polygon fill="none" stroke="#000000" points="152,-226 0,-226 0,-202 152,-202 152,-226"/>
+<text text-anchor="middle" x="76" y="-211.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="#000000">openpde_matrix_abstract.f90</text>
+</g>
+<!-- sourcefile~openpde_f2m_d2_fd_2d.f90 -->
+<g id="sourcefile~~openpde_matrix_abstract.f90~~AfferentGraph_node2" class="node">
+<title>sourcefile~openpde_f2m_d2_fd_2d.f90</title>
+<g id="a_sourcefile~~openpde_matrix_abstract.f90~~AfferentGraph_node2"><a xlink:href="../sourcefile/openpde_f2m_d2_fd_2d.f90.html" xlink:title="openpde_f2m_d2_FD_2D.f90">
+<polygon fill="#f0ad4e" stroke="#f0ad4e" points="764,-426 610,-426 610,-402 764,-402 764,-426"/>
+<text text-anchor="middle" x="687" y="-411.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="#ffffff">openpde_f2m_d2_FD_2D.f90</text>
+</a>
+</g>
+</g>
+<!-- sourcefile~openpde_matrix_abstract.f90&#45;&gt;sourcefile~openpde_f2m_d2_fd_2d.f90 -->
+<g id="sourcefile~~openpde_matrix_abstract.f90~~AfferentGraph_edge30" class="edge">
+<title>sourcefile~openpde_matrix_abstract.f90&#45;&gt;sourcefile~openpde_f2m_d2_fd_2d.f90</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M269,-414C353.009,-449.7594 379.32,-449.2614 470.5,-454"/>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M470.5,-454C500.1744,-455.5422 573.6628,-440.4565 626.7993,-428.3718"/>
+<polygon fill="#000000" stroke="#000000" points="627.8377,-431.7246 636.8023,-426.0778 626.273,-424.9017 627.8377,-431.7246"/>
+</g>
+<!-- sourcefile~openpde.f90 -->
+<g id="sourcefile~~openpde_matrix_abstract.f90~~AfferentGraph_node3" class="node">
+<title>sourcefile~openpde.f90</title>
+<g id="a_sourcefile~~openpde_matrix_abstract.f90~~AfferentGraph_node3"><a xlink:href="../sourcefile/openpde.f90.html" xlink:title="openpde.f90">
+<polygon fill="#f0ad4e" stroke="#f0ad4e" points="1144,-125 1071,-125 1071,-101 1144,-101 1144,-125"/>
+<text text-anchor="middle" x="1107.5" y="-110.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="#ffffff">openpde.f90</text>
+</a>
+</g>
+</g>
+<!-- sourcefile~openpde_matrix_abstract.f90&#45;&gt;sourcefile~openpde.f90 -->
+<g id="sourcefile~~openpde_matrix_abstract.f90~~AfferentGraph_edge31" class="edge">
+<title>sourcefile~openpde_matrix_abstract.f90&#45;&gt;sourcefile~openpde.f90</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M470.5,-454C609.4578,-461.2216 655.8233,-491.4582 783,-435 864.8672,-398.6563 845.9351,-332.0999 927,-294"/>
+</g>
+<!-- sourcefile~openpde_f2m_d1_fd_1d.f90 -->
+<g id="sourcefile~~openpde_matrix_abstract.f90~~AfferentGraph_node4" class="node">
+<title>sourcefile~openpde_f2m_d1_fd_1d.f90</title>
+<g id="a_sourcefile~~openpde_matrix_abstract.f90~~AfferentGraph_node4"><a xlink:href="../sourcefile/openpde_f2m_d1_fd_1d.f90.html" xlink:title="openpde_f2m_d1_FD_1D.f90">
+<polygon fill="#f0ad4e" stroke="#f0ad4e" points="764,-346 610,-346 610,-322 764,-322 764,-346"/>
+<text text-anchor="middle" x="687" y="-331.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="#ffffff">openpde_f2m_d1_FD_1D.f90</text>
+</a>
+</g>
+</g>
+<!-- sourcefile~openpde_matrix_abstract.f90&#45;&gt;sourcefile~openpde_f2m_d1_fd_1d.f90 -->
+<g id="sourcefile~~openpde_matrix_abstract.f90~~AfferentGraph_edge32" class="edge">
+<title>sourcefile~openpde_matrix_abstract.f90&#45;&gt;sourcefile~openpde_f2m_d1_fd_1d.f90</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M82.7999,-226.1499C104.2758,-263.0962 174.8429,-374.0129 269,-414"/>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M269,-414C271.0005,-414.8496 496.1199,-371.1843 615.112,-348.0173"/>
+<polygon fill="#000000" stroke="#000000" points="616.0911,-351.3925 625.2377,-346.0455 614.7531,-344.5216 616.0911,-351.3925"/>
+</g>
+<!-- sourcefile~openpde_matrix_simple.f90 -->
+<g id="sourcefile~~openpde_matrix_abstract.f90~~AfferentGraph_node5" class="node">
+<title>sourcefile~openpde_matrix_simple.f90</title>
+<g id="a_sourcefile~~openpde_matrix_abstract.f90~~AfferentGraph_node5"><a xlink:href="../sourcefile/openpde_matrix_simple.f90.html" xlink:title="openpde_matrix_simple.f90">
+<polygon fill="#f0ad4e" stroke="#f0ad4e" points="341.5,-226 196.5,-226 196.5,-202 341.5,-202 341.5,-226"/>
+<text text-anchor="middle" x="269" y="-211.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="#ffffff">openpde_matrix_simple.f90</text>
+</a>
+</g>
+</g>
+<!-- sourcefile~openpde_matrix_abstract.f90&#45;&gt;sourcefile~openpde_matrix_simple.f90 -->
+<g id="sourcefile~~openpde_matrix_abstract.f90~~AfferentGraph_edge33" class="edge">
+<title>sourcefile~openpde_matrix_abstract.f90&#45;&gt;sourcefile~openpde_matrix_simple.f90</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M152.0017,-214C163.1469,-214 174.6746,-214 185.9522,-214"/>
+<polygon fill="#000000" stroke="#000000" points="186.2209,-217.5001 196.2208,-214 186.2208,-210.5001 186.2209,-217.5001"/>
+</g>
+<!-- sourcefile~openpde_f2m_abstract.f90 -->
+<g id="sourcefile~~openpde_matrix_abstract.f90~~AfferentGraph_node6" class="node">
+<title>sourcefile~openpde_f2m_abstract.f90</title>
+<g id="a_sourcefile~~openpde_matrix_abstract.f90~~AfferentGraph_node6"><a xlink:href="../sourcefile/openpde_f2m_abstract.f90.html" xlink:title="openpde_f2m_abstract.f90">
+<polygon fill="#f0ad4e" stroke="#f0ad4e" points="339.5,-325 198.5,-325 198.5,-301 339.5,-301 339.5,-325"/>
+<text text-anchor="middle" x="269" y="-310.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="#ffffff">openpde_f2m_abstract.f90</text>
+</a>
+</g>
+</g>
+<!-- sourcefile~openpde_matrix_abstract.f90&#45;&gt;sourcefile~openpde_f2m_abstract.f90 -->
+<g id="sourcefile~~openpde_matrix_abstract.f90~~AfferentGraph_edge34" class="edge">
+<title>sourcefile~openpde_matrix_abstract.f90&#45;&gt;sourcefile~openpde_f2m_abstract.f90</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M99.6656,-226.1393C133.9064,-243.7033 197.3966,-276.2708 236.1549,-296.152"/>
+<polygon fill="#000000" stroke="#000000" points="234.9479,-299.4664 245.443,-300.9164 238.1428,-293.238 234.9479,-299.4664"/>
+</g>
+<!-- sourcefile~openpde_linsolver_gmlapack.f90 -->
+<g id="sourcefile~~openpde_matrix_abstract.f90~~AfferentGraph_node7" class="node">
+<title>sourcefile~openpde_linsolver_gmlapack.f90</title>
+<g id="a_sourcefile~~openpde_matrix_abstract.f90~~AfferentGraph_node7"><a xlink:href="../sourcefile/openpde_linsolver_gmlapack.f90.html" xlink:title="openpde_linsolver_gmlapack.f90">
+<polygon fill="#f0ad4e" stroke="#f0ad4e" points="555,-186 386,-186 386,-162 555,-162 555,-186"/>
+<text text-anchor="middle" x="470.5" y="-171.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="#ffffff">openpde_linsolver_gmlapack.f90</text>
+</a>
+</g>
+</g>
+<!-- sourcefile~openpde_matrix_abstract.f90&#45;&gt;sourcefile~openpde_linsolver_gmlapack.f90 -->
+<g id="sourcefile~~openpde_matrix_abstract.f90~~AfferentGraph_edge35" class="edge">
+<title>sourcefile~openpde_matrix_abstract.f90&#45;&gt;sourcefile~openpde_linsolver_gmlapack.f90</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M133.0594,-201.9539C150.6136,-198.612 170.0424,-195.2793 188,-193 250.3193,-185.09 320.8186,-180.3425 375.8008,-177.5713"/>
+<polygon fill="#000000" stroke="#000000" points="376.0648,-181.0626 385.8811,-177.0765 375.7215,-174.0711 376.0648,-181.0626"/>
+</g>
+<!-- sourcefile~openpde_integrator_adv_euler_implicit.f90 -->
+<g id="sourcefile~~openpde_matrix_abstract.f90~~AfferentGraph_node8" class="node">
+<title>sourcefile~openpde_integrator_adv_euler_implicit.f90</title>
+<g id="a_sourcefile~~openpde_matrix_abstract.f90~~AfferentGraph_node8"><a xlink:href="../sourcefile/openpde_integrator_adv_euler_implicit.f90.html" xlink:title="openpde_integrator_adv_euler_implicit.f90">
+<polygon fill="#f0ad4e" stroke="#f0ad4e" points="1035,-24 819,-24 819,0 1035,0 1035,-24"/>
+<text text-anchor="middle" x="927" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="#ffffff">openpde_integrator_adv_euler_implicit.f90</text>
+</a>
+</g>
+</g>
+<!-- sourcefile~openpde_matrix_abstract.f90&#45;&gt;sourcefile~openpde_integrator_adv_euler_implicit.f90 -->
+<g id="sourcefile~~openpde_matrix_abstract.f90~~AfferentGraph_edge36" class="edge">
+<title>sourcefile~openpde_matrix_abstract.f90&#45;&gt;sourcefile~openpde_integrator_adv_euler_implicit.f90</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M85.0359,-201.5529C109.829,-168.6929 182.8404,-80.3342 269,-54"/>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M269,-54C446.6645,.3021 501.3991,-62.1046 687,-54"/>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M687,-54C703.5867,-53.8117 789.9517,-38.0859 854.3575,-25.9337"/>
+<polygon fill="#000000" stroke="#000000" points="855.3163,-29.3145 864.4916,-24.017 854.0154,-22.4365 855.3163,-29.3145"/>
+</g>
+<!-- sourcefile~openpde_f2m_d2_fd_1d.f90 -->
+<g id="sourcefile~~openpde_matrix_abstract.f90~~AfferentGraph_node9" class="node">
+<title>sourcefile~openpde_f2m_d2_fd_1d.f90</title>
+<g id="a_sourcefile~~openpde_matrix_abstract.f90~~AfferentGraph_node9"><a xlink:href="../sourcefile/openpde_f2m_d2_fd_1d.f90.html" xlink:title="openpde_f2m_d2_FD_1D.f90">
+<polygon fill="#f0ad4e" stroke="#f0ad4e" points="764,-266 610,-266 610,-242 764,-242 764,-266"/>
+<text text-anchor="middle" x="687" y="-251.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="#ffffff">openpde_f2m_d2_FD_1D.f90</text>
+</a>
+</g>
+</g>
+<!-- sourcefile~openpde_matrix_abstract.f90&#45;&gt;sourcefile~openpde_f2m_d2_fd_1d.f90 -->
+<g id="sourcefile~~openpde_matrix_abstract.f90~~AfferentGraph_edge37" class="edge">
+<title>sourcefile~openpde_matrix_abstract.f90&#45;&gt;sourcefile~openpde_f2m_d2_fd_1d.f90</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M126.1064,-226.0401C164.8991,-234.9585 220.0848,-246.7709 269,-254"/>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M269,-254C382.3085,-270.7458 514.7891,-266.8427 599.7302,-261.387"/>
+<polygon fill="#000000" stroke="#000000" points="600.1026,-264.8701 609.8487,-260.7153 599.6388,-257.8855 600.1026,-264.8701"/>
+</g>
+<!-- sourcefile~openpde_f2m_d1_abstract.f90 -->
+<g id="sourcefile~~openpde_matrix_abstract.f90~~AfferentGraph_node10" class="node">
+<title>sourcefile~openpde_f2m_d1_abstract.f90</title>
+<g id="a_sourcefile~~openpde_matrix_abstract.f90~~AfferentGraph_node10"><a xlink:href="../sourcefile/openpde_f2m_d1_abstract.f90.html" xlink:title="openpde_f2m_d1_abstract.f90">
+<polygon fill="#f0ad4e" stroke="#f0ad4e" points="550,-304 391,-304 391,-280 550,-280 550,-304"/>
+<text text-anchor="middle" x="470.5" y="-289.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="#ffffff">openpde_f2m_d1_abstract.f90</text>
+</a>
+</g>
+</g>
+<!-- sourcefile~openpde_matrix_abstract.f90&#45;&gt;sourcefile~openpde_f2m_d1_abstract.f90 -->
+<g id="sourcefile~~openpde_matrix_abstract.f90~~AfferentGraph_edge38" class="edge">
+<title>sourcefile~openpde_matrix_abstract.f90&#45;&gt;sourcefile~openpde_f2m_d1_abstract.f90</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M269,-254C313.9358,-260.641 364.1358,-270.1023 403.189,-277.9225"/>
+<polygon fill="#000000" stroke="#000000" points="402.8854,-281.4317 413.3798,-279.9765 404.2685,-274.5697 402.8854,-281.4317"/>
+</g>
+<!-- sourcefile~openpde_linsolver_abstract.f90 -->
+<g id="sourcefile~~openpde_matrix_abstract.f90~~AfferentGraph_node11" class="node">
+<title>sourcefile~openpde_linsolver_abstract.f90</title>
+<g id="a_sourcefile~~openpde_matrix_abstract.f90~~AfferentGraph_node11"><a xlink:href="../sourcefile/openpde_linsolver_abstract.f90.html" xlink:title="openpde_linsolver_abstract.f90">
+<polygon fill="#f0ad4e" stroke="#f0ad4e" points="350,-146 188,-146 188,-122 350,-122 350,-146"/>
+<text text-anchor="middle" x="269" y="-131.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="#ffffff">openpde_linsolver_abstract.f90</text>
+</a>
+</g>
+</g>
+<!-- sourcefile~openpde_matrix_abstract.f90&#45;&gt;sourcefile~openpde_linsolver_abstract.f90 -->
+<g id="sourcefile~~openpde_matrix_abstract.f90~~AfferentGraph_edge39" class="edge">
+<title>sourcefile~openpde_matrix_abstract.f90&#45;&gt;sourcefile~openpde_linsolver_abstract.f90</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M98.7477,-201.8792C121.0861,-190.2538 156.3254,-172.6486 188,-160 197.6666,-156.1398 208.1497,-152.4345 218.2672,-149.0914"/>
+<polygon fill="#000000" stroke="#000000" points="219.3785,-152.4106 227.8168,-146.0039 217.225,-145.75 219.3785,-152.4106"/>
+</g>
+<!-- sourcefile~openpde_equation_adv.f90 -->
+<g id="sourcefile~~openpde_matrix_abstract.f90~~AfferentGraph_node12" class="node">
+<title>sourcefile~openpde_equation_adv.f90</title>
+<g id="a_sourcefile~~openpde_matrix_abstract.f90~~AfferentGraph_node12"><a xlink:href="../sourcefile/openpde_equation_adv.f90.html" xlink:title="openpde_equation_adv.f90">
+<polygon fill="#f0ad4e" stroke="#f0ad4e" points="542,-106 399,-106 399,-82 542,-82 542,-106"/>
+<text text-anchor="middle" x="470.5" y="-91.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="#ffffff">openpde_equation_adv.f90</text>
+</a>
+</g>
+</g>
+<!-- sourcefile~openpde_matrix_abstract.f90&#45;&gt;sourcefile~openpde_equation_adv.f90 -->
+<g id="sourcefile~~openpde_matrix_abstract.f90~~AfferentGraph_edge40" class="edge">
+<title>sourcefile~openpde_matrix_abstract.f90&#45;&gt;sourcefile~openpde_equation_adv.f90</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M269,-54C297.0589,-45.424 372.2832,-64.3941 422.4563,-79.045"/>
+<polygon fill="#000000" stroke="#000000" points="421.5535,-82.4278 432.1356,-81.9082 423.5391,-75.7153 421.5535,-82.4278"/>
+</g>
+<!-- sourcefile~openpde_f2m_d2_abstract.f90 -->
+<g id="sourcefile~~openpde_matrix_abstract.f90~~AfferentGraph_node13" class="node">
+<title>sourcefile~openpde_f2m_d2_abstract.f90</title>
+<g id="a_sourcefile~~openpde_matrix_abstract.f90~~AfferentGraph_node13"><a xlink:href="../sourcefile/openpde_f2m_d2_abstract.f90.html" xlink:title="openpde_f2m_d2_abstract.f90">
+<polygon fill="#f0ad4e" stroke="#f0ad4e" points="550,-426 391,-426 391,-402 550,-402 550,-426"/>
+<text text-anchor="middle" x="470.5" y="-411.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="#ffffff">openpde_f2m_d2_abstract.f90</text>
+</a>
+</g>
+</g>
+<!-- sourcefile~openpde_matrix_abstract.f90&#45;&gt;sourcefile~openpde_f2m_d2_abstract.f90 -->
+<g id="sourcefile~~openpde_matrix_abstract.f90~~AfferentGraph_edge41" class="edge">
+<title>sourcefile~openpde_matrix_abstract.f90&#45;&gt;sourcefile~openpde_f2m_d2_abstract.f90</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M269,-414C309.8767,-431.3597 359.7636,-431.5022 399.6723,-427.2344"/>
+<polygon fill="#000000" stroke="#000000" points="400.3363,-430.6804 409.855,-426.0281 399.5127,-423.729 400.3363,-430.6804"/>
+</g>
+<!-- sourcefile~openpde_integrator_adv_rk_implicit.f90 -->
+<g id="sourcefile~~openpde_matrix_abstract.f90~~AfferentGraph_node14" class="node">
+<title>sourcefile~openpde_integrator_adv_rk_implicit.f90</title>
+<g id="a_sourcefile~~openpde_matrix_abstract.f90~~AfferentGraph_node14"><a xlink:href="../sourcefile/openpde_integrator_adv_rk_implicit.f90.html" xlink:title="openpde_integrator_adv_rk_implicit.f90">
+<polygon fill="#f0ad4e" stroke="#f0ad4e" points="1027.5,-66 826.5,-66 826.5,-42 1027.5,-42 1027.5,-66"/>
+<text text-anchor="middle" x="927" y="-51.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="#ffffff">openpde_integrator_adv_rk_implicit.f90</text>
+</a>
+</g>
+</g>
+<!-- sourcefile~openpde_matrix_abstract.f90&#45;&gt;sourcefile~openpde_integrator_adv_rk_implicit.f90 -->
+<g id="sourcefile~~openpde_matrix_abstract.f90~~AfferentGraph_edge42" class="edge">
+<title>sourcefile~openpde_matrix_abstract.f90&#45;&gt;sourcefile~openpde_integrator_adv_rk_implicit.f90</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M687,-54C729.1164,-52.1609 775.4299,-51.7755 816.0444,-51.982"/>
+<polygon fill="#000000" stroke="#000000" points="816.2192,-55.4831 826.2413,-52.0467 816.2637,-48.4832 816.2192,-55.4831"/>
+</g>
+<!-- sourcefile~openpde_f2m_d2_fd_2d.f90&#45;&gt;sourcefile~openpde.f90 -->
+<g id="sourcefile~~openpde_matrix_abstract.f90~~AfferentGraph_edge1" class="edge">
+<title>sourcefile~openpde_f2m_d2_fd_2d.f90&#45;&gt;sourcefile~openpde.f90</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M743.1125,-401.9723C756.4691,-398.2501 770.4736,-393.6151 783,-388 852.7425,-356.7371 857.7043,-326.2411 927,-294"/>
+</g>
+<!-- sourcefile~openpde_f2m_d1_fd_1d.f90&#45;&gt;sourcefile~openpde.f90 -->
+<g id="sourcefile~~openpde_matrix_abstract.f90~~AfferentGraph_edge2" class="edge">
+<title>sourcefile~openpde_f2m_d1_fd_1d.f90&#45;&gt;sourcefile~openpde.f90</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M764.1482,-331.6295C812.8008,-327.6444 875.8709,-317.7888 927,-294"/>
+</g>
+<!-- sourcefile~openpde_matrix_simple.f90&#45;&gt;sourcefile~openpde.f90 -->
+<g id="sourcefile~~openpde_matrix_abstract.f90~~AfferentGraph_edge3" class="edge">
+<title>sourcefile~openpde_matrix_simple.f90&#45;&gt;sourcefile~openpde.f90</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M341.8483,-206.0447C425.8336,-198.702 567.6499,-191.9363 687,-214"/>
+</g>
+<!-- sourcefile~openpde_matrix_simple.f90&#45;&gt;sourcefile~openpde_linsolver_gmlapack.f90 -->
+<g id="sourcefile~~openpde_matrix_abstract.f90~~AfferentGraph_edge4" class="edge">
+<title>sourcefile~openpde_matrix_simple.f90&#45;&gt;sourcefile~openpde_linsolver_gmlapack.f90</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M329.4566,-201.9987C351.5714,-197.6087 376.7872,-192.603 399.723,-188.05"/>
+<polygon fill="#000000" stroke="#000000" points="400.611,-191.4421 409.7381,-186.0619 399.2479,-184.5761 400.611,-191.4421"/>
+</g>
+<!-- sourcefile~openpde_f2m_abstract.f90&#45;&gt;sourcefile~openpde.f90 -->
+<g id="sourcefile~~openpde_matrix_abstract.f90~~AfferentGraph_edge5" class="edge">
+<title>sourcefile~openpde_f2m_abstract.f90&#45;&gt;sourcefile~openpde.f90</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M339.5331,-314.001C397.4269,-314.5819 481.5378,-314.8748 555,-313 596.3737,-311.9441 889.471,-311.4493 927,-294"/>
+</g>
+<!-- sourcefile~openpde_f2m_abstract.f90&#45;&gt;sourcefile~openpde_f2m_d1_abstract.f90 -->
+<g id="sourcefile~~openpde_matrix_abstract.f90~~AfferentGraph_edge6" class="edge">
+<title>sourcefile~openpde_f2m_abstract.f90&#45;&gt;sourcefile~openpde_f2m_d1_abstract.f90</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M339.758,-305.6257C353.0806,-304.2373 367.1731,-302.7686 380.9806,-301.3296"/>
+<polygon fill="#000000" stroke="#000000" points="381.3859,-304.8064 390.9692,-300.2886 380.6603,-297.8441 381.3859,-304.8064"/>
+</g>
+<!-- sourcefile~openpde_f2m_abstract.f90&#45;&gt;sourcefile~openpde_f2m_d2_abstract.f90 -->
+<g id="sourcefile~~openpde_matrix_abstract.f90~~AfferentGraph_edge7" class="edge">
+<title>sourcefile~openpde_f2m_abstract.f90&#45;&gt;sourcefile~openpde_f2m_d2_abstract.f90</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M293.3056,-325.183C329.2573,-343.2034 396.7138,-377.0153 437.2276,-397.3225"/>
+<polygon fill="#000000" stroke="#000000" points="435.9136,-400.5789 446.4218,-401.9311 439.0504,-394.321 435.9136,-400.5789"/>
+</g>
+<!-- sourcefile~openpde_linsolver_gmlapack.f90&#45;&gt;sourcefile~openpde.f90 -->
+<g id="sourcefile~~openpde_matrix_abstract.f90~~AfferentGraph_edge8" class="edge">
+<title>sourcefile~openpde_linsolver_gmlapack.f90&#45;&gt;sourcefile~openpde.f90</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M536.3641,-186.0838C579.2728,-193.9771 636.4684,-204.538 687,-214"/>
+</g>
+<!-- sourcefile~openpde_integrator_adv_euler_implicit.f90&#45;&gt;sourcefile~openpde.f90 -->
+<g id="sourcefile~~openpde_matrix_abstract.f90~~AfferentGraph_edge9" class="edge">
+<title>sourcefile~openpde_integrator_adv_euler_implicit.f90&#45;&gt;sourcefile~openpde.f90</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M1015.0896,-24.0931C1022.0309,-26.5452 1028.7601,-29.4826 1035,-33 1060.3982,-47.3167 1081.698,-73.7703 1094.5033,-92.3264"/>
+<polygon fill="#000000" stroke="#000000" points="1091.6323,-94.3298 1100.0879,-100.7136 1097.4589,-90.4501 1091.6323,-94.3298"/>
+</g>
+<!-- sourcefile~openpde_f2m_d2_fd_1d.f90&#45;&gt;sourcefile~openpde.f90 -->
+<g id="sourcefile~~openpde_matrix_abstract.f90~~AfferentGraph_edge10" class="edge">
+<title>sourcefile~openpde_f2m_d2_fd_1d.f90&#45;&gt;sourcefile~openpde.f90</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M739.6873,-266.0067C805.1516,-280.4256 910.316,-301.7625 927,-294"/>
+</g>
+<!-- sourcefile~openpde_f2m_d1_abstract.f90&#45;&gt;sourcefile~openpde.f90 -->
+<g id="sourcefile~~openpde_matrix_abstract.f90~~AfferentGraph_edge11" class="edge">
+<title>sourcefile~openpde_f2m_d1_abstract.f90&#45;&gt;sourcefile~openpde.f90</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M486.2974,-279.945C521.3777,-254.6164 608.8541,-199.3672 687,-214"/>
+</g>
+<!-- sourcefile~openpde_f2m_d1_abstract.f90&#45;&gt;sourcefile~openpde_f2m_d1_fd_1d.f90 -->
+<g id="sourcefile~~openpde_matrix_abstract.f90~~AfferentGraph_edge12" class="edge">
+<title>sourcefile~openpde_f2m_d1_abstract.f90&#45;&gt;sourcefile~openpde_f2m_d1_fd_1d.f90</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M532.5402,-304.0355C558.2451,-309.0222 588.2297,-314.839 614.905,-320.0139"/>
+<polygon fill="#000000" stroke="#000000" points="614.4672,-323.4941 624.9507,-321.9627 615.8003,-316.6223 614.4672,-323.4941"/>
+</g>
+<!-- sourcefile~openpde_linsolver_abstract.f90&#45;&gt;sourcefile~openpde.f90 -->
+<g id="sourcefile~~openpde_matrix_abstract.f90~~AfferentGraph_edge15" class="edge">
+<title>sourcefile~openpde_linsolver_abstract.f90&#45;&gt;sourcefile~openpde.f90</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M350.156,-124.3384C409.5858,-120.7545 490.7376,-123.3164 555,-153 575.8291,-162.6212 571.1122,-178.5591 591,-190 629.1219,-211.9304 643.7715,-205.9055 687,-214"/>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M687,-214C729.7696,-221.9066 741.4232,-220.2279 783,-233 849.4412,-253.4103 863.974,-323.3042 927,-294"/>
+</g>
+<!-- sourcefile~openpde_linsolver_abstract.f90&#45;&gt;sourcefile~openpde_linsolver_gmlapack.f90 -->
+<g id="sourcefile~~openpde_matrix_abstract.f90~~AfferentGraph_edge14" class="edge">
+<title>sourcefile~openpde_linsolver_abstract.f90&#45;&gt;sourcefile~openpde_linsolver_gmlapack.f90</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M329.4566,-146.0013C351.5714,-150.3913 376.7872,-155.397 399.723,-159.95"/>
+<polygon fill="#000000" stroke="#000000" points="399.2479,-163.4239 409.7381,-161.9381 400.611,-156.5579 399.2479,-163.4239"/>
+</g>
+<!-- sourcefile~openpde_linsolver_abstract.f90&#45;&gt;sourcefile~openpde_equation_adv.f90 -->
+<g id="sourcefile~~openpde_matrix_abstract.f90~~AfferentGraph_edge13" class="edge">
+<title>sourcefile~openpde_linsolver_abstract.f90&#45;&gt;sourcefile~openpde_equation_adv.f90</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M329.4566,-121.9987C351.5714,-117.6087 376.7872,-112.603 399.723,-108.05"/>
+<polygon fill="#000000" stroke="#000000" points="400.611,-111.4421 409.7381,-106.0619 399.2479,-104.5761 400.611,-111.4421"/>
+</g>
+<!-- sourcefile~openpde_equation_adv.f90&#45;&gt;sourcefile~openpde.f90 -->
+<g id="sourcefile~~openpde_matrix_abstract.f90~~AfferentGraph_edge22" class="edge">
+<title>sourcefile~openpde_equation_adv.f90&#45;&gt;sourcefile~openpde.f90</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M687,-176C729.2825,-188.1001 742.6942,-182.4026 783,-200 853.0441,-230.581 857.7043,-326.2411 927,-294"/>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M927,-294C1004.8528,-257.7775 1068.1326,-172.9129 1094.3946,-133.6272"/>
+<polygon fill="#000000" stroke="#000000" points="1097.4259,-135.3871 1099.9854,-125.1061 1091.5732,-131.547 1097.4259,-135.3871"/>
+</g>
+<!-- sourcefile~openpde_equation_adv.f90&#45;&gt;sourcefile~openpde_integrator_adv_euler_implicit.f90 -->
+<g id="sourcefile~~openpde_matrix_abstract.f90~~AfferentGraph_edge21" class="edge">
+<title>sourcefile~openpde_equation_adv.f90&#45;&gt;sourcefile~openpde_integrator_adv_euler_implicit.f90</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M542.4535,-97.4923C584.7152,-98.5093 639.0766,-98.0289 687,-92"/>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M687,-92C730.6359,-86.5105 744.5772,-89.3988 783,-68 802.4958,-57.1423 799.2237,-43.338 819,-33 822.8088,-31.009 826.7823,-29.2057 830.8622,-27.5726"/>
+<polygon fill="#000000" stroke="#000000" points="832.3385,-30.7604 840.5475,-24.0625 829.9533,-24.1793 832.3385,-30.7604"/>
+</g>
+<!-- sourcefile~openpde_equation_adv.f90&#45;&gt;sourcefile~openpde_integrator_adv_rk_implicit.f90 -->
+<g id="sourcefile~~openpde_matrix_abstract.f90~~AfferentGraph_edge24" class="edge">
+<title>sourcefile~openpde_equation_adv.f90&#45;&gt;sourcefile~openpde_integrator_adv_rk_implicit.f90</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M687,-92C741.105,-85.1934 801.7621,-75.572 848.5596,-67.7138"/>
+<polygon fill="#000000" stroke="#000000" points="849.3509,-71.1298 858.629,-66.0143 848.1859,-64.2275 849.3509,-71.1298"/>
+</g>
+<!-- sourcefile~openpde_integrator_adv_abstract.f90 -->
+<g id="sourcefile~~openpde_matrix_abstract.f90~~AfferentGraph_node15" class="node">
+<title>sourcefile~openpde_integrator_adv_abstract.f90</title>
+<g id="a_sourcefile~~openpde_matrix_abstract.f90~~AfferentGraph_node15"><a xlink:href="../sourcefile/openpde_integrator_adv_abstract.f90.html" xlink:title="openpde_integrator_adv_abstract.f90">
+<polygon fill="#f0ad4e" stroke="#f0ad4e" points="783,-144 591,-144 591,-120 783,-120 783,-144"/>
+<text text-anchor="middle" x="687" y="-129.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="#ffffff">openpde_integrator_adv_abstract.f90</text>
+</a>
+</g>
+</g>
+<!-- sourcefile~openpde_equation_adv.f90&#45;&gt;sourcefile~openpde_integrator_adv_abstract.f90 -->
+<g id="sourcefile~~openpde_matrix_abstract.f90~~AfferentGraph_edge23" class="edge">
+<title>sourcefile~openpde_equation_adv.f90&#45;&gt;sourcefile~openpde_integrator_adv_abstract.f90</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M539.002,-106.0234C561.1241,-109.9063 585.8182,-114.2406 608.5991,-118.2391"/>
+<polygon fill="#000000" stroke="#000000" points="608.1178,-121.7081 618.5724,-119.9896 609.328,-114.8135 608.1178,-121.7081"/>
+</g>
+<!-- sourcefile~openpde_integrator_adv_euler_explicit.f90 -->
+<g id="sourcefile~~openpde_matrix_abstract.f90~~AfferentGraph_node16" class="node">
+<title>sourcefile~openpde_integrator_adv_euler_explicit.f90</title>
+<g id="a_sourcefile~~openpde_matrix_abstract.f90~~AfferentGraph_node16"><a xlink:href="../sourcefile/openpde_integrator_adv_euler_explicit.f90.html" xlink:title="openpde_integrator_adv_euler_explicit.f90">
+<polygon fill="#f0ad4e" stroke="#f0ad4e" points="1035,-165 819,-165 819,-141 1035,-141 1035,-165"/>
+<text text-anchor="middle" x="927" y="-150.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="#ffffff">openpde_integrator_adv_euler_explicit.f90</text>
+</a>
+</g>
+</g>
+<!-- sourcefile~openpde_equation_adv.f90&#45;&gt;sourcefile~openpde_integrator_adv_euler_explicit.f90 -->
+<g id="sourcefile~~openpde_matrix_abstract.f90~~AfferentGraph_edge25" class="edge">
+<title>sourcefile~openpde_equation_adv.f90&#45;&gt;sourcefile~openpde_integrator_adv_euler_explicit.f90</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M522.5116,-106.0314C533.6226,-109.6769 545.0112,-114.2779 555,-120 573.8337,-130.789 571.8341,-142.8128 591,-153 629.7415,-173.5921 644.8191,-163.9289 687,-176"/>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M687,-176C751.9435,-194.5851 830.3829,-180.598 879.4939,-167.7198"/>
+<polygon fill="#000000" stroke="#000000" points="880.4769,-171.0797 889.2126,-165.0849 878.6452,-164.3236 880.4769,-171.0797"/>
+</g>
+<!-- sourcefile~openpde_f2m_d2_abstract.f90&#45;&gt;sourcefile~openpde_f2m_d2_fd_2d.f90 -->
+<g id="sourcefile~~openpde_matrix_abstract.f90~~AfferentGraph_edge26" class="edge">
+<title>sourcefile~openpde_f2m_d2_abstract.f90&#45;&gt;sourcefile~openpde_f2m_d2_fd_2d.f90</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M550.1943,-414C566.3693,-414 583.4605,-414 599.8771,-414"/>
+<polygon fill="#000000" stroke="#000000" points="599.9975,-417.5001 609.9974,-414 599.9974,-410.5001 599.9975,-417.5001"/>
+</g>
+<!-- sourcefile~openpde_f2m_d2_abstract.f90&#45;&gt;sourcefile~openpde.f90 -->
+<g id="sourcefile~~openpde_matrix_abstract.f90~~AfferentGraph_edge27" class="edge">
+<title>sourcefile~openpde_f2m_d2_abstract.f90&#45;&gt;sourcefile~openpde.f90</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M538.3414,-401.9878C623.1222,-386.8524 759.9448,-361.9717 783,-355 849.5302,-334.8819 863.9816,-323.3205 927,-294"/>
+</g>
+<!-- sourcefile~openpde_f2m_d2_abstract.f90&#45;&gt;sourcefile~openpde_f2m_d2_fd_1d.f90 -->
+<g id="sourcefile~~openpde_matrix_abstract.f90~~AfferentGraph_edge28" class="edge">
+<title>sourcefile~openpde_f2m_d2_abstract.f90&#45;&gt;sourcefile~openpde_f2m_d2_fd_1d.f90</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M483.7103,-401.8146C505.344,-382.1196 550.0273,-342.5195 591,-313 612.2384,-297.6984 637.5023,-282.2737 656.781,-271.0351"/>
+<polygon fill="#000000" stroke="#000000" points="658.5418,-274.06 665.4505,-266.0275 655.0406,-267.9985 658.5418,-274.06"/>
+</g>
+<!-- sourcefile~openpde_integrator_adv_rk_implicit.f90&#45;&gt;sourcefile~openpde.f90 -->
+<g id="sourcefile~~openpde_matrix_abstract.f90~~AfferentGraph_edge29" class="edge">
+<title>sourcefile~openpde_integrator_adv_rk_implicit.f90&#45;&gt;sourcefile~openpde.f90</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M963.9624,-66.0819C992.0399,-75.2596 1030.8378,-87.9414 1061.0188,-97.8067"/>
+<polygon fill="#000000" stroke="#000000" points="1060.3033,-101.255 1070.8958,-101.0352 1062.4782,-94.6014 1060.3033,-101.255"/>
+</g>
+<!-- sourcefile~openpde_integrator_adv_abstract.f90&#45;&gt;sourcefile~openpde.f90 -->
+<g id="sourcefile~~openpde_matrix_abstract.f90~~AfferentGraph_edge17" class="edge">
+<title>sourcefile~openpde_integrator_adv_abstract.f90&#45;&gt;sourcefile~openpde.f90</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M783.2075,-127.6529C869.964,-123.7329 993.8668,-118.1344 1060.6084,-115.1188"/>
+<polygon fill="#000000" stroke="#000000" points="1060.983,-118.6055 1070.8148,-114.6576 1060.667,-111.6126 1060.983,-118.6055"/>
+</g>
+<!-- sourcefile~openpde_integrator_adv_abstract.f90&#45;&gt;sourcefile~openpde_integrator_adv_euler_implicit.f90 -->
+<g id="sourcefile~~openpde_matrix_abstract.f90~~AfferentGraph_edge16" class="edge">
+<title>sourcefile~openpde_integrator_adv_abstract.f90&#45;&gt;sourcefile~openpde_integrator_adv_euler_implicit.f90</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M759.0294,-119.8515C767.6783,-116.3369 775.9335,-111.8152 783,-106 810.9329,-83.0132 790.253,-54.9602 819,-33 820.8499,-31.5868 822.7685,-30.2606 824.745,-29.0162"/>
+<polygon fill="#000000" stroke="#000000" points="826.6699,-31.9522 833.7487,-24.0691 823.2991,-25.8172 826.6699,-31.9522"/>
+</g>
+<!-- sourcefile~openpde_integrator_adv_abstract.f90&#45;&gt;sourcefile~openpde_integrator_adv_rk_implicit.f90 -->
+<g id="sourcefile~~openpde_matrix_abstract.f90~~AfferentGraph_edge18" class="edge">
+<title>sourcefile~openpde_integrator_adv_abstract.f90&#45;&gt;sourcefile~openpde_integrator_adv_rk_implicit.f90</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M734.5884,-119.9385C750.1024,-115.7865 767.3559,-110.934 783,-106 818.2607,-94.8792 857.7173,-80.4912 886.3997,-69.6698"/>
+<polygon fill="#000000" stroke="#000000" points="887.962,-72.8206 896.0712,-66.0021 885.4799,-66.2754 887.962,-72.8206"/>
+</g>
+<!-- sourcefile~openpde_integrator_adv_abstract.f90&#45;&gt;sourcefile~openpde_integrator_adv_euler_explicit.f90 -->
+<g id="sourcefile~~openpde_matrix_abstract.f90~~AfferentGraph_edge19" class="edge">
+<title>sourcefile~openpde_integrator_adv_abstract.f90&#45;&gt;sourcefile~openpde_integrator_adv_euler_explicit.f90</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M783.2343,-140.4205C791.6702,-141.1586 800.2693,-141.9111 808.8558,-142.6624"/>
+<polygon fill="#000000" stroke="#000000" points="808.6521,-146.1578 818.9191,-143.5429 809.2623,-139.1845 808.6521,-146.1578"/>
+</g>
+<!-- sourcefile~openpde_integrator_adv_euler_explicit.f90&#45;&gt;sourcefile~openpde.f90 -->
+<g id="sourcefile~~openpde_matrix_abstract.f90~~AfferentGraph_edge20" class="edge">
+<title>sourcefile~openpde_integrator_adv_euler_explicit.f90&#45;&gt;sourcefile~openpde.f90</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M981.156,-140.9987C1006.5065,-135.3808 1036.4061,-128.7549 1060.7533,-123.3594"/>
+<polygon fill="#000000" stroke="#000000" points="1061.8126,-126.7096 1070.8185,-121.1289 1060.2981,-119.8754 1061.8126,-126.7096"/>
+</g>
+</g>
+</svg>
+</div>
+                <script>var pansourcefileopenpde_matrix_abstractf90AfferentGraph = svgPanZoom('#sourcefileopenpde_matrix_abstractf90AfferentGraph', {
+                    zoomEnabled: true,
+                    controlIconsEnabled: true,
+                    fit: true,
+                    center: true,});
+                    </script>
+                <div><a type="button" class="graph-help" data-toggle="modal" href="#graph-help-text">Help</a></div>
+                <div class="modal fade" id="graph-help-text" tabindex="-1" role="dialog">
+                  <div class="modal-dialog modal-lg" role="document">
+                    <div class="modal-content">
+                      <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                        <h4 class="modal-title" id="-graph-help-label">Graph Key</h4>
+                      </div>
+                      <div class="modal-body">
+                        
+    <p>Nodes of different colours represent the following: </p>
+    <?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
+ "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<!-- Generated by graphviz version 2.40.1 (20161225.0304)
+ -->
+<!-- Title: Graph Key Pages: 1 -->
+<svg width="190pt" height="32pt"
+ viewBox="0.00 0.00 190.00 32.00" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<g id="graph0" class="graph" transform="scale(1 1) rotate(0) translate(4 28)">
+<title>Graph Key</title>
+<polygon fill="#ffffff" stroke="transparent" points="-4,4 -4,-28 186,-28 186,4 -4,4"/>
+<!-- Source File -->
+<g id="node1" class="node">
+<title>Source File</title>
+<polygon fill="#f0ad4e" stroke="#f0ad4e" points="67,-24 0,-24 0,0 67,0 67,-24"/>
+<text text-anchor="middle" x="33.5" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="#ffffff">Source File</text>
+</g>
+<!-- This Page&#39;s Entity -->
+<g id="node2" class="node">
+<title>This Page&#39;s Entity</title>
+<polygon fill="none" stroke="#000000" points="182,-24 85,-24 85,0 182,0 182,-24"/>
+<text text-anchor="middle" x="133.5" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="#000000">This Page&#39;s Entity</text>
+</g>
+</g>
+</svg>
+
+    
+    <p>Solid arrows point from a file to a file which depends upon it. A file 
+    is dependent upon another if the latter must be compiled before the former
+    can be.
+    </p>
+    
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                
+      
+      <br>
+
+    <section class="visible-xs visible-sm hidden-md">
+      
+
+
+
+
+
+
+<div class="panel panel-primary">
+  <div class="panel-heading text-left"><h3 class="panel-title"><a data-toggle="collapse" href="#mods-1">Modules</a></h3></div>
+  <div id="mods-1" class="panel-collapse collapse">
+    <div class="list-group">
+      
+      <a class="list-group-item" href="../module/openpde_matrix_abstract.html">openpde_matrix_abstract</a>
+      
+    </div>
+  </div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="panel panel-primary">
+  <div class="panel-heading text-left"><h3 class="panel-title">Source Code</h3></div>
+  <div class="list-group">
+    <a class="list-group-item" href="../sourcefile/openpde_matrix_abstract.f90.html#src">openpde_matrix_abstract.f90</a>
+  </div>
+</div>
+
+
+    </section>
+    <br class="visible-xs visible-sm hidden-md">
+
+    <section>
+      <h2><span class="anchor" id="src"></span>Source Code</h2>
+    <div class="hl"><pre><span></span><a name="ln-1"></a><span class="c">!&lt; Abstract class of matrix.</span>
+<a name="ln-2"></a><span class="k">module </span><span class="n">openpde_matrix_abstract</span>
+<a name="ln-3"></a>    <span class="c">!&lt; Abstract class of matrix.</span>
+<a name="ln-4"></a>    <span class="k">use </span><span class="n">openpde_kinds</span>
+<a name="ln-5"></a>
+<a name="ln-6"></a>    <span class="k">implicit none</span>
+<a name="ln-7"></a><span class="k">    private</span>
+<a name="ln-8"></a><span class="k">    public</span> <span class="kd">::</span> <span class="n">matrix</span>
+<a name="ln-9"></a>
+<a name="ln-10"></a>    <span class="k">type</span><span class="p">,</span> <span class="k">abstract</span> <span class="kd">::</span> <span class="n">matrix</span>
+<a name="ln-11"></a>        <span class="c">!&lt; Abstract class of matrix.</span>
+<a name="ln-12"></a>        <span class="kt">character</span><span class="p">(</span><span class="nb">len</span><span class="o">=</span><span class="p">:),</span> <span class="k">allocatable</span> <span class="kd">::</span> <span class="n">description</span> <span class="c">!&lt; Matrix description.</span>
+<a name="ln-13"></a>        <span class="kt">integer</span><span class="p">(</span><span class="n">I_P</span><span class="p">)</span> <span class="kd">::</span> <span class="n">n</span>
+<a name="ln-14"></a>        <span class="k">contains</span>
+<a name="ln-15"></a>            <span class="c">! deferred public methods</span>
+<a name="ln-16"></a>            <span class="k">procedure</span><span class="p">(</span><span class="n">abstract_matrixinit</span><span class="p">),</span>    <span class="k">deferred</span> <span class="kd">::</span> <span class="n">init</span>   <span class="c">!&lt; Initilize matrix.</span>
+<a name="ln-17"></a>            <span class="k">procedure</span><span class="p">(</span><span class="n">abstract_matrixoutput</span><span class="p">)</span> <span class="p">,</span> <span class="k">deferred</span> <span class="kd">::</span> <span class="n">output</span> <span class="c">!&lt; Output matrix.</span>
+<a name="ln-18"></a>            <span class="k">procedure</span><span class="p">(</span><span class="n">abstract_matrixset</span><span class="p">)</span>    <span class="p">,</span> <span class="k">deferred</span> <span class="kd">::</span> <span class="n">set</span>    <span class="c">!&lt; Set matrix value.</span>
+<a name="ln-19"></a>            <span class="c">! deferred private methods</span>
+<a name="ln-20"></a>            <span class="k">procedure</span><span class="p">(</span><span class="n">abstract_simmetric_operator</span><span class="p">)</span>      <span class="p">,</span> <span class="k">private</span><span class="p">,</span> <span class="k">deferred</span> <span class="kd">::</span> <span class="n">add</span>           <span class="c">!&lt; Add matrix.</span>
+<a name="ln-21"></a>            <span class="k">procedure</span><span class="p">(</span><span class="n">abstract_simmetric_operator</span><span class="p">)</span>      <span class="p">,</span> <span class="k">private</span><span class="p">,</span> <span class="k">deferred</span> <span class="kd">::</span> <span class="n">sub</span>           <span class="c">!&lt; Sub matrix.</span>
+<a name="ln-22"></a>            <span class="k">procedure</span><span class="p">(</span><span class="n">abstract_real_op_field</span><span class="p">),</span> <span class="k">pass</span><span class="p">(</span><span class="n">rhs</span><span class="p">),</span> <span class="k">private</span><span class="p">,</span> <span class="k">deferred</span> <span class="kd">::</span> <span class="n">realmul</span>       <span class="c">!&lt; Real*matrix.</span>
+<a name="ln-23"></a>            <span class="k">procedure</span><span class="p">(</span><span class="n">abstract_assign</span><span class="p">)</span>                  <span class="p">,</span> <span class="k">private</span><span class="p">,</span> <span class="k">deferred</span> <span class="kd">::</span> <span class="n">assign_matrix</span> <span class="c">!&lt; Assign matrix. </span>
+<a name="ln-24"></a>            <span class="c">! public operators</span>
+<a name="ln-25"></a>            <span class="k">generic</span><span class="p">,</span> <span class="k">public</span> <span class="kd">::</span> <span class="n">assignment</span><span class="p">(</span><span class="o">=</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="n">assign_matrix</span>  <span class="c">!&lt; Operator `=` overloading. </span>
+<a name="ln-26"></a>            <span class="k">generic</span><span class="p">,</span> <span class="k">public</span> <span class="kd">::</span> <span class="n">operator</span><span class="p">(</span><span class="o">+</span><span class="p">)</span>   <span class="o">=&gt;</span> <span class="n">add</span>            <span class="c">!&lt; Operator `+` overloading.</span>
+<a name="ln-27"></a>            <span class="k">generic</span><span class="p">,</span> <span class="k">public</span> <span class="kd">::</span> <span class="n">operator</span><span class="p">(</span><span class="o">-</span><span class="p">)</span>   <span class="o">=&gt;</span> <span class="n">sub</span>            <span class="c">!&lt; Operator `- overloading.</span>
+<a name="ln-28"></a>            <span class="k">generic</span><span class="p">,</span> <span class="k">public</span> <span class="kd">::</span> <span class="n">operator</span><span class="p">(</span><span class="o">*</span><span class="p">)</span>   <span class="o">=&gt;</span> <span class="n">realmul</span>        <span class="c">!&lt; Operator `*` overloading.</span>
+<a name="ln-29"></a>            <span class="c">! public methods</span>
+<a name="ln-30"></a>            <span class="k">procedure</span><span class="p">,</span> <span class="k">pass</span><span class="p">(</span><span class="n">this</span><span class="p">)</span> <span class="kd">::</span> <span class="n">free</span> <span class="c">!&lt; Free dynamic memory.</span>
+<a name="ln-31"></a>    <span class="n">endtype</span> <span class="n">matrix</span>
+<a name="ln-32"></a>
+<a name="ln-33"></a>    <span class="k">abstract interface</span>
+<a name="ln-34"></a>        <span class="c">!&lt; Assignment overloading.</span>
+<a name="ln-35"></a>        <span class="k">function </span><span class="n">abstract_simmetric_operator</span><span class="p">(</span><span class="n">lhs</span><span class="p">,</span> <span class="n">rhs</span><span class="p">)</span> <span class="k">result</span><span class="p">(</span><span class="n">opr</span><span class="p">)</span>
+<a name="ln-36"></a>            <span class="c">!&lt; Assignment overloading.</span>
+<a name="ln-37"></a>            <span class="k">import</span> <span class="kd">::</span> <span class="n">matrix</span>
+<a name="ln-38"></a>            <span class="k">class</span><span class="p">(</span><span class="n">matrix</span><span class="p">),</span> <span class="k">intent</span><span class="p">(</span><span class="n">in</span><span class="p">)</span>          <span class="kd">::</span> <span class="n">lhs</span>  <span class="c">!&lt; Left hand side.</span>
+<a name="ln-39"></a>            <span class="k">class</span><span class="p">(</span><span class="n">matrix</span><span class="p">),</span> <span class="k">intent</span><span class="p">(</span><span class="n">in</span><span class="p">),</span> <span class="k">target</span>  <span class="kd">::</span> <span class="n">rhs</span>  <span class="c">!&lt; Right hand side.</span>
+<a name="ln-40"></a>            <span class="k">class</span><span class="p">(</span><span class="n">matrix</span><span class="p">),</span> <span class="k">allocatable</span><span class="p">,</span> <span class="k">target</span> <span class="kd">::</span> <span class="n">opr</span>  <span class="c">!&lt; Result</span>
+<a name="ln-41"></a>        <span class="k">end function </span><span class="n">abstract_simmetric_operator</span>
+<a name="ln-42"></a>    <span class="n">endinterface</span>
+<a name="ln-43"></a>
+<a name="ln-44"></a>    <span class="k">abstract interface</span>
+<a name="ln-45"></a><span class="k">        function </span><span class="n">abstract_real_op_field</span><span class="p">(</span><span class="n">lhs</span><span class="p">,</span> <span class="n">rhs</span><span class="p">)</span> <span class="k">result</span><span class="p">(</span><span class="n">opr</span><span class="p">)</span>
+<a name="ln-46"></a>            <span class="c">!&lt; Non symmetric operator real.op.field.</span>
+<a name="ln-47"></a>            <span class="k">import</span> <span class="kd">::</span> <span class="n">matrix</span><span class="p">,</span> <span class="n">R_P</span>
+<a name="ln-48"></a>            <span class="kt">real</span><span class="p">(</span><span class="n">R_P</span><span class="p">),</span>    <span class="k">intent</span><span class="p">(</span><span class="n">in</span><span class="p">)</span>  <span class="kd">::</span> <span class="n">lhs</span> <span class="c">!&lt; Left hand side.</span>
+<a name="ln-49"></a>            <span class="k">class</span><span class="p">(</span><span class="n">matrix</span><span class="p">),</span> <span class="k">intent</span><span class="p">(</span><span class="n">in</span><span class="p">)</span>  <span class="kd">::</span> <span class="n">rhs</span> <span class="c">!&lt; Right hand side.</span>
+<a name="ln-50"></a>            <span class="k">class</span><span class="p">(</span><span class="n">matrix</span><span class="p">),</span> <span class="k">allocatable</span><span class="p">,</span> <span class="k">target</span> <span class="kd">::</span> <span class="n">opr</span> <span class="c">!&lt; Operator result.</span>
+<a name="ln-51"></a>        <span class="k">end function </span><span class="n">abstract_real_op_field</span>
+<a name="ln-52"></a>    <span class="n">endinterface</span>
+<a name="ln-53"></a>
+<a name="ln-54"></a>    <span class="k">abstract interface</span>
+<a name="ln-55"></a>        <span class="c">!&lt; Assignment overloading.</span>
+<a name="ln-56"></a>        <span class="k">subroutine </span><span class="n">abstract_assign</span><span class="p">(</span><span class="n">lhs</span><span class="p">,</span> <span class="n">rhs</span><span class="p">)</span>
+<a name="ln-57"></a>            <span class="c">!&lt; Assignment overloading.</span>
+<a name="ln-58"></a>            <span class="k">import</span> <span class="kd">::</span> <span class="n">matrix</span>
+<a name="ln-59"></a>            <span class="k">class</span><span class="p">(</span><span class="n">matrix</span><span class="p">),</span> <span class="k">intent</span><span class="p">(</span><span class="n">inout</span><span class="p">)</span>      <span class="kd">::</span> <span class="n">lhs</span> <span class="c">!&lt; Left hand side.</span>
+<a name="ln-60"></a>            <span class="k">class</span><span class="p">(</span><span class="n">matrix</span><span class="p">),</span> <span class="k">intent</span><span class="p">(</span><span class="n">in</span><span class="p">),</span> <span class="k">target</span> <span class="kd">::</span> <span class="n">rhs</span> <span class="c">!&lt; Right hand side.</span>
+<a name="ln-61"></a>        <span class="k">end subroutine </span><span class="n">abstract_assign</span>
+<a name="ln-62"></a>    <span class="n">endinterface</span>
+<a name="ln-63"></a>
+<a name="ln-64"></a>    <span class="k">abstract interface</span>
+<a name="ln-65"></a>        <span class="c">!&lt; Initialize mesh.</span>
+<a name="ln-66"></a>        <span class="k">subroutine </span><span class="n">abstract_matrixinit</span><span class="p">(</span><span class="n">this</span><span class="p">,</span> <span class="n">n</span><span class="p">,</span> <span class="n">description</span><span class="p">,</span> <span class="n">error</span><span class="p">)</span>
+<a name="ln-67"></a>            <span class="c">!&lt; Initialize mesh.</span>
+<a name="ln-68"></a>            <span class="k">import</span> <span class="kd">::</span> <span class="n">I_P</span><span class="p">,</span> <span class="n">matrix</span>
+<a name="ln-69"></a>            <span class="k">class</span><span class="p">(</span><span class="n">matrix</span><span class="p">),</span>  <span class="k">intent</span><span class="p">(</span><span class="n">inout</span><span class="p">)</span>         <span class="kd">::</span> <span class="n">this</span>         <span class="c">!&lt; The matrix.</span>
+<a name="ln-70"></a>            <span class="kt">integer</span><span class="p">(</span><span class="n">I_P</span><span class="p">)</span>                          <span class="kd">::</span> <span class="n">n</span>            <span class="c">!&lt; Initialization file name.</span>
+<a name="ln-71"></a>            <span class="kt">character</span><span class="p">(</span><span class="o">*</span><span class="p">),</span> <span class="k">intent</span><span class="p">(</span><span class="n">in</span><span class="p">),</span>  <span class="k">optional</span>   <span class="kd">::</span> <span class="n">description</span>  <span class="c">!&lt; Mesh description.</span>
+<a name="ln-72"></a>            <span class="kt">integer</span><span class="p">(</span><span class="n">I_P</span><span class="p">),</span> <span class="k">intent</span><span class="p">(</span><span class="n">out</span><span class="p">),</span> <span class="k">optional</span>   <span class="kd">::</span> <span class="n">error</span>        <span class="c">!&lt; Error status.</span>
+<a name="ln-73"></a>        <span class="k">end subroutine </span><span class="n">abstract_matrixinit</span>
+<a name="ln-74"></a>    <span class="n">endinterface</span>
+<a name="ln-75"></a>
+<a name="ln-76"></a>    <span class="k">abstract interface</span>
+<a name="ln-77"></a>        <span class="c">!&lt; Initialize mesh.</span>
+<a name="ln-78"></a>        <span class="k">subroutine </span><span class="n">abstract_matrixoutput</span><span class="p">(</span><span class="n">this</span><span class="p">,</span> <span class="n">filename</span><span class="p">,</span> <span class="n">error</span><span class="p">)</span>
+<a name="ln-79"></a>            <span class="c">!&lt; Initialize mesh.</span>
+<a name="ln-80"></a>            <span class="k">import</span> <span class="kd">::</span> <span class="n">I_P</span><span class="p">,</span> <span class="n">matrix</span>
+<a name="ln-81"></a>            <span class="k">class</span><span class="p">(</span><span class="n">matrix</span><span class="p">),</span>  <span class="k">intent</span><span class="p">(</span><span class="n">inout</span><span class="p">)</span>       <span class="kd">::</span> <span class="n">this</span>      <span class="c">!&lt; The matrix.</span>
+<a name="ln-82"></a>            <span class="kt">character</span><span class="p">(</span><span class="o">*</span><span class="p">),</span> <span class="k">intent</span><span class="p">(</span><span class="n">in</span><span class="p">)</span>            <span class="kd">::</span> <span class="n">filename</span>    <span class="c">!&lt; Initialization file name.</span>
+<a name="ln-83"></a>            <span class="kt">integer</span><span class="p">(</span><span class="n">I_P</span><span class="p">),</span> <span class="k">intent</span><span class="p">(</span><span class="n">out</span><span class="p">),</span> <span class="k">optional</span> <span class="kd">::</span> <span class="n">error</span>       <span class="c">!&lt; Error status.</span>
+<a name="ln-84"></a>        <span class="k">end subroutine </span><span class="n">abstract_matrixoutput</span>
+<a name="ln-85"></a>    <span class="n">endinterface</span>
+<a name="ln-86"></a>
+<a name="ln-87"></a>    <span class="k">abstract interface</span>
+<a name="ln-88"></a>        <span class="c">!&lt; Initialize mesh.</span>
+<a name="ln-89"></a>        <span class="k">subroutine </span><span class="n">abstract_matrixset</span><span class="p">(</span><span class="n">this</span><span class="p">,</span> <span class="n">i</span><span class="p">,</span> <span class="n">j</span><span class="p">,</span> <span class="n">val</span><span class="p">)</span>
+<a name="ln-90"></a>            <span class="c">!&lt; Initialize mesh.</span>
+<a name="ln-91"></a>            <span class="k">import</span> <span class="kd">::</span> <span class="n">R_P</span><span class="p">,</span> <span class="n">I_P</span><span class="p">,</span> <span class="n">matrix</span>
+<a name="ln-92"></a>            <span class="k">class</span><span class="p">(</span><span class="n">matrix</span><span class="p">),</span>  <span class="k">intent</span><span class="p">(</span><span class="n">inout</span><span class="p">)</span>       <span class="kd">::</span> <span class="n">this</span>     
+<a name="ln-93"></a>            <span class="kt">real</span><span class="p">(</span><span class="n">R_P</span><span class="p">),</span> <span class="k">intent</span><span class="p">(</span><span class="n">in</span><span class="p">)</span>               <span class="kd">::</span> <span class="n">val</span>
+<a name="ln-94"></a>            <span class="kt">integer</span><span class="p">(</span><span class="n">I_P</span><span class="p">),</span> <span class="k">intent</span><span class="p">(</span><span class="n">in</span><span class="p">)</span>            <span class="kd">::</span> <span class="n">i</span><span class="p">,</span> <span class="n">j</span>
+<a name="ln-95"></a>        <span class="k">end subroutine </span><span class="n">abstract_matrixset</span>
+<a name="ln-96"></a>    <span class="n">endinterface</span>
+<a name="ln-97"></a>
+<a name="ln-98"></a><span class="k">contains</span>
+<a name="ln-99"></a><span class="k">    elemental subroutine </span><span class="n">free</span><span class="p">(</span><span class="n">this</span><span class="p">)</span>
+<a name="ln-100"></a>        <span class="c">!&lt; Free dynamic memory.</span>
+<a name="ln-101"></a>        <span class="k">class</span><span class="p">(</span><span class="n">matrix</span><span class="p">),</span> <span class="k">intent</span><span class="p">(</span><span class="n">inout</span><span class="p">)</span> <span class="kd">::</span> <span class="n">this</span> <span class="c">!&lt; The integrator.</span>
+<a name="ln-102"></a>        <span class="k">if</span> <span class="p">(</span><span class="nb">allocated</span><span class="p">(</span><span class="n">this</span><span class="p">%</span><span class="n">description</span><span class="p">))</span> <span class="k">deallocate</span><span class="p">(</span><span class="n">this</span><span class="p">%</span><span class="n">description</span><span class="p">)</span>
+<a name="ln-103"></a>    <span class="k">end subroutine </span><span class="n">free</span>
+<a name="ln-104"></a><span class="k">end module </span><span class="n">openpde_matrix_abstract</span>
+</pre></div>
+
+    </section>
+    </div>
+  </div>
+
+  <section class="visible-xs visible-sm hidden-md">
+    <hr>
+    
+
+<div class="panel panel-default">
+  <div class="panel-heading text-left"><h3 class="panel-title"><a data-toggle="collapse" href="#allfiles-1">All Source Files</a></h3></div>
+  <div id="allfiles-1" class="panel-collapse collapse">
+    <div class="list-group">
+      
+      <a class="list-group-item" href="../sourcefile/openpde.f90.html">openpde.f90</a>
+      
+      <a class="list-group-item" href="../sourcefile/openpde_equation_abstract.f90.html">openpde_equation_abstract.f90</a>
+      
+      <a class="list-group-item" href="../sourcefile/openpde_equation_adv.f90.html">openpde_equation_adv.f90</a>
+      
+      <a class="list-group-item" href="../sourcefile/openpde_f2m_abstract.f90.html">openpde_f2m_abstract.f90</a>
+      
+      <a class="list-group-item" href="../sourcefile/openpde_f2m_d1_abstract.f90.html">openpde_f2m_d1_abstract.f90</a>
+      
+      <a class="list-group-item" href="../sourcefile/openpde_f2m_d1_fd_1d.f90.html">openpde_f2m_d1_FD_1D.f90</a>
+      
+      <a class="list-group-item" href="../sourcefile/openpde_f2m_d2_abstract.f90.html">openpde_f2m_d2_abstract.f90</a>
+      
+      <a class="list-group-item" href="../sourcefile/openpde_f2m_d2_fd_1d.f90.html">openpde_f2m_d2_FD_1D.f90</a>
+      
+      <a class="list-group-item" href="../sourcefile/openpde_f2m_d2_fd_2d.f90.html">openpde_f2m_d2_FD_2D.f90</a>
+      
+      <a class="list-group-item" href="../sourcefile/openpde_f2v_abstract.f90.html">openpde_f2v_abstract.f90</a>
+      
+      <a class="list-group-item" href="../sourcefile/openpde_f2v_fd_1d.f90.html">openpde_f2v_FD_1D.f90</a>
+      
+      <a class="list-group-item" href="../sourcefile/openpde_f2v_fd_2d.f90.html">openpde_f2v_FD_2D.f90</a>
+      
+      <a class="list-group-item" href="../sourcefile/openpde_field_abstract.f90.html">openpde_field_abstract.f90</a>
+      
+      <a class="list-group-item" href="../sourcefile/openpde_field_block_fv_1d.f90.html">openpde_field_block_FV_1D.f90</a>
+      
+      <a class="list-group-item" href="../sourcefile/openpde_field_fd_1d.f90.html">openpde_field_FD_1D.f90</a>
+      
+      <a class="list-group-item" href="../sourcefile/openpde_field_fd_2d.f90.html">openpde_field_FD_2D.f90</a>
+      
+      <a class="list-group-item" href="../sourcefile/openpde_field_fv_1d.f90.html">openpde_field_FV_1D.f90</a>
+      
+      <a class="list-group-item" href="../sourcefile/openpde_field_surface_abstract.f90.html">openpde_field_surface_abstract.f90</a>
+      
+      <a class="list-group-item" href="../sourcefile/openpde_field_surface_block_fv_1d.f90.html">openpde_field_surface_block_FV_1D.f90</a>
+      
+      <a class="list-group-item" href="../sourcefile/openpde_field_surface_fv_1d.f90.html">openpde_field_surface_FV_1D.f90</a>
+      
+      <a class="list-group-item" href="../sourcefile/openpde_integrator_adv_abstract.f90.html">openpde_integrator_adv_abstract.f90</a>
+      
+      <a class="list-group-item" href="../sourcefile/openpde_integrator_adv_euler_explicit.f90.html">openpde_integrator_adv_euler_explicit.f90</a>
+      
+      <a class="list-group-item" href="../sourcefile/openpde_integrator_adv_euler_implicit.f90.html">openpde_integrator_adv_euler_implicit.f90</a>
+      
+      <a class="list-group-item" href="../sourcefile/openpde_integrator_adv_rk_implicit.f90.html">openpde_integrator_adv_rk_implicit.f90</a>
+      
+      <a class="list-group-item" href="../sourcefile/openpde_integrator_asbtract.f90.html">openpde_integrator_asbtract.f90</a>
+      
+      <a class="list-group-item" href="../sourcefile/openpde_integrator_euler_explicit.f90.html">openpde_integrator_euler_explicit.f90</a>
+      
+      <a class="list-group-item" href="../sourcefile/openpde_kinds.f90.html">openpde_kinds.f90</a>
+      
+      <a class="list-group-item" href="../sourcefile/openpde_linsolver_abstract.f90.html">openpde_linsolver_abstract.f90</a>
+      
+      <a class="list-group-item" href="../sourcefile/openpde_linsolver_gmlapack.f90.html">openpde_linsolver_gmlapack.f90</a>
+      
+      <a class="list-group-item" href="../sourcefile/openpde_matrix_abstract.f90.html">openpde_matrix_abstract.f90</a>
+      
+      <a class="list-group-item" href="../sourcefile/openpde_matrix_simple.f90.html">openpde_matrix_simple.f90</a>
+      
+      <a class="list-group-item" href="../sourcefile/openpde_mesh_abstract.f90.html">openpde_mesh_abstract.f90</a>
+      
+      <a class="list-group-item" href="../sourcefile/openpde_mesh_block_fv_1d.f90.html">openpde_mesh_block_FV_1D.f90</a>
+      
+      <a class="list-group-item" href="../sourcefile/openpde_mesh_fd_1d.f90.html">openpde_mesh_FD_1D.f90</a>
+      
+      <a class="list-group-item" href="../sourcefile/openpde_mesh_fd_2d.f90.html">openpde_mesh_FD_2D.f90</a>
+      
+      <a class="list-group-item" href="../sourcefile/openpde_mesh_fv_1d.f90.html">openpde_mesh_FV_1D.f90</a>
+      
+      <a class="list-group-item" href="../sourcefile/openpde_multigrid_abstract.f90.html">openpde_multigrid_abstract.f90</a>
+      
+      <a class="list-group-item" href="../sourcefile/openpde_multigrid_fd_1d.f90.html">openpde_multigrid_FD_1D.f90</a>
+      
+      <a class="list-group-item" href="../sourcefile/openpde_spatial_operator_abstract.f90.html">openpde_spatial_operator_abstract.f90</a>
+      
+      <a class="list-group-item" href="../sourcefile/openpde_spatial_operator_d1_abstract.f90.html">openpde_spatial_operator_d1_abstract.f90</a>
+      
+      <a class="list-group-item" href="../sourcefile/openpde_spatial_operator_d1_fd_1d.f90.html">openpde_spatial_operator_d1_FD_1D.f90</a>
+      
+      <a class="list-group-item" href="../sourcefile/openpde_spatial_operator_d1_fd_2d.f90.html">openpde_spatial_operator_d1_FD_2D.f90</a>
+      
+      <a class="list-group-item" href="../sourcefile/openpde_spatial_operator_d1_fv_1d.f90.html">openpde_spatial_operator_d1_FV_1D.f90</a>
+      
+      <a class="list-group-item" href="../sourcefile/openpde_spatial_operator_d2_abstract.f90.html">openpde_spatial_operator_d2_abstract.f90</a>
+      
+      <a class="list-group-item" href="../sourcefile/openpde_spatial_operator_d2_fd_1d.f90.html">openpde_spatial_operator_d2_FD_1D.f90</a>
+      
+      <a class="list-group-item" href="../sourcefile/openpde_spatial_operator_d2_fd_2d.f90.html">openpde_spatial_operator_d2_FD_2D.f90</a>
+      
+      <a class="list-group-item" href="../sourcefile/openpde_spatial_operator_d2_fv_1d.f90.html">openpde_spatial_operator_d2_FV_1D.f90</a>
+      
+      <a class="list-group-item" href="../sourcefile/openpde_v2f_abstract.f90.html">openpde_v2f_abstract.f90</a>
+      
+      <a class="list-group-item" href="../sourcefile/openpde_v2f_fd_1d.f90.html">openpde_v2f_FD_1D.f90</a>
+      
+      <a class="list-group-item" href="../sourcefile/openpde_v2f_fd_2d.f90.html">openpde_v2f_FD_2D.f90</a>
+      
+      <a class="list-group-item" href="../sourcefile/openpde_vector_abstract.f90.html">openpde_vector_abstract.f90</a>
+      
+      <a class="list-group-item" href="../sourcefile/openpde_vector_simple.f90.html">openpde_vector_simple.f90</a>
+      
+    </div>
+  </div>
+</div>
+
+
+  </section>
+  
+    <hr>    
+    </div> <!-- /container -->
+    <footer>
+      <div class="container">
+      <div class="row">
+        <div class="col-xs-6 col-md-4"><p>&copy; 2017 </p></div>
+        <div class="col-xs-6 col-md-4 col-md-push-4">
+          <p class="text-right">
+            Documentation generated by 
+            <a href="https://github.com/cmacmackin/ford">FORD</a>
+            
+          </p>
+        </div>
+        <div class="col-xs-12 col-md-4 col-md-pull-4"><p class="text-center"> openpde was developed by Francesco Salvadore</p></div>
+      </div>
+      <br>
+      </div> <!-- /container -->    
+    </footer>
+
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+<!--
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+-->
+    <script src="../js/bootstrap.min.js"></script>
+    <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+    <script src="../js/ie10-viewport-bug-workaround.js"></script>
+
+    <!-- MathJax JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Config({
+        TeX: { extensions: ['AMSmath.js','AMSsymbols.js','noErrors.js','noUndefined.js'], equationNumbers: { autoNumber: 'AMS' } },
+        jax: ['input/TeX','input/MathML','output/HTML-CSS'],
+        extensions: ['tex2jax.js','mml2jax.js','MathMenu.js','MathZoom.js'],
+        'HTML-CSS': { 
+           styles: { '.MathJax_Display, .MathJax .mo, .MathJax .mi, .MathJax .mn': {color: '#000000 ! important'} }
+        }
+      });
+    </script>
+    <script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+  </body>
+</html>

@@ -7,7 +7,7 @@
 	 
     <meta name="description" content="Documentation for openpde">
 	 
-    <meta name="author" content="Chris MacMackin" >
+    <meta name="author" content="Francesco Salvadore" >
     <link rel="icon" href="../favicon.png">
 
     <title>
@@ -55,13 +55,20 @@ All Abstract Interfaces &ndash; openpde
         <div id="navbar" class="navbar-collapse collapse">
           <ul class="nav navbar-nav">
 				
-                
+            <li class="dropdown hidden-xs visible-sm visible-md hidden-lg">
+              <a href="#" class="dropdown-toggle"
+              data-toggle="dropdown" role="button"
+              aria-haspopup="true"
+		 aria-expanded="false">Contents <span class="caret"></span></a>
+	      <ul class="dropdown-menu">
+              
             <li><a href="../lists/files.html">Source Files</a></li>
 				
 				
             <li><a href="../lists/modules.html">Modules</a></li>
 				
-				
+            
+                                
             <li><a href="../lists/procedures.html">Procedures</a></li>
 				
 				
@@ -70,8 +77,24 @@ All Abstract Interfaces &ndash; openpde
             <li><a href="../lists/types.html">Derived Types</a></li>
 				
 				
-            <li><a href="../program/scalar_simple.html">Program</a></li>
-				
+            </ul>
+            </li>
+
+<li class="visible-xs hidden-sm visible-lg"><a href="../lists/files.html">Source Files</a></li>
+
+
+<li class="visible-xs hidden-sm visible-lg"><a href="../lists/modules.html">Modules</a></li>
+
+
+
+<li class="visible-xs hidden-sm visible-lg"><a href="../lists/procedures.html">Procedures</a></li>
+
+
+<li class="visible-xs hidden-sm visible-lg"><a href="../lists/absint.html">Abstract Interfaces</a></li>
+                             
+<li class="visible-xs hidden-sm visible-lg"><a href="../lists/types.html">Derived Types</a></li>
+
+
           </ul>
         
         <form action="../search.html" class="navbar-form navbar-right" role="search">
@@ -99,9 +122,15 @@ All Abstract Interfaces &ndash; openpde
 			 
 			   <tr><td><a href='../interface/abstract_assign.html'>abstract_assign</a></td><td><a href='../module/openpde_field_abstract.html'>openpde_field_abstract</a></td><td><p>Assignment overloading.</p></td></tr>
 			 
+			   <tr><td><a href='../interface/abstract_assign%7E2.html'>abstract_assign</a></td><td><a href='../module/openpde_vector_abstract.html'>openpde_vector_abstract</a></td><td><p>Assignment overloading.</p></td></tr>
+			 
+			   <tr><td><a href='../interface/abstract_assign%7E3.html'>abstract_assign</a></td><td><a href='../module/openpde_matrix_abstract.html'>openpde_matrix_abstract</a></td><td><p>Assignment overloading.</p></td></tr>
+			 
 			   <tr><td><a href='../interface/abstract_associate_mesh.html'>abstract_associate_mesh</a></td><td><a href='../module/openpde_field_abstract.html'>openpde_field_abstract</a></td><td><p>Associate a mesh to field.</p></td></tr>
 			 
 			   <tr><td><a href='../interface/abstract_bc.html'>abstract_bc</a></td><td><a href='../module/openpde_equation_abstract.html'>openpde_equation_abstract</a></td><td><p>Equation boundary condition.</p></td></tr>
+			 
+			   <tr><td><a href='../interface/abstract_compute_fluxes.html'>abstract_compute_fluxes</a></td><td><a href='../module/openpde_field_surface_abstract.html'>openpde_field_surface_abstract</a></td><td><p>Compute fluxes of field through surfaces.</p></td></tr>
 			 
 			   <tr><td><a href='../interface/abstract_field_op_real.html'>abstract_field_op_real</a></td><td><a href='../module/openpde_field_abstract.html'>openpde_field_abstract</a></td><td><p>Non symmetric operator field.op.real.</p></td></tr>
 			 
@@ -109,45 +138,86 @@ All Abstract Interfaces &ndash; openpde
 			 
 			   <tr><td><a href='../interface/abstract_init.html'>abstract_init</a></td><td><a href='../module/openpde_field_abstract.html'>openpde_field_abstract</a></td><td><p>Initialize the field.</p></td></tr>
 			 
-			   <tr><td><a href='../interface/abstract_init%7E2.html'>abstract_init</a></td><td><a href='../module/openpde_integrator_abstract.html'>openpde_integrator_abstract</a></td><td><p>Initialize integrator.</p></td></tr>
+			   <tr><td><a href='../interface/abstract_init%7E2.html'>abstract_init</a></td><td><a href='../module/openpde_linsolver_abstract.html'>openpde_linsolver_abstract</a></td><td><p>Init linsolver.</p></td></tr>
 			 
-			   <tr><td><a href='../interface/abstract_init%7E3.html'>abstract_init</a></td><td><a href='../module/openpde_equation_abstract.html'>openpde_equation_abstract</a></td><td><p>Initialize equation.</p></td></tr>
+			   <tr><td><a href='../interface/abstract_init%7E3.html'>abstract_init</a></td><td><a href='../module/openpde_integrator_adv_abstract.html'>openpde_integrator_adv_abstract</a></td><td><p>Initialize integrator.</p></td></tr>
 			 
-			   <tr><td><a href='../interface/abstract_integrate.html'>abstract_integrate</a></td><td><a href='../module/openpde_integrator_abstract.html'>openpde_integrator_abstract</a></td><td><p>Integrate the field accordingly to the equation.</p></td></tr>
+			   <tr><td><a href='../interface/abstract_init%7E4.html'>abstract_init</a></td><td><a href='../module/openpde_integrator_abstract.html'>openpde_integrator_abstract</a></td><td><p>Initialize integrator.</p></td></tr>
+			 
+			   <tr><td><a href='../interface/abstract_init%7E5.html'>abstract_init</a></td><td><a href='../module/openpde_equation_abstract.html'>openpde_equation_abstract</a></td><td><p>Initialize equation.</p></td></tr>
+			 
+			   <tr><td><a href='../interface/abstract_integrate.html'>abstract_integrate</a></td><td><a href='../module/openpde_integrator_adv_abstract.html'>openpde_integrator_adv_abstract</a></td><td><p>Integrate the field accordingly to the equation.</p></td></tr>
+			 
+			   <tr><td><a href='../interface/abstract_integrate%7E2.html'>abstract_integrate</a></td><td><a href='../module/openpde_integrator_abstract.html'>openpde_integrator_abstract</a></td><td><p>Integrate the field accordingly to the equation.</p></td></tr>
+			 
+			   <tr><td><a href='../interface/abstract_matrixinit.html'>abstract_matrixinit</a></td><td><a href='../module/openpde_matrix_abstract.html'>openpde_matrix_abstract</a></td><td><p>Initialize mesh.</p></td></tr>
+			 
+			   <tr><td><a href='../interface/abstract_matrixoutput.html'>abstract_matrixoutput</a></td><td><a href='../module/openpde_matrix_abstract.html'>openpde_matrix_abstract</a></td><td><p>Initialize mesh.</p></td></tr>
+			 
+			   <tr><td><a href='../interface/abstract_matrixset.html'>abstract_matrixset</a></td><td><a href='../module/openpde_matrix_abstract.html'>openpde_matrix_abstract</a></td><td><p>Initialize mesh.</p></td></tr>
 			 
 			   <tr><td><a href='../interface/abstract_meshinit.html'>abstract_meshinit</a></td><td><a href='../module/openpde_mesh_abstract.html'>openpde_mesh_abstract</a></td><td><p>Initialize mesh.</p></td></tr>
 			 
 			   <tr><td><a href='../interface/abstract_meshoutput.html'>abstract_meshoutput</a></td><td><a href='../module/openpde_mesh_abstract.html'>openpde_mesh_abstract</a></td><td><p>Output mesh.</p></td></tr>
 			 
-			   <tr><td><a href='../interface/abstract_operate.html'>abstract_operate</a></td><td><a href='../module/openpde_spatial_operator_abstract.html'>openpde_spatial_operator_abstract</a></td><td><p>Operator function.</p></td></tr>
+			   <tr><td><a href='../interface/abstract_operate.html'>abstract_operate</a></td><td><a href='../module/openpde_v2f_abstract.html'>openpde_v2f_abstract</a></td><td><p>Operator function.</p></td></tr>
+			 
+			   <tr><td><a href='../interface/abstract_operate%7E2.html'>abstract_operate</a></td><td><a href='../module/openpde_f2m_abstract.html'>openpde_f2m_abstract</a></td><td><p>Operator function.</p></td></tr>
+			 
+			   <tr><td><a href='../interface/abstract_operate%7E3.html'>abstract_operate</a></td><td><a href='../module/openpde_spatial_operator_abstract.html'>openpde_spatial_operator_abstract</a></td><td><p>Operator function.</p></td></tr>
+			 
+			   <tr><td><a href='../interface/abstract_operate%7E4.html'>abstract_operate</a></td><td><a href='../module/openpde_f2v_abstract.html'>openpde_f2v_abstract</a></td><td><p>Operator function.</p></td></tr>
 			 
 			   <tr><td><a href='../interface/abstract_output.html'>abstract_output</a></td><td><a href='../module/openpde_field_abstract.html'>openpde_field_abstract</a></td><td><p>Output the field.</p></td></tr>
 			 
 			   <tr><td><a href='../interface/abstract_real_op_field.html'>abstract_real_op_field</a></td><td><a href='../module/openpde_field_abstract.html'>openpde_field_abstract</a></td><td><p>Non symmetric operator real.op.field.</p></td></tr>
 			 
+			   <tr><td><a href='../interface/abstract_real_op_field%7E2.html'>abstract_real_op_field</a></td><td><a href='../module/openpde_matrix_abstract.html'>openpde_matrix_abstract</a></td><td><p>Non symmetric operator real.op.field.</p></td></tr>
+			 
+			   <tr><td><a href='../interface/abstract_set_matrix.html'>abstract_set_matrix</a></td><td><a href='../module/openpde_linsolver_abstract.html'>openpde_linsolver_abstract</a></td><td><p>Set matrix.</p></td></tr>
+			 
+			   <tr><td><a href='../interface/abstract_set_vector.html'>abstract_set_vector</a></td><td><a href='../module/openpde_linsolver_abstract.html'>openpde_linsolver_abstract</a></td><td><p>Set vector.</p></td></tr>
+			 
 			   <tr><td><a href='../interface/abstract_simmetric_operator.html'>abstract_simmetric_operator</a></td><td><a href='../module/openpde_field_abstract.html'>openpde_field_abstract</a></td><td><p>Symmetric operator field.op.field.</p></td></tr>
+			 
+			   <tr><td><a href='../interface/abstract_simmetric_operator%7E2.html'>abstract_simmetric_operator</a></td><td><a href='../module/openpde_matrix_abstract.html'>openpde_matrix_abstract</a></td><td><p>Assignment overloading.</p></td></tr>
+			 
+			   <tr><td><a href='../interface/abstract_solve.html'>abstract_solve</a></td><td><a href='../module/openpde_linsolver_abstract.html'>openpde_linsolver_abstract</a></td><td><p>Solve system.</p></td></tr>
+			 
+			   <tr><td><a href='../interface/abstract_vectorget.html'>abstract_vectorget</a></td><td><a href='../module/openpde_vector_abstract.html'>openpde_vector_abstract</a></td><td><p>Set vector element.</p></td></tr>
+			 
+			   <tr><td><a href='../interface/abstract_vectorinit.html'>abstract_vectorinit</a></td><td><a href='../module/openpde_vector_abstract.html'>openpde_vector_abstract</a></td><td><p>Initialize vector.</p></td></tr>
+			 
+			   <tr><td><a href='../interface/abstract_vectoroutput.html'>abstract_vectoroutput</a></td><td><a href='../module/openpde_vector_abstract.html'>openpde_vector_abstract</a></td><td><p>Output vector.</p></td></tr>
+			 
+			   <tr><td><a href='../interface/abstract_vectorset.html'>abstract_vectorset</a></td><td><a href='../module/openpde_vector_abstract.html'>openpde_vector_abstract</a></td><td><p>Set vector element.</p></td></tr>
+			 
+			   <tr><td><a href='../interface/create_subgrids_field_interface.html'>create_subgrids_field_interface</a></td><td><a href='../module/openpde_multigrid_abstract.html'>openpde_multigrid_abstract</a></td><td><p>Create subgrid-levels field.</p></td></tr>
+			 
+			   <tr><td><a href='../interface/init_interface.html'>init_interface</a></td><td><a href='../module/openpde_multigrid_abstract.html'>openpde_multigrid_abstract</a></td><td><p>Init multigrid solver.</p></td></tr>
 			 
 			 </tbody></table>
         </div>
       </div>
 
-    <hr>
+    <hr>    
+    </div> <!-- /container -->
     <footer>
+      <div class="container">
       <div class="row">
-        <div class="col-md-4">&copy; 2016 </div>
-        <div class="col-md-4"><span class="text-center"> openpde was developed by Francesco Salvadore</span></div>
-        <div class="col-md-4">
-          <span class="pull-right">
+        <div class="col-xs-6 col-md-4"><p>&copy; 2017 </p></div>
+        <div class="col-xs-6 col-md-4 col-md-push-4">
+          <p class="text-right">
             Documentation generated by 
             <a href="https://github.com/cmacmackin/ford">FORD</a>
             
-          </span>
+          </p>
         </div>
+        <div class="col-xs-12 col-md-4 col-md-pull-4"><p class="text-center"> openpde was developed by Francesco Salvadore</p></div>
       </div>
       <br>
+      </div> <!-- /container -->    
     </footer>
-    </div> <!-- /container -->
-
 
     <!-- Bootstrap core JavaScript
     ================================================== -->

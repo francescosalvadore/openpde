@@ -3,8 +3,8 @@ module openpde_field_FD_1D
     !< Concrete class of field for Finite Difference 1D methods.
     use, intrinsic :: iso_fortran_env, only : stderr=>error_unit
     use openpde_field_abstract
-    use openpde_mesh_abstract
     use openpde_kinds
+    use openpde_mesh_abstract
     use openpde_mesh_FD_1D
 
     implicit none
@@ -26,26 +26,68 @@ module openpde_field_FD_1D
             procedure, pass(lhs),   private :: mulreal      !< Multiply field for real.
             procedure, pass(rhs),   private :: realmul      !< Multiply real for field.
             procedure, pass(lhs),   private :: sub          !< Subtract fields.
+            procedure, pass(lhs),   private :: div          !< Subtract fields.
             ! public methods
             procedure, pass(this) :: set !< Set field.
+
+            !procedure, pass(rhs) :: newrealmul
+            !public :: operator(**) => newrealmul
     endtype field_FD_1D
+
+    interface associate_field_FD_1D
+       module procedure associate_field_FD_1D_scalar, &
+                        associate_field_FD_1D_rank1,  &
+                        associate_field_FD_1D_rank2
+    end interface
 contains
     ! public, non TBP
-    subroutine associate_field_FD_1D(field_input, calling_procedure, field_pointer)
+    function associate_field_FD_1D_scalar(field_input, emsg) result(field_pointer)
         !< Check the type of the field passed as input and return a Finite Difference 1D field pointer associated to field.
-        class(field),       intent(in), target     :: field_input       !< Input field.
-        character(*),       intent(in)             :: calling_procedure !< Name of the calling procedure.
-        class(field_FD_1D), intent(inout), pointer :: field_pointer     !< Finite Difference 1D field pointer.
+        class(field),       intent(in), target   :: field_input   !< Input field.
+        character(*),       intent(in), optional :: emsg          !< Auxiliary error message.
+        class(field_FD_1D), pointer              :: field_pointer !< Finite Difference 1D field pointer.
 
         select type(field_input)
             type is(field_FD_1D)
                 field_pointer => field_input
             class default
-               write(stderr, '(A)')' error: wrong field class'
-               write(stderr, '(A)')' Calling procedure "'//calling_procedure//'"'
+               write(stderr, '(A)')'error: cast field to field_FD_1D'
+               if (present(emsg)) write(stderr, '(A)') emsg
                stop
         end select
-      end subroutine associate_field_FD_1D
+    end function associate_field_FD_1D_scalar
+
+    function associate_field_FD_1D_rank1(field_input, emsg) result(field_pointer)
+        !< Check the type of the field passed as input and return a Finite Difference 1D field pointer associated to field.
+        class(field),       intent(in), target   :: field_input(:)   !< Input field.
+        character(*),       intent(in), optional :: emsg             !< Auxiliary error message.
+        class(field_FD_1D), pointer              :: field_pointer(:) !< Finite Difference 1D field pointer.
+
+        select type(field_input)
+            type is(field_FD_1D)
+                field_pointer => field_input
+            class default
+               write(stderr, '(A)')'error: cast field to field_FD_1D'
+               if (present(emsg)) write(stderr, '(A)') emsg
+               stop
+        end select
+    end function associate_field_FD_1D_rank1
+
+    function associate_field_FD_1D_rank2(field_input, emsg) result(field_pointer)
+        !< Check the type of the field passed as input and return a Finite Difference 1D field pointer associated to field.
+        class(field),       intent(in), target   :: field_input(:,:)   !< Input field.
+        character(*),       intent(in), optional :: emsg               !< Auxiliary error message.
+        class(field_FD_1D), pointer              :: field_pointer(:,:) !< Finite Difference 1D field pointer.
+
+        select type(field_input)
+            type is(field_FD_1D)
+                field_pointer => field_input
+            class default
+               write(stderr, '(A)')'error: cast field to field_FD_1D'
+               if (present(emsg)) write(stderr, '(A)') emsg
+               stop
+        end select
+    end function associate_field_FD_1D_rank2
 
     ! deferred public methods
     subroutine associate_mesh(this, field_mesh, error)
@@ -55,9 +97,7 @@ contains
         integer(I_P),       intent(out), optional :: error      !< Error status.
         class(mesh_FD_1D), pointer                :: mesh_cur   !< Dummy pointer for mesh.
 
-        call associate_mesh_FD_1D(mesh_input=field_mesh,                                      &
-                                  calling_procedure='associate_mesh_field_FD_1D(field_mesh)', &
-                                  mesh_pointer=mesh_cur)
+        mesh_cur => associate_mesh_FD_1D(mesh_input=field_mesh, emsg='calling procedure field_FD_1D%associate_mesh')
         this%m => mesh_cur
         if (allocated(this%val)) deallocate(this%val) ; allocate(this%val(1-mesh_cur%ng:mesh_cur%n+mesh_cur%ng))
         if (present(error)) error = 0
@@ -75,12 +115,15 @@ contains
         call this%free
         call this%associate_mesh(field_mesh=field_mesh, error=error)
         if (present(description)) this%description = description
-        call associate_mesh_FD_1D(mesh_input=field_mesh,                            &
-                                  calling_procedure='init_field_FD_1D(field_mesh)', &
-                                  mesh_pointer=mesh_cur)
+        mesh_cur => associate_mesh_FD_1D(mesh_input=field_mesh, emsg='calling procedure field_FD_1D%init')
+
+        this%val(:) = 0._R_P
+
+!        do i = 1, mesh_cur%n
         do i = 1-mesh_cur%ng, mesh_cur%n+mesh_cur%ng
             this%val(i) = sin(i*2._R_P*acos(-1._R_P)/mesh_cur%n)
         enddo
+
         if (present(error)) error = 0
     end subroutine init
 
@@ -112,13 +155,9 @@ contains
         class(field_FD_1D), pointer            :: rhs_cur !< Dummy pointer for rhs.
         class(field_FD_1D), pointer            :: opr_cur !< Dummy pointer for operator result.
 
-        call associate_field_FD_1D(field_input=rhs,                          &
-                                   calling_procedure='add_field_FD_1D(rhs)', &
-                                   field_pointer=rhs_cur)
+        rhs_cur => associate_field_FD_1D(field_input=rhs, emsg='calling procedure field_FD_1D%add')
         allocate(field_FD_1D :: opr)
-        call associate_field_FD_1D(field_input=opr,                          &
-                                   calling_procedure='add_field_FD_1D(opr)', &
-                                   field_pointer=opr_cur)
+        opr_cur => associate_field_FD_1D(field_input=opr, emsg='calling procedure field_FD_1D%add')
         call opr_cur%associate_mesh(field_mesh=lhs%m)
         opr_cur%val = lhs%val + rhs_cur%val
     end function add
@@ -129,9 +168,7 @@ contains
         class(field),       intent(in), target :: rhs     !< Right hand side.
         class(field_FD_1D), pointer            :: rhs_cur !< Dummy pointer for rhs.
 
-        call associate_field_FD_1D(field_input=rhs,                          &
-                                   calling_procedure='add_field_FD_1D(rhs)', &
-                                   field_pointer=rhs_cur)
+        rhs_cur => associate_field_FD_1D(field_input=rhs, emsg='calling procedure field_FD_1D%assign')
         call lhs%associate_mesh(field_mesh=rhs_cur%m)
         lhs%val = rhs_cur%val
     end subroutine assign_field
@@ -144,13 +181,9 @@ contains
         class(field_FD_1D), pointer            :: rhs_cur !< Dummy pointer for rhs.
         class(field_FD_1D), pointer            :: opr_cur !< Dummy pointer for operator result.
 
-        call associate_field_FD_1D(field_input=rhs,                          &
-                                   calling_procedure='add_field_FD_1D(rhs)', &
-                                   field_pointer=rhs_cur)
+        rhs_cur => associate_field_FD_1D(field_input=rhs, emsg='calling procedure field_FD_1D%mul')
         allocate(field_FD_1D :: opr)
-        call associate_field_FD_1D(field_input=opr,                          &
-                                   calling_procedure='add_field_FD_1D(opr)', &
-                                   field_pointer=opr_cur)
+        opr_cur => associate_field_FD_1D(field_input=opr, emsg='calling procedure field_FD_1D%mul')
         call opr_cur%associate_mesh(field_mesh=lhs%m)
         opr_cur%val = lhs%val * rhs_cur%val
     end function mul
@@ -163,9 +196,7 @@ contains
         class(field_FD_1D), pointer       :: opr_cur !< Dummy pointer for operator result.
 
         allocate(field_FD_1D :: opr)
-        call associate_field_FD_1D(field_input=opr,                          &
-                                   calling_procedure='add_field_FD_1D(opr)', &
-                                   field_pointer=opr_cur)
+        opr_cur => associate_field_FD_1D(field_input=opr, emsg='calling procedure field_FD_1D%mulreal')
         call opr_cur%associate_mesh(field_mesh=lhs%m)
         opr_cur%val = lhs%val * rhs
     end function mulreal
@@ -178,12 +209,23 @@ contains
         class(field_FD_1D), pointer       :: opr_cur !< Dummy pointer for operator result.
 
         allocate(field_FD_1D :: opr)
-        call associate_field_FD_1D(field_input=opr,                          &
-                                   calling_procedure='add_field_FD_1D(opr)', &
-                                   field_pointer=opr_cur)
+        opr_cur => associate_field_FD_1D(field_input=opr, emsg='calling procedure field_FD_1D%realmul')
         call opr_cur%associate_mesh(field_mesh=rhs%m)
         opr_cur%val = lhs * rhs%val
     end function realmul
+
+    function newrealmul(lhs, rhs) result(opr)
+        !< Multiply real for field.
+        real(R_P),          intent(in)    :: lhs     !< Left hand side.
+        class(field_FD_1D), intent(in)    :: rhs     !< Right hand side.
+        class(field), allocatable, target :: opr     !< Operator result.
+        class(field_FD_1D), pointer       :: opr_cur !< Dummy pointer for operator result.
+
+        allocate(field_FD_1D :: opr)
+        opr_cur => associate_field_FD_1D(field_input=opr, emsg='calling procedure field_FD_1D%realmul')
+        call opr_cur%associate_mesh(field_mesh=rhs%m)
+        opr_cur%val = lhs * rhs%val
+    end function newrealmul
 
     function sub(lhs, rhs) result(opr)
         !< Subtract fields.
@@ -193,16 +235,27 @@ contains
         class(field_FD_1D), pointer            :: rhs_cur !< Dummy pointer for rhs.
         class(field_FD_1D), pointer            :: opr_cur !< Dummy pointer for operator result.
 
-        call associate_field_FD_1D(field_input=rhs,                          &
-                                   calling_procedure='add_field_FD_1D(rhs)', &
-                                   field_pointer=rhs_cur)
+        rhs_cur => associate_field_FD_1D(field_input=rhs, emsg='calling procedure field_FD_1D%sub')
         allocate(field_FD_1D :: opr)
-        call associate_field_FD_1D(field_input=opr,                          &
-                                   calling_procedure='add_field_FD_1D(opr)', &
-                                   field_pointer=opr_cur)
+        opr_cur => associate_field_FD_1D(field_input=opr, emsg='calling procedure field_FD_1D%sub')
         call opr_cur%associate_mesh(field_mesh=lhs%m)
         opr_cur%val = lhs%val - rhs_cur%val
     end function sub
+
+    function div(lhs, rhs) result(opr)
+        !< Subtract fields.
+        class(field_FD_1D), intent(in)         :: lhs     !< Left hand side.
+        class(field),       intent(in), target :: rhs     !< Left hand side.
+        class(field), allocatable, target      :: opr     !< Operator result.
+        class(field_FD_1D), pointer            :: rhs_cur !< Dummy pointer for rhs.
+        class(field_FD_1D), pointer            :: opr_cur !< Dummy pointer for operator result.
+
+        rhs_cur => associate_field_FD_1D(field_input=rhs, emsg='calling procedure field_FD_1D%sub')
+        allocate(field_FD_1D :: opr)
+        opr_cur => associate_field_FD_1D(field_input=opr, emsg='calling procedure field_FD_1D%sub')
+        call opr_cur%associate_mesh(field_mesh=lhs%m)
+        opr_cur%val = lhs%val/rhs_cur%val
+    end function div
 
     ! public methods
      subroutine set(this, field_mesh, description, val, error)
