@@ -28,6 +28,7 @@ module openpde
     use openpde_integrator_euler_explicit
     use openpde_integrator_adv_euler_explicit
     use openpde_integrator_adv_euler_implicit
+    use openpde_integrator_adv_rk_implicit
     use openpde_mesh_FD_1D
     use openpde_mesh_FD_2D
     use openpde_mesh_FV_1D
@@ -100,6 +101,7 @@ module openpde
     public :: multigrid_FD_1D
     public :: integrator_adv_euler_explicit
     public :: integrator_adv_euler_implicit
+    public :: integrator_adv_rk_implicit
     ! kinds
     public :: R8P
     public :: R4P

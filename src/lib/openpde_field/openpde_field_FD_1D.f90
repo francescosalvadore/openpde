@@ -120,9 +120,9 @@ contains
         this%val(:) = 0._R_P
 
 !        do i = 1, mesh_cur%n
-!        do i = 1-mesh_cur%ng, mesh_cur%n+mesh_cur%ng
-!            this%val(i) = sin(i*2._R_P*acos(-1._R_P)/mesh_cur%n)
-!        enddo
+        do i = 1-mesh_cur%ng, mesh_cur%n+mesh_cur%ng
+            this%val(i) = sin(i*2._R_P*acos(-1._R_P)/mesh_cur%n)
+        enddo
 
         if (present(error)) error = 0
     end subroutine init

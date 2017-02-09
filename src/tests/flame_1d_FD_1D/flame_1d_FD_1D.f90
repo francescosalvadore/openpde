@@ -516,7 +516,7 @@ program flame_1d_FD_1D
     class(integrator_adv), allocatable      :: integrator_   !< The integrator.
     class(equation_adv), allocatable        :: equation_     !< The equation.
     integer(I_P)                            :: itmin=0       !< Fist time step.
-    integer(I_P)                            :: itmax=20000  !< Last time step.
+    integer(I_P)                            :: itmax=100  !< Last time step.
     integer(I_P)                            :: n_equ=4       !< Number of equations
     integer(I_P)                            :: it            !< Time step counter.
     integer(I_P)                            :: ie            !< Number of fields counter
@@ -530,7 +530,8 @@ program flame_1d_FD_1D
     allocate(field_FD_1D :: u(n_equ))
     allocate(flame_1d_equation_adv :: equation_)
     !EXPLICIT allocate(integrator_adv_euler_explicit :: integrator_)
-    allocate(integrator_adv_euler_implicit :: integrator_)
+    !EULERIMPLICITallocate(integrator_adv_euler_implicit :: integrator_)
+    allocate(integrator_adv_rk_implicit :: integrator_)
     inquire(file='flame_1d_FD_1D.json', exist=json_found)
     if (json_found) then
         print*,"json found"
@@ -559,7 +560,7 @@ program flame_1d_FD_1D
     !STOP
     do it = itmin, itmax
         er = integrator_%integrate(inp=u, equ=equation_, t=it*integrator_%dt)
-        if(mod(it,100)==0) then
+        if(mod(it,1)==0) then
             print*,'it: ',it
             write(output_name(5:12),"(I8.8)") it
             do ie = 1,n_equ

@@ -10,7 +10,7 @@
     "b": -1.E+0,
   },
   "integrator": {
-    "type": "euler explicit",
+    "type": "euler json",
     "dt": 0.001E+0,
   }
 }

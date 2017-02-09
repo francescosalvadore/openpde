@@ -122,13 +122,14 @@ contains
         this%v2f_opr%mesh => inp(1)%m
         this%v2f_opr%n_equ = n_equ
 
+        this%enable_multigrid = .false.
         ! multigrid section
-        allocate(multigrid_FD_1D :: this%mg)
-        call this%mg%init(inp=inp(1), levels_number=2)
-        allocate(this%dumg(size(inp, dim=1), this%mg%levels_number), mold=inp(1))
-        call this%mg%create_subgrids_field(inp=inp, subgrids=this%dumg)
-        allocate(this%ddumg(size(inp, dim=1), this%mg%levels_number), mold=inp(1))
-        call this%mg%create_subgrids_field(inp=inp, subgrids=this%ddumg)
+        !allocate(multigrid_FD_1D :: this%mg)
+        !call this%mg%init(inp=inp(1), levels_number=2)
+        !allocate(this%dumg(size(inp, dim=1), this%mg%levels_number), mold=inp(1))
+        !call this%mg%create_subgrids_field(inp=inp, subgrids=this%dumg)
+        !allocate(this%ddumg(size(inp, dim=1), this%mg%levels_number), mold=inp(1))
+        !call this%mg%create_subgrids_field(inp=inp, subgrids=this%ddumg)
 
     end subroutine init
 
@@ -318,7 +319,8 @@ program scalar_imp_FD_1D
     allocate(field_FD_1D :: u(n_equ))
     allocate(scalar_imp_equation_adv :: equation_)
     !EXPLICIT allocate(integrator_adv_euler_explicit :: integrator_)
-    allocate(integrator_adv_euler_implicit :: integrator_)
+    !IMPLICIT allocate(integrator_adv_euler_implicit :: integrator_)
+    allocate(integrator_adv_rk_implicit :: integrator_)
     inquire(file='scalar_imp_FD_1D.json', exist=json_found)
     if (json_found) then
         call mesh_%init(filename='scalar_imp_FD_1D.json')
