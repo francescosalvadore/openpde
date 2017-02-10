@@ -134,14 +134,14 @@
      </li> 
      
      
-    <li><i class="fa fa-code"></i><a href="../src/openpde_mesh_FD_2D.f90"> Source File</a></li>
+    <li><i class="fa fa-code"></i><a href="../src/openpde_mesh_FV_1D.f90"> Source File</a></li>
      
   </ul>
   <ol class="breadcrumb in-well text-right">
   
-     <li><a href='../sourcefile/openpde_mesh_fd_2d.f90.html'>openpde_mesh_FD_2D.f90</a></li>
+     <li><a href='../sourcefile/openpde_mesh_fv_1d.f90.html'>openpde_mesh_FV_1D.f90</a></li>
   
-     <li><a href='../module/openpde_mesh_fd_2d.html'>openpde_mesh_FD_2D</a></li>
+     <li><a href='../module/openpde_mesh_fv_1d.html'>openpde_mesh_FV_1D</a></li>
   
      <li class="active">init</li>
   </ol>
@@ -530,7 +530,7 @@
     
     <div class="col-md-9" id='text'>
     <h2>
-private pure subroutine init(this, description, filename, error)
+private subroutine init(this, description, filename, error)
     
     
 	 
@@ -561,7 +561,7 @@ private pure subroutine init(this, description, filename, error)
   
 <tr>
   
-  <td><span class="anchor" id="variable-this%7E113"></span>class(<a href='../type/mesh_fd_2d.html'>mesh_FD_2D</a>),</td>
+  <td><span class="anchor" id="variable-this%7E104"></span>class(<a href='../type/mesh_fv_1d.html'>mesh_FV_1D</a>),</td>
   <td>intent(inout)</td>
   <td></td>
   
@@ -576,7 +576,7 @@ private pure subroutine init(this, description, filename, error)
   
 <tr>
   
-  <td><span class="anchor" id="variable-description%7E33"></span>character(len=*),</td>
+  <td><span class="anchor" id="variable-description%7E36"></span>character(len=*),</td>
   <td>intent(in),</td>
   <td>optional</td>
   
@@ -591,7 +591,7 @@ private pure subroutine init(this, description, filename, error)
   
 <tr>
   
-  <td><span class="anchor" id="variable-filename%7E23"></span>character(len=*),</td>
+  <td><span class="anchor" id="variable-filename%7E25"></span>character(len=*),</td>
   <td>intent(in),</td>
   <td>optional</td>
   
@@ -606,7 +606,7 @@ private pure subroutine init(this, description, filename, error)
   
 <tr>
   
-  <td><span class="anchor" id="variable-error%7E55"></span>integer(kind=I_P),</td>
+  <td><span class="anchor" id="variable-error%7E60"></span>integer(kind=I_P),</td>
   <td>intent(out),</td>
   <td>optional</td>
   
@@ -677,23 +677,23 @@ private pure subroutine init(this, description, filename, error)
     
     <section>
     <h2><span class="anchor" id="src"></span>Source Code</h2>
-    <div class="highlight"><pre><span></span>    <span class="k">pure subroutine </span><span class="n">init</span><span class="p">(</span><span class="n">this</span><span class="p">,</span> <span class="n">description</span><span class="p">,</span> <span class="n">filename</span><span class="p">,</span> <span class="n">error</span><span class="p">)</span>
+    <div class="highlight"><pre><span></span>    <span class="k">subroutine </span><span class="n">init</span><span class="p">(</span><span class="n">this</span><span class="p">,</span> <span class="n">description</span><span class="p">,</span> <span class="n">filename</span><span class="p">,</span> <span class="n">error</span><span class="p">)</span>
         <span class="c">!&lt; Initialize mesh.</span>
-        <span class="k">class</span><span class="p">(</span><span class="n">mesh_FD_2D</span><span class="p">),</span> <span class="k">intent</span><span class="p">(</span><span class="n">inout</span><span class="p">)</span>         <span class="kd">::</span> <span class="n">this</span>        <span class="c">!&lt; The mesh.</span>
+        <span class="k">class</span><span class="p">(</span><span class="n">mesh_FV_1D</span><span class="p">),</span> <span class="k">intent</span><span class="p">(</span><span class="n">inout</span><span class="p">)</span>         <span class="kd">::</span> <span class="n">this</span>        <span class="c">!&lt; The mesh.</span>
         <span class="kt">character</span><span class="p">(</span><span class="o">*</span><span class="p">),</span>      <span class="k">intent</span><span class="p">(</span><span class="n">in</span><span class="p">),</span>  <span class="k">optional</span> <span class="kd">::</span> <span class="n">description</span> <span class="c">!&lt; Mesh description.</span>
         <span class="kt">character</span><span class="p">(</span><span class="o">*</span><span class="p">),</span>      <span class="k">intent</span><span class="p">(</span><span class="n">in</span><span class="p">),</span>  <span class="k">optional</span> <span class="kd">::</span> <span class="n">filename</span>    <span class="c">!&lt; Initialization file name.</span>
         <span class="kt">integer</span><span class="p">(</span><span class="n">I_P</span><span class="p">),</span>      <span class="k">intent</span><span class="p">(</span><span class="n">out</span><span class="p">),</span> <span class="k">optional</span> <span class="kd">::</span> <span class="n">error</span>       <span class="c">!&lt; Error status.</span>
 
         <span class="k">call </span><span class="n">this</span><span class="p">%</span><span class="n">free</span>
         <span class="k">if</span> <span class="p">(</span><span class="nb">present</span><span class="p">(</span><span class="n">description</span><span class="p">))</span> <span class="n">this</span><span class="p">%</span><span class="n">description</span> <span class="o">=</span> <span class="n">description</span>
-        <span class="n">this</span><span class="p">%</span><span class="n">nx</span> <span class="o">=</span> <span class="mi">50</span>
-        <span class="n">this</span><span class="p">%</span><span class="n">ny</span> <span class="o">=</span> <span class="mi">40</span>
-        <span class="n">this</span><span class="p">%</span><span class="n">ngx</span> <span class="o">=</span> <span class="mi">2</span>
-        <span class="n">this</span><span class="p">%</span><span class="n">ngy</span> <span class="o">=</span> <span class="mi">2</span>
-        <span class="n">this</span><span class="p">%</span><span class="n">s</span> <span class="o">=</span> <span class="mi">1</span>
-        <span class="n">this</span><span class="p">%</span><span class="n">hx</span> <span class="o">=</span> <span class="mf">0.05_R8P</span>
-        <span class="n">this</span><span class="p">%</span><span class="n">hy</span> <span class="o">=</span> <span class="mf">0.07_R8P</span>
-        <span class="k">if</span> <span class="p">(</span><span class="nb">present</span><span class="p">(</span><span class="n">error</span><span class="p">))</span> <span class="n">error</span> <span class="o">=</span> <span class="mi">0</span>
+        <span class="k">if</span> <span class="p">(</span><span class="nb">present</span><span class="p">(</span><span class="n">filename</span><span class="p">))</span> <span class="k">then</span>
+<span class="k">            call </span><span class="n">this</span><span class="p">%</span><span class="n">load</span><span class="p">(</span><span class="n">filename</span><span class="o">=</span><span class="n">filename</span><span class="p">,</span> <span class="n">error</span><span class="o">=</span><span class="n">error</span><span class="p">)</span>
+        <span class="k">else</span>
+<span class="k">            </span><span class="n">this</span><span class="p">%</span><span class="n">nb</span> <span class="o">=</span> <span class="mi">1</span>
+            <span class="k">allocate</span><span class="p">(</span><span class="n">this</span><span class="p">%</span><span class="n">blocks</span><span class="p">(</span><span class="mi">1</span><span class="p">))</span>
+            <span class="k">call </span><span class="n">this</span><span class="p">%</span><span class="n">blocks</span><span class="p">(</span><span class="mi">1</span><span class="p">)%</span><span class="n">set</span><span class="p">(</span><span class="n">n</span><span class="o">=</span><span class="mi">50</span><span class="p">,</span> <span class="n">ng</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">h</span><span class="o">=</span><span class="mf">0.05_R_P</span><span class="p">,</span> <span class="n">error</span><span class="o">=</span><span class="n">error</span><span class="p">)</span>
+        <span class="n">endif</span>
+        <span class="k">call </span><span class="n">this</span><span class="p">%</span><span class="n">output</span><span class="p">(</span><span class="n">error</span><span class="o">=</span><span class="n">error</span><span class="p">)</span>
     <span class="k">end subroutine </span><span class="n">init</span>
 </pre></div>
 

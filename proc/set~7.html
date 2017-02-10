@@ -130,18 +130,18 @@
      <li><i class="fa fa-list-ol"></i>
        <a data-toggle="tooltip"
 	  data-placement="bottom" data-html="true"
-	  title=" 0.6% of total for procedures.">15 statements</a>
+	  title=" 0.5% of total for procedures.">11 statements</a>
      </li> 
      
      
-    <li><i class="fa fa-code"></i><a href="../src/openpde_mesh_FD_1D.f90"> Source File</a></li>
+    <li><i class="fa fa-code"></i><a href="../src/openpde_mesh_block_FV_1D.f90"> Source File</a></li>
      
   </ul>
   <ol class="breadcrumb in-well text-right">
   
-     <li><a href='../sourcefile/openpde_mesh_fd_1d.f90.html'>openpde_mesh_FD_1D.f90</a></li>
+     <li><a href='../sourcefile/openpde_mesh_block_fv_1d.f90.html'>openpde_mesh_block_FV_1D.f90</a></li>
   
-     <li><a href='../module/openpde_mesh_fd_1d.html'>openpde_mesh_FD_1D</a></li>
+     <li><a href='../module/openpde_mesh_block_fv_1d.html'>openpde_mesh_block_FV_1D</a></li>
   
      <li class="active">set</li>
   </ol>
@@ -530,7 +530,7 @@
     
     <div class="col-md-9" id='text'>
     <h2>
-private pure subroutine set(this, description, n, ng, s, h, error)
+private pure subroutine set(this, n, ng, h, error)
     
     
 	 
@@ -540,7 +540,7 @@ private pure subroutine set(this, description, n, ng, s, h, error)
 
 
     
-    <p>Set mesh.</p>
+    <p>Set block.</p>
     
 
     <h3>Arguments</h3>
@@ -561,27 +561,12 @@ private pure subroutine set(this, description, n, ng, s, h, error)
   
 <tr>
   
-  <td><span class="anchor" id="variable-this%7E122"></span>class(<a href='../type/mesh_fd_1d.html'>mesh_FD_1D</a>),</td>
+  <td><span class="anchor" id="variable-this%7E111"></span>class(<a href='../type/mesh_block_fv_1d.html'>mesh_block_FV_1D</a>),</td>
   <td>intent(inout)</td>
   <td></td>
   
   <td></td><td>::</td>
-  <td><strong>this</strong></td><td><p>The mesh.</p></td>
-  
-</tr>
-
-  
-  
-  
-  
-<tr>
-  
-  <td><span class="anchor" id="variable-description%7E36"></span>character(len=*),</td>
-  <td>intent(in),</td>
-  <td>optional</td>
-  
-  <td></td><td>::</td>
-  <td><strong>description</strong></td><td><p>Mesh description</p></td>
+  <td><strong>this</strong></td><td><p>The block.</p></td>
   
 </tr>
 
@@ -596,7 +581,7 @@ private pure subroutine set(this, description, n, ng, s, h, error)
   <td>optional</td>
   
   <td></td><td>::</td>
-  <td><strong>n</strong></td><td><p>Number of points.</p></td>
+  <td><strong>n</strong></td><td><p>Number of cells.</p></td>
   
 </tr>
 
@@ -606,12 +591,12 @@ private pure subroutine set(this, description, n, ng, s, h, error)
   
 <tr>
   
-  <td><span class="anchor" id="variable-ng%7E4"></span>integer(kind=I_P),</td>
+  <td><span class="anchor" id="variable-ng%7E5"></span>integer(kind=I_P),</td>
   <td>intent(in),</td>
   <td>optional</td>
   
   <td></td><td>::</td>
-  <td><strong>ng</strong></td><td><p>Number of ghost points.</p></td>
+  <td><strong>ng</strong></td><td><p>Number of ghost cells.</p></td>
   
 </tr>
 
@@ -621,22 +606,7 @@ private pure subroutine set(this, description, n, ng, s, h, error)
   
 <tr>
   
-  <td><span class="anchor" id="variable-s%7E4"></span>integer(kind=I_P),</td>
-  <td>intent(in),</td>
-  <td>optional</td>
-  
-  <td></td><td>::</td>
-  <td><strong>s</strong></td><td><p>Number of replicas for steps/stages.</p></td>
-  
-</tr>
-
-  
-  
-  
-  
-<tr>
-  
-  <td><span class="anchor" id="variable-h%7E4"></span>real(kind=R_P),</td>
+  <td><span class="anchor" id="variable-h%7E5"></span>real(kind=R_P),</td>
   <td>intent(in),</td>
   <td>optional</td>
   
@@ -651,7 +621,7 @@ private pure subroutine set(this, description, n, ng, s, h, error)
   
 <tr>
   
-  <td><span class="anchor" id="variable-error%7E63"></span>integer(kind=I_P),</td>
+  <td><span class="anchor" id="variable-error%7E65"></span>integer(kind=I_P),</td>
   <td>intent(out),</td>
   <td>optional</td>
   
@@ -722,20 +692,16 @@ private pure subroutine set(this, description, n, ng, s, h, error)
     
     <section>
     <h2><span class="anchor" id="src"></span>Source Code</h2>
-    <div class="highlight"><pre><span></span>    <span class="k">pure subroutine </span><span class="n">set</span><span class="p">(</span><span class="n">this</span><span class="p">,</span> <span class="n">description</span><span class="p">,</span> <span class="n">n</span><span class="p">,</span> <span class="n">ng</span><span class="p">,</span> <span class="n">s</span><span class="p">,</span> <span class="n">h</span><span class="p">,</span> <span class="n">error</span><span class="p">)</span>
-        <span class="c">!&lt; Set mesh.</span>
-        <span class="k">class</span><span class="p">(</span><span class="n">mesh_FD_1D</span><span class="p">),</span> <span class="k">intent</span><span class="p">(</span><span class="n">inout</span><span class="p">)</span>         <span class="kd">::</span> <span class="n">this</span>        <span class="c">!&lt; The mesh.</span>
-        <span class="kt">character</span><span class="p">(</span><span class="o">*</span><span class="p">),</span>      <span class="k">intent</span><span class="p">(</span><span class="n">in</span><span class="p">),</span>  <span class="k">optional</span> <span class="kd">::</span> <span class="n">description</span> <span class="c">!&lt; Mesh description</span>
-        <span class="kt">integer</span><span class="p">(</span><span class="n">I_P</span><span class="p">),</span>      <span class="k">intent</span><span class="p">(</span><span class="n">in</span><span class="p">),</span>  <span class="k">optional</span> <span class="kd">::</span> <span class="n">n</span>           <span class="c">!&lt; Number of points.</span>
-        <span class="kt">integer</span><span class="p">(</span><span class="n">I_P</span><span class="p">),</span>      <span class="k">intent</span><span class="p">(</span><span class="n">in</span><span class="p">),</span>  <span class="k">optional</span> <span class="kd">::</span> <span class="n">ng</span>          <span class="c">!&lt; Number of ghost points.</span>
-        <span class="kt">integer</span><span class="p">(</span><span class="n">I_P</span><span class="p">),</span>      <span class="k">intent</span><span class="p">(</span><span class="n">in</span><span class="p">),</span>  <span class="k">optional</span> <span class="kd">::</span> <span class="n">s</span>           <span class="c">!&lt; Number of replicas for steps/stages.</span>
-        <span class="kt">real</span><span class="p">(</span><span class="n">R_P</span><span class="p">),</span>         <span class="k">intent</span><span class="p">(</span><span class="n">in</span><span class="p">),</span>  <span class="k">optional</span> <span class="kd">::</span> <span class="n">h</span>           <span class="c">!&lt; Cell size.</span>
-        <span class="kt">integer</span><span class="p">(</span><span class="n">I_P</span><span class="p">),</span>      <span class="k">intent</span><span class="p">(</span><span class="n">out</span><span class="p">),</span> <span class="k">optional</span> <span class="kd">::</span> <span class="n">error</span>       <span class="c">!&lt; Error status.</span>
+    <div class="highlight"><pre><span></span>    <span class="k">pure subroutine </span><span class="n">set</span><span class="p">(</span><span class="n">this</span><span class="p">,</span> <span class="n">n</span><span class="p">,</span> <span class="n">ng</span><span class="p">,</span> <span class="n">h</span><span class="p">,</span> <span class="n">error</span><span class="p">)</span>
+        <span class="c">!&lt; Set block.</span>
+        <span class="k">class</span><span class="p">(</span><span class="n">mesh_block_FV_1D</span><span class="p">),</span> <span class="k">intent</span><span class="p">(</span><span class="n">inout</span><span class="p">)</span>         <span class="kd">::</span> <span class="n">this</span>        <span class="c">!&lt; The block.</span>
+        <span class="kt">integer</span><span class="p">(</span><span class="n">I_P</span><span class="p">),</span>            <span class="k">intent</span><span class="p">(</span><span class="n">in</span><span class="p">),</span>  <span class="k">optional</span> <span class="kd">::</span> <span class="n">n</span>           <span class="c">!&lt; Number of cells.</span>
+        <span class="kt">integer</span><span class="p">(</span><span class="n">I_P</span><span class="p">),</span>            <span class="k">intent</span><span class="p">(</span><span class="n">in</span><span class="p">),</span>  <span class="k">optional</span> <span class="kd">::</span> <span class="n">ng</span>          <span class="c">!&lt; Number of ghost cells.</span>
+        <span class="kt">real</span><span class="p">(</span><span class="n">R_P</span><span class="p">),</span>               <span class="k">intent</span><span class="p">(</span><span class="n">in</span><span class="p">),</span>  <span class="k">optional</span> <span class="kd">::</span> <span class="n">h</span>           <span class="c">!&lt; Cell size.</span>
+        <span class="kt">integer</span><span class="p">(</span><span class="n">I_P</span><span class="p">),</span>            <span class="k">intent</span><span class="p">(</span><span class="n">out</span><span class="p">),</span> <span class="k">optional</span> <span class="kd">::</span> <span class="n">error</span>       <span class="c">!&lt; Error status.</span>
 
-        <span class="k">if</span> <span class="p">(</span><span class="nb">present</span><span class="p">(</span><span class="n">description</span><span class="p">))</span> <span class="n">this</span><span class="p">%</span><span class="n">description</span> <span class="o">=</span> <span class="n">description</span>
         <span class="k">if</span> <span class="p">(</span><span class="nb">present</span><span class="p">(</span><span class="n">n</span><span class="p">))</span> <span class="n">this</span><span class="p">%</span><span class="n">n</span> <span class="o">=</span> <span class="n">n</span>
         <span class="k">if</span> <span class="p">(</span><span class="nb">present</span><span class="p">(</span><span class="n">ng</span><span class="p">))</span> <span class="n">this</span><span class="p">%</span><span class="n">ng</span> <span class="o">=</span> <span class="n">ng</span>
-        <span class="k">if</span> <span class="p">(</span><span class="nb">present</span><span class="p">(</span><span class="n">s</span><span class="p">))</span> <span class="n">this</span><span class="p">%</span><span class="n">s</span> <span class="o">=</span> <span class="n">s</span>
         <span class="k">if</span> <span class="p">(</span><span class="nb">present</span><span class="p">(</span><span class="n">h</span><span class="p">))</span> <span class="n">this</span><span class="p">%</span><span class="n">h</span> <span class="o">=</span> <span class="n">h</span>
         <span class="k">if</span> <span class="p">(</span><span class="nb">present</span><span class="p">(</span><span class="n">error</span><span class="p">))</span> <span class="n">error</span> <span class="o">=</span> <span class="mi">0</span>
     <span class="k">end subroutine </span><span class="n">set</span>

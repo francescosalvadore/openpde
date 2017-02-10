@@ -134,14 +134,14 @@
      </li> 
      
      
-    <li><i class="fa fa-code"></i><a href="../src/openpde_field_surface_block_FV_1D.f90"> Source File</a></li>
+    <li><i class="fa fa-code"></i><a href="../src/openpde_field_block_FV_1D.f90"> Source File</a></li>
      
   </ul>
   <ol class="breadcrumb in-well text-right">
   
-     <li><a href='../sourcefile/openpde_field_surface_block_fv_1d.f90.html'>openpde_field_surface_block_FV_1D.f90</a></li>
+     <li><a href='../sourcefile/openpde_field_block_fv_1d.f90.html'>openpde_field_block_FV_1D.f90</a></li>
   
-     <li><a href='../module/openpde_field_surface_block_fv_1d.html'>openpde_field_surface_block_FV_1D</a></li>
+     <li><a href='../module/openpde_field_block_fv_1d.html'>openpde_field_block_FV_1D</a></li>
   
      <li class="active">assign_block</li>
   </ol>
@@ -561,7 +561,7 @@ private elemental subroutine assign_block(lhs, rhs)
   
 <tr>
   
-  <td><span class="anchor" id="variable-lhs%7E22"></span>class(<a href='../type/field_surface_block_fv_1d.html'>field_surface_block_FV_1D</a>),</td>
+  <td><span class="anchor" id="variable-lhs%7E37"></span>class(<a href='../type/field_block_fv_1d.html'>field_block_FV_1D</a>),</td>
   <td>intent(inout)</td>
   <td></td>
   
@@ -576,7 +576,7 @@ private elemental subroutine assign_block(lhs, rhs)
   
 <tr>
   
-  <td><span class="anchor" id="variable-rhs%7E22"></span>type(<a href='../type/field_surface_block_fv_1d.html'>field_surface_block_FV_1D</a>),</td>
+  <td><span class="anchor" id="variable-rhs%7E37"></span>type(<a href='../type/field_block_fv_1d.html'>field_block_FV_1D</a>),</td>
   <td>intent(in)</td>
   <td></td>
   
@@ -649,8 +649,8 @@ private elemental subroutine assign_block(lhs, rhs)
     <h2><span class="anchor" id="src"></span>Source Code</h2>
     <div class="highlight"><pre><span></span>    <span class="k">elemental subroutine </span><span class="n">assign_block</span><span class="p">(</span><span class="n">lhs</span><span class="p">,</span> <span class="n">rhs</span><span class="p">)</span>
         <span class="c">!&lt; Assign blocks.</span>
-        <span class="k">class</span><span class="p">(</span><span class="n">field_surface_block_FV_1D</span><span class="p">),</span> <span class="k">intent</span><span class="p">(</span><span class="n">inout</span><span class="p">)</span> <span class="kd">::</span> <span class="n">lhs</span> <span class="c">!&lt; Left hand side.</span>
-        <span class="k">type</span><span class="p">(</span><span class="n">field_surface_block_FV_1D</span><span class="p">),</span>  <span class="k">intent</span><span class="p">(</span><span class="n">in</span><span class="p">)</span>    <span class="kd">::</span> <span class="n">rhs</span> <span class="c">!&lt; Left hand side.</span>
+        <span class="k">class</span><span class="p">(</span><span class="n">field_block_FV_1D</span><span class="p">),</span> <span class="k">intent</span><span class="p">(</span><span class="n">inout</span><span class="p">)</span> <span class="kd">::</span> <span class="n">lhs</span> <span class="c">!&lt; Left hand side.</span>
+        <span class="k">type</span><span class="p">(</span><span class="n">field_block_FV_1D</span><span class="p">),</span>  <span class="k">intent</span><span class="p">(</span><span class="n">in</span><span class="p">)</span>    <span class="kd">::</span> <span class="n">rhs</span> <span class="c">!&lt; Left hand side.</span>
 
         <span class="n">lhs</span><span class="p">%</span><span class="n">val</span> <span class="o">=</span> <span class="n">rhs</span><span class="p">%</span><span class="n">val</span>
     <span class="k">end subroutine </span><span class="n">assign_block</span>

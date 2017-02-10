@@ -136,14 +136,14 @@
      </li> 
      
      
-    <li><i class="fa fa-code"></i><a href="../src/openpde_f2v_abstract.f90"> Source File</a></li>
+    <li><i class="fa fa-code"></i><a href="../src/openpde_v2f_abstract.f90"> Source File</a></li>
      
   </ul>
   <ol class="breadcrumb in-well text-right">
   
-     <li><a href='../sourcefile/openpde_f2v_abstract.f90.html'>openpde_f2v_abstract.f90</a></li>
+     <li><a href='../sourcefile/openpde_v2f_abstract.f90.html'>openpde_v2f_abstract.f90</a></li>
   
-     <li><a href='../module/openpde_f2v_abstract.html'>openpde_f2v_abstract</a></li>
+     <li><a href='../module/openpde_v2f_abstract.html'>openpde_v2f_abstract</a></li>
   
      <li class="active">abstract_operate</li>
   </ol>
@@ -286,7 +286,7 @@
     
     
     <h2>
-private function abstract_operate(this, fie) result(vec)
+private subroutine abstract_operate(this, vec, fie)
     
     
 	 
@@ -315,7 +315,7 @@ private function abstract_operate(this, fie) result(vec)
   
 <tr>
   
-  <td><span class="anchor" id="variable-this%7E18"></span>class(<a href='../type/f2v.html'>f2v</a>),</td>
+  <td><span class="anchor" id="variable-this%7E26"></span>class(<a href='../type/v2f.html'>v2f</a>),</td>
   <td>intent(in)</td>
   <td></td>
   
@@ -330,12 +330,27 @@ private function abstract_operate(this, fie) result(vec)
   
 <tr>
   
-  <td><span class="anchor" id="variable-fie%7E2"></span>class(<a href='../type/field.html'>field</a>),</td>
-  <td>intent(in),</td>
+  <td><span class="anchor" id="variable-vec%7E5"></span>class(<a href='../type/vector.html'>vector</a>),</td>
+  <td>intent(in)</td>
   <td></td>
   
-  <td>target, dimension(:)</td><td>::</td>
-  <td><strong>fie</strong></td><td><p>Input field.</p></td>
+  <td></td><td>::</td>
+  <td><strong>vec</strong></td><td><p>Input vector.</p></td>
+  
+</tr>
+
+  
+  
+  
+  
+<tr>
+  
+  <td><span class="anchor" id="variable-fie%7E2"></span>class(<a href='../type/field.html'>field</a>),</td>
+  <td>intent(inout),</td>
+  <td></td>
+  
+  <td>dimension(:)</td><td>::</td>
+  <td><strong>fie</strong></td><td><p>Resulting field.</p></td>
   
 </tr>
 
@@ -343,15 +358,6 @@ private function abstract_operate(this, fie) result(vec)
 </table>
 
     
-    
-    
-    
-    
-    
-    
-      <h3>Return Value <span class="anchor" id="variable-vec%7E5"></span><small>class(<a href='../type/vector.html'>vector</a>),
-  allocatable</small></h3>
-    <p>Resulting vector.</p>
     
     
     <h3>Description</h3>

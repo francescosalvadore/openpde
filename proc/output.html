@@ -130,18 +130,18 @@
      <li><i class="fa fa-list-ol"></i>
        <a data-toggle="tooltip"
 	  data-placement="bottom" data-html="true"
-	  title=" 1.0% of total for procedures.">24 statements</a>
+	  title=" 0.7% of total for procedures.">16 statements</a>
      </li> 
      
      
-    <li><i class="fa fa-code"></i><a href="../src/openpde_field_FD_2D.f90"> Source File</a></li>
+    <li><i class="fa fa-code"></i><a href="../src/openpde_field_FD_1D.f90"> Source File</a></li>
      
   </ul>
   <ol class="breadcrumb in-well text-right">
   
-     <li><a href='../sourcefile/openpde_field_fd_2d.f90.html'>openpde_field_FD_2D.f90</a></li>
+     <li><a href='../sourcefile/openpde_field_fd_1d.f90.html'>openpde_field_FD_1D.f90</a></li>
   
-     <li><a href='../module/openpde_field_fd_2d.html'>openpde_field_FD_2D</a></li>
+     <li><a href='../module/openpde_field_fd_1d.html'>openpde_field_FD_1D</a></li>
   
      <li class="active">output</li>
   </ol>
@@ -561,7 +561,7 @@ private subroutine output(this, filename, error)
   
 <tr>
   
-  <td><span class="anchor" id="variable-this%7E33"></span>class(<a href='../type/field_fd_2d.html'>field_FD_2D</a>),</td>
+  <td><span class="anchor" id="variable-this%7E47"></span>class(<a href='../type/field_fd_1d.html'>field_FD_1D</a>),</td>
   <td>intent(in)</td>
   <td></td>
   
@@ -576,7 +576,7 @@ private subroutine output(this, filename, error)
   
 <tr>
   
-  <td><span class="anchor" id="variable-filename%7E8"></span>character(len=*),</td>
+  <td><span class="anchor" id="variable-filename%7E9"></span>character(len=*),</td>
   <td>intent(in)</td>
   <td></td>
   
@@ -591,7 +591,7 @@ private subroutine output(this, filename, error)
   
 <tr>
   
-  <td><span class="anchor" id="variable-error%7E18"></span>integer(kind=I_P),</td>
+  <td><span class="anchor" id="variable-error%7E19"></span>integer(kind=I_P),</td>
   <td>intent(out),</td>
   <td>optional</td>
   
@@ -664,26 +664,18 @@ private subroutine output(this, filename, error)
     <h2><span class="anchor" id="src"></span>Source Code</h2>
     <div class="highlight"><pre><span></span>    <span class="k">subroutine </span><span class="n">output</span><span class="p">(</span><span class="n">this</span><span class="p">,</span> <span class="n">filename</span><span class="p">,</span> <span class="n">error</span><span class="p">)</span>
         <span class="c">!&lt; Output field data.</span>
-        <span class="k">class</span><span class="p">(</span><span class="n">field_FD_2D</span><span class="p">),</span> <span class="k">intent</span><span class="p">(</span><span class="n">in</span><span class="p">)</span>            <span class="kd">::</span> <span class="n">this</span>     <span class="c">!&lt; The field.</span>
+        <span class="k">class</span><span class="p">(</span><span class="n">field_FD_1D</span><span class="p">),</span> <span class="k">intent</span><span class="p">(</span><span class="n">in</span><span class="p">)</span>            <span class="kd">::</span> <span class="n">this</span>     <span class="c">!&lt; The field.</span>
         <span class="kt">character</span><span class="p">(</span><span class="nb">len</span><span class="o">=*</span><span class="p">),</span>   <span class="k">intent</span><span class="p">(</span><span class="n">in</span><span class="p">)</span>            <span class="kd">::</span> <span class="n">filename</span> <span class="c">!&lt; Output file name.</span>
         <span class="kt">integer</span><span class="p">(</span><span class="n">I_P</span><span class="p">),</span>       <span class="k">intent</span><span class="p">(</span><span class="n">out</span><span class="p">),</span> <span class="k">optional</span> <span class="kd">::</span> <span class="n">error</span>    <span class="c">!&lt; Error status.</span>
         <span class="kt">integer</span><span class="p">(</span><span class="n">I_P</span><span class="p">)</span>                              <span class="kd">::</span> <span class="n">imin</span>     <span class="c">!&lt; Lower extent.</span>
         <span class="kt">integer</span><span class="p">(</span><span class="n">I_P</span><span class="p">)</span>                              <span class="kd">::</span> <span class="n">imax</span>     <span class="c">!&lt; Upper extent.</span>
-        <span class="kt">integer</span><span class="p">(</span><span class="n">I_P</span><span class="p">)</span>                              <span class="kd">::</span> <span class="n">jmin</span>     <span class="c">!&lt; Lower extent.</span>
-        <span class="kt">integer</span><span class="p">(</span><span class="n">I_P</span><span class="p">)</span>                              <span class="kd">::</span> <span class="n">jmax</span>     <span class="c">!&lt; Upper extent.</span>
         <span class="kt">integer</span><span class="p">(</span><span class="n">I_P</span><span class="p">)</span>                              <span class="kd">::</span> <span class="n">i</span>        <span class="c">!&lt; Counter.</span>
-        <span class="kt">integer</span><span class="p">(</span><span class="n">I_P</span><span class="p">)</span>                              <span class="kd">::</span> <span class="n">j</span>        <span class="c">!&lt; Counter.</span>
 
         <span class="n">imin</span> <span class="o">=</span> <span class="nb">lbound</span><span class="p">(</span><span class="n">this</span><span class="p">%</span><span class="n">val</span><span class="p">,</span> <span class="nb">dim</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
         <span class="n">imax</span> <span class="o">=</span> <span class="nb">ubound</span><span class="p">(</span><span class="n">this</span><span class="p">%</span><span class="n">val</span><span class="p">,</span> <span class="nb">dim</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
-        <span class="n">jmin</span> <span class="o">=</span> <span class="nb">lbound</span><span class="p">(</span><span class="n">this</span><span class="p">%</span><span class="n">val</span><span class="p">,</span> <span class="nb">dim</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
-        <span class="n">jmax</span> <span class="o">=</span> <span class="nb">ubound</span><span class="p">(</span><span class="n">this</span><span class="p">%</span><span class="n">val</span><span class="p">,</span> <span class="nb">dim</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
         <span class="k">open</span><span class="p">(</span><span class="n">unit</span><span class="o">=</span><span class="mi">11</span><span class="p">,</span> <span class="k">file</span><span class="o">=</span><span class="n">filename</span><span class="p">)</span>
-        <span class="k">do </span><span class="n">j</span><span class="o">=</span><span class="n">jmin</span><span class="p">,</span> <span class="n">jmax</span>
-            <span class="k">do </span><span class="n">i</span><span class="o">=</span><span class="n">imin</span><span class="p">,</span> <span class="n">imax</span>
-                <span class="k">write</span><span class="p">(</span><span class="mi">11</span><span class="p">,</span> <span class="o">*</span><span class="p">)</span> <span class="n">i</span><span class="p">,</span> <span class="n">j</span><span class="p">,</span> <span class="n">this</span><span class="p">%</span><span class="n">val</span><span class="p">(</span><span class="n">i</span><span class="p">,</span> <span class="n">j</span><span class="p">)</span>
-            <span class="n">enddo</span>
-            <span class="k">write</span><span class="p">(</span><span class="mi">11</span><span class="p">,</span> <span class="o">*</span><span class="p">)</span> 
+        <span class="k">do </span><span class="n">i</span><span class="o">=</span><span class="n">imin</span><span class="p">,</span> <span class="n">imax</span>
+            <span class="k">write</span><span class="p">(</span><span class="mi">11</span><span class="p">,</span> <span class="o">*</span><span class="p">)</span> <span class="n">this</span><span class="p">%</span><span class="n">val</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
         <span class="n">enddo</span>
         <span class="k">close</span><span class="p">(</span><span class="mi">11</span><span class="p">)</span>
         <span class="k">if</span> <span class="p">(</span><span class="nb">present</span><span class="p">(</span><span class="n">error</span><span class="p">))</span> <span class="n">error</span> <span class="o">=</span> <span class="mi">0</span>

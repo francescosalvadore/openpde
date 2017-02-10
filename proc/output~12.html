@@ -130,18 +130,18 @@
      <li><i class="fa fa-list-ol"></i>
        <a data-toggle="tooltip"
 	  data-placement="bottom" data-html="true"
-	  title=" 0.5% of total for procedures.">13 statements</a>
+	  title=" 0.5% of total for procedures.">11 statements</a>
      </li> 
      
      
-    <li><i class="fa fa-code"></i><a href="../src/openpde_mesh_FV_1D.f90"> Source File</a></li>
+    <li><i class="fa fa-code"></i><a href="../src/openpde_vector_simple.f90"> Source File</a></li>
      
   </ul>
   <ol class="breadcrumb in-well text-right">
   
-     <li><a href='../sourcefile/openpde_mesh_fv_1d.f90.html'>openpde_mesh_FV_1D.f90</a></li>
+     <li><a href='../sourcefile/openpde_vector_simple.f90.html'>openpde_vector_simple.f90</a></li>
   
-     <li><a href='../module/openpde_mesh_fv_1d.html'>openpde_mesh_FV_1D</a></li>
+     <li><a href='../module/openpde_vector_simple.html'>openpde_vector_simple</a></li>
   
      <li class="active">output</li>
   </ol>
@@ -530,7 +530,7 @@
     
     <div class="col-md-9" id='text'>
     <h2>
-private subroutine output(this, error)
+private subroutine output(this, filename, error)
     
     
 	 
@@ -540,7 +540,7 @@ private subroutine output(this, error)
 
 
     
-    <p>Output mesh.</p>
+    <p>Print (naively) vector</p>
     
 
     <h3>Arguments</h3>
@@ -561,12 +561,12 @@ private subroutine output(this, error)
   
 <tr>
   
-  <td><span class="anchor" id="variable-this%7E125"></span>class(<a href='../type/mesh_fv_1d.html'>mesh_FV_1D</a>),</td>
-  <td>intent(in)</td>
+  <td><span class="anchor" id="variable-this%7E127"></span>class(<a href='../type/vector_simple.html'>vector_simple</a>),</td>
+  <td>intent(inout)</td>
   <td></td>
   
   <td></td><td>::</td>
-  <td><strong>this</strong></td><td><p>The mesh.</p></td>
+  <td><strong>this</strong></td><td><p>The vector.</p></td>
   
 </tr>
 
@@ -576,7 +576,22 @@ private subroutine output(this, error)
   
 <tr>
   
-  <td><span class="anchor" id="variable-error%7E66"></span>integer(kind=I_P),</td>
+  <td><span class="anchor" id="variable-filename%7E27"></span>character(len=*),</td>
+  <td>intent(in)</td>
+  <td></td>
+  
+  <td></td><td>::</td>
+  <td><strong>filename</strong></td><td><p>Output file name.</p></td>
+  
+</tr>
+
+  
+  
+  
+  
+<tr>
+  
+  <td><span class="anchor" id="variable-error%7E68"></span>integer(kind=I_P),</td>
   <td>intent(out),</td>
   <td>optional</td>
   
@@ -647,21 +662,19 @@ private subroutine output(this, error)
     
     <section>
     <h2><span class="anchor" id="src"></span>Source Code</h2>
-    <div class="highlight"><pre><span></span>    <span class="k">subroutine </span><span class="n">output</span><span class="p">(</span><span class="n">this</span><span class="p">,</span> <span class="n">error</span><span class="p">)</span>
-        <span class="c">!&lt; Output mesh.</span>
-        <span class="k">class</span><span class="p">(</span><span class="n">mesh_FV_1D</span><span class="p">),</span> <span class="k">intent</span><span class="p">(</span><span class="n">in</span><span class="p">)</span>            <span class="kd">::</span> <span class="n">this</span>  <span class="c">!&lt; The mesh.</span>
-        <span class="kt">integer</span><span class="p">(</span><span class="n">I_P</span><span class="p">),</span>      <span class="k">intent</span><span class="p">(</span><span class="n">out</span><span class="p">),</span> <span class="k">optional</span> <span class="kd">::</span> <span class="n">error</span> <span class="c">!&lt; Error status.</span>
-        <span class="kt">integer</span><span class="p">(</span><span class="n">I_P</span><span class="p">)</span>                             <span class="kd">::</span> <span class="n">b</span>     <span class="c">!&lt; Counter.</span>
+    <div class="highlight"><pre><span></span>    <span class="k">subroutine </span><span class="n">output</span><span class="p">(</span><span class="n">this</span><span class="p">,</span> <span class="n">filename</span><span class="p">,</span> <span class="n">error</span><span class="p">)</span>
+        <span class="c">!&lt; Print (naively) vector</span>
+        <span class="k">class</span><span class="p">(</span><span class="n">vector_simple</span><span class="p">),</span>  <span class="k">intent</span><span class="p">(</span><span class="n">inout</span><span class="p">)</span> <span class="kd">::</span> <span class="n">this</span>        <span class="c">!&lt; The vector.</span>
+        <span class="kt">character</span><span class="p">(</span><span class="o">*</span><span class="p">),</span> <span class="k">intent</span><span class="p">(</span><span class="n">in</span><span class="p">)</span>             <span class="kd">::</span> <span class="n">filename</span>    <span class="c">!&lt; Output file name.</span>
+        <span class="kt">integer</span><span class="p">(</span><span class="n">I_P</span><span class="p">),</span> <span class="k">intent</span><span class="p">(</span><span class="n">out</span><span class="p">),</span> <span class="k">optional</span>  <span class="kd">::</span> <span class="n">error</span>       <span class="c">!&lt; Error status.</span>
+        <span class="kt">integer</span><span class="p">(</span><span class="n">I_P</span><span class="p">)</span>                         <span class="kd">::</span> <span class="n">i</span>           <span class="c">!&lt; Loop index</span>
 
-        <span class="k">if</span> <span class="p">(</span><span class="nb">allocated</span><span class="p">(</span><span class="n">this</span><span class="p">%</span><span class="n">description</span><span class="p">))</span> <span class="k">print</span> <span class="s2">&quot;(A)&quot;</span><span class="p">,</span> <span class="n">this</span><span class="p">%</span><span class="n">description</span>
-        <span class="k">if</span> <span class="p">(</span><span class="nb">allocated</span><span class="p">(</span><span class="n">this</span><span class="p">%</span><span class="n">blocks</span><span class="p">))</span> <span class="k">then</span>
-<span class="k">            print</span><span class="o">*</span><span class="p">,</span> <span class="s1">&#39;nb: &#39;</span><span class="p">,</span> <span class="n">this</span><span class="p">%</span><span class="n">nb</span>
-            <span class="k">do </span><span class="n">b</span><span class="o">=</span><span class="nb">lbound</span><span class="p">(</span><span class="n">this</span><span class="p">%</span><span class="n">blocks</span><span class="p">,</span> <span class="nb">dim</span><span class="o">=</span><span class="mi">1</span><span class="p">),</span> <span class="nb">ubound</span><span class="p">(</span><span class="n">this</span><span class="p">%</span><span class="n">blocks</span><span class="p">,</span> <span class="nb">dim</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
-                <span class="k">print</span><span class="o">*</span><span class="p">,</span> <span class="s1">&#39;block &#39;</span><span class="p">,</span> <span class="n">b</span>
-                <span class="k">call </span><span class="n">this</span><span class="p">%</span><span class="n">blocks</span><span class="p">(</span><span class="n">b</span><span class="p">)%</span><span class="n">output</span><span class="p">(</span><span class="n">error</span><span class="o">=</span><span class="n">error</span><span class="p">)</span>
-            <span class="k">end do</span>
-<span class="k">        end if</span>
-<span class="k">    end subroutine </span><span class="n">output</span>
+        <span class="k">open</span><span class="p">(</span><span class="n">unit</span><span class="o">=</span><span class="mi">11</span><span class="p">,</span><span class="k">file</span><span class="o">=</span><span class="n">filename</span><span class="p">)</span>
+            <span class="k">do </span><span class="n">i</span> <span class="o">=</span><span class="mi">1</span><span class="p">,</span><span class="n">this</span><span class="p">%</span><span class="n">n</span>
+                <span class="k">write</span><span class="p">(</span><span class="mi">11</span><span class="p">,</span><span class="s2">&quot;(G15.8)&quot;</span><span class="p">)</span> <span class="n">this</span><span class="p">%</span><span class="n">val</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
+            <span class="n">enddo</span>
+        <span class="k">close</span><span class="p">(</span><span class="mi">11</span><span class="p">)</span>
+    <span class="k">end subroutine </span><span class="n">output</span>
 </pre></div>
 
     </section>

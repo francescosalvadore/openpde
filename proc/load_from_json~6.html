@@ -130,18 +130,18 @@
      <li><i class="fa fa-list-ol"></i>
        <a data-toggle="tooltip"
 	  data-placement="bottom" data-html="true"
-	  title=" 2.6% of total for procedures.">64 statements</a>
+	  title=" 2.1% of total for procedures.">52 statements</a>
      </li> 
      
      
-    <li><i class="fa fa-code"></i><a href="../src/openpde_mesh_FD_1D.f90"> Source File</a></li>
+    <li><i class="fa fa-code"></i><a href="../src/openpde_mesh_FV_1D.f90"> Source File</a></li>
      
   </ul>
   <ol class="breadcrumb in-well text-right">
   
-     <li><a href='../sourcefile/openpde_mesh_fd_1d.f90.html'>openpde_mesh_FD_1D.f90</a></li>
+     <li><a href='../sourcefile/openpde_mesh_fv_1d.f90.html'>openpde_mesh_FV_1D.f90</a></li>
   
-     <li><a href='../module/openpde_mesh_fd_1d.html'>openpde_mesh_FD_1D</a></li>
+     <li><a href='../module/openpde_mesh_fv_1d.html'>openpde_mesh_FV_1D</a></li>
   
      <li class="active">load_from_json</li>
   </ol>
@@ -561,7 +561,7 @@ private subroutine load_from_json(this, filename, error)
   
 <tr>
   
-  <td><span class="anchor" id="variable-this%7E123"></span>class(<a href='../type/mesh_fd_1d.html'>mesh_FD_1D</a>),</td>
+  <td><span class="anchor" id="variable-this%7E107"></span>class(<a href='../type/mesh_fv_1d.html'>mesh_FV_1D</a>),</td>
   <td>intent(inout)</td>
   <td></td>
   
@@ -576,7 +576,7 @@ private subroutine load_from_json(this, filename, error)
   
 <tr>
   
-  <td><span class="anchor" id="variable-filename%7E25"></span>character(len=*),</td>
+  <td><span class="anchor" id="variable-filename%7E26"></span>character(len=*),</td>
   <td>intent(in)</td>
   <td></td>
   
@@ -591,7 +591,7 @@ private subroutine load_from_json(this, filename, error)
   
 <tr>
   
-  <td><span class="anchor" id="variable-error%7E64"></span>integer(kind=I_P),</td>
+  <td><span class="anchor" id="variable-error%7E63"></span>integer(kind=I_P),</td>
   <td>intent(out),</td>
   <td>optional</td>
   
@@ -664,12 +664,14 @@ private subroutine load_from_json(this, filename, error)
     <h2><span class="anchor" id="src"></span>Source Code</h2>
     <div class="highlight"><pre><span></span>    <span class="k">subroutine </span><span class="n">load_from_json</span><span class="p">(</span><span class="n">this</span><span class="p">,</span> <span class="n">filename</span><span class="p">,</span> <span class="n">error</span><span class="p">)</span>
         <span class="c">!&lt; Load mesh definition from JSON file.</span>
-        <span class="k">class</span><span class="p">(</span><span class="n">mesh_FD_1D</span><span class="p">),</span> <span class="k">intent</span><span class="p">(</span><span class="n">inout</span><span class="p">)</span>         <span class="kd">::</span> <span class="n">this</span>      <span class="c">!&lt; The mesh.</span>
-        <span class="kt">character</span><span class="p">(</span><span class="o">*</span><span class="p">),</span>      <span class="k">intent</span><span class="p">(</span><span class="n">in</span><span class="p">)</span>            <span class="kd">::</span> <span class="n">filename</span>  <span class="c">!&lt; File name of JSON file.</span>
-        <span class="kt">integer</span><span class="p">(</span><span class="n">I_P</span><span class="p">),</span>      <span class="k">intent</span><span class="p">(</span><span class="n">out</span><span class="p">),</span> <span class="k">optional</span> <span class="kd">::</span> <span class="n">error</span>     <span class="c">!&lt; Error status.</span>
-        <span class="kt">character</span><span class="p">(</span><span class="nb">len</span><span class="o">=</span><span class="p">:),</span> <span class="k">allocatable</span>            <span class="kd">::</span> <span class="n">mesh_type</span> <span class="c">!&lt; Mesh type.</span>
-        <span class="k">type</span><span class="p">(</span><span class="n">json_file</span><span class="p">)</span>                          <span class="kd">::</span> <span class="n">json</span>      <span class="c">!&lt; JSON file handler.</span>
-        <span class="kt">logical</span>                                  <span class="kd">::</span> <span class="n">found</span>     <span class="c">!&lt; Flag inquiring the result json parsing.</span>
+        <span class="k">class</span><span class="p">(</span><span class="n">mesh_FV_1D</span><span class="p">),</span> <span class="k">intent</span><span class="p">(</span><span class="n">inout</span><span class="p">)</span>         <span class="kd">::</span> <span class="n">this</span>         <span class="c">!&lt; The mesh.</span>
+        <span class="kt">character</span><span class="p">(</span><span class="o">*</span><span class="p">),</span>      <span class="k">intent</span><span class="p">(</span><span class="n">in</span><span class="p">)</span>            <span class="kd">::</span> <span class="n">filename</span>     <span class="c">!&lt; File name of JSON file.</span>
+        <span class="kt">integer</span><span class="p">(</span><span class="n">I_P</span><span class="p">),</span>      <span class="k">intent</span><span class="p">(</span><span class="n">out</span><span class="p">),</span> <span class="k">optional</span> <span class="kd">::</span> <span class="n">error</span>        <span class="c">!&lt; Error status.</span>
+        <span class="kt">character</span><span class="p">(</span><span class="nb">len</span><span class="o">=</span><span class="p">:),</span> <span class="k">allocatable</span>            <span class="kd">::</span> <span class="n">mesh_type</span>    <span class="c">!&lt; Mesh type.</span>
+        <span class="k">type</span><span class="p">(</span><span class="n">string</span><span class="p">)</span>                             <span class="kd">::</span> <span class="n">block_number</span> <span class="c">!&lt; Block number ID, e.g. &#39;block5&#39;, &#39;block33&#39;.</span>
+        <span class="k">type</span><span class="p">(</span><span class="n">json_file</span><span class="p">)</span>                          <span class="kd">::</span> <span class="n">json</span>         <span class="c">!&lt; JSON file handler.</span>
+        <span class="kt">logical</span>                                  <span class="kd">::</span> <span class="n">found</span>        <span class="c">!&lt; Flag inquiring the result json parsing.</span>
+        <span class="kt">integer</span><span class="p">(</span><span class="n">I_P</span><span class="p">)</span>                             <span class="kd">::</span> <span class="n">b</span>            <span class="c">!&lt; Counter.</span>
 
         <span class="k">call </span><span class="n">json</span><span class="p">%</span><span class="n">initialize</span><span class="p">()</span>
         <span class="k">if</span> <span class="p">(</span><span class="n">json</span><span class="p">%</span><span class="n">failed</span><span class="p">())</span> <span class="k">then</span>
@@ -688,8 +690,8 @@ private subroutine load_from_json(this, filename, error)
             <span class="k">write</span><span class="p">(</span><span class="n">stderr</span><span class="p">,</span> <span class="s2">&quot;(A)&quot;</span><span class="p">)</span><span class="s1">&#39;   &quot;type&quot; missing&#39;</span>
             <span class="k">stop</span>
 <span class="k">        </span><span class="n">endif</span>
-        <span class="k">if</span> <span class="p">(</span><span class="n">mesh_type</span><span class="o">==</span><span class="s2">&quot;finite difference 1D&quot;</span><span class="p">)</span> <span class="k">then</span>
-<span class="k">            call </span><span class="n">json</span><span class="p">%</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;mesh.n&#39;</span><span class="p">,</span> <span class="n">this</span><span class="p">%</span><span class="n">n</span><span class="p">,</span> <span class="n">found</span><span class="p">)</span>
+        <span class="k">if</span> <span class="p">(</span><span class="n">mesh_type</span><span class="o">==</span><span class="s2">&quot;finite volume 1D&quot;</span><span class="p">)</span> <span class="k">then</span>
+<span class="k">            call </span><span class="n">json</span><span class="p">%</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;mesh.nb&#39;</span><span class="p">,</span> <span class="n">this</span><span class="p">%</span><span class="n">nb</span><span class="p">,</span> <span class="n">found</span><span class="p">)</span>
             <span class="k">if</span> <span class="p">(</span><span class="n">json</span><span class="p">%</span><span class="n">failed</span><span class="p">())</span> <span class="k">then</span>
 <span class="k">                call </span><span class="n">json</span><span class="p">%</span><span class="n">print_error_message</span><span class="p">(</span><span class="n">stderr</span><span class="p">)</span> <span class="p">;</span> <span class="k">stop</span>
 <span class="k">            end if</span>
@@ -698,29 +700,16 @@ private subroutine load_from_json(this, filename, error)
                 <span class="k">write</span><span class="p">(</span><span class="n">stderr</span><span class="p">,</span> <span class="s2">&quot;(A)&quot;</span><span class="p">)</span><span class="s1">&#39;   &quot;n&quot; missing&#39;</span>
                 <span class="k">stop</span>
 <span class="k">            </span><span class="n">endif</span>
-            <span class="k">call </span><span class="n">json</span><span class="p">%</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;mesh.ng&#39;</span><span class="p">,</span> <span class="n">this</span><span class="p">%</span><span class="n">ng</span><span class="p">,</span> <span class="n">found</span><span class="p">)</span>
-            <span class="k">if</span> <span class="p">(</span><span class="n">json</span><span class="p">%</span><span class="n">failed</span><span class="p">())</span> <span class="k">then</span>
-<span class="k">                call </span><span class="n">json</span><span class="p">%</span><span class="n">print_error_message</span><span class="p">(</span><span class="n">stderr</span><span class="p">)</span> <span class="p">;</span> <span class="k">stop</span>
-<span class="k">            end if</span>
-<span class="k">            if</span> <span class="p">(.</span><span class="nb">not</span><span class="p">.</span><span class="n">found</span><span class="p">)</span> <span class="k">then</span>
-<span class="k">                write</span><span class="p">(</span><span class="n">stderr</span><span class="p">,</span> <span class="s2">&quot;(A)&quot;</span><span class="p">)</span><span class="s1">&#39; error: mesh definition of &quot;&#39;</span><span class="o">//</span><span class="n">filename</span><span class="o">//</span><span class="s1">&#39;&quot; incomplete!&#39;</span>
-                <span class="k">write</span><span class="p">(</span><span class="n">stderr</span><span class="p">,</span> <span class="s2">&quot;(A)&quot;</span><span class="p">)</span><span class="s1">&#39;   &quot;ng&quot; missing&#39;</span>
-                <span class="k">stop</span>
-<span class="k">            </span><span class="n">endif</span>
-            <span class="k">call </span><span class="n">json</span><span class="p">%</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;mesh.h&#39;</span><span class="p">,</span> <span class="n">this</span><span class="p">%</span><span class="n">h</span><span class="p">,</span> <span class="n">found</span><span class="p">)</span>
-            <span class="k">if</span> <span class="p">(</span><span class="n">json</span><span class="p">%</span><span class="n">failed</span><span class="p">())</span> <span class="k">then</span>
-<span class="k">                call </span><span class="n">json</span><span class="p">%</span><span class="n">print_error_message</span><span class="p">(</span><span class="n">stderr</span><span class="p">)</span> <span class="p">;</span> <span class="k">stop</span>
-<span class="k">            end if</span>
-<span class="k">            if</span> <span class="p">(.</span><span class="nb">not</span><span class="p">.</span><span class="n">found</span><span class="p">)</span> <span class="k">then</span>
-<span class="k">                write</span><span class="p">(</span><span class="n">stderr</span><span class="p">,</span> <span class="s2">&quot;(A)&quot;</span><span class="p">)</span><span class="s1">&#39; error: mesh definition of &quot;&#39;</span><span class="o">//</span><span class="n">filename</span><span class="o">//</span><span class="s1">&#39;&quot; incomplete!&#39;</span>
-                <span class="k">write</span><span class="p">(</span><span class="n">stderr</span><span class="p">,</span> <span class="s2">&quot;(A)&quot;</span><span class="p">)</span><span class="s1">&#39;   &quot;h&quot; missing&#39;</span>
-                <span class="k">stop</span>
-<span class="k">            </span><span class="n">endif</span>
-        <span class="k">else</span>
-<span class="k">            write</span><span class="p">(</span><span class="n">stderr</span><span class="p">,</span> <span class="s2">&quot;(A)&quot;</span><span class="p">)</span><span class="s1">&#39; error: mesh definition of &quot;&#39;</span><span class="o">//</span><span class="n">filename</span><span class="o">//</span><span class="s1">&#39;&quot; is not &quot;finite difference 1D&quot;!&#39;</span>
+            <span class="k">if</span> <span class="p">(</span><span class="nb">allocated</span><span class="p">(</span><span class="n">this</span><span class="p">%</span><span class="n">blocks</span><span class="p">))</span> <span class="k">deallocate</span><span class="p">(</span><span class="n">this</span><span class="p">%</span><span class="n">blocks</span><span class="p">)</span> <span class="p">;</span> <span class="k">allocate</span><span class="p">(</span><span class="n">this</span><span class="p">%</span><span class="n">blocks</span><span class="p">(</span><span class="mi">1</span><span class="p">:</span><span class="n">this</span><span class="p">%</span><span class="n">nb</span><span class="p">))</span>
+            <span class="k">do </span><span class="n">b</span><span class="o">=</span><span class="nb">lbound</span><span class="p">(</span><span class="n">this</span><span class="p">%</span><span class="n">blocks</span><span class="p">,</span> <span class="nb">dim</span><span class="o">=</span><span class="mi">1</span><span class="p">),</span> <span class="nb">ubound</span><span class="p">(</span><span class="n">this</span><span class="p">%</span><span class="n">blocks</span><span class="p">,</span> <span class="nb">dim</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+                <span class="n">block_number</span> <span class="o">=</span> <span class="n">b</span>
+                <span class="n">block_number</span> <span class="o">=</span> <span class="n">block_number</span><span class="p">%</span><span class="n">replace</span><span class="p">(</span><span class="n">old</span><span class="o">=</span><span class="s1">&#39;+&#39;</span><span class="p">,</span> <span class="n">new</span><span class="o">=</span><span class="s1">&#39;&#39;</span><span class="p">)</span>
+                <span class="k">call </span><span class="n">this</span><span class="p">%</span><span class="n">blocks</span><span class="p">(</span><span class="n">b</span><span class="p">)%</span><span class="n">load</span><span class="p">(</span><span class="n">json</span><span class="o">=</span><span class="n">json</span><span class="p">,</span> <span class="n">block_number</span><span class="o">=</span><span class="s1">&#39;block&#39;</span><span class="o">//</span><span class="n">block_number</span><span class="p">,</span> <span class="n">error</span><span class="o">=</span><span class="n">error</span><span class="p">)</span>
+            <span class="k">end do</span>
+<span class="k">        else</span>
+<span class="k">            write</span><span class="p">(</span><span class="n">stderr</span><span class="p">,</span> <span class="s2">&quot;(A)&quot;</span><span class="p">)</span><span class="s1">&#39; error: mesh definition of &quot;&#39;</span><span class="o">//</span><span class="n">filename</span><span class="o">//</span><span class="s1">&#39;&quot; is not &quot;finite volume 1D&quot;!&#39;</span>
             <span class="k">stop</span>
 <span class="k">        </span><span class="n">endif</span>
-        <span class="k">if</span> <span class="p">(</span><span class="nb">present</span><span class="p">(</span><span class="n">error</span><span class="p">))</span> <span class="n">error</span> <span class="o">=</span> <span class="mi">0</span>
     <span class="n">endsubroutine</span> <span class="n">load_from_json</span>
 </pre></div>
 

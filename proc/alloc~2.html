@@ -134,14 +134,14 @@
      </li> 
      
      
-    <li><i class="fa fa-code"></i><a href="../src/openpde_field_block_FV_1D.f90"> Source File</a></li>
+    <li><i class="fa fa-code"></i><a href="../src/openpde_field_surface_block_FV_1D.f90"> Source File</a></li>
      
   </ul>
   <ol class="breadcrumb in-well text-right">
   
-     <li><a href='../sourcefile/openpde_field_block_fv_1d.f90.html'>openpde_field_block_FV_1D.f90</a></li>
+     <li><a href='../sourcefile/openpde_field_surface_block_fv_1d.f90.html'>openpde_field_surface_block_FV_1D.f90</a></li>
   
-     <li><a href='../module/openpde_field_block_fv_1d.html'>openpde_field_block_FV_1D</a></li>
+     <li><a href='../module/openpde_field_surface_block_fv_1d.html'>openpde_field_surface_block_FV_1D</a></li>
   
      <li class="active">alloc</li>
   </ol>
@@ -561,7 +561,7 @@ private subroutine alloc(this, mesh_block, error)
   
 <tr>
   
-  <td><span class="anchor" id="variable-this%7E52"></span>class(<a href='../type/field_block_fv_1d.html'>field_block_FV_1D</a>),</td>
+  <td><span class="anchor" id="variable-this%7E69"></span>class(<a href='../type/field_surface_block_fv_1d.html'>field_surface_block_FV_1D</a>),</td>
   <td>intent(inout)</td>
   <td></td>
   
@@ -576,7 +576,7 @@ private subroutine alloc(this, mesh_block, error)
   
 <tr>
   
-  <td><span class="anchor" id="variable-mesh_block%7E5"></span>type(mesh_block_FV_1D),</td>
+  <td><span class="anchor" id="variable-mesh_block%7E3"></span>type(mesh_block_FV_1D),</td>
   <td>intent(in)</td>
   <td></td>
   
@@ -591,7 +591,7 @@ private subroutine alloc(this, mesh_block, error)
   
 <tr>
   
-  <td><span class="anchor" id="variable-error%7E32"></span>integer(kind=I_P),</td>
+  <td><span class="anchor" id="variable-error%7E35"></span>integer(kind=I_P),</td>
   <td>intent(out),</td>
   <td>optional</td>
   
@@ -664,12 +664,12 @@ private subroutine alloc(this, mesh_block, error)
     <h2><span class="anchor" id="src"></span>Source Code</h2>
     <div class="highlight"><pre><span></span>    <span class="k">subroutine </span><span class="n">alloc</span><span class="p">(</span><span class="n">this</span><span class="p">,</span> <span class="n">mesh_block</span><span class="p">,</span> <span class="n">error</span><span class="p">)</span>
         <span class="c">!&lt; Allocate block.</span>
-        <span class="k">class</span><span class="p">(</span><span class="n">field_block_FV_1D</span><span class="p">),</span> <span class="k">intent</span><span class="p">(</span><span class="n">inout</span><span class="p">)</span>         <span class="kd">::</span> <span class="n">this</span>       <span class="c">!&lt; The block.</span>
-        <span class="k">type</span><span class="p">(</span><span class="n">mesh_block_FV_1D</span><span class="p">),</span>   <span class="k">intent</span><span class="p">(</span><span class="n">in</span><span class="p">)</span>            <span class="kd">::</span> <span class="n">mesh_block</span> <span class="c">!&lt; Mesh of the block.</span>
-        <span class="kt">integer</span><span class="p">(</span><span class="n">I_P</span><span class="p">),</span>             <span class="k">intent</span><span class="p">(</span><span class="n">out</span><span class="p">),</span> <span class="k">optional</span> <span class="kd">::</span> <span class="n">error</span>      <span class="c">!&lt; Error status.</span>
+        <span class="k">class</span><span class="p">(</span><span class="n">field_surface_block_FV_1D</span><span class="p">),</span> <span class="k">intent</span><span class="p">(</span><span class="n">inout</span><span class="p">)</span>         <span class="kd">::</span> <span class="n">this</span>       <span class="c">!&lt; The block.</span>
+        <span class="k">type</span><span class="p">(</span><span class="n">mesh_block_FV_1D</span><span class="p">),</span>           <span class="k">intent</span><span class="p">(</span><span class="n">in</span><span class="p">)</span>            <span class="kd">::</span> <span class="n">mesh_block</span> <span class="c">!&lt; Mesh of the block.</span>
+        <span class="kt">integer</span><span class="p">(</span><span class="n">I_P</span><span class="p">),</span>                     <span class="k">intent</span><span class="p">(</span><span class="n">out</span><span class="p">),</span> <span class="k">optional</span> <span class="kd">::</span> <span class="n">error</span>      <span class="c">!&lt; Error status.</span>
 
         <span class="k">call </span><span class="n">this</span><span class="p">%</span><span class="n">free</span>
-        <span class="k">allocate</span><span class="p">(</span><span class="n">this</span><span class="p">%</span><span class="n">val</span><span class="p">(</span><span class="mi">1</span><span class="o">-</span><span class="n">mesh_block</span><span class="p">%</span><span class="n">ng</span><span class="p">:</span><span class="n">mesh_block</span><span class="p">%</span><span class="n">n</span><span class="o">+</span><span class="n">mesh_block</span><span class="p">%</span><span class="n">ng</span><span class="p">))</span>
+        <span class="k">allocate</span><span class="p">(</span><span class="n">this</span><span class="p">%</span><span class="n">val</span><span class="p">(</span><span class="mi">0</span><span class="p">:</span><span class="n">mesh_block</span><span class="p">%</span><span class="n">n</span><span class="p">))</span>
         <span class="k">if</span> <span class="p">(</span><span class="nb">present</span><span class="p">(</span><span class="n">error</span><span class="p">))</span> <span class="n">error</span> <span class="o">=</span> <span class="mi">0</span>
     <span class="k">end subroutine </span><span class="n">alloc</span>
 </pre></div>

@@ -136,14 +136,14 @@
      </li> 
      
      
-    <li><i class="fa fa-code"></i><a href="../src/openpde_field_abstract.f90"> Source File</a></li>
+    <li><i class="fa fa-code"></i><a href="../src/openpde_equation_abstract.f90"> Source File</a></li>
      
   </ul>
   <ol class="breadcrumb in-well text-right">
   
-     <li><a href='../sourcefile/openpde_field_abstract.f90.html'>openpde_field_abstract.f90</a></li>
+     <li><a href='../sourcefile/openpde_equation_abstract.f90.html'>openpde_equation_abstract.f90</a></li>
   
-     <li><a href='../module/openpde_field_abstract.html'>openpde_field_abstract</a></li>
+     <li><a href='../module/openpde_equation_abstract.html'>openpde_equation_abstract</a></li>
   
      <li class="active">abstract_init</li>
   </ol>
@@ -282,11 +282,11 @@
 	
     
     <h2>abstract interface</h2>
-    <p>Initialize the field.</p>
+    <p>Initialize equation.</p>
     
     
     <h2>
-private subroutine abstract_init(this, field_mesh, description, error)
+private subroutine abstract_init(this, description, filename, error)
     
     
 	 
@@ -315,27 +315,12 @@ private subroutine abstract_init(this, field_mesh, description, error)
   
 <tr>
   
-  <td><span class="anchor" id="variable-this%7E2"></span>class(<a href='../type/field.html'>field</a>),</td>
+  <td><span class="anchor" id="variable-this%7E2"></span>class(<a href='../type/equation.html'>equation</a>),</td>
   <td>intent(inout)</td>
   <td></td>
   
   <td></td><td>::</td>
-  <td><strong>this</strong></td><td><p>The field.</p></td>
-  
-</tr>
-
-  
-  
-  
-  
-<tr>
-  
-  <td><span class="anchor" id="variable-field_mesh%7E2"></span>class(<a href='../type/mesh.html'>mesh</a>),</td>
-  <td>intent(in),</td>
-  <td></td>
-  
-  <td>target</td><td>::</td>
-  <td><strong>field_mesh</strong></td><td><p>The mesh.</p></td>
+  <td><strong>this</strong></td><td><p>The equation.</p></td>
   
 </tr>
 
@@ -350,7 +335,7 @@ private subroutine abstract_init(this, field_mesh, description, error)
   <td>optional</td>
   
   <td></td><td>::</td>
-  <td><strong>description</strong></td><td><p>Description of the field.</p></td>
+  <td><strong>description</strong></td><td><p>Equation description.</p></td>
   
 </tr>
 
@@ -360,7 +345,22 @@ private subroutine abstract_init(this, field_mesh, description, error)
   
 <tr>
   
-  <td><span class="anchor" id="variable-error%7E2"></span>integer(kind=I_P),</td>
+  <td><span class="anchor" id="variable-filename"></span>character(len=*),</td>
+  <td>intent(in),</td>
+  <td>optional</td>
+  
+  <td></td><td>::</td>
+  <td><strong>filename</strong></td><td><p>Initialization file name.</p></td>
+  
+</tr>
+
+  
+  
+  
+  
+<tr>
+  
+  <td><span class="anchor" id="variable-error"></span>integer(kind=I_P),</td>
   <td>intent(out),</td>
   <td>optional</td>
   
@@ -376,7 +376,7 @@ private subroutine abstract_init(this, field_mesh, description, error)
     
     
     <h3>Description</h3>
-    <p>Initialize the field.</p>
+    <p>Initialize equation.</p>
     
     <br>
 

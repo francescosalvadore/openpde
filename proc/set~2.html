@@ -134,14 +134,14 @@
      </li> 
      
      
-    <li><i class="fa fa-code"></i><a href="../src/openpde_field_FD_1D.f90"> Source File</a></li>
+    <li><i class="fa fa-code"></i><a href="../src/openpde_field_FD_2D.f90"> Source File</a></li>
      
   </ul>
   <ol class="breadcrumb in-well text-right">
   
-     <li><a href='../sourcefile/openpde_field_fd_1d.f90.html'>openpde_field_FD_1D.f90</a></li>
+     <li><a href='../sourcefile/openpde_field_fd_2d.f90.html'>openpde_field_FD_2D.f90</a></li>
   
-     <li><a href='../module/openpde_field_fd_1d.html'>openpde_field_FD_1D</a></li>
+     <li><a href='../module/openpde_field_fd_2d.html'>openpde_field_FD_2D</a></li>
   
      <li class="active">set</li>
   </ol>
@@ -561,7 +561,7 @@ private subroutine set(this, field_mesh, description, val, error)
   
 <tr>
   
-  <td><span class="anchor" id="variable-this%7E45"></span>class(<a href='../type/field_fd_1d.html'>field_FD_1D</a>),</td>
+  <td><span class="anchor" id="variable-this%7E53"></span>class(<a href='../type/field_fd_2d.html'>field_FD_2D</a>),</td>
   <td>intent(inout)</td>
   <td></td>
   
@@ -576,7 +576,7 @@ private subroutine set(this, field_mesh, description, val, error)
   
 <tr>
   
-  <td><span class="anchor" id="variable-field_mesh%7E8"></span>class(<a href='../type/mesh.html'>mesh</a>),</td>
+  <td><span class="anchor" id="variable-field_mesh%7E9"></span>class(<a href='../type/mesh.html'>mesh</a>),</td>
   <td>intent(in),</td>
   <td>optional</td>
   
@@ -591,7 +591,7 @@ private subroutine set(this, field_mesh, description, val, error)
   
 <tr>
   
-  <td><span class="anchor" id="variable-description%7E23"></span>character(len=*),</td>
+  <td><span class="anchor" id="variable-description%7E24"></span>character(len=*),</td>
   <td>intent(in),</td>
   <td>optional</td>
   
@@ -611,7 +611,7 @@ private subroutine set(this, field_mesh, description, val, error)
   <td>optional</td>
   
   <td></td><td>::</td>
-  <td><strong>val</strong>(1:)</td><td><p>Field value.</p></td>
+  <td><strong>val</strong>(1:,1:)</td><td><p>Field value.</p></td>
   
 </tr>
 
@@ -621,7 +621,7 @@ private subroutine set(this, field_mesh, description, val, error)
   
 <tr>
   
-  <td><span class="anchor" id="variable-error%7E27"></span>integer(kind=I_P),</td>
+  <td><span class="anchor" id="variable-error%7E24"></span>integer(kind=I_P),</td>
   <td>intent(out),</td>
   <td>optional</td>
   
@@ -694,15 +694,15 @@ private subroutine set(this, field_mesh, description, val, error)
     <h2><span class="anchor" id="src"></span>Source Code</h2>
     <div class="highlight"><pre><span></span>     <span class="k">subroutine </span><span class="n">set</span><span class="p">(</span><span class="n">this</span><span class="p">,</span> <span class="n">field_mesh</span><span class="p">,</span> <span class="n">description</span><span class="p">,</span> <span class="n">val</span><span class="p">,</span> <span class="n">error</span><span class="p">)</span>
         <span class="c">!&lt; Set field.</span>
-        <span class="k">class</span><span class="p">(</span><span class="n">field_FD_1D</span><span class="p">),</span> <span class="k">intent</span><span class="p">(</span><span class="n">inout</span><span class="p">)</span>                 <span class="kd">::</span> <span class="n">this</span>        <span class="c">!&lt; The field.</span>
+        <span class="k">class</span><span class="p">(</span><span class="n">field_FD_2D</span><span class="p">),</span> <span class="k">intent</span><span class="p">(</span><span class="n">inout</span><span class="p">)</span>                 <span class="kd">::</span> <span class="n">this</span>        <span class="c">!&lt; The field.</span>
         <span class="k">class</span><span class="p">(</span><span class="n">mesh</span><span class="p">),</span>        <span class="k">intent</span><span class="p">(</span><span class="n">in</span><span class="p">),</span>  <span class="k">optional</span><span class="p">,</span> <span class="k">target</span> <span class="kd">::</span> <span class="n">field_mesh</span>  <span class="c">!&lt; Mesh of the field.</span>
         <span class="kt">character</span><span class="p">(</span><span class="o">*</span><span class="p">),</span>       <span class="k">intent</span><span class="p">(</span><span class="n">in</span><span class="p">),</span>  <span class="k">optional</span>         <span class="kd">::</span> <span class="n">description</span> <span class="c">!&lt; Mesh description</span>
-        <span class="kt">real</span><span class="p">(</span><span class="n">R_P</span><span class="p">),</span>          <span class="k">intent</span><span class="p">(</span><span class="n">in</span><span class="p">),</span>  <span class="k">optional</span>         <span class="kd">::</span> <span class="n">val</span><span class="p">(</span><span class="mi">1</span><span class="p">:)</span>     <span class="c">!&lt; Field value.</span>
+        <span class="kt">real</span><span class="p">(</span><span class="n">R_P</span><span class="p">),</span>          <span class="k">intent</span><span class="p">(</span><span class="n">in</span><span class="p">),</span>  <span class="k">optional</span>         <span class="kd">::</span> <span class="n">val</span><span class="p">(</span><span class="mi">1</span><span class="p">:,</span><span class="mi">1</span><span class="p">:)</span>  <span class="c">!&lt; Field value.</span>
         <span class="kt">integer</span><span class="p">(</span><span class="n">I_P</span><span class="p">),</span>       <span class="k">intent</span><span class="p">(</span><span class="n">out</span><span class="p">),</span> <span class="k">optional</span>         <span class="kd">::</span> <span class="n">error</span>       <span class="c">!&lt; Error status.</span>
 
         <span class="k">if</span> <span class="p">(</span><span class="nb">present</span><span class="p">(</span><span class="n">field_mesh</span><span class="p">))</span> <span class="k">call </span><span class="n">this</span><span class="p">%</span><span class="n">associate_mesh</span><span class="p">(</span><span class="n">field_mesh</span><span class="o">=</span><span class="n">field_mesh</span><span class="p">,</span> <span class="n">error</span><span class="o">=</span><span class="n">error</span><span class="p">)</span>
         <span class="k">if</span> <span class="p">(</span><span class="nb">present</span><span class="p">(</span><span class="n">description</span><span class="p">))</span> <span class="n">this</span><span class="p">%</span><span class="n">description</span> <span class="o">=</span> <span class="n">description</span>
-        <span class="k">if</span> <span class="p">(</span><span class="nb">present</span><span class="p">(</span><span class="n">val</span><span class="p">))</span> <span class="n">this</span><span class="p">%</span><span class="n">val</span><span class="p">(</span><span class="mi">1</span><span class="p">:)</span> <span class="o">=</span> <span class="n">val</span> <span class="c">! TO BE FIXED SINCE THERE ARE GHOST NODES</span>
+        <span class="k">if</span> <span class="p">(</span><span class="nb">present</span><span class="p">(</span><span class="n">val</span><span class="p">))</span> <span class="n">this</span><span class="p">%</span><span class="n">val</span><span class="p">(</span><span class="mi">1</span><span class="p">:,</span><span class="mi">1</span><span class="p">:)</span> <span class="o">=</span> <span class="n">val</span> <span class="c">! TO BE FIXED SINCE THERE ARE GHOST NODES</span>
         <span class="k">if</span> <span class="p">(</span><span class="nb">present</span><span class="p">(</span><span class="n">error</span><span class="p">))</span> <span class="n">error</span> <span class="o">=</span> <span class="mi">0</span>
     <span class="k">end subroutine </span><span class="n">set</span>
 </pre></div>

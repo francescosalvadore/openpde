@@ -132,18 +132,18 @@
      <li><i class="fa fa-list-ol"></i>
        <a data-toggle="tooltip"
 	  data-placement="bottom" data-html="true"
-	  title=" 2.2% of total for abstract interfaces.">7 statements</a>
+	  title=" 2.9% of total for abstract interfaces.">9 statements</a>
      </li> 
      
      
-    <li><i class="fa fa-code"></i><a href="../src/openpde_linsolver_abstract.f90"> Source File</a></li>
+    <li><i class="fa fa-code"></i><a href="../src/openpde_field_abstract.f90"> Source File</a></li>
      
   </ul>
   <ol class="breadcrumb in-well text-right">
   
-     <li><a href='../sourcefile/openpde_linsolver_abstract.f90.html'>openpde_linsolver_abstract.f90</a></li>
+     <li><a href='../sourcefile/openpde_field_abstract.f90.html'>openpde_field_abstract.f90</a></li>
   
-     <li><a href='../module/openpde_linsolver_abstract.html'>openpde_linsolver_abstract</a></li>
+     <li><a href='../module/openpde_field_abstract.html'>openpde_field_abstract</a></li>
   
      <li class="active">abstract_init</li>
   </ol>
@@ -281,13 +281,16 @@
     <div class="col-md-9" id='text'>
 	
     
-    <h2>abstract interface <br>
+    <h2>abstract interface</h2>
+    <p>Initialize the field.</p>
     
-private subroutine abstract_init(this, n)
+    
+    <h2>
+private subroutine abstract_init(this, field_mesh, description, error)
     
     
 	 
-</h2>    
+</h2>
     
 
     
@@ -312,12 +315,12 @@ private subroutine abstract_init(this, n)
   
 <tr>
   
-  <td><span class="anchor" id="variable-this%7E6"></span>class(<a href='../type/linsolver.html'>linsolver</a>),</td>
+  <td><span class="anchor" id="variable-this%7E7"></span>class(<a href='../type/field.html'>field</a>),</td>
   <td>intent(inout)</td>
   <td></td>
   
   <td></td><td>::</td>
-  <td><strong>this</strong></td><td></td>
+  <td><strong>this</strong></td><td><p>The field.</p></td>
   
 </tr>
 
@@ -327,12 +330,42 @@ private subroutine abstract_init(this, n)
   
 <tr>
   
-  <td><span class="anchor" id="variable-n%7E5"></span>integer(kind=I_P)</td>
-  <td></td>
+  <td><span class="anchor" id="variable-field_mesh%7E2"></span>class(<a href='../type/mesh.html'>mesh</a>),</td>
+  <td>intent(in),</td>
   <td></td>
   
+  <td>target</td><td>::</td>
+  <td><strong>field_mesh</strong></td><td><p>The mesh.</p></td>
+  
+</tr>
+
+  
+  
+  
+  
+<tr>
+  
+  <td><span class="anchor" id="variable-description%7E14"></span>character(len=*),</td>
+  <td>intent(in),</td>
+  <td>optional</td>
+  
   <td></td><td>::</td>
-  <td><strong>n</strong></td><td></td>
+  <td><strong>description</strong></td><td><p>Description of the field.</p></td>
+  
+</tr>
+
+  
+  
+  
+  
+<tr>
+  
+  <td><span class="anchor" id="variable-error%7E3"></span>integer(kind=I_P),</td>
+  <td>intent(out),</td>
+  <td>optional</td>
+  
+  <td></td><td>::</td>
+  <td><strong>error</strong></td><td><p>Error status.</p></td>
   
 </tr>
 
@@ -343,7 +376,7 @@ private subroutine abstract_init(this, n)
     
     
     <h3>Description</h3>
-    <p>Init linsolver.</p>
+    <p>Initialize the field.</p>
     
     <br>
 

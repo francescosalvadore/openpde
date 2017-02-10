@@ -136,14 +136,14 @@
      </li> 
      
      
-    <li><i class="fa fa-code"></i><a href="../src/openpde_integrator_adv_abstract.f90"> Source File</a></li>
+    <li><i class="fa fa-code"></i><a href="../src/openpde_integrator_asbtract.f90"> Source File</a></li>
      
   </ul>
   <ol class="breadcrumb in-well text-right">
   
-     <li><a href='../sourcefile/openpde_integrator_adv_abstract.f90.html'>openpde_integrator_adv_abstract.f90</a></li>
+     <li><a href='../sourcefile/openpde_integrator_asbtract.f90.html'>openpde_integrator_asbtract.f90</a></li>
   
-     <li><a href='../module/openpde_integrator_adv_abstract.html'>openpde_integrator_adv_abstract</a></li>
+     <li><a href='../module/openpde_integrator_abstract.html'>openpde_integrator_abstract</a></li>
   
      <li class="active">abstract_integrate</li>
   </ol>
@@ -315,8 +315,8 @@ private function abstract_integrate(this, equ, t, inp) result(error)
   
 <tr>
   
-  <td><span class="anchor" id="variable-this%7E12"></span>class(<a href='../type/integrator_adv.html'>integrator_adv</a>),</td>
-  <td>intent(inout)</td>
+  <td><span class="anchor" id="variable-this%7E11"></span>class(<a href='../type/integrator.html'>integrator</a>),</td>
+  <td>intent(in)</td>
   <td></td>
   
   <td></td><td>::</td>
@@ -330,8 +330,8 @@ private function abstract_integrate(this, equ, t, inp) result(error)
   
 <tr>
   
-  <td><span class="anchor" id="variable-equ%7E2"></span>class(<a href='../type/equation_adv.html'>equation_adv</a>),</td>
-  <td>intent(inout),</td>
+  <td><span class="anchor" id="variable-equ"></span>class(<a href='../type/equation.html'>equation</a>),</td>
+  <td>intent(in),</td>
   <td></td>
   
   <td>target</td><td>::</td>
@@ -345,7 +345,7 @@ private function abstract_integrate(this, equ, t, inp) result(error)
   
 <tr>
   
-  <td><span class="anchor" id="variable-t"></span>real(kind=R_P),</td>
+  <td><span class="anchor" id="variable-t%7E3"></span>real(kind=R_P),</td>
   <td>intent(in)</td>
   <td></td>
   
@@ -360,11 +360,11 @@ private function abstract_integrate(this, equ, t, inp) result(error)
   
 <tr>
   
-  <td><span class="anchor" id="variable-inp%7E2"></span>class(<a href='../type/field.html'>field</a>),</td>
+  <td><span class="anchor" id="variable-inp%7E4"></span>class(<a href='../type/field.html'>field</a>),</td>
   <td>intent(inout),</td>
   <td></td>
   
-  <td>target, dimension(:)</td><td>::</td>
+  <td>target</td><td>::</td>
   <td><strong>inp</strong></td><td><p>Input field.</p></td>
   
 </tr>
@@ -379,7 +379,7 @@ private function abstract_integrate(this, equ, t, inp) result(error)
     
     
     
-      <h3>Return Value <span class="anchor" id="variable-error%7E6"></span><small>integer(kind=I_P)
+      <h3>Return Value <span class="anchor" id="variable-error%7E7"></span><small>integer(kind=I_P)
   </small></h3>
     <p>Error status.</p>
     

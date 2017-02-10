@@ -134,14 +134,14 @@
      </li> 
      
      
-    <li><i class="fa fa-code"></i><a href="../src/openpde_linsolver_abstract.f90"> Source File</a></li>
+    <li><i class="fa fa-code"></i><a href="../src/openpde_field_surface_FV_1D.f90"> Source File</a></li>
      
   </ul>
   <ol class="breadcrumb in-well text-right">
   
-     <li><a href='../sourcefile/openpde_linsolver_abstract.f90.html'>openpde_linsolver_abstract.f90</a></li>
+     <li><a href='../sourcefile/openpde_field_surface_fv_1d.f90.html'>openpde_field_surface_FV_1D.f90</a></li>
   
-     <li><a href='../module/openpde_linsolver_abstract.html'>openpde_linsolver_abstract</a></li>
+     <li><a href='../module/openpde_field_surface_fv_1d.html'>openpde_field_surface_FV_1D</a></li>
   
      <li class="active">free</li>
   </ol>
@@ -561,12 +561,12 @@ private elemental subroutine free(this)
   
 <tr>
   
-  <td><span class="anchor" id="variable-this%7E62"></span>class(<a href='../type/linsolver.html'>linsolver</a>),</td>
+  <td><span class="anchor" id="variable-this%7E68"></span>class(<a href='../type/field_surface_fv_1d.html'>field_surface_FV_1D</a>),</td>
   <td>intent(inout)</td>
   <td></td>
   
   <td></td><td>::</td>
-  <td><strong>this</strong></td><td><p>The linsolver.</p></td>
+  <td><strong>this</strong></td><td><p>The field.</p></td>
   
 </tr>
 
@@ -634,8 +634,10 @@ private elemental subroutine free(this)
     <h2><span class="anchor" id="src"></span>Source Code</h2>
     <div class="highlight"><pre><span></span>    <span class="k">elemental subroutine </span><span class="n">free</span><span class="p">(</span><span class="n">this</span><span class="p">)</span>
         <span class="c">!&lt; Free dynamic memory.</span>
-        <span class="k">class</span><span class="p">(</span><span class="n">linsolver</span><span class="p">),</span> <span class="k">intent</span><span class="p">(</span><span class="n">inout</span><span class="p">)</span> <span class="kd">::</span> <span class="n">this</span> <span class="c">!&lt; The linsolver.</span>
-        <span class="k">if</span> <span class="p">(</span><span class="nb">allocated</span><span class="p">(</span><span class="n">this</span><span class="p">%</span><span class="n">description</span><span class="p">))</span> <span class="k">deallocate</span><span class="p">(</span><span class="n">this</span><span class="p">%</span><span class="n">description</span><span class="p">)</span>
+        <span class="k">class</span><span class="p">(</span><span class="n">field_surface_FV_1D</span><span class="p">),</span> <span class="k">intent</span><span class="p">(</span><span class="n">inout</span><span class="p">)</span> <span class="kd">::</span> <span class="n">this</span> <span class="c">!&lt; The field.</span>
+
+        <span class="c">! call this%field%free</span>
+        <span class="k">if</span> <span class="p">(</span><span class="nb">allocated</span><span class="p">(</span><span class="n">this</span><span class="p">%</span><span class="n">blocks</span><span class="p">))</span> <span class="k">deallocate</span><span class="p">(</span><span class="n">this</span><span class="p">%</span><span class="n">blocks</span><span class="p">)</span>
     <span class="k">end subroutine </span><span class="n">free</span>
 </pre></div>
 

@@ -132,18 +132,18 @@
      <li><i class="fa fa-list-ol"></i>
        <a data-toggle="tooltip"
 	  data-placement="bottom" data-html="true"
-	  title=" 2.9% of total for abstract interfaces.">9 statements</a>
+	  title=" 3.2% of total for abstract interfaces.">10 statements</a>
      </li> 
      
      
-    <li><i class="fa fa-code"></i><a href="../src/openpde_integrator_asbtract.f90"> Source File</a></li>
+    <li><i class="fa fa-code"></i><a href="../src/openpde_integrator_adv_abstract.f90"> Source File</a></li>
      
   </ul>
   <ol class="breadcrumb in-well text-right">
   
-     <li><a href='../sourcefile/openpde_integrator_asbtract.f90.html'>openpde_integrator_asbtract.f90</a></li>
+     <li><a href='../sourcefile/openpde_integrator_adv_abstract.f90.html'>openpde_integrator_adv_abstract.f90</a></li>
   
-     <li><a href='../module/openpde_integrator_abstract.html'>openpde_integrator_abstract</a></li>
+     <li><a href='../module/openpde_integrator_adv_abstract.html'>openpde_integrator_adv_abstract</a></li>
   
      <li class="active">abstract_init</li>
   </ol>
@@ -286,7 +286,7 @@
     
     
     <h2>
-private subroutine abstract_init(this, description, filename, error)
+private subroutine abstract_init(this, equ, description, filename, error)
     
     
 	 
@@ -315,12 +315,27 @@ private subroutine abstract_init(this, description, filename, error)
   
 <tr>
   
-  <td><span class="anchor" id="variable-this%7E19"></span>class(<a href='../type/integrator.html'>integrator</a>),</td>
+  <td><span class="anchor" id="variable-this%7E12"></span>class(<a href='../type/integrator_adv.html'>integrator_adv</a>),</td>
   <td>intent(inout)</td>
   <td></td>
   
   <td></td><td>::</td>
   <td><strong>this</strong></td><td><p>The integrator.</p></td>
+  
+</tr>
+
+  
+  
+  
+  
+<tr>
+  
+  <td><span class="anchor" id="variable-equ%7E2"></span>class(<a href='../type/equation_adv.html'>equation_adv</a>),</td>
+  <td>intent(inout),</td>
+  <td></td>
+  
+  <td>target</td><td>::</td>
+  <td><strong>equ</strong></td><td><p>The equation.</p></td>
   
 </tr>
 
@@ -360,7 +375,7 @@ private subroutine abstract_init(this, description, filename, error)
   
 <tr>
   
-  <td><span class="anchor" id="variable-error%7E9"></span>integer(kind=I_P),</td>
+  <td><span class="anchor" id="variable-error%7E8"></span>integer(kind=I_P),</td>
   <td>intent(out),</td>
   <td>optional</td>
   

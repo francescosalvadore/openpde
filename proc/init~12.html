@@ -130,18 +130,18 @@
      <li><i class="fa fa-list-ol"></i>
        <a data-toggle="tooltip"
 	  data-placement="bottom" data-html="true"
-	  title=" 0.4% of total for procedures.">10 statements</a>
+	  title=" 0.5% of total for procedures.">12 statements</a>
      </li> 
      
      
-    <li><i class="fa fa-code"></i><a href="../src/openpde_equation_adv.f90"> Source File</a></li>
+    <li><i class="fa fa-code"></i><a href="../src/openpde_linsolver_gmlapack.f90"> Source File</a></li>
      
   </ul>
   <ol class="breadcrumb in-well text-right">
   
-     <li><a href='../sourcefile/openpde_equation_adv.f90.html'>openpde_equation_adv.f90</a></li>
+     <li><a href='../sourcefile/openpde_linsolver_gmlapack.f90.html'>openpde_linsolver_gmlapack.f90</a></li>
   
-     <li><a href='../module/openpde_equation_adv.html'>openpde_equation_adv</a></li>
+     <li><a href='../module/openpde_linsolver_gmlapack.html'>openpde_linsolver_gmlapack</a></li>
   
      <li class="active">init</li>
   </ol>
@@ -530,7 +530,7 @@
     
     <div class="col-md-9" id='text'>
     <h2>
-private subroutine init(this, n_equ, field_mesh, inp, description, filename, error)
+private subroutine init(this, n)
     
     
 	 
@@ -540,7 +540,7 @@ private subroutine init(this, n_equ, field_mesh, inp, description, filename, err
 
 
     
-    <p>Initialize equation.</p>
+    <p>Init linsolver</p>
     
 
     <h3>Arguments</h3>
@@ -561,12 +561,12 @@ private subroutine init(this, n_equ, field_mesh, inp, description, filename, err
   
 <tr>
   
-  <td><span class="anchor" id="variable-this%7E86"></span>class(<a href='../type/equation_adv.html'>equation_adv</a>),</td>
+  <td><span class="anchor" id="variable-this%7E89"></span>class(<a href='../type/linsolver_gmlapack.html'>linsolver_gmlapack</a>),</td>
   <td>intent(inout)</td>
   <td></td>
   
   <td></td><td>::</td>
-  <td><strong>this</strong></td><td><p>The equation.</p></td>
+  <td><strong>this</strong></td><td></td>
   
 </tr>
 
@@ -576,87 +576,12 @@ private subroutine init(this, n_equ, field_mesh, inp, description, filename, err
   
 <tr>
   
-  <td><span class="anchor" id="variable-n_equ%7E3"></span>integer(kind=I_P),</td>
-  <td>intent(in)</td>
+  <td><span class="anchor" id="variable-n%7E8"></span>integer(kind=I_P)</td>
+  <td></td>
   <td></td>
   
   <td></td><td>::</td>
-  <td><strong>n_equ</strong></td><td><p>Number of equations</p></td>
-  
-</tr>
-
-  
-  
-  
-  
-<tr>
-  
-  <td><span class="anchor" id="variable-field_mesh%7E13"></span>class(<a href='../type/mesh.html'>mesh</a>),</td>
-  <td>intent(in),</td>
-  <td></td>
-  
-  <td>target</td><td>::</td>
-  <td><strong>field_mesh</strong></td><td><p>Mesh of the field.</p></td>
-  
-</tr>
-
-  
-  
-  
-  
-<tr>
-  
-  <td><span class="anchor" id="variable-inp%7E16"></span>class(<a href='../type/field.html'>field</a>),</td>
-  <td>intent(inout),</td>
-  <td></td>
-  
-  <td>target</td><td>::</td>
-  <td><strong>inp</strong>(:)</td><td><p>Input field.</p></td>
-  
-</tr>
-
-  
-  
-  
-  
-<tr>
-  
-  <td><span class="anchor" id="variable-description%7E30"></span>character(len=*),</td>
-  <td>intent(in),</td>
-  <td>optional</td>
-  
-  <td></td><td>::</td>
-  <td><strong>description</strong></td><td><p>Equation description.</p></td>
-  
-</tr>
-
-  
-  
-  
-  
-<tr>
-  
-  <td><span class="anchor" id="variable-filename%7E19"></span>character(len=*),</td>
-  <td>intent(in),</td>
-  <td>optional</td>
-  
-  <td></td><td>::</td>
-  <td><strong>filename</strong></td><td><p>Initialization file name.</p></td>
-  
-</tr>
-
-  
-  
-  
-  
-<tr>
-  
-  <td><span class="anchor" id="variable-error%7E49"></span>integer(kind=I_P),</td>
-  <td>intent(out),</td>
-  <td>optional</td>
-  
-  <td></td><td>::</td>
-  <td><strong>error</strong></td><td><p>Error status.</p></td>
+  <td><strong>n</strong></td><td></td>
   
 </tr>
 
@@ -722,16 +647,22 @@ private subroutine init(this, n_equ, field_mesh, inp, description, filename, err
     
     <section>
     <h2><span class="anchor" id="src"></span>Source Code</h2>
-    <div class="highlight"><pre><span></span>    <span class="k">subroutine </span><span class="n">init</span><span class="p">(</span><span class="n">this</span><span class="p">,</span> <span class="n">n_equ</span><span class="p">,</span> <span class="n">field_mesh</span><span class="p">,</span> <span class="n">inp</span><span class="p">,</span> <span class="n">description</span><span class="p">,</span> <span class="n">filename</span><span class="p">,</span> <span class="n">error</span><span class="p">)</span>
-        <span class="c">!&lt; Initialize equation.</span>
-        <span class="k">class</span><span class="p">(</span><span class="n">equation_adv</span><span class="p">),</span> <span class="k">intent</span><span class="p">(</span><span class="n">inout</span><span class="p">)</span>         <span class="kd">::</span> <span class="n">this</span>        <span class="c">!&lt; The equation.</span>
-        <span class="kt">integer</span><span class="p">(</span><span class="n">I_P</span><span class="p">),</span>        <span class="k">intent</span><span class="p">(</span><span class="n">in</span><span class="p">)</span>            <span class="kd">::</span> <span class="n">n_equ</span>       <span class="c">!&lt; Number of equations</span>
-        <span class="k">class</span><span class="p">(</span><span class="n">mesh</span><span class="p">),</span>         <span class="k">intent</span><span class="p">(</span><span class="n">in</span><span class="p">),</span> <span class="k">target</span>    <span class="kd">::</span> <span class="n">field_mesh</span>  <span class="c">!&lt; Mesh of the field.</span>
-        <span class="k">class</span><span class="p">(</span><span class="n">field</span><span class="p">),</span>        <span class="k">intent</span><span class="p">(</span><span class="n">inout</span><span class="p">),</span> <span class="k">target</span> <span class="kd">::</span> <span class="n">inp</span><span class="p">(:)</span>      <span class="c">!&lt; Input field.</span>
-        <span class="kt">character</span><span class="p">(</span><span class="o">*</span><span class="p">),</span>        <span class="k">intent</span><span class="p">(</span><span class="n">in</span><span class="p">),</span>  <span class="k">optional</span> <span class="kd">::</span> <span class="n">description</span> <span class="c">!&lt; Equation description.</span>
-        <span class="kt">character</span><span class="p">(</span><span class="o">*</span><span class="p">),</span>        <span class="k">intent</span><span class="p">(</span><span class="n">in</span><span class="p">),</span>  <span class="k">optional</span> <span class="kd">::</span> <span class="n">filename</span>    <span class="c">!&lt; Initialization file name.</span>
-        <span class="kt">integer</span><span class="p">(</span><span class="n">I_P</span><span class="p">),</span>        <span class="k">intent</span><span class="p">(</span><span class="n">out</span><span class="p">),</span> <span class="k">optional</span> <span class="kd">::</span> <span class="n">error</span>       <span class="c">!&lt; Error status.</span>
-        <span class="k">STOP</span> <span class="s1">&#39;init to be implemented by your equation and depending on your integrator&#39;</span>
+    <div class="highlight"><pre><span></span>    <span class="k">subroutine </span><span class="n">init</span><span class="p">(</span><span class="n">this</span><span class="p">,</span> <span class="n">n</span><span class="p">)</span>
+        <span class="c">!&lt; Init linsolver</span>
+        <span class="k">class</span><span class="p">(</span><span class="n">linsolver_gmlapack</span><span class="p">),</span> <span class="k">intent</span><span class="p">(</span><span class="n">inout</span><span class="p">)</span>   <span class="kd">::</span> <span class="n">this</span> 
+        <span class="kt">integer</span><span class="p">(</span><span class="n">I_P</span><span class="p">)</span> <span class="kd">::</span> <span class="n">n</span>
+
+        <span class="k">allocate</span><span class="p">(</span><span class="n">matrix_simple</span> <span class="kd">::</span> <span class="n">this</span><span class="p">%</span><span class="n">mat</span><span class="p">)</span>
+        <span class="k">allocate</span><span class="p">(</span><span class="n">vector_simple</span> <span class="kd">::</span> <span class="n">this</span><span class="p">%</span><span class="n">vec</span><span class="p">)</span>
+        <span class="k">allocate</span><span class="p">(</span><span class="n">vector_simple</span> <span class="kd">::</span> <span class="n">this</span><span class="p">%</span><span class="n">sol</span><span class="p">)</span>
+
+        <span class="k">call </span><span class="n">this</span><span class="p">%</span><span class="n">mat</span><span class="p">%</span><span class="n">init</span><span class="p">(</span><span class="n">n</span><span class="p">)</span>
+        <span class="k">call </span><span class="n">this</span><span class="p">%</span><span class="n">vec</span><span class="p">%</span><span class="n">init</span><span class="p">(</span><span class="n">n</span><span class="p">)</span>
+        <span class="k">call </span><span class="n">this</span><span class="p">%</span><span class="n">sol</span><span class="p">%</span><span class="n">init</span><span class="p">(</span><span class="n">n</span><span class="p">)</span>
+
+        <span class="k">allocate</span><span class="p">(</span><span class="n">this</span><span class="p">%</span><span class="n">ipiv</span><span class="p">(</span><span class="n">n</span><span class="p">))</span>
+        <span class="n">this</span><span class="p">%</span><span class="n">lda</span> <span class="o">=</span> <span class="n">n</span>
+       
     <span class="k">end subroutine </span><span class="n">init</span>
 </pre></div>
 

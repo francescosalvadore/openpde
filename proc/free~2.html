@@ -134,14 +134,14 @@
      </li> 
      
      
-    <li><i class="fa fa-code"></i><a href="../src/openpde_field_abstract.f90"> Source File</a></li>
+    <li><i class="fa fa-code"></i><a href="../src/openpde_equation_adv.f90"> Source File</a></li>
      
   </ul>
   <ol class="breadcrumb in-well text-right">
   
-     <li><a href='../sourcefile/openpde_field_abstract.f90.html'>openpde_field_abstract.f90</a></li>
+     <li><a href='../sourcefile/openpde_equation_adv.f90.html'>openpde_equation_adv.f90</a></li>
   
-     <li><a href='../module/openpde_field_abstract.html'>openpde_field_abstract</a></li>
+     <li><a href='../module/openpde_equation_adv.html'>openpde_equation_adv</a></li>
   
      <li class="active">free</li>
   </ol>
@@ -541,7 +541,7 @@ private elemental subroutine free(this)
 
     
     <p>Free dynamic memory.</p>
-<p></p><div class="alert alert-success" role="alert"><h4>Todo</h4><p>Discuss about the <em>free</em> of mesh pointer.</p></div>
+<p>To be completed.</p>
     
 
     <h3>Arguments</h3>
@@ -562,12 +562,12 @@ private elemental subroutine free(this)
   
 <tr>
   
-  <td><span class="anchor" id="variable-this%7E36"></span>class(<a href='../type/field.html'>field</a>),</td>
+  <td><span class="anchor" id="variable-this%7E39"></span>class(<a href='../type/equation_adv.html'>equation_adv</a>),</td>
   <td>intent(inout)</td>
   <td></td>
   
   <td></td><td>::</td>
-  <td><strong>this</strong></td><td><p>The field.</p></td>
+  <td><strong>this</strong></td><td><p>The equation.</p></td>
   
 </tr>
 
@@ -636,14 +636,9 @@ private elemental subroutine free(this)
     <div class="highlight"><pre><span></span>    <span class="k">elemental subroutine </span><span class="n">free</span><span class="p">(</span><span class="n">this</span><span class="p">)</span>
         <span class="c">!&lt; Free dynamic memory.</span>
         <span class="c">!&lt;</span>
-        <span class="c">!&lt; @todo Discuss about the *free* of mesh pointer.</span>
-        <span class="k">class</span><span class="p">(</span><span class="n">field</span><span class="p">),</span> <span class="k">intent</span><span class="p">(</span><span class="n">inout</span><span class="p">)</span> <span class="kd">::</span> <span class="n">this</span> <span class="c">!&lt; The field.</span>
+        <span class="c">!&lt; To be completed.</span>
+        <span class="k">class</span><span class="p">(</span><span class="n">equation_adv</span><span class="p">),</span> <span class="k">intent</span><span class="p">(</span><span class="n">inout</span><span class="p">)</span> <span class="kd">::</span> <span class="n">this</span> <span class="c">!&lt; The equation.</span>
         <span class="k">if</span> <span class="p">(</span><span class="nb">allocated</span><span class="p">(</span><span class="n">this</span><span class="p">%</span><span class="n">description</span><span class="p">))</span> <span class="k">deallocate</span><span class="p">(</span><span class="n">this</span><span class="p">%</span><span class="n">description</span><span class="p">)</span>
-        <span class="c">! if (associated(this%m)) then</span>
-        <span class="c">!   call this%m%free</span>
-        <span class="c">!   deallocate(this%m)</span>
-        <span class="c">! endif</span>
-        <span class="c">! this%m =&gt; null()</span>
     <span class="k">end subroutine </span><span class="n">free</span>
 </pre></div>
 

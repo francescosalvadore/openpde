@@ -130,18 +130,18 @@
      <li><i class="fa fa-list-ol"></i>
        <a data-toggle="tooltip"
 	  data-placement="bottom" data-html="true"
-	  title=" 0.5% of total for procedures.">12 statements</a>
+	  title=" 0.3% of total for procedures.">8 statements</a>
      </li> 
      
      
-    <li><i class="fa fa-code"></i><a href="../src/openpde_linsolver_gmlapack.f90"> Source File</a></li>
+    <li><i class="fa fa-code"></i><a href="../src/openpde_field_surface_block_FV_1D.f90"> Source File</a></li>
      
   </ul>
   <ol class="breadcrumb in-well text-right">
   
-     <li><a href='../sourcefile/openpde_linsolver_gmlapack.f90.html'>openpde_linsolver_gmlapack.f90</a></li>
+     <li><a href='../sourcefile/openpde_field_surface_block_fv_1d.f90.html'>openpde_field_surface_block_FV_1D.f90</a></li>
   
-     <li><a href='../module/openpde_linsolver_gmlapack.html'>openpde_linsolver_gmlapack</a></li>
+     <li><a href='../module/openpde_field_surface_block_fv_1d.html'>openpde_field_surface_block_FV_1D</a></li>
   
      <li class="active">init</li>
   </ol>
@@ -530,7 +530,7 @@
     
     <div class="col-md-9" id='text'>
     <h2>
-private subroutine init(this, n)
+private subroutine init(this, mesh_block, error)
     
     
 	 
@@ -540,7 +540,7 @@ private subroutine init(this, n)
 
 
     
-    <p>Init linsolver</p>
+    <p>Initialize block.</p>
     
 
     <h3>Arguments</h3>
@@ -561,12 +561,12 @@ private subroutine init(this, n)
   
 <tr>
   
-  <td><span class="anchor" id="variable-this%7E63"></span>class(<a href='../type/linsolver_gmlapack.html'>linsolver_gmlapack</a>),</td>
+  <td><span class="anchor" id="variable-this%7E72"></span>class(<a href='../type/field_surface_block_fv_1d.html'>field_surface_block_FV_1D</a>),</td>
   <td>intent(inout)</td>
   <td></td>
   
   <td></td><td>::</td>
-  <td><strong>this</strong></td><td></td>
+  <td><strong>this</strong></td><td><p>The block.</p></td>
   
 </tr>
 
@@ -576,12 +576,27 @@ private subroutine init(this, n)
   
 <tr>
   
-  <td><span class="anchor" id="variable-n%7E8"></span>integer(kind=I_P)</td>
-  <td></td>
+  <td><span class="anchor" id="variable-mesh_block%7E5"></span>type(mesh_block_FV_1D),</td>
+  <td>intent(in)</td>
   <td></td>
   
   <td></td><td>::</td>
-  <td><strong>n</strong></td><td></td>
+  <td><strong>mesh_block</strong></td><td><p>Mesh of the block.</p></td>
+  
+</tr>
+
+  
+  
+  
+  
+<tr>
+  
+  <td><span class="anchor" id="variable-error%7E37"></span>integer(kind=I_P),</td>
+  <td>intent(out),</td>
+  <td>optional</td>
+  
+  <td></td><td>::</td>
+  <td><strong>error</strong></td><td><p>Error status.</p></td>
   
 </tr>
 
@@ -647,22 +662,15 @@ private subroutine init(this, n)
     
     <section>
     <h2><span class="anchor" id="src"></span>Source Code</h2>
-    <div class="highlight"><pre><span></span>    <span class="k">subroutine </span><span class="n">init</span><span class="p">(</span><span class="n">this</span><span class="p">,</span> <span class="n">n</span><span class="p">)</span>
-        <span class="c">!&lt; Init linsolver</span>
-        <span class="k">class</span><span class="p">(</span><span class="n">linsolver_gmlapack</span><span class="p">),</span> <span class="k">intent</span><span class="p">(</span><span class="n">inout</span><span class="p">)</span>   <span class="kd">::</span> <span class="n">this</span> 
-        <span class="kt">integer</span><span class="p">(</span><span class="n">I_P</span><span class="p">)</span> <span class="kd">::</span> <span class="n">n</span>
+    <div class="highlight"><pre><span></span>    <span class="k">subroutine </span><span class="n">init</span><span class="p">(</span><span class="n">this</span><span class="p">,</span> <span class="n">mesh_block</span><span class="p">,</span> <span class="n">error</span><span class="p">)</span>
+        <span class="c">!&lt; Initialize block.</span>
+        <span class="k">class</span><span class="p">(</span><span class="n">field_surface_block_FV_1D</span><span class="p">),</span> <span class="k">intent</span><span class="p">(</span><span class="n">inout</span><span class="p">)</span>         <span class="kd">::</span> <span class="n">this</span>       <span class="c">!&lt; The block.</span>
+        <span class="k">type</span><span class="p">(</span><span class="n">mesh_block_FV_1D</span><span class="p">),</span>           <span class="k">intent</span><span class="p">(</span><span class="n">in</span><span class="p">)</span>            <span class="kd">::</span> <span class="n">mesh_block</span> <span class="c">!&lt; Mesh of the block.</span>
+        <span class="kt">integer</span><span class="p">(</span><span class="n">I_P</span><span class="p">),</span>                     <span class="k">intent</span><span class="p">(</span><span class="n">out</span><span class="p">),</span> <span class="k">optional</span> <span class="kd">::</span> <span class="n">error</span>      <span class="c">!&lt; Error status.</span>
 
-        <span class="k">allocate</span><span class="p">(</span><span class="n">matrix_simple</span> <span class="kd">::</span> <span class="n">this</span><span class="p">%</span><span class="n">mat</span><span class="p">)</span>
-        <span class="k">allocate</span><span class="p">(</span><span class="n">vector_simple</span> <span class="kd">::</span> <span class="n">this</span><span class="p">%</span><span class="n">vec</span><span class="p">)</span>
-        <span class="k">allocate</span><span class="p">(</span><span class="n">vector_simple</span> <span class="kd">::</span> <span class="n">this</span><span class="p">%</span><span class="n">sol</span><span class="p">)</span>
-
-        <span class="k">call </span><span class="n">this</span><span class="p">%</span><span class="n">mat</span><span class="p">%</span><span class="n">init</span><span class="p">(</span><span class="n">n</span><span class="p">)</span>
-        <span class="k">call </span><span class="n">this</span><span class="p">%</span><span class="n">vec</span><span class="p">%</span><span class="n">init</span><span class="p">(</span><span class="n">n</span><span class="p">)</span>
-        <span class="k">call </span><span class="n">this</span><span class="p">%</span><span class="n">sol</span><span class="p">%</span><span class="n">init</span><span class="p">(</span><span class="n">n</span><span class="p">)</span>
-
-        <span class="k">allocate</span><span class="p">(</span><span class="n">this</span><span class="p">%</span><span class="n">ipiv</span><span class="p">(</span><span class="n">n</span><span class="p">))</span>
-        <span class="n">this</span><span class="p">%</span><span class="n">lda</span> <span class="o">=</span> <span class="n">n</span>
-       
+        <span class="k">call </span><span class="n">this</span><span class="p">%</span><span class="n">alloc</span><span class="p">(</span><span class="n">mesh_block</span><span class="o">=</span><span class="n">mesh_block</span><span class="p">,</span> <span class="n">error</span><span class="o">=</span><span class="n">error</span><span class="p">)</span>
+        <span class="n">this</span><span class="p">%</span><span class="n">val</span> <span class="o">=</span> <span class="mf">0._R_P</span>
+        <span class="k">if</span> <span class="p">(</span><span class="nb">present</span><span class="p">(</span><span class="n">error</span><span class="p">))</span> <span class="n">error</span> <span class="o">=</span> <span class="mi">0</span>
     <span class="k">end subroutine </span><span class="n">init</span>
 </pre></div>
 

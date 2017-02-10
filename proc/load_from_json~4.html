@@ -134,14 +134,14 @@
      </li> 
      
      
-    <li><i class="fa fa-code"></i><a href="../src/openpde_integrator_euler_explicit.f90"> Source File</a></li>
+    <li><i class="fa fa-code"></i><a href="../src/openpde_integrator_adv_rk_implicit.f90"> Source File</a></li>
      
   </ul>
   <ol class="breadcrumb in-well text-right">
   
-     <li><a href='../sourcefile/openpde_integrator_euler_explicit.f90.html'>openpde_integrator_euler_explicit.f90</a></li>
+     <li><a href='../sourcefile/openpde_integrator_adv_rk_implicit.f90.html'>openpde_integrator_adv_rk_implicit.f90</a></li>
   
-     <li><a href='../module/openpde_integrator_euler_explicit.html'>openpde_integrator_euler_explicit</a></li>
+     <li><a href='../module/openpde_integrator_adv_rk_implicit.html'>openpde_integrator_adv_rk_implicit</a></li>
   
      <li class="active">load_from_json</li>
   </ol>
@@ -561,7 +561,7 @@ private subroutine load_from_json(this, filename, error)
   
 <tr>
   
-  <td><span class="anchor" id="variable-this%7E103"></span>class(<a href='../type/integrator_euler_explicit.html'>integrator_euler_explicit</a>),</td>
+  <td><span class="anchor" id="variable-this%7E87"></span>class(<a href='../type/integrator_adv_rk_implicit.html'>integrator_adv_rk_implicit</a>),</td>
   <td>intent(inout)</td>
   <td></td>
   
@@ -576,7 +576,7 @@ private subroutine load_from_json(this, filename, error)
   
 <tr>
   
-  <td><span class="anchor" id="variable-filename%7E21"></span>character(len=*),</td>
+  <td><span class="anchor" id="variable-filename%7E20"></span>character(len=*),</td>
   <td>intent(in)</td>
   <td></td>
   
@@ -591,7 +591,7 @@ private subroutine load_from_json(this, filename, error)
   
 <tr>
   
-  <td><span class="anchor" id="variable-error%7E52"></span>integer(kind=I_P),</td>
+  <td><span class="anchor" id="variable-error%7E50"></span>integer(kind=I_P),</td>
   <td>intent(out),</td>
   <td>optional</td>
   
@@ -664,7 +664,7 @@ private subroutine load_from_json(this, filename, error)
     <h2><span class="anchor" id="src"></span>Source Code</h2>
     <div class="highlight"><pre><span></span>    <span class="k">subroutine </span><span class="n">load_from_json</span><span class="p">(</span><span class="n">this</span><span class="p">,</span> <span class="n">filename</span><span class="p">,</span> <span class="n">error</span><span class="p">)</span>
         <span class="c">!&lt; Load integrator definition from JSON file.</span>
-        <span class="k">class</span><span class="p">(</span><span class="n">integrator_euler_explicit</span><span class="p">),</span> <span class="k">intent</span><span class="p">(</span><span class="n">inout</span><span class="p">)</span>         <span class="kd">::</span> <span class="n">this</span>            <span class="c">!&lt; The integrator.</span>
+        <span class="k">class</span><span class="p">(</span><span class="n">integrator_adv_rk_implicit</span><span class="p">),</span> <span class="k">intent</span><span class="p">(</span><span class="n">inout</span><span class="p">)</span>     <span class="kd">::</span> <span class="n">this</span>            <span class="c">!&lt; The integrator.</span>
         <span class="kt">character</span><span class="p">(</span><span class="o">*</span><span class="p">),</span>                     <span class="k">intent</span><span class="p">(</span><span class="n">in</span><span class="p">)</span>            <span class="kd">::</span> <span class="n">filename</span>        <span class="c">!&lt; File name of JSON file.</span>
         <span class="kt">integer</span><span class="p">(</span><span class="n">I_P</span><span class="p">),</span>                     <span class="k">intent</span><span class="p">(</span><span class="n">out</span><span class="p">),</span> <span class="k">optional</span> <span class="kd">::</span> <span class="n">error</span>           <span class="c">!&lt; Error status.</span>
         <span class="kt">character</span><span class="p">(</span><span class="nb">len</span><span class="o">=</span><span class="p">:),</span> <span class="k">allocatable</span>                           <span class="kd">::</span> <span class="n">integrator_type</span> <span class="c">!&lt; Integrator type.</span>
@@ -688,7 +688,7 @@ private subroutine load_from_json(this, filename, error)
             <span class="k">write</span><span class="p">(</span><span class="n">stderr</span><span class="p">,</span> <span class="s2">&quot;(A)&quot;</span><span class="p">)</span><span class="s1">&#39;   &quot;type&quot; missing&#39;</span>
             <span class="k">stop</span>
 <span class="k">        </span><span class="n">endif</span>
-        <span class="k">if</span> <span class="p">(</span><span class="n">integrator_type</span><span class="o">==</span><span class="s2">&quot;euler explicit&quot;</span><span class="p">)</span> <span class="k">then</span>
+        <span class="k">if</span> <span class="p">(</span><span class="n">integrator_type</span><span class="o">==</span><span class="s2">&quot;rk implicit&quot;</span><span class="p">)</span> <span class="k">then</span>
 <span class="k">            call </span><span class="n">json</span><span class="p">%</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;integrator.dt&#39;</span><span class="p">,</span> <span class="n">this</span><span class="p">%</span><span class="n">dt</span><span class="p">,</span> <span class="n">found</span><span class="p">)</span>
             <span class="k">if</span> <span class="p">(</span><span class="n">json</span><span class="p">%</span><span class="n">failed</span><span class="p">())</span> <span class="k">then</span>
 <span class="k">                call </span><span class="n">json</span><span class="p">%</span><span class="n">print_error_message</span><span class="p">(</span><span class="n">stderr</span><span class="p">)</span> <span class="p">;</span> <span class="k">stop</span>
@@ -699,7 +699,7 @@ private subroutine load_from_json(this, filename, error)
                 <span class="k">stop</span>
 <span class="k">            </span><span class="n">endif</span>
         <span class="k">else</span>
-<span class="k">            write</span><span class="p">(</span><span class="n">stderr</span><span class="p">,</span> <span class="s2">&quot;(A)&quot;</span><span class="p">)</span><span class="s1">&#39; error: integrator definition of &quot;&#39;</span><span class="o">//</span><span class="n">filename</span><span class="o">//</span><span class="s1">&#39;&quot; is not &quot;euler explicit&quot;!&#39;</span>
+<span class="k">            write</span><span class="p">(</span><span class="n">stderr</span><span class="p">,</span> <span class="s2">&quot;(A)&quot;</span><span class="p">)</span><span class="s1">&#39; error: integrator definition of &quot;&#39;</span><span class="o">//</span><span class="n">filename</span><span class="o">//</span><span class="s1">&#39;&quot; is not &quot;rk implicit&quot;!&#39;</span>
             <span class="k">stop</span>
 <span class="k">        </span><span class="n">endif</span>
     <span class="n">endsubroutine</span> <span class="n">load_from_json</span>

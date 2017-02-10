@@ -130,18 +130,18 @@
      <li><i class="fa fa-list-ol"></i>
        <a data-toggle="tooltip"
 	  data-placement="bottom" data-html="true"
-	  title=" 0.2% of total for procedures.">6 statements</a>
+	  title=" 0.3% of total for procedures.">7 statements</a>
      </li> 
      
      
-    <li><i class="fa fa-code"></i><a href="../src/openpde_vector_simple.f90"> Source File</a></li>
+    <li><i class="fa fa-code"></i><a href="../src/openpde_matrix_simple.f90"> Source File</a></li>
      
   </ul>
   <ol class="breadcrumb in-well text-right">
   
-     <li><a href='../sourcefile/openpde_vector_simple.f90.html'>openpde_vector_simple.f90</a></li>
+     <li><a href='../sourcefile/openpde_matrix_simple.f90.html'>openpde_matrix_simple.f90</a></li>
   
-     <li><a href='../module/openpde_vector_simple.html'>openpde_vector_simple</a></li>
+     <li><a href='../module/openpde_matrix_simple.html'>openpde_matrix_simple</a></li>
   
      <li class="active">set</li>
   </ol>
@@ -530,7 +530,7 @@
     
     <div class="col-md-9" id='text'>
     <h2>
-private subroutine set(this, i, val)
+private subroutine set(this, i, j, val)
     
     
 	 
@@ -540,7 +540,7 @@ private subroutine set(this, i, val)
 
 
     
-    <p>Set vector value</p>
+    <p>Set matrix value</p>
     
 
     <h3>Arguments</h3>
@@ -561,12 +561,12 @@ private subroutine set(this, i, val)
   
 <tr>
   
-  <td><span class="anchor" id="variable-this%7E83"></span>class(<a href='../type/vector_simple.html'>vector_simple</a>),</td>
+  <td><span class="anchor" id="variable-this%7E96"></span>class(<a href='../type/matrix_simple.html'>matrix_simple</a>),</td>
   <td>intent(inout)</td>
   <td></td>
   
   <td></td><td>::</td>
-  <td><strong>this</strong></td><td><p>The vector.</p></td>
+  <td><strong>this</strong></td><td><p>The matrix.</p></td>
   
 </tr>
 
@@ -576,12 +576,12 @@ private subroutine set(this, i, val)
   
 <tr>
   
-  <td><span class="anchor" id="variable-i%7E5"></span>integer(kind=I_P),</td>
+  <td><span class="anchor" id="variable-i%7E4"></span>integer(kind=I_P),</td>
   <td>intent(in)</td>
   <td></td>
   
   <td></td><td>::</td>
-  <td><strong>i</strong></td><td><p>Vector index filled.</p></td>
+  <td><strong>i</strong></td><td><p>Index i where set matrix.</p></td>
   
 </tr>
 
@@ -591,12 +591,27 @@ private subroutine set(this, i, val)
   
 <tr>
   
-  <td><span class="anchor" id="variable-val%7E13"></span>real(kind=R_P),</td>
+  <td><span class="anchor" id="variable-j%7E2"></span>integer(kind=I_P),</td>
   <td>intent(in)</td>
   <td></td>
   
   <td></td><td>::</td>
-  <td><strong>val</strong></td><td><p>Value to assign.</p></td>
+  <td><strong>j</strong></td><td><p>Index i where set matrix.</p></td>
+  
+</tr>
+
+  
+  
+  
+  
+<tr>
+  
+  <td><span class="anchor" id="variable-val%7E12"></span>real(kind=R_P),</td>
+  <td>intent(in)</td>
+  <td></td>
+  
+  <td></td><td>::</td>
+  <td><strong>val</strong></td><td><p>Value to be inserted</p></td>
   
 </tr>
 
@@ -662,13 +677,14 @@ private subroutine set(this, i, val)
     
     <section>
     <h2><span class="anchor" id="src"></span>Source Code</h2>
-    <div class="highlight"><pre><span></span>    <span class="k">subroutine </span><span class="n">set</span><span class="p">(</span><span class="n">this</span><span class="p">,</span> <span class="n">i</span><span class="p">,</span> <span class="n">val</span><span class="p">)</span>
-        <span class="c">!&lt; Set vector value</span>
-        <span class="k">class</span><span class="p">(</span><span class="n">vector_simple</span><span class="p">),</span>  <span class="k">intent</span><span class="p">(</span><span class="n">inout</span><span class="p">)</span> <span class="kd">::</span> <span class="n">this</span>        <span class="c">!&lt; The vector.</span>
-        <span class="kt">real</span><span class="p">(</span><span class="n">R_P</span><span class="p">),</span> <span class="k">intent</span><span class="p">(</span><span class="n">in</span><span class="p">)</span>                <span class="kd">::</span> <span class="n">val</span>         <span class="c">!&lt; Value to assign.</span>
-        <span class="kt">integer</span><span class="p">(</span><span class="n">I_P</span><span class="p">),</span> <span class="k">intent</span><span class="p">(</span><span class="n">in</span><span class="p">)</span>             <span class="kd">::</span> <span class="n">i</span>           <span class="c">!&lt; Vector index filled.</span>
+    <div class="highlight"><pre><span></span>    <span class="k">subroutine </span><span class="n">set</span><span class="p">(</span><span class="n">this</span><span class="p">,</span> <span class="n">i</span><span class="p">,</span> <span class="n">j</span><span class="p">,</span> <span class="n">val</span><span class="p">)</span>
+        <span class="c">!&lt; Set matrix value</span>
+        <span class="k">class</span><span class="p">(</span><span class="n">matrix_simple</span><span class="p">),</span>  <span class="k">intent</span><span class="p">(</span><span class="n">inout</span><span class="p">)</span> <span class="kd">::</span> <span class="n">this</span>        <span class="c">!&lt; The matrix.</span>
+        <span class="kt">real</span><span class="p">(</span><span class="n">R_P</span><span class="p">),</span> <span class="k">intent</span><span class="p">(</span><span class="n">in</span><span class="p">)</span>                <span class="kd">::</span> <span class="n">val</span>         <span class="c">!&lt; Value to be inserted</span>
+        <span class="kt">integer</span><span class="p">(</span><span class="n">I_P</span><span class="p">),</span> <span class="k">intent</span><span class="p">(</span><span class="n">in</span><span class="p">)</span>             <span class="kd">::</span> <span class="n">i</span>           <span class="c">!&lt; Index i where set matrix.</span>
+        <span class="kt">integer</span><span class="p">(</span><span class="n">I_P</span><span class="p">),</span> <span class="k">intent</span><span class="p">(</span><span class="n">in</span><span class="p">)</span>             <span class="kd">::</span> <span class="n">j</span>           <span class="c">!&lt; Index i where set matrix.</span>
 
-        <span class="n">this</span><span class="p">%</span><span class="n">val</span><span class="p">(</span><span class="n">i</span><span class="p">)</span> <span class="o">=</span> <span class="n">val</span>
+        <span class="n">this</span><span class="p">%</span><span class="n">val</span><span class="p">(</span><span class="n">i</span><span class="p">,</span><span class="n">j</span><span class="p">)</span> <span class="o">=</span> <span class="n">val</span>
 
     <span class="k">end subroutine </span><span class="n">set</span>
 </pre></div>
