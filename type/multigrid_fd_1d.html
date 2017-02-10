@@ -376,30 +376,17 @@
 <polygon fill="none" stroke="black" points="637,-75 545,-75 545,-49 637,-49 637,-75"/>
 <text text-anchor="middle" x="591" y="-59.55" font-family="Helvetica,sans-Serif" font-size="10.50">multigrid_FD_1D</text>
 </g>
-<!-- type~mesh -->
-<g id="node2" class="node"><title>type~mesh</title>
-<a xlink:href="../type/mesh.html" xlink:title="mesh">
-<polygon fill="#5cb85c" stroke="#5cb85c" points="54,-66 2.13163e-14,-66 0,-40 54,-40 54,-66"/>
-<text text-anchor="middle" x="27" y="-50.55" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">mesh</text>
-</a>
-</g>
-<!-- type~mesh&#45;&gt;type~multigrid_fd_1d -->
-<g id="edge4" class="edge"><title>type~mesh&#45;&gt;type~multigrid_fd_1d</title>
-<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M54.3396,-64.2459C60.1075,-66.3584 66.2032,-68.4022 72,-70 84.1868,-73.3591 87.415,-73.8084 100,-75 279.646,-92.0096 336.487,-139.867 506,-78 516.371,-74.215 513.962,-61.8311 525,-62"/>
-<text text-anchor="middle" x="251" y="-111.45" font-family="Helvetica,sans-Serif" font-size="9.50">meshes</text>
-</g>
 <!-- type~field -->
-<g id="node3" class="node"><title>type~field</title>
+<g id="node2" class="node"><title>type~field</title>
 <a xlink:href="../type/field.html" xlink:title="field">
 <polygon fill="#5cb85c" stroke="#5cb85c" points="154,-66 100,-66 100,-40 154,-40 154,-66"/>
 <text text-anchor="middle" x="127" y="-50.55" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">field</text>
 </a>
 </g>
-<!-- type~mesh&#45;&gt;type~field -->
-<g id="edge2" class="edge"><title>type~mesh&#45;&gt;type~field</title>
-<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M54.0614,-53C65.0669,-53 77.9653,-53 89.83,-53"/>
-<polygon fill="#000000" stroke="#000000" points="89.917,-56.5001 99.9169,-53 89.9169,-49.5001 89.917,-56.5001"/>
-<text text-anchor="middle" x="77" y="-57.45" font-family="Helvetica,sans-Serif" font-size="9.50">m</text>
+<!-- type~field&#45;&gt;type~multigrid_fd_1d -->
+<g id="edge4" class="edge"><title>type~field&#45;&gt;type~multigrid_fd_1d</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M154.021,-53.7789C218.304,-55.5953 385.401,-60.101 525,-62"/>
+<text text-anchor="middle" x="427" y="-65.45" font-family="Helvetica,sans-Serif" font-size="9.50">fields, fields0, residuals, sources, tau</text>
 </g>
 <!-- type~multigrid -->
 <g id="node7" class="node"><title>type~multigrid</title>
@@ -408,22 +395,35 @@
 <text text-anchor="middle" x="427" y="-10.55" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">multigrid</text>
 </a>
 </g>
-<!-- type~mesh&#45;&gt;type~multigrid -->
-<g id="edge8" class="edge"><title>type~mesh&#45;&gt;type~multigrid</title>
-<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M48.4846,-39.8341C62.5814,-31.9325 81.7258,-22.5565 100,-18 202.333,7.5159 328.325,-1.36445 389.763,-8.15918"/>
-<polygon fill="#000000" stroke="#000000" points="389.426,-11.6434 399.761,-9.31042 390.227,-4.68936 389.426,-11.6434"/>
-<text text-anchor="middle" x="127" y="-22.45" font-family="Helvetica,sans-Serif" font-size="9.50">meshes</text>
-</g>
-<!-- type~field&#45;&gt;type~multigrid_fd_1d -->
-<g id="edge6" class="edge"><title>type~field&#45;&gt;type~multigrid_fd_1d</title>
-<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M154.021,-53.7789C218.304,-55.5953 385.401,-60.101 525,-62"/>
-<text text-anchor="middle" x="427" y="-65.45" font-family="Helvetica,sans-Serif" font-size="9.50">fields, fields0, residuals, sources, tau</text>
-</g>
 <!-- type~field&#45;&gt;type~multigrid -->
-<g id="edge10" class="edge"><title>type~field&#45;&gt;type~multigrid</title>
+<g id="edge8" class="edge"><title>type~field&#45;&gt;type~multigrid</title>
 <path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M154.189,-40.6411C159.968,-38.4371 166.106,-36.4005 172,-35 247.878,-16.9706 339.576,-13.3221 389.734,-12.8101"/>
 <polygon fill="#000000" stroke="#000000" points="389.809,-16.3098 399.786,-12.7444 389.763,-9.3099 389.809,-16.3098"/>
 <text text-anchor="middle" x="251" y="-39.45" font-family="Helvetica,sans-Serif" font-size="9.50">fields, fields0, residuals, sources, tau</text>
+</g>
+<!-- type~mesh -->
+<g id="node3" class="node"><title>type~mesh</title>
+<a xlink:href="../type/mesh.html" xlink:title="mesh">
+<polygon fill="#5cb85c" stroke="#5cb85c" points="54,-66 2.13163e-14,-66 0,-40 54,-40 54,-66"/>
+<text text-anchor="middle" x="27" y="-50.55" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">mesh</text>
+</a>
+</g>
+<!-- type~mesh&#45;&gt;type~multigrid_fd_1d -->
+<g id="edge6" class="edge"><title>type~mesh&#45;&gt;type~multigrid_fd_1d</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M54.3396,-64.2459C60.1075,-66.3584 66.2032,-68.4022 72,-70 84.1868,-73.3591 87.415,-73.8084 100,-75 279.646,-92.0096 336.487,-139.867 506,-78 516.371,-74.215 513.962,-61.8311 525,-62"/>
+<text text-anchor="middle" x="251" y="-111.45" font-family="Helvetica,sans-Serif" font-size="9.50">meshes</text>
+</g>
+<!-- type~mesh&#45;&gt;type~field -->
+<g id="edge2" class="edge"><title>type~mesh&#45;&gt;type~field</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M54.0614,-53C65.0669,-53 77.9653,-53 89.83,-53"/>
+<polygon fill="#000000" stroke="#000000" points="89.917,-56.5001 99.9169,-53 89.9169,-49.5001 89.917,-56.5001"/>
+<text text-anchor="middle" x="77" y="-57.45" font-family="Helvetica,sans-Serif" font-size="9.50">m</text>
+</g>
+<!-- type~mesh&#45;&gt;type~multigrid -->
+<g id="edge10" class="edge"><title>type~mesh&#45;&gt;type~multigrid</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M48.4846,-39.8341C62.5814,-31.9325 81.7258,-22.5565 100,-18 202.333,7.5159 328.325,-1.36445 389.763,-8.15918"/>
+<polygon fill="#000000" stroke="#000000" points="389.426,-11.6434 399.761,-9.31042 390.227,-4.68936 389.426,-11.6434"/>
+<text text-anchor="middle" x="127" y="-22.45" font-family="Helvetica,sans-Serif" font-size="9.50">meshes</text>
 </g>
 <!-- type~multigrid&#45;&gt;type~multigrid_fd_1d -->
 <g id="edge12" class="edge"><title>type~multigrid&#45;&gt;type~multigrid_fd_1d</title>
