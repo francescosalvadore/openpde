@@ -654,20 +654,20 @@ private subroutine set_matrix(this, mat)
     <div class="highlight"><pre><span></span>    <span class="k">subroutine </span><span class="n">set_matrix</span><span class="p">(</span><span class="n">this</span><span class="p">,</span> <span class="n">mat</span><span class="p">)</span>
         <span class="c">!&lt; Set the solver matrix A.</span>
         <span class="k">class</span><span class="p">(</span><span class="n">linsolver_gmlapack</span><span class="p">),</span> <span class="k">intent</span><span class="p">(</span><span class="n">inout</span><span class="p">)</span>     <span class="kd">::</span> <span class="n">this</span>
-        <span class="k">class</span><span class="p">(</span><span class="n">matrix</span><span class="p">),</span>  <span class="k">intent</span><span class="p">(</span><span class="n">in</span><span class="p">),</span> <span class="k">target</span>  <span class="kd">::</span> <span class="n">mat</span> 
+        <span class="k">class</span><span class="p">(</span><span class="n">matrix</span><span class="p">),</span>  <span class="k">intent</span><span class="p">(</span><span class="n">in</span><span class="p">),</span> <span class="k">target</span>  <span class="kd">::</span> <span class="n">mat</span>
 
         <span class="c">!debug select type(mat)</span>
         <span class="c">!debug     type is(matrix_simple)</span>
         <span class="c">!debug         print*,&quot;SET_MATRIX allocated(mat%val)      : &quot;,allocated(mat%val),      size(mat%val)</span>
-        <span class="c">!debug end select </span>
+        <span class="c">!debug end select</span>
         <span class="c">!debug associate(m =&gt; this%mat)</span>
         <span class="c">!debug select type(m)</span>
         <span class="c">!debug     type is(matrix_simple)</span>
         <span class="c">!debug        print*,&quot;SET_MATRIX allocated(this%mat%val) : &quot;,allocated(m%val), size(m%val)</span>
-        <span class="c">!debug end select </span>
+        <span class="c">!debug end select</span>
         <span class="c">!debug end associate</span>
         <span class="n">this</span><span class="p">%</span><span class="n">mat</span> <span class="o">=</span> <span class="n">mat</span>
-   
+
     <span class="k">end subroutine </span><span class="n">set_matrix</span>
 </pre></div>
 

@@ -723,20 +723,20 @@ private subroutine init(this, equ, description, filename, error)
                 <span class="c">! SSPRK(2,2)</span>
                 <span class="n">this</span><span class="p">%</span><span class="n">rk_beta</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span> <span class="o">=</span> <span class="mf">0.5_R_P</span>
                 <span class="n">this</span><span class="p">%</span><span class="n">rk_beta</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span> <span class="o">=</span> <span class="mf">0.5_R_P</span>
-        
+
                 <span class="n">this</span><span class="p">%</span><span class="n">rk_alph</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span> <span class="o">=</span> <span class="mf">1._R_P</span>
-        
+
                 <span class="n">this</span><span class="p">%</span><span class="n">rk_gamm</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span> <span class="o">=</span> <span class="mf">1._R_P</span>
             <span class="k">case</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
                 <span class="c">! SSPRK(3,3)</span>
                 <span class="n">this</span><span class="p">%</span><span class="n">rk_beta</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span> <span class="o">=</span> <span class="mf">1._R_P</span><span class="o">/</span><span class="mf">6._R_P</span>
                 <span class="n">this</span><span class="p">%</span><span class="n">rk_beta</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span> <span class="o">=</span> <span class="mf">1._R_P</span><span class="o">/</span><span class="mf">6._R_P</span>
                 <span class="n">this</span><span class="p">%</span><span class="n">rk_beta</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span> <span class="o">=</span> <span class="mf">2._R_P</span><span class="o">/</span><span class="mf">3._R_P</span>
-        
+
                 <span class="n">this</span><span class="p">%</span><span class="n">rk_alph</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span> <span class="o">=</span> <span class="mf">1._R_P</span>
-                <span class="n">this</span><span class="p">%</span><span class="n">rk_alph</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span> <span class="o">=</span> <span class="mf">0.25_R_P</span> 
+                <span class="n">this</span><span class="p">%</span><span class="n">rk_alph</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span> <span class="o">=</span> <span class="mf">0.25_R_P</span>
                 <span class="n">this</span><span class="p">%</span><span class="n">rk_alph</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span> <span class="o">=</span> <span class="mf">0.25_R_P</span>
-        
+
                 <span class="n">this</span><span class="p">%</span><span class="n">rk_gamm</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span> <span class="o">=</span> <span class="mf">1._R_P</span>
                 <span class="n">this</span><span class="p">%</span><span class="n">rk_gamm</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span> <span class="o">=</span> <span class="mf">0.5_R_P</span>
             <span class="c">!case(4)</span>
@@ -750,7 +750,7 @@ private subroutine init(this, equ, description, filename, error)
                 <span class="n">this</span><span class="p">%</span><span class="n">rk_beta</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span> <span class="o">=</span> <span class="mf">0.10425883036650_R_P</span>
                 <span class="n">this</span><span class="p">%</span><span class="n">rk_beta</span><span class="p">(</span><span class="mi">4</span><span class="p">)</span> <span class="o">=</span> <span class="mf">0.27443890091960_R_P</span>
                 <span class="n">this</span><span class="p">%</span><span class="n">rk_beta</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span> <span class="o">=</span> <span class="mf">0.22600748319395_R_P</span>
-        
+
                 <span class="n">this</span><span class="p">%</span><span class="n">rk_alph</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span><span class="o">=</span><span class="mf">0.39175222700392_R_P</span>
                 <span class="n">this</span><span class="p">%</span><span class="n">rk_alph</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span><span class="o">=</span><span class="mf">0.21766909633821_R_P</span>
                 <span class="n">this</span><span class="p">%</span><span class="n">rk_alph</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span><span class="o">=</span><span class="mf">0.36841059262959_R_P</span>
@@ -761,7 +761,7 @@ private subroutine init(this, equ, description, filename, error)
                 <span class="n">this</span><span class="p">%</span><span class="n">rk_alph</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span><span class="o">=</span><span class="mf">0.11503469844438_R_P</span>
                 <span class="n">this</span><span class="p">%</span><span class="n">rk_alph</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span><span class="o">=</span><span class="mf">0.20703489864929_R_P</span>
                 <span class="n">this</span><span class="p">%</span><span class="n">rk_alph</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="mi">4</span><span class="p">)</span><span class="o">=</span><span class="mf">0.54497475021237_R_P</span>
-        
+
                 <span class="n">this</span><span class="p">%</span><span class="n">rk_gamm</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span> <span class="o">=</span> <span class="mf">0.39175222700392_R_P</span>
                 <span class="n">this</span><span class="p">%</span><span class="n">rk_gamm</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span> <span class="o">=</span> <span class="mf">0.58607968896780_R_P</span>
                 <span class="n">this</span><span class="p">%</span><span class="n">rk_gamm</span><span class="p">(</span><span class="mi">4</span><span class="p">)</span> <span class="o">=</span> <span class="mf">0.47454236302687_R_P</span>

@@ -654,7 +654,7 @@ private subroutine set_vector(this, vec)
     <div class="highlight"><pre><span></span>    <span class="k">subroutine </span><span class="n">set_vector</span><span class="p">(</span><span class="n">this</span><span class="p">,</span> <span class="n">vec</span><span class="p">)</span>
         <span class="c">!&lt; Set the solver vector b.</span>
         <span class="k">class</span><span class="p">(</span><span class="n">linsolver_gmlapack</span><span class="p">),</span> <span class="k">intent</span><span class="p">(</span><span class="n">inout</span><span class="p">)</span>     <span class="kd">::</span> <span class="n">this</span>
-        <span class="k">class</span><span class="p">(</span><span class="n">vector</span><span class="p">),</span>  <span class="k">intent</span><span class="p">(</span><span class="n">in</span><span class="p">),</span> <span class="k">target</span>  <span class="kd">::</span> <span class="n">vec</span> 
+        <span class="k">class</span><span class="p">(</span><span class="n">vector</span><span class="p">),</span>  <span class="k">intent</span><span class="p">(</span><span class="n">in</span><span class="p">),</span> <span class="k">target</span>  <span class="kd">::</span> <span class="n">vec</span>
 
         <span class="n">this</span><span class="p">%</span><span class="n">vec</span> <span class="o">=</span> <span class="n">vec</span>
 

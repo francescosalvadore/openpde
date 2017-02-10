@@ -653,7 +653,7 @@ private subroutine init(this, n)
     <h2><span class="anchor" id="src"></span>Source Code</h2>
     <div class="highlight"><pre><span></span>    <span class="k">subroutine </span><span class="n">init</span><span class="p">(</span><span class="n">this</span><span class="p">,</span> <span class="n">n</span><span class="p">)</span>
         <span class="c">!&lt; Init linsolver</span>
-        <span class="k">class</span><span class="p">(</span><span class="n">linsolver_gmlapack</span><span class="p">),</span> <span class="k">intent</span><span class="p">(</span><span class="n">inout</span><span class="p">)</span>   <span class="kd">::</span> <span class="n">this</span> 
+        <span class="k">class</span><span class="p">(</span><span class="n">linsolver_gmlapack</span><span class="p">),</span> <span class="k">intent</span><span class="p">(</span><span class="n">inout</span><span class="p">)</span>   <span class="kd">::</span> <span class="n">this</span>
         <span class="kt">integer</span><span class="p">(</span><span class="n">I_P</span><span class="p">)</span> <span class="kd">::</span> <span class="n">n</span>
 
         <span class="k">allocate</span><span class="p">(</span><span class="n">matrix_simple</span> <span class="kd">::</span> <span class="n">this</span><span class="p">%</span><span class="n">mat</span><span class="p">)</span>
@@ -666,7 +666,7 @@ private subroutine init(this, n)
 
         <span class="k">allocate</span><span class="p">(</span><span class="n">this</span><span class="p">%</span><span class="n">ipiv</span><span class="p">(</span><span class="n">n</span><span class="p">))</span>
         <span class="n">this</span><span class="p">%</span><span class="n">lda</span> <span class="o">=</span> <span class="n">n</span>
-       
+
     <span class="k">end subroutine </span><span class="n">init</span>
 </pre></div>
 
