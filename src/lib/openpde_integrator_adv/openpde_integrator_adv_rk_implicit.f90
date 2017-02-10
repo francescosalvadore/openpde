@@ -80,6 +80,10 @@ contains
         
                 this%rk_gamm(2) = 1._R_P
                 this%rk_gamm(3) = 0.5_R_P
+            !case(4)
+            !    print*,"FOUR STAGES RK INITIALIZATION....."
+            !    this%rk_alph(:) = (/0.,0.5,0.5,1./)
+            !    this%rk_beta(:) = (/1./6.,2./6.,2./6.,1./6./)
             case(5)
                 ! SSPRK(5,4)
                 this%rk_beta(1) = 0.14681187618661_R_P
@@ -112,7 +116,7 @@ contains
         if (present(filename)) then
             call this%load(filename=filename, error=error)
         else
-            this%dt = 0.0005_R_P
+            this%dt = 0.0001_R_P
             if (present(error)) error = 0
         endif
 
@@ -182,6 +186,7 @@ contains
                   inp(ie) = inp(ie) + this%stages(s,ie) * (this%dt * this%rk_beta(s))
               enddo
           enddo
+          call equ%bc_e(inp=inp, t=t)
       endif
 
       if(equ%enable_implicit) then

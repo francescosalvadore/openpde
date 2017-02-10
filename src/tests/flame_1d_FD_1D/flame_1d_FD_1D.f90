@@ -138,7 +138,7 @@ contains
             rho_cur => associate_field_FD_1D(field_input=rho, emsg='rho_cur')
 
             do i=1-ng,n+ng
-                pos_x = (i-1)*12._R_P/128
+                pos_x = (i-1)*12._R_P/256
                 tem_cur%val(i) = 86.3 + 253.7 * (-atan(-500.)+atan(50.*(pos_x-0.4*llx)))
                 te1_cur%val(i) = 1._R_P/tem_cur%val(i)
                 te2_cur%val(i) = tem_cur%val(i)-1.0_R_P
@@ -355,36 +355,36 @@ contains
 
                 r4 = (-0.5_R_P)*te6+te5-wwx
 
-                ! left boundary inlet radiative conditions
-                csp = sqrt((gam-1._R_P)*tem_cur%val(1))
-                dya = r4_cur%val(1)/rho_cur%val(1)-rya_cur%val(1)/(rho_cur%val(1)*rho_cur%val(1))*r1_cur%val(1)
-                duu = r2_cur%val(1)/rho_cur%val(1)-rhu_cur%val(1)/(rho_cur%val(1)*rho_cur%val(1))*r1_cur%val(1)
-                dee = r3_cur%val(1)/rho_cur%val(1)-rhe_cur%val(1)/(rho_cur%val(1)*rho_cur%val(1))*r1_cur%val(1)
-                dth = gam*(dee-uuu_cur%val(1)*duu-dha*dya)
-                dr1 = duu-(gam-1._R_P)/(gam*csp)*(dth+tem_cur%val(1)/rho_cur%val(1)*r1_cur%val(1))
-                duu = 0._R_P
-                r1_cur%val(1) = rho_cur%val(1)*csp/(((gam- 1._R_P)/gam)*tem_cur%val(1))*(duu-dr1)
-                dee = uuu_cur%val(1)*duu
-                r2_cur%val(1) = rho_cur%val(1)*duu+uuu_cur%val(1)*r1_cur%val(1)
-                r3_cur%val(1) = rhe_cur%val(1)/rho_cur%val(1)*r1_cur%val(1)+rho_cur%val(1)*dee
-                r4_cur%val(1) = yya_cur%val(1)*r1_cur%val(1)
-                !'1' : {'lhs':'uuu','equation':'rhu/rho'},
-                !'2' : {'lhs':'yya','equation':'rya/rho'},
-                !'3' : {'lhs':'tem','equation':'gam*((rhe-rya*dha)/rho-0.5*(uuu**2)+1.)'},
-                !'4' : {'lhs':'csp','equation':'sqrt((gam-1.)*tem)'},
-                !'5' : {'lhs':'dya','equation':'rhs_rya/rho-rya /rho**2*rhs_rho'},
-                !'6' : {'lhs':'duu','equation':'rhs_rhu/rho-rhu /rho**2*rhs_rho'},
-                !'7' : {'lhs':'dee','equation':'rhs_rhe/rho-rhe /rho**2*rhs_rho'},
-                !'8' : {'lhs':'dth','equation':'gam*(dee-uuu*duu- dha*dya)'},
-                !'9' : {'lhs':'dr1','equation':'duu-(gam-1.)/(gam*csp)*(dth+ tem/rho*rhs_rho)'},
-                !'10' : {'lhs':'duu','equation':'0.'},
-                !'11' : {'lhs':'rhs_rho','equation':'rho*csp/(((gam- 1.)/gam)*tem)*(duu-dr1)'},
-                !'12' : {'lhs':'dee','equation':'uuu*duu'},
-                !'13' : {'lhs':'rhs_rhu','equation':'rho*duu+uuu*rhs_rho'},
-                !'14' : {'lhs':'rhs_rhe','equation':'rhe/rho *rhs_rho+rho*dee'},
-                !'15' : {'lhs':'rhs_rya','equation':'yya*rhs_rho'},
+                !RIMETTERE ! left boundary inlet radiative conditions
+                !RIMETTERE csp = sqrt((gam-1._R_P)*tem_cur%val(1))
+                !RIMETTERE dya = r4_cur%val(1)/rho_cur%val(1)-rya_cur%val(1)/(rho_cur%val(1)*rho_cur%val(1))*r1_cur%val(1)
+                !RIMETTERE duu = r2_cur%val(1)/rho_cur%val(1)-rhu_cur%val(1)/(rho_cur%val(1)*rho_cur%val(1))*r1_cur%val(1)
+                !RIMETTERE dee = r3_cur%val(1)/rho_cur%val(1)-rhe_cur%val(1)/(rho_cur%val(1)*rho_cur%val(1))*r1_cur%val(1)
+                !RIMETTERE dth = gam*(dee-uuu_cur%val(1)*duu-dha*dya)
+                !RIMETTERE dr1 = duu-(gam-1._R_P)/(gam*csp)*(dth+tem_cur%val(1)/rho_cur%val(1)*r1_cur%val(1))
+                !RIMETTERE duu = 0._R_P
+                !RIMETTERE r1_cur%val(1) = rho_cur%val(1)*csp/(((gam- 1._R_P)/gam)*tem_cur%val(1))*(duu-dr1)
+                !RIMETTERE dee = uuu_cur%val(1)*duu
+                !RIMETTERE r2_cur%val(1) = rho_cur%val(1)*duu+uuu_cur%val(1)*r1_cur%val(1)
+                !RIMETTERE r3_cur%val(1) = rhe_cur%val(1)/rho_cur%val(1)*r1_cur%val(1)+rho_cur%val(1)*dee
+                !RIMETTERE r4_cur%val(1) = yya_cur%val(1)*r1_cur%val(1)
+                !RIMETTERE !'1' : {'lhs':'uuu','equation':'rhu/rho'},
+                !RIMETTERE !'2' : {'lhs':'yya','equation':'rya/rho'},
+                !RIMETTERE !'3' : {'lhs':'tem','equation':'gam*((rhe-rya*dha)/rho-0.5*(uuu**2)+1.)'},
+                !RIMETTERE !'4' : {'lhs':'csp','equation':'sqrt((gam-1.)*tem)'},
+                !RIMETTERE !'5' : {'lhs':'dya','equation':'rhs_rya/rho-rya /rho**2*rhs_rho'},
+                !RIMETTERE !'6' : {'lhs':'duu','equation':'rhs_rhu/rho-rhu /rho**2*rhs_rho'},
+                !RIMETTERE !'7' : {'lhs':'dee','equation':'rhs_rhe/rho-rhe /rho**2*rhs_rho'},
+                !RIMETTERE !'8' : {'lhs':'dth','equation':'gam*(dee-uuu*duu- dha*dya)'},
+                !RIMETTERE !'9' : {'lhs':'dr1','equation':'duu-(gam-1.)/(gam*csp)*(dth+ tem/rho*rhs_rho)'},
+                !RIMETTERE !'10' : {'lhs':'duu','equation':'0.'},
+                !RIMETTERE !'11' : {'lhs':'rhs_rho','equation':'rho*csp/(((gam- 1.)/gam)*tem)*(duu-dr1)'},
+                !RIMETTERE !'12' : {'lhs':'dee','equation':'uuu*duu'},
+                !RIMETTERE !'13' : {'lhs':'rhs_rhu','equation':'rho*duu+uuu*rhs_rho'},
+                !RIMETTERE !'14' : {'lhs':'rhs_rhe','equation':'rhe/rho *rhs_rho+rho*dee'},
+                !RIMETTERE !'15' : {'lhs':'rhs_rya','equation':'yya*rhs_rho'},
 
-                ! right boundary non-reflecting radiative conditions
+                !RIMETTERE ! right boundary non-reflecting radiative conditions
                 !RIMETTERE csp = sqrt((gam-1._R_P)*tem_cur%val(n))
                 !RIMETTERE dya = r4_cur%val(n)/rho_cur%val(n)-rya_cur%val(n)/(rho_cur%val(n)*rho_cur%val(n))*r1_cur%val(n)
                 !RIMETTERE duu = r2_cur%val(n)/rho_cur%val(n)-rhu_cur%val(n)/(rho_cur%val(n)*rho_cur%val(n))*r1_cur%val(n)
@@ -397,21 +397,21 @@ contains
                 !RIMETTERE dee = 1._R_P/gam*dth+dya*dha+uuu_cur%val(n)*0.5_R_P*dr2
                 !RIMETTERE r3_cur%val(n) = rhe_cur%val(n)/rho_cur%val(n)*r1_cur%val(n)+rho_cur%val(n)*dee
                 !RIMETTERE r4_cur%val(n) = rya_cur%val(n)/rho_cur%val(n)*r1_cur%val(n)+rho_cur%val(n)*dya
-                !'1' : {'lhs':'uuu','equation':'rhu/rho' },
-                !'2' : {'lhs':'tem','equation':'gam*((rhe-rya*dha-ryb*dhb)/rho-0.5*uuu**2)+1.'},
-                !'3' : {'lhs':'csp','equation':'sqrt((gam-1.)*tem)'},
-                !'4' : {'lhs':'dya','equation':'rhs_rya/rho-rya/rho**2*rhs_rho'},
-                !'5' : {'lhs':'dyb','equation':'rhs_ryb/rho-ryb/rho**2*rhs_rho'},
-                !'6' : {'lhs':'duu','equation':'rhs_rhu/rho-rhu/rho**2*rhs_rho'},
-                !'7' : {'lhs':'dee','equation':'rhs_rhe/rho-rhe/rho**2*rhs_rho'},
-                !'8' : {'lhs':'dth','equation':'gam*(dee-uuu*duu-dha*dya-dhb*dyb)'},
-                !'9' : {'lhs':'dr2','equation':'duu+(gam-1.)/(gam*csp)*(dth+tem/rho*rhs_rho)'},
-                !'10' : {'lhs':'rhs_rho','equation':'gam*rho*csp*dr2/(2.*tem*(gam-1.))-rho/tem*dth'},
-                !'11' : {'lhs':'rhs_rhu','equation':'0.5*rho*dr2+uuu*rhs_rho'},
-                !'12' : {'lhs':'dee','equation':'1./gam*dth+dya*dha+dyb*dhb+uuu*0.5*dr2'},
-                !'13' : {'lhs':'rhs_rhe','equation':'rhe/rho*rhs_rho+rho*dee'},
-                !'14' : {'lhs':'rhs_rya','equation':'rya/rho*rhs_rho+rho*dya'},
-                !'15' : {'lhs':'rhs_ryb','equation':'ryb/rho*rhs_rho+rho*dyb'},
+                !RIMETTERE !'1' : {'lhs':'uuu','equation':'rhu/rho' },
+                !RIMETTERE !'2' : {'lhs':'tem','equation':'gam*((rhe-rya*dha-ryb*dhb)/rho-0.5*uuu**2)+1.'},
+                !RIMETTERE !'3' : {'lhs':'csp','equation':'sqrt((gam-1.)*tem)'},
+                !RIMETTERE !'4' : {'lhs':'dya','equation':'rhs_rya/rho-rya/rho**2*rhs_rho'},
+                !RIMETTERE !'5' : {'lhs':'dyb','equation':'rhs_ryb/rho-ryb/rho**2*rhs_rho'},
+                !RIMETTERE !'6' : {'lhs':'duu','equation':'rhs_rhu/rho-rhu/rho**2*rhs_rho'},
+                !RIMETTERE !'7' : {'lhs':'dee','equation':'rhs_rhe/rho-rhe/rho**2*rhs_rho'},
+                !RIMETTERE !'8' : {'lhs':'dth','equation':'gam*(dee-uuu*duu-dha*dya-dhb*dyb)'},
+                !RIMETTERE !'9' : {'lhs':'dr2','equation':'duu+(gam-1.)/(gam*csp)*(dth+tem/rho*rhs_rho)'},
+                !RIMETTERE !'10' : {'lhs':'rhs_rho','equation':'gam*rho*csp*dr2/(2.*tem*(gam-1.))-rho/tem*dth'},
+                !RIMETTERE !'11' : {'lhs':'rhs_rhu','equation':'0.5*rho*dr2+uuu*rhs_rho'},
+                !RIMETTERE !'12' : {'lhs':'dee','equation':'1./gam*dth+dya*dha+dyb*dhb+uuu*0.5*dr2'},
+                !RIMETTERE !'13' : {'lhs':'rhs_rhe','equation':'rhe/rho*rhs_rho+rho*dee'},
+                !RIMETTERE !'14' : {'lhs':'rhs_rya','equation':'rya/rho*rhs_rho+rho*dya'},
+                !RIMETTERE !'15' : {'lhs':'rhs_ryb','equation':'ryb/rho*rhs_rho+rho*dyb'},
 
         endassociate
 
@@ -516,7 +516,8 @@ program flame_1d_FD_1D
     class(integrator_adv), allocatable      :: integrator_   !< The integrator.
     class(equation_adv), allocatable        :: equation_     !< The equation.
     integer(I_P)                            :: itmin=0       !< Fist time step.
-    integer(I_P)                            :: itmax=100  !< Last time step.
+    integer(I_P)                            :: itmax=100000  !< Last time step.
+    integer(I_P)                            :: itout=1000  !< Last time step.
     integer(I_P)                            :: n_equ=4       !< Number of equations
     integer(I_P)                            :: it            !< Time step counter.
     integer(I_P)                            :: ie            !< Number of fields counter
@@ -530,7 +531,7 @@ program flame_1d_FD_1D
     allocate(field_FD_1D :: u(n_equ))
     allocate(flame_1d_equation_adv :: equation_)
     !EXPLICIT allocate(integrator_adv_euler_explicit :: integrator_)
-    !EULERIMPLICITallocate(integrator_adv_euler_implicit :: integrator_)
+    !allocate(integrator_adv_euler_implicit :: integrator_)
     allocate(integrator_adv_rk_implicit :: integrator_)
     inquire(file='flame_1d_FD_1D.json', exist=json_found)
     if (json_found) then
@@ -560,7 +561,7 @@ program flame_1d_FD_1D
     !STOP
     do it = itmin, itmax
         er = integrator_%integrate(inp=u, equ=equation_, t=it*integrator_%dt)
-        if(mod(it,1)==0) then
+        if(mod(it,itout)==0) then
             print*,'it: ',it
             write(output_name(5:12),"(I8.8)") it
             do ie = 1,n_equ
