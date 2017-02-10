@@ -1,7 +1,6 @@
 project: openpde
-project_dir: ./src
-output_dir: ./doc/html/publish/
-exclude_dir: third_party
+src_dir: ../src/lib
+output_dir: html/publish/
 project_github: https://github.com/francescosalvadore/openpde
 author: Francesco Salvadore
 github: https://github.com/francescosalvadore
