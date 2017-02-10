@@ -130,7 +130,7 @@
      <li><i class="fa fa-list-ol"></i>
        <a data-toggle="tooltip"
 	  data-placement="bottom" data-html="true"
-	  title=" 5.1% of total for procedures.">123 statements</a>
+	  title=" 5.1% of total for procedures.">124 statements</a>
      </li> 
      
      
@@ -870,6 +870,7 @@ private function integrate(this, equ, t, inp) result(error)
                   <span class="n">inp</span><span class="p">(</span><span class="n">ie</span><span class="p">)</span> <span class="o">=</span> <span class="n">inp</span><span class="p">(</span><span class="n">ie</span><span class="p">)</span> <span class="o">+</span> <span class="n">this</span><span class="p">%</span><span class="n">stages</span><span class="p">(</span><span class="n">s</span><span class="p">,</span><span class="n">ie</span><span class="p">)</span> <span class="o">*</span> <span class="p">(</span><span class="n">this</span><span class="p">%</span><span class="n">dt</span> <span class="o">*</span> <span class="n">this</span><span class="p">%</span><span class="n">rk_beta</span><span class="p">(</span><span class="n">s</span><span class="p">))</span>
               <span class="n">enddo</span>
           <span class="n">enddo</span>
+          <span class="k">call </span><span class="n">equ</span><span class="p">%</span><span class="n">bc_e</span><span class="p">(</span><span class="n">inp</span><span class="o">=</span><span class="n">inp</span><span class="p">,</span> <span class="n">t</span><span class="o">=</span><span class="n">t</span><span class="p">)</span>
       <span class="n">endif</span>
 
       <span class="k">if</span><span class="p">(</span><span class="n">equ</span><span class="p">%</span><span class="n">enable_implicit</span><span class="p">)</span> <span class="k">then</span>

@@ -689,10 +689,10 @@ private subroutine init(this, description, filename, error)
         <span class="k">if</span> <span class="p">(</span><span class="nb">present</span><span class="p">(</span><span class="n">filename</span><span class="p">))</span> <span class="k">then</span>
 <span class="k">            call </span><span class="n">this</span><span class="p">%</span><span class="n">load</span><span class="p">(</span><span class="n">filename</span><span class="o">=</span><span class="n">filename</span><span class="p">,</span> <span class="n">error</span><span class="o">=</span><span class="n">error</span><span class="p">)</span>
         <span class="k">else</span>
-<span class="k">            </span><span class="n">this</span><span class="p">%</span><span class="n">n</span> <span class="o">=</span> <span class="mi">128</span>
+<span class="k">            </span><span class="n">this</span><span class="p">%</span><span class="n">n</span> <span class="o">=</span> <span class="mi">256</span>
             <span class="n">this</span><span class="p">%</span><span class="n">ng</span> <span class="o">=</span> <span class="mi">2</span>
             <span class="n">this</span><span class="p">%</span><span class="n">s</span> <span class="o">=</span> <span class="mi">1</span>
-            <span class="n">this</span><span class="p">%</span><span class="n">h</span> <span class="o">=</span> <span class="mi">1</span><span class="mf">2._R_P</span><span class="o">/</span><span class="mi">128</span> <span class="c">!0.05_R8P</span>
+            <span class="n">this</span><span class="p">%</span><span class="n">h</span> <span class="o">=</span> <span class="mi">1</span><span class="mf">2._R_P</span><span class="o">/</span><span class="mi">256</span> <span class="c">!0.05_R8P</span>
             <span class="k">if</span> <span class="p">(</span><span class="nb">present</span><span class="p">(</span><span class="n">error</span><span class="p">))</span> <span class="n">error</span> <span class="o">=</span> <span class="mi">0</span>
         <span class="n">endif</span>
     <span class="k">end subroutine </span><span class="n">init</span>

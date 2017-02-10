@@ -735,6 +735,10 @@ private subroutine init(this, equ, description, filename, error)
         
                 <span class="n">this</span><span class="p">%</span><span class="n">rk_gamm</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span> <span class="o">=</span> <span class="mf">1._R_P</span>
                 <span class="n">this</span><span class="p">%</span><span class="n">rk_gamm</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span> <span class="o">=</span> <span class="mf">0.5_R_P</span>
+            <span class="c">!case(4)</span>
+            <span class="c">!    print*,&quot;FOUR STAGES RK INITIALIZATION.....&quot;</span>
+            <span class="c">!    this%rk_alph(:) = (/0.,0.5,0.5,1./)</span>
+            <span class="c">!    this%rk_beta(:) = (/1./6.,2./6.,2./6.,1./6./)</span>
             <span class="k">case</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>
                 <span class="c">! SSPRK(5,4)</span>
                 <span class="n">this</span><span class="p">%</span><span class="n">rk_beta</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span> <span class="o">=</span> <span class="mf">0.14681187618661_R_P</span>
@@ -767,7 +771,7 @@ private subroutine init(this, equ, description, filename, error)
         <span class="k">if</span> <span class="p">(</span><span class="nb">present</span><span class="p">(</span><span class="n">filename</span><span class="p">))</span> <span class="k">then</span>
 <span class="k">            call </span><span class="n">this</span><span class="p">%</span><span class="n">load</span><span class="p">(</span><span class="n">filename</span><span class="o">=</span><span class="n">filename</span><span class="p">,</span> <span class="n">error</span><span class="o">=</span><span class="n">error</span><span class="p">)</span>
         <span class="k">else</span>
-<span class="k">            </span><span class="n">this</span><span class="p">%</span><span class="n">dt</span> <span class="o">=</span> <span class="mf">0.0005_R_P</span>
+<span class="k">            </span><span class="n">this</span><span class="p">%</span><span class="n">dt</span> <span class="o">=</span> <span class="mf">0.0001_R_P</span>
             <span class="k">if</span> <span class="p">(</span><span class="nb">present</span><span class="p">(</span><span class="n">error</span><span class="p">))</span> <span class="n">error</span> <span class="o">=</span> <span class="mi">0</span>
         <span class="n">endif</span>
 
