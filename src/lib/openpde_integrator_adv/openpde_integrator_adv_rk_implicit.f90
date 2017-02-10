@@ -64,20 +64,20 @@ contains
                 ! SSPRK(2,2)
                 this%rk_beta(1) = 0.5_R_P
                 this%rk_beta(2) = 0.5_R_P
-        
+
                 this%rk_alph(2, 1) = 1._R_P
-        
+
                 this%rk_gamm(2) = 1._R_P
             case(3)
                 ! SSPRK(3,3)
                 this%rk_beta(1) = 1._R_P/6._R_P
                 this%rk_beta(2) = 1._R_P/6._R_P
                 this%rk_beta(3) = 2._R_P/3._R_P
-        
+
                 this%rk_alph(2, 1) = 1._R_P
-                this%rk_alph(3, 1) = 0.25_R_P 
+                this%rk_alph(3, 1) = 0.25_R_P
                 this%rk_alph(3, 2) = 0.25_R_P
-        
+
                 this%rk_gamm(2) = 1._R_P
                 this%rk_gamm(3) = 0.5_R_P
             !case(4)
@@ -91,7 +91,7 @@ contains
                 this%rk_beta(3) = 0.10425883036650_R_P
                 this%rk_beta(4) = 0.27443890091960_R_P
                 this%rk_beta(5) = 0.22600748319395_R_P
-        
+
                 this%rk_alph(2, 1)=0.39175222700392_R_P
                 this%rk_alph(3, 1)=0.21766909633821_R_P
                 this%rk_alph(3, 2)=0.36841059262959_R_P
@@ -102,7 +102,7 @@ contains
                 this%rk_alph(5, 2)=0.11503469844438_R_P
                 this%rk_alph(5, 3)=0.20703489864929_R_P
                 this%rk_alph(5, 4)=0.54497475021237_R_P
-        
+
                 this%rk_gamm(2) = 0.39175222700392_R_P
                 this%rk_gamm(3) = 0.58607968896780_R_P
                 this%rk_gamm(4) = 0.47454236302687_R_P
@@ -222,16 +222,16 @@ contains
           STOP "rk mg to be implemented"
          n_levels = equ%mg%levels_number
 
-         inp_cur => associate_field_FD_1D(field_input=inp, emsg='calling procedure integrator_adv_euler_implicit%integrate')
-         tau => associate_field_FD_1D(field_input=equ%mg%tau, emsg='calling procedure integrator_adv_euler_implicit%integrate')
-         fields => associate_field_FD_1D(field_input=equ%mg%fields, &
-                                         emsg='calling procedure integrator_adv_euler_implicit%integrate')
-         fields0 => associate_field_FD_1D(field_input=equ%mg%fields0, &
-                                          emsg='calling procedure integrator_adv_euler_implicit%integrate')
-         residuals => associate_field_FD_1D(field_input=equ%mg%residuals, &
-                                            emsg='calling procedure integrator_adv_euler_implicit%integrate')
-         sources => associate_field_FD_1D(field_input=equ%mg%sources, &
-                                          emsg='calling procedure integrator_adv_euler_implicit%integrate')
+         ! inp_cur => associate_field_FD_1D(field_input=inp, emsg='calling procedure integrator_adv_euler_implicit%integrate')
+         ! tau => associate_field_FD_1D(field_input=equ%mg%tau, emsg='calling procedure integrator_adv_euler_implicit%integrate')
+         ! fields => associate_field_FD_1D(field_input=equ%mg%fields, &
+         !                                 emsg='calling procedure integrator_adv_euler_implicit%integrate')
+         ! fields0 => associate_field_FD_1D(field_input=equ%mg%fields0, &
+         !                                  emsg='calling procedure integrator_adv_euler_implicit%integrate')
+         ! residuals => associate_field_FD_1D(field_input=equ%mg%residuals, &
+         !                                    emsg='calling procedure integrator_adv_euler_implicit%integrate')
+         ! sources => associate_field_FD_1D(field_input=equ%mg%sources, &
+         !                                  emsg='calling procedure integrator_adv_euler_implicit%integrate')
          do ie=1, equ%n_equ
             fields(ie, 1) = inp_cur(ie)
          enddo

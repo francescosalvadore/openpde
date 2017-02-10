@@ -10,6 +10,9 @@ module openpde_field_FD_1D
     implicit none
     private
     public :: associate_field_FD_1D, field_FD_1D
+    public :: associate_field_FD_1D_scalar
+    public :: associate_field_FD_1D_rank1
+    public :: associate_field_FD_1D_rank2
 
     type, extends(field) :: field_FD_1D
         !< Concrete class of field for Finite Difference 1D methods.

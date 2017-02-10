@@ -20,15 +20,15 @@ module openpde_linsolver_gmlapack
         integer(I_P) :: lda
         contains
             ! deferred public methods
-            procedure :: init         
-            procedure :: set_matrix   
-            procedure :: set_vector   
-            procedure :: solve        
+            procedure :: init
+            procedure :: set_matrix
+            procedure :: set_vector
+            procedure :: solve
     endtype linsolver_gmlapack
 contains
     subroutine init(this, n)
         !< Init linsolver
-        class(linsolver_gmlapack), intent(inout)   :: this 
+        class(linsolver_gmlapack), intent(inout)   :: this
         integer(I_P) :: n
 
         allocate(matrix_simple :: this%mat)
@@ -41,32 +41,32 @@ contains
 
         allocate(this%ipiv(n))
         this%lda = n
-       
+
     end subroutine init
 
     subroutine set_matrix(this, mat)
         !< Set the solver matrix A.
         class(linsolver_gmlapack), intent(inout)     :: this
-        class(matrix),  intent(in), target  :: mat 
+        class(matrix),  intent(in), target  :: mat
 
         !debug select type(mat)
         !debug     type is(matrix_simple)
         !debug         print*,"SET_MATRIX allocated(mat%val)      : ",allocated(mat%val),      size(mat%val)
-        !debug end select 
+        !debug end select
         !debug associate(m => this%mat)
         !debug select type(m)
         !debug     type is(matrix_simple)
         !debug        print*,"SET_MATRIX allocated(this%mat%val) : ",allocated(m%val), size(m%val)
-        !debug end select 
+        !debug end select
         !debug end associate
         this%mat = mat
-   
+
     end subroutine set_matrix
 
     subroutine set_vector(this, vec)
         !< Set the solver vector b.
         class(linsolver_gmlapack), intent(inout)     :: this
-        class(vector),  intent(in), target  :: vec 
+        class(vector),  intent(in), target  :: vec
 
         this%vec = vec
 
@@ -102,10 +102,10 @@ contains
         mat_cur => associate_matrix_simple(matrix_input=this%mat)
 
         ! Factorize matrix
-        call dgetrf( n, n, mat_cur%val, this%lda, this%ipiv, this%info )
+        ! call dgetrf( n, n, mat_cur%val, this%lda, this%ipiv, this%info )
 
         ! Solver linear system
-        call dgetrs( 'n', n, 1, mat_cur%val, this%lda, this%ipiv, vec_cur%val, n, this%info )
+        ! call dgetrs( 'n', n, 1, mat_cur%val, this%lda, this%ipiv, vec_cur%val, n, this%info )
 
         ! Assign solution to sol vector
         this%sol = this%vec
@@ -116,6 +116,6 @@ contains
         !debug         print*,"this%sol%val: ",v%val(:)
         !debug end select
         !debug end associate
-      
+
     end subroutine solve
 end module openpde_linsolver_gmlapack

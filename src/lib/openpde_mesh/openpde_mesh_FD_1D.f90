@@ -10,6 +10,8 @@ module openpde_mesh_FD_1D
     implicit none
     private
     public :: associate_mesh_FD_1D, mesh_FD_1D
+    public :: associate_mesh_FD_1D_scalar
+    public :: associate_mesh_FD_1D_rank1
 
     type, extends(mesh) :: mesh_FD_1D
         !< Concrete class of mesh for Finite Difference 1D methods.

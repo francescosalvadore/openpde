@@ -35,7 +35,8 @@ contains
         call opr_cur%associate_mesh(field_mesh=inp%m)
         do i=1, mesh_cur%n
             !opr_cur%val(i) = (inp_cur%val(i+1) - 2._R_P*inp_cur%val(i) + inp_cur%val(i-1))/(mesh_cur%h**2)
-            opr_cur%val(i) = (-1./12.*inp_cur%val(i+2) +4./3.*inp_cur%val(i+1) -5./2.*inp_cur%val(i) +4./3.*inp_cur%val(i-1) -1./12.*inp_cur%val(i-2))/(mesh_cur%h**2)
+            opr_cur%val(i) = (-1./12.*inp_cur%val(i+2) +4./3.*inp_cur%val(i+1) &
+                              -5./2.*inp_cur%val(i) +4./3.*inp_cur%val(i-1) -1./12.*inp_cur%val(i-2))/(mesh_cur%h**2)
         enddo
     end function operate
 end module openpde_spatial_operator_d2_FD_1D

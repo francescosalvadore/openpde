@@ -45,7 +45,7 @@ contains
 
         allocate(this%meshes(this%levels_number), mold=inp%m)
         mesh_finest => associate_mesh_FD_1D(mesh_input=inp%m, emsg='calling procedure multigrid_FD_1D%init')
-        mesh_mg => associate_mesh_FD_1D(mesh_input=this%meshes, emsg='calling procedure multigrid_FD_1D%init')
+        ! mesh_mg => associate_mesh_FD_1D_rank1(mesh_input=this%meshes, emsg='calling procedure multigrid_FD_1D%init')
         mesh_mg(1) = mesh_finest
         do l=2,this%levels_number
             n_mg = mesh_mg(l-1)%n/2+1

@@ -138,16 +138,16 @@ contains
       if(equ%enable_multigrid) then
          n_levels = equ%mg%levels_number
 
-         inp_cur => associate_field_FD_1D(field_input=inp, emsg='calling procedure integrator_adv_euler_implicit%integrate')
-         tau => associate_field_FD_1D(field_input=equ%mg%tau, emsg='calling procedure integrator_adv_euler_implicit%integrate')
-         fields => associate_field_FD_1D(field_input=equ%mg%fields, &
-                                         emsg='calling procedure integrator_adv_euler_implicit%integrate')
-         fields0 => associate_field_FD_1D(field_input=equ%mg%fields0, &
-                                          emsg='calling procedure integrator_adv_euler_implicit%integrate')
-         residuals => associate_field_FD_1D(field_input=equ%mg%residuals, &
-                                            emsg='calling procedure integrator_adv_euler_implicit%integrate')
-         sources => associate_field_FD_1D(field_input=equ%mg%sources, &
-                                          emsg='calling procedure integrator_adv_euler_implicit%integrate')
+         ! inp_cur => associate_field_FD_1D(field_input=inp, emsg='calling procedure integrator_adv_euler_implicit%integrate')
+         ! tau => associate_field_FD_1D(field_input=equ%mg%tau, emsg='calling procedure integrator_adv_euler_implicit%integrate')
+         ! fields => associate_field_FD_1D(field_input=equ%mg%fields, &
+         !                                 emsg='calling procedure integrator_adv_euler_implicit%integrate')
+         ! fields0 => associate_field_FD_1D(field_input=equ%mg%fields0, &
+         !                                  emsg='calling procedure integrator_adv_euler_implicit%integrate')
+         ! residuals => associate_field_FD_1D(field_input=equ%mg%residuals, &
+         !                                    emsg='calling procedure integrator_adv_euler_implicit%integrate')
+         ! sources => associate_field_FD_1D(field_input=equ%mg%sources, &
+         !                                  emsg='calling procedure integrator_adv_euler_implicit%integrate')
          do ie=1, equ%n_equ
             fields(ie, 1) = inp_cur(ie)
          enddo
