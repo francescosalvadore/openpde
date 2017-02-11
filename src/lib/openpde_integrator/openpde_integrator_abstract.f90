@@ -23,13 +23,14 @@ module openpde_integrator_abstract
 
     abstract interface
         !< Initialize integrator.
-        subroutine abstract_init(this, description, filename, error)
+        subroutine abstract_init(this, equ, description, filename, error)
             !< Initialize integrator.
-            import :: I_P, integrator
-            class(integrator),  intent(inout)   :: this        !< The integrator.
-            character(*), intent(in),  optional :: description !< Integrator description.
-            character(*), intent(in),  optional :: filename    !< Initialization file name.
-            integer(I_P), intent(out), optional :: error       !< Error status.
+            import :: I_P, integrator, equation
+            class(integrator), intent(inout)         :: this        !< The integrator.
+            class(equation),   intent(inout), target :: equ         !< The equation.
+            character(*),      intent(in),  optional :: description !< Integrator description.
+            character(*),      intent(in),  optional :: filename    !< Initialization file name.
+            integer(I_P),      intent(out), optional :: error       !< Error status.
         end subroutine abstract_init
     endinterface
 
@@ -38,11 +39,11 @@ module openpde_integrator_abstract
         function abstract_integrate(this, equ, t, inp) result(error)
             !< Integrate the field accordingly to the equation.
             import :: equation, field, integrator, I_P, R_P
-            class(integrator), intent(in)            :: this  !< The integrator.
-            class(equation),   intent(in),    target :: equ   !< The equation.
-            real(R_P),         intent(in)            :: t     !< Time.
-            class(field),      intent(inout), target :: inp   !< Input field.
-            integer(I_P)                             :: error !< Error status.
+            class(integrator), intent(inout)         :: this   !< The integrator.
+            class(equation),   intent(inout), target :: equ    !< The equation.
+            real(R_P),         intent(in)            :: t      !< Time.
+            class(field),      intent(inout), target :: inp(:) !< Input field.
+            integer(I_P)                             :: error  !< Error status.
         end function abstract_integrate
     endinterface
 contains

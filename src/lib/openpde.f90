@@ -6,7 +6,6 @@ module openpde
     use openpde_field_abstract
     use openpde_field_surface_abstract
     use openpde_integrator_abstract
-    use openpde_integrator_adv_abstract
     use openpde_mesh_abstract
     use openpde_spatial_operator_abstract
     use openpde_spatial_operator_d1_abstract
@@ -19,16 +18,13 @@ module openpde
     use openpde_f2m_d1_abstract
     use openpde_f2m_d2_abstract
     use openpde_linsolver_abstract
-    use openpde_equation_adv  ! fake concrete, acts as fake-abstract
     ! concrete classes definition
     use openpde_field_FD_1D
     use openpde_field_FD_2D
     use openpde_field_FV_1D
     use openpde_field_surface_FV_1D
     use openpde_integrator_euler_explicit
-    use openpde_integrator_adv_euler_explicit
-    use openpde_integrator_adv_euler_implicit
-    use openpde_integrator_adv_rk_implicit
+    use openpde_integrator_rk_explicit
     use openpde_mesh_FD_1D
     use openpde_mesh_FD_2D
     use openpde_mesh_FV_1D
@@ -71,14 +67,12 @@ module openpde
     public :: f2m_d1
     public :: f2m_d2
     public :: linsolver
-    public :: equation_adv ! fake abstract
-    public :: integrator_adv
     ! concrete classes
     public :: associate_field_FD_1D, field_FD_1D
     public :: associate_field_FD_2D, field_FD_2D
     public :: associate_field_FV_1D, field_FV_1D
     public :: associate_field_surface_FV_1D, field_surface_FV_1D
-    public :: integrator_euler_explicit
+    public :: integrator_euler_explicit, integrator_rk_explicit
     public :: associate_mesh_FD_1D, mesh_FD_1D
     public :: associate_mesh_FD_2D, mesh_FD_2D
     public :: associate_mesh_FV_1D, mesh_FV_1D
@@ -99,9 +93,6 @@ module openpde
     public :: f2m_d2_FD_2D
     public :: linsolver_gmlapack
     public :: multigrid_FD_1D
-    public :: integrator_adv_euler_explicit
-    public :: integrator_adv_euler_implicit
-    public :: integrator_adv_rk_implicit
     ! kinds
     public :: R8P
     public :: R4P

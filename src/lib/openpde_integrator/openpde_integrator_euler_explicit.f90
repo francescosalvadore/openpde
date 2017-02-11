@@ -25,9 +25,10 @@ module openpde_integrator_euler_explicit
     endtype integrator_euler_explicit
 contains
     ! deferred public methods
-    subroutine init(this, description, filename, error)
+    subroutine init(this, equ, description, filename, error)
         !< Initialize integrator.
         class(integrator_euler_explicit), intent(inout)         :: this        !< The integrator.
+        class(equation),                  intent(inout), target :: equ         !< The equation.
         character(*),                     intent(in),  optional :: description !< Integrator description.
         character(*),                     intent(in),  optional :: filename    !< Initialization file name.
         integer(I_P),                     intent(out), optional :: error       !< Error status.
@@ -44,19 +45,41 @@ contains
 
     function integrate(this, equ, t, inp) result(error)
         !< Integrate the field accordingly the to equation by means of the Euler explicit scheme.
-        class(integrator_euler_explicit), intent(in)            :: this  !< The integrator.
-        class(equation),                  intent(in),    target :: equ   !< The equation.
-        real(R_P),                        intent(in)            :: t     !< Time.
-        class(field),                     intent(inout), target :: inp   !< Input field.
-        integer(I_P)                                            :: error !< Error status.
-        class(field), allocatable                               :: for   !< Temporary
-        call equ%bc(inp=inp, t=t)
-        allocate(for, mold=inp)
+        use openpde_field_FD_1D
+        class(integrator_euler_explicit), intent(inout)         :: this   !< The integrator.
+        class(equation),                  intent(inout), target :: equ    !< The equation.
+        real(R_P),                        intent(in)            :: t      !< Time.
+        class(field),                     intent(inout), target :: inp(:) !< Input field.
+        integer(I_P)                                            :: error  !< Error status.
+        class(field), allocatable, dimension(:)                 :: for    !< Temporary
+        integer(I_P)                                            :: ie     !< Count equation
+
+        ! Imposes boundary conditions: modify "inp" field array
+        call equ%bc_e(inp=inp, t=t)
+
+        !allocate(for(size(inp)), mold=inp(1))
+        !do ie=1,size(inp)
+        !    call for(ie)%init(field_mesh=inp(1)%m)
+        !enddo
         ! the temporary variable for seems to be needed by intel compiler
         ! otherwise there is an internal compiler error or seg fault
         ! especially multiplying by this%dt. Why....?
-        for = equ%forcing(inp=inp, t=t)
-        inp = inp + this%dt * for
+        !associate(for1 => for(1))
+        !    select type(for1)
+        !        type is(field_FD_1D)
+        !            print*,"size of for1: ",size(for1%val)
+        !    end select
+        !endassociate
+
+        ! Computes the residual term: modify "equ%resvar_e"
+        call equ%resid_e(inp=inp, t=t)
+
+        ! Updates the inp field according to Euler scheme
+        do ie=1,size(inp)
+            inp(ie) = inp(ie) + this%dt * equ%resvar_e(ie)
+        enddo
+        !RIMETTERE for = equ%resid_e(inp=inp, t=t)
+        !RIMETTERE inp = inp + this%dt * for
         error = 0
     end function integrate
 

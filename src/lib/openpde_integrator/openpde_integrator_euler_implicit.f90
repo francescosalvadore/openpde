@@ -1,21 +1,21 @@
-!< Concrete class of integrator, Euler explicit scheme.
-module openpde_integrator_adv_euler_implicit
-    !< Concrete class of integrator, Euler explicit scheme.
+!< Concrete class of integrator, Euler implicit scheme.
+module openpde_integrator_euler_implicit
+    !< Concrete class of integrator, Euler implicit scheme.
     use, intrinsic :: iso_fortran_env, only : stderr=>error_unit
     use json_module
-    use openpde_equation_adv
+    use openpde_equation_abstract
     use openpde_field_abstract
     use openpde_matrix_abstract
     use openpde_vector_abstract
-    use openpde_integrator_adv_abstract
+    use openpde_integrator_abstract
     use openpde_kinds
     use openpde_field_FD_1D
 
     implicit none
     private
-    public :: integrator_adv_euler_implicit
+    public :: integrator_euler_implicit
 
-    type, extends(integrator_adv) :: integrator_adv_euler_implicit
+    type, extends(integrator) :: integrator_euler_implicit
         !< Concrete class of integrator, Euler implicit scheme.
         real(R_P)                  :: alpha
         class(matrix), allocatable :: matA
@@ -29,16 +29,16 @@ module openpde_integrator_adv_euler_implicit
             generic :: load => load_from_json !< Load integrator definition from file.
             ! private methods
             procedure, pass(this), private :: load_from_json !< Load integrator definition from jSON file.
-    endtype integrator_adv_euler_implicit
+    endtype integrator_euler_implicit
 contains
     ! deferred public methods
     subroutine init(this, equ, description, filename, error)
         !< Initialize integrator.
-        class(integrator_adv_euler_implicit), intent(inout)     :: this        !< The integrator.
-        class(equation_adv),  intent(inout),    target :: equ   !< The equation.
-        character(*),        intent(in),  optional :: description !< Integrator description.
-        character(*),       intent(in),  optional :: filename    !< Initialization file name.
-        integer(I_P),       intent(out), optional :: error       !< Error status.
+        class(integrator_euler_implicit), intent(inout)         :: this        !< The integrator.
+        class(equation),                  intent(inout), target :: equ         !< The equation.
+        character(*),                     intent(in),  optional :: description !< Integrator description.
+        character(*),                     intent(in),  optional :: filename    !< Initialization file name.
+        integer(I_P),                     intent(out), optional :: error       !< Error status.
         integer(I_P) :: n
         integer(I_P) :: i
 
@@ -74,24 +74,24 @@ contains
 
    function integrate(this, equ, t, inp) result(error)
       !< Integrate the field accordingly the to equation definition.
-      class(integrator_adv_euler_implicit), intent(inout)         :: this           !< The integrator.
-      class(equation_adv),                  intent(inout), target :: equ            !< The equation.
-      real(R_P),                            intent(in)            :: t              !< Time.
-      class(field),                         intent(inout), target :: inp(:)         !< Input field.
-      integer(I_P)                                                :: error          !< Error status.
-      class(field), allocatable, dimension(:)                     :: for            !< Temporary
-      class(field_FD_1D), pointer                                 :: inp_cur(:)     !< Field input pointer.
-      class(field_FD_1D), pointer                                 :: fields(:,:)    !< Fields pointer to MG fields.
-      class(field_FD_1D), pointer                                 :: fields0(:,:)   !< Initial fields pointer to MG fields.
-      class(field_FD_1D), pointer                                 :: residuals(:,:) !< Residual field pointer to MG fields.
-      class(field_FD_1D), pointer                                 :: sources(:,:)   !< Sources field pointer to MG fields.
-      class(field_FD_1D), pointer                                 :: tau(:,:)       !< Field input pointer.
-      integer(I_P)                                                :: ie             !< Counter.
-      integer(I_P)                                                :: iv             !< Counter.
-      integer(I_P)                                                :: n_levels       !< Counter.
-      integer(I_P)                                                :: i_mg           !< Counter.
-      integer(I_P)                                                :: i_up           !< Counter.
-      integer(I_P)                                                :: i_down         !< Counter.
+      class(integrator_euler_implicit), intent(inout)         :: this           !< The integrator.
+      class(equation),                  intent(inout), target :: equ            !< The equation.
+      real(R_P),                        intent(in)            :: t              !< Time.
+      class(field),                     intent(inout), target :: inp(:)         !< Input field.
+      integer(I_P)                                            :: error          !< Error status.
+      class(field), allocatable, dimension(:)                 :: for            !< Temporary
+      class(field_FD_1D), pointer                             :: inp_cur(:)     !< Field input pointer.
+      class(field_FD_1D), pointer                             :: fields(:,:)    !< Fields pointer to MG fields.
+      class(field_FD_1D), pointer                             :: fields0(:,:)   !< Initial fields pointer to MG fields.
+      class(field_FD_1D), pointer                             :: residuals(:,:) !< Residual field pointer to MG fields.
+      class(field_FD_1D), pointer                             :: sources(:,:)   !< Sources field pointer to MG fields.
+      class(field_FD_1D), pointer                             :: tau(:,:)       !< Field input pointer.
+      integer(I_P)                                            :: ie             !< Counter.
+      integer(I_P)                                            :: iv             !< Counter.
+      integer(I_P)                                            :: n_levels       !< Counter.
+      integer(I_P)                                            :: i_mg           !< Counter.
+      integer(I_P)                                            :: i_up           !< Counter.
+      integer(I_P)                                            :: i_down         !< Counter.
 
       if(equ%enable_explicit) then
           !print*,'Explicit solver enabled'
@@ -138,16 +138,16 @@ contains
       if(equ%enable_multigrid) then
          n_levels = equ%mg%levels_number
 
-         ! inp_cur => associate_field_FD_1D(field_input=inp, emsg='calling procedure integrator_adv_euler_implicit%integrate')
-         ! tau => associate_field_FD_1D(field_input=equ%mg%tau, emsg='calling procedure integrator_adv_euler_implicit%integrate')
+         ! inp_cur => associate_field_FD_1D(field_input=inp, emsg='calling procedure integrator_euler_implicit%integrate')
+         ! tau => associate_field_FD_1D(field_input=equ%mg%tau, emsg='calling procedure integrator_euler_implicit%integrate')
          ! fields => associate_field_FD_1D(field_input=equ%mg%fields, &
-         !                                 emsg='calling procedure integrator_adv_euler_implicit%integrate')
+         !                                 emsg='calling procedure integrator_euler_implicit%integrate')
          ! fields0 => associate_field_FD_1D(field_input=equ%mg%fields0, &
-         !                                  emsg='calling procedure integrator_adv_euler_implicit%integrate')
+         !                                  emsg='calling procedure integrator_euler_implicit%integrate')
          ! residuals => associate_field_FD_1D(field_input=equ%mg%residuals, &
-         !                                    emsg='calling procedure integrator_adv_euler_implicit%integrate')
+         !                                    emsg='calling procedure integrator_euler_implicit%integrate')
          ! sources => associate_field_FD_1D(field_input=equ%mg%sources, &
-         !                                  emsg='calling procedure integrator_adv_euler_implicit%integrate')
+         !                                  emsg='calling procedure integrator_euler_implicit%integrate')
          do ie=1, equ%n_equ
             fields(ie, 1) = inp_cur(ie)
          enddo
@@ -269,7 +269,7 @@ contains
     ! private methods
     subroutine load_from_json(this, filename, error)
         !< Load integrator definition from JSON file.
-        class(integrator_adv_euler_implicit), intent(inout)     :: this            !< The integrator.
+        class(integrator_euler_implicit), intent(inout)         :: this            !< The integrator.
         character(*),                     intent(in)            :: filename        !< File name of JSON file.
         integer(I_P),                     intent(out), optional :: error           !< Error status.
         character(len=:), allocatable                           :: integrator_type !< Integrator type.
@@ -308,4 +308,4 @@ contains
             stop
         endif
     endsubroutine load_from_json
-end module openpde_integrator_adv_euler_implicit
+end module openpde_integrator_euler_implicit

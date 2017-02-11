@@ -1,21 +1,6 @@
-!< Openpde test: scalar simple equation for Finite Difference 1D methods.
+!< Openpde test: flame 1D detonation.
 module flame_1d_FD_1D_m
-    !< Scalar simple equation definition for Finite Difference 1D methods.
-    !< The PDE solved is
-    !<
-    !< $$ \frac{\partial u}{\partial t} + a \frac{\partial u}{\partial x} + b \frac{\partial^2 u}{\partial x^2} = 0 $$
-    !< where `a` and `b` are two constant scalars.
-    !<
-    !< This is a one dimensional, unsteady, linear PDE. It is solved adopting a finite difference approximations of
-    !< first and second derivatives computed on a uniform mesh.
-    !<
-    !< The spatial operators are approximated as:
-    !<
-    !< $$ \frac{\partial u}{\partial x}|_i = \frac{u_{i+1}-u_i}{h} \quad i=1,N $$
-    !< $$ \frac{\partial^2 u}{\partial x^2}|_i = \frac{u_{i+1}-2u_i+u_{i-1}}{h^2} \quad i=1,N $$
-    !< where `N` is the number of discrete points and `h=L/N` is the (uniform) grid resolution, `L` is the domain length.
-    !<
-    !< The explicit Euler's method is used for advancing on time.
+    !< Openpde test: flame 1D detonation.
 
     use, intrinsic :: iso_fortran_env, only : stderr=>error_unit
     use json_module
@@ -23,9 +8,9 @@ module flame_1d_FD_1D_m
 
     implicit none
     private
-    public :: flame_1d_equation_adv
+    public :: flame_1d_equation
 
-    type, extends(equation_adv) :: flame_1d_equation_adv
+    type, extends(equation) :: flame_1d_equation
         !< Scalar simple equations for Finite Difference 1D methods.
         !<
         !< @note The reason the `du_opr` and `ddu_opr` are pointers is just to make them a pointee when pointed
@@ -45,7 +30,7 @@ module flame_1d_FD_1D_m
         class(field), allocatable :: tem, uuu, yya, wwx
         class(field), allocatable :: te1, te2, te3, te4, te5, te6
         real(R_P) :: pra, gam, lew, dha, dam, zel, pre, xfn, llx, xan, xfo, vfr
- 
+
         contains
             ! deferred public methods
             procedure, pass(this) :: bc_e    !< Equation boundary conditions.
@@ -57,12 +42,12 @@ module flame_1d_FD_1D_m
             generic :: load => load_from_json !< Load equation definition from file.
             ! private methods
             procedure, pass(this), private :: load_from_json !< Load equation definition from jSON file.
-    endtype flame_1d_equation_adv
+    endtype flame_1d_equation
 contains
     ! deferred public methods
     subroutine init(this, n_equ, field_mesh, inp, description, filename, error)
         !< Initialize equation.
-        class(flame_1d_equation_adv), intent(inout)       :: this        !< The equation.
+        class(flame_1d_equation), intent(inout)       :: this        !< The equation.
         integer(I_P), intent(in)                          :: n_equ       !< Number of equations
         class(mesh),  intent(in), target                  :: field_mesh  !< Mesh of the field.
         class(field), intent(inout), target, dimension(:) :: inp         !< Input field.
@@ -185,7 +170,7 @@ contains
             if (present(error)) error = 0
         endif
 
-        ! implicit section     
+        ! implicit section
         allocate(linsolver_gmlapack :: this%solver)
         call this%solver%init(n) !TODO should be generalized on 50
 
@@ -199,7 +184,7 @@ contains
         allocate(this%ddui, mold=this%solver%mat)
 
         allocate(this%resvar_i, mold=this%solver%mat)
-        call this%resvar_i%init(n) 
+        call this%resvar_i%init(n)
 
         allocate(f2v_FD_1D :: this%f2v_opr)
         allocate(this%f2v_opr%vec, mold=this%solver%vec) ! TODO should be put in init()
@@ -212,7 +197,7 @@ contains
 
     subroutine bc_e(this, inp, t)
         !< Equation boundary or fixed conditions imposition.
-        class(flame_1d_equation_adv), intent(in)            :: this     !< The equation.
+        class(flame_1d_equation), intent(in)            :: this     !< The equation.
         class(field),                  intent(inout), target, dimension(:) :: inp      !< Field.
         real(R_P),                     intent(in)            :: t        !< Time.
         class(field_FD_1D), pointer                          :: inp_cur  !< Pointer to input field.
@@ -234,7 +219,7 @@ contains
 
     subroutine bc_i(this, matA, vecB, t)
         !< Equation boundary conditions imposition.
-        class(flame_1d_equation_adv), intent(in)            :: this     !< The equation.
+        class(flame_1d_equation), intent(in)            :: this     !< The equation.
         class(matrix),    intent(inout), target :: matA  !< Input field.
         class(vector),    intent(inout), target :: vecB  !< Input field.
         real(R_P),                     intent(in)            :: t        !< Time.
@@ -244,7 +229,7 @@ contains
         integer(I_P)                                         :: ie        !< Counter.
         !class(vector_simple), pointer  :: vecB_cur
         !class(matrix_simple), pointer  :: matA_cur
-        integer(I_P) :: n, j 
+        integer(I_P) :: n, j
 
         n = matA%n
         !matA_cur => associate_matrix_simple(matrix_input=matA)
@@ -264,7 +249,7 @@ contains
 
     subroutine resid_e(this, inp, t)
         !< Return the field after forcing the equation.
-        class(flame_1d_equation_adv), intent(inout)         :: this    !< The equation.
+        class(flame_1d_equation), intent(inout)         :: this    !< The equation.
         class(field),                  intent(in), target, dimension(:) :: inp     !< Input field.
         real(R_P),                     intent(in)         :: t       !< Time.
 
@@ -295,6 +280,17 @@ contains
             yya => this%yya, dha => this%dha, wwx => this%wwx, lew => this%lew, zel => this%zel, &
             r1 => this%resvar_e(1), r2 => this%resvar_e(2), r3 => this%resvar_e(3), r4 => this%resvar_e(4))
 
+                ! thid should be the best syntax
+                !tem = gam*((rhe-rya*dha)/rho-0.5_R_P*uuu*uuu) + 1.0_R_P
+                !wwx = dam*rya*exp(-zel/tem*gam/(gam-1._R_P))
+
+                !r1 = -ddx%operate(rhu)
+                !r2 = -0.5*((ddx%operate(rhu*uuu))+(uuu*ddx%operate(rhu))+ (rhu*ddx%operate(uuu))) - &
+                !     ddx%operate((gam-1.)/gam*rho*tem)+dsx%operate(4./3.*pra*uuu)
+                !r3 = -0.5*(ddx%operate(rhe*uuu)+rhe/rho*ddx%operate(rhu)+rhu*ddx%operate(rhe/rho))- &
+                !     ddx%operate((gam-1.)/gam*rho*tem*uuu)+dsx%operate(tem+1./lew*(yya*dha+yyb*dhb))
+                !r4 = -0.5*(ddx%operate(rya*uuu)+yya*ddx%operate(rhu)+rhu*ddx%operate(yya))+dsx%operate(1./lew*yya)-wwx
+
                 tem_cur => associate_field_FD_1D(field_input=tem, emsg='tem_cur')
                 wwx_cur => associate_field_FD_1D(field_input=wwx, emsg='wwx_cur')
                 rya_cur => associate_field_FD_1D(field_input=rya, emsg='rya_cur')
@@ -308,7 +304,7 @@ contains
                 r4_cur  => associate_field_FD_1D(field_input=r4,  emsg='r4_cur ')
                 uuu_cur => associate_field_FD_1D(field_input=uuu, emsg='uuu_cur')
                 yya_cur => associate_field_FD_1D(field_input=yya, emsg='yya_cur')
- 
+
                 uuu = rhu/rho
                 te1 = rhe-rya*dha
                 te1 = te1/rho
@@ -317,16 +313,6 @@ contains
                 tem_cur%val(:) = tem_cur%val(:) + 1.0_R_P
                 yya = rya/rho
                 wwx_cur%val(:) = dam*rya_cur%val(:)*exp(-zel/tem_cur%val(:)*gam/(gam-1._R_P))
-
-                !tem = gam*((rhe-rya*dha)/rho-0.5_R_P*uuu*uuu) + 1.0_R_P
-                !wwx = dam*rya*exp(-zel/tem*gam/(gam-1._R_P))
-
-                !r1 = -ddx%operate(rhu)
-                !r2 = -0.5*((ddx%operate(rhu*uuu))+(uuu*ddx%operate(rhu))+ (rhu*ddx%operate(uuu))) - &
-                !     ddx%operate((gam-1.)/gam*rho*tem)+dsx%operate(4./3.*pra*uuu)
-                !r3 = -0.5*(ddx%operate(rhe*uuu)+rhe/rho*ddx%operate(rhu)+rhu*ddx%operate(rhe/rho))- &
-                !     ddx%operate((gam-1.)/gam*rho*tem*uuu)+dsx%operate(tem+1./lew*(yya*dha+yyb*dhb))
-                !r4 = -0.5*(ddx%operate(rya*uuu)+yya*ddx%operate(rhu)+rhu*ddx%operate(yya))+dsx%operate(1./lew*yya)-wwx
 
                 te1 = ddx%operate(rhu*uuu)
                 te2 = ddx%operate(rhu)
@@ -426,7 +412,7 @@ contains
 
     subroutine resid_i(this, inp, t)
         !< Return the matrix of residuals.
-        class(flame_1d_equation_adv), intent(inout) :: this   !< The equation.
+        class(flame_1d_equation), intent(inout) :: this   !< The equation.
         class(field),  intent(in), target, dimension(:) :: inp  !< Input field.
         real(R_P),  intent(in)                       :: t       !< Time.
         class(f2m_d1), pointer          :: dui_opr             !< Dummy pointer of the first derivative operator.
@@ -445,7 +431,7 @@ contains
     ! private methods
     subroutine load_from_json(this, filename, error)
         !< Load mesh definition from JSON file.
-        class(flame_1d_equation_adv), intent(inout)        :: this      !< The equation.
+        class(flame_1d_equation), intent(inout)        :: this      !< The equation.
         character(*),                  intent(in)            :: filename  !< File name of JSON file.
         integer(I_P),                  intent(out), optional :: error     !< Error status.
         character(len=:), allocatable                        :: mesh_type !< Mesh type.
@@ -504,35 +490,32 @@ contains
     end function int2str
 end module flame_1d_FD_1D_m
 
-
 program flame_1d_FD_1D
     !< Openpde test: scalar simple equation for Finite Difference 1D methods.
 
     use openpde
     use flame_1d_FD_1D_m
 
-    class(mesh), allocatable                :: mesh_         !< The mesh.
-    class(field), allocatable, dimension(:) :: u             !< The field.
-    class(integrator_adv), allocatable      :: integrator_   !< The integrator.
-    class(equation_adv), allocatable        :: equation_     !< The equation.
-    integer(I_P)                            :: itmin=0       !< Fist time step.
-    integer(I_P)                            :: itmax=100000  !< Last time step.
-    integer(I_P)                            :: itout=1000  !< Last time step.
-    integer(I_P)                            :: n_equ=4       !< Number of equations
-    integer(I_P)                            :: it            !< Time step counter.
-    integer(I_P)                            :: ie            !< Number of fields counter
-    integer(I_P)                            :: er            !< Error status.
-    character(16)                           :: output_name   !< Output file name.
-    logical                                 :: json_found    !< Flag inquiring the presence of json input file.
-    character(len=2)                        :: temp          !< Temporary string
-    class(field_FD_1D), pointer             :: inp_cur(:)    !< Field input pointer.
+    class(mesh), allocatable       :: mesh_         !< The mesh.
+    class(field), allocatable      :: u(:)          !< The field.
+    class(integrator), allocatable :: integrator_   !< The integrator.
+    class(equation), allocatable   :: equation_     !< The equation.
+    integer(I_P)                   :: itmin=0       !< Fist time step.
+    integer(I_P)                   :: itmax=100000  !< Last time step.
+    integer(I_P)                   :: itout=1000    !< Output frequency.
+    integer(I_P)                   :: n_equ=4       !< Number of equations
+    integer(I_P)                   :: it            !< Time step counter.
+    integer(I_P)                   :: ie            !< Number of fields counter
+    integer(I_P)                   :: er            !< Error status.
+    character(16)                  :: output_name   !< Output file name.
+    logical                        :: json_found    !< Flag inquiring the presence of json input file.
+    character(len=2)               :: temp          !< Temporary string
+    class(field_FD_1D), pointer    :: inp_cur(:)    !< Field input pointer.
 
     allocate(mesh_FD_1D :: mesh_)
     allocate(field_FD_1D :: u(n_equ))
-    allocate(flame_1d_equation_adv :: equation_)
-    !EXPLICIT allocate(integrator_adv_euler_explicit :: integrator_)
-    !allocate(integrator_adv_euler_implicit :: integrator_)
-    allocate(integrator_adv_rk_implicit :: integrator_)
+    allocate(flame_1d_equation :: equation_)
+    allocate(integrator_rk_explicit :: integrator_)
     inquire(file='flame_1d_FD_1D.json', exist=json_found)
     if (json_found) then
         print*,"json found"
