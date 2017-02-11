@@ -1,8 +1,0 @@
-[submodule "src/third_party/json-fortran"]
-  path = third_party/json-fortran
-  url = https://github.com/jacobwilliams/json-fortran
-  branch = master
-[submodule "third_party/VTKFortran"]
-  path = third_party/VTKFortran
-  url = https://github.com/szaghi/VTKFortran
-  branch = master
