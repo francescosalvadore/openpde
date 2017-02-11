@@ -21,9 +21,8 @@ addons:
 
 env:
   global:
-    # - MAKECOVERAGE="FoBiS.py rule -ex makecoverage"
-    - MAKECOVERAGE="echo to re-insert"
-    - MAKEDOC="./makedoc.sh francescosalvadore/openpde"
+    - MAKECOVERAGE="FoBiS.py rule -ex makecoverage"
+    - MAKEDOC="./scripts/makedoc.sh francescosalvadore/openpde"
 
 before_install:
   - git submodule update --init --recursive
