@@ -81,6 +81,20 @@ contains
 
                     this%rk_gamm(2) = 1._R_P
                     this%rk_gamm(3) = 0.5_R_P
+                case(4)
+                    ! RK(4,4) Standard RK
+                    this%rk_beta(1) = 1._R_P/6._R_P
+                    this%rk_beta(2) = 1._R_P/3._R_P
+                    this%rk_beta(3) = 1._R_P/3._R_P
+                    this%rk_beta(4) = 1._R_P/6._R_P
+
+                    this%rk_alph(2, 1) = 0.5_R_P
+                    this%rk_alph(3, 2) = 0.5_R_P
+                    this%rk_alph(4, 3) = 1._R_P
+
+                    this%rk_gamm(2) = 0.5_R_P
+                    this%rk_gamm(3) = 0.5_R_P
+                    this%rk_gamm(4) = 1.0_R_P
                 case(5)
                     ! SSPRK(5,4)
                     this%rk_beta(1) = 0.14681187618661_R_P
